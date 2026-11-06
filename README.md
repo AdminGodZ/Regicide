@@ -1,6 +1,6 @@
 # Regicide
 
-An 8x8 English checkers (draughts) engine in C++20, built to eventually compete with Cake and KingsRow.
+An 8x8 English checkers (draughts) engine in C++26, built to eventually compete with Cake and KingsRow.
 
 ## Build
 
