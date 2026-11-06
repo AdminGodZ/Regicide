@@ -4,7 +4,7 @@
 //   egdb_gen verify --pieces N [--samples K] [--mtc] [--threads T] [--dir D] [--slice abcd]
 //   egdb_gen count  [--max N]
 //   egdb_gen stats  [--dir D]
-//   egdb_gen bench  [--pieces N] [--threads T] [--seconds S] [--dir D]
+//   egdb_gen bench  [--pieces N] [--threads T] [--seconds S] [--quiet] [--dir D]
 //   egdb_gen manifest [--dir D]   name, size, stored checksum and whether it verifies, per file
 //                                 (diff two manifests to compare databases built on different hosts)
 //
@@ -42,6 +42,7 @@ struct Args {
     std::uint64_t samples = 100000;
     double seconds = 3.0;
     bool check_mtc = false;
+    bool quiet = false;
 };
 
 std::string default_dir() {
@@ -67,6 +68,7 @@ bool parse(int argc, char** argv, Args& a) {
         else if (k == "--samples") a.samples = std::strtoull(val(), nullptr, 10);
         else if (k == "--seconds") a.seconds = std::atof(val());
         else if (k == "--slice") a.slice = val();
+        else if (k == "--quiet") a.quiet = true;
         else return false;
     }
     return true;
@@ -174,7 +176,7 @@ int cmd_bench(const Args& a) {
     egdb::init(a.dir, 1 << 20);
     const int maxp = egdb::max_pieces();
     const int n = a.pieces ? a.pieces : maxp;
-    std::printf("max_pieces %d, benchmarking %d-piece positions\n", maxp, n);
+    std::printf("max_pieces %d, benchmarking %d-piece %s positions\n", maxp, n, a.quiet ? "quiet" : "random");
     struct Q {
         Bitboard b, w, k;
         Color stm;
@@ -197,7 +199,12 @@ int cmd_bench(const Args& a) {
             (black ? b : w) |= bit(sq);
             if (king) k |= bit(sq);
         }
-        qs.push_back({b, w, k, Color(rnd() & 1)});
+        const Color stm = Color(rnd() & 1);
+        if (a.quiet) {  // only positions that are stored (no capture for the side to move)
+            const Pos p = from_colors(b, w, k, stm);
+            if (has_capture(p)) continue;
+        }
+        qs.push_back({b, w, k, stm});
     }
     for (int t : {1, a.threads}) {
         std::atomic<std::uint64_t> done{0}, unknown{0};
