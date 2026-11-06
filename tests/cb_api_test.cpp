@@ -1,6 +1,10 @@
 // Loads the CheckerBoard engine library and plays a self-play game through getmove(), checking that every
 // returned board is reachable from the previous one by exactly one legal move.
+#ifdef _WIN32
+#include <windows.h>
+#else
 #include <dlfcn.h>
+#endif
 
 #include <cstring>
 #include <iostream>
@@ -29,6 +33,15 @@ void to_board(const Position& p, Board8x8 b) {
 
 int main(int argc, char** argv) {
     const char* lib = argc > 1 ? argv[1] : "libregicide_cb.dylib";
+#ifdef _WIN32
+    HMODULE h = LoadLibraryA(lib);
+    if (!h) {
+        std::cerr << "LoadLibrary failed: error " << GetLastError() << '\n';
+        return 1;
+    }
+    auto getmove = reinterpret_cast<GetMove>(reinterpret_cast<void*>(GetProcAddress(h, "getmove")));
+    auto command = reinterpret_cast<EngineCommand>(reinterpret_cast<void*>(GetProcAddress(h, "enginecommand")));
+#else
     void* h = dlopen(lib, RTLD_NOW);
     if (!h) {
         std::cerr << "dlopen failed: " << dlerror() << '\n';
@@ -36,6 +49,7 @@ int main(int argc, char** argv) {
     }
     auto getmove = reinterpret_cast<GetMove>(dlsym(h, "getmove"));
     auto command = reinterpret_cast<EngineCommand>(dlsym(h, "enginecommand"));
+#endif
     if (!getmove || !command) return 1;
 
     char reply[1024];
