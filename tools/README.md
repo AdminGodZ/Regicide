@@ -8,7 +8,7 @@ also export.
 | Path | What |
 |---|---|
 | `common/` | Self-contained English checkers referee (movegen, FEN/PDN, CheckerBoard board and time packing). Independent of `src/`. |
-| `cbhost/` | `cbhost`: loads one CheckerBoard-API engine dylib per process and speaks a line protocol ([PROTOCOL.md](cbhost/PROTOCOL.md)). |
+| `cbhost/` | `cbhost`: loads one CheckerBoard-API engine (dylib/so, or a 64-bit DLL on Windows) per process and speaks a line protocol ([PROTOCOL.md](cbhost/PROTOCOL.md)). |
 | `match/` | `match`: the match runner. |
 | `opponents/` | Scripts that fetch, patch and build the opponent engines into `build/opponents/`. |
 

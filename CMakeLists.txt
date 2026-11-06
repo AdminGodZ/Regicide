@@ -48,6 +48,6 @@ target_link_libraries(perft_test PRIVATE regicide_core)
 add_test(NAME perft COMMAND perft_test)
 
 option(REGICIDE_TOOLS "Build the match tools (cbhost, match runner)" ON)
-if(REGICIDE_TOOLS AND NOT MSVC)
+if(REGICIDE_TOOLS)
   add_subdirectory(tools)
 endif()

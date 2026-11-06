@@ -1,9 +1,18 @@
 // cbhost: load a CheckerBoard engine (.dylib/.so exporting getmove/enginecommand) and drive it
 // over a line protocol on stdin/stdout. One process per engine instance, because CheckerBoard
 // engines keep global state and are not reentrant. See PROTOCOL.md.
+// Builds on macOS/Linux (dlopen) and Windows (LoadLibrary; 64-bit CheckerBoard DLLs).
 
+#ifdef _WIN32
+#define NOMINMAX
+#define WIN32_LEAN_AND_MEAN
+#include <fcntl.h>
+#include <io.h>
+#include <windows.h>
+#else
 #include <dlfcn.h>
 #include <unistd.h>
+#endif
 
 #include <atomic>
 #include <chrono>
@@ -54,7 +63,6 @@ struct alignas(16) ReplyBuffer {
 };
 
 struct Engine {
-    void* lib = nullptr;
     CB_GETMOVE getmove = nullptr;
     CB_ENGINECOMMAND enginecommand = nullptr;
 
@@ -306,26 +314,49 @@ int main(int argc, char** argv) {
     }
 
     // Keep the real stdout for the protocol; anything the engine prints goes to stderr.
+#ifdef _WIN32
+    int proto_fd = _dup(1);
+    _dup2(2, 1);
+    SetStdHandle(STD_OUTPUT_HANDLE, GetStdHandle(STD_ERROR_HANDLE));  // engines using WriteFile
+    g_out = _fdopen(proto_fd, "wb");                                  // "\n" line ends, no CRLF
+    _setmode(_fileno(stdin), _O_BINARY);
+#else
     int proto_fd = dup(STDOUT_FILENO);
     dup2(STDERR_FILENO, STDOUT_FILENO);
     g_out = fdopen(proto_fd, "w");
+#endif
 
     namespace fs = std::filesystem;
     fs::path abs = fs::absolute(path);
-    if (cwd.empty()) cwd = abs.parent_path().string();
-    if (chdir(cwd.c_str()) != 0) {
-        send("error cannot chdir to " + cwd);
+    std::error_code ec;
+    fs::current_path(cwd.empty() ? abs.parent_path() : fs::path(cwd), ec);
+    if (ec) {
+        send("error cannot chdir to " + (cwd.empty() ? abs.parent_path().string() : cwd));
         return 1;
     }
 
     Engine eng;
-    eng.lib = dlopen(abs.c_str(), RTLD_NOW | RTLD_LOCAL);
-    if (!eng.lib) {
+#ifdef _WIN32
+    // Resolve the engine's own dependencies (e.g. KingsRow's egdb64.dll) from its directory too.
+    HMODULE lib = LoadLibraryExW(abs.wstring().c_str(), nullptr,
+                                 LOAD_LIBRARY_SEARCH_DLL_LOAD_DIR | LOAD_LIBRARY_SEARCH_DEFAULT_DIRS);
+    if (!lib) {
+        send("error LoadLibrary failed for " + abs.string() + " (Windows error " + std::to_string(GetLastError()) +
+             "; a 64-bit engine DLL is required)");
+        return 1;
+    }
+    eng.getmove = reinterpret_cast<CB_GETMOVE>(reinterpret_cast<void*>(GetProcAddress(lib, "getmove")));
+    eng.enginecommand =
+        reinterpret_cast<CB_ENGINECOMMAND>(reinterpret_cast<void*>(GetProcAddress(lib, "enginecommand")));
+#else
+    void* lib = dlopen(abs.c_str(), RTLD_NOW | RTLD_LOCAL);
+    if (!lib) {
         send(std::string("error dlopen: ") + dlerror());
         return 1;
     }
-    eng.getmove = reinterpret_cast<CB_GETMOVE>(dlsym(eng.lib, "getmove"));
-    eng.enginecommand = reinterpret_cast<CB_ENGINECOMMAND>(dlsym(eng.lib, "enginecommand"));
+    eng.getmove = reinterpret_cast<CB_GETMOVE>(dlsym(lib, "getmove"));
+    eng.enginecommand = reinterpret_cast<CB_ENGINECOMMAND>(dlsym(lib, "enginecommand"));
+#endif
     if (!eng.getmove) {
         send("error engine does not export getmove");
         return 1;
