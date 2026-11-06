@@ -2,6 +2,8 @@
 //
 //   selfplay --a "lmr_mult=50" --b "" --nodes 20000 --threads 12 --pairs 300
 //
+// --threads is the number of games played in parallel; --tha/--thb are search threads per engine.
+//
 // Every distinct position after 3 plies from the start is an opening; each is played twice with colours
 // reversed. Reports W/D/L for A, and Elo with a 95% interval from the pentanomial distribution of game pairs.
 #include <algorithm>
@@ -39,6 +41,7 @@ struct Config {
     int max_plies = 400;
     int opening_plies = 3;
     int egdb_pieces = 0;  // engines probe the database and games end on a database result
+    int threads_a = 1, threads_b = 1;  // search threads per engine (Lazy SMP)
     bool verbose = false;
 };
 
@@ -142,6 +145,8 @@ int main(int argc, char** argv) {
         else if (k == "--pairs") cfg.pairs = std::stoi(next());
         else if (k == "--hash") cfg.hash_mb = std::stoull(next());
         else if (k == "--plies") cfg.opening_plies = std::stoi(next());
+        else if (k == "--tha") cfg.threads_a = std::stoi(next());
+        else if (k == "--thb") cfg.threads_b = std::stoi(next());
         else if (k == "--egdb") {
             if (!egdb::init(next(), 4096)) {
                 std::cerr << "cannot load egdb\n";
@@ -193,6 +198,8 @@ int main(int argc, char** argv) {
         eb.set_evaluator(eval_b);
         ea.set_egdb_pieces(cfg.egdb_pieces);
         eb.set_egdb_pieces(cfg.egdb_pieces);
+        ea.set_threads(cfg.threads_a);
+        eb.set_threads(cfg.threads_b);
         if (!ea.params.set_all(cfg.a) || !eb.params.set_all(cfg.b)) {
             std::cerr << "bad parameter spec\n";
             std::exit(2);
