@@ -16,6 +16,7 @@ struct Limits {
     int depth = MAX_PLY - 1;
     std::uint64_t nodes = 0;  // 0 = unlimited
     int movetime_ms = 0;      // fixed time for this move
+    int target_ms = 0;        // average time per move; individual moves may use less or more
     int time_ms = 0;          // remaining clock of the side to move (0 = no clock)
     int inc_ms = 0;
     int moves_to_go = 0;  // 0 = sudden death
@@ -68,6 +69,8 @@ public:
     using InfoFn = std::function<void(const SearchInfo&)>;
     SearchResult go(const Limits& limits, InfoFn on_info = {});
     void stop() { stop_.store(true, std::memory_order_relaxed); }
+    // Polled by the main search thread; returning true aborts the search (e.g. a GUI "play now").
+    void set_stop_poll(std::function<bool()> poll) { stop_poll_ = std::move(poll); }
 
     SearchParams params;
 
@@ -79,6 +82,7 @@ private:
     Position root_;
     std::vector<Key> history_;
     std::atomic<bool> stop_{false};
+    std::function<bool()> stop_poll_;
     int threads_ = 1;
 };
 

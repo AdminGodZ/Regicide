@@ -112,4 +112,31 @@ bool parse_move(const Position& pos, const std::string& text, Move& out) {
     return true;
 }
 
+namespace {
+
+bool find_path(const Position& pos, const Move& m, int cur, Bitboard left, bool king, std::vector<int>& path) {
+    if (!left) return cur == m.to;
+    const Color us = pos.side_to_move();
+    const Bitboard empty = pos.empty() | bit(m.from);
+    for (int d = dir_begin(us, king); d < dir_end(us, king); ++d) {
+        const int over = NEIGHBOR[cur][d];
+        if (over < 0 || !(left & bit(over))) continue;
+        const int land = NEIGHBOR[over][d];
+        if (land < 0 || !(empty & bit(land))) continue;
+        path.push_back(land);
+        if (find_path(pos, m, land, left & ~bit(over), king, path)) return true;
+        path.pop_back();
+    }
+    return false;
+}
+
+}  // namespace
+
+std::vector<int> move_path(const Position& pos, const Move& m) {
+    std::vector<int> path{m.from};
+    if (!m.is_capture() || !find_path(pos, m, m.from, m.captures, pos.kings() & bit(m.from), path))
+        path = {m.from, m.to};
+    return path;
+}
+
 }  // namespace regicide

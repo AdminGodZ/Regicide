@@ -2,6 +2,7 @@
 
 #include <cstddef>
 #include <string>
+#include <vector>
 
 #include "position.hpp"
 
@@ -72,5 +73,8 @@ void generate_captures(const Position& pos, MoveList& list);
 // Parses PDN move text ("11-15", "22x15", "9x18x27") into a legal move. Intermediate squares of a capture path
 // disambiguate king captures that share origin and destination. Returns false if no legal move matches.
 bool parse_move(const Position& pos, const std::string& text, Move& out);
+
+// Squares visited by a move: origin, every landing square of a multi-jump, destination.
+std::vector<int> move_path(const Position& pos, const Move& m);
 
 }  // namespace regicide

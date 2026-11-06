@@ -135,6 +135,7 @@ bool Worker::is_repetition(const Position& pos, int ply) const {
 }
 
 void Worker::check_limits() {
+    if (eng.stop_poll_ && eng.stop_poll_()) eng.stop();
     if (!tc) return;
     if (tc->hard_ms && elapsed_ms(tc->start) >= tc->hard_ms) eng.stop();
     if (tc->node_limit && nodes.load(std::memory_order_relaxed) * eng.threads_ >= tc->node_limit) eng.stop();
@@ -430,6 +431,9 @@ SearchResult Engine::go(const Limits& limits, InfoFn on_info) {
     tc.node_limit = limits.nodes;
     if (limits.movetime_ms) {
         tc.soft_ms = tc.hard_ms = limits.movetime_ms;
+    } else if (limits.target_ms) {
+        tc.soft_ms = std::max(1, limits.target_ms * 6 / 10);
+        tc.hard_ms = std::max(1, limits.target_ms * 5 / 2);
     } else if (limits.time_ms) {
         const int mtg = limits.moves_to_go ? std::min(limits.moves_to_go, 40) : 32;
         const std::int64_t reserve = std::min<std::int64_t>(limits.time_ms / 10, 1000);

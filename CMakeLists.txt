@@ -44,7 +44,17 @@ endif()
 add_executable(regicide src/main.cpp)
 target_link_libraries(regicide PRIVATE regicide_core)
 
+# CheckerBoard engine (getmove / enginecommand), also used by the match runner.
+add_library(regicide_cb SHARED src/cb_api.cpp)
+target_link_libraries(regicide_cb PRIVATE regicide_core)
+set_target_properties(regicide_cb PROPERTIES CXX_VISIBILITY_PRESET hidden POSITION_INDEPENDENT_CODE ON)
+set_target_properties(regicide_core PROPERTIES POSITION_INDEPENDENT_CODE ON)
+
 enable_testing()
 add_executable(perft_test tests/perft_test.cpp)
 target_link_libraries(perft_test PRIVATE regicide_core)
 add_test(NAME perft COMMAND perft_test)
+
+add_executable(cb_api_test tests/cb_api_test.cpp)
+target_link_libraries(cb_api_test PRIVATE regicide_core)
+add_test(NAME cb_api COMMAND cb_api_test $<TARGET_FILE:regicide_cb>)
