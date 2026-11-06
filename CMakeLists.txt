@@ -23,6 +23,9 @@ add_library(regicide_core STATIC
   src/bench.cpp
 )
 target_include_directories(regicide_core PUBLIC src)
+# Trained evaluation weights are compiled in with #embed (standard in C23/C++26; a Clang extension in C++ today).
+set_source_files_properties(src/eval.cpp PROPERTIES COMPILE_OPTIONS "-Wno-c23-extensions"
+                            OBJECT_DEPENDS ${CMAKE_SOURCE_DIR}/src/weights/eval.bin)
 
 if(MSVC)
   target_compile_options(regicide_core PUBLIC /W4)
@@ -58,3 +61,6 @@ add_test(NAME perft COMMAND perft_test)
 add_executable(cb_api_test tests/cb_api_test.cpp)
 target_link_libraries(cb_api_test PRIVATE regicide_core)
 add_test(NAME cb_api COMMAND cb_api_test $<TARGET_FILE:regicide_cb>)
+
+add_executable(selfplay tools/selfplay.cpp)
+target_link_libraries(selfplay PRIVATE regicide_core)

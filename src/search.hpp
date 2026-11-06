@@ -4,6 +4,7 @@
 #include <cstdint>
 #include <functional>
 #include <memory>
+#include <string>
 #include <vector>
 
 #include "eval.hpp"
@@ -52,6 +53,11 @@ struct SearchParams {
     int lmr_min_depth = 3;
     int threat_qext = 1;        // extra plies allowed at the horizon when the opponent threatens a capture
     int single_reply_ext = 1;
+
+    // Sets a parameter by name; returns false for an unknown name.
+    bool set(const std::string& name, int value);
+    // Applies "name=value,name=value" pairs; returns false if any name is unknown.
+    bool set_all(const std::string& spec);
 };
 
 class Engine {
@@ -71,6 +77,8 @@ public:
     void stop() { stop_.store(true, std::memory_order_relaxed); }
     // Polled by the main search thread; returning true aborts the search (e.g. a GUI "play now").
     void set_stop_poll(std::function<bool()> poll) { stop_poll_ = std::move(poll); }
+    void set_evaluator(std::shared_ptr<const Evaluator> e) { eval_ = std::move(e); }
+    const Evaluator& evaluator() const { return *eval_; }
 
     SearchParams params;
 
@@ -83,6 +91,7 @@ private:
     std::vector<Key> history_;
     std::atomic<bool> stop_{false};
     std::function<bool()> stop_poll_;
+    std::shared_ptr<const Evaluator> eval_ = Evaluator::builtin();
     int threads_ = 1;
 };
 

@@ -44,23 +44,6 @@ void print_info(const SearchInfo& i) {
               << i.time_ms << " hashfull " << i.hashfull << " pv " << pv_string(i.pv) << std::endl;
 }
 
-bool set_param(Engine& engine, const std::string& name, int value) {
-    SearchParams& p = engine.params;
-    struct {
-        const char* name;
-        int* field;
-    } table[] = {{"aspiration_delta", &p.aspiration_delta}, {"rfp_margin", &p.rfp_margin},
-                 {"rfp_max_depth", &p.rfp_max_depth},       {"lmr_base", &p.lmr_base},
-                 {"lmr_mult", &p.lmr_mult},                 {"lmr_min_depth", &p.lmr_min_depth},
-                 {"threat_qext", &p.threat_qext},           {"single_reply_ext", &p.single_reply_ext}};
-    for (auto& e : table)
-        if (name == e.name) {
-            *e.field = value;
-            return true;
-        }
-    return false;
-}
-
 }  // namespace
 
 int main(int argc, char** argv) {
@@ -184,7 +167,7 @@ int main(int argc, char** argv) {
             in >> name >> value;
             if (name == "threads") engine.set_threads(int(value));
             else if (name == "hash") engine.set_hash_mb(std::size_t(value));
-            else if (!set_param(engine, name, int(value))) std::cout << "unknown option " << name << std::endl;
+            else if (!engine.params.set(name, int(value))) std::cout << "unknown option " << name << std::endl;
         } else if (cmd == "bench") {
             int depth = 0;
             in >> depth;

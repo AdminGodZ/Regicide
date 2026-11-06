@@ -64,6 +64,8 @@ struct TimeControl {
 struct Worker {
     Worker(Engine& e, int id) : eng(e), tt(e.tt_), id(id) { clear(); }
 
+    Score evaluate(const Position& pos) const { return (*evaluator)(pos); }
+
     void clear() {
         std::memset(history, 0, sizeof(history));
         std::memset(killers, 0, sizeof(killers));
@@ -84,6 +86,7 @@ struct Worker {
     const int id;
     SearchParams P;
     TimeControl* tc = nullptr;
+    const Evaluator* evaluator = nullptr;
 
     Position root;
     std::vector<RootMove> roots;
@@ -124,6 +127,7 @@ void Worker::setup(const Position& r, const std::vector<Key>& game_keys, const s
     seldepth = 0;
     completed_depth = 0;
     P = eng.params;
+    evaluator = eng.eval_.get();
 }
 
 bool Worker::is_repetition(const Position& pos, int ply) const {
@@ -382,6 +386,38 @@ void Worker::iterate(const Limits& limits, TimeControl& t, const Engine::InfoFn*
             break;  // found a forced win/loss shorter than the search depth
     }
     if (main) eng.stop();
+}
+
+bool SearchParams::set(const std::string& name, int value) {
+    struct {
+        const char* name;
+        int SearchParams::* field;
+    } static constexpr table[] = {
+        {"aspiration_delta", &SearchParams::aspiration_delta}, {"rfp_margin", &SearchParams::rfp_margin},
+        {"rfp_max_depth", &SearchParams::rfp_max_depth},       {"lmr_base", &SearchParams::lmr_base},
+        {"lmr_mult", &SearchParams::lmr_mult},                 {"lmr_min_depth", &SearchParams::lmr_min_depth},
+        {"threat_qext", &SearchParams::threat_qext},           {"single_reply_ext", &SearchParams::single_reply_ext},
+    };
+    for (const auto& e : table)
+        if (name == e.name) {
+            this->*e.field = value;
+            return true;
+        }
+    return false;
+}
+
+bool SearchParams::set_all(const std::string& spec) {
+    bool ok = true;
+    std::size_t pos = 0;
+    while (pos < spec.size()) {
+        std::size_t end = spec.find(',', pos);
+        if (end == std::string::npos) end = spec.size();
+        const std::string item = spec.substr(pos, end - pos);
+        const std::size_t eq = item.find('=');
+        if (eq == std::string::npos || !set(item.substr(0, eq), std::stoi(item.substr(eq + 1)))) ok = false;
+        pos = end + 1;
+    }
+    return ok;
 }
 
 Engine::Engine() {
