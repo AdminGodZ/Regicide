@@ -19,6 +19,8 @@ add_library(regicide_core STATIC
   src/perft.cpp
   src/eval.cpp
   src/search.cpp
+  src/tt.cpp
+  src/bench.cpp
 )
 target_include_directories(regicide_core PUBLIC src)
 

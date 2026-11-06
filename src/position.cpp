@@ -46,11 +46,27 @@ bool Position::set_fen(const std::string& fen) {
     }
     if (pieces[BLACK] & pieces[WHITE]) return false;
 
-    pieces_[BLACK] = pieces[BLACK];
-    pieces_[WHITE] = pieces[WHITE];
-    kings_ = kings;
-    stm_ = stm;
+    set(pieces[BLACK], pieces[WHITE], kings, stm);
     return true;
+}
+
+void Position::set(Bitboard black, Bitboard white, Bitboard kings, Color stm) {
+    pieces_[BLACK] = black;
+    pieces_[WHITE] = white;
+    kings_ = kings & (black | white);
+    stm_ = stm;
+    reversible_ = 0;
+    key_ = compute_key();
+}
+
+Key Position::compute_key() const {
+    Key k = stm_ == WHITE ? zobrist::SIDE : 0;
+    for (Color c : {BLACK, WHITE})
+        for (Bitboard b = pieces_[c]; b;) {
+            int sq = pop_lsb(b);
+            k ^= zobrist::PSQ[2 * c + ((kings_ >> sq) & 1)][sq];
+        }
+    return k;
 }
 
 std::string Position::fen() const {
@@ -73,17 +89,36 @@ std::string Position::fen() const {
 void Position::make_move(const Move& m) {
     const Color us = stm_;
     const Bitboard from = bit(m.from), to = bit(m.to);
+    const bool king = kings_ & from;
+    const bool crowns = !king && (to & promo_row(us));
 
     pieces_[us] ^= from | to;
-    if (kings_ & from) kings_ ^= from | to;
+    if (king) kings_ ^= from | to;
+    key_ ^= zobrist::PSQ[2 * us + king][m.from] ^ zobrist::PSQ[2 * us + (king || crowns)][m.to];
 
+    for (Bitboard c = m.captures; c;) {
+        int sq = pop_lsb(c);
+        key_ ^= zobrist::PSQ[2 * ~us + ((kings_ >> sq) & 1)][sq];
+    }
     pieces_[~us] &= ~m.captures;
     kings_ &= ~m.captures;
+    if (crowns) kings_ |= to;
 
-    const Bitboard promo_row = us == WHITE ? ROW_7 : ROW_0;
-    kings_ |= to & promo_row;
-
+    reversible_ = (king && !m.captures) ? reversible_ + 1 : 0;
     stm_ = ~us;
+    key_ ^= zobrist::SIDE;
+}
+
+Key Position::key_after(const Move& m) const {
+    const Color us = stm_;
+    const bool king = kings_ & bit(m.from);
+    const bool crowns = !king && (bit(m.to) & promo_row(us));
+    Key k = key_ ^ zobrist::SIDE ^ zobrist::PSQ[2 * us + king][m.from] ^ zobrist::PSQ[2 * us + (king || crowns)][m.to];
+    for (Bitboard c = m.captures; c;) {
+        int sq = pop_lsb(c);
+        k ^= zobrist::PSQ[2 * ~us + ((kings_ >> sq) & 1)][sq];
+    }
+    return k;
 }
 
 std::string Position::pretty() const {
