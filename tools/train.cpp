@@ -181,7 +181,8 @@ int main(int argc, char** argv) {
     std::vector<float> m1(nw, 0), m2(nw, 0), grad(nw, 0);
     std::vector<std::vector<float>> tgrad(cfg.threads, std::vector<float>(nw, 0));
     std::vector<std::vector<int>> touched(cfg.threads);
-    std::vector<std::uint8_t> mark(nw / 2, 0);
+    std::vector<float> l2_of(nw);
+    for (std::size_t k = 0; k < nw; ++k) l2_of[k] = float(l2_for(int(k / 2)));
     std::vector<std::size_t> order(ntrain);
     std::iota(order.begin(), order.end(), 0);
     const double b1 = 0.9, b2 = 0.999, eps = 1e-8;
@@ -218,33 +219,25 @@ int main(int argc, char** argv) {
             for (auto& th : pool) th.join();
             for (double x : part) train_loss += x;
 
-            std::vector<int> active;
+            // Reduce the per-thread gradients (only touched entries are non-zero).
             for (int t = 0; t < cfg.threads; ++t) {
-                for (int idx : touched[t]) {
-                    if (!mark[idx]) {
-                        mark[idx] = 1;
-                        active.push_back(idx);
-                    }
+                for (int idx : touched[t])
                     for (int ph = 0; ph < 2; ++ph) {
                         grad[2 * idx + ph] += tgrad[t][2 * idx + ph];
                         tgrad[t][2 * idx + ph] = 0;
                     }
-                }
                 touched[t].clear();
             }
+            // Dense Adam step: every weight's moments decay every step, as in standard Adam.
             ++step;
             const double bs = double(end - start);
             const double c1 = 1 - std::pow(b1, step), c2 = 1 - std::pow(b2, step);
-            for (int idx : active) {
-                mark[idx] = 0;
-                for (int ph = 0; ph < 2; ++ph) {
-                    const std::size_t k = 2 * std::size_t(idx) + ph;
-                    const double g = grad[k] / bs + l2_for(idx) * model.w[k];
-                    grad[k] = 0;
-                    m1[k] = float(b1 * m1[k] + (1 - b1) * g);
-                    m2[k] = float(b2 * m2[k] + (1 - b2) * g * g);
-                    model.w[k] -= float(lr * (m1[k] / c1) / (std::sqrt(m2[k] / c2) + eps));
-                }
+            for (std::size_t k = 0; k < nw; ++k) {
+                const double g = grad[k] / bs + l2_of[k] * model.w[k];
+                grad[k] = 0;
+                m1[k] = float(b1 * m1[k] + (1 - b1) * g);
+                m2[k] = float(b2 * m2[k] + (1 - b2) * g * g);
+                model.w[k] -= float(lr * (m1[k] / c1) / (std::sqrt(m2[k] / c2) + eps));
             }
         }
         std::printf("epoch %d  lr %.3f  train loss %.6f  valid loss %.6f\n", epoch, lr, train_loss / ntrain,
