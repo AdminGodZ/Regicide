@@ -23,6 +23,17 @@ typedef unsigned char BYTE;
 typedef void* HANDLE;
 typedef void* LPVOID;
 typedef const char* LPCSTR;
+typedef uint16_t WORD;
+typedef uintptr_t WPARAM;
+typedef intptr_t LPARAM;
+typedef intptr_t LRESULT;
+typedef intptr_t INT_PTR;
+typedef void* HINSTANCE;
+typedef void* HWND;
+typedef void* HDC;
+typedef void* HBITMAP;
+typedef void* HMENU;
+#define __declspec(x)
 
 #ifndef TRUE
 #define TRUE 1
@@ -35,6 +46,13 @@ typedef const char* LPCSTR;
 #define DLL_PROCESS_ATTACH 1
 #define DLL_THREAD_ATTACH 2
 #define DLL_THREAD_DETACH 3
+
+#include <ctype.h>
+static inline char* _strdup(const char* s) { return strdup(s); }
+static inline char* _strlwr(char* s) {
+    for (char* p = s; *p; ++p) *p = (char)tolower((unsigned char)*p);
+    return s;
+}
 
 static inline void Sleep(DWORD ms) { usleep((useconds_t)ms * 1000); }
 

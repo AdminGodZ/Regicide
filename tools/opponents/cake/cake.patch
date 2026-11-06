@@ -1,0 +1,691 @@
+diff --git a/cake/db.c b/cake/db.c
+index d0dcee8..7241a1e 100644
+--- a/cake/db.c
++++ b/cake/db.c
+@@ -17,7 +17,7 @@
+ #include "switches.h"
+ 
+ 
+-#define int32 unsigned long
++#define int32 unsigned int /* cbport: 32-bit on LP64 */
+ struct pos
+ 	{
+    int32 bm;
+@@ -100,7 +100,7 @@ struct pos
+ #define	BICOEF		7 /* 0..7 pieces of any time B/W/b/p */
+ 
+ /* whr.h */
+-typedef unsigned long	WHERE_T;
++typedef unsigned int	WHERE_T;
+ typedef WHERE_T		* WHERE_VEC_PTR_T;
+ 
+ #define WHERE_T_SZ	sizeof(WHERE_T)
+@@ -123,11 +123,11 @@ typedef struct sidxstr {
+ } sidxindex, * sidxindexptr;
+ 
+ typedef struct {
+-	long		rangeBK;     /* number of Black king configurations */
+-	long		rangeWK;     /* number of White king configurations */
+-	long		firstBPIdx;
+-	long		nextBPIdx;
+-	long		numPos;
++	int		rangeBK;     /* number of Black king configurations */
++	int		rangeWK;     /* number of White king configurations */
++	int		firstBPIdx;
++	int		nextBPIdx;
++	int		numPos;
+ 	sidxindexptr	dbptr;
+ 	unsigned char	nWP;
+ 	unsigned char	nBP;
+@@ -154,7 +154,7 @@ typedef DB_REC_T	*DB_REC_PTR_T;
+ 				    (Val << (IOFFSET(Index)<<1)))
+ 
+ DB_REC_PTR_T	dbCreate();
+-/*unsigned long	dbLocbvToSubIdx();*/
++/*unsigned int	dbLocbvToSubIdx();*/
+ DB_REC_PTR_T	dbValInit();
+ int32	RotateBoard(int32 x);
+ 
+@@ -172,8 +172,8 @@ typedef struct db {
+ 	unsigned char value;		/* Some dbs are all one value - if
+ 					   so this field is set to that value */
+ 	unsigned short startbyte;	/* Byte where subdatabase starst */
+-	unsigned long startaddr;	/* Position number at start byte */
+-	unsigned long endaddr;		/* Ending address of db */
++	unsigned int startaddr;	/* Position number at start byte */
++	unsigned int endaddr;		/* Ending address of db */
+ 	DB_REC_PTR_T db;		/* Pointer to index info */
+ } DBENTRY, * DBENTRYPTR;
+ 
+@@ -206,7 +206,7 @@ typedef struct db {
+ typedef struct dbbuf {
+ 	int	forward;	/* In a linked list - fwd pointer */
+ 	int	backward;	/* backward pointer */
+-	long	block;		/* which block of data is this */
++	int	block;		/* which block of data is this */
+ 	unsigned char data[ DISK_BLOCK ];	/* block of data */
+ } dbbuffer, * dbbufferptr;
+ 
+@@ -223,8 +223,8 @@ typedef struct dbbuf {
+ #include "db.h"
+ 
+ /* Board vector */
+-long Turn = BLACK;
+-unsigned long Locbv[3];
++int Turn = BLACK;
++unsigned int Locbv[3];
+ 
+ /* Each byte in the database contains either 5 values (3**5=243), 	*/
+ /* accounting for values 0..242 in a byte.  The following table tells	*/
+@@ -266,10 +266,10 @@ FILE *fp;
+  */
+ 
+ 
+-long Bicoef[33][BICOEF+1];
+-unsigned long ReverseByte[256];
+-unsigned long BitPos[32], NotBitPos[32];
+-unsigned long RetrieveMask[4];
++int Bicoef[33][BICOEF+1];
++unsigned int ReverseByte[256];
++unsigned int BitPos[32], NotBitPos[32];
++unsigned int RetrieveMask[4];
+ 
+ /* This is the number of the biggest database to read.  If you set it 	*/
+ /* to 5, for example, the program will only use the 2..5 piece database	*/
+@@ -285,8 +285,8 @@ dbbufferptr DBBuffer;
+ /* Read in from DB4.idx - index information where in the file to find 	*/
+ /* each sub-database, and the starting and ending position numbers for	*/
+ /* each 1024 bytes in the databse.					*/
+-long  int * DBIndex;
+-long  int   MaxBlockX;
++int * DBIndex;
++int   MaxBlockX;
+ short int * DBBufPtr;
+ 
+ /*
+@@ -307,14 +307,14 @@ WHERE_T         *BPKsave;
+ #define FMTVAR  nbk, nwk, nbp, nwp, rankbp, rankwp
+ 
+ /* function prototypes. */
+-void sidxCreate(DB_REC_PTR_T p,long nBP,long nWP,long rankBPL,long rankWPL,
+-                long *numPos,long *firstBPLIdx,long *nextBPLIdx);
+-long DBrevindex(long *pos,long k);
+-long DBindex(long *pos,long k);
+-void InitIndex(long off,long k,long n);
+-void NextIndex(long off);
+-void SaveIndex(long off);
+-void LoadIndex(long off);
++void sidxCreate(DB_REC_PTR_T p,int nBP,int nWP,int rankBPL,int rankWPL,
++                int *numPos,int *firstBPLIdx,int *nextBPLIdx);
++int DBrevindex(int *pos,int k);
++int DBindex(int *pos,int k);
++void InitIndex(int off,int k,int n);
++void NextIndex(int off);
++void SaveIndex(int off);
++void LoadIndex(int off);
+ 
+ 
+ /* Initialize the database data strucures */
+@@ -322,10 +322,10 @@ void LoadIndex(long off);
+ int DBInit()
+ {
+ 	int i, j, p, w, b, wk, bk, bp, wp, wr, br, stat;
+-	long dbidx, dbsize;
+-	long number, index, deftype, addr, byte, min, limit, blocks;
++	int dbidx, dbsize;
++	int number, index, deftype, addr, byte, min, limit, blocks;
+ 	char dt, dtt, next;
+-	long * dbindex, buffers;
++	int * dbindex, buffers;
+ 	int dbffp;
+ 	FILE * dbifp;
+ 	dbbufferptr a;
+@@ -554,12 +554,12 @@ if(logging&2)
+ 		/* DISK_BLOCK bytes - except the last read.		*/
+ 		MaxBlockX = blocks++;
+ 		if(logging&1)
+-			{fprintf(fp,"... allocating %ld/%ld entry index\n", dbsize, blocks);fflush(fp);}
++			{fprintf(fp,"... allocating %d/%d entry index\n", dbsize, blocks);fflush(fp);}
+ 		if(logging&2)
+-			printf("... allocating %ld/%ld entry index\n", dbsize, blocks);
++			printf("... allocating %d/%d entry index\n", dbsize, blocks);
+ 
+-		DBIndex = dbindex  = (     long *)
+-				malloc(blocks * sizeof(      long));
++		DBIndex = dbindex  = (     int *)
++				malloc(blocks * sizeof(      int));
+ 		DBBufPtr = dbbufptr = (short int *)
+ 				malloc(blocks * sizeof(short int));
+ 		if (dbindex == NULL || dbbufptr == NULL)
+@@ -662,8 +662,8 @@ if(logging&2)
+ 			}
+ 
+ 			/* Create the index informaiton for the database */
+-			ptr->db = dbValInit((long)bk,(long)wk,(long)bp,
+-					 (long)wp,(long)br,(long)wr);
++			ptr->db = dbValInit((int)bk,(int)wk,(int)bp,
++					 (int)wp,(int)br,(int)wr);
+ 
+ 			/* Set the default type */
+ 			if (dt == '=')
+@@ -692,7 +692,7 @@ if(logging&2)
+             {printf("ERROR: illegal start %c\n", next); }
+ 				exit(-1);
+ 			}
+-			stat = fscanf(dbifp, "%ld%ld/%ld\n", &index, &addr,
++			stat = fscanf(dbifp, "%d%d/%d\n", &index, &addr,
+ 							&byte);
+ 			if (stat != 3)
+ 			{
+@@ -730,7 +730,7 @@ if(logging&2)
+ 				}
+ 				if (dt == 'E')
+ 					break;
+-				stat = fscanf(dbifp, "%ld%ld\n", &index, &addr);
++				stat = fscanf(dbifp, "%d%d\n", &index, &addr);
+ 				if (stat != 2)
+ 				{
+ 				if(logging&1)
+@@ -745,7 +745,7 @@ if(logging&2)
+ 					dbbufptr[  dbidx] = -1;
+ 				}
+ 			}
+-			stat = fscanf(dbifp, "%ld%ld/%ld\n",
++			stat = fscanf(dbifp, "%d%d/%d\n",
+ 						&index, &addr, &byte);
+ 			if (stat != 3)
+ 			{
+@@ -765,9 +765,9 @@ if(logging&2)
+ 	/* to hold the entire db.  If you do, things are *much simpler* */
+ 	buffers += buffs;
+ 	if(logging&1)
+-   	{fprintf(fp,"... allocating %ld buffers\n", buffers);fflush(fp);}
++   	{fprintf(fp,"... allocating %d buffers\n", buffers);fflush(fp);}
+ 	if(logging&2)
+-   	{printf("... allocating %ld buffers\n", buffers);}
++   	{printf("... allocating %d buffers\n", buffers);}
+ 	DBBuffer = (dbbufferptr) malloc(buffers * sizeof(dbbuffer));
+ 	if (DBBuffer == NULL)
+ 	{
+@@ -800,15 +800,15 @@ if(logging&2)
+ /* Look up a position in the database */
+ /* Do not call with one side having 0 pieces */
+ /* this is the function you call from the checkers program */
+-long DBLookup(struct pos p, int turn)
++int DBLookup(struct pos p, int turn)
+ {
+-	long result, diff, back, fwd, use;
+-	unsigned long index, cindex, c;
++	int result, diff, back, fwd, use;
++	unsigned int index, cindex, c;
+ 	DBENTRYPTR dbentry;
+-	long start, end, middle, byte, i, def;
++	int start, end, middle, byte, i, def;
+ 	unsigned char *buffer;
+-	unsigned long *dbindex;
+-	/*long startx, endx, inc;*/
++	unsigned int *dbindex;
++	/*int startx, endx, inc;*/
+ 	short int *dbbufptr;
+ 	int cx;
+ 
+@@ -829,15 +829,15 @@ long DBLookup(struct pos p, int turn)
+ 	index = dbLocbvToSubIdx(&dbentry,p,turn);
+ 
+ 	/* Check if we already know its value because the db is all one value */
+-	if ((long)index < 0) {
++	if ((int)index < 0) {
+ 		if (index == -(WIN+1))
+-			return((long) WIN);
++			return((int) WIN);
+ 		if (index == -(LOSS + 1))
+-			return((long) LOSS);
++			return((int) LOSS);
+ 		if (index == -(TIE + 1))
+-			return((long) TIE);
++			return((int) TIE);
+ 		if (index == DB_UNKNOWN)
+-			return((long) DB_UNKNOWN);
++			return((int) DB_UNKNOWN);
+ 		return(index);
+ 	}
+ 
+@@ -845,7 +845,7 @@ long DBLookup(struct pos p, int turn)
+ 	start = dbentry->startaddr;
+ 	end   = dbentry->endaddr;
+ 	byte  = dbentry->startbyte;
+-	dbindex  = (unsigned long int*)DBIndex;
++	dbindex  = (unsigned int*)DBIndex;
+ 	dbbufptr = DBBufPtr;
+ 
+ 	/* Find the block where the position is located.  Do a binary	*/
+@@ -864,14 +864,14 @@ long DBLookup(struct pos p, int turn)
+ 		{
+ 		if(logging&1)
+ 			{
+-         fprintf(fp,"ERROR: cannot agree %ld %ld \n", start, end);
++         fprintf(fp,"ERROR: cannot agree %d %d \n", start, end);
+          fflush(fp);
+          }
+ 		if(logging&2)
+ 			{
+-         printf("ERROR: cannot agree %ld %ld \n", start, end);
++         printf("ERROR: cannot agree %d %d \n", start, end);
+          }
+-		return((long) DB_UNKNOWN);
++		return((int) DB_UNKNOWN);
+ 		}
+ 
+ 	middle = start;
+@@ -886,13 +886,13 @@ long DBLookup(struct pos p, int turn)
+ 		use = DBTop;
+ 
+ 		/* Seek to the block - block# * 1024 */
+-		if (lseek(DBFile, (long)(middle * DISK_BLOCK), 0) == -1)
++		if (lseek(DBFile, (int)(middle * DISK_BLOCK), 0) == -1)
+ 			{
+ 			if(logging&1)
+ 				{fprintf(fp,"ERROR: dblookup seek failed\n"); fflush(fp);}
+ 			if(logging&2)
+ 				{printf("ERROR: dblookup seek failed\n"); }
+-         return((long) DB_UNKNOWN);
++         return((int) DB_UNKNOWN);
+ 			}
+ 
+ 		/* Read in the DISK_BLOCK bytes */
+@@ -903,10 +903,10 @@ long DBLookup(struct pos p, int turn)
+ 			if (middle != MaxBlockX)
+ 			{
+ 			if(logging&1)
+-				{fprintf(fp,"ERROR: dblookup read failed %d %ld %ld %ld %ld\n",cx,start,end,middle,MaxBlockX);fflush(fp);}
++				{fprintf(fp,"ERROR: dblookup read failed %d %d %d %d %d\n",cx,start,end,middle,MaxBlockX);fflush(fp);}
+ 			if(logging&2)
+-				{printf("ERROR: dblookup read failed %d %ld %ld %ld %ld\n",cx,start,end,middle,MaxBlockX);}
+-				return((long) DB_UNKNOWN);
++				{printf("ERROR: dblookup read failed %d %d %d %d %d\n",cx,start,end,middle,MaxBlockX);}
++				return((int) DB_UNKNOWN);
+ 			}
+ 		/* Mark this buffer as in use */
+ 		dbbufptr[middle] = use;
+@@ -989,33 +989,33 @@ long DBLookup(struct pos p, int turn)
+ 	{
+ 	if(logging&1)
+       {fprintf(fp,"ERROR: scanned block and did not find\n");
+-		fprintf(fp,"INDEX %ld CINDEX %ld\n", index, cindex);
+-		fprintf(fp,"Start %ld end %ld byte %d = middle %ld\n",
++		fprintf(fp,"INDEX %d CINDEX %d\n", index, cindex);
++		fprintf(fp,"Start %d end %d byte %d = middle %d\n",
+ 			dbentry->startaddr,
+ 			dbentry->endaddr,
+ 			dbentry->startbyte, middle);   fflush(fp); }
+ 	if(logging&2)
+       {
+       printf("ERROR: scanned block and did not find\n");
+-		printf("INDEX %ld CINDEX %ld\n", index, cindex);
+-		printf("Start %ld end %ld byte %d = middle %ld\n",
++		printf("INDEX %d CINDEX %d\n", index, cindex);
++		printf("Start %d end %d byte %d = middle %d\n",
+ 			dbentry->startaddr,
+ 			dbentry->endaddr,
+ 			dbentry->startbyte, middle);   }
+ 
+-		return((long) DB_UNKNOWN);
++		return((int) DB_UNKNOWN);
+ 	}
+ 
+ 	if (result == WIN)
+-		return((long) WIN);
++		return((int) WIN);
+ 	if (result == LOSS)
+-		return((long) LOSS);
+-	return((long) TIE);
++		return((int) LOSS);
++	return((int) TIE);
+ }
+ 
+ 
+ DB_REC_PTR_T dbValInit(PIECES)
+-	long PIECES;
++	int PIECES;
+ {
+ 	return(dbCreate(PIECES));
+ }
+@@ -1024,7 +1024,7 @@ DB_REC_PTR_T dbValInit(PIECES)
+  * Allocates memory for a DB_REC_T and initializes its scalars and SIdx.
+  */
+ DB_REC_PTR_T dbCreate(PIECES)
+-	long PIECES;
++	int PIECES;
+ {
+ 	DB_REC_PTR_T p;
+ 
+@@ -1075,7 +1075,7 @@ DB_REC_PTR_T dbCreate(PIECES)
+  */
+ #define CountHits(XXpos, nXX, YYpos, nYY, XXhits) \
+ { \
+-	register long x, y; \
++	register int x, y; \
+ 	if (nYY > 0) { \
+ 		for (x = 0; x < nXX; x++) { \
+ 			if (XXpos[x] < YYpos[nYY-1]) \
+@@ -1110,7 +1110,7 @@ DB_REC_PTR_T dbCreate(PIECES)
+  */
+ #define CountRevHits(XXpos, nXX, YYpos, nYY, XXhits) \
+ { \
+-	register long x, y; \
++	register int x, y; \
+ 	if (nYY > 0) { \
+ 		for (x = nXX - 1; x >= 0; x--) { \
+ 			if (XXpos[x] > YYpos[0]) \
+@@ -1173,7 +1173,7 @@ DB_REC_PTR_T dbCreate(PIECES)
+  */
+ #define SquishWP(nXX, nYY, XXpos, YYpos) \
+ { \
+-	register long i; \
++	register int i; \
+ 	if (nXX) { \
+ 		for (i = nXX - 1; i >= 0; i--) \
+ 			XXhits[i] = 0; \
+@@ -1213,7 +1213,7 @@ DB_REC_PTR_T dbCreate(PIECES)
+  */
+ #define SquishBK(nXX, nYY, nZZ, XXpos, YYpos, ZZpos) \
+ { \
+-	register long i; \
++	register int i; \
+ 	if (nXX) { \
+ 		for (i = nXX - 1; i >= 0; i--) \
+ 			XXhits[i] = 0; \
+@@ -1253,7 +1253,7 @@ DB_REC_PTR_T dbCreate(PIECES)
+  */
+ #define SquishWK(nXX, nYY, nZZ, nYZ, XXpos, YYpos, ZZpos, YZpos) \
+ { \
+-	register long i; \
++	register int i; \
+ 	if (nXX) { \
+ 		for (i = nXX - 1; i >= 0; i--) \
+ 			XXhits[i] = 0; \
+@@ -1290,7 +1290,7 @@ DB_REC_PTR_T dbCreate(PIECES)
+ 	while (vec) { \
+ 		conv.x = vec; \
+ 		XXpos[nXX] = NEXT_BIT; \
+-		vec ^= (unsigned long)(1L << XXpos[(nXX)++]); \
++		vec ^= (unsigned int)(1L << XXpos[(nXX)++]); \
+ 	} \
+ }
+ 
+@@ -1303,27 +1303,27 @@ DB_REC_PTR_T dbCreate(PIECES)
+  */
+ int32 dbLocbvToSubIdx(DBENTRYPTR *dbentry,struct pos p,int turn)
+ {
+-	long            PIECES;
+-	long            bppos[12], wppos[12];
+-	long            bkpos[12], wkpos[12];
+-	long            XXhits[12];
+-	long            bpidx, wpidx, bkidx, wkidx, firstidx;
+-	unsigned long   vec, Blackbv, Whitebv, Kingbv;
+-	long            Index;
++	int            PIECES;
++	int            bppos[12], wppos[12];
++	int            bkpos[12], wkpos[12];
++	int            XXhits[12];
++	int            bpidx, wpidx, bkidx, wkidx, firstidx;
++	unsigned int   vec, Blackbv, Whitebv, Kingbv;
++	int            Index;
+ 	sidxindexptr	ptr;
+ 	DB_REC_PTR_T    db;
+ 	union {
+-		unsigned long    U;
++		unsigned int    U;
+ 		unsigned char C[4];
+ 	} a, b;
+ 	union {
+ 		double x;
+-		long s[2];
++		int s[2];
+ 	} conv;
+ #ifndef BIGEND
+-	long            *expptr = &conv.s[1];
++	int            *expptr = &conv.s[1];
+ #else
+-	long            *expptr = &conv.s[0];
++	int            *expptr = &conv.s[0];
+ #endif
+ 
+ 
+@@ -1400,7 +1400,7 @@ int32 dbLocbvToSubIdx(DBENTRYPTR *dbentry,struct pos p,int turn)
+ 		*dbentry += rankbp;
+ 	else    *dbentry += (rankbp * 7 + rankwp);
+ 	if (*dbentry == NULL)
+-		return((long) (DB_UNKNOWN - 1));
++		return((int) (DB_UNKNOWN - 1));
+ 
+ 	if ((*dbentry)->value != UNKNOWN)
+ 		return(-((*dbentry)->value + 1));
+@@ -1408,7 +1408,7 @@ int32 dbLocbvToSubIdx(DBENTRYPTR *dbentry,struct pos p,int turn)
+ 	/* Determine wpidx, then combine bp & wp indices into bpidx. */
+ 	db    = (*dbentry)->db;
+ 	if (db == NULL)
+-		return((long)(DB_UNKNOWN - 1));
++		return((int)(DB_UNKNOWN - 1));
+ 
+ 	ptr = db->dbptr;
+ 	bpidx -= db->firstBPIdx;	/* get matching index number */
+@@ -1482,13 +1482,13 @@ int32 dbLocbvToSubIdx(DBENTRYPTR *dbentry,struct pos p,int turn)
+  * See Appendix B in the Technical Report TR93-13 for more details.
+  */
+ 
+-void sidxCreate(DB_REC_PTR_T p,long nBP,long nWP,long rankBPL,long rankWPL,
+-                long *numPos,long *firstBPLIdx,long *nextBPLIdx) {
+-	unsigned long firstWPLIdx, nextWPLIdx, Base;
++void sidxCreate(DB_REC_PTR_T p,int nBP,int nWP,int rankBPL,int rankWPL,
++                int *numPos,int *firstBPLIdx,int *nextBPLIdx) {
++	unsigned int firstWPLIdx, nextWPLIdx, Base;
+ 	sidxindexptr ptr;
+-	unsigned long Maximum;
+-	long nsqr1, nsqr2;
+-	long fsq, fpc;
++	unsigned int Maximum;
++	int nsqr1, nsqr2;
++	int fsq, fpc;
+ 
+ 	if (nBP == 0) {
+ 		*firstBPLIdx = 0;
+@@ -1519,8 +1519,8 @@ void sidxCreate(DB_REC_PTR_T p,long nBP,long nWP,long rankBPL,long rankWPL,
+ 	 * checker configuration.
+ 	 */
+ 	p->dbptr = ptr = (sidxindexptr) malloc (
+-		(unsigned long) (1 + *nextBPLIdx - *firstBPLIdx) *
+-		(unsigned long) sizeof(unsigned long));
++		(unsigned int) (1 + *nextBPLIdx - *firstBPLIdx) *
++		(unsigned int) sizeof(unsigned int));
+ 
+ 	/*
+ 	 * This array holds the starting index for each white checker
+@@ -1602,13 +1602,13 @@ void sidxCreate(DB_REC_PTR_T p,long nBP,long nWP,long rankBPL,long rankWPL,
+  * Although this routine is generalized, it is used only for determining white
+  * checker squares.
+  */
+-long Nsq(rank, Ppos, nP)
+-	register long rank;
+-	register long nP;
++int Nsq(rank, Ppos, nP)
++	register int rank;
++	register int nP;
+ 	WHERE_T *Ppos;
+ {
+-	register long pawnhit  = ((7 - rank) << 2);
+-	register long nsquares = ((rank + 1) << 2);
++	register int pawnhit  = ((7 - rank) << 2);
++	register int nsquares = ((rank + 1) << 2);
+ 
+ 	while (nP--) {
+ 		if (*Ppos++ >= pawnhit)
+@@ -1642,13 +1642,13 @@ long Nsq(rank, Ppos, nP)
+  *	k	number of pieces
+  *	n	starting square number of highest ranked piece
+  */
+-void InitIndex(long off,long k,long n) {
++void InitIndex(int off,int k,int n) {
+ 	register WHERE_T *BPP, *BPE;
+ 
+ 	/* Initialize all the pieces in the starting position. */
+ 	BPK[off] = &BoardPos[off][k];
+ 	for (BPP = BoardPos[off], BPE = &BPK[off][-1]; BPP < BPE; BPP++)
+-		*BPP = (long)(BPP - BoardPos[off]);
++		*BPP = (int)(BPP - BoardPos[off]);
+ 	*BPE = n;
+ }
+ 
+@@ -1669,11 +1669,11 @@ void InitIndex(long off,long k,long n) {
+  * checking is necessary.
+  */
+ 	
+-void NextIndex(long off) {
++void NextIndex(int off) {
+ 	register WHERE_T *BPP, *BPE = &BPK[off][-1];
+ 
+ 	for (BPP = BoardPos[off]; BPP < BPE && *BPP == BPP[1] - 1; BPP++)
+-		*BPP = (long)(BPP - BoardPos[off]);
++		*BPP = (int)(BPP - BoardPos[off]);
+ 	*BPP += 1;
+ }
+ 
+@@ -1684,10 +1684,10 @@ void NextIndex(long off) {
+  *
+  *	off	piece type (BPBOARD, WPBOARD, BKBOARD, or WKBOARD)
+  */
+-void SaveIndex(long off) {
++void SaveIndex(int off) {
+  	register WHERE_T *BPP = BoardPos[off];
+ 	register WHERE_T *pos = BPsave;
+-	register long k = 12;
++	register int k = 12;
+ 
+ 	BPKsave = BPK[off];
+ 	while (k--)
+@@ -1701,10 +1701,10 @@ void SaveIndex(long off) {
+  *
+  *	off	piece type (BPBOARD, WPBOARD, BKBOARD, or WKBOARD)
+  */
+-void LoadIndex(long off) {
++void LoadIndex(int off) {
+  	register WHERE_T *BPP = BoardPos[off];
+ 	register WHERE_T *pos = BPsave;
+-	register long k = 12;
++	register int k = 12;
+ 
+ 	BPK[off] = BPKsave;
+ 	while (k--)
+@@ -1734,8 +1734,8 @@ void LoadIndex(long off) {
+  *		| 4 | = 4   | 3 | = 3   | 1 | = 1    4 + 3 + 1 = 8.
+  *		| 3 |       | 2 | 	| 1 |
+  */
+-long DBrevindex(long *pos,long k) {
+-	register long offset = 0;
++int DBrevindex(int *pos,int k) {
++	register int offset = 0;
+ 
+ 	while (k > 0)
+ 		offset += Choose(*pos++, k--);
+@@ -1753,8 +1753,8 @@ long DBrevindex(long *pos,long k) {
+  * This function is similar to DBrevindex except it is used for computing
+  * the index of the white checkers.
+  */
+-long DBindex(long *pos,long k) {
+-	register long offset = 0;
++int DBindex(int *pos,int k) {
++	register int offset = 0;
+ 
+ 	pos = &pos[k - 1];
+ 	while (k > 0)
+diff --git a/cake/db.h b/cake/db.h
+index cceaacd..4696967 100644
+--- a/cake/db.h
++++ b/cake/db.h
+@@ -1,10 +1,10 @@
+ /* cake_db.h: function prototypes for cake_db.c */
+ 
+-long CheckPos(void);
+-long DBLookup(struct pos p, int turn);
++int CheckPos(void);
++int DBLookup(struct pos p, int turn);
+ void Setup(void);
+ void SkipLine(void);
+ int DBInit(void); /* modified MF returns the number of stones it still has */
+ void exit(int x);
+-long Nsq();
++int Nsq();
+ int32 dbLocbvToSubIdx();
+diff --git a/cake/dll.c b/cake/dll.c
+index c2b1c53..2cddbd8 100644
+--- a/cake/dll.c
++++ b/cake/dll.c
+@@ -92,7 +92,7 @@ typedef struct
+ /*----------> supportive stuff */
+ 
+ int init = 0;
+-int logging = 2;		/* cake_getmove()  */
++int logging = 0;		/* cake_getmove(); cbport: no stdout chatter */
+ 
+ int
+ initdll ()
+@@ -165,6 +165,25 @@ boardtobitboard (int b[8][8], struct pos *position)
+     }
+ }
+ 
++/* cbport: write a position back into the CheckerBoard board, as the CB API expects */
++static void
++bitboardtoboard (struct pos *position, int b[8][8])
++{
++  static const int x[32] = { 0, 2, 4, 6, 1, 3, 5, 7, 0, 2, 4, 6, 1, 3, 5, 7,
++    0, 2, 4, 6, 1, 3, 5, 7, 0, 2, 4, 6, 1, 3, 5, 7 };
++  int i;
++
++  for (i = 0; i < 32; i++)
++    {
++      int v = 0;
++      if (position->bm & (1u << i)) v = BLACK | MAN;
++      if (position->bk & (1u << i)) v = BLACK | KING;
++      if (position->wm & (1u << i)) v = WHITE | MAN;
++      if (position->wk & (1u << i)) v = WHITE | KING;
++      b[x[i]][i / 4] = v;
++    }
++}
++
+ /*----------> dll interface */
+ 
+ #ifdef SYS_WINDOWS
+@@ -593,8 +612,9 @@ getmove (int b[8][8], int color, double maxtime, char str[255], int *playnow,
+     init = initdll ();
+ 
+   boardtobitboard (b, &pp);
++  /* cbport: honour CB_RESET_MOVES (info bit 0) instead of never resetting */
+   value = cake_getmove (&pp, color, 0, maxtime, 9, 10000,
+-			str, playnow, logging, 0);
++			str, playnow, logging, info & 1);
+ 
+   boardtobitboard (b, &p);
+   m.bm = pp.bm ^ p.bm;
+@@ -604,6 +624,7 @@ getmove (int b[8][8], int color, double maxtime, char str[255], int *playnow,
+   movetonotation (p, m, Lstr, color);
+   sscanf (Lstr, "%2i%c%2i", &Lfrom, &c, &Lto);
+   movetocbmove (p, m, move, color, Lfrom, Lto);
++  bitboardtoboard (&pp, b);
+ 
+   if (value >= 4999)
+     return WIN;
+diff --git a/cake/switches.h b/cake/switches.h
+index 0af8dd2..91f860f 100644
+--- a/cake/switches.h
++++ b/cake/switches.h
+@@ -10,9 +10,7 @@
+ 	#define IMMEDIATERETURNONFORCED  /* if defined, cake++ will not think about forced moves*/
+ #endif
+ 
+-#ifndef __LP64__           /* NOT on 64bit hardware */
+-#define USEDB					/* use the endgame database */
+-#endif
++#define USEDB					/* use the endgame database (cbport: db.c is LP64-clean now) */
+ 
+ #undef EVALOFF              /* return 0 in eval */
+ #undef EVALMATERIALONLY     /* turn off all positional evaluation */
