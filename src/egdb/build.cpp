@@ -112,12 +112,14 @@ void init_sub(Work& s, int threads, Failure& fail) {
         if (fail.flag.load(std::memory_order_relaxed)) return;
         const std::uint64_t b = c << CHUNK_SHIFT, e = std::min(s.dims.size, b + CHUNK);
         bool frontier = false;
-        for (std::uint64_t i = b; i < e; ++i) {
-            Pos p;
-            if (!unindex(s.dims, i, p)) {
+        Cursor cur(s.dims);
+        cur.set(b);
+        for (std::uint64_t i = b; i < e; ++i, cur.next()) {
+            if (!cur.valid) {
                 s.st[i] = S_INV;
                 continue;
             }
+            const Pos& p = cur.p;
             if (s.depth) s.depth[i] = 0;
             if (has_capture(p)) {
                 const Wld v = probe_canon(p);

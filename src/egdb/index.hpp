@@ -107,8 +107,13 @@ inline std::uint64_t index_of(const SubDims& s, const Pos& p) {
     return ((ms * s.no + mo) * s.nks + ks) * s.nko + ko;
 }
 
-// Tables of all k-subsets of {0..31} in colex order (k <= 7), built lazily. Generator-side only.
-const std::uint32_t* unrank_table(int k);
+// Tables of all k-subsets of {0..31} in colex order (k <= 7), built on first use (~18 MB).
+// Generator / verification side only; probing never unranks.
+const std::uint32_t* const* unrank_tables();
+inline const std::uint32_t* unrank_table(int k) {
+    static const std::uint32_t* const* t = unrank_tables();
+    return t[k];
+}
 
 // k-th (0-based) set bit of v.
 inline int select_bit(Bitboard v, int k) {
@@ -144,5 +149,75 @@ inline bool unindex(const SubDims& s, std::uint64_t idx, Pos& p) {
     p.ok = scatter(unrank_table(s.m.d)[ko], free0 & ~p.sk);
     return true;
 }
+
+// Sequential walk over a subslice in index order, avoiding the divisions and bit selects of
+// unindex(). After set(i) / next(), `valid` tells whether the entry is a real position.
+class Cursor {
+public:
+    explicit Cursor(const SubDims& d)
+        : d_(d),
+          us_(unrank_table(d.m.a) + men_base(d.m.a, d.x)),
+          uo_(unrank_table(d.m.c) + men_base(d.m.c, d.y)),
+          ub_(unrank_table(d.m.b)),
+          ud_(unrank_table(d.m.d)) {}
+
+    Pos p;
+    bool valid = false;
+
+    void set(std::uint64_t idx) {
+        ko_ = idx % d_.nko;
+        idx /= d_.nko;
+        ks_ = idx % d_.nks;
+        idx /= d_.nks;
+        mo_ = idx % d_.no;
+        ms_ = idx / d_.no;
+        men();
+    }
+
+    void next() {
+        if (++ko_ < d_.nko) {
+            if (valid) p.ok = place(ud_[ko_], free2_);
+            return;
+        }
+        ko_ = 0;
+        if (++ks_ < d_.nks) {
+            if (valid) kings();
+            return;
+        }
+        ks_ = 0;
+        if (++mo_ == d_.no) mo_ = 0, ++ms_;
+        men();
+    }
+
+private:
+    static Bitboard place(Bitboard mask, const std::uint8_t* sq) {
+        Bitboard r = 0;
+        for (; mask; mask &= mask - 1) r |= bit(sq[std::countr_zero(mask)]);
+        return r;
+    }
+    static void list(Bitboard avail, std::uint8_t* out) {
+        for (int i = 0; avail; avail &= avail - 1) out[i++] = std::uint8_t(std::countr_zero(avail));
+    }
+    void kings() {
+        p.sk = place(ub_[ks_], free1_);
+        list(free0_ & ~p.sk, free2_);
+        p.ok = place(ud_[ko_], free2_);
+    }
+    void men() {
+        p.sm = rev(us_[ms_]);
+        p.om = uo_[mo_];
+        valid = !(p.sm & p.om);
+        if (!valid) return;
+        free0_ = ~(p.sm | p.om);
+        list(free0_, free1_);
+        kings();
+    }
+
+    const SubDims& d_;
+    const std::uint32_t *us_, *uo_, *ub_, *ud_;
+    std::uint64_t ms_ = 0, mo_ = 0, ks_ = 0, ko_ = 0;
+    Bitboard free0_ = 0;
+    std::uint8_t free1_[32], free2_[32];
+};
 
 }  // namespace regicide::egdb::detail
