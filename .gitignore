@@ -3,3 +3,5 @@ build/
 compile_commands.json
 *.nnue
 .DS_Store
+*.rgdb
+*.rgdb.tmp

@@ -76,3 +76,32 @@ target_link_libraries(train PRIVATE regicide_core)
 
 add_executable(bookgen tools/bookgen.cpp)
 target_link_libraries(bookgen PRIVATE regicide_core)
+
+# Endgame database: library, generator and tests (self-contained; depends only on types.hpp).
+add_library(regicide_egdb STATIC
+  src/egdb/store.cpp
+  src/egdb/codec.cpp
+  src/egdb/index.cpp
+  src/egdb/build.cpp
+  src/egdb/verify.cpp
+  src/egdb/platform.cpp
+)
+target_include_directories(regicide_egdb PUBLIC src)
+if(NOT MSVC)
+  target_compile_options(regicide_egdb PRIVATE -Wall -Wextra -Wpedantic $<$<CONFIG:Release>:-O3>)
+  if(REGICIDE_NATIVE)
+    target_compile_options(regicide_egdb PUBLIC $<$<CONFIG:Release>:-march=native>)
+  endif()
+endif()
+
+add_executable(egdb_gen tools/egdb_gen.cpp)
+target_link_libraries(egdb_gen PRIVATE regicide_egdb)
+
+add_executable(egdb_test tests/egdb_test.cpp)
+target_link_libraries(egdb_test PRIVATE regicide_egdb)
+add_test(NAME egdb COMMAND egdb_test)
+add_test(NAME egdb_data COMMAND egdb_test --data)
+
+# The search probes the endgame database.
+set_target_properties(regicide_egdb PROPERTIES POSITION_INDEPENDENT_CODE ON)
+target_link_libraries(regicide_core PUBLIC regicide_egdb)
