@@ -1,5 +1,6 @@
 // CheckerBoard engine interface (https://github.com/eygilbert/CheckerBoard, source/cb_interface.h).
 // Built as a shared library so Regicide runs inside CheckerBoard on Windows and in our match runner.
+#include <algorithm>
 #include <cstdint>
 #include <cstdio>
 #include <cstring>
@@ -59,6 +60,7 @@ struct State {
     bool have_after = false;
     std::size_t hash_mb = 128;
     int threads = 1;
+    int book_mode = 3;  // CB_BOOK_BEST_MOVES
     std::mutex mutex;
 };
 
@@ -67,6 +69,7 @@ State& state() {
     if (!s.engine) {
         s.engine = std::make_unique<Engine>();
         s.engine->set_hash_mb(s.hash_mb);
+        s.engine->set_book(Book::builtin());
     }
     return s;
 }
@@ -207,7 +210,7 @@ CB_EXPORT int WINAPI enginecommand(const char* command, char reply[1024]) {
         if (p1 == "gametype") return answer("21", 1);
         if (p1 == "hashsize") return answer(std::to_string(s.hash_mb), 1);
         if (p1 == "threads") return answer(std::to_string(s.threads), 1);
-        if (p1 == "book") return answer("0", 1);
+        if (p1 == "book") return answer(std::to_string(s.book_mode), 1);
     }
     if (cmd == "set") {
         std::lock_guard lock(s.mutex);
@@ -215,6 +218,13 @@ CB_EXPORT int WINAPI enginecommand(const char* command, char reply[1024]) {
             s.hash_mb = std::max(1, std::atoi(p2.c_str()));
             s.engine->set_hash_mb(s.hash_mb);
             return answer(std::to_string(s.hash_mb), 1);
+        }
+        if (p1 == "book") {
+            // 0 = off, 1 = any book move, 2 = good moves (within 0.1 man), 3 = best moves only.
+            s.book_mode = std::clamp(std::atoi(p2.c_str()), 0, 3);
+            const int margin[] = {0, 60, 10, 0};
+            s.engine->set_book(s.book_mode ? Book::builtin() : nullptr, margin[s.book_mode]);
+            return answer(std::to_string(s.book_mode), 1);
         }
         if (p1 == "threads") {
             s.threads = std::max(1, std::atoi(p2.c_str()));

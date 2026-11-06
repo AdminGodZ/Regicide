@@ -28,6 +28,7 @@ void print_help() {
                  "  divide <depth>      perft split by root move\n"
                  "  go [depth N] [movetime MS] [nodes N] [btime MS wtime MS binc MS winc MS movestogo N]\n"
                  "  set threads|hash|<search param> <value>\n"
+                 "  set evalfile <path|hce>, set book <path|builtin|off>\n"
                  "  bench [depth]       fixed-depth search over built-in positions (node count signature)\n"
                  "  quit\n";
 }
@@ -48,6 +49,7 @@ void print_info(const SearchInfo& i) {
 
 int main(int argc, char** argv) {
     Engine engine;
+    engine.set_book(Book::builtin());
     Position pos;
     std::vector<Position> history;
 
@@ -165,7 +167,15 @@ int main(int argc, char** argv) {
             std::string name;
             long long value = 0;
             in >> name;
-            if (name != "evalfile") in >> value;
+            if (name != "evalfile" && name != "book") in >> value;
+            if (name == "book") {
+                std::string path = line.substr(line.find("book") + 5);
+                if (path == "off") engine.set_book(nullptr);
+                else if (path == "builtin") engine.set_book(Book::builtin());
+                else if (auto b = std::make_shared<Book>(); b->load(path)) engine.set_book(b);
+                else std::cout << "cannot load " << path << std::endl;
+                continue;
+            }
             if (name == "evalfile") {
                 std::string path = line.substr(line.find("evalfile") + 9);
                 auto ev = path == "hce" ? Evaluator::hce() : Evaluator::from_file(path);

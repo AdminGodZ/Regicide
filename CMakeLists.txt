@@ -27,6 +27,8 @@ target_include_directories(regicide_core PUBLIC src)
 # Trained evaluation weights are compiled in with #embed (standard in C23/C++26; a Clang extension in C++ today).
 set_source_files_properties(src/eval.cpp PROPERTIES COMPILE_OPTIONS "-Wno-c23-extensions"
                             OBJECT_DEPENDS ${CMAKE_SOURCE_DIR}/src/weights/eval.bin)
+set_source_files_properties(src/book.cpp PROPERTIES COMPILE_OPTIONS "-Wno-c23-extensions"
+                            OBJECT_DEPENDS ${CMAKE_SOURCE_DIR}/src/weights/book.bin)
 
 if(MSVC)
   target_compile_options(regicide_core PUBLIC /W4)
@@ -71,3 +73,6 @@ target_link_libraries(datagen PRIVATE regicide_core)
 
 add_executable(train tools/train.cpp)
 target_link_libraries(train PRIVATE regicide_core)
+
+add_executable(bookgen tools/bookgen.cpp)
+target_link_libraries(bookgen PRIVATE regicide_core)

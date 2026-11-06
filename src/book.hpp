@@ -1,6 +1,7 @@
 #pragma once
 
 #include <cstdint>
+#include <memory>
 #include <optional>
 #include <string>
 #include <vector>
@@ -24,6 +25,9 @@ public:
     static_assert(sizeof(Entry) == 16);
 
     bool load(const std::string& path);
+    bool load(const unsigned char* data, std::size_t size);
+    // The book compiled into the binary (empty if none was embedded at build time).
+    static std::shared_ptr<const Book> builtin();
     bool save(const std::string& path) const;
     bool empty() const { return entries_.empty(); }
     std::size_t size() const { return entries_.size(); }

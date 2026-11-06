@@ -7,6 +7,7 @@
 #include <string>
 #include <vector>
 
+#include "book.hpp"
 #include "eval.hpp"
 #include "position.hpp"
 #include "tt.hpp"
@@ -22,6 +23,7 @@ struct Limits {
     int inc_ms = 0;
     int moves_to_go = 0;  // 0 = sudden death
     bool infinite = false;
+    bool use_book = true;  // play a book move without searching when the engine has a book
 };
 
 struct SearchInfo {
@@ -87,6 +89,11 @@ public:
     // Polled by the main search thread; returning true aborts the search (e.g. a GUI "play now").
     void set_stop_poll(std::function<bool()> poll) { stop_poll_ = std::move(poll); }
     void set_evaluator(std::shared_ptr<const Evaluator> e) { eval_ = std::move(e); }
+    // nullptr disables the book. `margin` > 0 picks randomly among book moves within margin of the best.
+    void set_book(std::shared_ptr<const Book> b, int margin = 0) {
+        book_ = std::move(b);
+        book_margin_ = margin;
+    }
     const Evaluator& evaluator() const { return *eval_; }
 
     SearchParams params;
@@ -101,6 +108,9 @@ private:
     std::atomic<bool> stop_{false};
     std::function<bool()> stop_poll_;
     std::shared_ptr<const Evaluator> eval_ = Evaluator::builtin();
+    std::shared_ptr<const Book> book_;
+    int book_margin_ = 0;
+    std::uint64_t book_seed_ = 0x1234567;
     int threads_ = 1;
 };
 

@@ -12,17 +12,41 @@ namespace regicide {
 bool Book::load(const std::string& path) {
     std::FILE* f = std::fopen(path.c_str(), "rb");
     if (!f) return false;
-    char magic[4];
-    std::uint32_t version = 0, count = 0;
-    bool ok = std::fread(magic, 1, 4, f) == 4 && std::memcmp(magic, "RGBK", 4) == 0 &&
-              std::fread(&version, 4, 1, f) == 1 && version == 1 && std::fread(&count, 4, 1, f) == 1;
-    if (ok) {
-        entries_.resize(count);
-        ok = std::fread(entries_.data(), sizeof(Entry), count, f) == count;
-    }
+    std::vector<unsigned char> data;
+    unsigned char buf[65536];
+    for (std::size_t n; (n = std::fread(buf, 1, sizeof buf, f)) > 0;) data.insert(data.end(), buf, buf + n);
     std::fclose(f);
-    if (!ok) entries_.clear();
-    return ok;
+    return load(data.data(), data.size());
+}
+
+bool Book::load(const unsigned char* data, std::size_t size) {
+    entries_.clear();
+    std::uint32_t version = 0, count = 0;
+    if (size < 12 || std::memcmp(data, "RGBK", 4) != 0) return false;
+    std::memcpy(&version, data + 4, 4);
+    std::memcpy(&count, data + 8, 4);
+    if (version != 1 || size < 12 + std::size_t(count) * sizeof(Entry)) return false;
+    entries_.resize(count);
+    std::memcpy(entries_.data(), data + 12, std::size_t(count) * sizeof(Entry));
+    return true;
+}
+
+namespace {
+
+constexpr unsigned char EMBEDDED_BOOK[] = {
+    0,
+#embed "weights/book.bin"
+};
+
+}  // namespace
+
+std::shared_ptr<const Book> Book::builtin() {
+    static const std::shared_ptr<const Book> b = [] {
+        auto book = std::make_shared<Book>();
+        book->load(EMBEDDED_BOOK + 1, sizeof(EMBEDDED_BOOK) - 1);
+        return book;
+    }();
+    return b;
 }
 
 bool Book::save(const std::string& path) const {

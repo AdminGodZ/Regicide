@@ -523,6 +523,23 @@ SearchResult Engine::go(const Limits& limits, InfoFn on_info) {
     generate_moves(root_, list);
     SearchResult result;
     if (list.empty()) return result;
+
+    if (book_ && limits.use_book && !limits.infinite && !book_->empty()) {
+        book_seed_ = book_seed_ * 6364136223846793005ull + 1442695040888963407ull;
+        if (auto m = book_->probe(root_, book_margin_, book_seed_ >> 33)) {
+            for (const Book::Entry& e : book_->lookup(root_))
+                if (Book::to_move(root_, e) == m) result.score = e.score;
+            result.best = *m;
+            result.pv = {*m};
+            if (on_info) {
+                SearchInfo info;
+                info.score = result.score;
+                info.pv = result.pv;
+                on_info(info);
+            }
+            return result;
+        }
+    }
     std::vector<Move> root_moves(list.begin(), list.end());
 
     for (auto& w : workers_) w->setup(root_, history_, root_moves);
