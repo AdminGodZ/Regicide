@@ -7,6 +7,7 @@
 #include <vector>
 
 #include "bench.hpp"
+#include "egdb/egdb.hpp"
 #include "movegen.hpp"
 #include "perft.hpp"
 #include "position.hpp"
@@ -28,7 +29,7 @@ void print_help() {
                  "  divide <depth>      perft split by root move\n"
                  "  go [depth N] [movetime MS] [nodes N] [btime MS wtime MS binc MS winc MS movestogo N]\n"
                  "  set threads|hash|<search param> <value>\n"
-                 "  set evalfile <path|hce>, set book <path|builtin|off>\n"
+                 "  set evalfile <path|hce>, set book <path|builtin|off>, set egdb <dir>\n"
                  "  bench [depth]       fixed-depth search over built-in positions (node count signature)\n"
                  "  quit\n";
 }
@@ -42,7 +43,7 @@ std::string pv_string(const std::vector<Move>& pv) {
 void print_info(const SearchInfo& i) {
     std::cout << "info depth " << i.depth << " seldepth " << i.seldepth << " score " << i.score << " nodes "
               << i.nodes << " nps " << i.nodes * 1000 / std::max<std::int64_t>(1, i.time_ms) << " time "
-              << i.time_ms << " hashfull " << i.hashfull << " pv " << pv_string(i.pv) << std::endl;
+               << i.time_ms << " hashfull " << i.hashfull << " tbhits " << i.tbhits << " pv " << pv_string(i.pv) << std::endl;
 }
 
 }  // namespace
@@ -50,6 +51,16 @@ void print_info(const SearchInfo& i) {
 int main(int argc, char** argv) {
     Engine engine;
     engine.set_book(Book::builtin());
+    auto load_egdb = [&](const std::string& path) {
+        if (egdb::init(path, 4096)) {
+            engine.set_egdb_pieces(egdb::max_pieces());
+            std::cout << "egdb: " << egdb::max_pieces() << " pieces (mtc " << egdb::max_mtc_pieces() << ") from "
+                      << path << std::endl;
+        } else {
+            std::cout << "egdb: nothing found in " << path << std::endl;
+        }
+    };
+    if (const char* env = std::getenv("REGICIDE_EGDB")) load_egdb(env);
     Position pos;
     std::vector<Position> history;
 
@@ -167,7 +178,11 @@ int main(int argc, char** argv) {
             std::string name;
             long long value = 0;
             in >> name;
-            if (name != "evalfile" && name != "book") in >> value;
+            if (name != "evalfile" && name != "book" && name != "egdb") in >> value;
+            if (name == "egdb") {
+                load_egdb(line.substr(line.find("egdb") + 5));
+                continue;
+            }
             if (name == "book") {
                 std::string path = line.substr(line.find("book") + 5);
                 if (path == "off") engine.set_book(nullptr);

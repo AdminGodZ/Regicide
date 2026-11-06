@@ -16,6 +16,7 @@
 #include <vector>
 
 #include "datafile.hpp"
+#include "egdb/egdb.hpp"
 #include "movegen.hpp"
 #include "position.hpp"
 #include "search.hpp"
@@ -36,6 +37,7 @@ struct Config {
     std::uint64_t seed = 1;
     std::string out = "datagen.bin";
     std::string evalfile;
+    int egdb_pieces = 0;
 };
 
 }  // namespace
@@ -53,6 +55,13 @@ int main(int argc, char** argv) {
         else if (k == "--seed") cfg.seed = std::stoull(next());
         else if (k == "--out") cfg.out = next();
         else if (k == "--evalfile") cfg.evalfile = next();
+        else if (k == "--egdb") {
+            if (!egdb::init(next(), 4096)) {
+                std::cerr << "cannot load egdb\n";
+                return 1;
+            }
+            cfg.egdb_pieces = egdb::max_pieces();
+        }
         else {
             std::cerr << "unknown option " << k << '\n';
             return 2;
@@ -80,6 +89,7 @@ int main(int argc, char** argv) {
         Engine engine;
         engine.set_hash_mb(16);
         engine.set_evaluator(ev);
+        engine.set_egdb_pieces(cfg.egdb_pieces);
         Limits limits;
         limits.nodes = cfg.nodes;
         std::vector<DataRecord> game;
@@ -120,6 +130,16 @@ int main(int argc, char** argv) {
                 int reps = 0;
                 for (const Position& h : history) reps += h == pos;
                 if (reps >= 2 || pos.reversible_plies() >= cfg.draw_reversible || ply >= cfg.max_plies) break;
+                // The database knows the exact result: label the game with it and stop.
+                if (pos.piece_count() <= cfg.egdb_pieces) {
+                    const egdb::Wld r =
+                        egdb::probe(pos.pieces(BLACK), pos.pieces(WHITE), pos.kings(), pos.side_to_move());
+                    if (r != egdb::Wld::Unknown) {
+                        const int stm_result = r == egdb::Wld::Win ? 1 : r == egdb::Wld::Loss ? -1 : 0;
+                        result = pos.side_to_move() == BLACK ? stm_result : -stm_result;
+                        break;
+                    }
+                }
 
                 engine.set_position(pos, history);
                 const SearchResult r = engine.go(limits);

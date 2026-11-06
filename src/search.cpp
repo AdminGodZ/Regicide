@@ -4,8 +4,10 @@
 #include <chrono>
 #include <cmath>
 #include <cstring>
+#include <optional>
 #include <thread>
 
+#include "egdb/egdb.hpp"
 #include "movegen.hpp"
 
 namespace regicide {
@@ -105,6 +107,8 @@ struct Worker {
     int pv_len[MAX_PLY + 8];
 
     std::atomic<std::uint64_t> nodes{0};
+    std::atomic<std::uint64_t> tbhits{0};
+    int egdb_pieces = 0;
     int seldepth = 0;
     int root_depth = 0;
     int completed_depth = 0;
@@ -130,6 +134,8 @@ void Worker::setup(const Position& r, const std::vector<Key>& game_keys, const s
     roots.clear();
     for (const Move& m : root_moves) roots.push_back({m, -SCORE_INF, -SCORE_INF, {m}});
     nodes = 0;
+    tbhits = 0;
+    egdb_pieces = eng.egdb_pieces_;
     seldepth = 0;
     completed_depth = 0;
     P = eng.params;
@@ -185,6 +191,17 @@ Score Worker::search(Position& pos, Score alpha, Score beta, int depth, int ply,
         beta = std::min(beta, SCORE_WIN - ply - 1);
         if (alpha >= beta) return alpha;
         if (ply >= MAX_PLY - 2) return evaluate(pos);
+
+        // Endgame database: exact result. Wins prefer the shortest path into the database.
+        if (pos.piece_count() <= egdb_pieces) {
+            const egdb::Wld r = egdb::probe(pos.pieces(BLACK), pos.pieces(WHITE), pos.kings(), pos.side_to_move());
+            if (r != egdb::Wld::Unknown) {
+                tbhits.fetch_add(1, std::memory_order_relaxed);
+                return r == egdb::Wld::Draw ? SCORE_DRAW
+                       : r == egdb::Wld::Win ? SCORE_DB_WIN - ply
+                                             : -SCORE_DB_WIN + ply;
+            }
+        }
     }
 
     TTData tte;
@@ -351,7 +368,10 @@ SearchInfo Worker::make_info(int depth, Score score) const {
     info.depth = depth;
     info.seldepth = seldepth;
     info.score = score;
-    for (const auto& w : eng.workers_) info.nodes += w->nodes.load(std::memory_order_relaxed);
+    for (const auto& w : eng.workers_) {
+        info.nodes += w->nodes.load(std::memory_order_relaxed);
+        info.tbhits += w->tbhits.load(std::memory_order_relaxed);
+    }
     info.time_ms = elapsed_ms(tc->start);
     info.hashfull = tt.hashfull();
     info.pv = roots[0].pv;
@@ -497,6 +517,46 @@ void Engine::set_position(const Position& root, const std::vector<Position>& his
     root_.set_reversible_plies(rev);
 }
 
+// Perfect play from the database when the root is in it and decided: the winner follows moves-to-conversion
+// downhill (so the win is always realised), the loser maximises it. Draws are left to the search.
+std::optional<std::pair<Move, Score>> Engine::egdb_root_move(const Position& root, const MoveList& list) const {
+    if (!egdb_pieces_ || root.piece_count() > std::min(egdb_pieces_, egdb::max_mtc_pieces())) return std::nullopt;
+    auto probe = [](const Position& p) {
+        return egdb::probe(p.pieces(BLACK), p.pieces(WHITE), p.kings(), p.side_to_move());
+    };
+    auto mtc = [](const Position& p) {
+        return egdb::probe_mtc(p.pieces(BLACK), p.pieces(WHITE), p.kings(), p.side_to_move());
+    };
+    const egdb::Wld r = probe(root);
+    if (r != egdb::Wld::Win && r != egdb::Wld::Loss) return std::nullopt;
+    const int root_mtc = mtc(root);
+    if (root_mtc < 0) return std::nullopt;
+
+    const bool winning = r == egdb::Wld::Win;
+    std::optional<Move> best;
+    int best_key = 0;
+    for (const Move& m : list) {
+        Position c = root;
+        c.make_move(m);
+        MoveList replies;
+        generate_moves(c, replies);
+        const bool converting = m.is_capture() || !(root.kings() & bit(m.from));
+        if (winning) {
+            // The child must be lost for the opponent: either no moves at all or a database loss.
+            if (!replies.empty() && probe(c) != egdb::Wld::Loss) continue;
+            // At MTC 0 play a converting move; otherwise step to a child one ply closer to conversion.
+            const int cm = replies.empty() ? 0 : mtc(c);
+            const int key = root_mtc == 0 ? (converting ? 0 : 1000 + cm) : (converting ? -1 : cm);
+            if (!best || key < best_key) best = m, best_key = key;
+        } else {
+            const int cm = replies.empty() ? -1000 : mtc(c);
+            if (!best || cm > best_key) best = m, best_key = cm;
+        }
+    }
+    if (!best) return std::nullopt;
+    return std::pair{*best, winning ? SCORE_DB_WIN - root_mtc : -SCORE_DB_WIN + root_mtc};
+}
+
 SearchResult Engine::go(const Limits& limits, InfoFn on_info) {
     init_lmr(params);
     stop_ = false;
@@ -523,6 +583,20 @@ SearchResult Engine::go(const Limits& limits, InfoFn on_info) {
     generate_moves(root_, list);
     SearchResult result;
     if (list.empty()) return result;
+
+    if (const auto db = egdb_root_move(root_, list); db.has_value() && !limits.infinite) {
+        result.best = db->first;
+        result.score = db->second;
+        result.pv = {db->first};
+        result.time_ms = elapsed_ms(tc.start);
+        if (on_info) {
+            SearchInfo info;
+            info.score = result.score;
+            info.pv = result.pv;
+            on_info(info);
+        }
+        return result;
+    }
 
     if (book_ && limits.use_book && !limits.infinite && !book_->empty()) {
         book_seed_ = book_seed_ * 6364136223846793005ull + 1442695040888963407ull;

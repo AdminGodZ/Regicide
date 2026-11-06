@@ -10,14 +10,17 @@
 #include <string>
 #include <vector>
 
+#include "egdb/egdb.hpp"
 #include "movegen.hpp"
 #include "position.hpp"
 #include "search.hpp"
 
 #if defined(_WIN32)
+#include <windows.h>
 #define CB_EXPORT extern "C" __declspec(dllexport)
 #define WINAPI __stdcall
 #else
+#include <dlfcn.h>
 #define CB_EXPORT extern "C" __attribute__((visibility("default")))
 #define WINAPI
 #endif
@@ -61,8 +64,35 @@ struct State {
     std::size_t hash_mb = 128;
     int threads = 1;
     int book_mode = 3;  // CB_BOOK_BEST_MOVES
+    std::string egdb_dir;
+    std::size_t egdb_cache_mb = 4096;
     std::mutex mutex;
 };
+
+// Directory containing this engine library (where an "egdb" folder is looked for by default).
+std::string library_dir() {
+#if defined(_WIN32)
+    HMODULE h = nullptr;
+    char path[MAX_PATH] = "";
+    GetModuleHandleExA(GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS | GET_MODULE_HANDLE_EX_FLAG_UNCHANGED_REFCOUNT,
+                       reinterpret_cast<LPCSTR>(&library_dir), &h);
+    GetModuleFileNameA(h, path, MAX_PATH);
+    std::string p = path;
+#else
+    Dl_info info{};
+    dladdr(reinterpret_cast<void*>(&library_dir), &info);
+    std::string p = info.dli_fname ? info.dli_fname : "";
+#endif
+    const std::size_t slash = p.find_last_of("/\\");
+    return slash == std::string::npos ? "." : p.substr(0, slash);
+}
+
+void load_egdb(State& s, const std::string& dir, std::size_t cache_mb) {
+    if (egdb::init(dir, cache_mb)) {
+        s.egdb_dir = dir;
+        s.engine->set_egdb_pieces(egdb::max_pieces());
+    }
+}
 
 State& state() {
     static State s;
@@ -70,6 +100,7 @@ State& state() {
         s.engine = std::make_unique<Engine>();
         s.engine->set_hash_mb(s.hash_mb);
         s.engine->set_book(Book::builtin());
+        load_egdb(s, library_dir() + "/egdb", s.egdb_cache_mb);
     }
     return s;
 }
@@ -211,6 +242,8 @@ CB_EXPORT int WINAPI enginecommand(const char* command, char reply[1024]) {
         if (p1 == "hashsize") return answer(std::to_string(s.hash_mb), 1);
         if (p1 == "threads") return answer(std::to_string(s.threads), 1);
         if (p1 == "book") return answer(std::to_string(s.book_mode), 1);
+        if (p1 == "dbpath") return answer(s.egdb_dir, 1);
+        if (p1 == "dbpieces") return answer(std::to_string(s.engine->egdb_pieces()), 1);
     }
     if (cmd == "set") {
         std::lock_guard lock(s.mutex);
@@ -218,6 +251,17 @@ CB_EXPORT int WINAPI enginecommand(const char* command, char reply[1024]) {
             s.hash_mb = std::max(1, std::atoi(p2.c_str()));
             s.engine->set_hash_mb(s.hash_mb);
             return answer(std::to_string(s.hash_mb), 1);
+        }
+        if (p1 == "dbpath") {
+            // Everything after "set dbpath " (paths may contain spaces).
+            const std::string full = command;
+            const std::size_t at = full.find("dbpath");
+            load_egdb(s, full.substr(at + 7), s.egdb_cache_mb);
+            return answer(std::to_string(s.engine->egdb_pieces()), 1);
+        }
+        if (p1 == "dbmbytes") {
+            s.egdb_cache_mb = std::size_t(std::max(0, std::atoi(p2.c_str())));
+            return answer(std::to_string(s.egdb_cache_mb), 1);
         }
         if (p1 == "book") {
             // 0 = off, 1 = any book move, 2 = good moves (within 0.1 man), 3 = best moves only.

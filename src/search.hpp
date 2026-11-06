@@ -4,6 +4,8 @@
 #include <cstdint>
 #include <functional>
 #include <memory>
+#include <optional>
+#include <utility>
 #include <string>
 #include <vector>
 
@@ -33,6 +35,7 @@ struct SearchInfo {
     std::uint64_t nodes = 0;
     std::int64_t time_ms = 0;
     int hashfull = 0;
+    std::uint64_t tbhits = 0;
     std::vector<Move> pv;
 };
 
@@ -89,6 +92,9 @@ public:
     // Polled by the main search thread; returning true aborts the search (e.g. a GUI "play now").
     void set_stop_poll(std::function<bool()> poll) { stop_poll_ = std::move(poll); }
     void set_evaluator(std::shared_ptr<const Evaluator> e) { eval_ = std::move(e); }
+    // Probe the (process-wide, already initialised) endgame database in positions with at most n pieces; 0 = off.
+    void set_egdb_pieces(int n) { egdb_pieces_ = n; }
+    int egdb_pieces() const { return egdb_pieces_; }
     // nullptr disables the book. `margin` > 0 picks randomly among book moves within margin of the best.
     void set_book(std::shared_ptr<const Book> b, int margin = 0) {
         book_ = std::move(b);
@@ -101,6 +107,8 @@ public:
 private:
     friend struct Worker;
 
+    std::optional<std::pair<Move, Score>> egdb_root_move(const Position& root, const class MoveList& list) const;
+
     TranspositionTable tt_;
     std::vector<std::unique_ptr<struct Worker>> workers_;
     Position root_;
@@ -109,6 +117,7 @@ private:
     std::function<bool()> stop_poll_;
     std::shared_ptr<const Evaluator> eval_ = Evaluator::builtin();
     std::shared_ptr<const Book> book_;
+    int egdb_pieces_ = 0;
     int book_margin_ = 0;
     std::uint64_t book_seed_ = 0x1234567;
     int threads_ = 1;

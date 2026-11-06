@@ -17,6 +17,7 @@
 #include <thread>
 #include <vector>
 
+#include "egdb/egdb.hpp"
 #include "movegen.hpp"
 #include "position.hpp"
 #include "search.hpp"
@@ -37,6 +38,7 @@ struct Config {
     int draw_reversible = 80;
     int max_plies = 400;
     int opening_plies = 3;
+    int egdb_pieces = 0;  // engines probe the database and games end on a database result
     bool verbose = false;
 };
 
@@ -73,6 +75,11 @@ double play_game(const Position& start, Engine& black, Engine& white, const Conf
         generate_moves(pos, list);
         if (list.empty()) return pos.side_to_move() == BLACK ? 0.0 : 1.0;
         if (pos.reversible_plies() >= cfg.draw_reversible) return 0.5;
+        if (pos.piece_count() <= cfg.egdb_pieces) {
+            const egdb::Wld r = egdb::probe(pos.pieces(BLACK), pos.pieces(WHITE), pos.kings(), pos.side_to_move());
+            if (r == egdb::Wld::Draw) return 0.5;
+            if (r != egdb::Wld::Unknown) return (r == egdb::Wld::Win) == (pos.side_to_move() == BLACK) ? 1.0 : 0.0;
+        }
         int reps = 0;
         for (const Position& h : history) reps += h == pos;
         if (reps >= 2) return 0.5;
@@ -135,6 +142,13 @@ int main(int argc, char** argv) {
         else if (k == "--pairs") cfg.pairs = std::stoi(next());
         else if (k == "--hash") cfg.hash_mb = std::stoull(next());
         else if (k == "--plies") cfg.opening_plies = std::stoi(next());
+        else if (k == "--egdb") {
+            if (!egdb::init(next(), 4096)) {
+                std::cerr << "cannot load egdb\n";
+                return 1;
+            }
+            cfg.egdb_pieces = egdb::max_pieces();
+        }
         else if (k == "--adjudicate") cfg.adjudicate_score = std::stoi(next());
         else if (k == "-v") cfg.verbose = true;
         else {
@@ -177,6 +191,8 @@ int main(int argc, char** argv) {
         eb.set_hash_mb(cfg.hash_mb);
         ea.set_evaluator(eval_a);
         eb.set_evaluator(eval_b);
+        ea.set_egdb_pieces(cfg.egdb_pieces);
+        eb.set_egdb_pieces(cfg.egdb_pieces);
         if (!ea.params.set_all(cfg.a) || !eb.params.set_all(cfg.b)) {
             std::cerr << "bad parameter spec\n";
             std::exit(2);
