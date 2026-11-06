@@ -68,6 +68,7 @@ struct Worker {
 
     void clear() {
         std::memset(history, 0, sizeof(history));
+        std::memset(cont, 0, sizeof(cont));
         std::memset(killers, 0, sizeof(killers));
     }
 
@@ -79,6 +80,9 @@ struct Worker {
     void check_limits();
     bool is_repetition(const Position& pos, int ply) const;
     void update_quiet_stats(Color us, const Move& best, const Move* tried, int ntried, int depth, int ply);
+    int quiet_score(Color us, const Move& m, int ply) const {
+        return history[us][m.from][m.to] + (P.cont_hist ? cont[prev_to[ply]][m.from][m.to] : 0);
+    }
     SearchInfo make_info(int depth, Score score) const;
 
     Engine& eng;
@@ -94,7 +98,9 @@ struct Worker {
     std::size_t hist_len = 0;
 
     std::int16_t history[2][32][32];
+    std::int16_t cont[33][32][32];  // [destination of the opponent's last move (32 = none)][from][to]
     Move killers[MAX_PLY + 8][2];
+    int prev_to[MAX_PLY + 8];  // destination of the move that led to each ply (32 at the root)
     Move pv[MAX_PLY + 8][MAX_PLY + 8];
     int pv_len[MAX_PLY + 8];
 
@@ -150,6 +156,8 @@ void Worker::update_quiet_stats(Color us, const Move& best, const Move* tried, i
     auto adjust = [&](const Move& m, int b) {
         std::int16_t& h = history[us][m.from][m.to];
         h = std::int16_t(h + b - h * std::abs(b) / 16384);
+        std::int16_t& c = cont[prev_to[ply]][m.from][m.to];
+        c = std::int16_t(c + b - c * std::abs(b) / 16384);
     };
     adjust(best, bonus);
     for (int i = 0; i < ntried; ++i) adjust(tried[i], -bonus);
@@ -214,6 +222,25 @@ Score Worker::search(Position& pos, Score alpha, Score beta, int depth, int ply,
     // Internal iterative reduction: no hash move at high depth means this node is probably unimportant.
     if (depth >= 6 && !(tt_hit && tte.move.valid())) --depth;
 
+    // Enhanced transposition cutoff: a child already known to refute this node from the hash table.
+    if (!is_root && depth >= P.etc_min_depth) {
+        for (const Move& m : moves) {
+            TTData ce;
+            if (!tt.probe(pos.key_after(m), ce) || ce.depth < depth - 1 || !(ce.bound & BOUND_UPPER)) continue;
+            const Score cs = -score_from_tt(ce.score, ply + 1);
+            if (cs >= beta && !is_decisive(cs)) return cs;
+        }
+    }
+
+    // ProbCut: if a shallower search clears beta by a margin, the full-depth search very likely clears beta.
+    if (!pv_node && !forced_capture && depth >= P.probcut_depth && !is_decisive(beta)) {
+        const Score pb = beta + P.probcut_margin;
+        const Score s = search(pos, pb - 1, pb, depth - P.probcut_reduction, ply, cut_node, qext);
+        if (stopped()) return 0;
+        if (s >= pb) return s;
+        pv_len[ply] = ply;
+    }
+
     const int ext = depth > 0 && moves.size() == 1 && P.single_reply_ext ? 1 : 0;
 
     // Move ordering.
@@ -235,7 +262,7 @@ Score Worker::search(Position& pos, Score alpha, Score beta, int depth, int ply,
         else if (m == killers[ply][1])
             s = 1 << 22;
         else
-            s = history[us][m.from][m.to];
+            s = quiet_score(us, m, ply);
         order[i] = s;
     }
 
@@ -254,10 +281,17 @@ Score Worker::search(Position& pos, Score alpha, Score beta, int depth, int ply,
         const Move m = moves[n];
         const bool quiet = !m.is_capture() && !is_promotion(pos, m);
 
+        // Shallow pruning of late quiet moves.
+        if (!pv_node && quiet && n > 0 && best > -SCORE_KNOWN_WIN) {
+            if (depth <= P.lmp_depth && nquiets >= P.lmp_base + depth * depth) continue;
+            if (depth <= P.fut_depth && eval + P.fut_margin * depth <= alpha) continue;
+        }
+
         Position child = pos;
         child.make_move(m);
         tt.prefetch(child.key());
         const int new_depth = depth - 1 + ext;
+        prev_to[ply + 1] = m.to;
 
         Score s;
         if (n == 0) {
@@ -268,7 +302,7 @@ Score Worker::search(Position& pos, Score alpha, Score beta, int depth, int ply,
                 r = LMR[std::min(depth, 63)][std::min<int>(int(n), 63)];
                 r += cut_node;
                 r -= pv_node;
-                r -= history[us][m.from][m.to] / 6000;
+                r -= quiet_score(us, m, ply) / 6000;
                 r = std::clamp(r, 0, std::max(0, new_depth - 1));
             }
             s = -search(child, -alpha - 1, -alpha, new_depth - r, ply + 1, true, qext);
@@ -330,6 +364,7 @@ void Worker::iterate(const Limits& limits, TimeControl& t, const Engine::InfoFn*
     Move last_best = roots[0].move;
     int stability = 0;
 
+    prev_to[0] = 32;
     for (root_depth = 1; root_depth <= limits.depth; ++root_depth) {
         if (!main && id < 20 && ((root_depth + SKIP_PHASE[id]) / SKIP_SIZE[id]) % 2) continue;
 
@@ -397,6 +432,11 @@ bool SearchParams::set(const std::string& name, int value) {
         {"rfp_max_depth", &SearchParams::rfp_max_depth},       {"lmr_base", &SearchParams::lmr_base},
         {"lmr_mult", &SearchParams::lmr_mult},                 {"lmr_min_depth", &SearchParams::lmr_min_depth},
         {"threat_qext", &SearchParams::threat_qext},           {"single_reply_ext", &SearchParams::single_reply_ext},
+        {"etc_min_depth", &SearchParams::etc_min_depth},       {"probcut_depth", &SearchParams::probcut_depth},
+        {"probcut_margin", &SearchParams::probcut_margin},     {"probcut_reduction", &SearchParams::probcut_reduction},
+        {"lmp_depth", &SearchParams::lmp_depth},               {"lmp_base", &SearchParams::lmp_base},
+        {"fut_depth", &SearchParams::fut_depth},               {"fut_margin", &SearchParams::fut_margin},
+        {"cont_hist", &SearchParams::cont_hist},
     };
     for (const auto& e : table)
         if (name == e.name) {

@@ -164,7 +164,15 @@ int main(int argc, char** argv) {
         } else if (cmd == "set") {
             std::string name;
             long long value = 0;
-            in >> name >> value;
+            in >> name;
+            if (name != "evalfile") in >> value;
+            if (name == "evalfile") {
+                std::string path = line.substr(line.find("evalfile") + 9);
+                auto ev = path == "hce" ? Evaluator::hce() : Evaluator::from_file(path);
+                if (ev) engine.set_evaluator(ev);
+                else std::cout << "cannot load " << path << std::endl;
+                continue;
+            }
             if (name == "threads") engine.set_threads(int(value));
             else if (name == "hash") engine.set_hash_mb(std::size_t(value));
             else if (!engine.params.set(name, int(value))) std::cout << "unknown option " << name << std::endl;

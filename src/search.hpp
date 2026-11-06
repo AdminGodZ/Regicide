@@ -53,6 +53,15 @@ struct SearchParams {
     int lmr_min_depth = 3;
     int threat_qext = 1;        // extra plies allowed at the horizon when the opponent threatens a capture
     int single_reply_ext = 1;
+    int etc_min_depth = 4;      // enhanced transposition cutoff from this depth (99 = off)
+    int probcut_depth = 99;     // ProbCut from this depth (99 = off)
+    int probcut_margin = 80;
+    int probcut_reduction = 4;
+    int lmp_depth = 0;          // late move pruning up to this depth (0 = off)
+    int lmp_base = 3;
+    int fut_depth = 0;          // per-move futility pruning up to this depth (0 = off)
+    int fut_margin = 90;
+    int cont_hist = 1;          // use counter-move continuation history in ordering
 
     // Sets a parameter by name; returns false for an unknown name.
     bool set(const std::string& name, int value);

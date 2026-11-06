@@ -21,6 +21,7 @@ add_library(regicide_core STATIC
   src/search.cpp
   src/tt.cpp
   src/bench.cpp
+  src/book.cpp
 )
 target_include_directories(regicide_core PUBLIC src)
 # Trained evaluation weights are compiled in with #embed (standard in C23/C++26; a Clang extension in C++ today).
@@ -64,3 +65,9 @@ add_test(NAME cb_api COMMAND cb_api_test $<TARGET_FILE:regicide_cb>)
 
 add_executable(selfplay tools/selfplay.cpp)
 target_link_libraries(selfplay PRIVATE regicide_core)
+
+add_executable(datagen tools/datagen.cpp)
+target_link_libraries(datagen PRIVATE regicide_core)
+
+add_executable(train tools/train.cpp)
+target_link_libraries(train PRIVATE regicide_core)

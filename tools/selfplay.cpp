@@ -27,6 +27,7 @@ namespace {
 
 struct Config {
     std::string a, b;
+    std::string eval_a, eval_b;  // weight files; empty = built-in, "hce" = hand-crafted
     Limits limits;
     int threads = 8;
     int pairs = 0;  // 0 = every opening once
@@ -123,6 +124,8 @@ int main(int argc, char** argv) {
         auto next = [&]() -> std::string { return i + 1 < argc ? argv[++i] : ""; };
         if (k == "--a") cfg.a = next();
         else if (k == "--b") cfg.b = next();
+        else if (k == "--evala") cfg.eval_a = next();
+        else if (k == "--evalb") cfg.eval_b = next();
         else if (k == "--nodes") cfg.limits.nodes = std::stoull(next());
         else if (k == "--depth") cfg.limits.depth = std::stoi(next()), cfg.limits.nodes = 0;
         else if (k == "--movetime") cfg.limits.movetime_ms = std::stoi(next()), cfg.limits.nodes = 0;
@@ -143,6 +146,18 @@ int main(int argc, char** argv) {
     std::printf("openings %zu, pairs %d, A=\"%s\" B=\"%s\"\n", openings.size(), pairs, cfg.a.c_str(),
                 cfg.b.c_str());
 
+    auto load_eval = [](const std::string& spec) {
+        if (spec.empty()) return Evaluator::builtin();
+        if (spec == "hce") return Evaluator::hce();
+        auto e = Evaluator::from_file(spec);
+        if (!e) {
+            std::cerr << "cannot load " << spec << '\n';
+            std::exit(1);
+        }
+        return e;
+    };
+    const auto eval_a = load_eval(cfg.eval_a), eval_b = load_eval(cfg.eval_b);
+
     std::atomic<int> next_pair{0};
     std::mutex mu;
     std::vector<int> penta(5, 0);
@@ -152,6 +167,8 @@ int main(int argc, char** argv) {
         Engine ea, eb;
         ea.set_hash_mb(cfg.hash_mb);
         eb.set_hash_mb(cfg.hash_mb);
+        ea.set_evaluator(eval_a);
+        eb.set_evaluator(eval_b);
         if (!ea.params.set_all(cfg.a) || !eb.params.set_all(cfg.b)) {
             std::cerr << "bad parameter spec\n";
             std::exit(2);
