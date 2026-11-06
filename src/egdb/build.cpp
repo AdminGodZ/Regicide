@@ -473,6 +473,12 @@ bool build_range(const BuildOptions& o, int min_pieces, int max_pieces) {
         std::vector<Material> pairs;
         for (const Material& m : materials_with(n)) {
             const Material p = m.partner();
+            if (n == max_pieces && !o.sides.empty() &&
+                std::none_of(o.sides.begin(), o.sides.end(), [&](std::pair<int, int> s) {
+                    const int u = m.a + m.b, v = m.c + m.d;
+                    return (s.first == u && s.second == v) || (s.first == v && s.second == u);
+                }))
+                continue;
             if (std::make_tuple(p.a, p.b, p.c, p.d) < std::make_tuple(m.a, m.b, m.c, m.d)) continue;
             pairs.push_back(m);
         }
