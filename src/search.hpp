@@ -67,6 +67,10 @@ struct SearchParams {
     int fut_depth = 3;          // per-move futility pruning up to this depth (0 = off)
     int fut_margin = 60;
     int cont_hist = 1;          // use counter-move continuation history in ordering
+    int se_depth = 99;          // singular extensions from this depth (99 = off)
+    int se_margin = 40;         // singular beta = tt score - se_margin * depth / 8
+    int razor_depth = 0;        // razoring up to this depth (0 = off)
+    int razor_margin = 150;
 
     // Sets a parameter by name; returns false for an unknown name.
     bool set(const std::string& name, int value);

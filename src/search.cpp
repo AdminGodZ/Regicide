@@ -103,6 +103,8 @@ struct Worker {
     std::int16_t cont[33][32][32];  // [destination of the opponent's last move (32 = none)][from][to]
     Move killers[MAX_PLY + 8][2];
     int prev_to[MAX_PLY + 8];  // destination of the move that led to each ply (32 at the root)
+    Move excluded[MAX_PLY + 8];  // move skipped by a singular-extension verification search at this ply
+    bool has_excluded[MAX_PLY + 8] = {};
     Move pv[MAX_PLY + 8][MAX_PLY + 8];
     int pv_len[MAX_PLY + 8];
 
@@ -204,8 +206,9 @@ Score Worker::search(Position& pos, Score alpha, Score beta, int depth, int ply,
         }
     }
 
+    const bool excluding = has_excluded[ply];
     TTData tte;
-    const bool tt_hit = tt.probe(pos.key(), tte);
+    const bool tt_hit = !excluding && tt.probe(pos.key(), tte);
     const Score tt_score = tt_hit ? score_from_tt(tte.score, ply) : 0;
     if (!pv_node && tt_hit && tte.depth >= depth &&
         (tte.bound & (tt_score >= beta ? BOUND_LOWER : BOUND_UPPER)))
@@ -231,8 +234,17 @@ Score Worker::search(Position& pos, Score alpha, Score beta, int depth, int ply,
         }
     }
 
+    // Razoring: far below alpha at low depth, check whether the horizon search agrees.
+    if (!pv_node && !excluding && !forced_capture && depth > 0 && depth <= P.razor_depth &&
+        eval + P.razor_margin * depth < alpha && !is_decisive(alpha)) {
+        const Score s = search(pos, alpha - 1, alpha, 0, ply, cut_node, qext);
+        if (stopped()) return 0;
+        if (s < alpha) return s;
+        pv_len[ply] = ply;
+    }
+
     // Reverse futility pruning: far above beta at low depth, assume a quiet move holds it.
-    if (!pv_node && !forced_capture && depth > 0 && depth <= P.rfp_max_depth && !is_decisive(beta) &&
+    if (!pv_node && !excluding && !forced_capture && depth > 0 && depth <= P.rfp_max_depth && !is_decisive(beta) &&
         eval - P.rfp_margin * depth >= beta && !has_capture(pos, ~us))
         return eval;
 
@@ -240,7 +252,7 @@ Score Worker::search(Position& pos, Score alpha, Score beta, int depth, int ply,
     if (depth >= 6 && !(tt_hit && tte.move.valid())) --depth;
 
     // Enhanced transposition cutoff: a child already known to refute this node from the hash table.
-    if (!is_root && depth >= P.etc_min_depth) {
+    if (!is_root && !excluding && depth >= P.etc_min_depth) {
         for (const Move& m : moves) {
             TTData ce;
             if (!tt.probe(pos.key_after(m), ce) || ce.depth < depth - 1 || !(ce.bound & BOUND_UPPER)) continue;
@@ -250,7 +262,7 @@ Score Worker::search(Position& pos, Score alpha, Score beta, int depth, int ply,
     }
 
     // ProbCut: if a shallower search clears beta by a margin, the full-depth search very likely clears beta.
-    if (!pv_node && !forced_capture && depth >= P.probcut_depth && !is_decisive(beta)) {
+    if (!pv_node && !excluding && !forced_capture && depth >= P.probcut_depth && !is_decisive(beta)) {
         const Score pb = beta + P.probcut_margin;
         const Score s = search(pos, pb - 1, pb, depth - P.probcut_reduction, ply, cut_node, qext);
         if (stopped()) return 0;
@@ -259,6 +271,25 @@ Score Worker::search(Position& pos, Score alpha, Score beta, int depth, int ply,
     }
 
     const int ext = depth > 0 && moves.size() == 1 && P.single_reply_ext ? 1 : 0;
+
+    // Singular extension: if every alternative to the hash move fails well below its score, the hash move is
+    // forced in all but name and gets one extra ply. If an alternative also beats beta, cut (multi-cut).
+    int tt_move_ext = 0;
+    if (!is_root && !excluding && depth >= P.se_depth && tt_hit && tte.move.valid() && (tte.bound & BOUND_LOWER) &&
+        tte.depth >= depth - 3 && !is_decisive(tt_score) && moves.size() > 1) {
+        const int tt_i = find_move(moves, tte.move);
+        if (tt_i >= 0) {
+            const Score sb = tt_score - P.se_margin * depth / 8;
+            excluded[ply] = moves[tt_i];
+            has_excluded[ply] = true;
+            const Score s = search(pos, sb - 1, sb, (depth - 1) / 2, ply, cut_node, qext);
+            has_excluded[ply] = false;
+            if (stopped()) return 0;
+            pv_len[ply] = ply;
+            if (s < sb) tt_move_ext = 1;
+            else if (sb >= beta) return sb;
+        }
+    }
 
     // Move ordering.
     int order[MoveList::CAPACITY];
@@ -296,6 +327,7 @@ Score Worker::search(Position& pos, Score alpha, Score beta, int depth, int ply,
         std::swap(moves[n], moves[bi]);
         std::swap(order[n], order[bi]);
         const Move m = moves[n];
+        if (excluding && m == excluded[ply]) continue;
         const bool quiet = !m.is_capture() && !is_promotion(pos, m);
 
         // Shallow pruning of late quiet moves.
@@ -307,7 +339,7 @@ Score Worker::search(Position& pos, Score alpha, Score beta, int depth, int ply,
         Position child = pos;
         child.make_move(m);
         tt.prefetch(child.key());
-        const int new_depth = depth - 1 + ext;
+        const int new_depth = depth - 1 + ext + (order[n] == (1 << 30) ? tt_move_ext : 0);
         prev_to[ply + 1] = m.to;
 
         Score s;
@@ -356,6 +388,7 @@ Score Worker::search(Position& pos, Score alpha, Score beta, int depth, int ply,
         if (quiet) quiets_tried[nquiets++] = m;
     }
 
+    if (excluding) return best == -SCORE_INF ? alpha : best;  // verification search: don't store
     const Bound bound = best >= beta ? BOUND_LOWER : best_idx >= 0 ? BOUND_EXACT : BOUND_UPPER;
     // The moves array was permuted by the selection sort, so encode against the same array.
     tt.store(pos.key(), score_to_tt(best, ply), eval, std::max(depth, -8), bound,
@@ -456,7 +489,9 @@ bool SearchParams::set(const std::string& name, int value) {
         {"probcut_margin", &SearchParams::probcut_margin},     {"probcut_reduction", &SearchParams::probcut_reduction},
         {"lmp_depth", &SearchParams::lmp_depth},               {"lmp_base", &SearchParams::lmp_base},
         {"fut_depth", &SearchParams::fut_depth},               {"fut_margin", &SearchParams::fut_margin},
-        {"cont_hist", &SearchParams::cont_hist},
+        {"cont_hist", &SearchParams::cont_hist},               {"se_depth", &SearchParams::se_depth},
+        {"se_margin", &SearchParams::se_margin},               {"razor_depth", &SearchParams::razor_depth},
+        {"razor_margin", &SearchParams::razor_margin},
     };
     for (const auto& e : table)
         if (name == e.name) {
