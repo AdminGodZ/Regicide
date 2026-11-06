@@ -90,7 +90,10 @@ struct Work {
     std::uint64_t nchunks = 0;
 
     Work(const SubDims& d, bool mtc) : dims(d) {
-        st.reset(new std::uint8_t[d.size]);
+        // Padded to whole 8-byte words (for the frontier scan); padding reads as "invalid".
+        const std::uint64_t padded = (d.size + 7) & ~std::uint64_t(7);
+        st.reset(new std::uint8_t[padded]);  // operator new[] is 16-byte aligned
+        std::fill(st.get() + d.size, st.get() + padded, S_INV);
         if (mtc) depth.reset(new std::uint16_t[d.size]);
         nchunks = (d.size + CHUNK - 1) >> CHUNK_SHIFT;
         for (auto& v : dirty) {
@@ -172,18 +175,15 @@ bool propagate(Work& s, Work& partner, int par, std::uint16_t depth, int threads
         aref(s.dirty[par][c]).store(0, std::memory_order_relaxed);
         const std::uint64_t b = c << CHUNK_SHIFT, e = std::min(s.dims.size, b + CHUNK);
         bool any = false;
-        for (std::uint64_t i = b; i < e; ++i) {
-            const std::uint8_t v = aref(s.st[i]).load(std::memory_order_relaxed);
-            const std::uint8_t base = v & 0x7F;
-            if (base != wf && base != lf) continue;
-            const bool win = base == wf;
-            aref(s.st[i]).store(std::uint8_t((v & S_CAP) | (win ? S_WIN : S_LOSS)), std::memory_order_relaxed);
-            if (s.depth) s.depth[i] = depth;
-            Pos p;
-            unindex(s.dims, i, p);
-            for_each_unmove(p, [&](const Pos& q, bool man) {
-                if (man && adv_down(q.sm) != partner.dims.x) return;
-                const std::uint64_t j = index_of(partner.dims, q);
+        // Predecessor updates are random accesses into the partner table: gather them, prefetch,
+        // and apply in batches so that the cache misses overlap.
+        constexpr int BATCH = 256;
+        std::uint64_t batch[BATCH];
+        int nb = 0;
+        auto flush = [&] {
+            for (int k = 0; k < nb; ++k) {
+                const std::uint64_t j = batch[k] >> 1;
+                const bool win = batch[k] & 1;
                 auto r = aref(partner.st[j]);
                 std::uint8_t cur = r.load(std::memory_order_relaxed);
                 while (cur < S_INV) {
@@ -196,8 +196,66 @@ bool propagate(Work& s, Work& partner, int par, std::uint16_t depth, int threads
                         break;
                     }
                 }
-            });
+            }
+            nb = 0;
+        };
+        Cursor at(s.dims);
+        // Find frontier bytes eight at a time: (v & 0x7E) == wf matches exactly wf, lf and their
+        // capture-flagged forms. The zero-byte test may flag extra bytes; each is re-checked.
+        constexpr std::uint64_t ONES = 0x0101010101010101ull;
+        const std::uint64_t target = wf * ONES;
+        for (std::uint64_t w = b; w < e; w += 8) {
+            auto* wp = reinterpret_cast<std::uint64_t*>(&s.st[w]);
+            const std::uint64_t word = std::atomic_ref<std::uint64_t>(*wp).load(std::memory_order_relaxed);
+            const std::uint64_t x = (word & (0x7E * ONES)) ^ target;
+            for (std::uint64_t z = (x - ONES) & ~x & (0x80 * ONES); z; z &= z - 1) {
+                const std::uint64_t i = w + (std::countr_zero(z) >> 3);
+                if (i >= e) break;
+                const std::uint8_t v = aref(s.st[i]).load(std::memory_order_relaxed);
+                const std::uint8_t base = v & 0x7F;
+                if (base != wf && base != lf) continue;
+                const bool win = base == wf;
+                aref(s.st[i]).store(std::uint8_t((v & S_CAP) | (win ? S_WIN : S_LOSS)), std::memory_order_relaxed);
+                if (s.depth) s.depth[i] = depth;
+                at.seek(i);
+                const Pos& p = at.p;
+                auto push = [&](std::uint64_t j) {
+                    __builtin_prefetch(&partner.st[j], 1);
+                    batch[nb++] = (j << 1) | win;
+                };
+                // King unmoves keep every man in place: the men part of the predecessor's index
+                // and its free-square set are shared, only the two king ranks change.
+                const SubDims& pd = partner.dims;
+                const Bitboard empty = ~p.occ();
+                if (p.ok) {
+                    const std::uint64_t men = (colex(p.om) - men_base(pd.m.a, pd.x)) * pd.no +
+                                              (colex(rev(p.sm)) - men_base(pd.m.c, pd.y));
+                    const Bitboard free0 = rev(~(p.om | p.sm)), qok = rev(p.sk);
+                    for (Bitboard bk = p.ok; bk; bk &= bk - 1) {
+                        const int t = std::countr_zero(bk);
+                        for (int d = 0; d < 4; ++d) {
+                            const int sq = TB.nb[t][d];
+                            if (sq < 0 || !(empty & bit(sq))) continue;
+                            const Bitboard qsk = rev(p.ok ^ bit(t) ^ bit(sq));
+                            push((men * pd.nks + colex_in(qsk, free0)) * pd.nko + colex_in(qok, free0 & ~qsk));
+                        }
+                    }
+                }
+                for (Bitboard bm = p.om; bm; bm &= bm - 1) {
+                    const int t = std::countr_zero(bm);
+                    for (int d = DL; d <= DR; ++d) {  // opponent men came from below
+                        const int sq = TB.nb[t][d];
+                        if (sq < 0 || !(empty & bit(sq))) continue;
+                        Pos q = p;
+                        q.om ^= bit(t) | bit(sq);
+                        q = flip(q);
+                        if (adv_down(q.sm) == pd.x) push(index_of(pd, q));
+                    }
+                }
+                if (nb >= BATCH - 64) flush();
+            }
         }
+        flush();
         if (any) found.store(true, std::memory_order_relaxed);
     });
     return found.load();

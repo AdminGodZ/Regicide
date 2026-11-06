@@ -165,12 +165,28 @@ public:
     bool valid = false;
 
     void set(std::uint64_t idx) {
-        ko_ = idx % d_.nko;
-        idx /= d_.nko;
-        ks_ = idx % d_.nks;
-        idx /= d_.nks;
-        mo_ = idx % d_.no;
-        ms_ = idx / d_.no;
+        q_ = q2_ = ~std::uint64_t(0);
+        seek(idx);
+    }
+
+    // Jump to any index; cheap when only the kings (or only the opponent's kings) change.
+    void seek(std::uint64_t idx) {
+        const std::uint64_t q = idx / d_.nko;
+        ko_ = idx - q * d_.nko;
+        if (q == q_) {
+            if (valid) p.ok = place(ud_[ko_], free2_);
+            return;
+        }
+        q_ = q;
+        const std::uint64_t q2 = q / d_.nks;
+        ks_ = q - q2 * d_.nks;
+        if (q2 == q2_) {
+            if (valid) kings();
+            return;
+        }
+        q2_ = q2;
+        mo_ = q2 % d_.no;
+        ms_ = q2 / d_.no;
         men();
     }
 
@@ -180,11 +196,13 @@ public:
             return;
         }
         ko_ = 0;
+        ++q_;
         if (++ks_ < d_.nks) {
             if (valid) kings();
             return;
         }
         ks_ = 0;
+        ++q2_;
         if (++mo_ == d_.no) mo_ = 0, ++ms_;
         men();
     }
@@ -216,6 +234,7 @@ private:
     const SubDims& d_;
     const std::uint32_t *us_, *uo_, *ub_, *ud_;
     std::uint64_t ms_ = 0, mo_ = 0, ks_ = 0, ko_ = 0;
+    std::uint64_t q_ = ~std::uint64_t(0), q2_ = ~std::uint64_t(0);  // idx / nko, idx / (nko * nks)
     Bitboard free0_ = 0;
     std::uint8_t free1_[32], free2_[32];
 };
