@@ -1,6 +1,11 @@
 #include "egdb/platform.hpp"
 
 #ifdef _WIN32
+// PrefetchVirtualMemory and WIN32_MEMORY_RANGE_ENTRY need Windows 8 (mingw defaults to an older target).
+#if !defined(_WIN32_WINNT) || _WIN32_WINNT < 0x0602
+#undef _WIN32_WINNT
+#define _WIN32_WINNT 0x0602
+#endif
 #ifndef NOMINMAX
 #define NOMINMAX
 #endif
