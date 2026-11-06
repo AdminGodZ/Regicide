@@ -15,6 +15,10 @@ struct BuildOptions {
     int threads = 8;
     int mtc_pieces = 0;    // also build moves-to-conversion tables for slices with <= this many pieces
     bool verbose = true;   // log per-subslice progress
+    // Optional filter for the largest piece count: only build slices whose per-side piece counts
+    // {a+b, c+d} are listed (e.g. {4,4} and {5,3}). Such a family depends only on itself and on
+    // smaller piece counts, so the most valuable 8-piece families can be built first.
+    std::vector<std::pair<int, int>> sides;
 };
 
 // All materials with n pieces, at least one per side and at most MAX_SIDE per side.

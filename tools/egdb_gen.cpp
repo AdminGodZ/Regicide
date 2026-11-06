@@ -1,6 +1,6 @@
 // Endgame database generator and maintenance tool.
 //
-//   egdb_gen build  --max N [--min N] [--mtc N] [--threads T] [--dir D]
+//   egdb_gen build  --max N [--min N] [--mtc N] [--threads T] [--dir D] [--sides 44,53]
 //   egdb_gen verify --pieces N [--samples K] [--mtc] [--threads T] [--dir D] [--slice abcd]
 //   egdb_gen count  [--max N]
 //   egdb_gen stats  [--dir D]
@@ -43,6 +43,7 @@ struct Args {
     double seconds = 3.0;
     bool check_mtc = false;
     bool quiet = false;
+    std::vector<std::pair<int, int>> sides;
 };
 
 std::string default_dir() {
@@ -69,6 +70,12 @@ bool parse(int argc, char** argv, Args& a) {
         else if (k == "--seconds") a.seconds = std::atof(val());
         else if (k == "--slice") a.slice = val();
         else if (k == "--quiet") a.quiet = true;
+        else if (k == "--sides") {  // e.g. 44,53
+            for (const char* v = val(); v[0] >= '0' && v[1] >= '0'; v += v[2] == ',' ? 3 : 2) {
+                a.sides.push_back({v[0] - '0', v[1] - '0'});
+                if (!v[2]) break;
+            }
+        }
         else return false;
     }
     return true;
@@ -79,6 +86,7 @@ int cmd_build(const Args& a) {
     o.dir = a.dir;
     o.threads = a.threads;
     o.mtc_pieces = a.mtc;
+    o.sides = a.sides;
     log_line("building %d..%d pieces into %s with %d threads (mtc up to %d pieces)", a.min, a.max, a.dir.c_str(),
              a.threads, a.mtc);
     const auto t0 = std::chrono::steady_clock::now();
@@ -241,7 +249,7 @@ int main(int argc, char** argv) {
     Args a;
     if (!parse(argc, argv, a)) {
         std::fprintf(stderr,
-                     "usage: egdb_gen build --max N [--min N] [--mtc N] [--threads T] [--dir D]\n"
+                     "usage: egdb_gen build --max N [--min N] [--mtc N] [--threads T] [--dir D] [--sides 44,53]\n"
                      "       egdb_gen verify --pieces N [--samples K (0 = all)] [--mtc] [--slice abcd]\n"
                      "       egdb_gen count [--max N] | stats | manifest | bench [--pieces N] [--threads T]\n");
         return 2;
