@@ -12,7 +12,13 @@ COMPAT="$OUT/compat"
 
 CC="${CC:-clang}"
 CXX="${CXX:-clang++}"
-OPT_FLAGS="${OPT_FLAGS:--O3 -mcpu=native -fno-strict-aliasing}"
+case "$(uname -m)" in
+  arm64|aarch64) ARCH_FLAGS="-mcpu=native" ;;
+  *) ARCH_FLAGS="-march=native" ;;
+esac
+OPT_FLAGS="${OPT_FLAGS:--O3 $ARCH_FLAGS -fno-strict-aliasing}"
+# Engines are shared libraries: .dylib on macOS, .so on Linux (including WSL).
+if [ "$(uname -s)" = Darwin ]; then LIBEXT=dylib; else LIBEXT=so; fi
 
 log() { printf '\033[1m[%s]\033[0m %s\n' "${ENGINE_NAME:-opponents}" "$*"; }
 
@@ -46,4 +52,6 @@ make_compat() {
   done
 }
 
-dylib_flags() { echo "-dynamiclib -install_name @rpath/$1"; }
+lib_flags() {
+  if [ "$LIBEXT" = dylib ]; then echo "-dynamiclib -install_name @rpath/$1"; else echo "-shared -Wl,-soname,$1"; fi
+}

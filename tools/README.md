@@ -20,7 +20,8 @@ ctest --test-dir build                                # includes the referee per
 tools/opponents/build_all.sh                          # simplech, Cake 1.22, GuiNN 2.06
 ```
 
-Each opponent script clones the upstream repository at a pinned commit into
+The tools also build on Linux, including WSL on Windows: engines are then `.so` files instead
+of `.dylib`, and x86-64 builds use GuiNN's original AVX2 code. Each opponent script clones the upstream repository at a pinned commit into
 `build/opponents/src/`, applies our patch, and writes the dylib and its data files to
 `build/opponents/<engine>/`. No upstream source is committed here (Cake is GPL, GuiNN is
 CC BY-NC-SA). `build_guinn.sh` also runs the NN equivalence check (below).

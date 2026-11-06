@@ -17,8 +17,17 @@ namespace match {
 
 bool Process::start(const std::vector<std::string>& argv, const std::string& stderr_path, std::string& err) {
     kill();
+    // Close-on-exec from the start, so pipes of other games never leak into this child (a
+    // leaked write end would hide a dead engine's EOF). dup2 in the child clears the flag.
     int in_pipe[2], out_pipe[2];
-    if (pipe(in_pipe) != 0 || pipe(out_pipe) != 0) {
+#ifdef __linux__
+    bool ok = pipe2(in_pipe, O_CLOEXEC) == 0 && pipe2(out_pipe, O_CLOEXEC) == 0;
+#else
+    bool ok = pipe(in_pipe) == 0 && pipe(out_pipe) == 0;
+    if (ok)
+        for (int fd : {in_pipe[0], in_pipe[1], out_pipe[0], out_pipe[1]}) fcntl(fd, F_SETFD, FD_CLOEXEC);
+#endif
+    if (!ok) {
         err = std::string("pipe: ") + std::strerror(errno);
         return false;
     }
@@ -31,8 +40,7 @@ bool Process::start(const std::vector<std::string>& argv, const std::string& std
     posix_spawnattr_t attr;
     posix_spawnattr_init(&attr);
 #ifdef POSIX_SPAWN_CLOEXEC_DEFAULT
-    // Only the fds set up above reach the child: other games' pipes must not leak into it,
-    // or a dead engine's peer would never see EOF.
+    // macOS: also closes fds opened by other threads between pipe() and fcntl().
     posix_spawnattr_setflags(&attr, POSIX_SPAWN_CLOEXEC_DEFAULT);
 #endif
 
@@ -51,8 +59,6 @@ bool Process::start(const std::vector<std::string>& argv, const std::string& std
         err = "cannot start " + argv[0] + ": " + std::strerror(rc);
         return false;
     }
-    fcntl(in_pipe[1], F_SETFD, FD_CLOEXEC);
-    fcntl(out_pipe[0], F_SETFD, FD_CLOEXEC);
     pid_ = pid;
     to_child_ = in_pipe[1];
     from_child_ = out_pipe[0];

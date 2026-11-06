@@ -2,7 +2,7 @@
 # GuiNN Checkers 2.06 (Jonathan Kreuzer; fork maintained by Ed Gilbert), the neural-net engine,
 # as a native arm64 CheckerBoard-API dylib with its shipped nets (Nets206.gnn), opening book
 # (opening.gbk) and built-in 4-piece endgame database (database.jef).
-# Output: build/opponents/guinn/guinn.dylib plus data files, and build/opponents/guinn/nn_check.
+# Output: build/opponents/guinn/guinn.dylib (.so on Linux) plus data files, and build/opponents/guinn/nn_check.
 #
 # Port (guinn/guinn.patch + guinn/port/):
 #  - NeuralNet/mathSimd.h: NEON implementations with the exact integer semantics of the AVX2
@@ -23,6 +23,11 @@ apply_patch GuiNN_Checkers "$OPP_DIR/guinn/guinn.patch"
 make_compat
 
 src="$SRC/GuiNN_Checkers/src"
+if [ "$(uname -s)" = Linux ]; then
+  # Case-sensitive file system: two includes differ in case from the files (MSVC doesn't care).
+  ln -sfn NeuralNet "$src/neuralNet"
+  ln -sfn moveGen.h "$src/movegen.h"
+fi
 dest="$OUT/guinn"
 mkdir -p "$dest"
 sources=(board checkersNN database edDatabase engine evaluate gui_cb_interface movegen openingBook search transcript)
@@ -33,9 +38,9 @@ flags=(-std=c++17 -DNDEBUG -DCBPORT_NO_MINMAX -DCBPORT_KEEP_CLOCK -Wno-c++11-nar
        -I"$COMPAT" -I"$src" -I"$src/NeuralNet" -include "$src/cb_interface.h" -include "$OPP_DIR/guinn/port/exports.h")
 
 log "compiling dylib"
-$CXX "${flags[@]}" $OPT_FLAGS -fPIC "${files[@]}" $(dylib_flags guinn.dylib) -o "$dest/guinn.dylib"
+$CXX "${flags[@]}" $OPT_FLAGS -fPIC "${files[@]}" $(lib_flags guinn.$LIBEXT) -o "$dest/guinn.$LIBEXT"
 cp "$SRC/GuiNN_Checkers/bin/Nets206.gnn" "$SRC/GuiNN_Checkers/bin/opening.gbk" "$SRC/GuiNN_Checkers/bin/database.jef" "$dest/"
-log "built $dest/guinn.dylib"
+log "built $dest/guinn.$LIBEXT"
 
 if [ "${GUINN_CHECK:-1}" != 0 ]; then
   log "NN check (arm64 build vs scalar reference)"

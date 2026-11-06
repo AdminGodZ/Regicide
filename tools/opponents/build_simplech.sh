@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Simple Checkers 1.15 (Martin Fierz), the sample engine shipped with CheckerBoard. A weak
-# sanity opponent. Output: build/opponents/simplech/simplech.dylib
+# sanity opponent. Output: build/opponents/simplech/simplech.dylib (.so on Linux)
 ENGINE_NAME=simplech
 source "$(dirname "$0")/common.sh"
 
@@ -14,5 +14,5 @@ mkdir -p "$dest"
 log "compiling"
 $CXX -std=c++17 $OPT_FLAGS -w -fPIC -I"$COMPAT" -I"$SRC/CheckerBoard/source" \
   -include "$OPP_DIR/compat/cbport.h" -include "$OPP_DIR/simplech/exports.h" \
-  -x c++ "$SRC/CheckerBoard/source/simplech.c" $(dylib_flags simplech.dylib) -o "$dest/simplech.dylib"
-log "built $dest/simplech.dylib"
+  -x c++ "$SRC/CheckerBoard/source/simplech.c" $(lib_flags simplech.$LIBEXT) -o "$dest/simplech.$LIBEXT"
+log "built $dest/simplech.$LIBEXT"
