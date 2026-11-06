@@ -22,7 +22,8 @@ void log_line(const char* fmt, ...) {
     std::lock_guard lock(mu);
     const std::time_t now = std::time(nullptr);
     char ts[32];
-    std::strftime(ts, sizeof ts, "%Y-%m-%d %H:%M:%S", std::localtime(&now));
+    const std::tm tm = local_time(now);
+    std::strftime(ts, sizeof ts, "%Y-%m-%d %H:%M:%S", &tm);
     std::printf("[%s] ", ts);
     va_list ap;
     va_start(ap, fmt);
@@ -220,7 +221,7 @@ bool propagate(Work& s, Work& partner, int par, std::uint16_t depth, int threads
                 at.seek(i);
                 const Pos& p = at.p;
                 auto push = [&](std::uint64_t j) {
-                    __builtin_prefetch(&partner.st[j], 1);
+                    EGDB_PREFETCH_W(&partner.st[j]);
                     batch[nb++] = (j << 1) | win;
                 };
                 // King unmoves keep every man in place: the men part of the predecessor's index

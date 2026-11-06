@@ -15,7 +15,7 @@
 namespace regicide::egdb::detail {
 
 inline Bitboard rev(Bitboard b) {
-#if defined(__has_builtin) && __has_builtin(__builtin_bitreverse32)
+#if defined(__clang__)
     return __builtin_bitreverse32(b);  // a single RBIT on arm64
 #else
     b = ((b >> 1) & 0x55555555u) | ((b & 0x55555555u) << 1);

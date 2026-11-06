@@ -14,7 +14,9 @@ namespace regicide::egdb::detail {
 
 // ---- file format -----------------------------------------------------------------------------
 // One file per slice and table kind: <kind>_<a><b><c><d>.rgdb, e.g. wld_2101.rgdb. Layout:
-//   FileHeader | SubRecord[nsub] | payload (8-byte aligned arrays), all little-endian.
+//   FileHeader | SubRecord[nsub] | payload (8-byte aligned arrays).
+// Every field is a fixed-width little-endian integer and the structs have no implicit padding,
+// so files are byte-identical across macOS/Linux/Windows builds and can be copied freely.
 inline constexpr char FILE_MAGIC[8] = {'R', 'G', 'C', 'E', 'G', 'D', 'B', '1'};
 enum class TableKind : std::uint32_t { Wld = 1, Mtc = 2 };
 
@@ -66,6 +68,7 @@ void clear_slice(TableKind kind, Material m);
 // file (`part`, used for resumable generation) only adds its subslices.
 bool load_file(const std::string& path, TableKind expected_kind, Material expected, bool part = false);
 bool load_dir(const std::string& dir, std::size_t cache_mb);
+bool check_file(const std::string& path);  // full checksum verification (e.g. after copying files)
 bool slice_complete(TableKind kind, Material m);
 int complete_pieces(TableKind kind);  // largest N with every slice of <= N pieces complete
 

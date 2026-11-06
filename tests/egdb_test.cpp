@@ -4,11 +4,10 @@
 //                      2..4-piece build (with MTC) verified exhaustively, known results.
 //   egdb_test --data   checks the generated database in $REGICIDE_EGDB or $HOME/regicide-data/egdb
 //                      (sampled one-ply consistency for every slice, known results). Skips if absent.
-#include <unistd.h>
-
 #include <cstdio>
 #include <cstdlib>
 #include <filesystem>
+#include <random>
 #include <set>
 #include <string>
 #include <vector>
@@ -176,8 +175,8 @@ void test_known_results(int max_pieces) {
 }
 
 std::string temp_dir() {
-    const char* t = std::getenv("TMPDIR");
-    std::string base = std::string(t && *t ? t : "/tmp") + "/regicide-egdb-test-" + std::to_string(::getpid());
+    std::string base = (std::filesystem::temp_directory_path() /
+                        ("regicide-egdb-test-" + std::to_string(std::random_device{}()))).string();
     std::filesystem::remove_all(base);
     return base;
 }

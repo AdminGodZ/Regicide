@@ -54,6 +54,7 @@ add_library(regicide_egdb STATIC
   src/egdb/index.cpp
   src/egdb/build.cpp
   src/egdb/verify.cpp
+  src/egdb/platform.cpp
 )
 target_include_directories(regicide_egdb PUBLIC src)
 if(NOT MSVC)

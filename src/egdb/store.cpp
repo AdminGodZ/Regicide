@@ -1,9 +1,6 @@
 #include "egdb/store.hpp"
 
-#include <fcntl.h>
-#include <sys/mman.h>
-#include <sys/stat.h>
-#include <unistd.h>
+#include "egdb/platform.hpp"
 
 #include <cstdio>
 #include <cstring>
@@ -20,12 +17,8 @@ std::vector<std::unique_ptr<SliceTab>>& owned_tabs() {
     return v;
 }
 
-struct Mapping {
-    void* addr;
-    std::size_t len;
-};
-std::vector<Mapping>& mappings() {
-    static std::vector<Mapping> v;
+std::vector<MappedFile>& mappings() {
+    static std::vector<MappedFile> v;
     return v;
 }
 
@@ -141,26 +134,37 @@ bool write_slice_file(const std::string& path, TableKind kind, Material m, const
     const std::string tmp = path + ".tmp";
     FILE* f = std::fopen(tmp.c_str(), "wb");
     if (!f) return false;
-    const bool ok = std::fwrite(buf.data(), 1, buf.size(), f) == buf.size() && std::fflush(f) == 0 &&
-                    ::fsync(fileno(f)) == 0;
+    const bool ok = std::fwrite(buf.data(), 1, buf.size(), f) == buf.size() && flush_to_disk(f);
     std::fclose(f);
     if (!ok) return false;
-    return std::rename(tmp.c_str(), path.c_str()) == 0;
+    std::error_code ec;
+    std::filesystem::rename(tmp, path, ec);  // replaces an existing file on every platform
+    return !ec;
+}
+
+bool check_file(const std::string& path) {
+    MappedFile mf;
+    if (!map_file(path, mf)) return false;
+    FileHeader h;
+    bool ok = mf.size >= sizeof h;
+    if (ok) {
+        std::memcpy(&h, mf.data, sizeof h);
+        ok = std::memcmp(h.magic, FILE_MAGIC, 8) == 0 && h.file_size == mf.size &&
+             fnv1a(mf.data + sizeof h, mf.size - sizeof h) == h.checksum;
+    }
+    unmap_file(mf);
+    return ok;
 }
 
 bool load_file(const std::string& path, TableKind expected_kind, Material expected, bool part) {
-    const int fd = ::open(path.c_str(), O_RDONLY);
-    if (fd < 0) return false;
-    struct stat st {};
-    if (::fstat(fd, &st) != 0 || std::size_t(st.st_size) < sizeof(FileHeader)) {
-        ::close(fd);
+    MappedFile mf;
+    if (!map_file(path, mf)) return false;
+    const std::size_t len = mf.size;
+    const std::uint8_t* base = mf.data;
+    if (len < sizeof(FileHeader)) {
+        unmap_file(mf);
         return false;
     }
-    const std::size_t len = std::size_t(st.st_size);
-    void* addr = ::mmap(nullptr, len, PROT_READ, MAP_PRIVATE, fd, 0);
-    ::close(fd);
-    if (addr == MAP_FAILED) return false;
-    const auto* base = static_cast<const std::uint8_t*>(addr);
     FileHeader h;
     std::memcpy(&h, base, sizeof h);
     const Material m{h.a, h.b, h.c, h.d};
@@ -183,10 +187,10 @@ bool load_file(const std::string& path, TableKind expected_kind, Material expect
     }
     if (!ok) {
         std::fprintf(stderr, "egdb: rejecting corrupt or mismatched file %s\n", path.c_str());
-        ::munmap(addr, len);
+        unmap_file(mf);
         return false;
     }
-    mappings().push_back({addr, len});
+    mappings().push_back(mf);
     SliceTab& t = slice_tab_create(expected_kind, m);
     if (!part) t = SliceTab{};
     for (const SubRecord& r : recs) {
@@ -228,12 +232,7 @@ bool load_dir(const std::string& dir, std::size_t cache_mb) {
     }
     if (total <= std::uint64_t(cache_mb) << 20) {
         // Pre-fault everything so that probes never wait for the disk.
-        for (const Mapping& mp : mappings()) {
-            ::madvise(mp.addr, mp.len, MADV_WILLNEED);
-            volatile std::uint8_t sink = 0;
-            const auto* p = static_cast<const std::uint8_t*>(mp.addr);
-            for (std::size_t i = 0; i < mp.len; i += 4096) sink = sink + p[i];
-        }
+        for (const MappedFile& mp : mappings()) prefault(mp);
     }
     return !loaded.empty();
 }

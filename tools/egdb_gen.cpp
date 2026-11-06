@@ -5,11 +5,14 @@
 //   egdb_gen count  [--max N]
 //   egdb_gen stats  [--dir D]
 //   egdb_gen bench  [--pieces N] [--threads T] [--seconds S] [--dir D]
+//   egdb_gen manifest [--dir D]   name, size, stored checksum and whether it verifies, per file
+//                                 (diff two manifests to compare databases built on different hosts)
 //
 // The default directory is $HOME/regicide-data/egdb. `build` is resumable: finished slices are
 // kept, and finished subslices of an interrupted slice are kept in <dir>/parts. Run long builds
 // in the background, e.g.  nohup egdb_gen build --max 7 > gen7.log 2>&1 &
 
+#include <algorithm>
 #include <atomic>
 #include <chrono>
 #include <cstdio>
@@ -43,6 +46,7 @@ struct Args {
 
 std::string default_dir() {
     const char* home = std::getenv("HOME");
+    if (!home) home = std::getenv("USERPROFILE");
     return std::string(home ? home : ".") + "/regicide-data/egdb";
 }
 
@@ -143,6 +147,28 @@ int cmd_stats(const Args& a) {
     return 0;
 }
 
+int cmd_manifest(const Args& a) {
+    namespace fs = std::filesystem;
+    std::vector<std::string> names;
+    for (const auto& e : fs::directory_iterator(a.dir))
+        if (e.path().extension() == ".rgdb") names.push_back(e.path().filename().string());
+    std::sort(names.begin(), names.end());
+    int bad = 0;
+    for (const std::string& n : names) {
+        const std::string path = a.dir + "/" + n;
+        FileHeader h{};
+        if (FILE* f = std::fopen(path.c_str(), "rb")) {
+            if (std::fread(&h, sizeof h, 1, f) != 1) h = FileHeader{};
+            std::fclose(f);
+        }
+        const bool ok = check_file(path);
+        bad += !ok;
+        std::printf("%s %llu %016llx %s\n", n.c_str(), (unsigned long long)fs::file_size(path),
+                    (unsigned long long)h.checksum, ok ? "ok" : "CORRUPT");
+    }
+    return bad ? 1 : 0;
+}
+
 // Probe throughput on random positions with `pieces` pieces (side to move random).
 int cmd_bench(const Args& a) {
     egdb::init(a.dir, 1 << 20);
@@ -210,7 +236,7 @@ int main(int argc, char** argv) {
         std::fprintf(stderr,
                      "usage: egdb_gen build --max N [--min N] [--mtc N] [--threads T] [--dir D]\n"
                      "       egdb_gen verify --pieces N [--samples K (0 = all)] [--mtc] [--slice abcd]\n"
-                     "       egdb_gen count [--max N] | stats | bench [--pieces N] [--threads T]\n");
+                     "       egdb_gen count [--max N] | stats | manifest | bench [--pieces N] [--threads T]\n");
         return 2;
     }
     if (a.cmd == "build") return cmd_build(a);
@@ -218,6 +244,7 @@ int main(int argc, char** argv) {
     if (a.cmd == "count") return cmd_count(a);
     if (a.cmd == "stats") return cmd_stats(a);
     if (a.cmd == "bench") return cmd_bench(a);
+    if (a.cmd == "manifest") return cmd_manifest(a);
     std::fprintf(stderr, "unknown command %s\n", a.cmd.c_str());
     return 2;
 }

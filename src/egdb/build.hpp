@@ -6,6 +6,7 @@
 #include <vector>
 
 #include "egdb/index.hpp"
+#include "egdb/platform.hpp"
 
 namespace regicide::egdb::detail {
 
@@ -26,6 +27,6 @@ bool build_range(const BuildOptions& opt, int min_pieces, int max_pieces);
 // Builds the slice pair {m, m.partner()} (all smaller slices must be loaded).
 bool build_pair(const BuildOptions& opt, Material m);
 
-void log_line(const char* fmt, ...) __attribute__((format(printf, 1, 2)));
+void log_line(const char* fmt, ...) EGDB_PRINTF(1, 2);
 
 }  // namespace regicide::egdb::detail
