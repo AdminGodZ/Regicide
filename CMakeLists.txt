@@ -46,3 +46,8 @@ enable_testing()
 add_executable(perft_test tests/perft_test.cpp)
 target_link_libraries(perft_test PRIVATE regicide_core)
 add_test(NAME perft COMMAND perft_test)
+
+option(REGICIDE_TOOLS "Build the match tools (cbhost, match runner)" ON)
+if(REGICIDE_TOOLS AND NOT MSVC)
+  add_subdirectory(tools)
+endif()
