@@ -41,7 +41,9 @@ constexpr int MOBILITY = KING_SQ + 64;                       // our quiet-move c
 constexpr int RUNAWAY = MOBILITY + 48;                       // unopposed men by rows left to crown, ours then theirs
 constexpr int TRAPPED_KINGS = RUNAWAY + 14;                  // kings without a quiet move, ours then theirs
 constexpr int THREAT = TRAPPED_KINGS + 2;                    // the opponent has a capture available
-constexpr int BIAS = THREAT + 1;
+constexpr int TEMPO = THREAT + 1;                            // our men's advancement minus theirs, -20..20
+constexpr int OPPOSITION = TEMPO + 41;                       // [size bucket][men on board?][parity a][parity b]
+constexpr int BIAS = OPPOSITION + 32;
 constexpr int COUNT = BIAS + 1;
 
 constexpr int MAX_ACTIVE = 128;

@@ -36,10 +36,11 @@ struct Config {
     int adjudicate_plies = 8;
     int draw_reversible = 80;
     int max_plies = 400;
+    int opening_plies = 3;
     bool verbose = false;
 };
 
-std::vector<Position> three_ply_openings() {
+std::vector<Position> openings_at(int plies) {
     std::vector<Position> out;
     std::set<Key> seen;
     auto rec = [&](auto& self, const Position& p, int depth) -> void {
@@ -55,7 +56,7 @@ std::vector<Position> three_ply_openings() {
             self(self, c, depth - 1);
         }
     };
-    rec(rec, Position(), 3);
+    rec(rec, Position(), plies);
     return out;
 }
 
@@ -133,6 +134,7 @@ int main(int argc, char** argv) {
         else if (k == "--threads") cfg.threads = std::stoi(next());
         else if (k == "--pairs") cfg.pairs = std::stoi(next());
         else if (k == "--hash") cfg.hash_mb = std::stoull(next());
+        else if (k == "--plies") cfg.opening_plies = std::stoi(next());
         else if (k == "--adjudicate") cfg.adjudicate_score = std::stoi(next());
         else if (k == "-v") cfg.verbose = true;
         else {
@@ -141,7 +143,13 @@ int main(int argc, char** argv) {
         }
     }
 
-    const std::vector<Position> openings = three_ply_openings();
+    std::vector<Position> openings = openings_at(cfg.opening_plies);
+    // Spread a partial run across the whole opening set.
+    std::uint64_t shuffle_state = 0x9E3779B97F4A7C15ull;
+    for (std::size_t i = openings.size(); i > 1; --i) {
+        shuffle_state = shuffle_state * 6364136223846793005ull + 1442695040888963407ull;
+        std::swap(openings[i - 1], openings[(shuffle_state >> 33) % i]);
+    }
     const int pairs = cfg.pairs ? cfg.pairs : int(openings.size());
     std::printf("openings %zu, pairs %d, A=\"%s\" B=\"%s\"\n", openings.size(), pairs, cfg.a.c_str(),
                 cfg.b.c_str());

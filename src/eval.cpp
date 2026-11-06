@@ -233,6 +233,21 @@ inline int visit(const Position& pos, F&& f) {
     if (const int t = trapped(their_kings)) f(TRAPPED_KINGS + 1, t);
 
     if (can_capture_down(their_men, their_kings, o.us, empty)) f(THREAT, 1);
+
+    // Tempo: rows advanced by our men (moving up) minus rows advanced by theirs (moving down).
+    int tempo = 0;
+    for (Bitboard b = our_men; b;) tempo += row_of(pop_lsb(b));
+    for (Bitboard b = their_men; b;) tempo -= 7 - row_of(pop_lsb(b));
+    f(TEMPO + std::clamp(tempo, -20, 20) + 20, 1);
+
+    // "The move" (opposition): parities of the pieces on the two halves of the board's square colouring, which
+    // decide who must give way in sparse endgames. Bucketed by size; the model learns what matters.
+    const Bitboard all = o.us | o.them;
+    const int n = popcount(all);
+    const int bucket = n <= 4 ? 0 : n <= 6 ? 1 : n <= 8 ? 2 : 3;
+    const int pa = popcount(all & EVEN_ROWS) & 1, pb = popcount(all & 0x33333333u) & 1;
+    f(OPPOSITION + ((bucket * 2 + (our_men | their_men ? 1 : 0)) * 2 + pa) * 2 + pb, 1);
+
     f(BIAS, 1);
     return popcount(o.us | o.them);
 }
