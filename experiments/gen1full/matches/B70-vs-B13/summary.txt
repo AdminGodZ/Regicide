@@ -1,0 +1,14 @@
+Match: A = B70, B = B13
+Openings: ~/regicide-gen1full-work/openings4.txt (805 openings x 1 rounds, each played with both colours)
+Time control: 0.1s/move (CheckerBoard match rules); no-progress rule: 40 moves
+Games: 1610 of 1610 scheduled
+
+A: +382 =838 -390   score 801.0/1610 = 49.75%   draw rate 52.0%
+A as black: +251 =409 -145   A as white: +131 =429 -245
+By colour: black won 496, white won 276, drawn 838
+Pairs: 805   pentanomial [LL LD DD/WL WD WW] = [15 144 493 140 13]
+Elo (pentanomial, pairs): -1.7 [-10.1, +6.7] 95% CI, score 0.4975 +- 0.0121, LOS 34.38%
+Elo (trinomial, games):   -1.7 [-13.5, +10.0] 95% CI, LOS 38.67%
+Terminations: no legal moves 772; no progress 7; repetition 831;
+A B70: 86197 moves, avg 0.050s/move, max 0.985s
+B B13: 86229 moves, avg 0.050s/move, max 0.935s

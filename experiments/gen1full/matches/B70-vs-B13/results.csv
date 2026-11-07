@@ -1,0 +1,1611 @@
+game,pair,opening,black,white,result,score_a,termination,engine_plies
+5,3,"~/regicide-gen1full-work/openings4.txt:3","B70","B13",1/2-1/2,0.5,"repetition",63
+4,2,"~/regicide-gen1full-work/openings4.txt:2","B13","B70",1/2-1/2,0.5,"repetition",74
+2,1,"~/regicide-gen1full-work/openings4.txt:1","B13","B70",1-0,0,"no legal moves",133
+11,6,"~/regicide-gen1full-work/openings4.txt:6","B70","B13",1/2-1/2,0.5,"repetition",60
+8,4,"~/regicide-gen1full-work/openings4.txt:4","B13","B70",1-0,0,"no legal moves",141
+3,2,"~/regicide-gen1full-work/openings4.txt:2","B70","B13",1-0,1,"no legal moves",133
+1,1,"~/regicide-gen1full-work/openings4.txt:1","B70","B13",1-0,1,"no legal moves",179
+6,3,"~/regicide-gen1full-work/openings4.txt:3","B13","B70",1-0,0,"no legal moves",81
+7,4,"~/regicide-gen1full-work/openings4.txt:4","B70","B13",1-0,1,"no legal moves",195
+10,5,"~/regicide-gen1full-work/openings4.txt:5","B13","B70",1-0,0,"no legal moves",153
+14,7,"~/regicide-gen1full-work/openings4.txt:7","B13","B70",1/2-1/2,0.5,"repetition",81
+19,10,"~/regicide-gen1full-work/openings4.txt:10","B70","B13",1-0,1,"no legal moves",127
+12,6,"~/regicide-gen1full-work/openings4.txt:6","B13","B70",1/2-1/2,0.5,"repetition",108
+13,7,"~/regicide-gen1full-work/openings4.txt:7","B70","B13",1-0,1,"no legal moves",129
+18,9,"~/regicide-gen1full-work/openings4.txt:9","B13","B70",1-0,0,"no legal moves",93
+15,8,"~/regicide-gen1full-work/openings4.txt:8","B70","B13",1-0,1,"no legal moves",75
+17,9,"~/regicide-gen1full-work/openings4.txt:9","B70","B13",1-0,1,"no legal moves",125
+20,10,"~/regicide-gen1full-work/openings4.txt:10","B13","B70",1-0,0,"no legal moves",97
+16,8,"~/regicide-gen1full-work/openings4.txt:8","B13","B70",1-0,0,"no legal moves",159
+21,11,"~/regicide-gen1full-work/openings4.txt:11","B70","B13",1-0,1,"no legal moves",77
+22,11,"~/regicide-gen1full-work/openings4.txt:11","B13","B70",1-0,0,"no legal moves",137
+25,13,"~/regicide-gen1full-work/openings4.txt:13","B70","B13",1/2-1/2,0.5,"repetition",110
+29,15,"~/regicide-gen1full-work/openings4.txt:15","B70","B13",1/2-1/2,0.5,"repetition",79
+27,14,"~/regicide-gen1full-work/openings4.txt:14","B70","B13",1/2-1/2,0.5,"repetition",100
+23,12,"~/regicide-gen1full-work/openings4.txt:12","B70","B13",1-0,1,"no legal moves",123
+24,12,"~/regicide-gen1full-work/openings4.txt:12","B13","B70",1-0,0,"no legal moves",139
+31,16,"~/regicide-gen1full-work/openings4.txt:16","B70","B13",1/2-1/2,0.5,"repetition",112
+9,5,"~/regicide-gen1full-work/openings4.txt:5","B70","B13",1/2-1/2,0.5,"repetition",197
+34,17,"~/regicide-gen1full-work/openings4.txt:17","B13","B70",1/2-1/2,0.5,"repetition",91
+33,17,"~/regicide-gen1full-work/openings4.txt:17","B70","B13",1/2-1/2,0.5,"repetition",90
+35,18,"~/regicide-gen1full-work/openings4.txt:18","B70","B13",1/2-1/2,0.5,"repetition",104
+28,14,"~/regicide-gen1full-work/openings4.txt:14","B13","B70",1/2-1/2,0.5,"repetition",110
+26,13,"~/regicide-gen1full-work/openings4.txt:13","B13","B70",1-0,0,"no legal moves",143
+30,15,"~/regicide-gen1full-work/openings4.txt:15","B13","B70",1/2-1/2,0.5,"repetition",113
+41,21,"~/regicide-gen1full-work/openings4.txt:21","B70","B13",1/2-1/2,0.5,"repetition",61
+38,19,"~/regicide-gen1full-work/openings4.txt:19","B13","B70",1-0,0,"no legal moves",81
+32,16,"~/regicide-gen1full-work/openings4.txt:16","B13","B70",1/2-1/2,0.5,"repetition",101
+43,22,"~/regicide-gen1full-work/openings4.txt:22","B70","B13",1/2-1/2,0.5,"repetition",63
+42,21,"~/regicide-gen1full-work/openings4.txt:21","B13","B70",1/2-1/2,0.5,"repetition",107
+37,19,"~/regicide-gen1full-work/openings4.txt:19","B70","B13",1-0,1,"no legal moves",125
+36,18,"~/regicide-gen1full-work/openings4.txt:18","B13","B70",0-1,1,"no legal moves",114
+40,20,"~/regicide-gen1full-work/openings4.txt:20","B13","B70",1-0,0,"no legal moves",149
+47,24,"~/regicide-gen1full-work/openings4.txt:24","B70","B13",1/2-1/2,0.5,"repetition",74
+48,24,"~/regicide-gen1full-work/openings4.txt:24","B13","B70",1/2-1/2,0.5,"repetition",73
+39,20,"~/regicide-gen1full-work/openings4.txt:20","B70","B13",1-0,1,"no legal moves",181
+44,22,"~/regicide-gen1full-work/openings4.txt:22","B13","B70",1-0,0,"no legal moves",131
+45,23,"~/regicide-gen1full-work/openings4.txt:23","B70","B13",1-0,1,"no legal moves",195
+50,25,"~/regicide-gen1full-work/openings4.txt:25","B13","B70",1-0,0,"no legal moves",137
+51,26,"~/regicide-gen1full-work/openings4.txt:26","B70","B13",1-0,1,"no legal moves",91
+56,28,"~/regicide-gen1full-work/openings4.txt:28","B13","B70",1/2-1/2,0.5,"repetition",93
+53,27,"~/regicide-gen1full-work/openings4.txt:27","B70","B13",1-0,1,"no legal moves",77
+57,29,"~/regicide-gen1full-work/openings4.txt:29","B70","B13",1/2-1/2,0.5,"repetition",88
+52,26,"~/regicide-gen1full-work/openings4.txt:26","B13","B70",1-0,0,"no legal moves",135
+55,28,"~/regicide-gen1full-work/openings4.txt:28","B70","B13",0-1,0,"no legal moves",140
+62,31,"~/regicide-gen1full-work/openings4.txt:31","B13","B70",1/2-1/2,0.5,"repetition",89
+61,31,"~/regicide-gen1full-work/openings4.txt:31","B70","B13",1/2-1/2,0.5,"repetition",103
+60,30,"~/regicide-gen1full-work/openings4.txt:30","B13","B70",1-0,0,"no legal moves",173
+64,32,"~/regicide-gen1full-work/openings4.txt:32","B13","B70",1/2-1/2,0.5,"repetition",95
+49,25,"~/regicide-gen1full-work/openings4.txt:25","B70","B13",0-1,0,"no legal moves",150
+58,29,"~/regicide-gen1full-work/openings4.txt:29","B13","B70",1/2-1/2,0.5,"repetition",94
+46,23,"~/regicide-gen1full-work/openings4.txt:23","B13","B70",1-0,0,"no legal moves",195
+54,27,"~/regicide-gen1full-work/openings4.txt:27","B13","B70",1-0,0,"no legal moves",193
+65,33,"~/regicide-gen1full-work/openings4.txt:33","B70","B13",1-0,1,"no legal moves",129
+63,32,"~/regicide-gen1full-work/openings4.txt:32","B70","B13",1/2-1/2,0.5,"repetition",115
+67,34,"~/regicide-gen1full-work/openings4.txt:34","B70","B13",1/2-1/2,0.5,"repetition",100
+69,35,"~/regicide-gen1full-work/openings4.txt:35","B70","B13",1-0,1,"no legal moves",105
+66,33,"~/regicide-gen1full-work/openings4.txt:33","B13","B70",1-0,0,"no legal moves",165
+72,36,"~/regicide-gen1full-work/openings4.txt:36","B13","B70",1/2-1/2,0.5,"repetition",85
+71,36,"~/regicide-gen1full-work/openings4.txt:36","B70","B13",1-0,1,"no legal moves",135
+75,38,"~/regicide-gen1full-work/openings4.txt:38","B70","B13",1/2-1/2,0.5,"repetition",91
+73,37,"~/regicide-gen1full-work/openings4.txt:37","B70","B13",1-0,1,"no legal moves",67
+74,37,"~/regicide-gen1full-work/openings4.txt:37","B13","B70",1-0,0,"no legal moves",123
+70,35,"~/regicide-gen1full-work/openings4.txt:35","B13","B70",1/2-1/2,0.5,"repetition",123
+59,30,"~/regicide-gen1full-work/openings4.txt:30","B70","B13",1-0,1,"no legal moves",193
+78,39,"~/regicide-gen1full-work/openings4.txt:39","B13","B70",1/2-1/2,0.5,"repetition",75
+68,34,"~/regicide-gen1full-work/openings4.txt:34","B13","B70",1-0,0,"no legal moves",189
+80,40,"~/regicide-gen1full-work/openings4.txt:40","B13","B70",1/2-1/2,0.5,"repetition",87
+81,41,"~/regicide-gen1full-work/openings4.txt:41","B70","B13",1/2-1/2,0.5,"repetition",91
+79,40,"~/regicide-gen1full-work/openings4.txt:40","B70","B13",1-0,1,"no legal moves",147
+77,39,"~/regicide-gen1full-work/openings4.txt:39","B70","B13",1/2-1/2,0.5,"repetition",97
+83,42,"~/regicide-gen1full-work/openings4.txt:42","B70","B13",1/2-1/2,0.5,"repetition",73
+84,42,"~/regicide-gen1full-work/openings4.txt:42","B13","B70",1/2-1/2,0.5,"repetition",83
+87,44,"~/regicide-gen1full-work/openings4.txt:44","B70","B13",1/2-1/2,0.5,"repetition",89
+89,45,"~/regicide-gen1full-work/openings4.txt:45","B70","B13",1/2-1/2,0.5,"repetition",76
+85,43,"~/regicide-gen1full-work/openings4.txt:43","B70","B13",0-1,0,"no legal moves",96
+90,45,"~/regicide-gen1full-work/openings4.txt:45","B13","B70",1/2-1/2,0.5,"repetition",80
+82,41,"~/regicide-gen1full-work/openings4.txt:41","B13","B70",1/2-1/2,0.5,"repetition",135
+92,46,"~/regicide-gen1full-work/openings4.txt:46","B13","B70",1/2-1/2,0.5,"repetition",85
+86,43,"~/regicide-gen1full-work/openings4.txt:43","B13","B70",0-1,1,"no legal moves",108
+88,44,"~/regicide-gen1full-work/openings4.txt:44","B13","B70",0-1,1,"no legal moves",126
+91,46,"~/regicide-gen1full-work/openings4.txt:46","B70","B13",1/2-1/2,0.5,"repetition",68
+94,47,"~/regicide-gen1full-work/openings4.txt:47","B13","B70",0-1,1,"no legal moves",60
+95,48,"~/regicide-gen1full-work/openings4.txt:48","B70","B13",1/2-1/2,0.5,"repetition",89
+100,50,"~/regicide-gen1full-work/openings4.txt:50","B13","B70",1/2-1/2,0.5,"repetition",67
+96,48,"~/regicide-gen1full-work/openings4.txt:48","B13","B70",1/2-1/2,0.5,"repetition",95
+101,51,"~/regicide-gen1full-work/openings4.txt:51","B70","B13",1/2-1/2,0.5,"repetition",97
+76,38,"~/regicide-gen1full-work/openings4.txt:38","B13","B70",1/2-1/2,0.5,"repetition",182
+99,50,"~/regicide-gen1full-work/openings4.txt:50","B70","B13",1/2-1/2,0.5,"repetition",117
+97,49,"~/regicide-gen1full-work/openings4.txt:49","B70","B13",1/2-1/2,0.5,"repetition",82
+93,47,"~/regicide-gen1full-work/openings4.txt:47","B70","B13",1/2-1/2,0.5,"repetition",87
+104,52,"~/regicide-gen1full-work/openings4.txt:52","B13","B70",1/2-1/2,0.5,"repetition",83
+103,52,"~/regicide-gen1full-work/openings4.txt:52","B70","B13",1/2-1/2,0.5,"repetition",89
+106,53,"~/regicide-gen1full-work/openings4.txt:53","B13","B70",1/2-1/2,0.5,"repetition",83
+98,49,"~/regicide-gen1full-work/openings4.txt:49","B13","B70",1/2-1/2,0.5,"repetition",114
+105,53,"~/regicide-gen1full-work/openings4.txt:53","B70","B13",0-1,0,"no legal moves",62
+108,54,"~/regicide-gen1full-work/openings4.txt:54","B13","B70",1-0,0,"no legal moves",139
+107,54,"~/regicide-gen1full-work/openings4.txt:54","B70","B13",1-0,1,"no legal moves",153
+112,56,"~/regicide-gen1full-work/openings4.txt:56","B13","B70",1/2-1/2,0.5,"repetition",61
+113,57,"~/regicide-gen1full-work/openings4.txt:57","B70","B13",1/2-1/2,0.5,"repetition",116
+109,55,"~/regicide-gen1full-work/openings4.txt:55","B70","B13",1/2-1/2,0.5,"repetition",107
+111,56,"~/regicide-gen1full-work/openings4.txt:56","B70","B13",1-0,1,"no legal moves",99
+118,59,"~/regicide-gen1full-work/openings4.txt:59","B13","B70",1/2-1/2,0.5,"repetition",65
+114,57,"~/regicide-gen1full-work/openings4.txt:57","B13","B70",1/2-1/2,0.5,"repetition",111
+119,60,"~/regicide-gen1full-work/openings4.txt:60","B70","B13",1/2-1/2,0.5,"repetition",110
+115,58,"~/regicide-gen1full-work/openings4.txt:58","B70","B13",1-0,1,"no legal moves",129
+117,59,"~/regicide-gen1full-work/openings4.txt:59","B70","B13",1-0,1,"no legal moves",125
+120,60,"~/regicide-gen1full-work/openings4.txt:60","B13","B70",0-1,1,"no legal moves",82
+110,55,"~/regicide-gen1full-work/openings4.txt:55","B13","B70",1/2-1/2,0.5,"repetition",153
+122,61,"~/regicide-gen1full-work/openings4.txt:61","B13","B70",1/2-1/2,0.5,"repetition",111
+126,63,"~/regicide-gen1full-work/openings4.txt:63","B13","B70",1/2-1/2,0.5,"repetition",66
+123,62,"~/regicide-gen1full-work/openings4.txt:62","B70","B13",1/2-1/2,0.5,"repetition",74
+116,58,"~/regicide-gen1full-work/openings4.txt:58","B13","B70",1-0,0,"no legal moves",137
+125,63,"~/regicide-gen1full-work/openings4.txt:63","B70","B13",1/2-1/2,0.5,"repetition",80
+127,64,"~/regicide-gen1full-work/openings4.txt:64","B70","B13",1/2-1/2,0.5,"repetition",83
+102,51,"~/regicide-gen1full-work/openings4.txt:51","B13","B70",1/2-1/2,0.5,"no progress",182
+128,64,"~/regicide-gen1full-work/openings4.txt:64","B13","B70",1/2-1/2,0.5,"repetition",74
+131,66,"~/regicide-gen1full-work/openings4.txt:66","B70","B13",1/2-1/2,0.5,"repetition",79
+124,62,"~/regicide-gen1full-work/openings4.txt:62","B13","B70",1/2-1/2,0.5,"repetition",115
+121,61,"~/regicide-gen1full-work/openings4.txt:61","B70","B13",1/2-1/2,0.5,"repetition",113
+132,66,"~/regicide-gen1full-work/openings4.txt:66","B13","B70",1/2-1/2,0.5,"repetition",103
+134,67,"~/regicide-gen1full-work/openings4.txt:67","B13","B70",1/2-1/2,0.5,"repetition",83
+138,69,"~/regicide-gen1full-work/openings4.txt:69","B13","B70",0-1,1,"no legal moves",118
+129,65,"~/regicide-gen1full-work/openings4.txt:65","B70","B13",1/2-1/2,0.5,"repetition",119
+141,71,"~/regicide-gen1full-work/openings4.txt:71","B70","B13",1/2-1/2,0.5,"repetition",70
+130,65,"~/regicide-gen1full-work/openings4.txt:65","B13","B70",1-0,0,"no legal moves",133
+137,69,"~/regicide-gen1full-work/openings4.txt:69","B70","B13",1/2-1/2,0.5,"repetition",103
+135,68,"~/regicide-gen1full-work/openings4.txt:68","B70","B13",1/2-1/2,0.5,"repetition",143
+133,67,"~/regicide-gen1full-work/openings4.txt:67","B70","B13",0-1,0,"no legal moves",174
+136,68,"~/regicide-gen1full-work/openings4.txt:68","B13","B70",1/2-1/2,0.5,"repetition",137
+139,70,"~/regicide-gen1full-work/openings4.txt:70","B70","B13",0-1,0,"no legal moves",174
+140,70,"~/regicide-gen1full-work/openings4.txt:70","B13","B70",0-1,1,"no legal moves",146
+143,72,"~/regicide-gen1full-work/openings4.txt:72","B70","B13",1-0,1,"no legal moves",149
+147,74,"~/regicide-gen1full-work/openings4.txt:74","B70","B13",1-0,1,"no legal moves",65
+144,72,"~/regicide-gen1full-work/openings4.txt:72","B13","B70",1-0,0,"no legal moves",163
+149,75,"~/regicide-gen1full-work/openings4.txt:75","B70","B13",1/2-1/2,0.5,"repetition",114
+146,73,"~/regicide-gen1full-work/openings4.txt:73","B13","B70",0-1,1,"no legal moves",98
+142,71,"~/regicide-gen1full-work/openings4.txt:71","B13","B70",0-1,1,"no legal moves",140
+151,76,"~/regicide-gen1full-work/openings4.txt:76","B70","B13",1/2-1/2,0.5,"repetition",81
+145,73,"~/regicide-gen1full-work/openings4.txt:73","B70","B13",0-1,0,"no legal moves",142
+153,77,"~/regicide-gen1full-work/openings4.txt:77","B70","B13",1/2-1/2,0.5,"repetition",85
+148,74,"~/regicide-gen1full-work/openings4.txt:74","B13","B70",1-0,0,"no legal moves",101
+159,80,"~/regicide-gen1full-work/openings4.txt:80","B70","B13",1/2-1/2,0.5,"repetition",60
+156,78,"~/regicide-gen1full-work/openings4.txt:78","B13","B70",1/2-1/2,0.5,"repetition",112
+152,76,"~/regicide-gen1full-work/openings4.txt:76","B13","B70",0-1,1,"no legal moves",128
+155,78,"~/regicide-gen1full-work/openings4.txt:78","B70","B13",1-0,1,"no legal moves",123
+150,75,"~/regicide-gen1full-work/openings4.txt:75","B13","B70",0-1,1,"no legal moves",202
+154,77,"~/regicide-gen1full-work/openings4.txt:77","B13","B70",1/2-1/2,0.5,"repetition",103
+158,79,"~/regicide-gen1full-work/openings4.txt:79","B13","B70",0-1,1,"no legal moves",94
+160,80,"~/regicide-gen1full-work/openings4.txt:80","B13","B70",1/2-1/2,0.5,"repetition",96
+164,82,"~/regicide-gen1full-work/openings4.txt:82","B13","B70",1/2-1/2,0.5,"repetition",80
+165,83,"~/regicide-gen1full-work/openings4.txt:83","B70","B13",1-0,1,"no legal moves",125
+162,81,"~/regicide-gen1full-work/openings4.txt:81","B13","B70",1/2-1/2,0.5,"repetition",121
+163,82,"~/regicide-gen1full-work/openings4.txt:82","B70","B13",0-1,0,"no legal moves",84
+167,84,"~/regicide-gen1full-work/openings4.txt:84","B70","B13",1/2-1/2,0.5,"repetition",77
+166,83,"~/regicide-gen1full-work/openings4.txt:83","B13","B70",1-0,0,"no legal moves",131
+168,84,"~/regicide-gen1full-work/openings4.txt:84","B13","B70",1/2-1/2,0.5,"repetition",86
+157,79,"~/regicide-gen1full-work/openings4.txt:79","B70","B13",0-1,0,"no legal moves",120
+171,86,"~/regicide-gen1full-work/openings4.txt:86","B70","B13",1/2-1/2,0.5,"repetition",85
+173,87,"~/regicide-gen1full-work/openings4.txt:87","B70","B13",1/2-1/2,0.5,"repetition",72
+161,81,"~/regicide-gen1full-work/openings4.txt:81","B70","B13",1-0,1,"no legal moves",221
+169,85,"~/regicide-gen1full-work/openings4.txt:85","B70","B13",1-0,1,"no legal moves",77
+170,85,"~/regicide-gen1full-work/openings4.txt:85","B13","B70",1/2-1/2,0.5,"repetition",109
+175,88,"~/regicide-gen1full-work/openings4.txt:88","B70","B13",1/2-1/2,0.5,"repetition",87
+172,86,"~/regicide-gen1full-work/openings4.txt:86","B13","B70",1/2-1/2,0.5,"repetition",95
+179,90,"~/regicide-gen1full-work/openings4.txt:90","B70","B13",1/2-1/2,0.5,"repetition",75
+177,89,"~/regicide-gen1full-work/openings4.txt:89","B70","B13",1-0,1,"no legal moves",105
+176,88,"~/regicide-gen1full-work/openings4.txt:88","B13","B70",1-0,0,"no legal moves",83
+180,90,"~/regicide-gen1full-work/openings4.txt:90","B13","B70",0-1,1,"no legal moves",90
+181,91,"~/regicide-gen1full-work/openings4.txt:91","B70","B13",1/2-1/2,0.5,"repetition",81
+174,87,"~/regicide-gen1full-work/openings4.txt:87","B13","B70",0-1,1,"no legal moves",146
+178,89,"~/regicide-gen1full-work/openings4.txt:89","B13","B70",1-0,0,"no legal moves",149
+183,92,"~/regicide-gen1full-work/openings4.txt:92","B70","B13",1/2-1/2,0.5,"repetition",93
+186,93,"~/regicide-gen1full-work/openings4.txt:93","B13","B70",1/2-1/2,0.5,"repetition",70
+184,92,"~/regicide-gen1full-work/openings4.txt:92","B13","B70",1/2-1/2,0.5,"repetition",91
+190,95,"~/regicide-gen1full-work/openings4.txt:95","B13","B70",1/2-1/2,0.5,"repetition",69
+185,93,"~/regicide-gen1full-work/openings4.txt:93","B70","B13",0-1,0,"no legal moves",88
+194,97,"~/regicide-gen1full-work/openings4.txt:97","B13","B70",1/2-1/2,0.5,"repetition",85
+182,91,"~/regicide-gen1full-work/openings4.txt:91","B13","B70",1/2-1/2,0.5,"repetition",104
+193,97,"~/regicide-gen1full-work/openings4.txt:97","B70","B13",1/2-1/2,0.5,"repetition",85
+192,96,"~/regicide-gen1full-work/openings4.txt:96","B13","B70",1/2-1/2,0.5,"repetition",83
+187,94,"~/regicide-gen1full-work/openings4.txt:94","B70","B13",1/2-1/2,0.5,"repetition",84
+191,96,"~/regicide-gen1full-work/openings4.txt:96","B70","B13",1-0,1,"no legal moves",65
+189,95,"~/regicide-gen1full-work/openings4.txt:95","B70","B13",1/2-1/2,0.5,"repetition",113
+197,99,"~/regicide-gen1full-work/openings4.txt:99","B70","B13",1/2-1/2,0.5,"repetition",86
+196,98,"~/regicide-gen1full-work/openings4.txt:98","B13","B70",1/2-1/2,0.5,"repetition",83
+201,101,"~/regicide-gen1full-work/openings4.txt:101","B70","B13",1/2-1/2,0.5,"repetition",78
+198,99,"~/regicide-gen1full-work/openings4.txt:99","B13","B70",1/2-1/2,0.5,"repetition",95
+188,94,"~/regicide-gen1full-work/openings4.txt:94","B13","B70",1/2-1/2,0.5,"repetition",133
+202,101,"~/regicide-gen1full-work/openings4.txt:101","B13","B70",1/2-1/2,0.5,"repetition",103
+205,103,"~/regicide-gen1full-work/openings4.txt:103","B70","B13",1/2-1/2,0.5,"repetition",87
+199,100,"~/regicide-gen1full-work/openings4.txt:100","B70","B13",1-0,1,"no legal moves",161
+204,102,"~/regicide-gen1full-work/openings4.txt:102","B13","B70",1/2-1/2,0.5,"repetition",84
+203,102,"~/regicide-gen1full-work/openings4.txt:102","B70","B13",0-1,0,"no legal moves",130
+200,100,"~/regicide-gen1full-work/openings4.txt:100","B13","B70",1/2-1/2,0.5,"repetition",116
+206,103,"~/regicide-gen1full-work/openings4.txt:103","B13","B70",1/2-1/2,0.5,"repetition",103
+195,98,"~/regicide-gen1full-work/openings4.txt:98","B70","B13",1/2-1/2,0.5,"repetition",142
+209,105,"~/regicide-gen1full-work/openings4.txt:105","B70","B13",1/2-1/2,0.5,"repetition",76
+212,106,"~/regicide-gen1full-work/openings4.txt:106","B13","B70",1/2-1/2,0.5,"repetition",77
+210,105,"~/regicide-gen1full-work/openings4.txt:105","B13","B70",1-0,0,"no legal moves",117
+208,104,"~/regicide-gen1full-work/openings4.txt:104","B13","B70",0-1,1,"no legal moves",76
+218,109,"~/regicide-gen1full-work/openings4.txt:109","B13","B70",1/2-1/2,0.5,"repetition",104
+211,106,"~/regicide-gen1full-work/openings4.txt:106","B70","B13",0-1,0,"no legal moves",126
+217,109,"~/regicide-gen1full-work/openings4.txt:109","B70","B13",1/2-1/2,0.5,"repetition",98
+215,108,"~/regicide-gen1full-work/openings4.txt:108","B70","B13",0-1,0,"no legal moves",82
+216,108,"~/regicide-gen1full-work/openings4.txt:108","B13","B70",1/2-1/2,0.5,"repetition",71
+221,111,"~/regicide-gen1full-work/openings4.txt:111","B70","B13",1/2-1/2,0.5,"repetition",80
+214,107,"~/regicide-gen1full-work/openings4.txt:107","B13","B70",1/2-1/2,0.5,"repetition",112
+220,110,"~/regicide-gen1full-work/openings4.txt:110","B13","B70",1/2-1/2,0.5,"repetition",83
+219,110,"~/regicide-gen1full-work/openings4.txt:110","B70","B13",1-0,1,"no legal moves",137
+225,113,"~/regicide-gen1full-work/openings4.txt:113","B70","B13",1/2-1/2,0.5,"repetition",87
+223,112,"~/regicide-gen1full-work/openings4.txt:112","B70","B13",1/2-1/2,0.5,"repetition",90
+226,113,"~/regicide-gen1full-work/openings4.txt:113","B13","B70",1/2-1/2,0.5,"repetition",87
+227,114,"~/regicide-gen1full-work/openings4.txt:114","B70","B13",0-1,0,"no legal moves",68
+213,107,"~/regicide-gen1full-work/openings4.txt:107","B70","B13",1/2-1/2,0.5,"repetition",139
+229,115,"~/regicide-gen1full-work/openings4.txt:115","B70","B13",0-1,0,"no legal moves",74
+228,114,"~/regicide-gen1full-work/openings4.txt:114","B13","B70",0-1,1,"no legal moves",78
+222,111,"~/regicide-gen1full-work/openings4.txt:111","B13","B70",1-0,0,"no legal moves",99
+231,116,"~/regicide-gen1full-work/openings4.txt:116","B70","B13",1-0,1,"no legal moves",133
+230,115,"~/regicide-gen1full-work/openings4.txt:115","B13","B70",0-1,1,"no legal moves",76
+207,104,"~/regicide-gen1full-work/openings4.txt:104","B70","B13",1/2-1/2,0.5,"repetition",207
+232,116,"~/regicide-gen1full-work/openings4.txt:116","B13","B70",1-0,0,"no legal moves",133
+234,117,"~/regicide-gen1full-work/openings4.txt:117","B13","B70",1/2-1/2,0.5,"repetition",86
+235,118,"~/regicide-gen1full-work/openings4.txt:118","B70","B13",1/2-1/2,0.5,"repetition",117
+233,117,"~/regicide-gen1full-work/openings4.txt:117","B70","B13",1/2-1/2,0.5,"repetition",90
+238,119,"~/regicide-gen1full-work/openings4.txt:119","B13","B70",1/2-1/2,0.5,"repetition",70
+237,119,"~/regicide-gen1full-work/openings4.txt:119","B70","B13",1/2-1/2,0.5,"repetition",89
+239,120,"~/regicide-gen1full-work/openings4.txt:120","B70","B13",1/2-1/2,0.5,"repetition",85
+224,112,"~/regicide-gen1full-work/openings4.txt:112","B13","B70",1/2-1/2,0.5,"repetition",133
+243,122,"~/regicide-gen1full-work/openings4.txt:122","B70","B13",1/2-1/2,0.5,"repetition",91
+241,121,"~/regicide-gen1full-work/openings4.txt:121","B70","B13",1-0,1,"no legal moves",57
+246,123,"~/regicide-gen1full-work/openings4.txt:123","B13","B70",1/2-1/2,0.5,"repetition",93
+236,118,"~/regicide-gen1full-work/openings4.txt:118","B13","B70",0-1,1,"no legal moves",78
+242,121,"~/regicide-gen1full-work/openings4.txt:121","B13","B70",1-0,0,"no legal moves",137
+240,120,"~/regicide-gen1full-work/openings4.txt:120","B13","B70",1/2-1/2,0.5,"repetition",91
+244,122,"~/regicide-gen1full-work/openings4.txt:122","B13","B70",1/2-1/2,0.5,"repetition",93
+245,123,"~/regicide-gen1full-work/openings4.txt:123","B70","B13",1/2-1/2,0.5,"repetition",103
+250,125,"~/regicide-gen1full-work/openings4.txt:125","B13","B70",1/2-1/2,0.5,"repetition",77
+247,124,"~/regicide-gen1full-work/openings4.txt:124","B70","B13",1/2-1/2,0.5,"repetition",80
+251,126,"~/regicide-gen1full-work/openings4.txt:126","B70","B13",1/2-1/2,0.5,"repetition",74
+248,124,"~/regicide-gen1full-work/openings4.txt:124","B13","B70",1/2-1/2,0.5,"repetition",113
+252,126,"~/regicide-gen1full-work/openings4.txt:126","B13","B70",1/2-1/2,0.5,"repetition",68
+258,129,"~/regicide-gen1full-work/openings4.txt:129","B13","B70",1/2-1/2,0.5,"repetition",70
+253,127,"~/regicide-gen1full-work/openings4.txt:127","B70","B13",1-0,1,"no legal moves",137
+249,125,"~/regicide-gen1full-work/openings4.txt:125","B70","B13",1-0,1,"no legal moves",141
+256,128,"~/regicide-gen1full-work/openings4.txt:128","B13","B70",1/2-1/2,0.5,"repetition",72
+254,127,"~/regicide-gen1full-work/openings4.txt:127","B13","B70",1-0,0,"no legal moves",119
+255,128,"~/regicide-gen1full-work/openings4.txt:128","B70","B13",1-0,1,"no legal moves",119
+259,130,"~/regicide-gen1full-work/openings4.txt:130","B70","B13",1/2-1/2,0.5,"repetition",85
+262,131,"~/regicide-gen1full-work/openings4.txt:131","B13","B70",1/2-1/2,0.5,"repetition",117
+263,132,"~/regicide-gen1full-work/openings4.txt:132","B70","B13",1/2-1/2,0.5,"repetition",77
+260,130,"~/regicide-gen1full-work/openings4.txt:130","B13","B70",1/2-1/2,0.5,"repetition",86
+267,134,"~/regicide-gen1full-work/openings4.txt:134","B70","B13",1/2-1/2,0.5,"repetition",69
+268,134,"~/regicide-gen1full-work/openings4.txt:134","B13","B70",1/2-1/2,0.5,"repetition",74
+264,132,"~/regicide-gen1full-work/openings4.txt:132","B13","B70",1/2-1/2,0.5,"repetition",87
+261,131,"~/regicide-gen1full-work/openings4.txt:131","B70","B13",1-0,1,"no legal moves",117
+271,136,"~/regicide-gen1full-work/openings4.txt:136","B70","B13",1/2-1/2,0.5,"repetition",68
+265,133,"~/regicide-gen1full-work/openings4.txt:133","B70","B13",1/2-1/2,0.5,"repetition",94
+257,129,"~/regicide-gen1full-work/openings4.txt:129","B70","B13",0-1,0,"no legal moves",120
+266,133,"~/regicide-gen1full-work/openings4.txt:133","B13","B70",0-1,1,"no legal moves",138
+272,136,"~/regicide-gen1full-work/openings4.txt:136","B13","B70",1/2-1/2,0.5,"repetition",91
+275,138,"~/regicide-gen1full-work/openings4.txt:138","B70","B13",1/2-1/2,0.5,"repetition",78
+273,137,"~/regicide-gen1full-work/openings4.txt:137","B70","B13",1/2-1/2,0.5,"repetition",89
+274,137,"~/regicide-gen1full-work/openings4.txt:137","B13","B70",1/2-1/2,0.5,"repetition",77
+269,135,"~/regicide-gen1full-work/openings4.txt:135","B70","B13",1-0,1,"no legal moves",81
+270,135,"~/regicide-gen1full-work/openings4.txt:135","B13","B70",1-0,0,"no legal moves",117
+281,141,"~/regicide-gen1full-work/openings4.txt:141","B70","B13",1/2-1/2,0.5,"repetition",70
+282,141,"~/regicide-gen1full-work/openings4.txt:141","B13","B70",1/2-1/2,0.5,"repetition",81
+278,139,"~/regicide-gen1full-work/openings4.txt:139","B13","B70",0-1,1,"no legal moves",124
+280,140,"~/regicide-gen1full-work/openings4.txt:140","B13","B70",1-0,0,"no legal moves",151
+283,142,"~/regicide-gen1full-work/openings4.txt:142","B70","B13",1/2-1/2,0.5,"repetition",89
+279,140,"~/regicide-gen1full-work/openings4.txt:140","B70","B13",1-0,1,"no legal moves",135
+288,144,"~/regicide-gen1full-work/openings4.txt:144","B13","B70",1/2-1/2,0.5,"repetition",97
+285,143,"~/regicide-gen1full-work/openings4.txt:143","B70","B13",1/2-1/2,0.5,"repetition",96
+277,139,"~/regicide-gen1full-work/openings4.txt:139","B70","B13",1-0,1,"no legal moves",165
+284,142,"~/regicide-gen1full-work/openings4.txt:142","B13","B70",1-0,0,"no legal moves",109
+287,144,"~/regicide-gen1full-work/openings4.txt:144","B70","B13",1/2-1/2,0.5,"repetition",73
+286,143,"~/regicide-gen1full-work/openings4.txt:143","B13","B70",0-1,1,"no legal moves",92
+289,145,"~/regicide-gen1full-work/openings4.txt:145","B70","B13",0-1,0,"no legal moves",74
+291,146,"~/regicide-gen1full-work/openings4.txt:146","B70","B13",0-1,0,"no legal moves",56
+290,145,"~/regicide-gen1full-work/openings4.txt:145","B13","B70",0-1,1,"no legal moves",100
+293,147,"~/regicide-gen1full-work/openings4.txt:147","B70","B13",0-1,0,"no legal moves",88
+292,146,"~/regicide-gen1full-work/openings4.txt:146","B13","B70",0-1,1,"no legal moves",122
+296,148,"~/regicide-gen1full-work/openings4.txt:148","B13","B70",1-0,0,"no legal moves",141
+299,150,"~/regicide-gen1full-work/openings4.txt:150","B70","B13",1/2-1/2,0.5,"repetition",63
+294,147,"~/regicide-gen1full-work/openings4.txt:147","B13","B70",0-1,1,"no legal moves",98
+295,148,"~/regicide-gen1full-work/openings4.txt:148","B70","B13",1-0,1,"no legal moves",133
+297,149,"~/regicide-gen1full-work/openings4.txt:149","B70","B13",1-0,1,"no legal moves",83
+301,151,"~/regicide-gen1full-work/openings4.txt:151","B70","B13",1/2-1/2,0.5,"repetition",64
+303,152,"~/regicide-gen1full-work/openings4.txt:152","B70","B13",1-0,1,"no legal moves",137
+302,151,"~/regicide-gen1full-work/openings4.txt:151","B13","B70",0-1,1,"no legal moves",76
+306,153,"~/regicide-gen1full-work/openings4.txt:153","B13","B70",1-0,0,"no legal moves",135
+304,152,"~/regicide-gen1full-work/openings4.txt:152","B13","B70",1-0,0,"no legal moves",133
+308,154,"~/regicide-gen1full-work/openings4.txt:154","B13","B70",1/2-1/2,0.5,"repetition",95
+310,155,"~/regicide-gen1full-work/openings4.txt:155","B13","B70",1/2-1/2,0.5,"repetition",67
+305,153,"~/regicide-gen1full-work/openings4.txt:153","B70","B13",1-0,1,"no legal moves",127
+311,156,"~/regicide-gen1full-work/openings4.txt:156","B70","B13",1/2-1/2,0.5,"repetition",82
+307,154,"~/regicide-gen1full-work/openings4.txt:154","B70","B13",1/2-1/2,0.5,"repetition",84
+309,155,"~/regicide-gen1full-work/openings4.txt:155","B70","B13",1/2-1/2,0.5,"repetition",51
+312,156,"~/regicide-gen1full-work/openings4.txt:156","B13","B70",1/2-1/2,0.5,"repetition",81
+298,149,"~/regicide-gen1full-work/openings4.txt:149","B13","B70",1-0,0,"no legal moves",147
+317,159,"~/regicide-gen1full-work/openings4.txt:159","B70","B13",1/2-1/2,0.5,"repetition",87
+300,150,"~/regicide-gen1full-work/openings4.txt:150","B13","B70",1/2-1/2,0.5,"repetition",170
+313,157,"~/regicide-gen1full-work/openings4.txt:157","B70","B13",1-0,1,"no legal moves",91
+320,160,"~/regicide-gen1full-work/openings4.txt:160","B13","B70",1/2-1/2,0.5,"repetition",64
+315,158,"~/regicide-gen1full-work/openings4.txt:158","B70","B13",1-0,1,"no legal moves",123
+318,159,"~/regicide-gen1full-work/openings4.txt:159","B13","B70",1/2-1/2,0.5,"repetition",101
+276,138,"~/regicide-gen1full-work/openings4.txt:138","B13","B70",1-0,0,"no legal moves",291
+314,157,"~/regicide-gen1full-work/openings4.txt:157","B13","B70",1-0,0,"no legal moves",119
+325,163,"~/regicide-gen1full-work/openings4.txt:163","B70","B13",1/2-1/2,0.5,"repetition",75
+316,158,"~/regicide-gen1full-work/openings4.txt:158","B13","B70",1-0,0,"no legal moves",77
+323,162,"~/regicide-gen1full-work/openings4.txt:162","B70","B13",1/2-1/2,0.5,"repetition",93
+326,163,"~/regicide-gen1full-work/openings4.txt:163","B13","B70",1/2-1/2,0.5,"repetition",89
+319,160,"~/regicide-gen1full-work/openings4.txt:160","B70","B13",1/2-1/2,0.5,"repetition",120
+322,161,"~/regicide-gen1full-work/openings4.txt:161","B13","B70",1-0,0,"no legal moves",143
+328,164,"~/regicide-gen1full-work/openings4.txt:164","B13","B70",1/2-1/2,0.5,"repetition",87
+321,161,"~/regicide-gen1full-work/openings4.txt:161","B70","B13",1/2-1/2,0.5,"repetition",107
+324,162,"~/regicide-gen1full-work/openings4.txt:162","B13","B70",0-1,1,"no legal moves",124
+332,166,"~/regicide-gen1full-work/openings4.txt:166","B13","B70",1/2-1/2,0.5,"repetition",85
+330,165,"~/regicide-gen1full-work/openings4.txt:165","B13","B70",1/2-1/2,0.5,"repetition",79
+327,164,"~/regicide-gen1full-work/openings4.txt:164","B70","B13",1/2-1/2,0.5,"repetition",94
+336,168,"~/regicide-gen1full-work/openings4.txt:168","B13","B70",1/2-1/2,0.5,"repetition",58
+329,165,"~/regicide-gen1full-work/openings4.txt:165","B70","B13",1-0,1,"no legal moves",133
+331,166,"~/regicide-gen1full-work/openings4.txt:166","B70","B13",1-0,1,"no legal moves",141
+335,168,"~/regicide-gen1full-work/openings4.txt:168","B70","B13",1/2-1/2,0.5,"repetition",75
+338,169,"~/regicide-gen1full-work/openings4.txt:169","B13","B70",1/2-1/2,0.5,"repetition",101
+337,169,"~/regicide-gen1full-work/openings4.txt:169","B70","B13",1-0,1,"no legal moves",141
+333,167,"~/regicide-gen1full-work/openings4.txt:167","B70","B13",1/2-1/2,0.5,"repetition",71
+340,170,"~/regicide-gen1full-work/openings4.txt:170","B13","B70",1/2-1/2,0.5,"repetition",93
+334,167,"~/regicide-gen1full-work/openings4.txt:167","B13","B70",0-1,1,"no legal moves",72
+341,171,"~/regicide-gen1full-work/openings4.txt:171","B70","B13",1/2-1/2,0.5,"repetition",93
+344,172,"~/regicide-gen1full-work/openings4.txt:172","B13","B70",0-1,1,"no legal moves",108
+342,171,"~/regicide-gen1full-work/openings4.txt:171","B13","B70",1/2-1/2,0.5,"repetition",77
+346,173,"~/regicide-gen1full-work/openings4.txt:173","B13","B70",0-1,1,"no legal moves",122
+347,174,"~/regicide-gen1full-work/openings4.txt:174","B70","B13",0-1,0,"no legal moves",108
+345,173,"~/regicide-gen1full-work/openings4.txt:173","B70","B13",0-1,0,"no legal moves",116
+339,170,"~/regicide-gen1full-work/openings4.txt:170","B70","B13",1/2-1/2,0.5,"repetition",134
+348,174,"~/regicide-gen1full-work/openings4.txt:174","B13","B70",0-1,1,"no legal moves",68
+343,172,"~/regicide-gen1full-work/openings4.txt:172","B70","B13",0-1,0,"no legal moves",138
+351,176,"~/regicide-gen1full-work/openings4.txt:176","B70","B13",1/2-1/2,0.5,"repetition",69
+350,175,"~/regicide-gen1full-work/openings4.txt:175","B13","B70",1/2-1/2,0.5,"repetition",97
+354,177,"~/regicide-gen1full-work/openings4.txt:177","B13","B70",1/2-1/2,0.5,"repetition",92
+352,176,"~/regicide-gen1full-work/openings4.txt:176","B13","B70",1/2-1/2,0.5,"repetition",83
+358,179,"~/regicide-gen1full-work/openings4.txt:179","B13","B70",1/2-1/2,0.5,"repetition",101
+353,177,"~/regicide-gen1full-work/openings4.txt:177","B70","B13",1-0,1,"no legal moves",129
+359,180,"~/regicide-gen1full-work/openings4.txt:180","B70","B13",1/2-1/2,0.5,"repetition",74
+349,175,"~/regicide-gen1full-work/openings4.txt:175","B70","B13",0-1,0,"no legal moves",114
+361,181,"~/regicide-gen1full-work/openings4.txt:181","B70","B13",1/2-1/2,0.5,"repetition",90
+355,178,"~/regicide-gen1full-work/openings4.txt:178","B70","B13",1-0,1,"no legal moves",129
+363,182,"~/regicide-gen1full-work/openings4.txt:182","B70","B13",1/2-1/2,0.5,"repetition",83
+364,182,"~/regicide-gen1full-work/openings4.txt:182","B13","B70",1/2-1/2,0.5,"repetition",85
+366,183,"~/regicide-gen1full-work/openings4.txt:183","B13","B70",1/2-1/2,0.5,"repetition",85
+362,181,"~/regicide-gen1full-work/openings4.txt:181","B13","B70",1-0,0,"no legal moves",163
+368,184,"~/regicide-gen1full-work/openings4.txt:184","B13","B70",1/2-1/2,0.5,"repetition",81
+369,185,"~/regicide-gen1full-work/openings4.txt:185","B70","B13",1/2-1/2,0.5,"repetition",58
+367,184,"~/regicide-gen1full-work/openings4.txt:184","B70","B13",1/2-1/2,0.5,"repetition",71
+357,179,"~/regicide-gen1full-work/openings4.txt:179","B70","B13",1/2-1/2,0.5,"repetition",108
+365,183,"~/regicide-gen1full-work/openings4.txt:183","B70","B13",1/2-1/2,0.5,"repetition",95
+356,178,"~/regicide-gen1full-work/openings4.txt:178","B13","B70",1-0,0,"no legal moves",181
+370,185,"~/regicide-gen1full-work/openings4.txt:185","B13","B70",1/2-1/2,0.5,"repetition",95
+373,187,"~/regicide-gen1full-work/openings4.txt:187","B70","B13",1-0,1,"no legal moves",115
+372,186,"~/regicide-gen1full-work/openings4.txt:186","B13","B70",0-1,1,"no legal moves",74
+371,186,"~/regicide-gen1full-work/openings4.txt:186","B70","B13",1-0,1,"no legal moves",71
+360,180,"~/regicide-gen1full-work/openings4.txt:180","B13","B70",1-0,0,"no legal moves",191
+374,187,"~/regicide-gen1full-work/openings4.txt:187","B13","B70",1-0,0,"no legal moves",49
+377,189,"~/regicide-gen1full-work/openings4.txt:189","B70","B13",1/2-1/2,0.5,"repetition",92
+379,190,"~/regicide-gen1full-work/openings4.txt:190","B70","B13",1/2-1/2,0.5,"repetition",78
+376,188,"~/regicide-gen1full-work/openings4.txt:188","B13","B70",1/2-1/2,0.5,"repetition",87
+375,188,"~/regicide-gen1full-work/openings4.txt:188","B70","B13",1-0,1,"no legal moves",115
+384,192,"~/regicide-gen1full-work/openings4.txt:192","B13","B70",1/2-1/2,0.5,"repetition",69
+378,189,"~/regicide-gen1full-work/openings4.txt:189","B13","B70",1-0,0,"no legal moves",133
+381,191,"~/regicide-gen1full-work/openings4.txt:191","B70","B13",0-1,0,"no legal moves",70
+383,192,"~/regicide-gen1full-work/openings4.txt:192","B70","B13",1-0,1,"no legal moves",127
+382,191,"~/regicide-gen1full-work/openings4.txt:191","B13","B70",1/2-1/2,0.5,"repetition",107
+386,193,"~/regicide-gen1full-work/openings4.txt:193","B13","B70",1-0,0,"no legal moves",111
+385,193,"~/regicide-gen1full-work/openings4.txt:193","B70","B13",1-0,1,"no legal moves",123
+387,194,"~/regicide-gen1full-work/openings4.txt:194","B70","B13",1-0,1,"no legal moves",145
+391,196,"~/regicide-gen1full-work/openings4.txt:196","B70","B13",1/2-1/2,0.5,"repetition",90
+380,190,"~/regicide-gen1full-work/openings4.txt:190","B13","B70",1-0,0,"no legal moves",163
+388,194,"~/regicide-gen1full-work/openings4.txt:194","B13","B70",1/2-1/2,0.5,"repetition",92
+394,197,"~/regicide-gen1full-work/openings4.txt:197","B13","B70",1/2-1/2,0.5,"repetition",76
+389,195,"~/regicide-gen1full-work/openings4.txt:195","B70","B13",1-0,1,"no legal moves",191
+393,197,"~/regicide-gen1full-work/openings4.txt:197","B70","B13",1/2-1/2,0.5,"repetition",90
+390,195,"~/regicide-gen1full-work/openings4.txt:195","B13","B70",1/2-1/2,0.5,"repetition",120
+396,198,"~/regicide-gen1full-work/openings4.txt:198","B13","B70",1/2-1/2,0.5,"repetition",79
+400,200,"~/regicide-gen1full-work/openings4.txt:200","B13","B70",1/2-1/2,0.5,"repetition",82
+395,198,"~/regicide-gen1full-work/openings4.txt:198","B70","B13",0-1,0,"no legal moves",108
+399,200,"~/regicide-gen1full-work/openings4.txt:200","B70","B13",1/2-1/2,0.5,"repetition",89
+398,199,"~/regicide-gen1full-work/openings4.txt:199","B13","B70",1/2-1/2,0.5,"repetition",90
+403,202,"~/regicide-gen1full-work/openings4.txt:202","B70","B13",0-1,0,"no legal moves",64
+402,201,"~/regicide-gen1full-work/openings4.txt:201","B13","B70",0-1,1,"no legal moves",74
+401,201,"~/regicide-gen1full-work/openings4.txt:201","B70","B13",0-1,0,"no legal moves",134
+392,196,"~/regicide-gen1full-work/openings4.txt:196","B13","B70",0-1,1,"no legal moves",142
+397,199,"~/regicide-gen1full-work/openings4.txt:199","B70","B13",1/2-1/2,0.5,"repetition",125
+405,203,"~/regicide-gen1full-work/openings4.txt:203","B70","B13",0-1,0,"no legal moves",128
+404,202,"~/regicide-gen1full-work/openings4.txt:202","B13","B70",0-1,1,"no legal moves",64
+406,203,"~/regicide-gen1full-work/openings4.txt:203","B13","B70",0-1,1,"no legal moves",76
+408,204,"~/regicide-gen1full-work/openings4.txt:204","B13","B70",1-0,0,"no legal moves",59
+411,206,"~/regicide-gen1full-work/openings4.txt:206","B70","B13",1-0,1,"no legal moves",113
+416,208,"~/regicide-gen1full-work/openings4.txt:208","B13","B70",1-0,0,"no legal moves",123
+407,204,"~/regicide-gen1full-work/openings4.txt:204","B70","B13",1-0,1,"no legal moves",99
+413,207,"~/regicide-gen1full-work/openings4.txt:207","B70","B13",1-0,1,"no legal moves",59
+414,207,"~/regicide-gen1full-work/openings4.txt:207","B13","B70",1-0,0,"no legal moves",129
+415,208,"~/regicide-gen1full-work/openings4.txt:208","B70","B13",1-0,1,"no legal moves",157
+409,205,"~/regicide-gen1full-work/openings4.txt:205","B70","B13",1-0,1,"no legal moves",145
+410,205,"~/regicide-gen1full-work/openings4.txt:205","B13","B70",0-1,1,"no legal moves",118
+412,206,"~/regicide-gen1full-work/openings4.txt:206","B13","B70",1-0,0,"no legal moves",127
+417,209,"~/regicide-gen1full-work/openings4.txt:209","B70","B13",1-0,1,"no legal moves",141
+424,212,"~/regicide-gen1full-work/openings4.txt:212","B13","B70",1/2-1/2,0.5,"repetition",103
+421,211,"~/regicide-gen1full-work/openings4.txt:211","B70","B13",1/2-1/2,0.5,"repetition",85
+426,213,"~/regicide-gen1full-work/openings4.txt:213","B13","B70",1/2-1/2,0.5,"repetition",62
+418,209,"~/regicide-gen1full-work/openings4.txt:209","B13","B70",1-0,0,"no legal moves",171
+419,210,"~/regicide-gen1full-work/openings4.txt:210","B70","B13",1/2-1/2,0.5,"repetition",85
+423,212,"~/regicide-gen1full-work/openings4.txt:212","B70","B13",1/2-1/2,0.5,"repetition",90
+428,214,"~/regicide-gen1full-work/openings4.txt:214","B13","B70",1/2-1/2,0.5,"repetition",90
+427,214,"~/regicide-gen1full-work/openings4.txt:214","B70","B13",1/2-1/2,0.5,"repetition",91
+430,215,"~/regicide-gen1full-work/openings4.txt:215","B13","B70",1/2-1/2,0.5,"repetition",107
+425,213,"~/regicide-gen1full-work/openings4.txt:213","B70","B13",0-1,0,"no legal moves",88
+431,216,"~/regicide-gen1full-work/openings4.txt:216","B70","B13",1/2-1/2,0.5,"repetition",57
+422,211,"~/regicide-gen1full-work/openings4.txt:211","B13","B70",1/2-1/2,0.5,"repetition",130
+420,210,"~/regicide-gen1full-work/openings4.txt:210","B13","B70",1/2-1/2,0.5,"repetition",146
+435,218,"~/regicide-gen1full-work/openings4.txt:218","B70","B13",1/2-1/2,0.5,"repetition",96
+436,218,"~/regicide-gen1full-work/openings4.txt:218","B13","B70",1/2-1/2,0.5,"repetition",85
+437,219,"~/regicide-gen1full-work/openings4.txt:219","B70","B13",1/2-1/2,0.5,"repetition",82
+433,217,"~/regicide-gen1full-work/openings4.txt:217","B70","B13",0-1,0,"no legal moves",148
+432,216,"~/regicide-gen1full-work/openings4.txt:216","B13","B70",1/2-1/2,0.5,"repetition",119
+434,217,"~/regicide-gen1full-work/openings4.txt:217","B13","B70",0-1,1,"no legal moves",142
+440,220,"~/regicide-gen1full-work/openings4.txt:220","B13","B70",1/2-1/2,0.5,"repetition",107
+429,215,"~/regicide-gen1full-work/openings4.txt:215","B70","B13",1-0,1,"no legal moves",141
+442,221,"~/regicide-gen1full-work/openings4.txt:221","B13","B70",1/2-1/2,0.5,"repetition",78
+439,220,"~/regicide-gen1full-work/openings4.txt:220","B70","B13",1/2-1/2,0.5,"repetition",73
+444,222,"~/regicide-gen1full-work/openings4.txt:222","B13","B70",1-0,0,"no legal moves",105
+438,219,"~/regicide-gen1full-work/openings4.txt:219","B13","B70",1/2-1/2,0.5,"repetition",99
+448,224,"~/regicide-gen1full-work/openings4.txt:224","B13","B70",1/2-1/2,0.5,"repetition",91
+450,225,"~/regicide-gen1full-work/openings4.txt:225","B13","B70",1/2-1/2,0.5,"repetition",105
+447,224,"~/regicide-gen1full-work/openings4.txt:224","B70","B13",1-0,1,"no legal moves",157
+443,222,"~/regicide-gen1full-work/openings4.txt:222","B70","B13",1-0,1,"no legal moves",155
+441,221,"~/regicide-gen1full-work/openings4.txt:221","B70","B13",0-1,0,"no legal moves",160
+445,223,"~/regicide-gen1full-work/openings4.txt:223","B70","B13",0-1,0,"no legal moves",86
+454,227,"~/regicide-gen1full-work/openings4.txt:227","B13","B70",1/2-1/2,0.5,"repetition",63
+449,225,"~/regicide-gen1full-work/openings4.txt:225","B70","B13",0-1,0,"no legal moves",132
+446,223,"~/regicide-gen1full-work/openings4.txt:223","B13","B70",0-1,1,"no legal moves",116
+457,229,"~/regicide-gen1full-work/openings4.txt:229","B70","B13",1/2-1/2,0.5,"repetition",74
+460,230,"~/regicide-gen1full-work/openings4.txt:230","B13","B70",1/2-1/2,0.5,"repetition",92
+451,226,"~/regicide-gen1full-work/openings4.txt:226","B70","B13",1/2-1/2,0.5,"repetition",128
+459,230,"~/regicide-gen1full-work/openings4.txt:230","B70","B13",1/2-1/2,0.5,"repetition",110
+455,228,"~/regicide-gen1full-work/openings4.txt:228","B70","B13",1-0,1,"no legal moves",145
+458,229,"~/regicide-gen1full-work/openings4.txt:229","B13","B70",1-0,0,"no legal moves",133
+465,233,"~/regicide-gen1full-work/openings4.txt:233","B70","B13",1/2-1/2,0.5,"repetition",87
+461,231,"~/regicide-gen1full-work/openings4.txt:231","B70","B13",1/2-1/2,0.5,"repetition",113
+452,226,"~/regicide-gen1full-work/openings4.txt:226","B13","B70",1-0,0,"no legal moves",201
+453,227,"~/regicide-gen1full-work/openings4.txt:227","B70","B13",1/2-1/2,0.5,"repetition",120
+456,228,"~/regicide-gen1full-work/openings4.txt:228","B13","B70",1/2-1/2,0.5,"repetition",103
+462,231,"~/regicide-gen1full-work/openings4.txt:231","B13","B70",1-0,0,"no legal moves",151
+464,232,"~/regicide-gen1full-work/openings4.txt:232","B13","B70",1/2-1/2,0.5,"repetition",77
+466,233,"~/regicide-gen1full-work/openings4.txt:233","B13","B70",1/2-1/2,0.5,"repetition",89
+471,236,"~/regicide-gen1full-work/openings4.txt:236","B70","B13",1/2-1/2,0.5,"repetition",79
+463,232,"~/regicide-gen1full-work/openings4.txt:232","B70","B13",0-1,0,"no legal moves",170
+470,235,"~/regicide-gen1full-work/openings4.txt:235","B13","B70",1/2-1/2,0.5,"repetition",88
+473,237,"~/regicide-gen1full-work/openings4.txt:237","B70","B13",1/2-1/2,0.5,"repetition",59
+467,234,"~/regicide-gen1full-work/openings4.txt:234","B70","B13",1-0,1,"no legal moves",91
+472,236,"~/regicide-gen1full-work/openings4.txt:236","B13","B70",1/2-1/2,0.5,"repetition",65
+468,234,"~/regicide-gen1full-work/openings4.txt:234","B13","B70",1-0,0,"no legal moves",145
+474,237,"~/regicide-gen1full-work/openings4.txt:237","B13","B70",1/2-1/2,0.5,"repetition",63
+475,238,"~/regicide-gen1full-work/openings4.txt:238","B70","B13",1-0,1,"no legal moves",123
+476,238,"~/regicide-gen1full-work/openings4.txt:238","B13","B70",1-0,0,"no legal moves",139
+469,235,"~/regicide-gen1full-work/openings4.txt:235","B70","B13",0-1,0,"no legal moves",148
+478,239,"~/regicide-gen1full-work/openings4.txt:239","B13","B70",1/2-1/2,0.5,"repetition",73
+477,239,"~/regicide-gen1full-work/openings4.txt:239","B70","B13",0-1,0,"no legal moves",82
+480,240,"~/regicide-gen1full-work/openings4.txt:240","B13","B70",1-0,0,"no legal moves",113
+482,241,"~/regicide-gen1full-work/openings4.txt:241","B13","B70",1-0,0,"no legal moves",91
+483,242,"~/regicide-gen1full-work/openings4.txt:242","B70","B13",1-0,1,"no legal moves",123
+486,243,"~/regicide-gen1full-work/openings4.txt:243","B13","B70",1/2-1/2,0.5,"repetition",85
+479,240,"~/regicide-gen1full-work/openings4.txt:240","B70","B13",0-1,0,"no legal moves",152
+487,244,"~/regicide-gen1full-work/openings4.txt:244","B70","B13",1/2-1/2,0.5,"repetition",99
+484,242,"~/regicide-gen1full-work/openings4.txt:242","B13","B70",0-1,1,"no legal moves",110
+490,245,"~/regicide-gen1full-work/openings4.txt:245","B13","B70",1/2-1/2,0.5,"repetition",89
+491,246,"~/regicide-gen1full-work/openings4.txt:246","B70","B13",0-1,0,"no legal moves",84
+488,244,"~/regicide-gen1full-work/openings4.txt:244","B13","B70",1-0,0,"no legal moves",143
+492,246,"~/regicide-gen1full-work/openings4.txt:246","B13","B70",0-1,1,"no legal moves",86
+489,245,"~/regicide-gen1full-work/openings4.txt:245","B70","B13",1-0,1,"no legal moves",173
+493,247,"~/regicide-gen1full-work/openings4.txt:247","B70","B13",1/2-1/2,0.5,"repetition",95
+485,243,"~/regicide-gen1full-work/openings4.txt:243","B70","B13",0-1,0,"no legal moves",142
+500,250,"~/regicide-gen1full-work/openings4.txt:250","B13","B70",1/2-1/2,0.5,"repetition",67
+496,248,"~/regicide-gen1full-work/openings4.txt:248","B13","B70",1/2-1/2,0.5,"repetition",58
+495,248,"~/regicide-gen1full-work/openings4.txt:248","B70","B13",1-0,1,"no legal moves",127
+494,247,"~/regicide-gen1full-work/openings4.txt:247","B13","B70",1-0,0,"no legal moves",149
+499,250,"~/regicide-gen1full-work/openings4.txt:250","B70","B13",1/2-1/2,0.5,"repetition",72
+503,252,"~/regicide-gen1full-work/openings4.txt:252","B70","B13",1/2-1/2,0.5,"repetition",86
+497,249,"~/regicide-gen1full-work/openings4.txt:249","B70","B13",1/2-1/2,0.5,"repetition",108
+502,251,"~/regicide-gen1full-work/openings4.txt:251","B13","B70",1/2-1/2,0.5,"repetition",91
+505,253,"~/regicide-gen1full-work/openings4.txt:253","B70","B13",1/2-1/2,0.5,"repetition",93
+504,252,"~/regicide-gen1full-work/openings4.txt:252","B13","B70",1/2-1/2,0.5,"repetition",87
+481,241,"~/regicide-gen1full-work/openings4.txt:241","B70","B13",1-0,1,"no legal moves",197
+498,249,"~/regicide-gen1full-work/openings4.txt:249","B13","B70",1-0,0,"no legal moves",139
+507,254,"~/regicide-gen1full-work/openings4.txt:254","B70","B13",1-0,1,"no legal moves",139
+514,257,"~/regicide-gen1full-work/openings4.txt:257","B13","B70",1/2-1/2,0.5,"repetition",77
+501,251,"~/regicide-gen1full-work/openings4.txt:251","B70","B13",1-0,1,"no legal moves",169
+509,255,"~/regicide-gen1full-work/openings4.txt:255","B70","B13",1-0,1,"no legal moves",89
+511,256,"~/regicide-gen1full-work/openings4.txt:256","B70","B13",0-1,0,"no legal moves",80
+513,257,"~/regicide-gen1full-work/openings4.txt:257","B70","B13",1-0,1,"no legal moves",119
+516,258,"~/regicide-gen1full-work/openings4.txt:258","B13","B70",1/2-1/2,0.5,"repetition",83
+512,256,"~/regicide-gen1full-work/openings4.txt:256","B13","B70",1-0,0,"no legal moves",91
+510,255,"~/regicide-gen1full-work/openings4.txt:255","B13","B70",1-0,0,"no legal moves",139
+508,254,"~/regicide-gen1full-work/openings4.txt:254","B13","B70",1-0,0,"no legal moves",129
+515,258,"~/regicide-gen1full-work/openings4.txt:258","B70","B13",1/2-1/2,0.5,"repetition",125
+522,261,"~/regicide-gen1full-work/openings4.txt:261","B13","B70",1/2-1/2,0.5,"repetition",91
+523,262,"~/regicide-gen1full-work/openings4.txt:262","B70","B13",1/2-1/2,0.5,"repetition",87
+520,260,"~/regicide-gen1full-work/openings4.txt:260","B13","B70",1/2-1/2,0.5,"repetition",99
+519,260,"~/regicide-gen1full-work/openings4.txt:260","B70","B13",0-1,0,"no legal moves",88
+521,261,"~/regicide-gen1full-work/openings4.txt:261","B70","B13",0-1,0,"no legal moves",100
+518,259,"~/regicide-gen1full-work/openings4.txt:259","B13","B70",1-0,0,"no legal moves",79
+524,262,"~/regicide-gen1full-work/openings4.txt:262","B13","B70",0-1,1,"no legal moves",100
+529,265,"~/regicide-gen1full-work/openings4.txt:265","B70","B13",1/2-1/2,0.5,"repetition",97
+530,265,"~/regicide-gen1full-work/openings4.txt:265","B13","B70",1/2-1/2,0.5,"repetition",71
+526,263,"~/regicide-gen1full-work/openings4.txt:263","B13","B70",1/2-1/2,0.5,"repetition",79
+528,264,"~/regicide-gen1full-work/openings4.txt:264","B13","B70",1-0,0,"no legal moves",117
+531,266,"~/regicide-gen1full-work/openings4.txt:266","B70","B13",1-0,1,"no legal moves",125
+517,259,"~/regicide-gen1full-work/openings4.txt:259","B70","B13",1/2-1/2,0.5,"repetition",149
+525,263,"~/regicide-gen1full-work/openings4.txt:263","B70","B13",1/2-1/2,0.5,"repetition",85
+527,264,"~/regicide-gen1full-work/openings4.txt:264","B70","B13",0-1,0,"no legal moves",68
+532,266,"~/regicide-gen1full-work/openings4.txt:266","B13","B70",1-0,0,"no legal moves",107
+533,267,"~/regicide-gen1full-work/openings4.txt:267","B70","B13",1/2-1/2,0.5,"repetition",107
+534,267,"~/regicide-gen1full-work/openings4.txt:267","B13","B70",1/2-1/2,0.5,"repetition",118
+506,253,"~/regicide-gen1full-work/openings4.txt:253","B13","B70",1-0,0,"no legal moves",241
+537,269,"~/regicide-gen1full-work/openings4.txt:269","B70","B13",1-0,1,"no legal moves",121
+539,270,"~/regicide-gen1full-work/openings4.txt:270","B70","B13",1-0,1,"no legal moves",121
+536,268,"~/regicide-gen1full-work/openings4.txt:268","B13","B70",1/2-1/2,0.5,"repetition",59
+541,271,"~/regicide-gen1full-work/openings4.txt:271","B70","B13",1/2-1/2,0.5,"repetition",83
+542,271,"~/regicide-gen1full-work/openings4.txt:271","B13","B70",1/2-1/2,0.5,"repetition",96
+538,269,"~/regicide-gen1full-work/openings4.txt:269","B13","B70",1-0,0,"no legal moves",167
+546,273,"~/regicide-gen1full-work/openings4.txt:273","B13","B70",1/2-1/2,0.5,"repetition",110
+544,272,"~/regicide-gen1full-work/openings4.txt:272","B13","B70",1/2-1/2,0.5,"repetition",75
+540,270,"~/regicide-gen1full-work/openings4.txt:270","B13","B70",1-0,0,"no legal moves",147
+535,268,"~/regicide-gen1full-work/openings4.txt:268","B70","B13",1-0,1,"no legal moves",113
+545,273,"~/regicide-gen1full-work/openings4.txt:273","B70","B13",1/2-1/2,0.5,"repetition",115
+549,275,"~/regicide-gen1full-work/openings4.txt:275","B70","B13",1-0,1,"no legal moves",121
+548,274,"~/regicide-gen1full-work/openings4.txt:274","B13","B70",1/2-1/2,0.5,"repetition",107
+550,275,"~/regicide-gen1full-work/openings4.txt:275","B13","B70",1-0,0,"no legal moves",155
+543,272,"~/regicide-gen1full-work/openings4.txt:272","B70","B13",1-0,1,"no legal moves",125
+556,278,"~/regicide-gen1full-work/openings4.txt:278","B13","B70",1/2-1/2,0.5,"repetition",81
+555,278,"~/regicide-gen1full-work/openings4.txt:278","B70","B13",1/2-1/2,0.5,"repetition",81
+552,276,"~/regicide-gen1full-work/openings4.txt:276","B13","B70",1-0,0,"no legal moves",93
+554,277,"~/regicide-gen1full-work/openings4.txt:277","B13","B70",1/2-1/2,0.5,"repetition",75
+547,274,"~/regicide-gen1full-work/openings4.txt:274","B70","B13",1-0,1,"no legal moves",135
+557,279,"~/regicide-gen1full-work/openings4.txt:279","B70","B13",1/2-1/2,0.5,"repetition",97
+558,279,"~/regicide-gen1full-work/openings4.txt:279","B13","B70",1/2-1/2,0.5,"repetition",66
+551,276,"~/regicide-gen1full-work/openings4.txt:276","B70","B13",1-0,1,"no legal moves",157
+561,281,"~/regicide-gen1full-work/openings4.txt:281","B70","B13",1-0,1,"no legal moves",57
+563,282,"~/regicide-gen1full-work/openings4.txt:282","B70","B13",1-0,1,"no legal moves",53
+562,281,"~/regicide-gen1full-work/openings4.txt:281","B13","B70",1-0,0,"no legal moves",63
+560,280,"~/regicide-gen1full-work/openings4.txt:280","B13","B70",1-0,0,"no legal moves",135
+559,280,"~/regicide-gen1full-work/openings4.txt:280","B70","B13",1/2-1/2,0.5,"repetition",101
+564,282,"~/regicide-gen1full-work/openings4.txt:282","B13","B70",1-0,0,"no legal moves",155
+553,277,"~/regicide-gen1full-work/openings4.txt:277","B70","B13",1/2-1/2,0.5,"repetition",136
+565,283,"~/regicide-gen1full-work/openings4.txt:283","B70","B13",1-0,1,"no legal moves",123
+567,284,"~/regicide-gen1full-work/openings4.txt:284","B70","B13",1-0,1,"no legal moves",161
+570,285,"~/regicide-gen1full-work/openings4.txt:285","B13","B70",1/2-1/2,0.5,"repetition",81
+574,287,"~/regicide-gen1full-work/openings4.txt:287","B13","B70",1/2-1/2,0.5,"repetition",72
+566,283,"~/regicide-gen1full-work/openings4.txt:283","B13","B70",1-0,0,"no legal moves",95
+569,285,"~/regicide-gen1full-work/openings4.txt:285","B70","B13",0-1,0,"no legal moves",116
+573,287,"~/regicide-gen1full-work/openings4.txt:287","B70","B13",1/2-1/2,0.5,"repetition",86
+575,288,"~/regicide-gen1full-work/openings4.txt:288","B70","B13",1-0,1,"no legal moves",139
+572,286,"~/regicide-gen1full-work/openings4.txt:286","B13","B70",1-0,0,"no legal moves",135
+579,290,"~/regicide-gen1full-work/openings4.txt:290","B70","B13",1/2-1/2,0.5,"repetition",95
+577,289,"~/regicide-gen1full-work/openings4.txt:289","B70","B13",1/2-1/2,0.5,"repetition",106
+576,288,"~/regicide-gen1full-work/openings4.txt:288","B13","B70",1-0,0,"no legal moves",81
+578,289,"~/regicide-gen1full-work/openings4.txt:289","B13","B70",1/2-1/2,0.5,"repetition",76
+571,286,"~/regicide-gen1full-work/openings4.txt:286","B70","B13",1/2-1/2,0.5,"repetition",120
+580,290,"~/regicide-gen1full-work/openings4.txt:290","B13","B70",1/2-1/2,0.5,"repetition",105
+581,291,"~/regicide-gen1full-work/openings4.txt:291","B70","B13",0-1,0,"no legal moves",56
+587,294,"~/regicide-gen1full-work/openings4.txt:294","B70","B13",1/2-1/2,0.5,"repetition",89
+583,292,"~/regicide-gen1full-work/openings4.txt:292","B70","B13",1-0,1,"no legal moves",127
+588,294,"~/regicide-gen1full-work/openings4.txt:294","B13","B70",1/2-1/2,0.5,"repetition",64
+589,295,"~/regicide-gen1full-work/openings4.txt:295","B70","B13",1-0,1,"no legal moves",129
+584,292,"~/regicide-gen1full-work/openings4.txt:292","B13","B70",1-0,0,"no legal moves",167
+585,293,"~/regicide-gen1full-work/openings4.txt:293","B70","B13",0-1,0,"no legal moves",94
+586,293,"~/regicide-gen1full-work/openings4.txt:293","B13","B70",0-1,1,"no legal moves",70
+591,296,"~/regicide-gen1full-work/openings4.txt:296","B70","B13",1-0,1,"no legal moves",83
+590,295,"~/regicide-gen1full-work/openings4.txt:295","B13","B70",1-0,0,"no legal moves",159
+592,296,"~/regicide-gen1full-work/openings4.txt:296","B13","B70",1-0,0,"no legal moves",61
+593,297,"~/regicide-gen1full-work/openings4.txt:297","B70","B13",1-0,1,"no legal moves",57
+582,291,"~/regicide-gen1full-work/openings4.txt:291","B13","B70",0-1,1,"no legal moves",130
+568,284,"~/regicide-gen1full-work/openings4.txt:284","B13","B70",1-0,0,"no legal moves",205
+594,297,"~/regicide-gen1full-work/openings4.txt:297","B13","B70",1-0,0,"no legal moves",115
+597,299,"~/regicide-gen1full-work/openings4.txt:299","B70","B13",1-0,1,"no legal moves",75
+598,299,"~/regicide-gen1full-work/openings4.txt:299","B13","B70",1/2-1/2,0.5,"repetition",69
+599,300,"~/regicide-gen1full-work/openings4.txt:300","B70","B13",1-0,1,"no legal moves",65
+601,301,"~/regicide-gen1full-work/openings4.txt:301","B70","B13",1-0,1,"no legal moves",143
+600,300,"~/regicide-gen1full-work/openings4.txt:300","B13","B70",1-0,0,"no legal moves",131
+603,302,"~/regicide-gen1full-work/openings4.txt:302","B70","B13",1-0,1,"no legal moves",145
+602,301,"~/regicide-gen1full-work/openings4.txt:301","B13","B70",1-0,0,"no legal moves",169
+604,302,"~/regicide-gen1full-work/openings4.txt:302","B13","B70",1-0,0,"no legal moves",143
+605,303,"~/regicide-gen1full-work/openings4.txt:303","B70","B13",1-0,1,"no legal moves",141
+606,303,"~/regicide-gen1full-work/openings4.txt:303","B13","B70",1/2-1/2,0.5,"repetition",83
+609,305,"~/regicide-gen1full-work/openings4.txt:305","B70","B13",1/2-1/2,0.5,"repetition",68
+608,304,"~/regicide-gen1full-work/openings4.txt:304","B13","B70",1/2-1/2,0.5,"repetition",77
+607,304,"~/regicide-gen1full-work/openings4.txt:304","B70","B13",1-0,1,"no legal moves",141
+615,308,"~/regicide-gen1full-work/openings4.txt:308","B70","B13",1/2-1/2,0.5,"repetition",83
+610,305,"~/regicide-gen1full-work/openings4.txt:305","B13","B70",1/2-1/2,0.5,"repetition",95
+596,298,"~/regicide-gen1full-work/openings4.txt:298","B13","B70",1-0,0,"no legal moves",159
+614,307,"~/regicide-gen1full-work/openings4.txt:307","B13","B70",1-0,0,"no legal moves",125
+611,306,"~/regicide-gen1full-work/openings4.txt:306","B70","B13",1-0,1,"no legal moves",133
+613,307,"~/regicide-gen1full-work/openings4.txt:307","B70","B13",1-0,1,"no legal moves",117
+612,306,"~/regicide-gen1full-work/openings4.txt:306","B13","B70",1-0,0,"no legal moves",139
+595,298,"~/regicide-gen1full-work/openings4.txt:298","B70","B13",1/2-1/2,0.5,"no progress",169
+618,309,"~/regicide-gen1full-work/openings4.txt:309","B13","B70",1/2-1/2,0.5,"repetition",85
+620,310,"~/regicide-gen1full-work/openings4.txt:310","B13","B70",1/2-1/2,0.5,"repetition",91
+616,308,"~/regicide-gen1full-work/openings4.txt:308","B13","B70",1/2-1/2,0.5,"repetition",74
+623,312,"~/regicide-gen1full-work/openings4.txt:312","B70","B13",1-0,1,"no legal moves",127
+624,312,"~/regicide-gen1full-work/openings4.txt:312","B13","B70",1-0,0,"no legal moves",133
+619,310,"~/regicide-gen1full-work/openings4.txt:310","B70","B13",1/2-1/2,0.5,"repetition",101
+617,309,"~/regicide-gen1full-work/openings4.txt:309","B70","B13",1-0,1,"no legal moves",101
+622,311,"~/regicide-gen1full-work/openings4.txt:311","B13","B70",1-0,0,"no legal moves",79
+621,311,"~/regicide-gen1full-work/openings4.txt:311","B70","B13",1-0,1,"no legal moves",179
+628,314,"~/regicide-gen1full-work/openings4.txt:314","B13","B70",1-0,0,"no legal moves",59
+626,313,"~/regicide-gen1full-work/openings4.txt:313","B13","B70",1/2-1/2,0.5,"repetition",113
+630,315,"~/regicide-gen1full-work/openings4.txt:315","B13","B70",1-0,0,"no legal moves",141
+632,316,"~/regicide-gen1full-work/openings4.txt:316","B13","B70",0-1,1,"no legal moves",88
+634,317,"~/regicide-gen1full-work/openings4.txt:317","B13","B70",0-1,1,"no legal moves",56
+629,315,"~/regicide-gen1full-work/openings4.txt:315","B70","B13",1-0,1,"no legal moves",135
+635,318,"~/regicide-gen1full-work/openings4.txt:318","B70","B13",0-1,0,"no legal moves",118
+631,316,"~/regicide-gen1full-work/openings4.txt:316","B70","B13",0-1,0,"no legal moves",102
+625,313,"~/regicide-gen1full-work/openings4.txt:313","B70","B13",1-0,1,"no legal moves",215
+639,320,"~/regicide-gen1full-work/openings4.txt:320","B70","B13",1/2-1/2,0.5,"repetition",109
+633,317,"~/regicide-gen1full-work/openings4.txt:317","B70","B13",0-1,0,"no legal moves",96
+636,318,"~/regicide-gen1full-work/openings4.txt:318","B13","B70",0-1,1,"no legal moves",148
+627,314,"~/regicide-gen1full-work/openings4.txt:314","B70","B13",1/2-1/2,0.5,"repetition",153
+637,319,"~/regicide-gen1full-work/openings4.txt:319","B70","B13",1-0,1,"no legal moves",73
+638,319,"~/regicide-gen1full-work/openings4.txt:319","B13","B70",1-0,0,"no legal moves",129
+641,321,"~/regicide-gen1full-work/openings4.txt:321","B70","B13",1/2-1/2,0.5,"repetition",81
+648,324,"~/regicide-gen1full-work/openings4.txt:324","B13","B70",1/2-1/2,0.5,"repetition",78
+643,322,"~/regicide-gen1full-work/openings4.txt:322","B70","B13",1/2-1/2,0.5,"repetition",88
+640,320,"~/regicide-gen1full-work/openings4.txt:320","B13","B70",1-0,0,"no legal moves",75
+647,324,"~/regicide-gen1full-work/openings4.txt:324","B70","B13",1/2-1/2,0.5,"repetition",83
+645,323,"~/regicide-gen1full-work/openings4.txt:323","B70","B13",1-0,1,"no legal moves",137
+646,323,"~/regicide-gen1full-work/openings4.txt:323","B13","B70",1-0,0,"no legal moves",57
+644,322,"~/regicide-gen1full-work/openings4.txt:322","B13","B70",1-0,0,"no legal moves",131
+650,325,"~/regicide-gen1full-work/openings4.txt:325","B13","B70",1/2-1/2,0.5,"repetition",62
+642,321,"~/regicide-gen1full-work/openings4.txt:321","B13","B70",0-1,1,"no legal moves",152
+653,327,"~/regicide-gen1full-work/openings4.txt:327","B70","B13",1-0,1,"no legal moves",121
+658,329,"~/regicide-gen1full-work/openings4.txt:329","B13","B70",1/2-1/2,0.5,"repetition",89
+655,328,"~/regicide-gen1full-work/openings4.txt:328","B70","B13",1-0,1,"no legal moves",113
+657,329,"~/regicide-gen1full-work/openings4.txt:329","B70","B13",1/2-1/2,0.5,"repetition",103
+656,328,"~/regicide-gen1full-work/openings4.txt:328","B13","B70",1-0,0,"no legal moves",59
+652,326,"~/regicide-gen1full-work/openings4.txt:326","B13","B70",0-1,1,"no legal moves",94
+661,331,"~/regicide-gen1full-work/openings4.txt:331","B70","B13",1/2-1/2,0.5,"repetition",72
+659,330,"~/regicide-gen1full-work/openings4.txt:330","B70","B13",1/2-1/2,0.5,"repetition",94
+654,327,"~/regicide-gen1full-work/openings4.txt:327","B13","B70",1-0,0,"no legal moves",137
+663,332,"~/regicide-gen1full-work/openings4.txt:332","B70","B13",1/2-1/2,0.5,"repetition",87
+666,333,"~/regicide-gen1full-work/openings4.txt:333","B13","B70",1/2-1/2,0.5,"repetition",94
+660,330,"~/regicide-gen1full-work/openings4.txt:330","B13","B70",1/2-1/2,0.5,"repetition",90
+668,334,"~/regicide-gen1full-work/openings4.txt:334","B13","B70",1/2-1/2,0.5,"repetition",105
+671,336,"~/regicide-gen1full-work/openings4.txt:336","B70","B13",1/2-1/2,0.5,"repetition",85
+669,335,"~/regicide-gen1full-work/openings4.txt:335","B70","B13",1-0,1,"no legal moves",129
+664,332,"~/regicide-gen1full-work/openings4.txt:332","B13","B70",1/2-1/2,0.5,"repetition",116
+665,333,"~/regicide-gen1full-work/openings4.txt:333","B70","B13",1/2-1/2,0.5,"repetition",99
+667,334,"~/regicide-gen1full-work/openings4.txt:334","B70","B13",0-1,0,"no legal moves",82
+670,335,"~/regicide-gen1full-work/openings4.txt:335","B13","B70",1-0,0,"no legal moves",113
+674,337,"~/regicide-gen1full-work/openings4.txt:337","B13","B70",1/2-1/2,0.5,"repetition",79
+651,326,"~/regicide-gen1full-work/openings4.txt:326","B70","B13",1/2-1/2,0.5,"repetition",177
+662,331,"~/regicide-gen1full-work/openings4.txt:331","B13","B70",1-0,0,"no legal moves",109
+673,337,"~/regicide-gen1full-work/openings4.txt:337","B70","B13",1/2-1/2,0.5,"repetition",79
+675,338,"~/regicide-gen1full-work/openings4.txt:338","B70","B13",1/2-1/2,0.5,"repetition",83
+677,339,"~/regicide-gen1full-work/openings4.txt:339","B70","B13",1-0,1,"no legal moves",155
+649,325,"~/regicide-gen1full-work/openings4.txt:325","B70","B13",1/2-1/2,0.5,"no progress",182
+672,336,"~/regicide-gen1full-work/openings4.txt:336","B13","B70",1/2-1/2,0.5,"repetition",127
+676,338,"~/regicide-gen1full-work/openings4.txt:338","B13","B70",1-0,0,"no legal moves",109
+681,341,"~/regicide-gen1full-work/openings4.txt:341","B70","B13",1-0,1,"no legal moves",95
+682,341,"~/regicide-gen1full-work/openings4.txt:341","B13","B70",1-0,0,"no legal moves",167
+678,339,"~/regicide-gen1full-work/openings4.txt:339","B13","B70",1-0,0,"no legal moves",77
+679,340,"~/regicide-gen1full-work/openings4.txt:340","B70","B13",1/2-1/2,0.5,"repetition",81
+680,340,"~/regicide-gen1full-work/openings4.txt:340","B13","B70",0-1,1,"no legal moves",84
+688,344,"~/regicide-gen1full-work/openings4.txt:344","B13","B70",1/2-1/2,0.5,"repetition",81
+683,342,"~/regicide-gen1full-work/openings4.txt:342","B70","B13",1/2-1/2,0.5,"repetition",81
+684,342,"~/regicide-gen1full-work/openings4.txt:342","B13","B70",1/2-1/2,0.5,"repetition",110
+690,345,"~/regicide-gen1full-work/openings4.txt:345","B13","B70",1/2-1/2,0.5,"repetition",87
+686,343,"~/regicide-gen1full-work/openings4.txt:343","B13","B70",0-1,1,"no legal moves",110
+687,344,"~/regicide-gen1full-work/openings4.txt:344","B70","B13",0-1,0,"no legal moves",92
+685,343,"~/regicide-gen1full-work/openings4.txt:343","B70","B13",0-1,0,"no legal moves",84
+691,346,"~/regicide-gen1full-work/openings4.txt:346","B70","B13",1/2-1/2,0.5,"repetition",99
+689,345,"~/regicide-gen1full-work/openings4.txt:345","B70","B13",1-0,1,"no legal moves",109
+695,348,"~/regicide-gen1full-work/openings4.txt:348","B70","B13",0-1,0,"no legal moves",106
+697,349,"~/regicide-gen1full-work/openings4.txt:349","B70","B13",1-0,1,"no legal moves",117
+698,349,"~/regicide-gen1full-work/openings4.txt:349","B13","B70",1/2-1/2,0.5,"repetition",91
+700,350,"~/regicide-gen1full-work/openings4.txt:350","B13","B70",1-0,0,"no legal moves",67
+693,347,"~/regicide-gen1full-work/openings4.txt:347","B70","B13",0-1,0,"no legal moves",110
+692,346,"~/regicide-gen1full-work/openings4.txt:346","B13","B70",0-1,1,"no legal moves",124
+702,351,"~/regicide-gen1full-work/openings4.txt:351","B13","B70",1-0,0,"no legal moves",127
+696,348,"~/regicide-gen1full-work/openings4.txt:348","B13","B70",0-1,1,"no legal moves",126
+699,350,"~/regicide-gen1full-work/openings4.txt:350","B70","B13",1-0,1,"no legal moves",175
+704,352,"~/regicide-gen1full-work/openings4.txt:352","B13","B70",1-0,0,"no legal moves",171
+701,351,"~/regicide-gen1full-work/openings4.txt:351","B70","B13",1-0,1,"no legal moves",109
+703,352,"~/regicide-gen1full-work/openings4.txt:352","B70","B13",1-0,1,"no legal moves",115
+705,353,"~/regicide-gen1full-work/openings4.txt:353","B70","B13",1-0,1,"no legal moves",109
+706,353,"~/regicide-gen1full-work/openings4.txt:353","B13","B70",1-0,0,"no legal moves",139
+709,355,"~/regicide-gen1full-work/openings4.txt:355","B70","B13",1/2-1/2,0.5,"repetition",99
+714,357,"~/regicide-gen1full-work/openings4.txt:357","B13","B70",1/2-1/2,0.5,"repetition",82
+712,356,"~/regicide-gen1full-work/openings4.txt:356","B13","B70",1/2-1/2,0.5,"repetition",92
+715,358,"~/regicide-gen1full-work/openings4.txt:358","B70","B13",1-0,1,"no legal moves",117
+711,356,"~/regicide-gen1full-work/openings4.txt:356","B70","B13",1-0,1,"no legal moves",161
+710,355,"~/regicide-gen1full-work/openings4.txt:355","B13","B70",0-1,1,"no legal moves",88
+707,354,"~/regicide-gen1full-work/openings4.txt:354","B70","B13",1-0,1,"no legal moves",155
+717,359,"~/regicide-gen1full-work/openings4.txt:359","B70","B13",1/2-1/2,0.5,"repetition",91
+716,358,"~/regicide-gen1full-work/openings4.txt:358","B13","B70",1/2-1/2,0.5,"repetition",91
+718,359,"~/regicide-gen1full-work/openings4.txt:359","B13","B70",1/2-1/2,0.5,"repetition",62
+713,357,"~/regicide-gen1full-work/openings4.txt:357","B70","B13",1/2-1/2,0.5,"repetition",122
+708,354,"~/regicide-gen1full-work/openings4.txt:354","B13","B70",1-0,0,"no legal moves",167
+721,361,"~/regicide-gen1full-work/openings4.txt:361","B70","B13",1/2-1/2,0.5,"repetition",92
+725,363,"~/regicide-gen1full-work/openings4.txt:363","B70","B13",1/2-1/2,0.5,"repetition",69
+723,362,"~/regicide-gen1full-work/openings4.txt:362","B70","B13",1/2-1/2,0.5,"repetition",68
+720,360,"~/regicide-gen1full-work/openings4.txt:360","B13","B70",1-0,0,"no legal moves",75
+722,361,"~/regicide-gen1full-work/openings4.txt:361","B13","B70",1/2-1/2,0.5,"repetition",77
+694,347,"~/regicide-gen1full-work/openings4.txt:347","B13","B70",1-0,0,"no legal moves",245
+724,362,"~/regicide-gen1full-work/openings4.txt:362","B13","B70",1/2-1/2,0.5,"repetition",87
+726,363,"~/regicide-gen1full-work/openings4.txt:363","B13","B70",1/2-1/2,0.5,"repetition",86
+727,364,"~/regicide-gen1full-work/openings4.txt:364","B70","B13",1/2-1/2,0.5,"repetition",85
+730,365,"~/regicide-gen1full-work/openings4.txt:365","B13","B70",0-1,1,"no legal moves",80
+733,367,"~/regicide-gen1full-work/openings4.txt:367","B70","B13",1-0,1,"no legal moves",123
+728,364,"~/regicide-gen1full-work/openings4.txt:364","B13","B70",1/2-1/2,0.5,"repetition",85
+729,365,"~/regicide-gen1full-work/openings4.txt:365","B70","B13",0-1,0,"no legal moves",106
+735,368,"~/regicide-gen1full-work/openings4.txt:368","B70","B13",1-0,1,"no legal moves",127
+732,366,"~/regicide-gen1full-work/openings4.txt:366","B13","B70",1/2-1/2,0.5,"repetition",79
+734,367,"~/regicide-gen1full-work/openings4.txt:367","B13","B70",1-0,0,"no legal moves",91
+739,370,"~/regicide-gen1full-work/openings4.txt:370","B70","B13",1/2-1/2,0.5,"repetition",89
+741,371,"~/regicide-gen1full-work/openings4.txt:371","B70","B13",1/2-1/2,0.5,"repetition",70
+737,369,"~/regicide-gen1full-work/openings4.txt:369","B70","B13",1/2-1/2,0.5,"repetition",95
+743,372,"~/regicide-gen1full-work/openings4.txt:372","B70","B13",1/2-1/2,0.5,"repetition",68
+738,369,"~/regicide-gen1full-work/openings4.txt:369","B13","B70",1-0,0,"no legal moves",101
+719,360,"~/regicide-gen1full-work/openings4.txt:360","B70","B13",0-1,0,"no legal moves",176
+731,366,"~/regicide-gen1full-work/openings4.txt:366","B70","B13",1-0,1,"no legal moves",113
+746,373,"~/regicide-gen1full-work/openings4.txt:373","B13","B70",1/2-1/2,0.5,"repetition",76
+748,374,"~/regicide-gen1full-work/openings4.txt:374","B13","B70",1/2-1/2,0.5,"repetition",82
+736,368,"~/regicide-gen1full-work/openings4.txt:368","B13","B70",1-0,0,"no legal moves",119
+742,371,"~/regicide-gen1full-work/openings4.txt:371","B13","B70",0-1,1,"no legal moves",98
+750,375,"~/regicide-gen1full-work/openings4.txt:375","B13","B70",1/2-1/2,0.5,"repetition",65
+740,370,"~/regicide-gen1full-work/openings4.txt:370","B13","B70",1-0,0,"no legal moves",155
+747,374,"~/regicide-gen1full-work/openings4.txt:374","B70","B13",1/2-1/2,0.5,"repetition",80
+744,372,"~/regicide-gen1full-work/openings4.txt:372","B13","B70",1/2-1/2,0.5,"repetition",95
+755,378,"~/regicide-gen1full-work/openings4.txt:378","B70","B13",1/2-1/2,0.5,"repetition",78
+757,379,"~/regicide-gen1full-work/openings4.txt:379","B70","B13",1/2-1/2,0.5,"repetition",69
+745,373,"~/regicide-gen1full-work/openings4.txt:373","B70","B13",0-1,0,"no legal moves",116
+749,375,"~/regicide-gen1full-work/openings4.txt:375","B70","B13",1/2-1/2,0.5,"repetition",107
+753,377,"~/regicide-gen1full-work/openings4.txt:377","B70","B13",1/2-1/2,0.5,"repetition",119
+754,377,"~/regicide-gen1full-work/openings4.txt:377","B13","B70",1-0,0,"no legal moves",147
+751,376,"~/regicide-gen1full-work/openings4.txt:376","B70","B13",1-0,1,"no legal moves",169
+762,381,"~/regicide-gen1full-work/openings4.txt:381","B13","B70",1/2-1/2,0.5,"repetition",76
+756,378,"~/regicide-gen1full-work/openings4.txt:378","B13","B70",1/2-1/2,0.5,"repetition",103
+752,376,"~/regicide-gen1full-work/openings4.txt:376","B13","B70",1-0,0,"no legal moves",149
+758,379,"~/regicide-gen1full-work/openings4.txt:379","B13","B70",1-0,0,"no legal moves",143
+764,382,"~/regicide-gen1full-work/openings4.txt:382","B13","B70",1/2-1/2,0.5,"repetition",94
+763,382,"~/regicide-gen1full-work/openings4.txt:382","B70","B13",1-0,1,"no legal moves",137
+759,380,"~/regicide-gen1full-work/openings4.txt:380","B70","B13",0-1,0,"no legal moves",80
+760,380,"~/regicide-gen1full-work/openings4.txt:380","B13","B70",1-0,0,"no legal moves",155
+765,383,"~/regicide-gen1full-work/openings4.txt:383","B70","B13",1-0,1,"no legal moves",157
+766,383,"~/regicide-gen1full-work/openings4.txt:383","B13","B70",1-0,0,"no legal moves",133
+768,384,"~/regicide-gen1full-work/openings4.txt:384","B13","B70",1/2-1/2,0.5,"repetition",107
+769,385,"~/regicide-gen1full-work/openings4.txt:385","B70","B13",1/2-1/2,0.5,"repetition",106
+772,386,"~/regicide-gen1full-work/openings4.txt:386","B13","B70",1/2-1/2,0.5,"repetition",115
+770,385,"~/regicide-gen1full-work/openings4.txt:385","B13","B70",0-1,1,"no legal moves",54
+771,386,"~/regicide-gen1full-work/openings4.txt:386","B70","B13",0-1,0,"no legal moves",78
+761,381,"~/regicide-gen1full-work/openings4.txt:381","B70","B13",0-1,0,"no legal moves",116
+779,390,"~/regicide-gen1full-work/openings4.txt:390","B70","B13",1/2-1/2,0.5,"repetition",59
+777,389,"~/regicide-gen1full-work/openings4.txt:389","B70","B13",0-1,0,"no legal moves",68
+778,389,"~/regicide-gen1full-work/openings4.txt:389","B13","B70",0-1,1,"no legal moves",116
+782,391,"~/regicide-gen1full-work/openings4.txt:391","B13","B70",1/2-1/2,0.5,"repetition",75
+776,388,"~/regicide-gen1full-work/openings4.txt:388","B13","B70",1/2-1/2,0.5,"repetition",93
+767,384,"~/regicide-gen1full-work/openings4.txt:384","B70","B13",1/2-1/2,0.5,"repetition",143
+781,391,"~/regicide-gen1full-work/openings4.txt:391","B70","B13",1/2-1/2,0.5,"repetition",48
+780,390,"~/regicide-gen1full-work/openings4.txt:390","B13","B70",1/2-1/2,0.5,"repetition",87
+773,387,"~/regicide-gen1full-work/openings4.txt:387","B70","B13",1-0,1,"no legal moves",135
+775,388,"~/regicide-gen1full-work/openings4.txt:388","B70","B13",0-1,0,"no legal moves",112
+783,392,"~/regicide-gen1full-work/openings4.txt:392","B70","B13",1/2-1/2,0.5,"repetition",87
+785,393,"~/regicide-gen1full-work/openings4.txt:393","B70","B13",1-0,1,"no legal moves",45
+790,395,"~/regicide-gen1full-work/openings4.txt:395","B13","B70",0-1,1,"no legal moves",126
+787,394,"~/regicide-gen1full-work/openings4.txt:394","B70","B13",1-0,1,"no legal moves",125
+788,394,"~/regicide-gen1full-work/openings4.txt:394","B13","B70",1-0,0,"no legal moves",57
+789,395,"~/regicide-gen1full-work/openings4.txt:395","B70","B13",1-0,1,"no legal moves",113
+786,393,"~/regicide-gen1full-work/openings4.txt:393","B13","B70",1-0,0,"no legal moves",129
+791,396,"~/regicide-gen1full-work/openings4.txt:396","B70","B13",1-0,1,"no legal moves",151
+792,396,"~/regicide-gen1full-work/openings4.txt:396","B13","B70",1-0,0,"no legal moves",135
+794,397,"~/regicide-gen1full-work/openings4.txt:397","B13","B70",1/2-1/2,0.5,"repetition",89
+798,399,"~/regicide-gen1full-work/openings4.txt:399","B13","B70",1/2-1/2,0.5,"repetition",88
+796,398,"~/regicide-gen1full-work/openings4.txt:398","B13","B70",1/2-1/2,0.5,"repetition",73
+774,387,"~/regicide-gen1full-work/openings4.txt:387","B13","B70",1/2-1/2,0.5,"repetition",189
+793,397,"~/regicide-gen1full-work/openings4.txt:397","B70","B13",1/2-1/2,0.5,"repetition",127
+799,400,"~/regicide-gen1full-work/openings4.txt:400","B70","B13",1-0,1,"no legal moves",137
+803,402,"~/regicide-gen1full-work/openings4.txt:402","B70","B13",1/2-1/2,0.5,"repetition",79
+797,399,"~/regicide-gen1full-work/openings4.txt:399","B70","B13",1-0,1,"no legal moves",125
+795,398,"~/regicide-gen1full-work/openings4.txt:398","B70","B13",1/2-1/2,0.5,"repetition",109
+804,402,"~/regicide-gen1full-work/openings4.txt:402","B13","B70",1/2-1/2,0.5,"repetition",79
+800,400,"~/regicide-gen1full-work/openings4.txt:400","B13","B70",1-0,0,"no legal moves",117
+784,392,"~/regicide-gen1full-work/openings4.txt:392","B13","B70",0-1,1,"no legal moves",210
+801,401,"~/regicide-gen1full-work/openings4.txt:401","B70","B13",1/2-1/2,0.5,"repetition",93
+805,403,"~/regicide-gen1full-work/openings4.txt:403","B70","B13",1-0,1,"no legal moves",157
+811,406,"~/regicide-gen1full-work/openings4.txt:406","B70","B13",1/2-1/2,0.5,"repetition",103
+813,407,"~/regicide-gen1full-work/openings4.txt:407","B70","B13",0-1,0,"no legal moves",52
+809,405,"~/regicide-gen1full-work/openings4.txt:405","B70","B13",0-1,0,"no legal moves",156
+806,403,"~/regicide-gen1full-work/openings4.txt:403","B13","B70",1/2-1/2,0.5,"repetition",117
+807,404,"~/regicide-gen1full-work/openings4.txt:404","B70","B13",1-0,1,"no legal moves",155
+814,407,"~/regicide-gen1full-work/openings4.txt:407","B13","B70",0-1,1,"no legal moves",140
+802,401,"~/regicide-gen1full-work/openings4.txt:401","B13","B70",0-1,1,"no legal moves",184
+816,408,"~/regicide-gen1full-work/openings4.txt:408","B13","B70",1/2-1/2,0.5,"repetition",72
+815,408,"~/regicide-gen1full-work/openings4.txt:408","B70","B13",1/2-1/2,0.5,"repetition",71
+812,406,"~/regicide-gen1full-work/openings4.txt:406","B13","B70",0-1,1,"no legal moves",82
+818,409,"~/regicide-gen1full-work/openings4.txt:409","B13","B70",1/2-1/2,0.5,"repetition",81
+817,409,"~/regicide-gen1full-work/openings4.txt:409","B70","B13",1/2-1/2,0.5,"repetition",65
+810,405,"~/regicide-gen1full-work/openings4.txt:405","B13","B70",0-1,1,"no legal moves",138
+825,413,"~/regicide-gen1full-work/openings4.txt:413","B70","B13",1/2-1/2,0.5,"repetition",100
+824,412,"~/regicide-gen1full-work/openings4.txt:412","B13","B70",1/2-1/2,0.5,"repetition",77
+826,413,"~/regicide-gen1full-work/openings4.txt:413","B13","B70",1/2-1/2,0.5,"repetition",61
+819,410,"~/regicide-gen1full-work/openings4.txt:410","B70","B13",1-0,1,"no legal moves",113
+820,410,"~/regicide-gen1full-work/openings4.txt:410","B13","B70",1/2-1/2,0.5,"repetition",125
+823,412,"~/regicide-gen1full-work/openings4.txt:412","B70","B13",1/2-1/2,0.5,"repetition",89
+828,414,"~/regicide-gen1full-work/openings4.txt:414","B13","B70",1/2-1/2,0.5,"repetition",85
+821,411,"~/regicide-gen1full-work/openings4.txt:411","B70","B13",1/2-1/2,0.5,"repetition",95
+808,404,"~/regicide-gen1full-work/openings4.txt:404","B13","B70",0-1,1,"no legal moves",202
+831,416,"~/regicide-gen1full-work/openings4.txt:416","B70","B13",1-0,1,"no legal moves",53
+827,414,"~/regicide-gen1full-work/openings4.txt:414","B70","B13",0-1,0,"no legal moves",146
+822,411,"~/regicide-gen1full-work/openings4.txt:411","B13","B70",1-0,0,"no legal moves",171
+829,415,"~/regicide-gen1full-work/openings4.txt:415","B70","B13",0-1,0,"no legal moves",78
+832,416,"~/regicide-gen1full-work/openings4.txt:416","B13","B70",1-0,0,"no legal moves",149
+830,415,"~/regicide-gen1full-work/openings4.txt:415","B13","B70",1-0,0,"no legal moves",91
+833,417,"~/regicide-gen1full-work/openings4.txt:417","B70","B13",0-1,0,"no legal moves",134
+834,417,"~/regicide-gen1full-work/openings4.txt:417","B13","B70",0-1,1,"no legal moves",124
+835,418,"~/regicide-gen1full-work/openings4.txt:418","B70","B13",1-0,1,"no legal moves",55
+836,418,"~/regicide-gen1full-work/openings4.txt:418","B13","B70",1/2-1/2,0.5,"repetition",68
+839,420,"~/regicide-gen1full-work/openings4.txt:420","B70","B13",0-1,0,"no legal moves",76
+843,422,"~/regicide-gen1full-work/openings4.txt:422","B70","B13",0-1,0,"no legal moves",50
+840,420,"~/regicide-gen1full-work/openings4.txt:420","B13","B70",0-1,1,"no legal moves",82
+845,423,"~/regicide-gen1full-work/openings4.txt:423","B70","B13",1/2-1/2,0.5,"repetition",83
+846,423,"~/regicide-gen1full-work/openings4.txt:423","B13","B70",1/2-1/2,0.5,"repetition",99
+837,419,"~/regicide-gen1full-work/openings4.txt:419","B70","B13",1-0,1,"no legal moves",131
+844,422,"~/regicide-gen1full-work/openings4.txt:422","B13","B70",0-1,1,"no legal moves",130
+847,424,"~/regicide-gen1full-work/openings4.txt:424","B70","B13",1/2-1/2,0.5,"repetition",62
+838,419,"~/regicide-gen1full-work/openings4.txt:419","B13","B70",0-1,1,"no legal moves",108
+841,421,"~/regicide-gen1full-work/openings4.txt:421","B70","B13",0-1,0,"no legal moves",92
+842,421,"~/regicide-gen1full-work/openings4.txt:421","B13","B70",0-1,1,"no legal moves",90
+848,424,"~/regicide-gen1full-work/openings4.txt:424","B13","B70",1/2-1/2,0.5,"repetition",85
+854,427,"~/regicide-gen1full-work/openings4.txt:427","B13","B70",1/2-1/2,0.5,"repetition",85
+855,428,"~/regicide-gen1full-work/openings4.txt:428","B70","B13",1/2-1/2,0.5,"repetition",88
+849,425,"~/regicide-gen1full-work/openings4.txt:425","B70","B13",1-0,1,"no legal moves",109
+857,429,"~/regicide-gen1full-work/openings4.txt:429","B70","B13",1/2-1/2,0.5,"repetition",77
+850,425,"~/regicide-gen1full-work/openings4.txt:425","B13","B70",1-0,0,"no legal moves",165
+852,426,"~/regicide-gen1full-work/openings4.txt:426","B13","B70",1/2-1/2,0.5,"repetition",91
+856,428,"~/regicide-gen1full-work/openings4.txt:428","B13","B70",1/2-1/2,0.5,"repetition",83
+853,427,"~/regicide-gen1full-work/openings4.txt:427","B70","B13",0-1,0,"no legal moves",86
+860,430,"~/regicide-gen1full-work/openings4.txt:430","B13","B70",1/2-1/2,0.5,"repetition",76
+859,430,"~/regicide-gen1full-work/openings4.txt:430","B70","B13",1-0,1,"no legal moves",145
+858,429,"~/regicide-gen1full-work/openings4.txt:429","B13","B70",1-0,0,"no legal moves",133
+863,432,"~/regicide-gen1full-work/openings4.txt:432","B70","B13",1/2-1/2,0.5,"repetition",83
+861,431,"~/regicide-gen1full-work/openings4.txt:431","B70","B13",1-0,1,"no legal moves",147
+867,434,"~/regicide-gen1full-work/openings4.txt:434","B70","B13",1/2-1/2,0.5,"repetition",81
+865,433,"~/regicide-gen1full-work/openings4.txt:433","B70","B13",1/2-1/2,0.5,"repetition",62
+868,434,"~/regicide-gen1full-work/openings4.txt:434","B13","B70",1/2-1/2,0.5,"repetition",81
+866,433,"~/regicide-gen1full-work/openings4.txt:433","B13","B70",1/2-1/2,0.5,"repetition",76
+870,435,"~/regicide-gen1full-work/openings4.txt:435","B13","B70",1/2-1/2,0.5,"repetition",81
+851,426,"~/regicide-gen1full-work/openings4.txt:426","B70","B13",1-0,1,"no legal moves",161
+864,432,"~/regicide-gen1full-work/openings4.txt:432","B13","B70",1-0,0,"no legal moves",161
+862,431,"~/regicide-gen1full-work/openings4.txt:431","B13","B70",1/2-1/2,0.5,"repetition",153
+872,436,"~/regicide-gen1full-work/openings4.txt:436","B13","B70",0-1,1,"no legal moves",106
+871,436,"~/regicide-gen1full-work/openings4.txt:436","B70","B13",1/2-1/2,0.5,"repetition",78
+876,438,"~/regicide-gen1full-work/openings4.txt:438","B13","B70",1-0,0,"no legal moves",137
+874,437,"~/regicide-gen1full-work/openings4.txt:437","B13","B70",1/2-1/2,0.5,"repetition",107
+878,439,"~/regicide-gen1full-work/openings4.txt:439","B13","B70",1/2-1/2,0.5,"repetition",97
+875,438,"~/regicide-gen1full-work/openings4.txt:438","B70","B13",1-0,1,"no legal moves",161
+877,439,"~/regicide-gen1full-work/openings4.txt:439","B70","B13",0-1,0,"no legal moves",130
+881,441,"~/regicide-gen1full-work/openings4.txt:441","B70","B13",1/2-1/2,0.5,"repetition",85
+879,440,"~/regicide-gen1full-work/openings4.txt:440","B70","B13",0-1,0,"no legal moves",100
+869,435,"~/regicide-gen1full-work/openings4.txt:435","B70","B13",1/2-1/2,0.5,"repetition",148
+883,442,"~/regicide-gen1full-work/openings4.txt:442","B70","B13",1/2-1/2,0.5,"repetition",72
+885,443,"~/regicide-gen1full-work/openings4.txt:443","B70","B13",1/2-1/2,0.5,"repetition",65
+886,443,"~/regicide-gen1full-work/openings4.txt:443","B13","B70",1/2-1/2,0.5,"repetition",68
+882,441,"~/regicide-gen1full-work/openings4.txt:441","B13","B70",1/2-1/2,0.5,"repetition",90
+891,446,"~/regicide-gen1full-work/openings4.txt:446","B70","B13",1/2-1/2,0.5,"repetition",64
+884,442,"~/regicide-gen1full-work/openings4.txt:442","B13","B70",1/2-1/2,0.5,"repetition",93
+880,440,"~/regicide-gen1full-work/openings4.txt:440","B13","B70",0-1,1,"no legal moves",98
+892,446,"~/regicide-gen1full-work/openings4.txt:446","B13","B70",1/2-1/2,0.5,"repetition",104
+889,445,"~/regicide-gen1full-work/openings4.txt:445","B70","B13",0-1,0,"no legal moves",122
+888,444,"~/regicide-gen1full-work/openings4.txt:444","B13","B70",0-1,1,"no legal moves",130
+887,444,"~/regicide-gen1full-work/openings4.txt:444","B70","B13",0-1,0,"no legal moves",52
+893,447,"~/regicide-gen1full-work/openings4.txt:447","B70","B13",1/2-1/2,0.5,"repetition",58
+890,445,"~/regicide-gen1full-work/openings4.txt:445","B13","B70",0-1,1,"no legal moves",62
+898,449,"~/regicide-gen1full-work/openings4.txt:449","B13","B70",1/2-1/2,0.5,"repetition",82
+894,447,"~/regicide-gen1full-work/openings4.txt:447","B13","B70",1/2-1/2,0.5,"repetition",79
+897,449,"~/regicide-gen1full-work/openings4.txt:449","B70","B13",1/2-1/2,0.5,"repetition",82
+873,437,"~/regicide-gen1full-work/openings4.txt:437","B70","B13",1/2-1/2,0.5,"repetition",157
+899,450,"~/regicide-gen1full-work/openings4.txt:450","B70","B13",1-0,1,"no legal moves",129
+895,448,"~/regicide-gen1full-work/openings4.txt:448","B70","B13",1/2-1/2,0.5,"repetition",101
+896,448,"~/regicide-gen1full-work/openings4.txt:448","B13","B70",1-0,0,"no legal moves",123
+906,453,"~/regicide-gen1full-work/openings4.txt:453","B13","B70",1/2-1/2,0.5,"repetition",65
+901,451,"~/regicide-gen1full-work/openings4.txt:451","B70","B13",1-0,1,"no legal moves",153
+904,452,"~/regicide-gen1full-work/openings4.txt:452","B13","B70",1/2-1/2,0.5,"repetition",112
+903,452,"~/regicide-gen1full-work/openings4.txt:452","B70","B13",1-0,1,"no legal moves",111
+905,453,"~/regicide-gen1full-work/openings4.txt:453","B70","B13",1-0,1,"no legal moves",93
+908,454,"~/regicide-gen1full-work/openings4.txt:454","B13","B70",1-0,0,"no legal moves",129
+909,455,"~/regicide-gen1full-work/openings4.txt:455","B70","B13",1/2-1/2,0.5,"repetition",61
+910,455,"~/regicide-gen1full-work/openings4.txt:455","B13","B70",0-1,1,"no legal moves",102
+907,454,"~/regicide-gen1full-work/openings4.txt:454","B70","B13",1/2-1/2,0.5,"repetition",126
+900,450,"~/regicide-gen1full-work/openings4.txt:450","B13","B70",1-0,0,"no legal moves",165
+913,457,"~/regicide-gen1full-work/openings4.txt:457","B70","B13",1/2-1/2,0.5,"repetition",70
+912,456,"~/regicide-gen1full-work/openings4.txt:456","B13","B70",1-0,0,"no legal moves",153
+918,459,"~/regicide-gen1full-work/openings4.txt:459","B13","B70",1-0,0,"no legal moves",117
+916,458,"~/regicide-gen1full-work/openings4.txt:458","B13","B70",1-0,0,"no legal moves",79
+915,458,"~/regicide-gen1full-work/openings4.txt:458","B70","B13",1-0,1,"no legal moves",117
+917,459,"~/regicide-gen1full-work/openings4.txt:459","B70","B13",1-0,1,"no legal moves",141
+922,461,"~/regicide-gen1full-work/openings4.txt:461","B13","B70",1/2-1/2,0.5,"repetition",85
+919,460,"~/regicide-gen1full-work/openings4.txt:460","B70","B13",1/2-1/2,0.5,"repetition",75
+921,461,"~/regicide-gen1full-work/openings4.txt:461","B70","B13",1/2-1/2,0.5,"repetition",87
+902,451,"~/regicide-gen1full-work/openings4.txt:451","B13","B70",1/2-1/2,0.5,"repetition",194
+920,460,"~/regicide-gen1full-work/openings4.txt:460","B13","B70",1/2-1/2,0.5,"repetition",83
+914,457,"~/regicide-gen1full-work/openings4.txt:457","B13","B70",0-1,1,"no legal moves",180
+924,462,"~/regicide-gen1full-work/openings4.txt:462","B13","B70",1/2-1/2,0.5,"repetition",107
+925,463,"~/regicide-gen1full-work/openings4.txt:463","B70","B13",0-1,0,"no legal moves",106
+926,463,"~/regicide-gen1full-work/openings4.txt:463","B13","B70",1/2-1/2,0.5,"repetition",50
+929,465,"~/regicide-gen1full-work/openings4.txt:465","B70","B13",1/2-1/2,0.5,"repetition",104
+927,464,"~/regicide-gen1full-work/openings4.txt:464","B70","B13",0-1,0,"no legal moves",84
+928,464,"~/regicide-gen1full-work/openings4.txt:464","B13","B70",0-1,1,"no legal moves",102
+931,466,"~/regicide-gen1full-work/openings4.txt:466","B70","B13",1/2-1/2,0.5,"repetition",85
+930,465,"~/regicide-gen1full-work/openings4.txt:465","B13","B70",1-0,0,"no legal moves",135
+923,462,"~/regicide-gen1full-work/openings4.txt:462","B70","B13",1/2-1/2,0.5,"repetition",94
+932,466,"~/regicide-gen1full-work/openings4.txt:466","B13","B70",0-1,1,"no legal moves",106
+937,469,"~/regicide-gen1full-work/openings4.txt:469","B70","B13",1/2-1/2,0.5,"repetition",71
+936,468,"~/regicide-gen1full-work/openings4.txt:468","B13","B70",1/2-1/2,0.5,"repetition",99
+934,467,"~/regicide-gen1full-work/openings4.txt:467","B13","B70",0-1,1,"no legal moves",74
+942,471,"~/regicide-gen1full-work/openings4.txt:471","B13","B70",1/2-1/2,0.5,"repetition",102
+935,468,"~/regicide-gen1full-work/openings4.txt:468","B70","B13",1-0,1,"no legal moves",147
+939,470,"~/regicide-gen1full-work/openings4.txt:470","B70","B13",1-0,1,"no legal moves",125
+938,469,"~/regicide-gen1full-work/openings4.txt:469","B13","B70",1/2-1/2,0.5,"repetition",81
+941,471,"~/regicide-gen1full-work/openings4.txt:471","B70","B13",1/2-1/2,0.5,"repetition",78
+940,470,"~/regicide-gen1full-work/openings4.txt:470","B13","B70",1-0,0,"no legal moves",141
+944,472,"~/regicide-gen1full-work/openings4.txt:472","B13","B70",1/2-1/2,0.5,"repetition",80
+933,467,"~/regicide-gen1full-work/openings4.txt:467","B70","B13",0-1,0,"no legal moves",108
+945,473,"~/regicide-gen1full-work/openings4.txt:473","B70","B13",1/2-1/2,0.5,"repetition",64
+911,456,"~/regicide-gen1full-work/openings4.txt:456","B70","B13",1/2-1/2,0.5,"repetition",273
+948,474,"~/regicide-gen1full-work/openings4.txt:474","B13","B70",1/2-1/2,0.5,"repetition",83
+949,475,"~/regicide-gen1full-work/openings4.txt:475","B70","B13",1/2-1/2,0.5,"repetition",85
+953,477,"~/regicide-gen1full-work/openings4.txt:477","B70","B13",1/2-1/2,0.5,"repetition",73
+947,474,"~/regicide-gen1full-work/openings4.txt:474","B70","B13",0-1,0,"no legal moves",152
+957,479,"~/regicide-gen1full-work/openings4.txt:479","B70","B13",1/2-1/2,0.5,"repetition",70
+956,478,"~/regicide-gen1full-work/openings4.txt:478","B13","B70",0-1,1,"no legal moves",118
+950,475,"~/regicide-gen1full-work/openings4.txt:475","B13","B70",1/2-1/2,0.5,"repetition",121
+943,472,"~/regicide-gen1full-work/openings4.txt:472","B70","B13",1/2-1/2,0.5,"repetition",135
+954,477,"~/regicide-gen1full-work/openings4.txt:477","B13","B70",1-0,0,"no legal moves",137
+955,478,"~/regicide-gen1full-work/openings4.txt:478","B70","B13",0-1,0,"no legal moves",74
+951,476,"~/regicide-gen1full-work/openings4.txt:476","B70","B13",1-0,1,"no legal moves",167
+952,476,"~/regicide-gen1full-work/openings4.txt:476","B13","B70",1-0,0,"no legal moves",139
+961,481,"~/regicide-gen1full-work/openings4.txt:481","B70","B13",1/2-1/2,0.5,"repetition",90
+963,482,"~/regicide-gen1full-work/openings4.txt:482","B70","B13",1/2-1/2,0.5,"repetition",90
+962,481,"~/regicide-gen1full-work/openings4.txt:481","B13","B70",1/2-1/2,0.5,"repetition",73
+958,479,"~/regicide-gen1full-work/openings4.txt:479","B13","B70",0-1,1,"no legal moves",110
+946,473,"~/regicide-gen1full-work/openings4.txt:473","B13","B70",0-1,1,"no legal moves",196
+959,480,"~/regicide-gen1full-work/openings4.txt:480","B70","B13",0-1,0,"no legal moves",94
+960,480,"~/regicide-gen1full-work/openings4.txt:480","B13","B70",1-0,0,"no legal moves",151
+967,484,"~/regicide-gen1full-work/openings4.txt:484","B70","B13",0-1,0,"no legal moves",54
+964,482,"~/regicide-gen1full-work/openings4.txt:482","B13","B70",1/2-1/2,0.5,"repetition",107
+968,484,"~/regicide-gen1full-work/openings4.txt:484","B13","B70",0-1,1,"no legal moves",78
+971,486,"~/regicide-gen1full-work/openings4.txt:486","B70","B13",1/2-1/2,0.5,"repetition",70
+969,485,"~/regicide-gen1full-work/openings4.txt:485","B70","B13",1-0,1,"no legal moves",137
+973,487,"~/regicide-gen1full-work/openings4.txt:487","B70","B13",1/2-1/2,0.5,"repetition",73
+966,483,"~/regicide-gen1full-work/openings4.txt:483","B13","B70",1/2-1/2,0.5,"repetition",140
+972,486,"~/regicide-gen1full-work/openings4.txt:486","B13","B70",1/2-1/2,0.5,"repetition",99
+980,490,"~/regicide-gen1full-work/openings4.txt:490","B13","B70",1/2-1/2,0.5,"repetition",85
+970,485,"~/regicide-gen1full-work/openings4.txt:485","B13","B70",1/2-1/2,0.5,"repetition",113
+979,490,"~/regicide-gen1full-work/openings4.txt:490","B70","B13",1/2-1/2,0.5,"repetition",87
+978,489,"~/regicide-gen1full-work/openings4.txt:489","B13","B70",1-0,0,"no legal moves",131
+975,488,"~/regicide-gen1full-work/openings4.txt:488","B70","B13",1/2-1/2,0.5,"repetition",102
+977,489,"~/regicide-gen1full-work/openings4.txt:489","B70","B13",1-0,1,"no legal moves",145
+965,483,"~/regicide-gen1full-work/openings4.txt:483","B70","B13",1-0,1,"no legal moves",189
+974,487,"~/regicide-gen1full-work/openings4.txt:487","B13","B70",1/2-1/2,0.5,"repetition",147
+982,491,"~/regicide-gen1full-work/openings4.txt:491","B13","B70",1-0,0,"no legal moves",151
+983,492,"~/regicide-gen1full-work/openings4.txt:492","B70","B13",1/2-1/2,0.5,"repetition",115
+988,494,"~/regicide-gen1full-work/openings4.txt:494","B13","B70",1/2-1/2,0.5,"repetition",84
+981,491,"~/regicide-gen1full-work/openings4.txt:491","B70","B13",0-1,0,"no legal moves",134
+985,493,"~/regicide-gen1full-work/openings4.txt:493","B70","B13",1/2-1/2,0.5,"repetition",99
+986,493,"~/regicide-gen1full-work/openings4.txt:493","B13","B70",1/2-1/2,0.5,"repetition",112
+976,488,"~/regicide-gen1full-work/openings4.txt:488","B13","B70",0-1,1,"no legal moves",134
+992,496,"~/regicide-gen1full-work/openings4.txt:496","B13","B70",1/2-1/2,0.5,"repetition",64
+994,497,"~/regicide-gen1full-work/openings4.txt:497","B13","B70",1/2-1/2,0.5,"repetition",78
+993,497,"~/regicide-gen1full-work/openings4.txt:497","B70","B13",1/2-1/2,0.5,"repetition",67
+989,495,"~/regicide-gen1full-work/openings4.txt:495","B70","B13",1/2-1/2,0.5,"repetition",99
+984,492,"~/regicide-gen1full-work/openings4.txt:492","B13","B70",1-0,0,"no legal moves",173
+991,496,"~/regicide-gen1full-work/openings4.txt:496","B70","B13",1/2-1/2,0.5,"repetition",73
+987,494,"~/regicide-gen1full-work/openings4.txt:494","B70","B13",1-0,1,"no legal moves",109
+998,499,"~/regicide-gen1full-work/openings4.txt:499","B13","B70",1/2-1/2,0.5,"repetition",103
+997,499,"~/regicide-gen1full-work/openings4.txt:499","B70","B13",1/2-1/2,0.5,"repetition",65
+999,500,"~/regicide-gen1full-work/openings4.txt:500","B70","B13",1/2-1/2,0.5,"repetition",67
+990,495,"~/regicide-gen1full-work/openings4.txt:495","B13","B70",1-0,0,"no legal moves",151
+1003,502,"~/regicide-gen1full-work/openings4.txt:502","B70","B13",1/2-1/2,0.5,"repetition",70
+1002,501,"~/regicide-gen1full-work/openings4.txt:501","B13","B70",1/2-1/2,0.5,"repetition",66
+1004,502,"~/regicide-gen1full-work/openings4.txt:502","B13","B70",1/2-1/2,0.5,"repetition",77
+995,498,"~/regicide-gen1full-work/openings4.txt:498","B70","B13",1-0,1,"no legal moves",87
+1001,501,"~/regicide-gen1full-work/openings4.txt:501","B70","B13",1/2-1/2,0.5,"repetition",87
+1005,503,"~/regicide-gen1full-work/openings4.txt:503","B70","B13",0-1,0,"no legal moves",128
+1006,503,"~/regicide-gen1full-work/openings4.txt:503","B13","B70",1/2-1/2,0.5,"repetition",107
+996,498,"~/regicide-gen1full-work/openings4.txt:498","B13","B70",1-0,0,"no legal moves",175
+1000,500,"~/regicide-gen1full-work/openings4.txt:500","B13","B70",1/2-1/2,0.5,"repetition",121
+1010,505,"~/regicide-gen1full-work/openings4.txt:505","B13","B70",1-0,0,"no legal moves",143
+1008,504,"~/regicide-gen1full-work/openings4.txt:504","B13","B70",1/2-1/2,0.5,"repetition",105
+1016,508,"~/regicide-gen1full-work/openings4.txt:508","B13","B70",1/2-1/2,0.5,"repetition",83
+1014,507,"~/regicide-gen1full-work/openings4.txt:507","B13","B70",1/2-1/2,0.5,"repetition",69
+1009,505,"~/regicide-gen1full-work/openings4.txt:505","B70","B13",1/2-1/2,0.5,"repetition",113
+1007,504,"~/regicide-gen1full-work/openings4.txt:504","B70","B13",1/2-1/2,0.5,"repetition",106
+1013,507,"~/regicide-gen1full-work/openings4.txt:507","B70","B13",1-0,1,"no legal moves",155
+1011,506,"~/regicide-gen1full-work/openings4.txt:506","B70","B13",0-1,0,"no legal moves",120
+1015,508,"~/regicide-gen1full-work/openings4.txt:508","B70","B13",1/2-1/2,0.5,"repetition",112
+1018,509,"~/regicide-gen1full-work/openings4.txt:509","B13","B70",0-1,1,"no legal moves",74
+1012,506,"~/regicide-gen1full-work/openings4.txt:506","B13","B70",0-1,1,"no legal moves",102
+1021,511,"~/regicide-gen1full-work/openings4.txt:511","B70","B13",1/2-1/2,0.5,"repetition",72
+1019,510,"~/regicide-gen1full-work/openings4.txt:510","B70","B13",1/2-1/2,0.5,"repetition",97
+1022,511,"~/regicide-gen1full-work/openings4.txt:511","B13","B70",1-0,0,"no legal moves",111
+1027,514,"~/regicide-gen1full-work/openings4.txt:514","B70","B13",1/2-1/2,0.5,"repetition",95
+1026,513,"~/regicide-gen1full-work/openings4.txt:513","B13","B70",0-1,1,"no legal moves",60
+1024,512,"~/regicide-gen1full-work/openings4.txt:512","B13","B70",0-1,1,"no legal moves",136
+1023,512,"~/regicide-gen1full-work/openings4.txt:512","B70","B13",1-0,1,"no legal moves",147
+1025,513,"~/regicide-gen1full-work/openings4.txt:513","B70","B13",0-1,0,"no legal moves",80
+1020,510,"~/regicide-gen1full-work/openings4.txt:510","B13","B70",1/2-1/2,0.5,"repetition",127
+1034,517,"~/regicide-gen1full-work/openings4.txt:517","B13","B70",1/2-1/2,0.5,"repetition",65
+1028,514,"~/regicide-gen1full-work/openings4.txt:514","B13","B70",1/2-1/2,0.5,"repetition",80
+1033,517,"~/regicide-gen1full-work/openings4.txt:517","B70","B13",1/2-1/2,0.5,"repetition",89
+1030,515,"~/regicide-gen1full-work/openings4.txt:515","B13","B70",1-0,0,"no legal moves",95
+1036,518,"~/regicide-gen1full-work/openings4.txt:518","B13","B70",1/2-1/2,0.5,"repetition",95
+1017,509,"~/regicide-gen1full-work/openings4.txt:509","B70","B13",0-1,0,"no legal moves",210
+1031,516,"~/regicide-gen1full-work/openings4.txt:516","B70","B13",1/2-1/2,0.5,"repetition",112
+1032,516,"~/regicide-gen1full-work/openings4.txt:516","B13","B70",1/2-1/2,0.5,"repetition",97
+1029,515,"~/regicide-gen1full-work/openings4.txt:515","B70","B13",1/2-1/2,0.5,"repetition",144
+1035,518,"~/regicide-gen1full-work/openings4.txt:518","B70","B13",0-1,0,"no legal moves",134
+1037,519,"~/regicide-gen1full-work/openings4.txt:519","B70","B13",1/2-1/2,0.5,"repetition",83
+1039,520,"~/regicide-gen1full-work/openings4.txt:520","B70","B13",0-1,0,"no legal moves",70
+1045,523,"~/regicide-gen1full-work/openings4.txt:523","B70","B13",1/2-1/2,0.5,"repetition",117
+1038,519,"~/regicide-gen1full-work/openings4.txt:519","B13","B70",0-1,1,"no legal moves",100
+1043,522,"~/regicide-gen1full-work/openings4.txt:522","B70","B13",1/2-1/2,0.5,"repetition",77
+1042,521,"~/regicide-gen1full-work/openings4.txt:521","B13","B70",1-0,0,"no legal moves",121
+1050,525,"~/regicide-gen1full-work/openings4.txt:525","B13","B70",1/2-1/2,0.5,"repetition",80
+1046,523,"~/regicide-gen1full-work/openings4.txt:523","B13","B70",1/2-1/2,0.5,"repetition",91
+1040,520,"~/regicide-gen1full-work/openings4.txt:520","B13","B70",1/2-1/2,0.5,"repetition",123
+1047,524,"~/regicide-gen1full-work/openings4.txt:524","B70","B13",1-0,1,"no legal moves",143
+1051,526,"~/regicide-gen1full-work/openings4.txt:526","B70","B13",1-0,1,"no legal moves",133
+1048,524,"~/regicide-gen1full-work/openings4.txt:524","B13","B70",0-1,1,"no legal moves",130
+1041,521,"~/regicide-gen1full-work/openings4.txt:521","B70","B13",1/2-1/2,0.5,"repetition",137
+1055,528,"~/regicide-gen1full-work/openings4.txt:528","B70","B13",1/2-1/2,0.5,"repetition",97
+1049,525,"~/regicide-gen1full-work/openings4.txt:525","B70","B13",1/2-1/2,0.5,"repetition",80
+1056,528,"~/regicide-gen1full-work/openings4.txt:528","B13","B70",1/2-1/2,0.5,"repetition",73
+1059,530,"~/regicide-gen1full-work/openings4.txt:530","B70","B13",1/2-1/2,0.5,"repetition",95
+1053,527,"~/regicide-gen1full-work/openings4.txt:527","B70","B13",1-0,1,"no legal moves",77
+1054,527,"~/regicide-gen1full-work/openings4.txt:527","B13","B70",1/2-1/2,0.5,"repetition",97
+1052,526,"~/regicide-gen1full-work/openings4.txt:526","B13","B70",1/2-1/2,0.5,"repetition",119
+1060,530,"~/regicide-gen1full-work/openings4.txt:530","B13","B70",1/2-1/2,0.5,"repetition",85
+1058,529,"~/regicide-gen1full-work/openings4.txt:529","B13","B70",0-1,1,"no legal moves",94
+1057,529,"~/regicide-gen1full-work/openings4.txt:529","B70","B13",1/2-1/2,0.5,"repetition",90
+1062,531,"~/regicide-gen1full-work/openings4.txt:531","B13","B70",1/2-1/2,0.5,"repetition",79
+1044,522,"~/regicide-gen1full-work/openings4.txt:522","B13","B70",1/2-1/2,0.5,"repetition",192
+1067,534,"~/regicide-gen1full-work/openings4.txt:534","B70","B13",1/2-1/2,0.5,"repetition",64
+1061,531,"~/regicide-gen1full-work/openings4.txt:531","B70","B13",0-1,0,"no legal moves",88
+1066,533,"~/regicide-gen1full-work/openings4.txt:533","B13","B70",1/2-1/2,0.5,"repetition",93
+1063,532,"~/regicide-gen1full-work/openings4.txt:532","B70","B13",1-0,1,"no legal moves",139
+1065,533,"~/regicide-gen1full-work/openings4.txt:533","B70","B13",1/2-1/2,0.5,"repetition",99
+1069,535,"~/regicide-gen1full-work/openings4.txt:535","B70","B13",1/2-1/2,0.5,"repetition",103
+1072,536,"~/regicide-gen1full-work/openings4.txt:536","B13","B70",1/2-1/2,0.5,"repetition",86
+1073,537,"~/regicide-gen1full-work/openings4.txt:537","B70","B13",0-1,0,"no legal moves",56
+1071,536,"~/regicide-gen1full-work/openings4.txt:536","B70","B13",1/2-1/2,0.5,"repetition",82
+1064,532,"~/regicide-gen1full-work/openings4.txt:532","B13","B70",1-0,0,"no legal moves",131
+1079,540,"~/regicide-gen1full-work/openings4.txt:540","B70","B13",1/2-1/2,0.5,"repetition",70
+1074,537,"~/regicide-gen1full-work/openings4.txt:537","B13","B70",0-1,1,"no legal moves",68
+1070,535,"~/regicide-gen1full-work/openings4.txt:535","B13","B70",0-1,1,"no legal moves",106
+1075,538,"~/regicide-gen1full-work/openings4.txt:538","B70","B13",1-0,1,"no legal moves",51
+1077,539,"~/regicide-gen1full-work/openings4.txt:539","B70","B13",1/2-1/2,0.5,"repetition",91
+1076,538,"~/regicide-gen1full-work/openings4.txt:538","B13","B70",1-0,0,"no legal moves",95
+1068,534,"~/regicide-gen1full-work/openings4.txt:534","B13","B70",1/2-1/2,0.5,"repetition",143
+1082,541,"~/regicide-gen1full-work/openings4.txt:541","B13","B70",1/2-1/2,0.5,"repetition",91
+1078,539,"~/regicide-gen1full-work/openings4.txt:539","B13","B70",1/2-1/2,0.5,"repetition",101
+1081,541,"~/regicide-gen1full-work/openings4.txt:541","B70","B13",0-1,0,"no legal moves",126
+1080,540,"~/regicide-gen1full-work/openings4.txt:540","B13","B70",1-0,0,"no legal moves",143
+1088,544,"~/regicide-gen1full-work/openings4.txt:544","B13","B70",1/2-1/2,0.5,"repetition",105
+1087,544,"~/regicide-gen1full-work/openings4.txt:544","B70","B13",1/2-1/2,0.5,"repetition",98
+1091,546,"~/regicide-gen1full-work/openings4.txt:546","B70","B13",1/2-1/2,0.5,"repetition",71
+1086,543,"~/regicide-gen1full-work/openings4.txt:543","B13","B70",1-0,0,"no legal moves",155
+1085,543,"~/regicide-gen1full-work/openings4.txt:543","B70","B13",1-0,1,"no legal moves",129
+1094,547,"~/regicide-gen1full-work/openings4.txt:547","B13","B70",1/2-1/2,0.5,"repetition",85
+1092,546,"~/regicide-gen1full-work/openings4.txt:546","B13","B70",1/2-1/2,0.5,"repetition",82
+1090,545,"~/regicide-gen1full-work/openings4.txt:545","B13","B70",1-0,0,"no legal moves",131
+1084,542,"~/regicide-gen1full-work/openings4.txt:542","B13","B70",1-0,0,"no legal moves",175
+1093,547,"~/regicide-gen1full-work/openings4.txt:547","B70","B13",1/2-1/2,0.5,"repetition",85
+1083,542,"~/regicide-gen1full-work/openings4.txt:542","B70","B13",1/2-1/2,0.5,"repetition",118
+1095,548,"~/regicide-gen1full-work/openings4.txt:548","B70","B13",0-1,0,"no legal moves",138
+1089,545,"~/regicide-gen1full-work/openings4.txt:545","B70","B13",1/2-1/2,0.5,"repetition",123
+1102,551,"~/regicide-gen1full-work/openings4.txt:551","B13","B70",1/2-1/2,0.5,"repetition",79
+1099,550,"~/regicide-gen1full-work/openings4.txt:550","B70","B13",0-1,0,"no legal moves",108
+1098,549,"~/regicide-gen1full-work/openings4.txt:549","B13","B70",0-1,1,"no legal moves",100
+1100,550,"~/regicide-gen1full-work/openings4.txt:550","B13","B70",0-1,1,"no legal moves",114
+1107,554,"~/regicide-gen1full-work/openings4.txt:554","B70","B13",1/2-1/2,0.5,"repetition",92
+1105,553,"~/regicide-gen1full-work/openings4.txt:553","B70","B13",1-0,1,"no legal moves",121
+1104,552,"~/regicide-gen1full-work/openings4.txt:552","B13","B70",1-0,0,"no legal moves",131
+1106,553,"~/regicide-gen1full-work/openings4.txt:553","B13","B70",1-0,0,"no legal moves",111
+1103,552,"~/regicide-gen1full-work/openings4.txt:552","B70","B13",0-1,0,"no legal moves",164
+1110,555,"~/regicide-gen1full-work/openings4.txt:555","B13","B70",1/2-1/2,0.5,"repetition",75
+1101,551,"~/regicide-gen1full-work/openings4.txt:551","B70","B13",1/2-1/2,0.5,"repetition",124
+1108,554,"~/regicide-gen1full-work/openings4.txt:554","B13","B70",1-0,0,"no legal moves",71
+1115,558,"~/regicide-gen1full-work/openings4.txt:558","B70","B13",1/2-1/2,0.5,"repetition",70
+1096,548,"~/regicide-gen1full-work/openings4.txt:548","B13","B70",1/2-1/2,0.5,"repetition",169
+1113,557,"~/regicide-gen1full-work/openings4.txt:557","B70","B13",1-0,1,"no legal moves",121
+1114,557,"~/regicide-gen1full-work/openings4.txt:557","B13","B70",1-0,0,"no legal moves",55
+1118,559,"~/regicide-gen1full-work/openings4.txt:559","B13","B70",1/2-1/2,0.5,"repetition",68
+1116,558,"~/regicide-gen1full-work/openings4.txt:558","B13","B70",1/2-1/2,0.5,"repetition",83
+1120,560,"~/regicide-gen1full-work/openings4.txt:560","B13","B70",1/2-1/2,0.5,"repetition",91
+1117,559,"~/regicide-gen1full-work/openings4.txt:559","B70","B13",1/2-1/2,0.5,"repetition",66
+1097,549,"~/regicide-gen1full-work/openings4.txt:549","B70","B13",1/2-1/2,0.5,"no progress",185
+1111,556,"~/regicide-gen1full-work/openings4.txt:556","B70","B13",1-0,1,"no legal moves",159
+1119,560,"~/regicide-gen1full-work/openings4.txt:560","B70","B13",0-1,0,"no legal moves",100
+1109,555,"~/regicide-gen1full-work/openings4.txt:555","B70","B13",1/2-1/2,0.5,"repetition",141
+1125,563,"~/regicide-gen1full-work/openings4.txt:563","B70","B13",1/2-1/2,0.5,"repetition",61
+1122,561,"~/regicide-gen1full-work/openings4.txt:561","B13","B70",1/2-1/2,0.5,"repetition",117
+1123,562,"~/regicide-gen1full-work/openings4.txt:562","B70","B13",1/2-1/2,0.5,"repetition",104
+1124,562,"~/regicide-gen1full-work/openings4.txt:562","B13","B70",1/2-1/2,0.5,"repetition",105
+1127,564,"~/regicide-gen1full-work/openings4.txt:564","B70","B13",1/2-1/2,0.5,"repetition",82
+1129,565,"~/regicide-gen1full-work/openings4.txt:565","B70","B13",1/2-1/2,0.5,"repetition",65
+1130,565,"~/regicide-gen1full-work/openings4.txt:565","B13","B70",1/2-1/2,0.5,"repetition",73
+1128,564,"~/regicide-gen1full-work/openings4.txt:564","B13","B70",1/2-1/2,0.5,"repetition",86
+1133,567,"~/regicide-gen1full-work/openings4.txt:567","B70","B13",1/2-1/2,0.5,"repetition",83
+1132,566,"~/regicide-gen1full-work/openings4.txt:566","B13","B70",1/2-1/2,0.5,"repetition",70
+1126,563,"~/regicide-gen1full-work/openings4.txt:563","B13","B70",1/2-1/2,0.5,"repetition",95
+1112,556,"~/regicide-gen1full-work/openings4.txt:556","B13","B70",1-0,0,"no legal moves",181
+1131,566,"~/regicide-gen1full-work/openings4.txt:566","B70","B13",1/2-1/2,0.5,"repetition",97
+1136,568,"~/regicide-gen1full-work/openings4.txt:568","B13","B70",1/2-1/2,0.5,"repetition",82
+1134,567,"~/regicide-gen1full-work/openings4.txt:567","B13","B70",1-0,0,"no legal moves",131
+1137,569,"~/regicide-gen1full-work/openings4.txt:569","B70","B13",1-0,1,"no legal moves",131
+1121,561,"~/regicide-gen1full-work/openings4.txt:561","B70","B13",0-1,0,"no legal moves",218
+1139,570,"~/regicide-gen1full-work/openings4.txt:570","B70","B13",1-0,1,"no legal moves",115
+1138,569,"~/regicide-gen1full-work/openings4.txt:569","B13","B70",1-0,0,"no legal moves",143
+1135,568,"~/regicide-gen1full-work/openings4.txt:568","B70","B13",1/2-1/2,0.5,"repetition",107
+1140,570,"~/regicide-gen1full-work/openings4.txt:570","B13","B70",1-0,0,"no legal moves",167
+1142,571,"~/regicide-gen1full-work/openings4.txt:571","B13","B70",1-0,0,"no legal moves",75
+1144,572,"~/regicide-gen1full-work/openings4.txt:572","B13","B70",1-0,0,"no legal moves",143
+1146,573,"~/regicide-gen1full-work/openings4.txt:573","B13","B70",1/2-1/2,0.5,"repetition",89
+1143,572,"~/regicide-gen1full-work/openings4.txt:572","B70","B13",1-0,1,"no legal moves",151
+1145,573,"~/regicide-gen1full-work/openings4.txt:573","B70","B13",1/2-1/2,0.5,"repetition",97
+1147,574,"~/regicide-gen1full-work/openings4.txt:574","B70","B13",1/2-1/2,0.5,"repetition",89
+1150,575,"~/regicide-gen1full-work/openings4.txt:575","B13","B70",1/2-1/2,0.5,"repetition",93
+1155,578,"~/regicide-gen1full-work/openings4.txt:578","B70","B13",1/2-1/2,0.5,"repetition",75
+1156,578,"~/regicide-gen1full-work/openings4.txt:578","B13","B70",1/2-1/2,0.5,"repetition",76
+1148,574,"~/regicide-gen1full-work/openings4.txt:574","B13","B70",1/2-1/2,0.5,"repetition",115
+1151,576,"~/regicide-gen1full-work/openings4.txt:576","B70","B13",1-0,1,"no legal moves",139
+1149,575,"~/regicide-gen1full-work/openings4.txt:575","B70","B13",0-1,0,"no legal moves",152
+1154,577,"~/regicide-gen1full-work/openings4.txt:577","B13","B70",1-0,0,"no legal moves",125
+1153,577,"~/regicide-gen1full-work/openings4.txt:577","B70","B13",1-0,1,"no legal moves",147
+1160,580,"~/regicide-gen1full-work/openings4.txt:580","B13","B70",1/2-1/2,0.5,"repetition",86
+1152,576,"~/regicide-gen1full-work/openings4.txt:576","B13","B70",1-0,0,"no legal moves",151
+1141,571,"~/regicide-gen1full-work/openings4.txt:571","B70","B13",1/2-1/2,0.5,"no progress",151
+1157,579,"~/regicide-gen1full-work/openings4.txt:579","B70","B13",1/2-1/2,0.5,"repetition",117
+1161,581,"~/regicide-gen1full-work/openings4.txt:581","B70","B13",1-0,1,"no legal moves",125
+1159,580,"~/regicide-gen1full-work/openings4.txt:580","B70","B13",1-0,1,"no legal moves",149
+1165,583,"~/regicide-gen1full-work/openings4.txt:583","B70","B13",1-0,1,"no legal moves",117
+1163,582,"~/regicide-gen1full-work/openings4.txt:582","B70","B13",1-0,1,"no legal moves",131
+1166,583,"~/regicide-gen1full-work/openings4.txt:583","B13","B70",1-0,0,"no legal moves",159
+1170,585,"~/regicide-gen1full-work/openings4.txt:585","B13","B70",1/2-1/2,0.5,"repetition",105
+1162,581,"~/regicide-gen1full-work/openings4.txt:581","B13","B70",1-0,0,"no legal moves",113
+1164,582,"~/regicide-gen1full-work/openings4.txt:582","B13","B70",1-0,0,"no legal moves",165
+1168,584,"~/regicide-gen1full-work/openings4.txt:584","B13","B70",1/2-1/2,0.5,"repetition",109
+1169,585,"~/regicide-gen1full-work/openings4.txt:585","B70","B13",1/2-1/2,0.5,"repetition",79
+1167,584,"~/regicide-gen1full-work/openings4.txt:584","B70","B13",0-1,0,"no legal moves",98
+1172,586,"~/regicide-gen1full-work/openings4.txt:586","B13","B70",1/2-1/2,0.5,"repetition",103
+1158,579,"~/regicide-gen1full-work/openings4.txt:579","B13","B70",1/2-1/2,0.5,"repetition",161
+1176,588,"~/regicide-gen1full-work/openings4.txt:588","B13","B70",0-1,1,"no legal moves",68
+1175,588,"~/regicide-gen1full-work/openings4.txt:588","B70","B13",0-1,0,"no legal moves",104
+1174,587,"~/regicide-gen1full-work/openings4.txt:587","B13","B70",0-1,1,"no legal moves",68
+1177,589,"~/regicide-gen1full-work/openings4.txt:589","B70","B13",1/2-1/2,0.5,"repetition",70
+1178,589,"~/regicide-gen1full-work/openings4.txt:589","B13","B70",1/2-1/2,0.5,"repetition",75
+1179,590,"~/regicide-gen1full-work/openings4.txt:590","B70","B13",1/2-1/2,0.5,"repetition",80
+1180,590,"~/regicide-gen1full-work/openings4.txt:590","B13","B70",1/2-1/2,0.5,"repetition",69
+1171,586,"~/regicide-gen1full-work/openings4.txt:586","B70","B13",1/2-1/2,0.5,"repetition",117
+1183,592,"~/regicide-gen1full-work/openings4.txt:592","B70","B13",1/2-1/2,0.5,"repetition",87
+1184,592,"~/regicide-gen1full-work/openings4.txt:592","B13","B70",1/2-1/2,0.5,"repetition",90
+1173,587,"~/regicide-gen1full-work/openings4.txt:587","B70","B13",0-1,0,"no legal moves",116
+1181,591,"~/regicide-gen1full-work/openings4.txt:591","B70","B13",1/2-1/2,0.5,"repetition",117
+1188,594,"~/regicide-gen1full-work/openings4.txt:594","B13","B70",1/2-1/2,0.5,"repetition",75
+1187,594,"~/regicide-gen1full-work/openings4.txt:594","B70","B13",1/2-1/2,0.5,"repetition",109
+1186,593,"~/regicide-gen1full-work/openings4.txt:593","B13","B70",1-0,0,"no legal moves",97
+1190,595,"~/regicide-gen1full-work/openings4.txt:595","B13","B70",1-0,0,"no legal moves",147
+1185,593,"~/regicide-gen1full-work/openings4.txt:593","B70","B13",1-0,1,"no legal moves",163
+1192,596,"~/regicide-gen1full-work/openings4.txt:596","B13","B70",1/2-1/2,0.5,"repetition",77
+1182,591,"~/regicide-gen1full-work/openings4.txt:591","B13","B70",1-0,0,"no legal moves",157
+1193,597,"~/regicide-gen1full-work/openings4.txt:597","B70","B13",1/2-1/2,0.5,"repetition",91
+1198,599,"~/regicide-gen1full-work/openings4.txt:599","B13","B70",1/2-1/2,0.5,"repetition",65
+1197,599,"~/regicide-gen1full-work/openings4.txt:599","B70","B13",1/2-1/2,0.5,"repetition",91
+1200,600,"~/regicide-gen1full-work/openings4.txt:600","B13","B70",1/2-1/2,0.5,"repetition",61
+1194,597,"~/regicide-gen1full-work/openings4.txt:597","B13","B70",1-0,0,"no legal moves",115
+1196,598,"~/regicide-gen1full-work/openings4.txt:598","B13","B70",1/2-1/2,0.5,"repetition",81
+1204,602,"~/regicide-gen1full-work/openings4.txt:602","B13","B70",1/2-1/2,0.5,"repetition",77
+1195,598,"~/regicide-gen1full-work/openings4.txt:598","B70","B13",0-1,0,"no legal moves",92
+1189,595,"~/regicide-gen1full-work/openings4.txt:595","B70","B13",0-1,0,"no legal moves",204
+1206,603,"~/regicide-gen1full-work/openings4.txt:603","B13","B70",1/2-1/2,0.5,"repetition",71
+1205,603,"~/regicide-gen1full-work/openings4.txt:603","B70","B13",1-0,1,"no legal moves",123
+1201,601,"~/regicide-gen1full-work/openings4.txt:601","B70","B13",1-0,1,"no legal moves",91
+1208,604,"~/regicide-gen1full-work/openings4.txt:604","B13","B70",1/2-1/2,0.5,"repetition",74
+1203,602,"~/regicide-gen1full-work/openings4.txt:602","B70","B13",1/2-1/2,0.5,"repetition",124
+1207,604,"~/regicide-gen1full-work/openings4.txt:604","B70","B13",1/2-1/2,0.5,"repetition",90
+1191,596,"~/regicide-gen1full-work/openings4.txt:596","B70","B13",0-1,0,"no legal moves",194
+1212,606,"~/regicide-gen1full-work/openings4.txt:606","B13","B70",1/2-1/2,0.5,"repetition",76
+1211,606,"~/regicide-gen1full-work/openings4.txt:606","B70","B13",1/2-1/2,0.5,"repetition",77
+1209,605,"~/regicide-gen1full-work/openings4.txt:605","B70","B13",0-1,0,"no legal moves",122
+1210,605,"~/regicide-gen1full-work/openings4.txt:605","B13","B70",0-1,1,"no legal moves",74
+1199,600,"~/regicide-gen1full-work/openings4.txt:600","B70","B13",1-0,1,"no legal moves",225
+1217,609,"~/regicide-gen1full-work/openings4.txt:609","B70","B13",1/2-1/2,0.5,"repetition",81
+1220,610,"~/regicide-gen1full-work/openings4.txt:610","B13","B70",1/2-1/2,0.5,"repetition",84
+1215,608,"~/regicide-gen1full-work/openings4.txt:608","B70","B13",0-1,0,"no legal moves",70
+1202,601,"~/regicide-gen1full-work/openings4.txt:601","B13","B70",0-1,1,"no legal moves",150
+1218,609,"~/regicide-gen1full-work/openings4.txt:609","B13","B70",1/2-1/2,0.5,"repetition",86
+1219,610,"~/regicide-gen1full-work/openings4.txt:610","B70","B13",1/2-1/2,0.5,"repetition",69
+1214,607,"~/regicide-gen1full-work/openings4.txt:607","B13","B70",1-0,0,"no legal moves",135
+1221,611,"~/regicide-gen1full-work/openings4.txt:611","B70","B13",1/2-1/2,0.5,"repetition",92
+1226,613,"~/regicide-gen1full-work/openings4.txt:613","B13","B70",1/2-1/2,0.5,"repetition",101
+1225,613,"~/regicide-gen1full-work/openings4.txt:613","B70","B13",1/2-1/2,0.5,"repetition",70
+1223,612,"~/regicide-gen1full-work/openings4.txt:612","B70","B13",1-0,1,"no legal moves",123
+1213,607,"~/regicide-gen1full-work/openings4.txt:607","B70","B13",1-0,1,"no legal moves",207
+1222,611,"~/regicide-gen1full-work/openings4.txt:611","B13","B70",1/2-1/2,0.5,"repetition",111
+1231,616,"~/regicide-gen1full-work/openings4.txt:616","B70","B13",1/2-1/2,0.5,"repetition",72
+1227,614,"~/regicide-gen1full-work/openings4.txt:614","B70","B13",1/2-1/2,0.5,"repetition",79
+1230,615,"~/regicide-gen1full-work/openings4.txt:615","B13","B70",1/2-1/2,0.5,"repetition",97
+1224,612,"~/regicide-gen1full-work/openings4.txt:612","B13","B70",1-0,0,"no legal moves",103
+1235,618,"~/regicide-gen1full-work/openings4.txt:618","B70","B13",1/2-1/2,0.5,"repetition",95
+1228,614,"~/regicide-gen1full-work/openings4.txt:614","B13","B70",0-1,1,"no legal moves",106
+1232,616,"~/regicide-gen1full-work/openings4.txt:616","B13","B70",1/2-1/2,0.5,"repetition",91
+1229,615,"~/regicide-gen1full-work/openings4.txt:615","B70","B13",1-0,1,"no legal moves",79
+1216,608,"~/regicide-gen1full-work/openings4.txt:608","B13","B70",1/2-1/2,0.5,"repetition",175
+1238,619,"~/regicide-gen1full-work/openings4.txt:619","B13","B70",1/2-1/2,0.5,"repetition",95
+1236,618,"~/regicide-gen1full-work/openings4.txt:618","B13","B70",1-0,0,"no legal moves",129
+1241,621,"~/regicide-gen1full-work/openings4.txt:621","B70","B13",1/2-1/2,0.5,"repetition",78
+1242,621,"~/regicide-gen1full-work/openings4.txt:621","B13","B70",1-0,0,"no legal moves",61
+1237,619,"~/regicide-gen1full-work/openings4.txt:619","B70","B13",1/2-1/2,0.5,"repetition",121
+1244,622,"~/regicide-gen1full-work/openings4.txt:622","B13","B70",1/2-1/2,0.5,"repetition",89
+1240,620,"~/regicide-gen1full-work/openings4.txt:620","B13","B70",1/2-1/2,0.5,"repetition",94
+1233,617,"~/regicide-gen1full-work/openings4.txt:617","B70","B13",0-1,0,"no legal moves",116
+1234,617,"~/regicide-gen1full-work/openings4.txt:617","B13","B70",1/2-1/2,0.5,"repetition",104
+1245,623,"~/regicide-gen1full-work/openings4.txt:623","B70","B13",1-0,1,"no legal moves",127
+1239,620,"~/regicide-gen1full-work/openings4.txt:620","B70","B13",0-1,0,"no legal moves",98
+1248,624,"~/regicide-gen1full-work/openings4.txt:624","B13","B70",1/2-1/2,0.5,"repetition",57
+1246,623,"~/regicide-gen1full-work/openings4.txt:623","B13","B70",1-0,0,"no legal moves",47
+1243,622,"~/regicide-gen1full-work/openings4.txt:622","B70","B13",1/2-1/2,0.5,"repetition",119
+1249,625,"~/regicide-gen1full-work/openings4.txt:625","B70","B13",1/2-1/2,0.5,"repetition",78
+1251,626,"~/regicide-gen1full-work/openings4.txt:626","B70","B13",1/2-1/2,0.5,"repetition",61
+1253,627,"~/regicide-gen1full-work/openings4.txt:627","B70","B13",1/2-1/2,0.5,"repetition",95
+1257,629,"~/regicide-gen1full-work/openings4.txt:629","B70","B13",0-1,0,"no legal moves",106
+1252,626,"~/regicide-gen1full-work/openings4.txt:626","B13","B70",1/2-1/2,0.5,"repetition",95
+1258,629,"~/regicide-gen1full-work/openings4.txt:629","B13","B70",0-1,1,"no legal moves",80
+1250,625,"~/regicide-gen1full-work/openings4.txt:625","B13","B70",1-0,0,"no legal moves",149
+1255,628,"~/regicide-gen1full-work/openings4.txt:628","B70","B13",1/2-1/2,0.5,"repetition",115
+1254,627,"~/regicide-gen1full-work/openings4.txt:627","B13","B70",1/2-1/2,0.5,"repetition",114
+1262,631,"~/regicide-gen1full-work/openings4.txt:631","B13","B70",1/2-1/2,0.5,"repetition",57
+1247,624,"~/regicide-gen1full-work/openings4.txt:624","B70","B13",1-0,1,"no legal moves",195
+1256,628,"~/regicide-gen1full-work/openings4.txt:628","B13","B70",0-1,1,"no legal moves",100
+1259,630,"~/regicide-gen1full-work/openings4.txt:630","B70","B13",1/2-1/2,0.5,"repetition",98
+1264,632,"~/regicide-gen1full-work/openings4.txt:632","B13","B70",1-0,0,"no legal moves",145
+1263,632,"~/regicide-gen1full-work/openings4.txt:632","B70","B13",1-0,1,"no legal moves",67
+1267,634,"~/regicide-gen1full-work/openings4.txt:634","B70","B13",1/2-1/2,0.5,"repetition",83
+1261,631,"~/regicide-gen1full-work/openings4.txt:631","B70","B13",1/2-1/2,0.5,"repetition",105
+1270,635,"~/regicide-gen1full-work/openings4.txt:635","B13","B70",1/2-1/2,0.5,"repetition",63
+1266,633,"~/regicide-gen1full-work/openings4.txt:633","B13","B70",1/2-1/2,0.5,"repetition",101
+1260,630,"~/regicide-gen1full-work/openings4.txt:630","B13","B70",1-0,0,"no legal moves",153
+1265,633,"~/regicide-gen1full-work/openings4.txt:633","B70","B13",1-0,1,"no legal moves",137
+1275,638,"~/regicide-gen1full-work/openings4.txt:638","B70","B13",1/2-1/2,0.5,"repetition",83
+1274,637,"~/regicide-gen1full-work/openings4.txt:637","B13","B70",1/2-1/2,0.5,"repetition",91
+1273,637,"~/regicide-gen1full-work/openings4.txt:637","B70","B13",1-0,1,"no legal moves",141
+1276,638,"~/regicide-gen1full-work/openings4.txt:638","B13","B70",1/2-1/2,0.5,"repetition",70
+1280,640,"~/regicide-gen1full-work/openings4.txt:640","B13","B70",1/2-1/2,0.5,"repetition",72
+1279,640,"~/regicide-gen1full-work/openings4.txt:640","B70","B13",1/2-1/2,0.5,"repetition",60
+1269,635,"~/regicide-gen1full-work/openings4.txt:635","B70","B13",1/2-1/2,0.5,"repetition",103
+1271,636,"~/regicide-gen1full-work/openings4.txt:636","B70","B13",0-1,0,"no legal moves",172
+1272,636,"~/regicide-gen1full-work/openings4.txt:636","B13","B70",0-1,1,"no legal moves",122
+1268,634,"~/regicide-gen1full-work/openings4.txt:634","B13","B70",0-1,1,"no legal moves",160
+1277,639,"~/regicide-gen1full-work/openings4.txt:639","B70","B13",1-0,1,"no legal moves",167
+1284,642,"~/regicide-gen1full-work/openings4.txt:642","B13","B70",1-0,0,"no legal moves",101
+1286,643,"~/regicide-gen1full-work/openings4.txt:643","B13","B70",1-0,0,"no legal moves",181
+1288,644,"~/regicide-gen1full-work/openings4.txt:644","B13","B70",1/2-1/2,0.5,"repetition",97
+1281,641,"~/regicide-gen1full-work/openings4.txt:641","B70","B13",1/2-1/2,0.5,"repetition",108
+1285,643,"~/regicide-gen1full-work/openings4.txt:643","B70","B13",1-0,1,"no legal moves",117
+1283,642,"~/regicide-gen1full-work/openings4.txt:642","B70","B13",1-0,1,"no legal moves",185
+1290,645,"~/regicide-gen1full-work/openings4.txt:645","B13","B70",1/2-1/2,0.5,"repetition",99
+1289,645,"~/regicide-gen1full-work/openings4.txt:645","B70","B13",1/2-1/2,0.5,"repetition",101
+1293,647,"~/regicide-gen1full-work/openings4.txt:647","B70","B13",1/2-1/2,0.5,"repetition",85
+1278,639,"~/regicide-gen1full-work/openings4.txt:639","B13","B70",1/2-1/2,0.5,"repetition",169
+1294,647,"~/regicide-gen1full-work/openings4.txt:647","B13","B70",1/2-1/2,0.5,"repetition",77
+1297,649,"~/regicide-gen1full-work/openings4.txt:649","B70","B13",1-0,1,"no legal moves",129
+1298,649,"~/regicide-gen1full-work/openings4.txt:649","B13","B70",1-0,0,"no legal moves",53
+1292,646,"~/regicide-gen1full-work/openings4.txt:646","B13","B70",0-1,1,"no legal moves",120
+1287,644,"~/regicide-gen1full-work/openings4.txt:644","B70","B13",1/2-1/2,0.5,"repetition",117
+1282,641,"~/regicide-gen1full-work/openings4.txt:641","B13","B70",1/2-1/2,0.5,"no progress",152
+1291,646,"~/regicide-gen1full-work/openings4.txt:646","B70","B13",1/2-1/2,0.5,"repetition",127
+1296,648,"~/regicide-gen1full-work/openings4.txt:648","B13","B70",1-0,0,"no legal moves",137
+1295,648,"~/regicide-gen1full-work/openings4.txt:648","B70","B13",1/2-1/2,0.5,"repetition",119
+1301,651,"~/regicide-gen1full-work/openings4.txt:651","B70","B13",1-0,1,"no legal moves",65
+1302,651,"~/regicide-gen1full-work/openings4.txt:651","B13","B70",1-0,0,"no legal moves",123
+1300,650,"~/regicide-gen1full-work/openings4.txt:650","B13","B70",1-0,0,"no legal moves",95
+1303,652,"~/regicide-gen1full-work/openings4.txt:652","B70","B13",1-0,1,"no legal moves",71
+1304,652,"~/regicide-gen1full-work/openings4.txt:652","B13","B70",1-0,0,"no legal moves",149
+1305,653,"~/regicide-gen1full-work/openings4.txt:653","B70","B13",1-0,1,"no legal moves",141
+1299,650,"~/regicide-gen1full-work/openings4.txt:650","B70","B13",1-0,1,"no legal moves",189
+1307,654,"~/regicide-gen1full-work/openings4.txt:654","B70","B13",1-0,1,"no legal moves",75
+1308,654,"~/regicide-gen1full-work/openings4.txt:654","B13","B70",1/2-1/2,0.5,"repetition",91
+1309,655,"~/regicide-gen1full-work/openings4.txt:655","B70","B13",1-0,1,"no legal moves",119
+1306,653,"~/regicide-gen1full-work/openings4.txt:653","B13","B70",1-0,0,"no legal moves",157
+1312,656,"~/regicide-gen1full-work/openings4.txt:656","B13","B70",1/2-1/2,0.5,"repetition",86
+1311,656,"~/regicide-gen1full-work/openings4.txt:656","B70","B13",0-1,0,"no legal moves",128
+1310,655,"~/regicide-gen1full-work/openings4.txt:655","B13","B70",0-1,1,"no legal moves",128
+1313,657,"~/regicide-gen1full-work/openings4.txt:657","B70","B13",1-0,1,"no legal moves",69
+1315,658,"~/regicide-gen1full-work/openings4.txt:658","B70","B13",1-0,1,"no legal moves",157
+1316,658,"~/regicide-gen1full-work/openings4.txt:658","B13","B70",1-0,0,"no legal moves",165
+1323,662,"~/regicide-gen1full-work/openings4.txt:662","B70","B13",1/2-1/2,0.5,"repetition",89
+1314,657,"~/regicide-gen1full-work/openings4.txt:657","B13","B70",1-0,0,"no legal moves",147
+1317,659,"~/regicide-gen1full-work/openings4.txt:659","B70","B13",1-0,1,"no legal moves",145
+1319,660,"~/regicide-gen1full-work/openings4.txt:660","B70","B13",0-1,0,"no legal moves",140
+1318,659,"~/regicide-gen1full-work/openings4.txt:659","B13","B70",1-0,0,"no legal moves",177
+1322,661,"~/regicide-gen1full-work/openings4.txt:661","B13","B70",1/2-1/2,0.5,"repetition",67
+1320,660,"~/regicide-gen1full-work/openings4.txt:660","B13","B70",0-1,1,"no legal moves",104
+1321,661,"~/regicide-gen1full-work/openings4.txt:661","B70","B13",1-0,1,"no legal moves",135
+1327,664,"~/regicide-gen1full-work/openings4.txt:664","B70","B13",1-0,1,"no legal moves",131
+1324,662,"~/regicide-gen1full-work/openings4.txt:662","B13","B70",1-0,0,"no legal moves",179
+1326,663,"~/regicide-gen1full-work/openings4.txt:663","B13","B70",1-0,0,"no legal moves",145
+1325,663,"~/regicide-gen1full-work/openings4.txt:663","B70","B13",1-0,1,"no legal moves",153
+1329,665,"~/regicide-gen1full-work/openings4.txt:665","B70","B13",1/2-1/2,0.5,"repetition",97
+1328,664,"~/regicide-gen1full-work/openings4.txt:664","B13","B70",1-0,0,"no legal moves",119
+1335,668,"~/regicide-gen1full-work/openings4.txt:668","B70","B13",1/2-1/2,0.5,"repetition",56
+1331,666,"~/regicide-gen1full-work/openings4.txt:666","B70","B13",1-0,1,"no legal moves",131
+1332,666,"~/regicide-gen1full-work/openings4.txt:666","B13","B70",1-0,0,"no legal moves",141
+1333,667,"~/regicide-gen1full-work/openings4.txt:667","B70","B13",0-1,0,"no legal moves",64
+1336,668,"~/regicide-gen1full-work/openings4.txt:668","B13","B70",0-1,1,"no legal moves",104
+1330,665,"~/regicide-gen1full-work/openings4.txt:665","B13","B70",1-0,0,"no legal moves",179
+1343,672,"~/regicide-gen1full-work/openings4.txt:672","B70","B13",1/2-1/2,0.5,"repetition",73
+1340,670,"~/regicide-gen1full-work/openings4.txt:670","B13","B70",1/2-1/2,0.5,"repetition",63
+1337,669,"~/regicide-gen1full-work/openings4.txt:669","B70","B13",1/2-1/2,0.5,"repetition",99
+1338,669,"~/regicide-gen1full-work/openings4.txt:669","B13","B70",1/2-1/2,0.5,"repetition",123
+1344,672,"~/regicide-gen1full-work/openings4.txt:672","B13","B70",1/2-1/2,0.5,"repetition",99
+1346,673,"~/regicide-gen1full-work/openings4.txt:673","B13","B70",1/2-1/2,0.5,"repetition",88
+1341,671,"~/regicide-gen1full-work/openings4.txt:671","B70","B13",1-0,1,"no legal moves",143
+1345,673,"~/regicide-gen1full-work/openings4.txt:673","B70","B13",0-1,0,"no legal moves",82
+1339,670,"~/regicide-gen1full-work/openings4.txt:670","B70","B13",1/2-1/2,0.5,"repetition",105
+1342,671,"~/regicide-gen1full-work/openings4.txt:671","B13","B70",1/2-1/2,0.5,"repetition",98
+1347,674,"~/regicide-gen1full-work/openings4.txt:674","B70","B13",1/2-1/2,0.5,"repetition",105
+1348,674,"~/regicide-gen1full-work/openings4.txt:674","B13","B70",1/2-1/2,0.5,"repetition",89
+1354,677,"~/regicide-gen1full-work/openings4.txt:677","B13","B70",1/2-1/2,0.5,"repetition",86
+1351,676,"~/regicide-gen1full-work/openings4.txt:676","B70","B13",1/2-1/2,0.5,"repetition",88
+1349,675,"~/regicide-gen1full-work/openings4.txt:675","B70","B13",1/2-1/2,0.5,"repetition",109
+1352,676,"~/regicide-gen1full-work/openings4.txt:676","B13","B70",1/2-1/2,0.5,"repetition",97
+1358,679,"~/regicide-gen1full-work/openings4.txt:679","B13","B70",1/2-1/2,0.5,"repetition",85
+1359,680,"~/regicide-gen1full-work/openings4.txt:680","B70","B13",1/2-1/2,0.5,"repetition",63
+1361,681,"~/regicide-gen1full-work/openings4.txt:681","B70","B13",1/2-1/2,0.5,"repetition",75
+1363,682,"~/regicide-gen1full-work/openings4.txt:682","B70","B13",1/2-1/2,0.5,"repetition",75
+1362,681,"~/regicide-gen1full-work/openings4.txt:681","B13","B70",1/2-1/2,0.5,"repetition",73
+1355,678,"~/regicide-gen1full-work/openings4.txt:678","B70","B13",0-1,0,"no legal moves",122
+1356,678,"~/regicide-gen1full-work/openings4.txt:678","B13","B70",1/2-1/2,0.5,"repetition",71
+1360,680,"~/regicide-gen1full-work/openings4.txt:680","B13","B70",1-0,0,"no legal moves",125
+1353,677,"~/regicide-gen1full-work/openings4.txt:677","B70","B13",0-1,0,"no legal moves",114
+1334,667,"~/regicide-gen1full-work/openings4.txt:667","B13","B70",1/2-1/2,0.5,"repetition",217
+1350,675,"~/regicide-gen1full-work/openings4.txt:675","B13","B70",0-1,1,"no legal moves",178
+1357,679,"~/regicide-gen1full-work/openings4.txt:679","B70","B13",1/2-1/2,0.5,"repetition",118
+1365,683,"~/regicide-gen1full-work/openings4.txt:683","B70","B13",1/2-1/2,0.5,"repetition",95
+1370,685,"~/regicide-gen1full-work/openings4.txt:685","B13","B70",0-1,1,"no legal moves",66
+1371,686,"~/regicide-gen1full-work/openings4.txt:686","B70","B13",1/2-1/2,0.5,"repetition",59
+1373,687,"~/regicide-gen1full-work/openings4.txt:687","B70","B13",1/2-1/2,0.5,"repetition",66
+1369,685,"~/regicide-gen1full-work/openings4.txt:685","B70","B13",0-1,0,"no legal moves",88
+1366,683,"~/regicide-gen1full-work/openings4.txt:683","B13","B70",0-1,1,"no legal moves",94
+1364,682,"~/regicide-gen1full-work/openings4.txt:682","B13","B70",1/2-1/2,0.5,"repetition",148
+1368,684,"~/regicide-gen1full-work/openings4.txt:684","B13","B70",1-0,0,"no legal moves",139
+1372,686,"~/regicide-gen1full-work/openings4.txt:686","B13","B70",1/2-1/2,0.5,"repetition",99
+1367,684,"~/regicide-gen1full-work/openings4.txt:684","B70","B13",0-1,0,"no legal moves",140
+1375,688,"~/regicide-gen1full-work/openings4.txt:688","B70","B13",0-1,0,"no legal moves",134
+1374,687,"~/regicide-gen1full-work/openings4.txt:687","B13","B70",1/2-1/2,0.5,"repetition",106
+1376,688,"~/regicide-gen1full-work/openings4.txt:688","B13","B70",1-0,0,"no legal moves",87
+1381,691,"~/regicide-gen1full-work/openings4.txt:691","B70","B13",1/2-1/2,0.5,"repetition",63
+1378,689,"~/regicide-gen1full-work/openings4.txt:689","B13","B70",1/2-1/2,0.5,"repetition",99
+1377,689,"~/regicide-gen1full-work/openings4.txt:689","B70","B13",1/2-1/2,0.5,"repetition",103
+1383,692,"~/regicide-gen1full-work/openings4.txt:692","B70","B13",1/2-1/2,0.5,"repetition",71
+1386,693,"~/regicide-gen1full-work/openings4.txt:693","B13","B70",1/2-1/2,0.5,"repetition",68
+1385,693,"~/regicide-gen1full-work/openings4.txt:693","B70","B13",1/2-1/2,0.5,"repetition",80
+1382,691,"~/regicide-gen1full-work/openings4.txt:691","B13","B70",1-0,0,"no legal moves",117
+1390,695,"~/regicide-gen1full-work/openings4.txt:695","B13","B70",1/2-1/2,0.5,"repetition",75
+1384,692,"~/regicide-gen1full-work/openings4.txt:692","B13","B70",0-1,1,"no legal moves",122
+1387,694,"~/regicide-gen1full-work/openings4.txt:694","B70","B13",0-1,0,"no legal moves",116
+1379,690,"~/regicide-gen1full-work/openings4.txt:690","B70","B13",1/2-1/2,0.5,"repetition",144
+1392,696,"~/regicide-gen1full-work/openings4.txt:696","B13","B70",1-0,0,"no legal moves",155
+1393,697,"~/regicide-gen1full-work/openings4.txt:697","B70","B13",1/2-1/2,0.5,"repetition",89
+1391,696,"~/regicide-gen1full-work/openings4.txt:696","B70","B13",1-0,1,"no legal moves",145
+1395,698,"~/regicide-gen1full-work/openings4.txt:698","B70","B13",1/2-1/2,0.5,"repetition",84
+1394,697,"~/regicide-gen1full-work/openings4.txt:697","B13","B70",1/2-1/2,0.5,"repetition",90
+1396,698,"~/regicide-gen1full-work/openings4.txt:698","B13","B70",1/2-1/2,0.5,"repetition",91
+1380,690,"~/regicide-gen1full-work/openings4.txt:690","B13","B70",1/2-1/2,0.5,"repetition",187
+1388,694,"~/regicide-gen1full-work/openings4.txt:694","B13","B70",1-0,0,"no legal moves",185
+1389,695,"~/regicide-gen1full-work/openings4.txt:695","B70","B13",0-1,0,"no legal moves",110
+1400,700,"~/regicide-gen1full-work/openings4.txt:700","B13","B70",1/2-1/2,0.5,"repetition",113
+1397,699,"~/regicide-gen1full-work/openings4.txt:699","B70","B13",1/2-1/2,0.5,"repetition",79
+1399,700,"~/regicide-gen1full-work/openings4.txt:700","B70","B13",0-1,0,"no legal moves",130
+1404,702,"~/regicide-gen1full-work/openings4.txt:702","B13","B70",1/2-1/2,0.5,"repetition",68
+1402,701,"~/regicide-gen1full-work/openings4.txt:701","B13","B70",0-1,1,"no legal moves",110
+1405,703,"~/regicide-gen1full-work/openings4.txt:703","B70","B13",1/2-1/2,0.5,"repetition",81
+1406,703,"~/regicide-gen1full-work/openings4.txt:703","B13","B70",1/2-1/2,0.5,"repetition",91
+1401,701,"~/regicide-gen1full-work/openings4.txt:701","B70","B13",0-1,0,"no legal moves",120
+1408,704,"~/regicide-gen1full-work/openings4.txt:704","B13","B70",1/2-1/2,0.5,"repetition",89
+1407,704,"~/regicide-gen1full-work/openings4.txt:704","B70","B13",1/2-1/2,0.5,"repetition",95
+1403,702,"~/regicide-gen1full-work/openings4.txt:702","B70","B13",0-1,0,"no legal moves",74
+1398,699,"~/regicide-gen1full-work/openings4.txt:699","B13","B70",1-0,0,"no legal moves",183
+1412,706,"~/regicide-gen1full-work/openings4.txt:706","B13","B70",1/2-1/2,0.5,"repetition",77
+1411,706,"~/regicide-gen1full-work/openings4.txt:706","B70","B13",1/2-1/2,0.5,"repetition",68
+1410,705,"~/regicide-gen1full-work/openings4.txt:705","B13","B70",1/2-1/2,0.5,"repetition",76
+1415,708,"~/regicide-gen1full-work/openings4.txt:708","B70","B13",1/2-1/2,0.5,"repetition",75
+1413,707,"~/regicide-gen1full-work/openings4.txt:707","B70","B13",0-1,0,"no legal moves",134
+1418,709,"~/regicide-gen1full-work/openings4.txt:709","B13","B70",1/2-1/2,0.5,"repetition",86
+1416,708,"~/regicide-gen1full-work/openings4.txt:708","B13","B70",1-0,0,"no legal moves",71
+1421,711,"~/regicide-gen1full-work/openings4.txt:711","B70","B13",1/2-1/2,0.5,"repetition",81
+1417,709,"~/regicide-gen1full-work/openings4.txt:709","B70","B13",0-1,0,"no legal moves",136
+1422,711,"~/regicide-gen1full-work/openings4.txt:711","B13","B70",1/2-1/2,0.5,"repetition",79
+1423,712,"~/regicide-gen1full-work/openings4.txt:712","B70","B13",1/2-1/2,0.5,"repetition",64
+1419,710,"~/regicide-gen1full-work/openings4.txt:710","B70","B13",1-0,1,"no legal moves",125
+1409,705,"~/regicide-gen1full-work/openings4.txt:705","B70","B13",1/2-1/2,0.5,"repetition",123
+1414,707,"~/regicide-gen1full-work/openings4.txt:707","B13","B70",0-1,1,"no legal moves",90
+1420,710,"~/regicide-gen1full-work/openings4.txt:710","B13","B70",1-0,0,"no legal moves",165
+1425,713,"~/regicide-gen1full-work/openings4.txt:713","B70","B13",1-0,1,"no legal moves",157
+1430,715,"~/regicide-gen1full-work/openings4.txt:715","B13","B70",1/2-1/2,0.5,"repetition",79
+1424,712,"~/regicide-gen1full-work/openings4.txt:712","B13","B70",1-0,0,"no legal moves",77
+1435,718,"~/regicide-gen1full-work/openings4.txt:718","B70","B13",1/2-1/2,0.5,"repetition",82
+1427,714,"~/regicide-gen1full-work/openings4.txt:714","B70","B13",0-1,0,"no legal moves",136
+1431,716,"~/regicide-gen1full-work/openings4.txt:716","B70","B13",1/2-1/2,0.5,"repetition",68
+1428,714,"~/regicide-gen1full-work/openings4.txt:714","B13","B70",0-1,1,"no legal moves",98
+1429,715,"~/regicide-gen1full-work/openings4.txt:715","B70","B13",0-1,0,"no legal moves",148
+1434,717,"~/regicide-gen1full-work/openings4.txt:717","B13","B70",1-0,0,"no legal moves",147
+1436,718,"~/regicide-gen1full-work/openings4.txt:718","B13","B70",1/2-1/2,0.5,"repetition",52
+1438,719,"~/regicide-gen1full-work/openings4.txt:719","B13","B70",1/2-1/2,0.5,"repetition",78
+1439,720,"~/regicide-gen1full-work/openings4.txt:720","B70","B13",1/2-1/2,0.5,"repetition",64
+1433,717,"~/regicide-gen1full-work/openings4.txt:717","B70","B13",1/2-1/2,0.5,"repetition",125
+1432,716,"~/regicide-gen1full-work/openings4.txt:716","B13","B70",1/2-1/2,0.5,"repetition",125
+1440,720,"~/regicide-gen1full-work/openings4.txt:720","B13","B70",1/2-1/2,0.5,"repetition",97
+1445,723,"~/regicide-gen1full-work/openings4.txt:723","B70","B13",1/2-1/2,0.5,"repetition",63
+1447,724,"~/regicide-gen1full-work/openings4.txt:724","B70","B13",1/2-1/2,0.5,"repetition",65
+1448,724,"~/regicide-gen1full-work/openings4.txt:724","B13","B70",1/2-1/2,0.5,"repetition",84
+1442,721,"~/regicide-gen1full-work/openings4.txt:721","B13","B70",1-0,0,"no legal moves",131
+1444,722,"~/regicide-gen1full-work/openings4.txt:722","B13","B70",1/2-1/2,0.5,"repetition",102
+1441,721,"~/regicide-gen1full-work/openings4.txt:721","B70","B13",1-0,1,"no legal moves",173
+1451,726,"~/regicide-gen1full-work/openings4.txt:726","B70","B13",1/2-1/2,0.5,"repetition",79
+1449,725,"~/regicide-gen1full-work/openings4.txt:725","B70","B13",1/2-1/2,0.5,"repetition",95
+1437,719,"~/regicide-gen1full-work/openings4.txt:719","B70","B13",1-0,1,"no legal moves",167
+1426,713,"~/regicide-gen1full-work/openings4.txt:713","B13","B70",1/2-1/2,0.5,"repetition",221
+1450,725,"~/regicide-gen1full-work/openings4.txt:725","B13","B70",1/2-1/2,0.5,"repetition",90
+1452,726,"~/regicide-gen1full-work/openings4.txt:726","B13","B70",1/2-1/2,0.5,"repetition",83
+1453,727,"~/regicide-gen1full-work/openings4.txt:727","B70","B13",1/2-1/2,0.5,"repetition",79
+1443,722,"~/regicide-gen1full-work/openings4.txt:722","B70","B13",1/2-1/2,0.5,"repetition",135
+1454,727,"~/regicide-gen1full-work/openings4.txt:727","B13","B70",1/2-1/2,0.5,"repetition",82
+1458,729,"~/regicide-gen1full-work/openings4.txt:729","B13","B70",1/2-1/2,0.5,"repetition",82
+1460,730,"~/regicide-gen1full-work/openings4.txt:730","B13","B70",1/2-1/2,0.5,"repetition",77
+1456,728,"~/regicide-gen1full-work/openings4.txt:728","B13","B70",1-0,0,"no legal moves",143
+1457,729,"~/regicide-gen1full-work/openings4.txt:729","B70","B13",1/2-1/2,0.5,"repetition",78
+1455,728,"~/regicide-gen1full-work/openings4.txt:728","B70","B13",1-0,1,"no legal moves",75
+1461,731,"~/regicide-gen1full-work/openings4.txt:731","B70","B13",1-0,1,"no legal moves",89
+1465,733,"~/regicide-gen1full-work/openings4.txt:733","B70","B13",1/2-1/2,0.5,"repetition",89
+1459,730,"~/regicide-gen1full-work/openings4.txt:730","B70","B13",0-1,0,"no legal moves",96
+1467,734,"~/regicide-gen1full-work/openings4.txt:734","B70","B13",1-0,1,"no legal moves",67
+1462,731,"~/regicide-gen1full-work/openings4.txt:731","B13","B70",1-0,0,"no legal moves",161
+1466,733,"~/regicide-gen1full-work/openings4.txt:733","B13","B70",1-0,0,"no legal moves",103
+1446,723,"~/regicide-gen1full-work/openings4.txt:723","B13","B70",1/2-1/2,0.5,"no progress",162
+1464,732,"~/regicide-gen1full-work/openings4.txt:732","B13","B70",1/2-1/2,0.5,"repetition",115
+1468,734,"~/regicide-gen1full-work/openings4.txt:734","B13","B70",1-0,0,"no legal moves",87
+1463,732,"~/regicide-gen1full-work/openings4.txt:732","B70","B13",0-1,0,"no legal moves",124
+1471,736,"~/regicide-gen1full-work/openings4.txt:736","B70","B13",1-0,1,"no legal moves",143
+1469,735,"~/regicide-gen1full-work/openings4.txt:735","B70","B13",1-0,1,"no legal moves",135
+1474,737,"~/regicide-gen1full-work/openings4.txt:737","B13","B70",1/2-1/2,0.5,"repetition",65
+1472,736,"~/regicide-gen1full-work/openings4.txt:736","B13","B70",1/2-1/2,0.5,"repetition",113
+1478,739,"~/regicide-gen1full-work/openings4.txt:739","B13","B70",1/2-1/2,0.5,"repetition",64
+1470,735,"~/regicide-gen1full-work/openings4.txt:735","B13","B70",1-0,0,"no legal moves",129
+1479,740,"~/regicide-gen1full-work/openings4.txt:740","B70","B13",1-0,1,"no legal moves",119
+1475,738,"~/regicide-gen1full-work/openings4.txt:738","B70","B13",1-0,1,"no legal moves",81
+1476,738,"~/regicide-gen1full-work/openings4.txt:738","B13","B70",1-0,0,"no legal moves",145
+1480,740,"~/regicide-gen1full-work/openings4.txt:740","B13","B70",1-0,0,"no legal moves",133
+1477,739,"~/regicide-gen1full-work/openings4.txt:739","B70","B13",1/2-1/2,0.5,"repetition",88
+1483,742,"~/regicide-gen1full-work/openings4.txt:742","B70","B13",1/2-1/2,0.5,"repetition",89
+1482,741,"~/regicide-gen1full-work/openings4.txt:741","B13","B70",1/2-1/2,0.5,"repetition",85
+1484,742,"~/regicide-gen1full-work/openings4.txt:742","B13","B70",1/2-1/2,0.5,"repetition",96
+1490,745,"~/regicide-gen1full-work/openings4.txt:745","B13","B70",1/2-1/2,0.5,"repetition",97
+1488,744,"~/regicide-gen1full-work/openings4.txt:744","B13","B70",0-1,1,"no legal moves",128
+1489,745,"~/regicide-gen1full-work/openings4.txt:745","B70","B13",1-0,1,"no legal moves",149
+1481,741,"~/regicide-gen1full-work/openings4.txt:741","B70","B13",1-0,1,"no legal moves",181
+1485,743,"~/regicide-gen1full-work/openings4.txt:743","B70","B13",1/2-1/2,0.5,"repetition",113
+1491,746,"~/regicide-gen1full-work/openings4.txt:746","B70","B13",0-1,0,"no legal moves",80
+1486,743,"~/regicide-gen1full-work/openings4.txt:743","B13","B70",0-1,1,"no legal moves",128
+1487,744,"~/regicide-gen1full-work/openings4.txt:744","B70","B13",1/2-1/2,0.5,"repetition",92
+1492,746,"~/regicide-gen1full-work/openings4.txt:746","B13","B70",1/2-1/2,0.5,"repetition",119
+1473,737,"~/regicide-gen1full-work/openings4.txt:737","B70","B13",1/2-1/2,0.5,"repetition",169
+1493,747,"~/regicide-gen1full-work/openings4.txt:747","B70","B13",1-0,1,"no legal moves",89
+1494,747,"~/regicide-gen1full-work/openings4.txt:747","B13","B70",0-1,1,"no legal moves",110
+1495,748,"~/regicide-gen1full-work/openings4.txt:748","B70","B13",1-0,1,"no legal moves",157
+1496,748,"~/regicide-gen1full-work/openings4.txt:748","B13","B70",1-0,0,"no legal moves",155
+1497,749,"~/regicide-gen1full-work/openings4.txt:749","B70","B13",1-0,1,"no legal moves",127
+1501,751,"~/regicide-gen1full-work/openings4.txt:751","B70","B13",1-0,1,"no legal moves",137
+1502,751,"~/regicide-gen1full-work/openings4.txt:751","B13","B70",1-0,0,"no legal moves",125
+1499,750,"~/regicide-gen1full-work/openings4.txt:750","B70","B13",1-0,1,"no legal moves",127
+1498,749,"~/regicide-gen1full-work/openings4.txt:749","B13","B70",1/2-1/2,0.5,"repetition",114
+1500,750,"~/regicide-gen1full-work/openings4.txt:750","B13","B70",1-0,0,"no legal moves",171
+1506,753,"~/regicide-gen1full-work/openings4.txt:753","B13","B70",0-1,1,"no legal moves",78
+1510,755,"~/regicide-gen1full-work/openings4.txt:755","B13","B70",1/2-1/2,0.5,"repetition",84
+1509,755,"~/regicide-gen1full-work/openings4.txt:755","B70","B13",1/2-1/2,0.5,"repetition",72
+1503,752,"~/regicide-gen1full-work/openings4.txt:752","B70","B13",1/2-1/2,0.5,"repetition",84
+1508,754,"~/regicide-gen1full-work/openings4.txt:754","B13","B70",1/2-1/2,0.5,"repetition",107
+1505,753,"~/regicide-gen1full-work/openings4.txt:753","B70","B13",0-1,0,"no legal moves",136
+1513,757,"~/regicide-gen1full-work/openings4.txt:757","B70","B13",1/2-1/2,0.5,"repetition",90
+1515,758,"~/regicide-gen1full-work/openings4.txt:758","B70","B13",1/2-1/2,0.5,"repetition",99
+1507,754,"~/regicide-gen1full-work/openings4.txt:754","B70","B13",1-0,1,"no legal moves",161
+1512,756,"~/regicide-gen1full-work/openings4.txt:756","B13","B70",1/2-1/2,0.5,"repetition",100
+1516,758,"~/regicide-gen1full-work/openings4.txt:758","B13","B70",1-0,0,"no legal moves",127
+1504,752,"~/regicide-gen1full-work/openings4.txt:752","B13","B70",0-1,1,"no legal moves",158
+1518,759,"~/regicide-gen1full-work/openings4.txt:759","B13","B70",1-0,0,"no legal moves",161
+1517,759,"~/regicide-gen1full-work/openings4.txt:759","B70","B13",1-0,1,"no legal moves",115
+1520,760,"~/regicide-gen1full-work/openings4.txt:760","B13","B70",1-0,0,"no legal moves",117
+1514,757,"~/regicide-gen1full-work/openings4.txt:757","B13","B70",0-1,1,"no legal moves",170
+1521,761,"~/regicide-gen1full-work/openings4.txt:761","B70","B13",1-0,1,"no legal moves",125
+1519,760,"~/regicide-gen1full-work/openings4.txt:760","B70","B13",1-0,1,"no legal moves",137
+1525,763,"~/regicide-gen1full-work/openings4.txt:763","B70","B13",1-0,1,"no legal moves",159
+1523,762,"~/regicide-gen1full-work/openings4.txt:762","B70","B13",0-1,0,"no legal moves",90
+1527,764,"~/regicide-gen1full-work/openings4.txt:764","B70","B13",0-1,0,"no legal moves",148
+1511,756,"~/regicide-gen1full-work/openings4.txt:756","B70","B13",1/2-1/2,0.5,"repetition",194
+1522,761,"~/regicide-gen1full-work/openings4.txt:761","B13","B70",1-0,0,"no legal moves",155
+1526,763,"~/regicide-gen1full-work/openings4.txt:763","B13","B70",1-0,0,"no legal moves",153
+1529,765,"~/regicide-gen1full-work/openings4.txt:765","B70","B13",1/2-1/2,0.5,"repetition",85
+1530,765,"~/regicide-gen1full-work/openings4.txt:765","B13","B70",1/2-1/2,0.5,"repetition",65
+1534,767,"~/regicide-gen1full-work/openings4.txt:767","B13","B70",1/2-1/2,0.5,"repetition",78
+1531,766,"~/regicide-gen1full-work/openings4.txt:766","B70","B13",1/2-1/2,0.5,"repetition",88
+1528,764,"~/regicide-gen1full-work/openings4.txt:764","B13","B70",0-1,1,"no legal moves",72
+1533,767,"~/regicide-gen1full-work/openings4.txt:767","B70","B13",1/2-1/2,0.5,"repetition",82
+1524,762,"~/regicide-gen1full-work/openings4.txt:762","B13","B70",1/2-1/2,0.5,"repetition",153
+1535,768,"~/regicide-gen1full-work/openings4.txt:768","B70","B13",1/2-1/2,0.5,"repetition",101
+1532,766,"~/regicide-gen1full-work/openings4.txt:766","B13","B70",1-0,0,"no legal moves",147
+1538,769,"~/regicide-gen1full-work/openings4.txt:769","B13","B70",1/2-1/2,0.5,"repetition",95
+1537,769,"~/regicide-gen1full-work/openings4.txt:769","B70","B13",1/2-1/2,0.5,"repetition",73
+1536,768,"~/regicide-gen1full-work/openings4.txt:768","B13","B70",1/2-1/2,0.5,"repetition",85
+1540,770,"~/regicide-gen1full-work/openings4.txt:770","B13","B70",1/2-1/2,0.5,"repetition",82
+1547,774,"~/regicide-gen1full-work/openings4.txt:774","B70","B13",1/2-1/2,0.5,"repetition",76
+1539,770,"~/regicide-gen1full-work/openings4.txt:770","B70","B13",1-0,1,"no legal moves",71
+1548,774,"~/regicide-gen1full-work/openings4.txt:774","B13","B70",1/2-1/2,0.5,"repetition",75
+1543,772,"~/regicide-gen1full-work/openings4.txt:772","B70","B13",0-1,0,"no legal moves",52
+1545,773,"~/regicide-gen1full-work/openings4.txt:773","B70","B13",1/2-1/2,0.5,"repetition",79
+1546,773,"~/regicide-gen1full-work/openings4.txt:773","B13","B70",1/2-1/2,0.5,"repetition",61
+1541,771,"~/regicide-gen1full-work/openings4.txt:771","B70","B13",1-0,1,"no legal moves",93
+1544,772,"~/regicide-gen1full-work/openings4.txt:772","B13","B70",1/2-1/2,0.5,"repetition",98
+1550,775,"~/regicide-gen1full-work/openings4.txt:775","B13","B70",0-1,1,"no legal moves",92
+1551,776,"~/regicide-gen1full-work/openings4.txt:776","B70","B13",1/2-1/2,0.5,"repetition",112
+1552,776,"~/regicide-gen1full-work/openings4.txt:776","B13","B70",1/2-1/2,0.5,"repetition",109
+1542,771,"~/regicide-gen1full-work/openings4.txt:771","B13","B70",1-0,0,"no legal moves",171
+1556,778,"~/regicide-gen1full-work/openings4.txt:778","B13","B70",1/2-1/2,0.5,"repetition",91
+1557,779,"~/regicide-gen1full-work/openings4.txt:779","B70","B13",1/2-1/2,0.5,"repetition",79
+1549,775,"~/regicide-gen1full-work/openings4.txt:775","B70","B13",0-1,0,"no legal moves",88
+1553,777,"~/regicide-gen1full-work/openings4.txt:777","B70","B13",0-1,0,"no legal moves",66
+1555,778,"~/regicide-gen1full-work/openings4.txt:778","B70","B13",1-0,1,"no legal moves",75
+1554,777,"~/regicide-gen1full-work/openings4.txt:777","B13","B70",0-1,1,"no legal moves",134
+1561,781,"~/regicide-gen1full-work/openings4.txt:781","B70","B13",1/2-1/2,0.5,"repetition",88
+1559,780,"~/regicide-gen1full-work/openings4.txt:780","B70","B13",1-0,1,"no legal moves",149
+1565,783,"~/regicide-gen1full-work/openings4.txt:783","B70","B13",1/2-1/2,0.5,"repetition",113
+1560,780,"~/regicide-gen1full-work/openings4.txt:780","B13","B70",1-0,0,"no legal moves",123
+1563,782,"~/regicide-gen1full-work/openings4.txt:782","B70","B13",0-1,0,"no legal moves",124
+1564,782,"~/regicide-gen1full-work/openings4.txt:782","B13","B70",0-1,1,"no legal moves",88
+1558,779,"~/regicide-gen1full-work/openings4.txt:779","B13","B70",0-1,1,"no legal moves",134
+1562,781,"~/regicide-gen1full-work/openings4.txt:781","B13","B70",1-0,0,"no legal moves",65
+1566,783,"~/regicide-gen1full-work/openings4.txt:783","B13","B70",1/2-1/2,0.5,"repetition",109
+1567,784,"~/regicide-gen1full-work/openings4.txt:784","B70","B13",1/2-1/2,0.5,"repetition",72
+1570,785,"~/regicide-gen1full-work/openings4.txt:785","B13","B70",1/2-1/2,0.5,"repetition",92
+1571,786,"~/regicide-gen1full-work/openings4.txt:786","B70","B13",1/2-1/2,0.5,"repetition",85
+1568,784,"~/regicide-gen1full-work/openings4.txt:784","B13","B70",1-0,0,"no legal moves",115
+1574,787,"~/regicide-gen1full-work/openings4.txt:787","B13","B70",1-0,0,"no legal moves",125
+1575,788,"~/regicide-gen1full-work/openings4.txt:788","B70","B13",0-1,0,"no legal moves",64
+1576,788,"~/regicide-gen1full-work/openings4.txt:788","B13","B70",0-1,1,"no legal moves",130
+1573,787,"~/regicide-gen1full-work/openings4.txt:787","B70","B13",1-0,1,"no legal moves",121
+1577,789,"~/regicide-gen1full-work/openings4.txt:789","B70","B13",1/2-1/2,0.5,"repetition",85
+1578,789,"~/regicide-gen1full-work/openings4.txt:789","B13","B70",1-0,0,"no legal moves",101
+1582,791,"~/regicide-gen1full-work/openings4.txt:791","B13","B70",1/2-1/2,0.5,"repetition",81
+1572,786,"~/regicide-gen1full-work/openings4.txt:786","B13","B70",0-1,1,"no legal moves",98
+1580,790,"~/regicide-gen1full-work/openings4.txt:790","B13","B70",1-0,0,"no legal moves",115
+1586,793,"~/regicide-gen1full-work/openings4.txt:793","B13","B70",1/2-1/2,0.5,"repetition",60
+1569,785,"~/regicide-gen1full-work/openings4.txt:785","B70","B13",1-0,1,"no legal moves",141
+1585,793,"~/regicide-gen1full-work/openings4.txt:793","B70","B13",0-1,0,"no legal moves",78
+1588,794,"~/regicide-gen1full-work/openings4.txt:794","B13","B70",1/2-1/2,0.5,"repetition",113
+1579,790,"~/regicide-gen1full-work/openings4.txt:790","B70","B13",1/2-1/2,0.5,"repetition",118
+1581,791,"~/regicide-gen1full-work/openings4.txt:791","B70","B13",1-0,1,"no legal moves",129
+1583,792,"~/regicide-gen1full-work/openings4.txt:792","B70","B13",1-0,1,"no legal moves",67
+1591,796,"~/regicide-gen1full-work/openings4.txt:796","B70","B13",1/2-1/2,0.5,"repetition",66
+1587,794,"~/regicide-gen1full-work/openings4.txt:794","B70","B13",1/2-1/2,0.5,"repetition",109
+1584,792,"~/regicide-gen1full-work/openings4.txt:792","B13","B70",1-0,0,"no legal moves",151
+1589,795,"~/regicide-gen1full-work/openings4.txt:795","B70","B13",1-0,1,"no legal moves",147
+1596,798,"~/regicide-gen1full-work/openings4.txt:798","B13","B70",1/2-1/2,0.5,"repetition",111
+1593,797,"~/regicide-gen1full-work/openings4.txt:797","B70","B13",1-0,1,"no legal moves",127
+1594,797,"~/regicide-gen1full-work/openings4.txt:797","B13","B70",0-1,1,"no legal moves",94
+1598,799,"~/regicide-gen1full-work/openings4.txt:799","B13","B70",0-1,1,"no legal moves",94
+1600,800,"~/regicide-gen1full-work/openings4.txt:800","B13","B70",0-1,1,"no legal moves",78
+1597,799,"~/regicide-gen1full-work/openings4.txt:799","B70","B13",0-1,0,"no legal moves",94
+1595,798,"~/regicide-gen1full-work/openings4.txt:798","B70","B13",0-1,0,"no legal moves",122
+1599,800,"~/regicide-gen1full-work/openings4.txt:800","B70","B13",0-1,0,"no legal moves",120
+1602,801,"~/regicide-gen1full-work/openings4.txt:801","B13","B70",1/2-1/2,0.5,"repetition",88
+1601,801,"~/regicide-gen1full-work/openings4.txt:801","B70","B13",0-1,0,"no legal moves",140
+1592,796,"~/regicide-gen1full-work/openings4.txt:796","B13","B70",1/2-1/2,0.5,"repetition",138
+1604,802,"~/regicide-gen1full-work/openings4.txt:802","B13","B70",1/2-1/2,0.5,"repetition",105
+1608,804,"~/regicide-gen1full-work/openings4.txt:804","B13","B70",1/2-1/2,0.5,"repetition",90
+1607,804,"~/regicide-gen1full-work/openings4.txt:804","B70","B13",1-0,1,"no legal moves",145
+1603,802,"~/regicide-gen1full-work/openings4.txt:802","B70","B13",1/2-1/2,0.5,"repetition",104
+1606,803,"~/regicide-gen1full-work/openings4.txt:803","B13","B70",1-0,0,"no legal moves",127
+1590,795,"~/regicide-gen1full-work/openings4.txt:795","B13","B70",1-0,0,"no legal moves",163
+1605,803,"~/regicide-gen1full-work/openings4.txt:803","B70","B13",1-0,1,"no legal moves",141
+1609,805,"~/regicide-gen1full-work/openings4.txt:805","B70","B13",0-1,0,"no legal moves",110
+1610,805,"~/regicide-gen1full-work/openings4.txt:805","B13","B70",0-1,1,"no legal moves",96

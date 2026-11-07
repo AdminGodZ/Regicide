@@ -1,0 +1,14 @@
+bookgen (2732f0d, built-in B13 eval) start 2026-11-07T17:38:27+01:00
+bookgen pid 52671
+keepalive start 2026-11-07T17:38:30+01:00 pid 52689
+pipeline pid 52832 2026-11-07T17:40:01+01:00
+start train B70 2026-11-07T19:07:32+01:00
+end train B70 rc=0 2026-11-07T19:10:21+01:00
+start eval B13 on full split 2026-11-07T19:10:21+01:00
+end eval B13 rc=0 2026-11-07T19:10:28+01:00
+build B70 2026-11-07T19:10:28+01:00
+built B70 sha256 86657a54a3b9093d 2026-11-07T19:10:36+01:00
+start match B70 vs B13 2026-11-07T19:10:36+01:00
+end match rc=0 2026-11-07T19:25:11+01:00
+gen2a datagen (2732f0d) eval B13 (B70 vs B13 Elo -1.7) seed 31 threads 12 games 300000 start 2026-11-07T19:25:11+01:00
+gen2a datagen end rc=0 2026-11-07T20:57:33+01:00
