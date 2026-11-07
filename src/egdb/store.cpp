@@ -279,12 +279,15 @@ int probe_mtc_canon(const Pos& p) {
 namespace regicide::egdb {
 
 namespace {
-std::once_flag g_init_once;
+std::mutex g_init_mutex;
 bool g_init_ok = false;
 }  // namespace
 
+// The first directory that loads stays in use (tables can't be unmapped under running searches); a failed
+// attempt, e.g. a missing default directory, leaves init() free to try another one.
 bool init(const std::string& dir, std::size_t cache_mb) {
-    std::call_once(g_init_once, [&] { g_init_ok = detail::load_dir(dir, cache_mb); });
+    std::lock_guard lock(g_init_mutex);
+    if (!g_init_ok) g_init_ok = detail::load_dir(dir, cache_mb);
     return g_init_ok;
 }
 

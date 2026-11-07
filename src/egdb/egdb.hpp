@@ -21,7 +21,8 @@ namespace regicide::egdb {
 enum class Wld : std::int8_t { Unknown = 0, Win = 1, Draw = 2, Loss = 3 };  // from side to move's view
 
 // Maps every complete slice file found in `dir`. If the files fit in `cache_mb` MiB they are also
-// pre-faulted into RAM; otherwise pages are loaded on demand by the OS. Call once, before probing.
+// pre-faulted into RAM; otherwise pages are loaded on demand by the OS. Call before probing. Once a
+// directory has loaded, later calls keep it and return true; after a failure another directory may be tried.
 bool init(const std::string& dir, std::size_t cache_mb);
 
 // Largest piece count N such that every position with <= N pieces can be probed; 0 if none.

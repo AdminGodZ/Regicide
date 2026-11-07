@@ -89,8 +89,9 @@ std::string library_dir() {
 }
 
 void load_egdb(State& s, const std::string& dir, std::size_t cache_mb) {
+    const bool first = s.egdb_dir.empty();
     if (egdb::init(dir, cache_mb)) {
-        s.egdb_dir = dir;
+        if (first) s.egdb_dir = dir;  // a database already in use stays in use
         s.engine->set_egdb_pieces(egdb::max_pieces());
     }
 }
