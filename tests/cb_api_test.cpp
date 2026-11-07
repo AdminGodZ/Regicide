@@ -63,6 +63,14 @@ int main(int argc, char** argv) {
         return 1;
     }
 
+    // Evaluation files: RGEV or RGNN by header; a missing file is refused and keeps the current eval.
+    if (command("set evalfile " REGICIDE_SOURCE_DIR "/src/weights/eval.bin", reply) != 1 ||
+        std::string(reply) != "linear" || command("set evalfile /nonexistent/net.bin", reply) != 0 ||
+        command("set evalfile builtin", reply) != 1) {
+        std::cerr << "set evalfile failed: " << reply << '\n';
+        return 1;
+    }
+
     Position pos;
     int plies = 0;
     for (; plies < 200; ++plies) {

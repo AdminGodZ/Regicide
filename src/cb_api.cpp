@@ -67,6 +67,7 @@ struct State {
     int book_mode = 3;  // CB_BOOK_BEST_MOVES
     std::string egdb_dir;
     std::size_t egdb_cache_mb = 4096;
+    std::string evalfile = "builtin";
     std::mutex mutex;
 };
 
@@ -250,6 +251,7 @@ CB_EXPORT int WINAPI enginecommand(const char* command, char reply[1024]) {
         if (p1 == "book") return answer(std::to_string(s.book_mode), 1);
         if (p1 == "dbpath") return answer(s.egdb_dir, 1);
         if (p1 == "dbpieces") return answer(std::to_string(s.engine->egdb_pieces()), 1);
+        if (p1 == "evalfile") return answer(s.evalfile, 1);
     }
     if (cmd == "set") {
         std::lock_guard lock(s.mutex);
@@ -264,6 +266,19 @@ CB_EXPORT int WINAPI enginecommand(const char* command, char reply[1024]) {
             const std::size_t at = full.find("dbpath");
             load_egdb(s, full.substr(at + 7), s.egdb_cache_mb);
             return answer(std::to_string(s.engine->egdb_pieces()), 1);
+        }
+        if (p1 == "evalfile") {
+            // "set evalfile <path|builtin|hce>": linear weights (RGEV) or an NNUE net (RGNN); paths may contain spaces.
+            const std::string full = command;
+            const std::string path = full.substr(full.find("evalfile") + 9);
+            std::string error;
+            auto ev = path == "builtin" ? Evaluator::builtin()
+                      : path == "hce"   ? Evaluator::hce()
+                                        : Evaluator::from_file(path, &error);
+            if (!ev) return answer(error, 0);
+            s.engine->set_evaluator(ev);
+            s.evalfile = path;
+            return answer(ev->network() ? "nnue" : ev->trained() ? "linear" : "hce", 1);
         }
         if (p1 == "gamehist") {
             // "set gamehist <FEN> <m1> <m2> ...": the position after the last conversion and the moves since.

@@ -9,6 +9,10 @@
 
 namespace regicide {
 
+namespace nnue {
+class Network;
+}
+
 using Score = int;
 
 constexpr int MAX_PLY = 128;
@@ -73,23 +77,33 @@ void extract(const Position& pos, List& out);
 
 }  // namespace features
 
+// Either a linear model (RGEV weights), an NNUE network (RGNN, see nnue.hpp) or the hand-crafted eval.
 class Evaluator {
 public:
     static constexpr int SCALE = 8;  // weights are stored in 1/8 centi-men
 
-    // Built-in weights compiled into the binary (falls back to the hand-crafted eval when there are none).
+    // Built-in evaluation compiled into the binary: the embedded net if there is one, else the linear weights,
+    // else the hand-crafted eval.
     static std::shared_ptr<const Evaluator> builtin();
-    static std::shared_ptr<const Evaluator> from_file(const std::string& path);  // nullptr on failure
+    // RGEV or RGNN, told apart by the header; nullptr on failure (`error`, if given, says why).
+    static std::shared_ptr<const Evaluator> from_file(const std::string& path, std::string* error = nullptr);
     static std::shared_ptr<const Evaluator> hce();
 
     Score operator()(const Position& pos) const;
-    bool trained() const { return !weights_.empty(); }
+    // The linear or hand-crafted eval, ignoring any network (the search's path when network() is null).
+    Score linear(const Position& pos) const;
+    bool trained() const { return !weights_.empty() || net_; }
+    // The NNUE network, or nullptr for a linear or hand-crafted eval.
+    const nnue::Network* network() const { return net_.get(); }
 
     // Interleaved [feature][phase] weights, phase 0 = middlegame, 1 = endgame.
     bool load(const unsigned char* data, std::size_t size);
+    // RGEV weights or an RGNN network.
+    bool load_any(const unsigned char* data, std::size_t size, std::string* error = nullptr);
 
 private:
     std::vector<std::int16_t> weights_;
+    std::shared_ptr<const nnue::Network> net_;
 };
 
 // Static evaluation with the built-in evaluator, from the side to move's point of view (a man is ~100).
