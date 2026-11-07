@@ -176,11 +176,10 @@ inline int visit(const Position& pos, F&& f) {
         const unsigned u = (o.us >> (4 * r)) & 15, t = (o.them >> (4 * r)) & 15;
         for (int k = 0; k < 3; ++k) pair[r][k] = PAIR3[(u >> k) & 3] + 2 * PAIR3[(t >> k) & 3];
     }
-    const int window_base = PATTERN + (WINDOW_SETS > 1 && o.kings ? WINDOWS * WINDOW_STATES : 0);
     for (int w = 0; w < WINDOWS; ++w) {
         const Window& win = WINDOW_DEFS[w];
         const int r = win.row0;
-        f(window_base + w * WINDOW_STATES + pair[r][win.k[0]] + 9 * pair[r + 1][win.k[1]] +
+        f(PATTERN + w * WINDOW_STATES + pair[r][win.k[0]] + 9 * pair[r + 1][win.k[1]] +
               81 * pair[r + 2][win.k[2]] + 729 * pair[r + 3][win.k[3]],
           1);
     }
