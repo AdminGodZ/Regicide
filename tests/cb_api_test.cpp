@@ -56,6 +56,13 @@ int main(int argc, char** argv) {
     command("name", reply);
     std::cout << "engine: " << reply << '\n';
 
+    // Game history as CheckerBoard sends it: FEN after the last conversion, then reversible king moves.
+    if (command("set gamehist W:WK18:BK3 18-15 3-7 15-18 7-3", reply) != 1 ||
+        command("set gamehist W:WK18:BK3 18-11", reply) != 0) {
+        std::cerr << "set gamehist failed\n";
+        return 1;
+    }
+
     Position pos;
     int plies = 0;
     for (; plies < 200; ++plies) {

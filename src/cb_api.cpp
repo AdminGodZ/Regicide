@@ -61,6 +61,7 @@ struct State {
     std::vector<Position> history;  // game positions before the current one
     Position after_our_move;        // position right after our last move, to link the next call to the game
     bool have_after = false;
+    std::vector<Position> gamehist;  // from "set gamehist": positions since the last conversion, current last
     std::size_t hash_mb = 128;
     int threads = 1;
     int book_mode = 3;  // CB_BOOK_BEST_MOVES
@@ -173,12 +174,16 @@ CB_EXPORT int WINAPI getmove(Board8x8 board, int color, double maxtime, char str
     std::lock_guard lock(s.mutex);
     const Position pos = read_board(board, color);
 
-    if ((info & CB_RESET_MOVES) || !s.have_after || !follows(s.after_our_move, pos)) {
+    if (info & CB_RESET_MOVES) s.engine->new_game();
+    if (!s.gamehist.empty() && s.gamehist.back() == pos) {
+        // CheckerBoard told us the game since the last conversion move: exact, also after takebacks or edits.
+        s.history.assign(s.gamehist.begin(), s.gamehist.end() - 1);
+    } else if ((info & CB_RESET_MOVES) || !s.have_after || !follows(s.after_our_move, pos)) {
         s.history.clear();
-        if (info & CB_RESET_MOVES) s.engine->new_game();
     } else {
         s.history.push_back(s.after_our_move);
     }
+    s.gamehist.clear();
 
     MoveList list;
     generate_moves(pos, list);
@@ -258,6 +263,23 @@ CB_EXPORT int WINAPI enginecommand(const char* command, char reply[1024]) {
             const std::size_t at = full.find("dbpath");
             load_egdb(s, full.substr(at + 7), s.egdb_cache_mb);
             return answer(std::to_string(s.engine->egdb_pieces()), 1);
+        }
+        if (p1 == "gamehist") {
+            // "set gamehist <FEN> <m1> <m2> ...": the position after the last conversion and the moves since.
+            s.gamehist.clear();
+            Position p;
+            if (!p.set_fen(p2)) return answer("?", 0);
+            s.gamehist.push_back(p);
+            for (std::string tok; in >> tok;) {
+                Move m;
+                if (!parse_move(p, tok, m)) {
+                    s.gamehist.clear();
+                    return answer("?", 0);
+                }
+                p.make_move(m);
+                s.gamehist.push_back(p);
+            }
+            return answer("", 1);
         }
         if (p1 == "dbmbytes") {
             s.egdb_cache_mb = std::size_t(std::max(0, std::atoi(p2.c_str())));
