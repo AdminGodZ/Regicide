@@ -105,3 +105,8 @@ add_test(NAME egdb_data COMMAND egdb_test --data)
 # The search probes the endgame database.
 set_target_properties(regicide_egdb PROPERTIES POSITION_INDEPENDENT_CODE ON)
 target_link_libraries(regicide_core PUBLIC regicide_egdb)
+
+option(REGICIDE_TOOLS "Build the match tools (cbhost, match runner)" ON)
+if(REGICIDE_TOOLS)
+  add_subdirectory(tools)
+endif()

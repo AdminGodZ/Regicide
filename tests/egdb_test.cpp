@@ -205,14 +205,18 @@ int self_test() {
           "exhaustive MTC consistency: " + std::to_string(all.mtc_checked) + " positions");
     test_known_results(4);
 
-    // Resumability: deleting one slice file rebuilds exactly that slice pair.
+#ifndef _WIN32
+    // Resumability: deleting one slice file rebuilds exactly that slice pair. (Slice files stay mapped
+    // for the life of the process, and Windows cannot delete a mapped file, so this is POSIX only.)
     const std::string victim = dir + "/" + slice_name(TableKind::Wld, {1, 1, 1, 1});
     std::filesystem::remove(victim);
     clear_slice(TableKind::Wld, {1, 1, 1, 1});
     check(build_range(o, 2, 4) && std::filesystem::exists(victim), "resume rebuilds a missing slice");
     VerifyStats again = verify_slice({1, 1, 1, 1}, 0, 2, 4, true);
     check(again.wld_bad == 0 && again.mtc_bad == 0, "rebuilt slice verifies");
-    std::filesystem::remove_all(dir);
+#endif
+    std::error_code ec;
+    std::filesystem::remove_all(dir, ec);  // best effort: mapped files cannot be removed on Windows
     return failures;
 }
 

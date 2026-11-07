@@ -5,7 +5,32 @@
 #include <cstring>
 #include <new>
 
+#ifdef _WIN32
+#include <malloc.h>
+#endif
+
 namespace regicide {
+
+namespace {
+
+// std::aligned_alloc is missing from the Windows C runtime, whose aligned blocks need _aligned_free.
+void* alloc_aligned(std::size_t align, std::size_t size) {
+#ifdef _WIN32
+    return _aligned_malloc(size, align);
+#else
+    return std::aligned_alloc(align, size);
+#endif
+}
+
+void free_aligned(void* p) {
+#ifdef _WIN32
+    _aligned_free(p);
+#else
+    std::free(p);
+#endif
+}
+
+}  // namespace
 
 // data layout: move 16 | score 16 | eval 16 | depth 8 | bound 2 | generation 6
 std::uint64_t TranspositionTable::pack(const TTData& d, int gen) {
@@ -24,12 +49,12 @@ TTData TranspositionTable::unpack(std::uint64_t data) {
     return d;
 }
 
-TranspositionTable::~TranspositionTable() { std::free(buckets_); }
+TranspositionTable::~TranspositionTable() { free_aligned(buckets_); }
 
 void TranspositionTable::resize(std::size_t mb) {
-    std::free(buckets_);
+    free_aligned(buckets_);
     count_ = std::max<std::size_t>(1, mb * 1024 * 1024 / sizeof(Bucket));
-    buckets_ = static_cast<Bucket*>(std::aligned_alloc(64, count_ * sizeof(Bucket)));
+    buckets_ = static_cast<Bucket*>(alloc_aligned(64, count_ * sizeof(Bucket)));
     if (!buckets_) throw std::bad_alloc();
     clear();
 }

@@ -88,6 +88,28 @@ can be copied between machines (`egdb_gen manifest` verifies checksums).
   original lookup code in Cake 1.22's `db.c` (patched for LP64 in a scratch directory, never copied
   into this repository).
 
+## Future 8-piece build (not started; run only on request)
+
+Prerequisite: the complete 2..7-piece set in the target directory (`egdb_gen manifest` exits 0,
+`egdb_test --data` passes). Then, in that directory's parent (e.g. WSL on Win11-AdminGod):
+
+```
+nohup egdb_gen build --max 8 --threads 8 --dir ~/regicide-data/egdb > ~/regicide-data/gen8.log 2>&1 &
+# or the most valuable families first:  ... --sides 44   then   ... --sides 53
+```
+
+* Work: 447.2 G index entries vs 37.0 G for 7 pieces (×12.1). Family shares: 4v4 28%, 5v3 44%,
+  6v2 22%, 7v1 6%. Each family depends only on itself and on 7 pieces.
+* Time at 8 threads: 7 pieces took 639 s on Win11-AdminGod (1134 s on the loaded Mac), so expect
+  ~2.2 h nominal and ~3–4.5 h allowing 1.5–2× for larger tables and longer passes (4v4 alone ~1 h,
+  5v3 ~1.5–2 h).
+* RAM: largest subslice pair 3.0 GB (one byte per position) plus the mapped 7-piece files (~0.7
+  GB) and encoder buffers; plan for ~5 GB peak.
+* Disk: ~5–9 GB for the 8-piece WLD files (7 pieces compress to 0.158 bits/entry), plus transient
+  part files of the slice in progress; keep ≥ 20 GB free.
+* Resumable: rerun the same command after an interruption. Validate afterwards with
+  `egdb_gen verify --slice abcd --samples 50000` for each new 8-piece file and `egdb_gen manifest`.
+
 ## Tools
 
 ```

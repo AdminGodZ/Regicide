@@ -21,6 +21,16 @@ perft <n> / divide <n>                    move generator check
 go depth <n>                              iterative-deepening alpha-beta
 ```
 
+## Benchmarking
+
+`tools/` has a CheckerBoard engine host (`cbhost`), a match runner (`match`) and scripts that
+build native opponents (GuiNN 2.06, Cake 1.22, simplech). See [tools/README.md](tools/README.md).
+
+```sh
+tools/opponents/build_all.sh
+build/tools/match -a build/opponents/cake/cake.dylib -b build/opponents/guinn/guinn.dylib --movetime 0.2
+```
+
 ## Layout
 
 | File | Purpose |
