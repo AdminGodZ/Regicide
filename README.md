@@ -39,7 +39,9 @@ build/tools/match -a build/opponents/cake/cake.dylib -b build/opponents/guinn/gu
 | `src/position.*` | Board state, PDN FEN, make move |
 | `src/movegen.*` | Legal moves: compulsory captures, multi-jumps, crowning ends the move |
 | `src/perft.*` | Node counting for move generation tests |
-| `src/eval.*` | Hand-crafted placeholder eval (NNUE goes here) |
+| `src/eval.*` | Learned linear pattern eval (RGEV weights), hand-crafted fallback, evaluator dispatch |
+| `src/nnue.*` | NNUE inference (RGNN nets): quantised forward pass, incremental accumulators |
+| `tools/nnue/` | PyTorch NNUE trainer and export check, see [tools/nnue/README.md](tools/nnue/README.md) |
 | `src/search.*` | Basic negamax alpha-beta with capture extension |
 
 Square indices are 0..31 with 0 = a1; PDN numbering (1 = b8, 32 = g1) is used for all I/O.
@@ -48,6 +50,6 @@ Square indices are 0..31 with 0 = a1; PDN numbering (1 = b8, 32 = g1) is used fo
 
 1. Search: transposition table + Zobrist hashing, move ordering (history/killers), PVS, LMR, time control
 2. Endgame databases: probe KingsRow / Cake format 8–10 piece DBs
-3. NNUE: Python/PyTorch trainer (`training/`), self-play data generation, quantized int16/int8 inference with incremental accumulator updates and SIMD (AVX2 / NEON)
+3. NNUE: Python/PyTorch trainer (`tools/nnue/`), self-play data generation, quantized int16/int8 inference with incremental accumulator updates and SIMD (AVX2 / NEON)
 4. CheckerBoard engine DLL interface for matches against Cake
 5. Opening book, multi-threading (Lazy SMP)
