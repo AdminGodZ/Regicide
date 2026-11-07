@@ -1,7 +1,7 @@
-cmake_minimum_required(VERSION 3.20)
+cmake_minimum_required(VERSION 3.30)
 project(Regicide VERSION 0.1.0 LANGUAGES CXX)
 
-set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD 26)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
@@ -19,8 +19,19 @@ add_library(regicide_core STATIC
   src/perft.cpp
   src/eval.cpp
   src/search.cpp
+  src/tt.cpp
+  src/bench.cpp
+  src/book.cpp
 )
 target_include_directories(regicide_core PUBLIC src)
+# Evaluation feature set (see eval.hpp); the built-in weights match the default.
+option(REGICIDE_EVAL_BANDS "Eval: two-row band patterns" ON)
+target_compile_definitions(regicide_core PUBLIC REGICIDE_EVAL_BANDS=$<BOOL:${REGICIDE_EVAL_BANDS}>)
+# Trained evaluation weights are compiled in with #embed (standard in C23/C++26; a Clang extension in C++ today).
+set_source_files_properties(src/eval.cpp PROPERTIES COMPILE_OPTIONS "-Wno-c23-extensions"
+                            OBJECT_DEPENDS ${CMAKE_SOURCE_DIR}/src/weights/eval.bin)
+set_source_files_properties(src/book.cpp PROPERTIES COMPILE_OPTIONS "-Wno-c23-extensions"
+                            OBJECT_DEPENDS ${CMAKE_SOURCE_DIR}/src/weights/book.bin)
 
 if(MSVC)
   target_compile_options(regicide_core PUBLIC /W4)
@@ -42,7 +53,67 @@ endif()
 add_executable(regicide src/main.cpp)
 target_link_libraries(regicide PRIVATE regicide_core)
 
+# CheckerBoard engine (getmove / enginecommand), also used by the match runner.
+add_library(regicide_cb SHARED src/cb_api.cpp)
+target_link_libraries(regicide_cb PRIVATE regicide_core)
+set_target_properties(regicide_cb PROPERTIES CXX_VISIBILITY_PRESET hidden POSITION_INDEPENDENT_CODE ON)
+set_target_properties(regicide_core PROPERTIES POSITION_INDEPENDENT_CODE ON)
+
 enable_testing()
 add_executable(perft_test tests/perft_test.cpp)
 target_link_libraries(perft_test PRIVATE regicide_core)
 add_test(NAME perft COMMAND perft_test)
+
+add_executable(eval_test tests/eval_test.cpp)
+target_link_libraries(eval_test PRIVATE regicide_core)
+add_test(NAME eval_builtin COMMAND eval_test)
+
+add_executable(cb_api_test tests/cb_api_test.cpp)
+target_link_libraries(cb_api_test PRIVATE regicide_core)
+add_test(NAME cb_api COMMAND cb_api_test $<TARGET_FILE:regicide_cb>)
+
+add_executable(selfplay tools/selfplay.cpp)
+target_link_libraries(selfplay PRIVATE regicide_core)
+
+add_executable(datagen tools/datagen.cpp)
+target_link_libraries(datagen PRIVATE regicide_core)
+
+add_executable(train tools/train.cpp)
+target_link_libraries(train PRIVATE regicide_core)
+
+add_executable(bookgen tools/bookgen.cpp)
+target_link_libraries(bookgen PRIVATE regicide_core)
+
+# Endgame database: library, generator and tests (self-contained; depends only on types.hpp).
+add_library(regicide_egdb STATIC
+  src/egdb/store.cpp
+  src/egdb/codec.cpp
+  src/egdb/index.cpp
+  src/egdb/build.cpp
+  src/egdb/verify.cpp
+  src/egdb/platform.cpp
+)
+target_include_directories(regicide_egdb PUBLIC src)
+if(NOT MSVC)
+  target_compile_options(regicide_egdb PRIVATE -Wall -Wextra -Wpedantic $<$<CONFIG:Release>:-O3>)
+  if(REGICIDE_NATIVE)
+    target_compile_options(regicide_egdb PUBLIC $<$<CONFIG:Release>:-march=native>)
+  endif()
+endif()
+
+add_executable(egdb_gen tools/egdb_gen.cpp)
+target_link_libraries(egdb_gen PRIVATE regicide_egdb)
+
+add_executable(egdb_test tests/egdb_test.cpp)
+target_link_libraries(egdb_test PRIVATE regicide_egdb)
+add_test(NAME egdb COMMAND egdb_test)
+add_test(NAME egdb_data COMMAND egdb_test --data)
+
+# The search probes the endgame database.
+set_target_properties(regicide_egdb PROPERTIES POSITION_INDEPENDENT_CODE ON)
+target_link_libraries(regicide_core PUBLIC regicide_egdb)
+
+option(REGICIDE_TOOLS "Build the match tools (cbhost, match runner)" ON)
+if(REGICIDE_TOOLS)
+  add_subdirectory(tools)
+endif()

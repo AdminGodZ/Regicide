@@ -1,0 +1,14 @@
+diff --git a/source/simplech.c b/source/simplech.c
+index 6c4ed44..eba5eb6 100644
+--- a/source/simplech.c
++++ b/source/simplech.c
+@@ -88,7 +88,8 @@
+ #undef MUTE
+ #undef VERBOSE
+ #define STATISTICS
+-#define LOG_TIME_MGMT
++/* cbport: no My Documents log file on POSIX */
++#undef LOG_TIME_MGMT
+ 
+ /*----------> function prototypes  */
+ 

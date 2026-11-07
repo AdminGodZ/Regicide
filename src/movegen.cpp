@@ -1,64 +1,142 @@
 #include "movegen.hpp"
 
 #include <algorithm>
+#include <cctype>
+#include <vector>
 
 namespace regicide {
 
 namespace {
 
-using ShiftFn = Bitboard (*)(Bitboard);
-constexpr ShiftFn DIRS[4] = {up_left, up_right, down_left, down_right};
-
-// Directions a piece may move in: white men go up, black men go down, kings go both ways.
-constexpr int dir_begin(Color c, bool king) { return king || c == WHITE ? 0 : 2; }
-constexpr int dir_end(Color c, bool king) { return king || c == BLACK ? 4 : 2; }
-
-void add_unique(MoveList& list, const Move& m) {
-    if (std::find(list.begin(), list.end(), m) == list.end()) list.push(m);
-}
+struct JumpCtx {
+    MoveList& list;
+    Bitboard opp;
+    Bitboard empty;  // includes the moving piece's origin square
+    Bitboard promo;
+    int from;
+    int dbegin, dend;
+    bool king;
+};
 
 // Captured pieces stay on the board (they block and can't be jumped twice) until the move is complete.
-void extend_jumps(MoveList& list, Color us, bool king, int from, Bitboard cur, Bitboard captured,
-                  Bitboard opp, Bitboard empty) {
-    const Bitboard promo_row = us == WHITE ? ROW_7 : ROW_0;
+void extend_jumps(JumpCtx& c, int cur, Bitboard captured) {
     bool extended = false;
-
-    for (int d = dir_begin(us, king); d < dir_end(us, king); ++d) {
-        Bitboard over = DIRS[d](cur) & opp & ~captured;
-        if (!over) continue;
-        Bitboard land = DIRS[d](over) & empty;
-        if (!land) continue;
+    for (int d = c.dbegin; d < c.dend; ++d) {
+        const int over = NEIGHBOR[cur][d];
+        if (over < 0 || !(c.opp & ~captured & bit(over))) continue;
+        const int land = NEIGHBOR[over][d];
+        if (land < 0 || !(c.empty & bit(land))) continue;
 
         extended = true;
+        const Bitboard caps = captured | bit(over);
         // A man that reaches the king row is crowned and its move ends there.
-        if (!king && (land & promo_row))
-            add_unique(list, {std::uint8_t(from), std::uint8_t(lsb(land)), captured | over});
+        if (!c.king && (bit(land) & c.promo))
+            c.list.push({std::uint8_t(c.from), std::uint8_t(land), caps});
         else
-            extend_jumps(list, us, king, from, land, captured | over, opp, empty);
+            extend_jumps(c, land, caps);
     }
-
-    if (!extended && captured) add_unique(list, {std::uint8_t(from), std::uint8_t(lsb(cur)), captured});
+    if (!extended && captured) {
+        const Move m{std::uint8_t(c.from), std::uint8_t(cur), captured};
+        // Only kings can reach the same (to, captures) along different paths.
+        if (!c.king || std::find(c.list.begin(), c.list.end(), m) == c.list.end()) c.list.push(m);
+    }
 }
 
 }  // namespace
 
-void generate_moves(const Position& pos, MoveList& list) {
+void generate_captures(const Position& pos, MoveList& list) {
     const Color us = pos.side_to_move();
-    const Bitboard own = pos.pieces(us), opp = pos.pieces(~us), empty = pos.empty();
-
-    for (Bitboard b = own; b;) {
-        int sq = pop_lsb(b);
-        bool king = pos.kings() & bit(sq);
-        extend_jumps(list, us, king, sq, bit(sq), 0, opp, empty | bit(sq));
+    const Bitboard opp = pos.pieces(~us), empty = pos.empty();
+    for (Bitboard b = capturers(pos, us); b;) {
+        const int sq = pop_lsb(b);
+        const bool king = pos.kings() & bit(sq);
+        JumpCtx c{list, opp, empty | bit(sq), promo_row(us), sq, dir_begin(us, king), dir_end(us, king), king};
+        extend_jumps(c, sq, 0);
     }
+}
+
+void generate_moves(const Position& pos, MoveList& list) {
+    generate_captures(pos, list);
     if (!list.empty()) return;
 
-    for (Bitboard b = own; b;) {
-        int sq = pop_lsb(b);
-        bool king = pos.kings() & bit(sq);
-        for (int d = dir_begin(us, king); d < dir_end(us, king); ++d)
-            if (Bitboard to = DIRS[d](bit(sq)) & empty) list.push({std::uint8_t(sq), std::uint8_t(lsb(to)), 0});
+    const Color us = pos.side_to_move();
+    const Bitboard empty = pos.empty();
+    for (int d = 0; d < 4; ++d) {
+        const int o = opposite(d);
+        for (Bitboard to = shift(movers(pos, us, d), d) & empty; to;) {
+            const int t = pop_lsb(to);
+            list.push({std::uint8_t(NEIGHBOR[t][o]), std::uint8_t(t), 0});
+        }
     }
+}
+
+bool parse_move(const Position& pos, const std::string& text, Move& out) {
+    std::vector<int> path;
+    int n = -1;
+    for (char ch : text + '-') {
+        if (std::isdigit(static_cast<unsigned char>(ch))) {
+            n = (n < 0 ? 0 : n * 10) + (ch - '0');
+        } else if (ch == '-' || ch == 'x' || ch == 'X' || ch == ':') {
+            if (n < 1 || n > 32) return false;
+            path.push_back(from_pdn(n));
+            n = -1;
+        } else {
+            return false;
+        }
+    }
+    if (path.size() < 2) return false;
+
+    // Squares jumped over along the given path (only meaningful for complete capture paths).
+    Bitboard jumped = 0;
+    bool full_path = path.size() > 2;
+    for (std::size_t i = 0; full_path && i + 1 < path.size(); ++i) {
+        int mid = -1;
+        for (int d = 0; d < 4; ++d) {
+            int over = NEIGHBOR[path[i]][d];
+            if (over >= 0 && NEIGHBOR[over][d] == path[i + 1]) mid = over;
+        }
+        if (mid < 0) full_path = false;
+        else jumped |= bit(mid);
+    }
+
+    MoveList list;
+    generate_moves(pos, list);
+    const Move* match = nullptr;
+    for (const Move& m : list) {
+        if (m.from != path.front() || m.to != path.back()) continue;
+        if (full_path && m.captures != jumped) continue;
+        if (!match) match = &m;
+    }
+    if (!match) return false;
+    out = *match;
+    return true;
+}
+
+namespace {
+
+bool find_path(const Position& pos, const Move& m, int cur, Bitboard left, bool king, std::vector<int>& path) {
+    if (!left) return cur == m.to;
+    const Color us = pos.side_to_move();
+    const Bitboard empty = pos.empty() | bit(m.from);
+    for (int d = dir_begin(us, king); d < dir_end(us, king); ++d) {
+        const int over = NEIGHBOR[cur][d];
+        if (over < 0 || !(left & bit(over))) continue;
+        const int land = NEIGHBOR[over][d];
+        if (land < 0 || !(empty & bit(land))) continue;
+        path.push_back(land);
+        if (find_path(pos, m, land, left & ~bit(over), king, path)) return true;
+        path.pop_back();
+    }
+    return false;
+}
+
+}  // namespace
+
+std::vector<int> move_path(const Position& pos, const Move& m) {
+    std::vector<int> path{m.from};
+    if (!m.is_capture() || !find_path(pos, m, m.from, m.captures, pos.kings() & bit(m.from), path))
+        path = {m.from, m.to};
+    return path;
 }
 
 }  // namespace regicide
