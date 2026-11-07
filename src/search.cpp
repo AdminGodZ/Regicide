@@ -180,7 +180,10 @@ Score Worker::search(Position& pos, Score alpha, Score beta, int depth, int ply,
     const bool is_root = ply == 0;
     const Color us = pos.side_to_move();
 
-    if ((nodes.fetch_add(1, std::memory_order_relaxed) & 1023) == 0 && id == 0) check_limits();
+    // Each counter has a single writer (its worker), so a plain increment is enough; others only read it.
+    const std::uint64_t n = nodes.load(std::memory_order_relaxed);
+    nodes.store(n + 1, std::memory_order_relaxed);
+    if ((n & 1023) == 0 && id == 0) check_limits();
     if (stopped()) return 0;
     pv_len[ply] = ply;
     seldepth = std::max(seldepth, ply);
@@ -198,7 +201,7 @@ Score Worker::search(Position& pos, Score alpha, Score beta, int depth, int ply,
         if (pos.piece_count() <= egdb_pieces) {
             const egdb::Wld r = egdb::probe(pos.pieces(BLACK), pos.pieces(WHITE), pos.kings(), pos.side_to_move());
             if (r != egdb::Wld::Unknown) {
-                tbhits.fetch_add(1, std::memory_order_relaxed);
+                tbhits.store(tbhits.load(std::memory_order_relaxed) + 1, std::memory_order_relaxed);
                 return r == egdb::Wld::Draw ? SCORE_DRAW
                        : r == egdb::Wld::Win ? SCORE_DB_WIN - ply
                                              : -SCORE_DB_WIN + ply;
@@ -214,21 +217,26 @@ Score Worker::search(Position& pos, Score alpha, Score beta, int depth, int ply,
         (tte.bound & (tt_score >= beta ? BOUND_LOWER : BOUND_UPPER)))
         return tt_score;
 
+    // At the horizon only captures are searched, so quiet moves are generated only if the search goes on.
     MoveList moves;
     if (is_root)
         for (const RootMove& rm : roots) moves.push(rm.move);
-    else
+    else if (depth > 0)
         generate_moves(pos, moves);
-    if (moves.empty()) return -SCORE_WIN + ply;
+    else
+        generate_captures(pos, moves);
+    if (moves.empty() && (depth > 0 || !quiet_targets(pos, us))) return -SCORE_WIN + ply;
 
-    const bool forced_capture = moves[0].is_capture();
-    Score eval = tt_hit ? Score(tte.eval) : evaluate(pos);
+    // With a capture forced, nothing below uses the static eval (no pruning applies), so skip computing it.
+    const bool forced_capture = !moves.empty() && moves[0].is_capture();
+    const Score eval = tt_hit ? Score(tte.eval) : forced_capture ? 0 : evaluate(pos);
 
     if (depth <= 0 && !forced_capture) {
         // Horizon. If the opponent threatens a capture the static eval can't be trusted: look one ply further.
         if (qext > 0 && has_capture(pos, ~us)) {
             --qext;
             depth = 1;
+            generate_moves(pos, moves);
         } else {
             return eval;
         }
@@ -316,8 +324,7 @@ Score Worker::search(Position& pos, Score alpha, Score beta, int depth, int ply,
 
     Score best = -SCORE_INF;
     int best_idx = -1;
-    Move quiets_tried[MoveList::CAPACITY];
-    int nquiets = 0;
+    MoveList quiets;  // quiet moves searched without a cutoff
 
     for (std::size_t n = 0; n < moves.size(); ++n) {
         // Selection sort: bring the best-ordered remaining move to position n.
@@ -332,7 +339,7 @@ Score Worker::search(Position& pos, Score alpha, Score beta, int depth, int ply,
 
         // Shallow pruning of late quiet moves.
         if (!pv_node && quiet && n > 0 && best > -SCORE_KNOWN_WIN) {
-            if (depth <= P.lmp_depth && nquiets >= P.lmp_base + depth * depth) continue;
+            if (depth <= P.lmp_depth && int(quiets.size()) >= P.lmp_base + depth * depth) continue;
             if (depth <= P.fut_depth && eval + P.fut_margin * depth <= alpha) continue;
         }
 
@@ -379,13 +386,13 @@ Score Worker::search(Position& pos, Score alpha, Score beta, int depth, int ply,
                 for (int k = ply + 1; k < pv_len[ply + 1]; ++k) pv[ply][k] = pv[ply + 1][k];
                 pv_len[ply] = std::max(pv_len[ply + 1], ply + 1);
                 if (s >= beta) {
-                    if (quiet) update_quiet_stats(us, m, quiets_tried, nquiets, depth, ply);
+                    if (quiet) update_quiet_stats(us, m, quiets.begin(), int(quiets.size()), depth, ply);
                     break;
                 }
                 alpha = s;
             }
         }
-        if (quiet) quiets_tried[nquiets++] = m;
+        if (quiet) quiets.push(m);
     }
 
     if (excluding) return best == -SCORE_INF ? alpha : best;  // verification search: don't store

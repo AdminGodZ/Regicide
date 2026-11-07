@@ -121,11 +121,8 @@ constexpr auto WINDOW_DEFS = [] {
     return w;
 }();
 
-inline unsigned gather(Bitboard b, const Window& w) {
-    unsigned r = 0;
-    for (int j = 0; j < 4; ++j) r |= ((b >> (4 * (w.row0 + j) + w.k[j])) & 3u) << (2 * j);
-    return r;
-}
+// Two squares as base-3 digits: bit 0 -> 1, bit 1 -> 3.
+constexpr int PAIR3[4] = {0, 1, 3, 4};
 
 // Oriented board: "us" moves up (toward row 7), "them" moves down.
 struct Oriented {
@@ -162,32 +159,6 @@ bool can_capture_down(Bitboard men, Bitboard kings, Bitboard opp, Bitboard empty
            (up_left(up_left(kings) & opp) & empty) || (up_right(up_right(kings) & opp) & empty);
 }
 
-constexpr auto CONE_UP = [] {
-    std::array<Bitboard, 32> t{};
-    for (int sq = 0; sq < 32; ++sq) {
-        Bitboard c = 0, f = bit(sq);
-        for (int r = sq / 4; r < 7; ++r) {
-            f = up_left(f) | up_right(f);
-            c |= f;
-        }
-        t[sq] = c;
-    }
-    return t;
-}();
-
-constexpr auto CONE_DOWN = [] {
-    std::array<Bitboard, 32> t{};
-    for (int sq = 0; sq < 32; ++sq) {
-        Bitboard c = 0, f = bit(sq);
-        for (int r = sq / 4; r > 0; --r) {
-            f = down_left(f) | down_right(f);
-            c |= f;
-        }
-        t[sq] = c;
-    }
-    return t;
-}();
-
 }  // namespace
 
 // Calls f(index, value) for every active feature; returns the number of pieces on the board.
@@ -198,10 +169,20 @@ inline int visit(const Position& pos, F&& f) {
     const Bitboard our_kings = o.us & o.kings, their_kings = o.them & o.kings;
     const Bitboard our_men = o.us & ~o.kings, their_men = o.them & ~o.kings;
 
+    // Each window takes two adjacent squares (k, k + 1) from each of its four rows, so its base-3 index is
+    // built from per-row pair codes: pair[r][k] = (ours as base-3 digits) + 2 * (theirs), in 0..8.
+    int pair[8][3];
+    for (int r = 0; r < 8; ++r) {
+        const unsigned u = (o.us >> (4 * r)) & 15, t = (o.them >> (4 * r)) & 15;
+        for (int k = 0; k < 3; ++k) pair[r][k] = PAIR3[(u >> k) & 3] + 2 * PAIR3[(t >> k) & 3];
+    }
     const int window_base = PATTERN + (WINDOW_SETS > 1 && o.kings ? WINDOWS * WINDOW_STATES : 0);
     for (int w = 0; w < WINDOWS; ++w) {
         const Window& win = WINDOW_DEFS[w];
-        f(window_base + w * WINDOW_STATES + BASE3[gather(o.us, win)] + 2 * BASE3[gather(o.them, win)], 1);
+        const int r = win.row0;
+        f(window_base + w * WINDOW_STATES + pair[r][win.k[0]] + 9 * pair[r + 1][win.k[1]] +
+              81 * pair[r + 2][win.k[2]] + 729 * pair[r + 3][win.k[3]],
+          1);
     }
     for (int r = 0; r < BANDS; ++r)
         f(BAND + r * WINDOW_STATES + BASE3[(o.us >> (4 * r)) & 0xFF] + 2 * BASE3[(o.them >> (4 * r)) & 0xFF], 1);
@@ -219,14 +200,17 @@ inline int visit(const Position& pos, F&& f) {
     f(MOBILITY + std::min(quiet_moves(our_men, our_kings, empty, true), 23), 1);
     f(MOBILITY + 24 + std::min(quiet_moves(their_men, their_kings, empty, false), 23), 1);
 
-    for (Bitboard b = our_men; b;) {
-        const int sq = pop_lsb(b);
-        if (!(CONE_UP[sq] & o.them)) f(RUNAWAY + (7 - row_of(sq)), 1);
+    // Unopposed men: no opposing piece in the forward cone. A square's cone holds a piece exactly when the square
+    // lies in that piece's backward cone, so flood the opponents backwards instead of testing each man.
+    Bitboard below_them = 0, above_us = 0;
+    for (Bitboard a = o.them, b = o.us, r = 0; r < 7; ++r) {
+        a = down_left(a) | down_right(a);
+        b = up_left(b) | up_right(b);
+        below_them |= a;
+        above_us |= b;
     }
-    for (Bitboard b = their_men; b;) {
-        const int sq = pop_lsb(b);
-        if (!(CONE_DOWN[sq] & o.us)) f(RUNAWAY + 7 + row_of(sq), 1);
-    }
+    for (Bitboard b = our_men & ~below_them; b;) f(RUNAWAY + (7 - row_of(pop_lsb(b))), 1);
+    for (Bitboard b = their_men & ~above_us; b;) f(RUNAWAY + 7 + row_of(pop_lsb(b)), 1);
 
     auto trapped = [&](Bitboard kings) {
         const Bitboard free = up_left(empty) | up_right(empty) | down_left(empty) | down_right(empty);
@@ -239,8 +223,11 @@ inline int visit(const Position& pos, F&& f) {
 
     // Tempo: rows advanced by our men (moving up) minus rows advanced by theirs (moving down).
     int tempo = 0;
-    for (Bitboard b = our_men; b;) tempo += row_of(pop_lsb(b));
-    for (Bitboard b = their_men; b;) tempo -= 7 - row_of(pop_lsb(b));
+    for (int r = 1; r < 8; ++r) {
+        const Bitboard row = Bitboard(15) << (4 * r);
+        tempo += r * popcount(our_men & row) - (7 - r) * popcount(their_men & row);
+    }
+    tempo -= 7 * popcount(their_men & 15);
     f(TEMPO + std::clamp(tempo, -20, 20) + 20, 1);
 
     // "The move" (opposition): parities of the pieces on the two halves of the board's square colouring, which

@@ -12,19 +12,24 @@ class MoveList {
 public:
     static constexpr std::size_t CAPACITY = 128;
 
-    void push(const Move& m) { moves_[size_++] = m; }
+    void push(const Move& m) { moves_.m[size_++] = m; }
     std::size_t size() const { return size_; }
     bool empty() const { return size_ == 0; }
     void clear() { size_ = 0; }
-    const Move& operator[](std::size_t i) const { return moves_[i]; }
-    Move& operator[](std::size_t i) { return moves_[i]; }
-    const Move* begin() const { return moves_; }
-    const Move* end() const { return moves_ + size_; }
-    Move* begin() { return moves_; }
-    Move* end() { return moves_ + size_; }
+    const Move& operator[](std::size_t i) const { return moves_.m[i]; }
+    Move& operator[](std::size_t i) { return moves_.m[i]; }
+    const Move* begin() const { return moves_.m; }
+    const Move* end() const { return moves_.m + size_; }
+    Move* begin() { return moves_.m; }
+    Move* end() { return moves_.m + size_; }
 
 private:
-    Move moves_[CAPACITY];
+    // Left uninitialised: a list is built at every search node, and zeroing 128 moves cost more than the
+    // move generation itself.
+    union Storage {
+        Storage() {}
+        Move m[CAPACITY];
+    } moves_;
     std::size_t size_ = 0;
 };
 
