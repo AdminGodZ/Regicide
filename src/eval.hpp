@@ -30,11 +30,25 @@ Score evaluate_hce(const Position& pos);
 // Each feature has a middlegame and an endgame weight, blended by the number of pieces on the board.
 namespace features {
 
+// Experimental feature sets, selected at build time (the weights file records the feature count, so weights
+// trained for one set are rejected by another):
+//   REGICIDE_EVAL_BANDS:     full-width two-row bands (rows r, r+1) as extra patterns.
+//   REGICIDE_EVAL_KINGSPLIT: a second set of window weights used while any king is on the board.
+#ifndef REGICIDE_EVAL_BANDS
+#define REGICIDE_EVAL_BANDS 0
+#endif
+#ifndef REGICIDE_EVAL_KINGSPLIT
+#define REGICIDE_EVAL_KINGSPLIT 0
+#endif
+
 constexpr int WINDOWS = 25;       // 4x4 board windows at row offsets 0..4 and column offsets 0..4
 constexpr int WINDOW_STATES = 6561;  // 3^8: each of the 8 dark squares is empty, ours or theirs
+constexpr int WINDOW_SETS = REGICIDE_EVAL_KINGSPLIT ? 2 : 1;
+constexpr int BANDS = REGICIDE_EVAL_BANDS ? 7 : 0;  // two-row bands starting at rows 0..6 (8 squares each)
 
 constexpr int PATTERN = 0;
-constexpr int MATERIAL = PATTERN + WINDOWS * WINDOW_STATES;  // our men, our kings, their men, their kings (counts)
+constexpr int BAND = PATTERN + WINDOW_SETS * WINDOWS * WINDOW_STATES;
+constexpr int MATERIAL = BAND + BANDS * WINDOW_STATES;  // our men, our kings, their men, their kings (counts)
 constexpr int MATERIAL_TABLE = MATERIAL + 4;                 // [our men][our kings][their men][their kings]
 constexpr int KING_SQ = MATERIAL_TABLE + 13 * 13 * 13 * 13;  // our kings by square, then theirs
 constexpr int MOBILITY = KING_SQ + 64;                       // our quiet-move count (0..23), then theirs

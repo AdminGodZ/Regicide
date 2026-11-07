@@ -198,10 +198,13 @@ inline int visit(const Position& pos, F&& f) {
     const Bitboard our_kings = o.us & o.kings, their_kings = o.them & o.kings;
     const Bitboard our_men = o.us & ~o.kings, their_men = o.them & ~o.kings;
 
+    const int window_base = PATTERN + (WINDOW_SETS > 1 && o.kings ? WINDOWS * WINDOW_STATES : 0);
     for (int w = 0; w < WINDOWS; ++w) {
         const Window& win = WINDOW_DEFS[w];
-        f(PATTERN + w * WINDOW_STATES + BASE3[gather(o.us, win)] + 2 * BASE3[gather(o.them, win)], 1);
+        f(window_base + w * WINDOW_STATES + BASE3[gather(o.us, win)] + 2 * BASE3[gather(o.them, win)], 1);
     }
+    for (int r = 0; r < BANDS; ++r)
+        f(BAND + r * WINDOW_STATES + BASE3[(o.us >> (4 * r)) & 0xFF] + 2 * BASE3[(o.them >> (4 * r)) & 0xFF], 1);
 
     const int om = popcount(our_men), ok = popcount(our_kings), tm = popcount(their_men), tk = popcount(their_kings);
     f(MATERIAL + 0, om);

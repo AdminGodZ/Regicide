@@ -24,6 +24,11 @@ add_library(regicide_core STATIC
   src/book.cpp
 )
 target_include_directories(regicide_core PUBLIC src)
+# Experimental evaluation feature sets (see eval.hpp); the built-in weights only match the default set.
+option(REGICIDE_EVAL_BANDS "Eval: two-row band patterns" OFF)
+option(REGICIDE_EVAL_KINGSPLIT "Eval: separate window weights when kings are on the board" OFF)
+target_compile_definitions(regicide_core PUBLIC
+  REGICIDE_EVAL_BANDS=$<BOOL:${REGICIDE_EVAL_BANDS}> REGICIDE_EVAL_KINGSPLIT=$<BOOL:${REGICIDE_EVAL_KINGSPLIT}>)
 # Trained evaluation weights are compiled in with #embed (standard in C23/C++26; a Clang extension in C++ today).
 set_source_files_properties(src/eval.cpp PROPERTIES COMPILE_OPTIONS "-Wno-c23-extensions"
                             OBJECT_DEPENDS ${CMAKE_SOURCE_DIR}/src/weights/eval.bin)
