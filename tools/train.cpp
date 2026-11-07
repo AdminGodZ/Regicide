@@ -33,8 +33,10 @@ struct Config {
     int threads = 12;
     double lambda = 0.7;
     double lr = 2.0;
-    double l2 = 1e-6;
+    double l2 = 1e-6;        // L2 added to the gradient (coupled; Adam rescales it, see the update below)
     double l2_table = 1e-4;
+    double wd = 0;           // decoupled weight decay (AdamW): w -= lr * wd * w each step
+    double wd_table = 0;
     double valid_frac = 0.02;
     std::uint64_t seed = 7;
     double k = 0;  // 0 = fit
@@ -116,6 +118,8 @@ int main(int argc, char** argv) {
         else if (k == "--lr") cfg.lr = std::stod(next());
         else if (k == "--l2") cfg.l2 = std::stod(next());
         else if (k == "--l2-table") cfg.l2_table = std::stod(next());
+        else if (k == "--wd") cfg.wd = std::stod(next());
+        else if (k == "--wd-table") cfg.wd_table = std::stod(next());
         else if (k == "--k") cfg.k = std::stod(next());
         else {
             std::cerr << "unknown option " << k << '\n';
@@ -157,9 +161,7 @@ int main(int argc, char** argv) {
     auto target = [&](const DataRecord& r) {
         return cfg.lambda * r.stm_result() + (1 - cfg.lambda) * sigmoid(r.score / K);
     };
-    auto l2_for = [&](int feature) {
-        return feature >= features::MATERIAL_TABLE && feature < features::KING_SQ ? cfg.l2_table : cfg.l2;
-    };
+    auto is_table = [&](int feature) { return feature >= features::MATERIAL_TABLE && feature < features::KING_SQ; };
 
     auto validate = [&] {
         std::vector<double> part(cfg.threads, 0.0);
@@ -181,8 +183,11 @@ int main(int argc, char** argv) {
     std::vector<float> m1(nw, 0), m2(nw, 0), grad(nw, 0);
     std::vector<std::vector<float>> tgrad(cfg.threads, std::vector<float>(nw, 0));
     std::vector<std::vector<int>> touched(cfg.threads);
-    std::vector<float> l2_of(nw);
-    for (std::size_t k = 0; k < nw; ++k) l2_of[k] = float(l2_for(int(k / 2)));
+    std::vector<float> l2_of(nw), wd_of(nw);
+    for (std::size_t k = 0; k < nw; ++k) {
+        l2_of[k] = float(is_table(int(k / 2)) ? cfg.l2_table : cfg.l2);
+        wd_of[k] = float(is_table(int(k / 2)) ? cfg.wd_table : cfg.wd);
+    }
     std::vector<std::size_t> order(ntrain);
     std::iota(order.begin(), order.end(), 0);
     const double b1 = 0.9, b2 = 0.999, eps = 1e-8;
@@ -228,7 +233,9 @@ int main(int argc, char** argv) {
                     }
                 touched[t].clear();
             }
-            // Dense Adam step: every weight's moments decay every step, as in standard Adam.
+            // Dense Adam step: every weight's moments decay every step, as in standard Adam. Coupled L2 on a weight
+            // whose data gradient is rare gets normalised to a full-size step towards zero (about lr per batch), so
+            // prefer --l2 0 with decoupled --wd, which shrinks in proportion to the weight instead.
             ++step;
             const double bs = double(end - start);
             const double c1 = 1 - std::pow(b1, step), c2 = 1 - std::pow(b2, step);
@@ -237,7 +244,7 @@ int main(int argc, char** argv) {
                 grad[k] = 0;
                 m1[k] = float(b1 * m1[k] + (1 - b1) * g);
                 m2[k] = float(b2 * m2[k] + (1 - b2) * g * g);
-                model.w[k] -= float(lr * (m1[k] / c1) / (std::sqrt(m2[k] / c2) + eps));
+                model.w[k] -= float(lr * ((m1[k] / c1) / (std::sqrt(m2[k] / c2) + eps) + wd_of[k] * model.w[k]));
             }
         }
         std::printf("epoch %d  lr %.3f  train loss %.6f  valid loss %.6f\n", epoch, lr, train_loss / ntrain,

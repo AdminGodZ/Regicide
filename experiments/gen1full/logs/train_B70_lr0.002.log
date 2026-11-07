@@ -1,0 +1,15 @@
+loaded 9643008 positions from ~/regicide-data/train/gen1_n10k.bin
+loaded 29817546 positions from ~/regicide-data/train/gen1b_n10k.bin
+loaded 29816510 positions from ~/regicide-data/train/gen1c_n10k.bin
+train 67891523  valid 1385541  K 98.6  lambda 0.70
+epoch 0  valid loss 0.538085
+epoch 1  lr 0.002  train loss 0.536700  valid loss 0.536056
+epoch 2  lr 0.002  train loss 0.535990  valid loss 0.535812
+epoch 3  lr 0.001  train loss 0.535892  valid loss 0.535793
+epoch 4  lr 0.001  train loss 0.535877  valid loss 0.535784
+epoch 5  lr 0.001  train loss 0.535877  valid loss 0.535792
+epoch 6  lr 0.000  train loss 0.535885  valid loss 0.535798
+epoch 7  lr 0.000  train loss 0.535891  valid loss 0.535804
+epoch 8  lr 0.000  train loss 0.535898  valid loss 0.535813
+wrote ~/regicide-gen1full-work/w_B70_lr0.002.bin (0 weights clipped)
+material mg: man 94.3 king 123.4 | eg: man 94.1 king 123.5
