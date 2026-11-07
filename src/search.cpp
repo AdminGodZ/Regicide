@@ -9,6 +9,7 @@
 
 #include "egdb/egdb.hpp"
 #include "movegen.hpp"
+#include "nnue.hpp"
 
 namespace regicide {
 
@@ -66,7 +67,7 @@ struct TimeControl {
 struct Worker {
     Worker(Engine& e, int id) : eng(e), tt(e.tt_), id(id) { clear(); }
 
-    Score evaluate(const Position& pos) const { return (*evaluator)(pos); }
+    Score evaluate(const Position& pos, int ply) { return net ? nn.evaluate(*net, pos, ply) : evaluator->linear(pos); }
 
     void clear() {
         std::memset(history, 0, sizeof(history));
@@ -93,6 +94,8 @@ struct Worker {
     SearchParams P;
     TimeControl* tc = nullptr;
     const Evaluator* evaluator = nullptr;
+    const nnue::Network* net = nullptr;  // the evaluator's network, if it has one
+    nnue::AccumulatorStack nn;
 
     Position root;
     std::vector<RootMove> roots;
@@ -142,6 +145,8 @@ void Worker::setup(const Position& r, const std::vector<Key>& game_keys, const s
     completed_depth = 0;
     P = eng.params;
     evaluator = eng.eval_.get();
+    net = evaluator->network();
+    if (net) nn.reset(*net, root);
 }
 
 bool Worker::is_repetition(const Position& pos, int ply) const {
@@ -195,7 +200,7 @@ Score Worker::search(Position& pos, Score alpha, Score beta, int depth, int ply,
         alpha = std::max(alpha, -SCORE_WIN + ply);
         beta = std::min(beta, SCORE_WIN - ply - 1);
         if (alpha >= beta) return alpha;
-        if (ply >= MAX_PLY - 2) return evaluate(pos);
+        if (ply >= MAX_PLY - 2) return evaluate(pos, ply);
 
         // Endgame database: exact result. Wins prefer the shortest path into the database.
         if (pos.piece_count() <= egdb_pieces) {
@@ -229,7 +234,7 @@ Score Worker::search(Position& pos, Score alpha, Score beta, int depth, int ply,
 
     // With a capture forced, nothing below uses the static eval (no pruning applies), so skip computing it.
     const bool forced_capture = !moves.empty() && moves[0].is_capture();
-    const Score eval = tt_hit ? Score(tte.eval) : forced_capture ? 0 : evaluate(pos);
+    const Score eval = tt_hit ? Score(tte.eval) : forced_capture ? 0 : evaluate(pos, ply);
 
     if (depth <= 0 && !forced_capture) {
         // Horizon. If the opponent threatens a capture the static eval can't be trusted: look one ply further.
@@ -346,6 +351,7 @@ Score Worker::search(Position& pos, Score alpha, Score beta, int depth, int ply,
         Position child = pos;
         child.make_move(m);
         tt.prefetch(child.key());
+        if (net) nn.push(ply + 1, pos, m);
         const int new_depth = depth - 1 + ext + (order[n] == (1 << 30) ? tt_move_ext : 0);
         prev_to[ply + 1] = m.to;
 

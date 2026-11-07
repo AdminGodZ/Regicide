@@ -6,3 +6,5 @@ compile_commands.json
 .DS_Store
 *.rgdb
 *.rgdb.tmp
+.venv/
+__pycache__/

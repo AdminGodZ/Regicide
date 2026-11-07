@@ -1,0 +1,3 @@
+# CPU-only works for smoke tests; for CUDA install torch from the PyTorch index first (see README.md).
+numpy>=1.24
+torch>=2.4

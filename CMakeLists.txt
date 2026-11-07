@@ -18,6 +18,7 @@ add_library(regicide_core STATIC
   src/movegen.cpp
   src/perft.cpp
   src/eval.cpp
+  src/nnue.cpp
   src/search.cpp
   src/tt.cpp
   src/bench.cpp
@@ -28,8 +29,9 @@ target_include_directories(regicide_core PUBLIC src)
 option(REGICIDE_EVAL_BANDS "Eval: two-row band patterns" ON)
 target_compile_definitions(regicide_core PUBLIC REGICIDE_EVAL_BANDS=$<BOOL:${REGICIDE_EVAL_BANDS}>)
 # Trained evaluation weights are compiled in with #embed (standard in C23/C++26; a Clang extension in C++ today).
+# src/weights/net.bin is an optional NNUE network (RGNN); left empty, the linear eval is used.
 set_source_files_properties(src/eval.cpp PROPERTIES COMPILE_OPTIONS "-Wno-c23-extensions"
-                            OBJECT_DEPENDS ${CMAKE_SOURCE_DIR}/src/weights/eval.bin)
+                            OBJECT_DEPENDS "${CMAKE_SOURCE_DIR}/src/weights/eval.bin;${CMAKE_SOURCE_DIR}/src/weights/net.bin")
 set_source_files_properties(src/book.cpp PROPERTIES COMPILE_OPTIONS "-Wno-c23-extensions"
                             OBJECT_DEPENDS ${CMAKE_SOURCE_DIR}/src/weights/book.bin)
 
@@ -68,8 +70,18 @@ add_executable(eval_test tests/eval_test.cpp)
 target_link_libraries(eval_test PRIVATE regicide_core)
 add_test(NAME eval_builtin COMMAND eval_test)
 
+add_executable(nnue_test tests/nnue_test.cpp)
+target_link_libraries(nnue_test PRIVATE regicide_core)
+# Re-run CMake when net.bin changes, so the test knows whether a net is embedded.
+set_property(DIRECTORY APPEND PROPERTY CMAKE_CONFIGURE_DEPENDS ${CMAKE_SOURCE_DIR}/src/weights/net.bin)
+file(SIZE ${CMAKE_SOURCE_DIR}/src/weights/net.bin REGICIDE_NET_BYTES)
+target_compile_definitions(nnue_test PRIVATE REGICIDE_SOURCE_DIR="${CMAKE_SOURCE_DIR}"
+                           REGICIDE_NET_BYTES=${REGICIDE_NET_BYTES})
+add_test(NAME nnue COMMAND nnue_test)
+
 add_executable(cb_api_test tests/cb_api_test.cpp)
 target_link_libraries(cb_api_test PRIVATE regicide_core)
+target_compile_definitions(cb_api_test PRIVATE REGICIDE_SOURCE_DIR="${CMAKE_SOURCE_DIR}")
 add_test(NAME cb_api COMMAND cb_api_test $<TARGET_FILE:regicide_cb>)
 
 add_executable(selfplay tools/selfplay.cpp)

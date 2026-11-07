@@ -92,8 +92,8 @@ void Position::make_move(const Move& m) {
     const bool king = kings_ & from;
     const bool crowns = !king && (to & promo_row(us));
 
-    pieces_[us] ^= from | to;
-    if (king) kings_ ^= from | to;
+    pieces_[us] ^= from ^ to;  // from == to for a king capturing round a circuit
+    if (king) kings_ ^= from ^ to;
     key_ ^= zobrist::PSQ[2 * us + king][m.from] ^ zobrist::PSQ[2 * us + (king || crowns)][m.to];
 
     for (Bitboard c = m.captures; c;) {

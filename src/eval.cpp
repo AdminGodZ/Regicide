@@ -4,9 +4,11 @@
 #include <array>
 #include <cstring>
 #include <fstream>
+#include <iostream>
 #include <iterator>
 
 #include "movegen.hpp"
+#include "nnue.hpp"
 
 namespace regicide {
 
@@ -261,7 +263,19 @@ bool Evaluator::load(const unsigned char* data, std::size_t size) {
     return true;
 }
 
-Score Evaluator::operator()(const Position& pos) const {
+bool Evaluator::load_any(const unsigned char* data, std::size_t size, std::string* error) {
+    if (size >= 4 && std::memcmp(data, "RGNN", 4) == 0) {
+        net_ = nnue::Network::load(data, size, error);
+        return net_ != nullptr;
+    }
+    if (load(data, size)) return true;
+    if (error) *error = "not a valid RGEV or RGNN file";
+    return false;
+}
+
+Score Evaluator::operator()(const Position& pos) const { return net_ ? net_->evaluate(pos) : linear(pos); }
+
+Score Evaluator::linear(const Position& pos) const {
     if (weights_.empty()) return evaluate_hce(pos);
     const std::int16_t* w = weights_.data();
     int mg = 0, eg = 0;
@@ -282,12 +296,23 @@ constexpr unsigned char EMBEDDED[] = {
 #embed "weights/eval.bin"
 };
 
+// Optional NNUE network; when present it replaces the linear eval.
+constexpr unsigned char EMBEDDED_NET[] = {
+    0,
+#embed "weights/net.bin"
+};
+
 }  // namespace
 
 std::shared_ptr<const Evaluator> Evaluator::builtin() {
     static const std::shared_ptr<const Evaluator> e = [] {
         auto ev = std::make_shared<Evaluator>();
         ev->load(EMBEDDED + 1, sizeof(EMBEDDED) - 1);
+        if constexpr (sizeof(EMBEDDED_NET) > 1) {
+            std::string error;
+            ev->net_ = nnue::Network::load(EMBEDDED_NET + 1, sizeof(EMBEDDED_NET) - 1, &error);
+            if (!ev->net_) std::cerr << "built-in net rejected (" << error << "), using the linear eval\n";
+        }
         return ev;
     }();
     return e;
@@ -298,12 +323,15 @@ std::shared_ptr<const Evaluator> Evaluator::hce() {
     return e;
 }
 
-std::shared_ptr<const Evaluator> Evaluator::from_file(const std::string& path) {
+std::shared_ptr<const Evaluator> Evaluator::from_file(const std::string& path, std::string* error) {
     std::ifstream in(path, std::ios::binary);
-    if (!in) return nullptr;
+    if (!in) {
+        if (error) *error = "cannot open " + path;
+        return nullptr;
+    }
     std::vector<unsigned char> data((std::istreambuf_iterator<char>(in)), std::istreambuf_iterator<char>());
     auto ev = std::make_shared<Evaluator>();
-    if (!ev->load(data.data(), data.size())) return nullptr;
+    if (!ev->load_any(data.data(), data.size(), error)) return nullptr;
     return ev;
 }
 

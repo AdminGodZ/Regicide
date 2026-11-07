@@ -1,12 +1,14 @@
 #include <algorithm>
 #include <chrono>
 #include <cstdlib>
+#include <fstream>
 #include <iostream>
 #include <sstream>
 #include <string>
 #include <vector>
 
 #include "bench.hpp"
+#include "datafile.hpp"
 #include "egdb/egdb.hpp"
 #include "movegen.hpp"
 #include "perft.hpp"
@@ -24,13 +26,16 @@ void print_help() {
                  "  moves               list legal moves\n"
                  "  play <move|index>   play a move (PDN like 11-15 / 22x15, or an index from 'moves')\n"
                  "  d                   print the board\n"
-                 "  eval                static evaluation (side to move)\n"
+                 "  eval                static evaluation (side to move) with the current evaluator\n"
+                 "  evalpos <FEN>       static evaluation of a position\n"
                  "  perft <depth>       count leaf nodes\n"
                  "  divide <depth>      perft split by root move\n"
                  "  go [depth N] [movetime MS] [nodes N] [btime MS wtime MS binc MS winc MS movestogo N]\n"
                  "  set threads|hash|<search param> <value>\n"
-                 "  set evalfile <path|hce>, set book <path|builtin|off>, set egdb <dir>\n"
+                 "  set evalfile <path|builtin|hce>  linear weights (RGEV) or an NNUE net (RGNN)\n"
+                 "  set book <path|builtin|off>, set egdb <dir>\n"
                  "  bench [depth]       fixed-depth search over built-in positions (node count signature)\n"
+                 "Command line: regicide bench [depth] | regicide evaldata <evalfile|builtin> <data.bin> [count]\n"
                  "  quit\n";
 }
 
@@ -44,6 +49,25 @@ void print_info(const SearchInfo& i) {
     std::cout << "info depth " << i.depth << " seldepth " << i.seldepth << " score " << i.score << " nodes "
               << i.nodes << " nps " << i.nodes * 1000 / std::max<std::int64_t>(1, i.time_ms) << " time "
                << i.time_ms << " hashfull " << i.hashfull << " tbhits " << i.tbhits << " pv " << pv_string(i.pv) << std::endl;
+}
+
+// Prints the static eval of each training record (side to move's view), one per line: for checking a net export.
+int eval_data(const std::string& evalfile, const std::string& data, long count) {
+    std::string error;
+    const auto ev = evalfile == "builtin" ? Evaluator::builtin() : Evaluator::from_file(evalfile, &error);
+    if (!ev) {
+        std::cerr << "cannot load " << evalfile << ": " << error << std::endl;
+        return 1;
+    }
+    std::ifstream in(data, std::ios::binary);
+    if (!in) {
+        std::cerr << "cannot open " << data << std::endl;
+        return 1;
+    }
+    DataRecord r;
+    for (long n = 0; (count <= 0 || n < count) && in.read(reinterpret_cast<char*>(&r), sizeof r); ++n)
+        std::cout << (*ev)(r.position()) << '\n';
+    return 0;
 }
 
 }  // namespace
@@ -68,6 +92,8 @@ int main(int argc, char** argv) {
         run_bench(engine, argc > 2 ? std::atoi(argv[2]) : 0);
         return 0;
     }
+    if (argc > 3 && std::string(argv[1]) == "evaldata")
+        return eval_data(argv[2], argv[3], argc > 4 ? std::atol(argv[4]) : 0);
 
     std::cout << "Regicide 0.2 (type 'help')" << std::endl;
 
@@ -114,7 +140,13 @@ int main(int argc, char** argv) {
         } else if (cmd == "d") {
             std::cout << pos.pretty() << pos.fen() << std::endl;
         } else if (cmd == "eval") {
-            std::cout << "eval " << evaluate(pos) << std::endl;
+            std::cout << "eval " << engine.evaluator()(pos) << std::endl;
+        } else if (cmd == "evalpos") {
+            std::string fen;
+            in >> fen;
+            Position p;
+            if (p.set_fen(fen)) std::cout << "eval " << engine.evaluator()(p) << std::endl;
+            else std::cout << "invalid fen" << std::endl;
         } else if (cmd == "moves") {
             MoveList list;
             generate_moves(pos, list);
@@ -192,10 +224,16 @@ int main(int argc, char** argv) {
                 continue;
             }
             if (name == "evalfile") {
-                std::string path = line.substr(line.find("evalfile") + 9);
-                auto ev = path == "hce" ? Evaluator::hce() : Evaluator::from_file(path);
-                if (ev) engine.set_evaluator(ev);
-                else std::cout << "cannot load " << path << std::endl;
+                std::string path = line.substr(line.find("evalfile") + 9), error;
+                auto ev = path == "hce" ? Evaluator::hce()
+                          : path == "builtin" ? Evaluator::builtin()
+                                              : Evaluator::from_file(path, &error);
+                if (!ev) {
+                    std::cout << "cannot load " << path << ": " << error << std::endl;
+                    continue;
+                }
+                engine.set_evaluator(ev);
+                std::cout << "eval: " << (ev->network() ? "nnue" : ev->trained() ? "linear" : "hce") << std::endl;
                 continue;
             }
             if (name == "threads") engine.set_threads(int(value));
