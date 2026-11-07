@@ -1,0 +1,1611 @@
+game,pair,opening,black,white,result,score_a,termination,engine_plies
+5,3,"/home/admingod/regicide-evalab-work/openings4.txt:3","K","V1",1/2-1/2,0.5,"repetition",89
+1,1,"/home/admingod/regicide-evalab-work/openings4.txt:1","K","V1",1-0,1,"no legal moves",127
+2,1,"/home/admingod/regicide-evalab-work/openings4.txt:1","V1","K",1-0,0,"no legal moves",133
+4,2,"/home/admingod/regicide-evalab-work/openings4.txt:2","V1","K",1/2-1/2,0.5,"repetition",90
+3,2,"/home/admingod/regicide-evalab-work/openings4.txt:2","K","V1",1/2-1/2,0.5,"repetition",84
+7,4,"/home/admingod/regicide-evalab-work/openings4.txt:4","K","V1",1-0,1,"no legal moves",121
+11,6,"/home/admingod/regicide-evalab-work/openings4.txt:6","K","V1",1/2-1/2,0.5,"repetition",87
+6,3,"/home/admingod/regicide-evalab-work/openings4.txt:3","V1","K",0-1,1,"no legal moves",120
+13,7,"/home/admingod/regicide-evalab-work/openings4.txt:7","K","V1",1/2-1/2,0.5,"repetition",99
+10,5,"/home/admingod/regicide-evalab-work/openings4.txt:5","V1","K",1-0,0,"no legal moves",189
+12,6,"/home/admingod/regicide-evalab-work/openings4.txt:6","V1","K",1/2-1/2,0.5,"repetition",79
+9,5,"/home/admingod/regicide-evalab-work/openings4.txt:5","K","V1",1-0,1,"no legal moves",173
+8,4,"/home/admingod/regicide-evalab-work/openings4.txt:4","V1","K",1-0,0,"no legal moves",129
+18,9,"/home/admingod/regicide-evalab-work/openings4.txt:9","V1","K",1-0,0,"no legal moves",195
+15,8,"/home/admingod/regicide-evalab-work/openings4.txt:8","K","V1",1-0,1,"no legal moves",69
+16,8,"/home/admingod/regicide-evalab-work/openings4.txt:8","V1","K",1-0,0,"no legal moves",169
+20,10,"/home/admingod/regicide-evalab-work/openings4.txt:10","V1","K",1-0,0,"no legal moves",145
+17,9,"/home/admingod/regicide-evalab-work/openings4.txt:9","K","V1",1-0,1,"no legal moves",165
+21,11,"/home/admingod/regicide-evalab-work/openings4.txt:11","K","V1",1-0,1,"no legal moves",155
+19,10,"/home/admingod/regicide-evalab-work/openings4.txt:10","K","V1",1-0,1,"no legal moves",183
+25,13,"/home/admingod/regicide-evalab-work/openings4.txt:13","K","V1",1/2-1/2,0.5,"repetition",97
+14,7,"/home/admingod/regicide-evalab-work/openings4.txt:7","V1","K",1/2-1/2,0.5,"repetition",118
+23,12,"/home/admingod/regicide-evalab-work/openings4.txt:12","K","V1",1-0,1,"no legal moves",95
+28,14,"/home/admingod/regicide-evalab-work/openings4.txt:14","V1","K",1/2-1/2,0.5,"repetition",65
+22,11,"/home/admingod/regicide-evalab-work/openings4.txt:11","V1","K",1-0,0,"no legal moves",147
+26,13,"/home/admingod/regicide-evalab-work/openings4.txt:13","V1","K",1/2-1/2,0.5,"repetition",99
+27,14,"/home/admingod/regicide-evalab-work/openings4.txt:14","K","V1",1/2-1/2,0.5,"repetition",92
+32,16,"/home/admingod/regicide-evalab-work/openings4.txt:16","V1","K",1/2-1/2,0.5,"repetition",86
+34,17,"/home/admingod/regicide-evalab-work/openings4.txt:17","V1","K",1/2-1/2,0.5,"repetition",94
+24,12,"/home/admingod/regicide-evalab-work/openings4.txt:12","V1","K",1-0,0,"no legal moves",151
+36,18,"/home/admingod/regicide-evalab-work/openings4.txt:18","V1","K",1/2-1/2,0.5,"repetition",92
+31,16,"/home/admingod/regicide-evalab-work/openings4.txt:16","K","V1",1-0,1,"no legal moves",155
+33,17,"/home/admingod/regicide-evalab-work/openings4.txt:17","K","V1",1/2-1/2,0.5,"repetition",96
+38,19,"/home/admingod/regicide-evalab-work/openings4.txt:19","V1","K",1-0,0,"no legal moves",99
+37,19,"/home/admingod/regicide-evalab-work/openings4.txt:19","K","V1",1-0,1,"no legal moves",137
+43,22,"/home/admingod/regicide-evalab-work/openings4.txt:22","K","V1",1/2-1/2,0.5,"repetition",93
+29,15,"/home/admingod/regicide-evalab-work/openings4.txt:15","K","V1",1/2-1/2,0.5,"repetition",149
+44,22,"/home/admingod/regicide-evalab-work/openings4.txt:22","V1","K",1/2-1/2,0.5,"repetition",107
+40,20,"/home/admingod/regicide-evalab-work/openings4.txt:20","V1","K",1-0,0,"no legal moves",135
+35,18,"/home/admingod/regicide-evalab-work/openings4.txt:18","K","V1",1/2-1/2,0.5,"repetition",133
+47,24,"/home/admingod/regicide-evalab-work/openings4.txt:24","K","V1",1/2-1/2,0.5,"repetition",81
+30,15,"/home/admingod/regicide-evalab-work/openings4.txt:15","V1","K",1/2-1/2,0.5,"repetition",165
+46,23,"/home/admingod/regicide-evalab-work/openings4.txt:23","V1","K",1-0,0,"no legal moves",127
+50,25,"/home/admingod/regicide-evalab-work/openings4.txt:25","V1","K",1/2-1/2,0.5,"repetition",70
+45,23,"/home/admingod/regicide-evalab-work/openings4.txt:23","K","V1",1-0,1,"no legal moves",113
+42,21,"/home/admingod/regicide-evalab-work/openings4.txt:21","V1","K",1/2-1/2,0.5,"repetition",119
+41,21,"/home/admingod/regicide-evalab-work/openings4.txt:21","K","V1",1/2-1/2,0.5,"repetition",130
+48,24,"/home/admingod/regicide-evalab-work/openings4.txt:24","V1","K",1-0,0,"no legal moves",125
+49,25,"/home/admingod/regicide-evalab-work/openings4.txt:25","K","V1",1-0,1,"no legal moves",117
+55,28,"/home/admingod/regicide-evalab-work/openings4.txt:28","K","V1",1/2-1/2,0.5,"repetition",103
+53,27,"/home/admingod/regicide-evalab-work/openings4.txt:27","K","V1",1-0,1,"no legal moves",161
+51,26,"/home/admingod/regicide-evalab-work/openings4.txt:26","K","V1",1-0,1,"no legal moves",151
+39,20,"/home/admingod/regicide-evalab-work/openings4.txt:20","K","V1",1/2-1/2,0.5,"repetition",141
+52,26,"/home/admingod/regicide-evalab-work/openings4.txt:26","V1","K",1-0,0,"no legal moves",125
+56,28,"/home/admingod/regicide-evalab-work/openings4.txt:28","V1","K",1-0,0,"no legal moves",155
+57,29,"/home/admingod/regicide-evalab-work/openings4.txt:29","K","V1",1/2-1/2,0.5,"repetition",92
+54,27,"/home/admingod/regicide-evalab-work/openings4.txt:27","V1","K",1-0,0,"no legal moves",215
+62,31,"/home/admingod/regicide-evalab-work/openings4.txt:31","V1","K",1/2-1/2,0.5,"repetition",83
+60,30,"/home/admingod/regicide-evalab-work/openings4.txt:30","V1","K",1-0,0,"no legal moves",49
+59,30,"/home/admingod/regicide-evalab-work/openings4.txt:30","K","V1",1-0,1,"no legal moves",145
+61,31,"/home/admingod/regicide-evalab-work/openings4.txt:31","K","V1",1/2-1/2,0.5,"repetition",89
+63,32,"/home/admingod/regicide-evalab-work/openings4.txt:32","K","V1",1/2-1/2,0.5,"repetition",119
+64,32,"/home/admingod/regicide-evalab-work/openings4.txt:32","V1","K",0-1,1,"no legal moves",86
+70,35,"/home/admingod/regicide-evalab-work/openings4.txt:35","V1","K",1/2-1/2,0.5,"repetition",93
+71,36,"/home/admingod/regicide-evalab-work/openings4.txt:36","K","V1",1/2-1/2,0.5,"repetition",99
+66,33,"/home/admingod/regicide-evalab-work/openings4.txt:33","V1","K",1/2-1/2,0.5,"repetition",109
+72,36,"/home/admingod/regicide-evalab-work/openings4.txt:36","V1","K",1/2-1/2,0.5,"repetition",69
+58,29,"/home/admingod/regicide-evalab-work/openings4.txt:29","V1","K",1/2-1/2,0.5,"repetition",127
+65,33,"/home/admingod/regicide-evalab-work/openings4.txt:33","K","V1",1/2-1/2,0.5,"repetition",107
+69,35,"/home/admingod/regicide-evalab-work/openings4.txt:35","K","V1",1/2-1/2,0.5,"repetition",95
+68,34,"/home/admingod/regicide-evalab-work/openings4.txt:34","V1","K",1-0,0,"no legal moves",133
+76,38,"/home/admingod/regicide-evalab-work/openings4.txt:38","V1","K",1/2-1/2,0.5,"repetition",99
+67,34,"/home/admingod/regicide-evalab-work/openings4.txt:34","K","V1",1-0,1,"no legal moves",161
+74,37,"/home/admingod/regicide-evalab-work/openings4.txt:37","V1","K",1-0,0,"no legal moves",113
+80,40,"/home/admingod/regicide-evalab-work/openings4.txt:40","V1","K",1-0,0,"no legal moves",127
+79,40,"/home/admingod/regicide-evalab-work/openings4.txt:40","K","V1",1/2-1/2,0.5,"repetition",87
+82,41,"/home/admingod/regicide-evalab-work/openings4.txt:41","V1","K",1/2-1/2,0.5,"repetition",91
+84,42,"/home/admingod/regicide-evalab-work/openings4.txt:42","V1","K",1/2-1/2,0.5,"repetition",61
+83,42,"/home/admingod/regicide-evalab-work/openings4.txt:42","K","V1",1/2-1/2,0.5,"repetition",85
+78,39,"/home/admingod/regicide-evalab-work/openings4.txt:39","V1","K",1-0,0,"no legal moves",121
+75,38,"/home/admingod/regicide-evalab-work/openings4.txt:38","K","V1",0-1,0,"no legal moves",138
+81,41,"/home/admingod/regicide-evalab-work/openings4.txt:41","K","V1",1/2-1/2,0.5,"repetition",62
+85,43,"/home/admingod/regicide-evalab-work/openings4.txt:43","K","V1",1/2-1/2,0.5,"repetition",65
+89,45,"/home/admingod/regicide-evalab-work/openings4.txt:45","K","V1",1/2-1/2,0.5,"repetition",88
+90,45,"/home/admingod/regicide-evalab-work/openings4.txt:45","V1","K",1/2-1/2,0.5,"repetition",77
+91,46,"/home/admingod/regicide-evalab-work/openings4.txt:46","K","V1",1/2-1/2,0.5,"repetition",93
+88,44,"/home/admingod/regicide-evalab-work/openings4.txt:44","V1","K",1/2-1/2,0.5,"repetition",93
+73,37,"/home/admingod/regicide-evalab-work/openings4.txt:37","K","V1",1/2-1/2,0.5,"repetition",150
+92,46,"/home/admingod/regicide-evalab-work/openings4.txt:46","V1","K",1/2-1/2,0.5,"repetition",64
+86,43,"/home/admingod/regicide-evalab-work/openings4.txt:43","V1","K",0-1,1,"no legal moves",82
+97,49,"/home/admingod/regicide-evalab-work/openings4.txt:49","K","V1",1/2-1/2,0.5,"repetition",67
+77,39,"/home/admingod/regicide-evalab-work/openings4.txt:39","K","V1",1-0,1,"no legal moves",175
+87,44,"/home/admingod/regicide-evalab-work/openings4.txt:44","K","V1",1-0,1,"no legal moves",159
+96,48,"/home/admingod/regicide-evalab-work/openings4.txt:48","V1","K",1-0,0,"no legal moves",145
+100,50,"/home/admingod/regicide-evalab-work/openings4.txt:50","V1","K",1/2-1/2,0.5,"repetition",77
+101,51,"/home/admingod/regicide-evalab-work/openings4.txt:51","K","V1",1/2-1/2,0.5,"repetition",62
+99,50,"/home/admingod/regicide-evalab-work/openings4.txt:50","K","V1",0-1,0,"no legal moves",126
+104,52,"/home/admingod/regicide-evalab-work/openings4.txt:52","V1","K",1/2-1/2,0.5,"repetition",65
+93,47,"/home/admingod/regicide-evalab-work/openings4.txt:47","K","V1",1/2-1/2,0.5,"repetition",99
+105,53,"/home/admingod/regicide-evalab-work/openings4.txt:53","K","V1",1/2-1/2,0.5,"repetition",68
+103,52,"/home/admingod/regicide-evalab-work/openings4.txt:52","K","V1",0-1,0,"no legal moves",84
+94,47,"/home/admingod/regicide-evalab-work/openings4.txt:47","V1","K",0-1,1,"no legal moves",110
+95,48,"/home/admingod/regicide-evalab-work/openings4.txt:48","K","V1",1/2-1/2,0.5,"repetition",135
+110,55,"/home/admingod/regicide-evalab-work/openings4.txt:55","V1","K",1/2-1/2,0.5,"repetition",56
+108,54,"/home/admingod/regicide-evalab-work/openings4.txt:54","V1","K",1-0,0,"no legal moves",135
+109,55,"/home/admingod/regicide-evalab-work/openings4.txt:55","K","V1",1/2-1/2,0.5,"repetition",70
+106,53,"/home/admingod/regicide-evalab-work/openings4.txt:53","V1","K",0-1,1,"no legal moves",122
+107,54,"/home/admingod/regicide-evalab-work/openings4.txt:54","K","V1",1-0,1,"no legal moves",137
+111,56,"/home/admingod/regicide-evalab-work/openings4.txt:56","K","V1",1/2-1/2,0.5,"repetition",67
+102,51,"/home/admingod/regicide-evalab-work/openings4.txt:51","V1","K",1-0,0,"no legal moves",143
+112,56,"/home/admingod/regicide-evalab-work/openings4.txt:56","V1","K",1/2-1/2,0.5,"repetition",90
+113,57,"/home/admingod/regicide-evalab-work/openings4.txt:57","K","V1",1/2-1/2,0.5,"repetition",66
+118,59,"/home/admingod/regicide-evalab-work/openings4.txt:59","V1","K",1/2-1/2,0.5,"repetition",76
+120,60,"/home/admingod/regicide-evalab-work/openings4.txt:60","V1","K",1/2-1/2,0.5,"repetition",70
+119,60,"/home/admingod/regicide-evalab-work/openings4.txt:60","K","V1",1/2-1/2,0.5,"repetition",85
+117,59,"/home/admingod/regicide-evalab-work/openings4.txt:59","K","V1",1/2-1/2,0.5,"repetition",81
+115,58,"/home/admingod/regicide-evalab-work/openings4.txt:58","K","V1",1-0,1,"no legal moves",147
+114,57,"/home/admingod/regicide-evalab-work/openings4.txt:57","V1","K",0-1,1,"no legal moves",158
+121,61,"/home/admingod/regicide-evalab-work/openings4.txt:61","K","V1",1/2-1/2,0.5,"repetition",86
+116,58,"/home/admingod/regicide-evalab-work/openings4.txt:58","V1","K",1/2-1/2,0.5,"repetition",79
+127,64,"/home/admingod/regicide-evalab-work/openings4.txt:64","K","V1",1/2-1/2,0.5,"repetition",72
+126,63,"/home/admingod/regicide-evalab-work/openings4.txt:63","V1","K",1/2-1/2,0.5,"repetition",80
+125,63,"/home/admingod/regicide-evalab-work/openings4.txt:63","K","V1",1/2-1/2,0.5,"repetition",97
+123,62,"/home/admingod/regicide-evalab-work/openings4.txt:62","K","V1",1/2-1/2,0.5,"repetition",90
+122,61,"/home/admingod/regicide-evalab-work/openings4.txt:61","V1","K",1/2-1/2,0.5,"repetition",82
+98,49,"/home/admingod/regicide-evalab-work/openings4.txt:49","V1","K",1/2-1/2,0.5,"repetition",209
+128,64,"/home/admingod/regicide-evalab-work/openings4.txt:64","V1","K",1/2-1/2,0.5,"repetition",90
+133,67,"/home/admingod/regicide-evalab-work/openings4.txt:67","K","V1",1/2-1/2,0.5,"repetition",77
+131,66,"/home/admingod/regicide-evalab-work/openings4.txt:66","K","V1",1/2-1/2,0.5,"repetition",81
+124,62,"/home/admingod/regicide-evalab-work/openings4.txt:62","V1","K",1/2-1/2,0.5,"repetition",91
+132,66,"/home/admingod/regicide-evalab-work/openings4.txt:66","V1","K",1/2-1/2,0.5,"repetition",80
+138,69,"/home/admingod/regicide-evalab-work/openings4.txt:69","V1","K",1/2-1/2,0.5,"repetition",64
+140,70,"/home/admingod/regicide-evalab-work/openings4.txt:70","V1","K",1/2-1/2,0.5,"repetition",89
+130,65,"/home/admingod/regicide-evalab-work/openings4.txt:65","V1","K",1-0,0,"no legal moves",167
+129,65,"/home/admingod/regicide-evalab-work/openings4.txt:65","K","V1",1/2-1/2,0.5,"repetition",112
+135,68,"/home/admingod/regicide-evalab-work/openings4.txt:68","K","V1",1/2-1/2,0.5,"repetition",144
+143,72,"/home/admingod/regicide-evalab-work/openings4.txt:72","K","V1",1/2-1/2,0.5,"repetition",85
+142,71,"/home/admingod/regicide-evalab-work/openings4.txt:71","V1","K",0-1,1,"no legal moves",78
+136,68,"/home/admingod/regicide-evalab-work/openings4.txt:68","V1","K",1/2-1/2,0.5,"repetition",122
+139,70,"/home/admingod/regicide-evalab-work/openings4.txt:70","K","V1",1/2-1/2,0.5,"repetition",111
+141,71,"/home/admingod/regicide-evalab-work/openings4.txt:71","K","V1",0-1,0,"no legal moves",104
+137,69,"/home/admingod/regicide-evalab-work/openings4.txt:69","K","V1",0-1,0,"no legal moves",130
+150,75,"/home/admingod/regicide-evalab-work/openings4.txt:75","V1","K",1/2-1/2,0.5,"repetition",62
+134,67,"/home/admingod/regicide-evalab-work/openings4.txt:67","V1","K",0-1,1,"no legal moves",158
+153,77,"/home/admingod/regicide-evalab-work/openings4.txt:77","K","V1",1/2-1/2,0.5,"repetition",61
+149,75,"/home/admingod/regicide-evalab-work/openings4.txt:75","K","V1",0-1,0,"no legal moves",98
+146,73,"/home/admingod/regicide-evalab-work/openings4.txt:73","V1","K",1-0,0,"no legal moves",69
+147,74,"/home/admingod/regicide-evalab-work/openings4.txt:74","K","V1",1-0,1,"no legal moves",123
+148,74,"/home/admingod/regicide-evalab-work/openings4.txt:74","V1","K",1-0,0,"no legal moves",127
+145,73,"/home/admingod/regicide-evalab-work/openings4.txt:73","K","V1",1-0,1,"no legal moves",125
+151,76,"/home/admingod/regicide-evalab-work/openings4.txt:76","K","V1",1/2-1/2,0.5,"repetition",65
+152,76,"/home/admingod/regicide-evalab-work/openings4.txt:76","V1","K",0-1,1,"no legal moves",66
+154,77,"/home/admingod/regicide-evalab-work/openings4.txt:77","V1","K",0-1,1,"no legal moves",90
+160,80,"/home/admingod/regicide-evalab-work/openings4.txt:80","V1","K",1/2-1/2,0.5,"repetition",85
+157,79,"/home/admingod/regicide-evalab-work/openings4.txt:79","K","V1",0-1,0,"no legal moves",130
+161,81,"/home/admingod/regicide-evalab-work/openings4.txt:81","K","V1",1/2-1/2,0.5,"repetition",80
+159,80,"/home/admingod/regicide-evalab-work/openings4.txt:80","K","V1",1/2-1/2,0.5,"repetition",75
+162,81,"/home/admingod/regicide-evalab-work/openings4.txt:81","V1","K",1/2-1/2,0.5,"repetition",87
+156,78,"/home/admingod/regicide-evalab-work/openings4.txt:78","V1","K",0-1,1,"no legal moves",142
+158,79,"/home/admingod/regicide-evalab-work/openings4.txt:79","V1","K",0-1,1,"no legal moves",150
+165,83,"/home/admingod/regicide-evalab-work/openings4.txt:83","K","V1",1-0,1,"no legal moves",51
+166,83,"/home/admingod/regicide-evalab-work/openings4.txt:83","V1","K",1-0,0,"no legal moves",109
+144,72,"/home/admingod/regicide-evalab-work/openings4.txt:72","V1","K",1/2-1/2,0.5,"no progress",164
+168,84,"/home/admingod/regicide-evalab-work/openings4.txt:84","V1","K",1/2-1/2,0.5,"repetition",89
+170,85,"/home/admingod/regicide-evalab-work/openings4.txt:85","V1","K",1/2-1/2,0.5,"repetition",63
+169,85,"/home/admingod/regicide-evalab-work/openings4.txt:85","K","V1",1-0,1,"no legal moves",53
+167,84,"/home/admingod/regicide-evalab-work/openings4.txt:84","K","V1",1/2-1/2,0.5,"repetition",89
+163,82,"/home/admingod/regicide-evalab-work/openings4.txt:82","K","V1",0-1,0,"no legal moves",110
+171,86,"/home/admingod/regicide-evalab-work/openings4.txt:86","K","V1",1/2-1/2,0.5,"repetition",95
+173,87,"/home/admingod/regicide-evalab-work/openings4.txt:87","K","V1",1/2-1/2,0.5,"repetition",94
+155,78,"/home/admingod/regicide-evalab-work/openings4.txt:78","K","V1",1/2-1/2,0.5,"no progress",152
+174,87,"/home/admingod/regicide-evalab-work/openings4.txt:87","V1","K",0-1,1,"no legal moves",78
+180,90,"/home/admingod/regicide-evalab-work/openings4.txt:90","V1","K",1/2-1/2,0.5,"repetition",83
+172,86,"/home/admingod/regicide-evalab-work/openings4.txt:86","V1","K",1/2-1/2,0.5,"repetition",131
+177,89,"/home/admingod/regicide-evalab-work/openings4.txt:89","K","V1",1-0,1,"no legal moves",121
+179,90,"/home/admingod/regicide-evalab-work/openings4.txt:90","K","V1",0-1,0,"no legal moves",54
+176,88,"/home/admingod/regicide-evalab-work/openings4.txt:88","V1","K",1/2-1/2,0.5,"repetition",107
+164,82,"/home/admingod/regicide-evalab-work/openings4.txt:82","V1","K",0-1,1,"no legal moves",170
+184,92,"/home/admingod/regicide-evalab-work/openings4.txt:92","V1","K",1/2-1/2,0.5,"repetition",70
+181,91,"/home/admingod/regicide-evalab-work/openings4.txt:91","K","V1",1/2-1/2,0.5,"repetition",97
+186,93,"/home/admingod/regicide-evalab-work/openings4.txt:93","V1","K",1/2-1/2,0.5,"repetition",83
+183,92,"/home/admingod/regicide-evalab-work/openings4.txt:92","K","V1",1/2-1/2,0.5,"repetition",99
+178,89,"/home/admingod/regicide-evalab-work/openings4.txt:89","V1","K",1-0,0,"no legal moves",167
+182,91,"/home/admingod/regicide-evalab-work/openings4.txt:91","V1","K",1/2-1/2,0.5,"repetition",105
+189,95,"/home/admingod/regicide-evalab-work/openings4.txt:95","K","V1",1/2-1/2,0.5,"repetition",95
+175,88,"/home/admingod/regicide-evalab-work/openings4.txt:88","K","V1",1/2-1/2,0.5,"repetition",171
+191,96,"/home/admingod/regicide-evalab-work/openings4.txt:96","K","V1",1/2-1/2,0.5,"repetition",91
+185,93,"/home/admingod/regicide-evalab-work/openings4.txt:93","K","V1",1/2-1/2,0.5,"repetition",124
+188,94,"/home/admingod/regicide-evalab-work/openings4.txt:94","V1","K",0-1,1,"no legal moves",80
+194,97,"/home/admingod/regicide-evalab-work/openings4.txt:97","V1","K",1/2-1/2,0.5,"repetition",72
+193,97,"/home/admingod/regicide-evalab-work/openings4.txt:97","K","V1",1-0,1,"no legal moves",115
+192,96,"/home/admingod/regicide-evalab-work/openings4.txt:96","V1","K",1-0,0,"no legal moves",133
+190,95,"/home/admingod/regicide-evalab-work/openings4.txt:95","V1","K",1/2-1/2,0.5,"repetition",123
+199,100,"/home/admingod/regicide-evalab-work/openings4.txt:100","K","V1",1/2-1/2,0.5,"repetition",68
+187,94,"/home/admingod/regicide-evalab-work/openings4.txt:94","K","V1",0-1,0,"no legal moves",138
+200,100,"/home/admingod/regicide-evalab-work/openings4.txt:100","V1","K",1/2-1/2,0.5,"repetition",77
+196,98,"/home/admingod/regicide-evalab-work/openings4.txt:98","V1","K",1/2-1/2,0.5,"repetition",80
+198,99,"/home/admingod/regicide-evalab-work/openings4.txt:99","V1","K",1/2-1/2,0.5,"repetition",83
+202,101,"/home/admingod/regicide-evalab-work/openings4.txt:101","V1","K",1/2-1/2,0.5,"repetition",87
+203,102,"/home/admingod/regicide-evalab-work/openings4.txt:102","K","V1",1/2-1/2,0.5,"repetition",83
+195,98,"/home/admingod/regicide-evalab-work/openings4.txt:98","K","V1",1/2-1/2,0.5,"repetition",89
+205,103,"/home/admingod/regicide-evalab-work/openings4.txt:103","K","V1",1/2-1/2,0.5,"repetition",78
+197,99,"/home/admingod/regicide-evalab-work/openings4.txt:99","K","V1",1/2-1/2,0.5,"repetition",113
+212,106,"/home/admingod/regicide-evalab-work/openings4.txt:106","V1","K",1/2-1/2,0.5,"repetition",83
+207,104,"/home/admingod/regicide-evalab-work/openings4.txt:104","K","V1",1/2-1/2,0.5,"repetition",106
+209,105,"/home/admingod/regicide-evalab-work/openings4.txt:105","K","V1",1/2-1/2,0.5,"repetition",105
+208,104,"/home/admingod/regicide-evalab-work/openings4.txt:104","V1","K",1/2-1/2,0.5,"repetition",85
+206,103,"/home/admingod/regicide-evalab-work/openings4.txt:103","V1","K",1/2-1/2,0.5,"repetition",125
+214,107,"/home/admingod/regicide-evalab-work/openings4.txt:107","V1","K",1/2-1/2,0.5,"repetition",87
+213,107,"/home/admingod/regicide-evalab-work/openings4.txt:107","K","V1",0-1,0,"no legal moves",68
+210,105,"/home/admingod/regicide-evalab-work/openings4.txt:105","V1","K",1/2-1/2,0.5,"repetition",151
+215,108,"/home/admingod/regicide-evalab-work/openings4.txt:108","K","V1",1/2-1/2,0.5,"repetition",88
+219,110,"/home/admingod/regicide-evalab-work/openings4.txt:110","K","V1",1/2-1/2,0.5,"repetition",105
+211,106,"/home/admingod/regicide-evalab-work/openings4.txt:106","K","V1",1/2-1/2,0.5,"repetition",129
+220,110,"/home/admingod/regicide-evalab-work/openings4.txt:110","V1","K",1/2-1/2,0.5,"repetition",78
+222,111,"/home/admingod/regicide-evalab-work/openings4.txt:111","V1","K",1/2-1/2,0.5,"repetition",84
+217,109,"/home/admingod/regicide-evalab-work/openings4.txt:109","K","V1",1/2-1/2,0.5,"repetition",89
+221,111,"/home/admingod/regicide-evalab-work/openings4.txt:111","K","V1",1/2-1/2,0.5,"repetition",90
+216,108,"/home/admingod/regicide-evalab-work/openings4.txt:108","V1","K",0-1,1,"no legal moves",70
+218,109,"/home/admingod/regicide-evalab-work/openings4.txt:109","V1","K",0-1,1,"no legal moves",66
+201,101,"/home/admingod/regicide-evalab-work/openings4.txt:101","K","V1",1/2-1/2,0.5,"no progress",177
+224,112,"/home/admingod/regicide-evalab-work/openings4.txt:112","V1","K",1/2-1/2,0.5,"repetition",99
+204,102,"/home/admingod/regicide-evalab-work/openings4.txt:102","V1","K",1/2-1/2,0.5,"no progress",178
+227,114,"/home/admingod/regicide-evalab-work/openings4.txt:114","K","V1",0-1,0,"no legal moves",60
+230,115,"/home/admingod/regicide-evalab-work/openings4.txt:115","V1","K",0-1,1,"no legal moves",64
+225,113,"/home/admingod/regicide-evalab-work/openings4.txt:113","K","V1",0-1,0,"no legal moves",68
+229,115,"/home/admingod/regicide-evalab-work/openings4.txt:115","K","V1",0-1,0,"no legal moves",114
+228,114,"/home/admingod/regicide-evalab-work/openings4.txt:114","V1","K",0-1,1,"no legal moves",86
+231,116,"/home/admingod/regicide-evalab-work/openings4.txt:116","K","V1",1-0,1,"no legal moves",89
+232,116,"/home/admingod/regicide-evalab-work/openings4.txt:116","V1","K",1-0,0,"no legal moves",53
+234,117,"/home/admingod/regicide-evalab-work/openings4.txt:117","V1","K",1/2-1/2,0.5,"repetition",91
+223,112,"/home/admingod/regicide-evalab-work/openings4.txt:112","K","V1",0-1,0,"no legal moves",122
+233,117,"/home/admingod/regicide-evalab-work/openings4.txt:117","K","V1",1/2-1/2,0.5,"repetition",85
+226,113,"/home/admingod/regicide-evalab-work/openings4.txt:113","V1","K",1/2-1/2,0.5,"repetition",121
+237,119,"/home/admingod/regicide-evalab-work/openings4.txt:119","K","V1",1/2-1/2,0.5,"repetition",74
+236,118,"/home/admingod/regicide-evalab-work/openings4.txt:118","V1","K",1/2-1/2,0.5,"repetition",81
+239,120,"/home/admingod/regicide-evalab-work/openings4.txt:120","K","V1",1/2-1/2,0.5,"repetition",99
+240,120,"/home/admingod/regicide-evalab-work/openings4.txt:120","V1","K",1/2-1/2,0.5,"repetition",87
+243,122,"/home/admingod/regicide-evalab-work/openings4.txt:122","K","V1",1/2-1/2,0.5,"repetition",63
+246,123,"/home/admingod/regicide-evalab-work/openings4.txt:123","V1","K",1/2-1/2,0.5,"repetition",77
+241,121,"/home/admingod/regicide-evalab-work/openings4.txt:121","K","V1",1-0,1,"no legal moves",187
+247,124,"/home/admingod/regicide-evalab-work/openings4.txt:124","K","V1",1/2-1/2,0.5,"repetition",91
+244,122,"/home/admingod/regicide-evalab-work/openings4.txt:122","V1","K",1/2-1/2,0.5,"repetition",85
+242,121,"/home/admingod/regicide-evalab-work/openings4.txt:121","V1","K",1-0,0,"no legal moves",127
+245,123,"/home/admingod/regicide-evalab-work/openings4.txt:123","K","V1",1/2-1/2,0.5,"repetition",99
+238,119,"/home/admingod/regicide-evalab-work/openings4.txt:119","V1","K",1/2-1/2,0.5,"repetition",107
+235,118,"/home/admingod/regicide-evalab-work/openings4.txt:118","K","V1",1/2-1/2,0.5,"repetition",129
+251,126,"/home/admingod/regicide-evalab-work/openings4.txt:126","K","V1",1/2-1/2,0.5,"repetition",79
+252,126,"/home/admingod/regicide-evalab-work/openings4.txt:126","V1","K",1/2-1/2,0.5,"repetition",69
+248,124,"/home/admingod/regicide-evalab-work/openings4.txt:124","V1","K",1/2-1/2,0.5,"repetition",53
+253,127,"/home/admingod/regicide-evalab-work/openings4.txt:127","K","V1",1-0,1,"no legal moves",55
+254,127,"/home/admingod/regicide-evalab-work/openings4.txt:127","V1","K",1-0,0,"no legal moves",107
+256,128,"/home/admingod/regicide-evalab-work/openings4.txt:128","V1","K",1-0,0,"no legal moves",141
+255,128,"/home/admingod/regicide-evalab-work/openings4.txt:128","K","V1",1-0,1,"no legal moves",135
+250,125,"/home/admingod/regicide-evalab-work/openings4.txt:125","V1","K",1/2-1/2,0.5,"repetition",117
+259,130,"/home/admingod/regicide-evalab-work/openings4.txt:130","K","V1",1/2-1/2,0.5,"repetition",83
+261,131,"/home/admingod/regicide-evalab-work/openings4.txt:131","K","V1",1/2-1/2,0.5,"repetition",61
+260,130,"/home/admingod/regicide-evalab-work/openings4.txt:130","V1","K",1/2-1/2,0.5,"repetition",91
+258,129,"/home/admingod/regicide-evalab-work/openings4.txt:129","V1","K",1-0,0,"no legal moves",99
+257,129,"/home/admingod/regicide-evalab-work/openings4.txt:129","K","V1",0-1,0,"no legal moves",102
+266,133,"/home/admingod/regicide-evalab-work/openings4.txt:133","V1","K",1/2-1/2,0.5,"repetition",79
+267,134,"/home/admingod/regicide-evalab-work/openings4.txt:134","K","V1",1/2-1/2,0.5,"repetition",89
+262,131,"/home/admingod/regicide-evalab-work/openings4.txt:131","V1","K",1/2-1/2,0.5,"repetition",53
+264,132,"/home/admingod/regicide-evalab-work/openings4.txt:132","V1","K",1/2-1/2,0.5,"repetition",52
+265,133,"/home/admingod/regicide-evalab-work/openings4.txt:133","K","V1",1-0,1,"no legal moves",135
+249,125,"/home/admingod/regicide-evalab-work/openings4.txt:125","K","V1",1/2-1/2,0.5,"repetition",159
+263,132,"/home/admingod/regicide-evalab-work/openings4.txt:132","K","V1",1/2-1/2,0.5,"repetition",98
+271,136,"/home/admingod/regicide-evalab-work/openings4.txt:136","K","V1",1/2-1/2,0.5,"repetition",79
+273,137,"/home/admingod/regicide-evalab-work/openings4.txt:137","K","V1",1/2-1/2,0.5,"repetition",86
+272,136,"/home/admingod/regicide-evalab-work/openings4.txt:136","V1","K",1/2-1/2,0.5,"repetition",83
+269,135,"/home/admingod/regicide-evalab-work/openings4.txt:135","K","V1",1-0,1,"no legal moves",137
+274,137,"/home/admingod/regicide-evalab-work/openings4.txt:137","V1","K",1/2-1/2,0.5,"repetition",85
+270,135,"/home/admingod/regicide-evalab-work/openings4.txt:135","V1","K",1-0,0,"no legal moves",165
+276,138,"/home/admingod/regicide-evalab-work/openings4.txt:138","V1","K",1/2-1/2,0.5,"repetition",83
+278,139,"/home/admingod/regicide-evalab-work/openings4.txt:139","V1","K",1/2-1/2,0.5,"repetition",78
+280,140,"/home/admingod/regicide-evalab-work/openings4.txt:140","V1","K",1/2-1/2,0.5,"repetition",73
+277,139,"/home/admingod/regicide-evalab-work/openings4.txt:139","K","V1",1/2-1/2,0.5,"repetition",106
+281,141,"/home/admingod/regicide-evalab-work/openings4.txt:141","K","V1",1/2-1/2,0.5,"repetition",89
+282,141,"/home/admingod/regicide-evalab-work/openings4.txt:141","V1","K",1/2-1/2,0.5,"repetition",77
+275,138,"/home/admingod/regicide-evalab-work/openings4.txt:138","K","V1",1/2-1/2,0.5,"repetition",130
+279,140,"/home/admingod/regicide-evalab-work/openings4.txt:140","K","V1",1-0,1,"no legal moves",173
+268,134,"/home/admingod/regicide-evalab-work/openings4.txt:134","V1","K",1/2-1/2,0.5,"repetition",167
+288,144,"/home/admingod/regicide-evalab-work/openings4.txt:144","V1","K",1/2-1/2,0.5,"repetition",76
+286,143,"/home/admingod/regicide-evalab-work/openings4.txt:143","V1","K",1/2-1/2,0.5,"repetition",84
+283,142,"/home/admingod/regicide-evalab-work/openings4.txt:142","K","V1",1-0,1,"no legal moves",69
+285,143,"/home/admingod/regicide-evalab-work/openings4.txt:143","K","V1",0-1,0,"no legal moves",82
+290,145,"/home/admingod/regicide-evalab-work/openings4.txt:145","V1","K",0-1,1,"no legal moves",92
+287,144,"/home/admingod/regicide-evalab-work/openings4.txt:144","K","V1",1/2-1/2,0.5,"repetition",87
+289,145,"/home/admingod/regicide-evalab-work/openings4.txt:145","K","V1",0-1,0,"no legal moves",76
+291,146,"/home/admingod/regicide-evalab-work/openings4.txt:146","K","V1",0-1,0,"no legal moves",84
+292,146,"/home/admingod/regicide-evalab-work/openings4.txt:146","V1","K",0-1,1,"no legal moves",118
+284,142,"/home/admingod/regicide-evalab-work/openings4.txt:142","V1","K",1/2-1/2,0.5,"repetition",121
+295,148,"/home/admingod/regicide-evalab-work/openings4.txt:148","K","V1",1-0,1,"no legal moves",109
+293,147,"/home/admingod/regicide-evalab-work/openings4.txt:147","K","V1",0-1,0,"no legal moves",108
+294,147,"/home/admingod/regicide-evalab-work/openings4.txt:147","V1","K",0-1,1,"no legal moves",78
+297,149,"/home/admingod/regicide-evalab-work/openings4.txt:149","K","V1",1-0,1,"no legal moves",129
+298,149,"/home/admingod/regicide-evalab-work/openings4.txt:149","V1","K",1-0,0,"no legal moves",133
+296,148,"/home/admingod/regicide-evalab-work/openings4.txt:148","V1","K",1-0,0,"no legal moves",131
+303,152,"/home/admingod/regicide-evalab-work/openings4.txt:152","K","V1",0-1,0,"no legal moves",102
+305,153,"/home/admingod/regicide-evalab-work/openings4.txt:153","K","V1",1-0,1,"no legal moves",125
+307,154,"/home/admingod/regicide-evalab-work/openings4.txt:154","K","V1",1/2-1/2,0.5,"repetition",72
+300,150,"/home/admingod/regicide-evalab-work/openings4.txt:150","V1","K",1-0,0,"no legal moves",147
+304,152,"/home/admingod/regicide-evalab-work/openings4.txt:152","V1","K",1-0,0,"no legal moves",133
+306,153,"/home/admingod/regicide-evalab-work/openings4.txt:153","V1","K",1-0,0,"no legal moves",125
+302,151,"/home/admingod/regicide-evalab-work/openings4.txt:151","V1","K",0-1,1,"no legal moves",126
+299,150,"/home/admingod/regicide-evalab-work/openings4.txt:150","K","V1",1/2-1/2,0.5,"repetition",127
+312,156,"/home/admingod/regicide-evalab-work/openings4.txt:156","V1","K",1/2-1/2,0.5,"repetition",89
+308,154,"/home/admingod/regicide-evalab-work/openings4.txt:154","V1","K",1-0,0,"no legal moves",165
+313,157,"/home/admingod/regicide-evalab-work/openings4.txt:157","K","V1",1-0,1,"no legal moves",117
+315,158,"/home/admingod/regicide-evalab-work/openings4.txt:158","K","V1",1-0,1,"no legal moves",131
+314,157,"/home/admingod/regicide-evalab-work/openings4.txt:157","V1","K",1-0,0,"no legal moves",123
+301,151,"/home/admingod/regicide-evalab-work/openings4.txt:151","K","V1",0-1,0,"no legal moves",186
+317,159,"/home/admingod/regicide-evalab-work/openings4.txt:159","K","V1",1/2-1/2,0.5,"repetition",83
+309,155,"/home/admingod/regicide-evalab-work/openings4.txt:155","K","V1",0-1,0,"no legal moves",132
+311,156,"/home/admingod/regicide-evalab-work/openings4.txt:156","K","V1",0-1,0,"no legal moves",180
+318,159,"/home/admingod/regicide-evalab-work/openings4.txt:159","V1","K",1/2-1/2,0.5,"repetition",115
+316,158,"/home/admingod/regicide-evalab-work/openings4.txt:158","V1","K",1-0,0,"no legal moves",127
+319,160,"/home/admingod/regicide-evalab-work/openings4.txt:160","K","V1",1/2-1/2,0.5,"repetition",71
+324,162,"/home/admingod/regicide-evalab-work/openings4.txt:162","V1","K",1/2-1/2,0.5,"repetition",77
+323,162,"/home/admingod/regicide-evalab-work/openings4.txt:162","K","V1",1/2-1/2,0.5,"repetition",99
+322,161,"/home/admingod/regicide-evalab-work/openings4.txt:161","V1","K",1/2-1/2,0.5,"repetition",99
+321,161,"/home/admingod/regicide-evalab-work/openings4.txt:161","K","V1",1-0,1,"no legal moves",111
+327,164,"/home/admingod/regicide-evalab-work/openings4.txt:164","K","V1",0-1,0,"no legal moves",94
+330,165,"/home/admingod/regicide-evalab-work/openings4.txt:165","V1","K",1/2-1/2,0.5,"repetition",86
+329,165,"/home/admingod/regicide-evalab-work/openings4.txt:165","K","V1",1/2-1/2,0.5,"repetition",84
+328,164,"/home/admingod/regicide-evalab-work/openings4.txt:164","V1","K",1-0,0,"no legal moves",113
+326,163,"/home/admingod/regicide-evalab-work/openings4.txt:163","V1","K",1/2-1/2,0.5,"repetition",124
+310,155,"/home/admingod/regicide-evalab-work/openings4.txt:155","V1","K",1/2-1/2,0.5,"repetition",145
+325,163,"/home/admingod/regicide-evalab-work/openings4.txt:163","K","V1",0-1,0,"no legal moves",108
+331,166,"/home/admingod/regicide-evalab-work/openings4.txt:166","K","V1",1/2-1/2,0.5,"repetition",70
+336,168,"/home/admingod/regicide-evalab-work/openings4.txt:168","V1","K",1/2-1/2,0.5,"repetition",90
+320,160,"/home/admingod/regicide-evalab-work/openings4.txt:160","V1","K",1-0,0,"no legal moves",141
+337,169,"/home/admingod/regicide-evalab-work/openings4.txt:169","K","V1",1-0,1,"no legal moves",49
+332,166,"/home/admingod/regicide-evalab-work/openings4.txt:166","V1","K",0-1,1,"no legal moves",98
+341,171,"/home/admingod/regicide-evalab-work/openings4.txt:171","K","V1",1/2-1/2,0.5,"repetition",70
+333,167,"/home/admingod/regicide-evalab-work/openings4.txt:167","K","V1",1/2-1/2,0.5,"repetition",103
+335,168,"/home/admingod/regicide-evalab-work/openings4.txt:168","K","V1",1-0,1,"no legal moves",127
+334,167,"/home/admingod/regicide-evalab-work/openings4.txt:167","V1","K",0-1,1,"no legal moves",128
+338,169,"/home/admingod/regicide-evalab-work/openings4.txt:169","V1","K",1-0,0,"no legal moves",85
+342,171,"/home/admingod/regicide-evalab-work/openings4.txt:171","V1","K",1/2-1/2,0.5,"repetition",104
+346,173,"/home/admingod/regicide-evalab-work/openings4.txt:173","V1","K",0-1,1,"no legal moves",46
+345,173,"/home/admingod/regicide-evalab-work/openings4.txt:173","K","V1",0-1,0,"no legal moves",56
+348,174,"/home/admingod/regicide-evalab-work/openings4.txt:174","V1","K",0-1,1,"no legal moves",64
+343,172,"/home/admingod/regicide-evalab-work/openings4.txt:172","K","V1",0-1,0,"no legal moves",116
+344,172,"/home/admingod/regicide-evalab-work/openings4.txt:172","V1","K",0-1,1,"no legal moves",92
+340,170,"/home/admingod/regicide-evalab-work/openings4.txt:170","V1","K",1/2-1/2,0.5,"repetition",115
+351,176,"/home/admingod/regicide-evalab-work/openings4.txt:176","K","V1",1/2-1/2,0.5,"repetition",73
+347,174,"/home/admingod/regicide-evalab-work/openings4.txt:174","K","V1",0-1,0,"no legal moves",88
+339,170,"/home/admingod/regicide-evalab-work/openings4.txt:170","K","V1",1/2-1/2,0.5,"repetition",156
+355,178,"/home/admingod/regicide-evalab-work/openings4.txt:178","K","V1",1/2-1/2,0.5,"repetition",95
+353,177,"/home/admingod/regicide-evalab-work/openings4.txt:177","K","V1",1/2-1/2,0.5,"repetition",87
+358,179,"/home/admingod/regicide-evalab-work/openings4.txt:179","V1","K",1/2-1/2,0.5,"repetition",82
+350,175,"/home/admingod/regicide-evalab-work/openings4.txt:175","V1","K",1/2-1/2,0.5,"repetition",98
+354,177,"/home/admingod/regicide-evalab-work/openings4.txt:177","V1","K",1/2-1/2,0.5,"repetition",100
+349,175,"/home/admingod/regicide-evalab-work/openings4.txt:175","K","V1",1-0,1,"no legal moves",159
+357,179,"/home/admingod/regicide-evalab-work/openings4.txt:179","K","V1",0-1,0,"no legal moves",136
+356,178,"/home/admingod/regicide-evalab-work/openings4.txt:178","V1","K",0-1,1,"no legal moves",144
+364,182,"/home/admingod/regicide-evalab-work/openings4.txt:182","V1","K",1/2-1/2,0.5,"repetition",68
+352,176,"/home/admingod/regicide-evalab-work/openings4.txt:176","V1","K",1/2-1/2,0.5,"repetition",96
+362,181,"/home/admingod/regicide-evalab-work/openings4.txt:181","V1","K",1-0,0,"no legal moves",149
+363,182,"/home/admingod/regicide-evalab-work/openings4.txt:182","K","V1",1/2-1/2,0.5,"repetition",64
+360,180,"/home/admingod/regicide-evalab-work/openings4.txt:180","V1","K",1/2-1/2,0.5,"repetition",78
+365,183,"/home/admingod/regicide-evalab-work/openings4.txt:183","K","V1",1/2-1/2,0.5,"repetition",73
+367,184,"/home/admingod/regicide-evalab-work/openings4.txt:184","K","V1",1/2-1/2,0.5,"repetition",85
+359,180,"/home/admingod/regicide-evalab-work/openings4.txt:180","K","V1",1/2-1/2,0.5,"repetition",87
+366,183,"/home/admingod/regicide-evalab-work/openings4.txt:183","V1","K",0-1,1,"no legal moves",78
+369,185,"/home/admingod/regicide-evalab-work/openings4.txt:185","K","V1",1/2-1/2,0.5,"repetition",43
+371,186,"/home/admingod/regicide-evalab-work/openings4.txt:186","K","V1",1/2-1/2,0.5,"repetition",113
+361,181,"/home/admingod/regicide-evalab-work/openings4.txt:181","K","V1",1/2-1/2,0.5,"repetition",86
+373,187,"/home/admingod/regicide-evalab-work/openings4.txt:187","K","V1",1-0,1,"no legal moves",57
+374,187,"/home/admingod/regicide-evalab-work/openings4.txt:187","V1","K",1-0,0,"no legal moves",137
+370,185,"/home/admingod/regicide-evalab-work/openings4.txt:185","V1","K",0-1,1,"no legal moves",98
+368,184,"/home/admingod/regicide-evalab-work/openings4.txt:184","V1","K",1/2-1/2,0.5,"repetition",113
+376,188,"/home/admingod/regicide-evalab-work/openings4.txt:188","V1","K",1/2-1/2,0.5,"repetition",87
+377,189,"/home/admingod/regicide-evalab-work/openings4.txt:189","K","V1",0-1,0,"no legal moves",84
+378,189,"/home/admingod/regicide-evalab-work/openings4.txt:189","V1","K",1-0,0,"no legal moves",197
+372,186,"/home/admingod/regicide-evalab-work/openings4.txt:186","V1","K",1-0,0,"no legal moves",105
+379,190,"/home/admingod/regicide-evalab-work/openings4.txt:190","K","V1",1/2-1/2,0.5,"repetition",103
+382,191,"/home/admingod/regicide-evalab-work/openings4.txt:191","V1","K",1/2-1/2,0.5,"repetition",78
+375,188,"/home/admingod/regicide-evalab-work/openings4.txt:188","K","V1",1-0,1,"no legal moves",153
+388,194,"/home/admingod/regicide-evalab-work/openings4.txt:194","V1","K",1/2-1/2,0.5,"repetition",82
+381,191,"/home/admingod/regicide-evalab-work/openings4.txt:191","K","V1",1/2-1/2,0.5,"repetition",124
+387,194,"/home/admingod/regicide-evalab-work/openings4.txt:194","K","V1",1/2-1/2,0.5,"repetition",99
+385,193,"/home/admingod/regicide-evalab-work/openings4.txt:193","K","V1",1/2-1/2,0.5,"repetition",116
+383,192,"/home/admingod/regicide-evalab-work/openings4.txt:192","K","V1",1/2-1/2,0.5,"repetition",117
+386,193,"/home/admingod/regicide-evalab-work/openings4.txt:193","V1","K",1/2-1/2,0.5,"repetition",92
+380,190,"/home/admingod/regicide-evalab-work/openings4.txt:190","V1","K",1/2-1/2,0.5,"repetition",109
+384,192,"/home/admingod/regicide-evalab-work/openings4.txt:192","V1","K",1/2-1/2,0.5,"repetition",74
+389,195,"/home/admingod/regicide-evalab-work/openings4.txt:195","K","V1",1-0,1,"no legal moves",75
+390,195,"/home/admingod/regicide-evalab-work/openings4.txt:195","V1","K",1/2-1/2,0.5,"repetition",99
+395,198,"/home/admingod/regicide-evalab-work/openings4.txt:198","K","V1",1/2-1/2,0.5,"repetition",81
+394,197,"/home/admingod/regicide-evalab-work/openings4.txt:197","V1","K",1/2-1/2,0.5,"repetition",65
+392,196,"/home/admingod/regicide-evalab-work/openings4.txt:196","V1","K",1/2-1/2,0.5,"repetition",99
+401,201,"/home/admingod/regicide-evalab-work/openings4.txt:201","K","V1",0-1,0,"no legal moves",82
+399,200,"/home/admingod/regicide-evalab-work/openings4.txt:200","K","V1",1/2-1/2,0.5,"repetition",76
+398,199,"/home/admingod/regicide-evalab-work/openings4.txt:199","V1","K",1-0,0,"no legal moves",133
+393,197,"/home/admingod/regicide-evalab-work/openings4.txt:197","K","V1",1/2-1/2,0.5,"repetition",117
+402,201,"/home/admingod/regicide-evalab-work/openings4.txt:201","V1","K",0-1,1,"no legal moves",124
+403,202,"/home/admingod/regicide-evalab-work/openings4.txt:202","K","V1",0-1,0,"no legal moves",122
+397,199,"/home/admingod/regicide-evalab-work/openings4.txt:199","K","V1",1/2-1/2,0.5,"repetition",104
+400,200,"/home/admingod/regicide-evalab-work/openings4.txt:200","V1","K",1-0,0,"no legal moves",121
+396,198,"/home/admingod/regicide-evalab-work/openings4.txt:198","V1","K",1/2-1/2,0.5,"repetition",131
+405,203,"/home/admingod/regicide-evalab-work/openings4.txt:203","K","V1",0-1,0,"no legal moves",76
+404,202,"/home/admingod/regicide-evalab-work/openings4.txt:202","V1","K",0-1,1,"no legal moves",90
+408,204,"/home/admingod/regicide-evalab-work/openings4.txt:204","V1","K",1-0,0,"no legal moves",117
+406,203,"/home/admingod/regicide-evalab-work/openings4.txt:203","V1","K",0-1,1,"no legal moves",94
+409,205,"/home/admingod/regicide-evalab-work/openings4.txt:205","K","V1",1-0,1,"no legal moves",109
+411,206,"/home/admingod/regicide-evalab-work/openings4.txt:206","K","V1",1-0,1,"no legal moves",53
+412,206,"/home/admingod/regicide-evalab-work/openings4.txt:206","V1","K",1-0,0,"no legal moves",123
+391,196,"/home/admingod/regicide-evalab-work/openings4.txt:196","K","V1",1/2-1/2,0.5,"no progress",159
+407,204,"/home/admingod/regicide-evalab-work/openings4.txt:204","K","V1",1-0,1,"no legal moves",131
+413,207,"/home/admingod/regicide-evalab-work/openings4.txt:207","K","V1",1-0,1,"no legal moves",129
+410,205,"/home/admingod/regicide-evalab-work/openings4.txt:205","V1","K",1-0,0,"no legal moves",125
+414,207,"/home/admingod/regicide-evalab-work/openings4.txt:207","V1","K",1-0,0,"no legal moves",125
+420,210,"/home/admingod/regicide-evalab-work/openings4.txt:210","V1","K",0-1,1,"no legal moves",102
+415,208,"/home/admingod/regicide-evalab-work/openings4.txt:208","K","V1",1-0,1,"no legal moves",155
+422,211,"/home/admingod/regicide-evalab-work/openings4.txt:211","V1","K",1/2-1/2,0.5,"repetition",87
+421,211,"/home/admingod/regicide-evalab-work/openings4.txt:211","K","V1",1/2-1/2,0.5,"repetition",85
+417,209,"/home/admingod/regicide-evalab-work/openings4.txt:209","K","V1",1-0,1,"no legal moves",139
+418,209,"/home/admingod/regicide-evalab-work/openings4.txt:209","V1","K",1-0,0,"no legal moves",137
+424,212,"/home/admingod/regicide-evalab-work/openings4.txt:212","V1","K",1/2-1/2,0.5,"repetition",70
+426,213,"/home/admingod/regicide-evalab-work/openings4.txt:213","V1","K",1/2-1/2,0.5,"repetition",71
+425,213,"/home/admingod/regicide-evalab-work/openings4.txt:213","K","V1",1/2-1/2,0.5,"repetition",70
+419,210,"/home/admingod/regicide-evalab-work/openings4.txt:210","K","V1",0-1,0,"no legal moves",114
+423,212,"/home/admingod/regicide-evalab-work/openings4.txt:212","K","V1",0-1,0,"no legal moves",110
+416,208,"/home/admingod/regicide-evalab-work/openings4.txt:208","V1","K",1-0,0,"no legal moves",135
+433,217,"/home/admingod/regicide-evalab-work/openings4.txt:217","K","V1",0-1,0,"no legal moves",146
+428,214,"/home/admingod/regicide-evalab-work/openings4.txt:214","V1","K",0-1,1,"no legal moves",72
+429,215,"/home/admingod/regicide-evalab-work/openings4.txt:215","K","V1",1-0,1,"no legal moves",131
+436,218,"/home/admingod/regicide-evalab-work/openings4.txt:218","V1","K",1/2-1/2,0.5,"repetition",81
+438,219,"/home/admingod/regicide-evalab-work/openings4.txt:219","V1","K",1/2-1/2,0.5,"repetition",83
+439,220,"/home/admingod/regicide-evalab-work/openings4.txt:220","K","V1",1/2-1/2,0.5,"repetition",82
+434,217,"/home/admingod/regicide-evalab-work/openings4.txt:217","V1","K",0-1,1,"no legal moves",74
+427,214,"/home/admingod/regicide-evalab-work/openings4.txt:214","K","V1",0-1,0,"no legal moves",112
+431,216,"/home/admingod/regicide-evalab-work/openings4.txt:216","K","V1",1/2-1/2,0.5,"repetition",123
+441,221,"/home/admingod/regicide-evalab-work/openings4.txt:221","K","V1",1/2-1/2,0.5,"repetition",79
+435,218,"/home/admingod/regicide-evalab-work/openings4.txt:218","K","V1",1/2-1/2,0.5,"repetition",92
+442,221,"/home/admingod/regicide-evalab-work/openings4.txt:221","V1","K",1/2-1/2,0.5,"repetition",87
+437,219,"/home/admingod/regicide-evalab-work/openings4.txt:219","K","V1",0-1,0,"no legal moves",80
+440,220,"/home/admingod/regicide-evalab-work/openings4.txt:220","V1","K",1-0,0,"no legal moves",77
+445,223,"/home/admingod/regicide-evalab-work/openings4.txt:223","K","V1",1/2-1/2,0.5,"repetition",84
+432,216,"/home/admingod/regicide-evalab-work/openings4.txt:216","V1","K",1/2-1/2,0.5,"repetition",159
+430,215,"/home/admingod/regicide-evalab-work/openings4.txt:215","V1","K",1/2-1/2,0.5,"repetition",148
+447,224,"/home/admingod/regicide-evalab-work/openings4.txt:224","K","V1",1/2-1/2,0.5,"repetition",65
+450,225,"/home/admingod/regicide-evalab-work/openings4.txt:225","V1","K",1/2-1/2,0.5,"repetition",75
+449,225,"/home/admingod/regicide-evalab-work/openings4.txt:225","K","V1",1/2-1/2,0.5,"repetition",79
+443,222,"/home/admingod/regicide-evalab-work/openings4.txt:222","K","V1",1-0,1,"no legal moves",99
+446,223,"/home/admingod/regicide-evalab-work/openings4.txt:223","V1","K",1-0,0,"no legal moves",127
+448,224,"/home/admingod/regicide-evalab-work/openings4.txt:224","V1","K",1/2-1/2,0.5,"repetition",99
+455,228,"/home/admingod/regicide-evalab-work/openings4.txt:228","K","V1",1/2-1/2,0.5,"repetition",65
+444,222,"/home/admingod/regicide-evalab-work/openings4.txt:222","V1","K",0-1,1,"no legal moves",94
+454,227,"/home/admingod/regicide-evalab-work/openings4.txt:227","V1","K",1/2-1/2,0.5,"repetition",76
+453,227,"/home/admingod/regicide-evalab-work/openings4.txt:227","K","V1",0-1,0,"no legal moves",68
+459,230,"/home/admingod/regicide-evalab-work/openings4.txt:230","K","V1",1/2-1/2,0.5,"repetition",73
+452,226,"/home/admingod/regicide-evalab-work/openings4.txt:226","V1","K",1-0,0,"no legal moves",113
+460,230,"/home/admingod/regicide-evalab-work/openings4.txt:230","V1","K",1/2-1/2,0.5,"repetition",47
+458,229,"/home/admingod/regicide-evalab-work/openings4.txt:229","V1","K",1/2-1/2,0.5,"repetition",83
+451,226,"/home/admingod/regicide-evalab-work/openings4.txt:226","K","V1",1-0,1,"no legal moves",153
+463,232,"/home/admingod/regicide-evalab-work/openings4.txt:232","K","V1",1/2-1/2,0.5,"repetition",75
+456,228,"/home/admingod/regicide-evalab-work/openings4.txt:228","V1","K",1/2-1/2,0.5,"repetition",107
+466,233,"/home/admingod/regicide-evalab-work/openings4.txt:233","V1","K",1/2-1/2,0.5,"repetition",85
+457,229,"/home/admingod/regicide-evalab-work/openings4.txt:229","K","V1",1/2-1/2,0.5,"repetition",123
+464,232,"/home/admingod/regicide-evalab-work/openings4.txt:232","V1","K",1/2-1/2,0.5,"repetition",65
+467,234,"/home/admingod/regicide-evalab-work/openings4.txt:234","K","V1",1/2-1/2,0.5,"repetition",97
+462,231,"/home/admingod/regicide-evalab-work/openings4.txt:231","V1","K",1/2-1/2,0.5,"repetition",88
+474,237,"/home/admingod/regicide-evalab-work/openings4.txt:237","V1","K",1/2-1/2,0.5,"repetition",103
+465,233,"/home/admingod/regicide-evalab-work/openings4.txt:233","K","V1",0-1,0,"no legal moves",102
+468,234,"/home/admingod/regicide-evalab-work/openings4.txt:234","V1","K",1-0,0,"no legal moves",127
+469,235,"/home/admingod/regicide-evalab-work/openings4.txt:235","K","V1",1-0,1,"no legal moves",137
+472,236,"/home/admingod/regicide-evalab-work/openings4.txt:236","V1","K",1/2-1/2,0.5,"repetition",102
+471,236,"/home/admingod/regicide-evalab-work/openings4.txt:236","K","V1",1/2-1/2,0.5,"repetition",94
+461,231,"/home/admingod/regicide-evalab-work/openings4.txt:231","K","V1",1-0,1,"no legal moves",191
+470,235,"/home/admingod/regicide-evalab-work/openings4.txt:235","V1","K",1/2-1/2,0.5,"repetition",101
+481,241,"/home/admingod/regicide-evalab-work/openings4.txt:241","K","V1",1/2-1/2,0.5,"repetition",68
+479,240,"/home/admingod/regicide-evalab-work/openings4.txt:240","K","V1",0-1,0,"no legal moves",68
+480,240,"/home/admingod/regicide-evalab-work/openings4.txt:240","V1","K",0-1,1,"no legal moves",128
+477,239,"/home/admingod/regicide-evalab-work/openings4.txt:239","K","V1",1/2-1/2,0.5,"repetition",94
+476,238,"/home/admingod/regicide-evalab-work/openings4.txt:238","V1","K",1/2-1/2,0.5,"repetition",103
+482,241,"/home/admingod/regicide-evalab-work/openings4.txt:241","V1","K",1/2-1/2,0.5,"repetition",93
+478,239,"/home/admingod/regicide-evalab-work/openings4.txt:239","V1","K",1/2-1/2,0.5,"repetition",104
+473,237,"/home/admingod/regicide-evalab-work/openings4.txt:237","K","V1",1-0,1,"no legal moves",123
+475,238,"/home/admingod/regicide-evalab-work/openings4.txt:238","K","V1",1/2-1/2,0.5,"repetition",100
+487,244,"/home/admingod/regicide-evalab-work/openings4.txt:244","K","V1",1/2-1/2,0.5,"repetition",77
+483,242,"/home/admingod/regicide-evalab-work/openings4.txt:242","K","V1",1/2-1/2,0.5,"repetition",107
+485,243,"/home/admingod/regicide-evalab-work/openings4.txt:243","K","V1",1/2-1/2,0.5,"repetition",118
+488,244,"/home/admingod/regicide-evalab-work/openings4.txt:244","V1","K",1/2-1/2,0.5,"repetition",112
+494,247,"/home/admingod/regicide-evalab-work/openings4.txt:247","V1","K",1/2-1/2,0.5,"repetition",74
+490,245,"/home/admingod/regicide-evalab-work/openings4.txt:245","V1","K",1/2-1/2,0.5,"repetition",105
+491,246,"/home/admingod/regicide-evalab-work/openings4.txt:246","K","V1",0-1,0,"no legal moves",114
+493,247,"/home/admingod/regicide-evalab-work/openings4.txt:247","K","V1",1/2-1/2,0.5,"repetition",76
+484,242,"/home/admingod/regicide-evalab-work/openings4.txt:242","V1","K",1-0,0,"no legal moves",163
+492,246,"/home/admingod/regicide-evalab-work/openings4.txt:246","V1","K",0-1,1,"no legal moves",146
+486,243,"/home/admingod/regicide-evalab-work/openings4.txt:243","V1","K",1-0,0,"no legal moves",137
+499,250,"/home/admingod/regicide-evalab-work/openings4.txt:250","K","V1",1/2-1/2,0.5,"repetition",61
+489,245,"/home/admingod/regicide-evalab-work/openings4.txt:245","K","V1",1/2-1/2,0.5,"repetition",149
+500,250,"/home/admingod/regicide-evalab-work/openings4.txt:250","V1","K",1/2-1/2,0.5,"repetition",101
+501,251,"/home/admingod/regicide-evalab-work/openings4.txt:251","K","V1",1/2-1/2,0.5,"repetition",69
+496,248,"/home/admingod/regicide-evalab-work/openings4.txt:248","V1","K",0-1,1,"no legal moves",150
+497,249,"/home/admingod/regicide-evalab-work/openings4.txt:249","K","V1",1/2-1/2,0.5,"repetition",82
+498,249,"/home/admingod/regicide-evalab-work/openings4.txt:249","V1","K",1-0,0,"no legal moves",155
+495,248,"/home/admingod/regicide-evalab-work/openings4.txt:248","K","V1",1-0,1,"no legal moves",171
+504,252,"/home/admingod/regicide-evalab-work/openings4.txt:252","V1","K",1/2-1/2,0.5,"repetition",107
+507,254,"/home/admingod/regicide-evalab-work/openings4.txt:254","K","V1",1/2-1/2,0.5,"repetition",113
+503,252,"/home/admingod/regicide-evalab-work/openings4.txt:252","K","V1",0-1,0,"no legal moves",94
+508,254,"/home/admingod/regicide-evalab-work/openings4.txt:254","V1","K",1-0,0,"no legal moves",133
+506,253,"/home/admingod/regicide-evalab-work/openings4.txt:253","V1","K",1-0,0,"no legal moves",165
+502,251,"/home/admingod/regicide-evalab-work/openings4.txt:251","V1","K",1-0,0,"no legal moves",91
+505,253,"/home/admingod/regicide-evalab-work/openings4.txt:253","K","V1",1-0,1,"no legal moves",149
+514,257,"/home/admingod/regicide-evalab-work/openings4.txt:257","V1","K",1/2-1/2,0.5,"repetition",73
+513,257,"/home/admingod/regicide-evalab-work/openings4.txt:257","K","V1",1/2-1/2,0.5,"repetition",70
+509,255,"/home/admingod/regicide-evalab-work/openings4.txt:255","K","V1",1-0,1,"no legal moves",135
+515,258,"/home/admingod/regicide-evalab-work/openings4.txt:258","K","V1",1/2-1/2,0.5,"repetition",87
+516,258,"/home/admingod/regicide-evalab-work/openings4.txt:258","V1","K",1/2-1/2,0.5,"repetition",95
+519,260,"/home/admingod/regicide-evalab-work/openings4.txt:260","K","V1",1/2-1/2,0.5,"repetition",86
+518,259,"/home/admingod/regicide-evalab-work/openings4.txt:259","V1","K",1/2-1/2,0.5,"repetition",75
+510,255,"/home/admingod/regicide-evalab-work/openings4.txt:255","V1","K",1-0,0,"no legal moves",109
+523,262,"/home/admingod/regicide-evalab-work/openings4.txt:262","K","V1",1/2-1/2,0.5,"repetition",84
+512,256,"/home/admingod/regicide-evalab-work/openings4.txt:256","V1","K",1/2-1/2,0.5,"repetition",106
+520,260,"/home/admingod/regicide-evalab-work/openings4.txt:260","V1","K",1/2-1/2,0.5,"repetition",95
+522,261,"/home/admingod/regicide-evalab-work/openings4.txt:261","V1","K",1/2-1/2,0.5,"repetition",69
+517,259,"/home/admingod/regicide-evalab-work/openings4.txt:259","K","V1",1-0,1,"no legal moves",155
+526,263,"/home/admingod/regicide-evalab-work/openings4.txt:263","V1","K",1/2-1/2,0.5,"repetition",65
+528,264,"/home/admingod/regicide-evalab-work/openings4.txt:264","V1","K",1/2-1/2,0.5,"repetition",65
+524,262,"/home/admingod/regicide-evalab-work/openings4.txt:262","V1","K",0-1,1,"no legal moves",86
+525,263,"/home/admingod/regicide-evalab-work/openings4.txt:263","K","V1",1/2-1/2,0.5,"repetition",97
+530,265,"/home/admingod/regicide-evalab-work/openings4.txt:265","V1","K",1/2-1/2,0.5,"repetition",92
+529,265,"/home/admingod/regicide-evalab-work/openings4.txt:265","K","V1",0-1,0,"no legal moves",130
+535,268,"/home/admingod/regicide-evalab-work/openings4.txt:268","K","V1",1/2-1/2,0.5,"repetition",86
+527,264,"/home/admingod/regicide-evalab-work/openings4.txt:264","K","V1",1/2-1/2,0.5,"repetition",100
+536,268,"/home/admingod/regicide-evalab-work/openings4.txt:268","V1","K",1/2-1/2,0.5,"repetition",93
+521,261,"/home/admingod/regicide-evalab-work/openings4.txt:261","K","V1",0-1,0,"no legal moves",158
+531,266,"/home/admingod/regicide-evalab-work/openings4.txt:266","K","V1",1/2-1/2,0.5,"repetition",95
+537,269,"/home/admingod/regicide-evalab-work/openings4.txt:269","K","V1",1-0,1,"no legal moves",143
+532,266,"/home/admingod/regicide-evalab-work/openings4.txt:266","V1","K",1-0,0,"no legal moves",141
+538,269,"/home/admingod/regicide-evalab-work/openings4.txt:269","V1","K",1-0,0,"no legal moves",177
+543,272,"/home/admingod/regicide-evalab-work/openings4.txt:272","K","V1",1/2-1/2,0.5,"repetition",68
+511,256,"/home/admingod/regicide-evalab-work/openings4.txt:256","K","V1",1/2-1/2,0.5,"no progress",179
+534,267,"/home/admingod/regicide-evalab-work/openings4.txt:267","V1","K",1/2-1/2,0.5,"repetition",124
+542,271,"/home/admingod/regicide-evalab-work/openings4.txt:271","V1","K",1/2-1/2,0.5,"repetition",87
+541,271,"/home/admingod/regicide-evalab-work/openings4.txt:271","K","V1",0-1,0,"no legal moves",106
+547,274,"/home/admingod/regicide-evalab-work/openings4.txt:274","K","V1",1/2-1/2,0.5,"repetition",75
+544,272,"/home/admingod/regicide-evalab-work/openings4.txt:272","V1","K",1/2-1/2,0.5,"repetition",70
+546,273,"/home/admingod/regicide-evalab-work/openings4.txt:273","V1","K",1/2-1/2,0.5,"repetition",63
+540,270,"/home/admingod/regicide-evalab-work/openings4.txt:270","V1","K",1-0,0,"no legal moves",149
+545,273,"/home/admingod/regicide-evalab-work/openings4.txt:273","K","V1",1/2-1/2,0.5,"repetition",84
+548,274,"/home/admingod/regicide-evalab-work/openings4.txt:274","V1","K",1/2-1/2,0.5,"repetition",64
+549,275,"/home/admingod/regicide-evalab-work/openings4.txt:275","K","V1",1-0,1,"no legal moves",143
+539,270,"/home/admingod/regicide-evalab-work/openings4.txt:270","K","V1",1-0,1,"no legal moves",167
+553,277,"/home/admingod/regicide-evalab-work/openings4.txt:277","K","V1",1/2-1/2,0.5,"repetition",86
+555,278,"/home/admingod/regicide-evalab-work/openings4.txt:278","K","V1",1/2-1/2,0.5,"repetition",95
+552,276,"/home/admingod/regicide-evalab-work/openings4.txt:276","V1","K",1-0,0,"no legal moves",139
+556,278,"/home/admingod/regicide-evalab-work/openings4.txt:278","V1","K",1/2-1/2,0.5,"repetition",83
+550,275,"/home/admingod/regicide-evalab-work/openings4.txt:275","V1","K",1-0,0,"no legal moves",135
+558,279,"/home/admingod/regicide-evalab-work/openings4.txt:279","V1","K",1/2-1/2,0.5,"repetition",75
+551,276,"/home/admingod/regicide-evalab-work/openings4.txt:276","K","V1",1-0,1,"no legal moves",123
+554,277,"/home/admingod/regicide-evalab-work/openings4.txt:277","V1","K",1/2-1/2,0.5,"repetition",100
+559,280,"/home/admingod/regicide-evalab-work/openings4.txt:280","K","V1",1/2-1/2,0.5,"repetition",85
+560,280,"/home/admingod/regicide-evalab-work/openings4.txt:280","V1","K",1-0,0,"no legal moves",59
+557,279,"/home/admingod/regicide-evalab-work/openings4.txt:279","K","V1",1-0,1,"no legal moves",143
+566,283,"/home/admingod/regicide-evalab-work/openings4.txt:283","V1","K",1/2-1/2,0.5,"repetition",70
+533,267,"/home/admingod/regicide-evalab-work/openings4.txt:267","K","V1",1/2-1/2,0.5,"no progress",187
+563,282,"/home/admingod/regicide-evalab-work/openings4.txt:282","K","V1",1-0,1,"no legal moves",151
+561,281,"/home/admingod/regicide-evalab-work/openings4.txt:281","K","V1",1-0,1,"no legal moves",63
+562,281,"/home/admingod/regicide-evalab-work/openings4.txt:281","V1","K",1-0,0,"no legal moves",141
+564,282,"/home/admingod/regicide-evalab-work/openings4.txt:282","V1","K",1-0,0,"no legal moves",85
+565,283,"/home/admingod/regicide-evalab-work/openings4.txt:283","K","V1",1-0,1,"no legal moves",113
+569,285,"/home/admingod/regicide-evalab-work/openings4.txt:285","K","V1",1/2-1/2,0.5,"repetition",81
+570,285,"/home/admingod/regicide-evalab-work/openings4.txt:285","V1","K",1/2-1/2,0.5,"repetition",81
+568,284,"/home/admingod/regicide-evalab-work/openings4.txt:284","V1","K",1-0,0,"no legal moves",133
+572,286,"/home/admingod/regicide-evalab-work/openings4.txt:286","V1","K",1/2-1/2,0.5,"repetition",97
+567,284,"/home/admingod/regicide-evalab-work/openings4.txt:284","K","V1",1-0,1,"no legal moves",161
+574,287,"/home/admingod/regicide-evalab-work/openings4.txt:287","V1","K",1/2-1/2,0.5,"repetition",120
+576,288,"/home/admingod/regicide-evalab-work/openings4.txt:288","V1","K",1-0,0,"no legal moves",55
+575,288,"/home/admingod/regicide-evalab-work/openings4.txt:288","K","V1",1-0,1,"no legal moves",63
+581,291,"/home/admingod/regicide-evalab-work/openings4.txt:291","K","V1",1/2-1/2,0.5,"repetition",56
+571,286,"/home/admingod/regicide-evalab-work/openings4.txt:286","K","V1",1-0,1,"no legal moves",139
+578,289,"/home/admingod/regicide-evalab-work/openings4.txt:289","V1","K",1/2-1/2,0.5,"repetition",112
+583,292,"/home/admingod/regicide-evalab-work/openings4.txt:292","K","V1",1/2-1/2,0.5,"repetition",93
+582,291,"/home/admingod/regicide-evalab-work/openings4.txt:291","V1","K",1/2-1/2,0.5,"repetition",101
+573,287,"/home/admingod/regicide-evalab-work/openings4.txt:287","K","V1",1-0,1,"no legal moves",107
+577,289,"/home/admingod/regicide-evalab-work/openings4.txt:289","K","V1",1-0,1,"no legal moves",99
+579,290,"/home/admingod/regicide-evalab-work/openings4.txt:290","K","V1",1-0,1,"no legal moves",167
+588,294,"/home/admingod/regicide-evalab-work/openings4.txt:294","V1","K",1/2-1/2,0.5,"repetition",91
+585,293,"/home/admingod/regicide-evalab-work/openings4.txt:293","K","V1",0-1,0,"no legal moves",60
+584,292,"/home/admingod/regicide-evalab-work/openings4.txt:292","V1","K",0-1,1,"no legal moves",98
+589,295,"/home/admingod/regicide-evalab-work/openings4.txt:295","K","V1",1-0,1,"no legal moves",147
+587,294,"/home/admingod/regicide-evalab-work/openings4.txt:294","K","V1",1-0,1,"no legal moves",147
+586,293,"/home/admingod/regicide-evalab-work/openings4.txt:293","V1","K",0-1,1,"no legal moves",142
+591,296,"/home/admingod/regicide-evalab-work/openings4.txt:296","K","V1",1-0,1,"no legal moves",125
+580,290,"/home/admingod/regicide-evalab-work/openings4.txt:290","V1","K",0-1,1,"no legal moves",146
+594,297,"/home/admingod/regicide-evalab-work/openings4.txt:297","V1","K",1-0,0,"no legal moves",127
+593,297,"/home/admingod/regicide-evalab-work/openings4.txt:297","K","V1",1-0,1,"no legal moves",123
+592,296,"/home/admingod/regicide-evalab-work/openings4.txt:296","V1","K",1-0,0,"no legal moves",75
+590,295,"/home/admingod/regicide-evalab-work/openings4.txt:295","V1","K",1-0,0,"no legal moves",127
+597,299,"/home/admingod/regicide-evalab-work/openings4.txt:299","K","V1",1/2-1/2,0.5,"repetition",88
+595,298,"/home/admingod/regicide-evalab-work/openings4.txt:298","K","V1",1-0,1,"no legal moves",143
+598,299,"/home/admingod/regicide-evalab-work/openings4.txt:299","V1","K",1/2-1/2,0.5,"repetition",88
+601,301,"/home/admingod/regicide-evalab-work/openings4.txt:301","K","V1",1-0,1,"no legal moves",127
+599,300,"/home/admingod/regicide-evalab-work/openings4.txt:300","K","V1",1-0,1,"no legal moves",85
+600,300,"/home/admingod/regicide-evalab-work/openings4.txt:300","V1","K",1-0,0,"no legal moves",123
+596,298,"/home/admingod/regicide-evalab-work/openings4.txt:298","V1","K",1-0,0,"no legal moves",151
+605,303,"/home/admingod/regicide-evalab-work/openings4.txt:303","K","V1",1/2-1/2,0.5,"repetition",69
+606,303,"/home/admingod/regicide-evalab-work/openings4.txt:303","V1","K",1/2-1/2,0.5,"repetition",91
+603,302,"/home/admingod/regicide-evalab-work/openings4.txt:302","K","V1",1-0,1,"no legal moves",145
+604,302,"/home/admingod/regicide-evalab-work/openings4.txt:302","V1","K",1-0,0,"no legal moves",145
+602,301,"/home/admingod/regicide-evalab-work/openings4.txt:301","V1","K",1-0,0,"no legal moves",195
+610,305,"/home/admingod/regicide-evalab-work/openings4.txt:305","V1","K",1/2-1/2,0.5,"repetition",87
+609,305,"/home/admingod/regicide-evalab-work/openings4.txt:305","K","V1",1/2-1/2,0.5,"repetition",84
+608,304,"/home/admingod/regicide-evalab-work/openings4.txt:304","V1","K",1/2-1/2,0.5,"repetition",97
+607,304,"/home/admingod/regicide-evalab-work/openings4.txt:304","K","V1",1/2-1/2,0.5,"repetition",101
+618,309,"/home/admingod/regicide-evalab-work/openings4.txt:309","V1","K",1/2-1/2,0.5,"repetition",73
+617,309,"/home/admingod/regicide-evalab-work/openings4.txt:309","K","V1",1/2-1/2,0.5,"repetition",81
+613,307,"/home/admingod/regicide-evalab-work/openings4.txt:307","K","V1",1-0,1,"no legal moves",153
+616,308,"/home/admingod/regicide-evalab-work/openings4.txt:308","V1","K",1/2-1/2,0.5,"repetition",83
+619,310,"/home/admingod/regicide-evalab-work/openings4.txt:310","K","V1",1/2-1/2,0.5,"repetition",65
+612,306,"/home/admingod/regicide-evalab-work/openings4.txt:306","V1","K",1-0,0,"no legal moves",149
+625,313,"/home/admingod/regicide-evalab-work/openings4.txt:313","K","V1",1/2-1/2,0.5,"repetition",93
+611,306,"/home/admingod/regicide-evalab-work/openings4.txt:306","K","V1",1-0,1,"no legal moves",181
+622,311,"/home/admingod/regicide-evalab-work/openings4.txt:311","V1","K",1/2-1/2,0.5,"repetition",62
+624,312,"/home/admingod/regicide-evalab-work/openings4.txt:312","V1","K",1-0,0,"no legal moves",181
+615,308,"/home/admingod/regicide-evalab-work/openings4.txt:308","K","V1",0-1,0,"no legal moves",118
+627,314,"/home/admingod/regicide-evalab-work/openings4.txt:314","K","V1",1/2-1/2,0.5,"repetition",79
+620,310,"/home/admingod/regicide-evalab-work/openings4.txt:310","V1","K",0-1,1,"no legal moves",136
+628,314,"/home/admingod/regicide-evalab-work/openings4.txt:314","V1","K",1-0,0,"no legal moves",49
+621,311,"/home/admingod/regicide-evalab-work/openings4.txt:311","K","V1",1-0,1,"no legal moves",179
+623,312,"/home/admingod/regicide-evalab-work/openings4.txt:312","K","V1",0-1,0,"no legal moves",128
+633,317,"/home/admingod/regicide-evalab-work/openings4.txt:317","K","V1",0-1,0,"no legal moves",132
+634,317,"/home/admingod/regicide-evalab-work/openings4.txt:317","V1","K",0-1,1,"no legal moves",54
+632,316,"/home/admingod/regicide-evalab-work/openings4.txt:316","V1","K",0-1,1,"no legal moves",74
+631,316,"/home/admingod/regicide-evalab-work/openings4.txt:316","K","V1",0-1,0,"no legal moves",68
+630,315,"/home/admingod/regicide-evalab-work/openings4.txt:315","V1","K",0-1,1,"no legal moves",78
+635,318,"/home/admingod/regicide-evalab-work/openings4.txt:318","K","V1",0-1,0,"no legal moves",82
+614,307,"/home/admingod/regicide-evalab-work/openings4.txt:307","V1","K",1/2-1/2,0.5,"no progress",190
+636,318,"/home/admingod/regicide-evalab-work/openings4.txt:318","V1","K",0-1,1,"no legal moves",96
+638,319,"/home/admingod/regicide-evalab-work/openings4.txt:319","V1","K",1-0,0,"no legal moves",127
+639,320,"/home/admingod/regicide-evalab-work/openings4.txt:320","K","V1",1/2-1/2,0.5,"repetition",66
+629,315,"/home/admingod/regicide-evalab-work/openings4.txt:315","K","V1",1/2-1/2,0.5,"repetition",151
+637,319,"/home/admingod/regicide-evalab-work/openings4.txt:319","K","V1",1-0,1,"no legal moves",135
+641,321,"/home/admingod/regicide-evalab-work/openings4.txt:321","K","V1",1/2-1/2,0.5,"repetition",79
+642,321,"/home/admingod/regicide-evalab-work/openings4.txt:321","V1","K",1-0,0,"no legal moves",157
+626,313,"/home/admingod/regicide-evalab-work/openings4.txt:313","V1","K",0-1,1,"no legal moves",188
+643,322,"/home/admingod/regicide-evalab-work/openings4.txt:322","K","V1",0-1,0,"no legal moves",80
+647,324,"/home/admingod/regicide-evalab-work/openings4.txt:324","K","V1",1/2-1/2,0.5,"repetition",101
+644,322,"/home/admingod/regicide-evalab-work/openings4.txt:322","V1","K",0-1,1,"no legal moves",76
+648,324,"/home/admingod/regicide-evalab-work/openings4.txt:324","V1","K",1/2-1/2,0.5,"repetition",78
+646,323,"/home/admingod/regicide-evalab-work/openings4.txt:323","V1","K",1-0,0,"no legal moves",151
+640,320,"/home/admingod/regicide-evalab-work/openings4.txt:320","V1","K",1/2-1/2,0.5,"repetition",133
+650,325,"/home/admingod/regicide-evalab-work/openings4.txt:325","V1","K",1/2-1/2,0.5,"repetition",73
+652,326,"/home/admingod/regicide-evalab-work/openings4.txt:326","V1","K",1/2-1/2,0.5,"repetition",86
+649,325,"/home/admingod/regicide-evalab-work/openings4.txt:325","K","V1",1/2-1/2,0.5,"repetition",84
+645,323,"/home/admingod/regicide-evalab-work/openings4.txt:323","K","V1",1-0,1,"no legal moves",157
+654,327,"/home/admingod/regicide-evalab-work/openings4.txt:327","V1","K",1-0,0,"no legal moves",121
+651,326,"/home/admingod/regicide-evalab-work/openings4.txt:326","K","V1",0-1,0,"no legal moves",68
+656,328,"/home/admingod/regicide-evalab-work/openings4.txt:328","V1","K",1-0,0,"no legal moves",127
+660,330,"/home/admingod/regicide-evalab-work/openings4.txt:330","V1","K",1/2-1/2,0.5,"repetition",80
+655,328,"/home/admingod/regicide-evalab-work/openings4.txt:328","K","V1",1-0,1,"no legal moves",71
+663,332,"/home/admingod/regicide-evalab-work/openings4.txt:332","K","V1",1/2-1/2,0.5,"repetition",73
+653,327,"/home/admingod/regicide-evalab-work/openings4.txt:327","K","V1",1-0,1,"no legal moves",121
+661,331,"/home/admingod/regicide-evalab-work/openings4.txt:331","K","V1",1/2-1/2,0.5,"repetition",108
+658,329,"/home/admingod/regicide-evalab-work/openings4.txt:329","V1","K",1-0,0,"no legal moves",147
+659,330,"/home/admingod/regicide-evalab-work/openings4.txt:330","K","V1",1-0,1,"no legal moves",139
+665,333,"/home/admingod/regicide-evalab-work/openings4.txt:333","K","V1",1/2-1/2,0.5,"repetition",76
+668,334,"/home/admingod/regicide-evalab-work/openings4.txt:334","V1","K",1/2-1/2,0.5,"repetition",84
+662,331,"/home/admingod/regicide-evalab-work/openings4.txt:331","V1","K",1/2-1/2,0.5,"repetition",100
+657,329,"/home/admingod/regicide-evalab-work/openings4.txt:329","K","V1",1/2-1/2,0.5,"repetition",123
+664,332,"/home/admingod/regicide-evalab-work/openings4.txt:332","V1","K",1-0,0,"no legal moves",121
+671,336,"/home/admingod/regicide-evalab-work/openings4.txt:336","K","V1",1/2-1/2,0.5,"repetition",108
+670,335,"/home/admingod/regicide-evalab-work/openings4.txt:335","V1","K",1-0,0,"no legal moves",71
+666,333,"/home/admingod/regicide-evalab-work/openings4.txt:333","V1","K",1/2-1/2,0.5,"repetition",105
+673,337,"/home/admingod/regicide-evalab-work/openings4.txt:337","K","V1",1/2-1/2,0.5,"repetition",68
+675,338,"/home/admingod/regicide-evalab-work/openings4.txt:338","K","V1",1/2-1/2,0.5,"repetition",83
+669,335,"/home/admingod/regicide-evalab-work/openings4.txt:335","K","V1",1-0,1,"no legal moves",137
+674,337,"/home/admingod/regicide-evalab-work/openings4.txt:337","V1","K",1-0,0,"no legal moves",117
+676,338,"/home/admingod/regicide-evalab-work/openings4.txt:338","V1","K",1-0,0,"no legal moves",147
+667,334,"/home/admingod/regicide-evalab-work/openings4.txt:334","K","V1",1/2-1/2,0.5,"repetition",110
+680,340,"/home/admingod/regicide-evalab-work/openings4.txt:340","V1","K",1/2-1/2,0.5,"repetition",83
+677,339,"/home/admingod/regicide-evalab-work/openings4.txt:339","K","V1",1-0,1,"no legal moves",123
+672,336,"/home/admingod/regicide-evalab-work/openings4.txt:336","V1","K",1/2-1/2,0.5,"repetition",107
+678,339,"/home/admingod/regicide-evalab-work/openings4.txt:339","V1","K",1-0,0,"no legal moves",65
+681,341,"/home/admingod/regicide-evalab-work/openings4.txt:341","K","V1",1-0,1,"no legal moves",119
+683,342,"/home/admingod/regicide-evalab-work/openings4.txt:342","K","V1",0-1,0,"no legal moves",84
+682,341,"/home/admingod/regicide-evalab-work/openings4.txt:341","V1","K",1-0,0,"no legal moves",119
+684,342,"/home/admingod/regicide-evalab-work/openings4.txt:342","V1","K",0-1,1,"no legal moves",62
+688,344,"/home/admingod/regicide-evalab-work/openings4.txt:344","V1","K",1/2-1/2,0.5,"repetition",73
+679,340,"/home/admingod/regicide-evalab-work/openings4.txt:340","K","V1",0-1,0,"no legal moves",144
+687,344,"/home/admingod/regicide-evalab-work/openings4.txt:344","K","V1",1/2-1/2,0.5,"repetition",96
+685,343,"/home/admingod/regicide-evalab-work/openings4.txt:343","K","V1",0-1,0,"no legal moves",108
+690,345,"/home/admingod/regicide-evalab-work/openings4.txt:345","V1","K",1/2-1/2,0.5,"repetition",63
+686,343,"/home/admingod/regicide-evalab-work/openings4.txt:343","V1","K",0-1,1,"no legal moves",84
+689,345,"/home/admingod/regicide-evalab-work/openings4.txt:345","K","V1",1/2-1/2,0.5,"repetition",101
+695,348,"/home/admingod/regicide-evalab-work/openings4.txt:348","K","V1",0-1,0,"no legal moves",68
+691,346,"/home/admingod/regicide-evalab-work/openings4.txt:346","K","V1",0-1,0,"no legal moves",76
+693,347,"/home/admingod/regicide-evalab-work/openings4.txt:347","K","V1",1/2-1/2,0.5,"repetition",107
+694,347,"/home/admingod/regicide-evalab-work/openings4.txt:347","V1","K",1/2-1/2,0.5,"repetition",95
+697,349,"/home/admingod/regicide-evalab-work/openings4.txt:349","K","V1",1-0,1,"no legal moves",115
+698,349,"/home/admingod/regicide-evalab-work/openings4.txt:349","V1","K",1-0,0,"no legal moves",85
+699,350,"/home/admingod/regicide-evalab-work/openings4.txt:350","K","V1",1-0,1,"no legal moves",137
+700,350,"/home/admingod/regicide-evalab-work/openings4.txt:350","V1","K",1-0,0,"no legal moves",57
+702,351,"/home/admingod/regicide-evalab-work/openings4.txt:351","V1","K",1-0,0,"no legal moves",53
+696,348,"/home/admingod/regicide-evalab-work/openings4.txt:348","V1","K",0-1,1,"no legal moves",102
+704,352,"/home/admingod/regicide-evalab-work/openings4.txt:352","V1","K",1-0,0,"no legal moves",59
+703,352,"/home/admingod/regicide-evalab-work/openings4.txt:352","K","V1",1-0,1,"no legal moves",129
+701,351,"/home/admingod/regicide-evalab-work/openings4.txt:351","K","V1",1-0,1,"no legal moves",69
+712,356,"/home/admingod/regicide-evalab-work/openings4.txt:356","V1","K",1/2-1/2,0.5,"repetition",67
+706,353,"/home/admingod/regicide-evalab-work/openings4.txt:353","V1","K",1-0,0,"no legal moves",145
+711,356,"/home/admingod/regicide-evalab-work/openings4.txt:356","K","V1",1/2-1/2,0.5,"repetition",86
+707,354,"/home/admingod/regicide-evalab-work/openings4.txt:354","K","V1",1-0,1,"no legal moves",141
+709,355,"/home/admingod/regicide-evalab-work/openings4.txt:355","K","V1",0-1,0,"no legal moves",72
+692,346,"/home/admingod/regicide-evalab-work/openings4.txt:346","V1","K",1/2-1/2,0.5,"repetition",161
+705,353,"/home/admingod/regicide-evalab-work/openings4.txt:353","K","V1",1-0,1,"no legal moves",191
+714,357,"/home/admingod/regicide-evalab-work/openings4.txt:357","V1","K",1-0,0,"no legal moves",63
+715,358,"/home/admingod/regicide-evalab-work/openings4.txt:358","K","V1",1/2-1/2,0.5,"repetition",62
+713,357,"/home/admingod/regicide-evalab-work/openings4.txt:357","K","V1",0-1,0,"no legal moves",130
+718,359,"/home/admingod/regicide-evalab-work/openings4.txt:359","V1","K",1/2-1/2,0.5,"repetition",91
+710,355,"/home/admingod/regicide-evalab-work/openings4.txt:355","V1","K",1-0,0,"no legal moves",101
+708,354,"/home/admingod/regicide-evalab-work/openings4.txt:354","V1","K",1-0,0,"no legal moves",163
+716,358,"/home/admingod/regicide-evalab-work/openings4.txt:358","V1","K",1-0,0,"no legal moves",67
+721,361,"/home/admingod/regicide-evalab-work/openings4.txt:361","K","V1",1/2-1/2,0.5,"repetition",85
+717,359,"/home/admingod/regicide-evalab-work/openings4.txt:359","K","V1",0-1,0,"no legal moves",68
+720,360,"/home/admingod/regicide-evalab-work/openings4.txt:360","V1","K",1/2-1/2,0.5,"repetition",85
+726,363,"/home/admingod/regicide-evalab-work/openings4.txt:363","V1","K",1/2-1/2,0.5,"repetition",99
+725,363,"/home/admingod/regicide-evalab-work/openings4.txt:363","K","V1",1/2-1/2,0.5,"repetition",99
+728,364,"/home/admingod/regicide-evalab-work/openings4.txt:364","V1","K",1/2-1/2,0.5,"repetition",83
+724,362,"/home/admingod/regicide-evalab-work/openings4.txt:362","V1","K",0-1,1,"no legal moves",116
+722,361,"/home/admingod/regicide-evalab-work/openings4.txt:361","V1","K",0-1,1,"no legal moves",72
+730,365,"/home/admingod/regicide-evalab-work/openings4.txt:365","V1","K",0-1,1,"no legal moves",60
+723,362,"/home/admingod/regicide-evalab-work/openings4.txt:362","K","V1",0-1,0,"no legal moves",82
+727,364,"/home/admingod/regicide-evalab-work/openings4.txt:364","K","V1",0-1,0,"no legal moves",116
+731,366,"/home/admingod/regicide-evalab-work/openings4.txt:366","K","V1",1/2-1/2,0.5,"repetition",90
+729,365,"/home/admingod/regicide-evalab-work/openings4.txt:365","K","V1",0-1,0,"no legal moves",84
+732,366,"/home/admingod/regicide-evalab-work/openings4.txt:366","V1","K",1/2-1/2,0.5,"repetition",85
+737,369,"/home/admingod/regicide-evalab-work/openings4.txt:369","K","V1",1/2-1/2,0.5,"repetition",71
+733,367,"/home/admingod/regicide-evalab-work/openings4.txt:367","K","V1",1-0,1,"no legal moves",119
+734,367,"/home/admingod/regicide-evalab-work/openings4.txt:367","V1","K",1-0,0,"no legal moves",137
+735,368,"/home/admingod/regicide-evalab-work/openings4.txt:368","K","V1",1-0,1,"no legal moves",173
+736,368,"/home/admingod/regicide-evalab-work/openings4.txt:368","V1","K",1-0,0,"no legal moves",129
+719,360,"/home/admingod/regicide-evalab-work/openings4.txt:360","K","V1",0-1,0,"no legal moves",200
+741,371,"/home/admingod/regicide-evalab-work/openings4.txt:371","K","V1",1/2-1/2,0.5,"repetition",70
+744,372,"/home/admingod/regicide-evalab-work/openings4.txt:372","V1","K",1/2-1/2,0.5,"repetition",91
+739,370,"/home/admingod/regicide-evalab-work/openings4.txt:370","K","V1",1/2-1/2,0.5,"repetition",103
+740,370,"/home/admingod/regicide-evalab-work/openings4.txt:370","V1","K",0-1,1,"no legal moves",132
+743,372,"/home/admingod/regicide-evalab-work/openings4.txt:372","K","V1",1/2-1/2,0.5,"repetition",84
+742,371,"/home/admingod/regicide-evalab-work/openings4.txt:371","V1","K",0-1,1,"no legal moves",84
+747,374,"/home/admingod/regicide-evalab-work/openings4.txt:374","K","V1",0-1,0,"no legal moves",88
+746,373,"/home/admingod/regicide-evalab-work/openings4.txt:373","V1","K",1/2-1/2,0.5,"repetition",85
+748,374,"/home/admingod/regicide-evalab-work/openings4.txt:374","V1","K",1/2-1/2,0.5,"repetition",97
+753,377,"/home/admingod/regicide-evalab-work/openings4.txt:377","K","V1",1/2-1/2,0.5,"repetition",68
+749,375,"/home/admingod/regicide-evalab-work/openings4.txt:375","K","V1",0-1,0,"no legal moves",146
+738,369,"/home/admingod/regicide-evalab-work/openings4.txt:369","V1","K",1/2-1/2,0.5,"repetition",183
+745,373,"/home/admingod/regicide-evalab-work/openings4.txt:373","K","V1",1/2-1/2,0.5,"repetition",144
+750,375,"/home/admingod/regicide-evalab-work/openings4.txt:375","V1","K",1-0,0,"no legal moves",147
+757,379,"/home/admingod/regicide-evalab-work/openings4.txt:379","K","V1",1/2-1/2,0.5,"repetition",64
+756,378,"/home/admingod/regicide-evalab-work/openings4.txt:378","V1","K",1/2-1/2,0.5,"repetition",99
+752,376,"/home/admingod/regicide-evalab-work/openings4.txt:376","V1","K",1-0,0,"no legal moves",167
+760,380,"/home/admingod/regicide-evalab-work/openings4.txt:380","V1","K",1/2-1/2,0.5,"repetition",71
+751,376,"/home/admingod/regicide-evalab-work/openings4.txt:376","K","V1",1-0,1,"no legal moves",143
+762,381,"/home/admingod/regicide-evalab-work/openings4.txt:381","V1","K",1/2-1/2,0.5,"repetition",70
+754,377,"/home/admingod/regicide-evalab-work/openings4.txt:377","V1","K",1-0,0,"no legal moves",145
+759,380,"/home/admingod/regicide-evalab-work/openings4.txt:380","K","V1",1-0,1,"no legal moves",131
+758,379,"/home/admingod/regicide-evalab-work/openings4.txt:379","V1","K",0-1,1,"no legal moves",102
+767,384,"/home/admingod/regicide-evalab-work/openings4.txt:384","K","V1",1/2-1/2,0.5,"repetition",68
+761,381,"/home/admingod/regicide-evalab-work/openings4.txt:381","K","V1",1/2-1/2,0.5,"repetition",107
+764,382,"/home/admingod/regicide-evalab-work/openings4.txt:382","V1","K",1-0,0,"no legal moves",131
+763,382,"/home/admingod/regicide-evalab-work/openings4.txt:382","K","V1",0-1,0,"no legal moves",66
+766,383,"/home/admingod/regicide-evalab-work/openings4.txt:383","V1","K",1-0,0,"no legal moves",85
+768,384,"/home/admingod/regicide-evalab-work/openings4.txt:384","V1","K",1/2-1/2,0.5,"repetition",74
+765,383,"/home/admingod/regicide-evalab-work/openings4.txt:383","K","V1",1-0,1,"no legal moves",105
+771,386,"/home/admingod/regicide-evalab-work/openings4.txt:386","K","V1",0-1,0,"no legal moves",132
+755,378,"/home/admingod/regicide-evalab-work/openings4.txt:378","K","V1",1/2-1/2,0.5,"no progress",144
+776,388,"/home/admingod/regicide-evalab-work/openings4.txt:388","V1","K",1/2-1/2,0.5,"repetition",91
+770,385,"/home/admingod/regicide-evalab-work/openings4.txt:385","V1","K",1/2-1/2,0.5,"repetition",103
+772,386,"/home/admingod/regicide-evalab-work/openings4.txt:386","V1","K",0-1,1,"no legal moves",130
+773,387,"/home/admingod/regicide-evalab-work/openings4.txt:387","K","V1",1-0,1,"no legal moves",117
+777,389,"/home/admingod/regicide-evalab-work/openings4.txt:389","K","V1",0-1,0,"no legal moves",98
+774,387,"/home/admingod/regicide-evalab-work/openings4.txt:387","V1","K",1-0,0,"no legal moves",165
+769,385,"/home/admingod/regicide-evalab-work/openings4.txt:385","K","V1",1/2-1/2,0.5,"repetition",142
+778,389,"/home/admingod/regicide-evalab-work/openings4.txt:389","V1","K",0-1,1,"no legal moves",84
+780,390,"/home/admingod/regicide-evalab-work/openings4.txt:390","V1","K",1/2-1/2,0.5,"repetition",70
+782,391,"/home/admingod/regicide-evalab-work/openings4.txt:391","V1","K",1/2-1/2,0.5,"repetition",83
+781,391,"/home/admingod/regicide-evalab-work/openings4.txt:391","K","V1",1/2-1/2,0.5,"repetition",65
+783,392,"/home/admingod/regicide-evalab-work/openings4.txt:392","K","V1",1/2-1/2,0.5,"repetition",79
+775,388,"/home/admingod/regicide-evalab-work/openings4.txt:388","K","V1",0-1,0,"no legal moves",148
+784,392,"/home/admingod/regicide-evalab-work/openings4.txt:392","V1","K",1/2-1/2,0.5,"repetition",62
+786,393,"/home/admingod/regicide-evalab-work/openings4.txt:393","V1","K",1-0,0,"no legal moves",135
+787,394,"/home/admingod/regicide-evalab-work/openings4.txt:394","K","V1",1-0,1,"no legal moves",127
+779,390,"/home/admingod/regicide-evalab-work/openings4.txt:390","K","V1",1/2-1/2,0.5,"repetition",105
+785,393,"/home/admingod/regicide-evalab-work/openings4.txt:393","K","V1",1-0,1,"no legal moves",53
+789,395,"/home/admingod/regicide-evalab-work/openings4.txt:395","K","V1",1/2-1/2,0.5,"repetition",85
+792,396,"/home/admingod/regicide-evalab-work/openings4.txt:396","V1","K",1/2-1/2,0.5,"repetition",61
+790,395,"/home/admingod/regicide-evalab-work/openings4.txt:395","V1","K",1/2-1/2,0.5,"repetition",94
+791,396,"/home/admingod/regicide-evalab-work/openings4.txt:396","K","V1",1/2-1/2,0.5,"repetition",85
+797,399,"/home/admingod/regicide-evalab-work/openings4.txt:399","K","V1",1/2-1/2,0.5,"repetition",59
+793,397,"/home/admingod/regicide-evalab-work/openings4.txt:397","K","V1",1/2-1/2,0.5,"repetition",120
+795,398,"/home/admingod/regicide-evalab-work/openings4.txt:398","K","V1",1-0,1,"no legal moves",101
+794,397,"/home/admingod/regicide-evalab-work/openings4.txt:397","V1","K",1/2-1/2,0.5,"repetition",83
+788,394,"/home/admingod/regicide-evalab-work/openings4.txt:394","V1","K",1/2-1/2,0.5,"repetition",131
+798,399,"/home/admingod/regicide-evalab-work/openings4.txt:399","V1","K",1/2-1/2,0.5,"repetition",74
+796,398,"/home/admingod/regicide-evalab-work/openings4.txt:398","V1","K",1/2-1/2,0.5,"repetition",108
+799,400,"/home/admingod/regicide-evalab-work/openings4.txt:400","K","V1",1-0,1,"no legal moves",63
+801,401,"/home/admingod/regicide-evalab-work/openings4.txt:401","K","V1",1/2-1/2,0.5,"repetition",81
+803,402,"/home/admingod/regicide-evalab-work/openings4.txt:402","K","V1",1/2-1/2,0.5,"repetition",93
+802,401,"/home/admingod/regicide-evalab-work/openings4.txt:401","V1","K",1/2-1/2,0.5,"repetition",76
+805,403,"/home/admingod/regicide-evalab-work/openings4.txt:403","K","V1",1/2-1/2,0.5,"repetition",95
+800,400,"/home/admingod/regicide-evalab-work/openings4.txt:400","V1","K",1/2-1/2,0.5,"repetition",106
+806,403,"/home/admingod/regicide-evalab-work/openings4.txt:403","V1","K",1/2-1/2,0.5,"repetition",104
+808,404,"/home/admingod/regicide-evalab-work/openings4.txt:404","V1","K",1/2-1/2,0.5,"repetition",93
+811,406,"/home/admingod/regicide-evalab-work/openings4.txt:406","K","V1",1/2-1/2,0.5,"repetition",66
+812,406,"/home/admingod/regicide-evalab-work/openings4.txt:406","V1","K",1/2-1/2,0.5,"repetition",79
+809,405,"/home/admingod/regicide-evalab-work/openings4.txt:405","K","V1",0-1,0,"no legal moves",72
+814,407,"/home/admingod/regicide-evalab-work/openings4.txt:407","V1","K",0-1,1,"no legal moves",118
+810,405,"/home/admingod/regicide-evalab-work/openings4.txt:405","V1","K",0-1,1,"no legal moves",82
+804,402,"/home/admingod/regicide-evalab-work/openings4.txt:402","V1","K",1-0,0,"no legal moves",163
+817,409,"/home/admingod/regicide-evalab-work/openings4.txt:409","K","V1",1/2-1/2,0.5,"repetition",82
+813,407,"/home/admingod/regicide-evalab-work/openings4.txt:407","K","V1",0-1,0,"no legal moves",148
+816,408,"/home/admingod/regicide-evalab-work/openings4.txt:408","V1","K",1/2-1/2,0.5,"repetition",73
+815,408,"/home/admingod/regicide-evalab-work/openings4.txt:408","K","V1",1/2-1/2,0.5,"repetition",68
+818,409,"/home/admingod/regicide-evalab-work/openings4.txt:409","V1","K",1-0,0,"no legal moves",63
+825,413,"/home/admingod/regicide-evalab-work/openings4.txt:413","K","V1",1/2-1/2,0.5,"repetition",63
+819,410,"/home/admingod/regicide-evalab-work/openings4.txt:410","K","V1",1-0,1,"no legal moves",63
+824,412,"/home/admingod/regicide-evalab-work/openings4.txt:412","V1","K",1/2-1/2,0.5,"repetition",78
+820,410,"/home/admingod/regicide-evalab-work/openings4.txt:410","V1","K",1-0,0,"no legal moves",67
+823,412,"/home/admingod/regicide-evalab-work/openings4.txt:412","K","V1",1/2-1/2,0.5,"repetition",52
+821,411,"/home/admingod/regicide-evalab-work/openings4.txt:411","K","V1",1-0,1,"no legal moves",151
+807,404,"/home/admingod/regicide-evalab-work/openings4.txt:404","K","V1",1/2-1/2,0.5,"repetition",183
+822,411,"/home/admingod/regicide-evalab-work/openings4.txt:411","V1","K",1-0,0,"no legal moves",87
+830,415,"/home/admingod/regicide-evalab-work/openings4.txt:415","V1","K",1/2-1/2,0.5,"repetition",76
+826,413,"/home/admingod/regicide-evalab-work/openings4.txt:413","V1","K",1/2-1/2,0.5,"repetition",86
+828,414,"/home/admingod/regicide-evalab-work/openings4.txt:414","V1","K",1/2-1/2,0.5,"repetition",75
+827,414,"/home/admingod/regicide-evalab-work/openings4.txt:414","K","V1",1/2-1/2,0.5,"repetition",101
+837,419,"/home/admingod/regicide-evalab-work/openings4.txt:419","K","V1",1/2-1/2,0.5,"repetition",93
+829,415,"/home/admingod/regicide-evalab-work/openings4.txt:415","K","V1",1/2-1/2,0.5,"repetition",101
+832,416,"/home/admingod/regicide-evalab-work/openings4.txt:416","V1","K",1-0,0,"no legal moves",125
+835,418,"/home/admingod/regicide-evalab-work/openings4.txt:418","K","V1",1/2-1/2,0.5,"repetition",93
+833,417,"/home/admingod/regicide-evalab-work/openings4.txt:417","K","V1",1/2-1/2,0.5,"repetition",73
+831,416,"/home/admingod/regicide-evalab-work/openings4.txt:416","K","V1",1-0,1,"no legal moves",73
+834,417,"/home/admingod/regicide-evalab-work/openings4.txt:417","V1","K",1/2-1/2,0.5,"repetition",48
+836,418,"/home/admingod/regicide-evalab-work/openings4.txt:418","V1","K",1-0,0,"no legal moves",61
+842,421,"/home/admingod/regicide-evalab-work/openings4.txt:421","V1","K",0-1,1,"no legal moves",66
+845,423,"/home/admingod/regicide-evalab-work/openings4.txt:423","K","V1",1/2-1/2,0.5,"repetition",65
+840,420,"/home/admingod/regicide-evalab-work/openings4.txt:420","V1","K",0-1,1,"no legal moves",82
+841,421,"/home/admingod/regicide-evalab-work/openings4.txt:421","K","V1",0-1,0,"no legal moves",70
+844,422,"/home/admingod/regicide-evalab-work/openings4.txt:422","V1","K",0-1,1,"no legal moves",88
+839,420,"/home/admingod/regicide-evalab-work/openings4.txt:420","K","V1",0-1,0,"no legal moves",104
+838,419,"/home/admingod/regicide-evalab-work/openings4.txt:419","V1","K",1-0,0,"no legal moves",151
+846,423,"/home/admingod/regicide-evalab-work/openings4.txt:423","V1","K",1/2-1/2,0.5,"repetition",93
+843,422,"/home/admingod/regicide-evalab-work/openings4.txt:422","K","V1",0-1,0,"no legal moves",114
+852,426,"/home/admingod/regicide-evalab-work/openings4.txt:426","V1","K",1/2-1/2,0.5,"repetition",80
+847,424,"/home/admingod/regicide-evalab-work/openings4.txt:424","K","V1",1/2-1/2,0.5,"repetition",97
+848,424,"/home/admingod/regicide-evalab-work/openings4.txt:424","V1","K",1/2-1/2,0.5,"repetition",91
+851,426,"/home/admingod/regicide-evalab-work/openings4.txt:426","K","V1",1/2-1/2,0.5,"repetition",93
+853,427,"/home/admingod/regicide-evalab-work/openings4.txt:427","K","V1",1/2-1/2,0.5,"repetition",103
+850,425,"/home/admingod/regicide-evalab-work/openings4.txt:425","V1","K",1-0,0,"no legal moves",157
+849,425,"/home/admingod/regicide-evalab-work/openings4.txt:425","K","V1",1-0,1,"no legal moves",149
+856,428,"/home/admingod/regicide-evalab-work/openings4.txt:428","V1","K",1-0,0,"no legal moves",129
+860,430,"/home/admingod/regicide-evalab-work/openings4.txt:430","V1","K",1-0,0,"no legal moves",45
+857,429,"/home/admingod/regicide-evalab-work/openings4.txt:429","K","V1",1/2-1/2,0.5,"repetition",82
+855,428,"/home/admingod/regicide-evalab-work/openings4.txt:428","K","V1",1-0,1,"no legal moves",147
+861,431,"/home/admingod/regicide-evalab-work/openings4.txt:431","K","V1",1-0,1,"no legal moves",131
+859,430,"/home/admingod/regicide-evalab-work/openings4.txt:430","K","V1",1-0,1,"no legal moves",117
+854,427,"/home/admingod/regicide-evalab-work/openings4.txt:427","V1","K",0-1,1,"no legal moves",130
+862,431,"/home/admingod/regicide-evalab-work/openings4.txt:431","V1","K",1/2-1/2,0.5,"repetition",67
+865,433,"/home/admingod/regicide-evalab-work/openings4.txt:433","K","V1",1/2-1/2,0.5,"repetition",79
+868,434,"/home/admingod/regicide-evalab-work/openings4.txt:434","V1","K",1/2-1/2,0.5,"repetition",81
+858,429,"/home/admingod/regicide-evalab-work/openings4.txt:429","V1","K",0-1,1,"no legal moves",98
+864,432,"/home/admingod/regicide-evalab-work/openings4.txt:432","V1","K",1/2-1/2,0.5,"repetition",134
+870,435,"/home/admingod/regicide-evalab-work/openings4.txt:435","V1","K",1/2-1/2,0.5,"repetition",101
+863,432,"/home/admingod/regicide-evalab-work/openings4.txt:432","K","V1",1-0,1,"no legal moves",137
+867,434,"/home/admingod/regicide-evalab-work/openings4.txt:434","K","V1",1-0,1,"no legal moves",131
+873,437,"/home/admingod/regicide-evalab-work/openings4.txt:437","K","V1",1/2-1/2,0.5,"repetition",91
+872,436,"/home/admingod/regicide-evalab-work/openings4.txt:436","V1","K",1-0,0,"no legal moves",139
+866,433,"/home/admingod/regicide-evalab-work/openings4.txt:433","V1","K",1/2-1/2,0.5,"repetition",149
+878,439,"/home/admingod/regicide-evalab-work/openings4.txt:439","V1","K",1/2-1/2,0.5,"repetition",68
+869,435,"/home/admingod/regicide-evalab-work/openings4.txt:435","K","V1",1/2-1/2,0.5,"repetition",119
+874,437,"/home/admingod/regicide-evalab-work/openings4.txt:437","V1","K",1/2-1/2,0.5,"repetition",119
+881,441,"/home/admingod/regicide-evalab-work/openings4.txt:441","K","V1",1/2-1/2,0.5,"repetition",64
+883,442,"/home/admingod/regicide-evalab-work/openings4.txt:442","K","V1",1/2-1/2,0.5,"repetition",84
+879,440,"/home/admingod/regicide-evalab-work/openings4.txt:440","K","V1",0-1,0,"no legal moves",84
+876,438,"/home/admingod/regicide-evalab-work/openings4.txt:438","V1","K",1-0,0,"no legal moves",165
+875,438,"/home/admingod/regicide-evalab-work/openings4.txt:438","K","V1",1-0,1,"no legal moves",157
+871,436,"/home/admingod/regicide-evalab-work/openings4.txt:436","K","V1",1-0,1,"no legal moves",147
+880,440,"/home/admingod/regicide-evalab-work/openings4.txt:440","V1","K",0-1,1,"no legal moves",68
+886,443,"/home/admingod/regicide-evalab-work/openings4.txt:443","V1","K",1/2-1/2,0.5,"repetition",89
+877,439,"/home/admingod/regicide-evalab-work/openings4.txt:439","K","V1",0-1,0,"no legal moves",146
+887,444,"/home/admingod/regicide-evalab-work/openings4.txt:444","K","V1",0-1,0,"no legal moves",116
+888,444,"/home/admingod/regicide-evalab-work/openings4.txt:444","V1","K",0-1,1,"no legal moves",102
+884,442,"/home/admingod/regicide-evalab-work/openings4.txt:442","V1","K",0-1,1,"no legal moves",114
+885,443,"/home/admingod/regicide-evalab-work/openings4.txt:443","K","V1",1/2-1/2,0.5,"repetition",95
+890,445,"/home/admingod/regicide-evalab-work/openings4.txt:445","V1","K",0-1,1,"no legal moves",62
+891,446,"/home/admingod/regicide-evalab-work/openings4.txt:446","K","V1",1/2-1/2,0.5,"repetition",81
+889,445,"/home/admingod/regicide-evalab-work/openings4.txt:445","K","V1",0-1,0,"no legal moves",88
+893,447,"/home/admingod/regicide-evalab-work/openings4.txt:447","K","V1",1/2-1/2,0.5,"repetition",66
+894,447,"/home/admingod/regicide-evalab-work/openings4.txt:447","V1","K",1/2-1/2,0.5,"repetition",73
+898,449,"/home/admingod/regicide-evalab-work/openings4.txt:449","V1","K",1/2-1/2,0.5,"repetition",74
+892,446,"/home/admingod/regicide-evalab-work/openings4.txt:446","V1","K",1-0,0,"no legal moves",131
+899,450,"/home/admingod/regicide-evalab-work/openings4.txt:450","K","V1",1-0,1,"no legal moves",145
+896,448,"/home/admingod/regicide-evalab-work/openings4.txt:448","V1","K",0-1,1,"no legal moves",74
+895,448,"/home/admingod/regicide-evalab-work/openings4.txt:448","K","V1",1-0,1,"no legal moves",143
+882,441,"/home/admingod/regicide-evalab-work/openings4.txt:441","V1","K",1-0,0,"no legal moves",179
+900,450,"/home/admingod/regicide-evalab-work/openings4.txt:450","V1","K",1-0,0,"no legal moves",165
+903,452,"/home/admingod/regicide-evalab-work/openings4.txt:452","K","V1",1/2-1/2,0.5,"repetition",86
+897,449,"/home/admingod/regicide-evalab-work/openings4.txt:449","K","V1",0-1,0,"no legal moves",92
+902,451,"/home/admingod/regicide-evalab-work/openings4.txt:451","V1","K",1-0,0,"no legal moves",129
+907,454,"/home/admingod/regicide-evalab-work/openings4.txt:454","K","V1",1/2-1/2,0.5,"repetition",70
+901,451,"/home/admingod/regicide-evalab-work/openings4.txt:451","K","V1",1/2-1/2,0.5,"repetition",114
+908,454,"/home/admingod/regicide-evalab-work/openings4.txt:454","V1","K",1/2-1/2,0.5,"repetition",99
+904,452,"/home/admingod/regicide-evalab-work/openings4.txt:452","V1","K",1-0,0,"no legal moves",173
+910,455,"/home/admingod/regicide-evalab-work/openings4.txt:455","V1","K",0-1,1,"no legal moves",78
+905,453,"/home/admingod/regicide-evalab-work/openings4.txt:453","K","V1",1-0,1,"no legal moves",141
+914,457,"/home/admingod/regicide-evalab-work/openings4.txt:457","V1","K",1/2-1/2,0.5,"repetition",101
+913,457,"/home/admingod/regicide-evalab-work/openings4.txt:457","K","V1",0-1,0,"no legal moves",90
+909,455,"/home/admingod/regicide-evalab-work/openings4.txt:455","K","V1",1/2-1/2,0.5,"repetition",113
+911,456,"/home/admingod/regicide-evalab-work/openings4.txt:456","K","V1",1/2-1/2,0.5,"repetition",97
+916,458,"/home/admingod/regicide-evalab-work/openings4.txt:458","V1","K",1-0,0,"no legal moves",123
+917,459,"/home/admingod/regicide-evalab-work/openings4.txt:459","K","V1",1-0,1,"no legal moves",125
+915,458,"/home/admingod/regicide-evalab-work/openings4.txt:458","K","V1",1-0,1,"no legal moves",117
+922,461,"/home/admingod/regicide-evalab-work/openings4.txt:461","V1","K",1/2-1/2,0.5,"repetition",91
+912,456,"/home/admingod/regicide-evalab-work/openings4.txt:456","V1","K",1/2-1/2,0.5,"repetition",92
+906,453,"/home/admingod/regicide-evalab-work/openings4.txt:453","V1","K",1-0,0,"no legal moves",163
+924,462,"/home/admingod/regicide-evalab-work/openings4.txt:462","V1","K",1/2-1/2,0.5,"repetition",83
+921,461,"/home/admingod/regicide-evalab-work/openings4.txt:461","K","V1",1/2-1/2,0.5,"repetition",75
+918,459,"/home/admingod/regicide-evalab-work/openings4.txt:459","V1","K",1-0,0,"no legal moves",151
+920,460,"/home/admingod/regicide-evalab-work/openings4.txt:460","V1","K",0-1,1,"no legal moves",74
+925,463,"/home/admingod/regicide-evalab-work/openings4.txt:463","K","V1",1/2-1/2,0.5,"repetition",68
+928,464,"/home/admingod/regicide-evalab-work/openings4.txt:464","V1","K",1/2-1/2,0.5,"repetition",70
+919,460,"/home/admingod/regicide-evalab-work/openings4.txt:460","K","V1",0-1,0,"no legal moves",90
+930,465,"/home/admingod/regicide-evalab-work/openings4.txt:465","V1","K",1/2-1/2,0.5,"repetition",115
+926,463,"/home/admingod/regicide-evalab-work/openings4.txt:463","V1","K",1/2-1/2,0.5,"repetition",108
+923,462,"/home/admingod/regicide-evalab-work/openings4.txt:462","K","V1",1/2-1/2,0.5,"repetition",113
+929,465,"/home/admingod/regicide-evalab-work/openings4.txt:465","K","V1",1/2-1/2,0.5,"repetition",100
+933,467,"/home/admingod/regicide-evalab-work/openings4.txt:467","K","V1",1/2-1/2,0.5,"repetition",95
+936,468,"/home/admingod/regicide-evalab-work/openings4.txt:468","V1","K",1/2-1/2,0.5,"repetition",71
+927,464,"/home/admingod/regicide-evalab-work/openings4.txt:464","K","V1",1/2-1/2,0.5,"repetition",88
+935,468,"/home/admingod/regicide-evalab-work/openings4.txt:468","K","V1",1/2-1/2,0.5,"repetition",107
+932,466,"/home/admingod/regicide-evalab-work/openings4.txt:466","V1","K",0-1,1,"no legal moves",94
+931,466,"/home/admingod/regicide-evalab-work/openings4.txt:466","K","V1",1/2-1/2,0.5,"repetition",83
+940,470,"/home/admingod/regicide-evalab-work/openings4.txt:470","V1","K",1/2-1/2,0.5,"repetition",83
+941,471,"/home/admingod/regicide-evalab-work/openings4.txt:471","K","V1",1/2-1/2,0.5,"repetition",85
+934,467,"/home/admingod/regicide-evalab-work/openings4.txt:467","V1","K",1/2-1/2,0.5,"repetition",117
+942,471,"/home/admingod/regicide-evalab-work/openings4.txt:471","V1","K",1/2-1/2,0.5,"repetition",103
+939,470,"/home/admingod/regicide-evalab-work/openings4.txt:470","K","V1",0-1,0,"no legal moves",118
+938,469,"/home/admingod/regicide-evalab-work/openings4.txt:469","V1","K",1/2-1/2,0.5,"repetition",89
+937,469,"/home/admingod/regicide-evalab-work/openings4.txt:469","K","V1",1/2-1/2,0.5,"repetition",103
+945,473,"/home/admingod/regicide-evalab-work/openings4.txt:473","K","V1",1/2-1/2,0.5,"repetition",88
+943,472,"/home/admingod/regicide-evalab-work/openings4.txt:472","K","V1",1/2-1/2,0.5,"repetition",100
+950,475,"/home/admingod/regicide-evalab-work/openings4.txt:475","V1","K",1/2-1/2,0.5,"repetition",83
+949,475,"/home/admingod/regicide-evalab-work/openings4.txt:475","K","V1",1/2-1/2,0.5,"repetition",80
+946,473,"/home/admingod/regicide-evalab-work/openings4.txt:473","V1","K",1-0,0,"no legal moves",131
+952,476,"/home/admingod/regicide-evalab-work/openings4.txt:476","V1","K",1/2-1/2,0.5,"repetition",81
+947,474,"/home/admingod/regicide-evalab-work/openings4.txt:474","K","V1",1/2-1/2,0.5,"repetition",103
+953,477,"/home/admingod/regicide-evalab-work/openings4.txt:477","K","V1",1/2-1/2,0.5,"repetition",109
+954,477,"/home/admingod/regicide-evalab-work/openings4.txt:477","V1","K",1/2-1/2,0.5,"repetition",130
+944,472,"/home/admingod/regicide-evalab-work/openings4.txt:472","V1","K",1/2-1/2,0.5,"repetition",137
+948,474,"/home/admingod/regicide-evalab-work/openings4.txt:474","V1","K",1/2-1/2,0.5,"repetition",97
+956,478,"/home/admingod/regicide-evalab-work/openings4.txt:478","V1","K",0-1,1,"no legal moves",56
+951,476,"/home/admingod/regicide-evalab-work/openings4.txt:476","K","V1",1/2-1/2,0.5,"repetition",107
+955,478,"/home/admingod/regicide-evalab-work/openings4.txt:478","K","V1",0-1,0,"no legal moves",86
+958,479,"/home/admingod/regicide-evalab-work/openings4.txt:479","V1","K",1/2-1/2,0.5,"repetition",97
+957,479,"/home/admingod/regicide-evalab-work/openings4.txt:479","K","V1",0-1,0,"no legal moves",92
+960,480,"/home/admingod/regicide-evalab-work/openings4.txt:480","V1","K",1/2-1/2,0.5,"repetition",94
+961,481,"/home/admingod/regicide-evalab-work/openings4.txt:481","K","V1",1/2-1/2,0.5,"repetition",83
+963,482,"/home/admingod/regicide-evalab-work/openings4.txt:482","K","V1",1/2-1/2,0.5,"repetition",66
+964,482,"/home/admingod/regicide-evalab-work/openings4.txt:482","V1","K",1/2-1/2,0.5,"repetition",90
+967,484,"/home/admingod/regicide-evalab-work/openings4.txt:484","K","V1",0-1,0,"no legal moves",74
+962,481,"/home/admingod/regicide-evalab-work/openings4.txt:481","V1","K",1/2-1/2,0.5,"repetition",139
+970,485,"/home/admingod/regicide-evalab-work/openings4.txt:485","V1","K",1/2-1/2,0.5,"repetition",94
+972,486,"/home/admingod/regicide-evalab-work/openings4.txt:486","V1","K",1/2-1/2,0.5,"repetition",83
+968,484,"/home/admingod/regicide-evalab-work/openings4.txt:484","V1","K",0-1,1,"no legal moves",132
+965,483,"/home/admingod/regicide-evalab-work/openings4.txt:483","K","V1",1/2-1/2,0.5,"repetition",115
+971,486,"/home/admingod/regicide-evalab-work/openings4.txt:486","K","V1",1/2-1/2,0.5,"repetition",87
+969,485,"/home/admingod/regicide-evalab-work/openings4.txt:485","K","V1",1-0,1,"no legal moves",139
+966,483,"/home/admingod/regicide-evalab-work/openings4.txt:483","V1","K",0-1,1,"no legal moves",102
+976,488,"/home/admingod/regicide-evalab-work/openings4.txt:488","V1","K",1/2-1/2,0.5,"repetition",91
+978,489,"/home/admingod/regicide-evalab-work/openings4.txt:489","V1","K",1/2-1/2,0.5,"repetition",105
+980,490,"/home/admingod/regicide-evalab-work/openings4.txt:490","V1","K",1/2-1/2,0.5,"repetition",79
+977,489,"/home/admingod/regicide-evalab-work/openings4.txt:489","K","V1",1/2-1/2,0.5,"repetition",97
+973,487,"/home/admingod/regicide-evalab-work/openings4.txt:487","K","V1",1/2-1/2,0.5,"repetition",88
+974,487,"/home/admingod/regicide-evalab-work/openings4.txt:487","V1","K",1/2-1/2,0.5,"repetition",134
+959,480,"/home/admingod/regicide-evalab-work/openings4.txt:480","K","V1",1/2-1/2,0.5,"repetition",188
+979,490,"/home/admingod/regicide-evalab-work/openings4.txt:490","K","V1",1/2-1/2,0.5,"repetition",96
+988,494,"/home/admingod/regicide-evalab-work/openings4.txt:494","V1","K",1/2-1/2,0.5,"repetition",72
+982,491,"/home/admingod/regicide-evalab-work/openings4.txt:491","V1","K",0-1,1,"no legal moves",60
+975,488,"/home/admingod/regicide-evalab-work/openings4.txt:488","K","V1",1-0,1,"no legal moves",113
+983,492,"/home/admingod/regicide-evalab-work/openings4.txt:492","K","V1",0-1,0,"no legal moves",142
+981,491,"/home/admingod/regicide-evalab-work/openings4.txt:491","K","V1",1-0,1,"no legal moves",125
+985,493,"/home/admingod/regicide-evalab-work/openings4.txt:493","K","V1",0-1,0,"no legal moves",128
+986,493,"/home/admingod/regicide-evalab-work/openings4.txt:493","V1","K",1/2-1/2,0.5,"repetition",118
+989,495,"/home/admingod/regicide-evalab-work/openings4.txt:495","K","V1",1-0,1,"no legal moves",139
+996,498,"/home/admingod/regicide-evalab-work/openings4.txt:498","V1","K",1/2-1/2,0.5,"repetition",81
+993,497,"/home/admingod/regicide-evalab-work/openings4.txt:497","K","V1",1/2-1/2,0.5,"repetition",80
+991,496,"/home/admingod/regicide-evalab-work/openings4.txt:496","K","V1",1/2-1/2,0.5,"repetition",81
+990,495,"/home/admingod/regicide-evalab-work/openings4.txt:495","V1","K",1/2-1/2,0.5,"repetition",110
+987,494,"/home/admingod/regicide-evalab-work/openings4.txt:494","K","V1",1-0,1,"no legal moves",121
+995,498,"/home/admingod/regicide-evalab-work/openings4.txt:498","K","V1",1/2-1/2,0.5,"repetition",49
+984,492,"/home/admingod/regicide-evalab-work/openings4.txt:492","V1","K",1-0,0,"no legal moves",139
+994,497,"/home/admingod/regicide-evalab-work/openings4.txt:497","V1","K",1/2-1/2,0.5,"repetition",90
+998,499,"/home/admingod/regicide-evalab-work/openings4.txt:499","V1","K",1/2-1/2,0.5,"repetition",74
+1000,500,"/home/admingod/regicide-evalab-work/openings4.txt:500","V1","K",1/2-1/2,0.5,"repetition",87
+997,499,"/home/admingod/regicide-evalab-work/openings4.txt:499","K","V1",1/2-1/2,0.5,"repetition",95
+999,500,"/home/admingod/regicide-evalab-work/openings4.txt:500","K","V1",1/2-1/2,0.5,"repetition",72
+1002,501,"/home/admingod/regicide-evalab-work/openings4.txt:501","V1","K",1/2-1/2,0.5,"repetition",81
+992,496,"/home/admingod/regicide-evalab-work/openings4.txt:496","V1","K",1/2-1/2,0.5,"repetition",83
+1001,501,"/home/admingod/regicide-evalab-work/openings4.txt:501","K","V1",1-0,1,"no legal moves",53
+1006,503,"/home/admingod/regicide-evalab-work/openings4.txt:503","V1","K",1/2-1/2,0.5,"repetition",87
+1003,502,"/home/admingod/regicide-evalab-work/openings4.txt:502","K","V1",1/2-1/2,0.5,"repetition",69
+1013,507,"/home/admingod/regicide-evalab-work/openings4.txt:507","K","V1",1/2-1/2,0.5,"repetition",82
+1007,504,"/home/admingod/regicide-evalab-work/openings4.txt:504","K","V1",1/2-1/2,0.5,"repetition",99
+1008,504,"/home/admingod/regicide-evalab-work/openings4.txt:504","V1","K",1/2-1/2,0.5,"repetition",91
+1009,505,"/home/admingod/regicide-evalab-work/openings4.txt:505","K","V1",1/2-1/2,0.5,"repetition",97
+1014,507,"/home/admingod/regicide-evalab-work/openings4.txt:507","V1","K",1/2-1/2,0.5,"repetition",85
+1012,506,"/home/admingod/regicide-evalab-work/openings4.txt:506","V1","K",1-0,0,"no legal moves",119
+1017,509,"/home/admingod/regicide-evalab-work/openings4.txt:509","K","V1",1/2-1/2,0.5,"repetition",89
+1010,505,"/home/admingod/regicide-evalab-work/openings4.txt:505","V1","K",1-0,0,"no legal moves",99
+1011,506,"/home/admingod/regicide-evalab-work/openings4.txt:506","K","V1",1/2-1/2,0.5,"repetition",111
+1016,508,"/home/admingod/regicide-evalab-work/openings4.txt:508","V1","K",1-0,0,"no legal moves",129
+1023,512,"/home/admingod/regicide-evalab-work/openings4.txt:512","K","V1",1/2-1/2,0.5,"repetition",64
+1020,510,"/home/admingod/regicide-evalab-work/openings4.txt:510","V1","K",1/2-1/2,0.5,"repetition",77
+1005,503,"/home/admingod/regicide-evalab-work/openings4.txt:503","K","V1",1/2-1/2,0.5,"repetition",145
+1024,512,"/home/admingod/regicide-evalab-work/openings4.txt:512","V1","K",1/2-1/2,0.5,"repetition",98
+1018,509,"/home/admingod/regicide-evalab-work/openings4.txt:509","V1","K",0-1,1,"no legal moves",88
+1021,511,"/home/admingod/regicide-evalab-work/openings4.txt:511","K","V1",0-1,0,"no legal moves",76
+1022,511,"/home/admingod/regicide-evalab-work/openings4.txt:511","V1","K",1/2-1/2,0.5,"repetition",122
+1025,513,"/home/admingod/regicide-evalab-work/openings4.txt:513","K","V1",0-1,0,"no legal moves",70
+1026,513,"/home/admingod/regicide-evalab-work/openings4.txt:513","V1","K",0-1,1,"no legal moves",124
+1004,502,"/home/admingod/regicide-evalab-work/openings4.txt:502","V1","K",1/2-1/2,0.5,"no progress",166
+1030,515,"/home/admingod/regicide-evalab-work/openings4.txt:515","V1","K",1/2-1/2,0.5,"repetition",68
+1015,508,"/home/admingod/regicide-evalab-work/openings4.txt:508","K","V1",1/2-1/2,0.5,"repetition",176
+1027,514,"/home/admingod/regicide-evalab-work/openings4.txt:514","K","V1",0-1,0,"no legal moves",104
+1031,516,"/home/admingod/regicide-evalab-work/openings4.txt:516","K","V1",1/2-1/2,0.5,"repetition",70
+1028,514,"/home/admingod/regicide-evalab-work/openings4.txt:514","V1","K",1/2-1/2,0.5,"repetition",74
+1029,515,"/home/admingod/regicide-evalab-work/openings4.txt:515","K","V1",1-0,1,"no legal moves",73
+1019,510,"/home/admingod/regicide-evalab-work/openings4.txt:510","K","V1",1/2-1/2,0.5,"repetition",108
+1034,517,"/home/admingod/regicide-evalab-work/openings4.txt:517","V1","K",1/2-1/2,0.5,"repetition",93
+1035,518,"/home/admingod/regicide-evalab-work/openings4.txt:518","K","V1",1/2-1/2,0.5,"repetition",91
+1037,519,"/home/admingod/regicide-evalab-work/openings4.txt:519","K","V1",1/2-1/2,0.5,"repetition",76
+1032,516,"/home/admingod/regicide-evalab-work/openings4.txt:516","V1","K",1-0,0,"no legal moves",119
+1036,518,"/home/admingod/regicide-evalab-work/openings4.txt:518","V1","K",1/2-1/2,0.5,"repetition",93
+1042,521,"/home/admingod/regicide-evalab-work/openings4.txt:521","V1","K",1/2-1/2,0.5,"repetition",71
+1038,519,"/home/admingod/regicide-evalab-work/openings4.txt:519","V1","K",1/2-1/2,0.5,"repetition",74
+1043,522,"/home/admingod/regicide-evalab-work/openings4.txt:522","K","V1",1/2-1/2,0.5,"repetition",56
+1045,523,"/home/admingod/regicide-evalab-work/openings4.txt:523","K","V1",1/2-1/2,0.5,"repetition",95
+1041,521,"/home/admingod/regicide-evalab-work/openings4.txt:521","K","V1",1/2-1/2,0.5,"repetition",84
+1039,520,"/home/admingod/regicide-evalab-work/openings4.txt:520","K","V1",0-1,0,"no legal moves",100
+1046,523,"/home/admingod/regicide-evalab-work/openings4.txt:523","V1","K",0-1,1,"no legal moves",74
+1044,522,"/home/admingod/regicide-evalab-work/openings4.txt:522","V1","K",1/2-1/2,0.5,"repetition",82
+1040,520,"/home/admingod/regicide-evalab-work/openings4.txt:520","V1","K",0-1,1,"no legal moves",138
+1051,526,"/home/admingod/regicide-evalab-work/openings4.txt:526","K","V1",1/2-1/2,0.5,"repetition",64
+1033,517,"/home/admingod/regicide-evalab-work/openings4.txt:517","K","V1",1/2-1/2,0.5,"repetition",101
+1049,525,"/home/admingod/regicide-evalab-work/openings4.txt:525","K","V1",1-0,1,"no legal moves",131
+1047,524,"/home/admingod/regicide-evalab-work/openings4.txt:524","K","V1",1-0,1,"no legal moves",143
+1052,526,"/home/admingod/regicide-evalab-work/openings4.txt:526","V1","K",1/2-1/2,0.5,"repetition",82
+1056,528,"/home/admingod/regicide-evalab-work/openings4.txt:528","V1","K",1/2-1/2,0.5,"repetition",98
+1048,524,"/home/admingod/regicide-evalab-work/openings4.txt:524","V1","K",1/2-1/2,0.5,"repetition",115
+1053,527,"/home/admingod/regicide-evalab-work/openings4.txt:527","K","V1",1/2-1/2,0.5,"repetition",95
+1059,530,"/home/admingod/regicide-evalab-work/openings4.txt:530","K","V1",1/2-1/2,0.5,"repetition",73
+1057,529,"/home/admingod/regicide-evalab-work/openings4.txt:529","K","V1",1/2-1/2,0.5,"repetition",111
+1055,528,"/home/admingod/regicide-evalab-work/openings4.txt:528","K","V1",0-1,0,"no legal moves",116
+1061,531,"/home/admingod/regicide-evalab-work/openings4.txt:531","K","V1",1/2-1/2,0.5,"repetition",85
+1058,529,"/home/admingod/regicide-evalab-work/openings4.txt:529","V1","K",1-0,0,"no legal moves",129
+1050,525,"/home/admingod/regicide-evalab-work/openings4.txt:525","V1","K",1/2-1/2,0.5,"repetition",104
+1054,527,"/home/admingod/regicide-evalab-work/openings4.txt:527","V1","K",1-0,0,"no legal moves",109
+1062,531,"/home/admingod/regicide-evalab-work/openings4.txt:531","V1","K",1/2-1/2,0.5,"repetition",95
+1060,530,"/home/admingod/regicide-evalab-work/openings4.txt:530","V1","K",1/2-1/2,0.5,"repetition",97
+1065,533,"/home/admingod/regicide-evalab-work/openings4.txt:533","K","V1",1/2-1/2,0.5,"repetition",76
+1064,532,"/home/admingod/regicide-evalab-work/openings4.txt:532","V1","K",1-0,0,"no legal moves",133
+1066,533,"/home/admingod/regicide-evalab-work/openings4.txt:533","V1","K",1/2-1/2,0.5,"repetition",86
+1070,535,"/home/admingod/regicide-evalab-work/openings4.txt:535","V1","K",1/2-1/2,0.5,"repetition",87
+1063,532,"/home/admingod/regicide-evalab-work/openings4.txt:532","K","V1",1-0,1,"no legal moves",147
+1077,539,"/home/admingod/regicide-evalab-work/openings4.txt:539","K","V1",1/2-1/2,0.5,"repetition",87
+1068,534,"/home/admingod/regicide-evalab-work/openings4.txt:534","V1","K",1-0,0,"no legal moves",135
+1075,538,"/home/admingod/regicide-evalab-work/openings4.txt:538","K","V1",1-0,1,"no legal moves",61
+1067,534,"/home/admingod/regicide-evalab-work/openings4.txt:534","K","V1",1/2-1/2,0.5,"repetition",87
+1076,538,"/home/admingod/regicide-evalab-work/openings4.txt:538","V1","K",1-0,0,"no legal moves",155
+1071,536,"/home/admingod/regicide-evalab-work/openings4.txt:536","K","V1",1-0,1,"no legal moves",119
+1069,535,"/home/admingod/regicide-evalab-work/openings4.txt:535","K","V1",1-0,1,"no legal moves",157
+1073,537,"/home/admingod/regicide-evalab-work/openings4.txt:537","K","V1",0-1,0,"no legal moves",134
+1074,537,"/home/admingod/regicide-evalab-work/openings4.txt:537","V1","K",0-1,1,"no legal moves",156
+1082,541,"/home/admingod/regicide-evalab-work/openings4.txt:541","V1","K",1/2-1/2,0.5,"repetition",83
+1081,541,"/home/admingod/regicide-evalab-work/openings4.txt:541","K","V1",1/2-1/2,0.5,"repetition",79
+1078,539,"/home/admingod/regicide-evalab-work/openings4.txt:539","V1","K",0-1,1,"no legal moves",132
+1080,540,"/home/admingod/regicide-evalab-work/openings4.txt:540","V1","K",1/2-1/2,0.5,"repetition",133
+1087,544,"/home/admingod/regicide-evalab-work/openings4.txt:544","K","V1",1/2-1/2,0.5,"repetition",69
+1088,544,"/home/admingod/regicide-evalab-work/openings4.txt:544","V1","K",1/2-1/2,0.5,"repetition",73
+1086,543,"/home/admingod/regicide-evalab-work/openings4.txt:543","V1","K",1-0,0,"no legal moves",59
+1085,543,"/home/admingod/regicide-evalab-work/openings4.txt:543","K","V1",1-0,1,"no legal moves",129
+1079,540,"/home/admingod/regicide-evalab-work/openings4.txt:540","K","V1",1/2-1/2,0.5,"repetition",110
+1089,545,"/home/admingod/regicide-evalab-work/openings4.txt:545","K","V1",1/2-1/2,0.5,"repetition",82
+1094,547,"/home/admingod/regicide-evalab-work/openings4.txt:547","V1","K",1/2-1/2,0.5,"repetition",83
+1093,547,"/home/admingod/regicide-evalab-work/openings4.txt:547","K","V1",1/2-1/2,0.5,"repetition",99
+1095,548,"/home/admingod/regicide-evalab-work/openings4.txt:548","K","V1",1/2-1/2,0.5,"repetition",71
+1096,548,"/home/admingod/regicide-evalab-work/openings4.txt:548","V1","K",1/2-1/2,0.5,"repetition",83
+1098,549,"/home/admingod/regicide-evalab-work/openings4.txt:549","V1","K",1/2-1/2,0.5,"repetition",87
+1091,546,"/home/admingod/regicide-evalab-work/openings4.txt:546","K","V1",1/2-1/2,0.5,"repetition",118
+1084,542,"/home/admingod/regicide-evalab-work/openings4.txt:542","V1","K",1-0,0,"no legal moves",133
+1090,545,"/home/admingod/regicide-evalab-work/openings4.txt:545","V1","K",1/2-1/2,0.5,"repetition",129
+1092,546,"/home/admingod/regicide-evalab-work/openings4.txt:546","V1","K",1-0,0,"no legal moves",133
+1072,536,"/home/admingod/regicide-evalab-work/openings4.txt:536","V1","K",0-1,1,"no legal moves",220
+1102,551,"/home/admingod/regicide-evalab-work/openings4.txt:551","V1","K",1/2-1/2,0.5,"repetition",72
+1100,550,"/home/admingod/regicide-evalab-work/openings4.txt:550","V1","K",0-1,1,"no legal moves",54
+1101,551,"/home/admingod/regicide-evalab-work/openings4.txt:551","K","V1",1/2-1/2,0.5,"repetition",93
+1099,550,"/home/admingod/regicide-evalab-work/openings4.txt:550","K","V1",0-1,0,"no legal moves",150
+1103,552,"/home/admingod/regicide-evalab-work/openings4.txt:552","K","V1",1/2-1/2,0.5,"repetition",64
+1106,553,"/home/admingod/regicide-evalab-work/openings4.txt:553","V1","K",1-0,0,"no legal moves",57
+1104,552,"/home/admingod/regicide-evalab-work/openings4.txt:552","V1","K",0-1,1,"no legal moves",68
+1107,554,"/home/admingod/regicide-evalab-work/openings4.txt:554","K","V1",1/2-1/2,0.5,"repetition",82
+1111,556,"/home/admingod/regicide-evalab-work/openings4.txt:556","K","V1",1/2-1/2,0.5,"repetition",56
+1105,553,"/home/admingod/regicide-evalab-work/openings4.txt:553","K","V1",1-0,1,"no legal moves",133
+1112,556,"/home/admingod/regicide-evalab-work/openings4.txt:556","V1","K",1/2-1/2,0.5,"repetition",92
+1110,555,"/home/admingod/regicide-evalab-work/openings4.txt:555","V1","K",1/2-1/2,0.5,"repetition",79
+1109,555,"/home/admingod/regicide-evalab-work/openings4.txt:555","K","V1",1-0,1,"no legal moves",139
+1115,558,"/home/admingod/regicide-evalab-work/openings4.txt:558","K","V1",1/2-1/2,0.5,"repetition",95
+1117,559,"/home/admingod/regicide-evalab-work/openings4.txt:559","K","V1",1/2-1/2,0.5,"repetition",83
+1097,549,"/home/admingod/regicide-evalab-work/openings4.txt:549","K","V1",1/2-1/2,0.5,"repetition",161
+1083,542,"/home/admingod/regicide-evalab-work/openings4.txt:542","K","V1",1/2-1/2,0.5,"repetition",275
+1116,558,"/home/admingod/regicide-evalab-work/openings4.txt:558","V1","K",1/2-1/2,0.5,"repetition",101
+1114,557,"/home/admingod/regicide-evalab-work/openings4.txt:557","V1","K",1-0,0,"no legal moves",115
+1113,557,"/home/admingod/regicide-evalab-work/openings4.txt:557","K","V1",1-0,1,"no legal moves",77
+1122,561,"/home/admingod/regicide-evalab-work/openings4.txt:561","V1","K",1/2-1/2,0.5,"repetition",87
+1118,559,"/home/admingod/regicide-evalab-work/openings4.txt:559","V1","K",1/2-1/2,0.5,"repetition",76
+1120,560,"/home/admingod/regicide-evalab-work/openings4.txt:560","V1","K",1/2-1/2,0.5,"repetition",84
+1108,554,"/home/admingod/regicide-evalab-work/openings4.txt:554","V1","K",1-0,0,"no legal moves",139
+1127,564,"/home/admingod/regicide-evalab-work/openings4.txt:564","K","V1",1/2-1/2,0.5,"repetition",71
+1129,565,"/home/admingod/regicide-evalab-work/openings4.txt:565","K","V1",1/2-1/2,0.5,"repetition",64
+1123,562,"/home/admingod/regicide-evalab-work/openings4.txt:562","K","V1",0-1,0,"no legal moves",114
+1119,560,"/home/admingod/regicide-evalab-work/openings4.txt:560","K","V1",1/2-1/2,0.5,"repetition",119
+1124,562,"/home/admingod/regicide-evalab-work/openings4.txt:562","V1","K",0-1,1,"no legal moves",86
+1125,563,"/home/admingod/regicide-evalab-work/openings4.txt:563","K","V1",1/2-1/2,0.5,"repetition",95
+1130,565,"/home/admingod/regicide-evalab-work/openings4.txt:565","V1","K",1/2-1/2,0.5,"repetition",107
+1121,561,"/home/admingod/regicide-evalab-work/openings4.txt:561","K","V1",0-1,0,"no legal moves",144
+1131,566,"/home/admingod/regicide-evalab-work/openings4.txt:566","K","V1",1/2-1/2,0.5,"repetition",69
+1135,568,"/home/admingod/regicide-evalab-work/openings4.txt:568","K","V1",1/2-1/2,0.5,"repetition",66
+1133,567,"/home/admingod/regicide-evalab-work/openings4.txt:567","K","V1",1/2-1/2,0.5,"repetition",76
+1128,564,"/home/admingod/regicide-evalab-work/openings4.txt:564","V1","K",1-0,0,"no legal moves",103
+1132,566,"/home/admingod/regicide-evalab-work/openings4.txt:566","V1","K",1/2-1/2,0.5,"repetition",71
+1138,569,"/home/admingod/regicide-evalab-work/openings4.txt:569","V1","K",1-0,0,"no legal moves",115
+1126,563,"/home/admingod/regicide-evalab-work/openings4.txt:563","V1","K",0-1,1,"no legal moves",142
+1134,567,"/home/admingod/regicide-evalab-work/openings4.txt:567","V1","K",1-0,0,"no legal moves",135
+1139,570,"/home/admingod/regicide-evalab-work/openings4.txt:570","K","V1",1-0,1,"no legal moves",151
+1136,568,"/home/admingod/regicide-evalab-work/openings4.txt:568","V1","K",1/2-1/2,0.5,"repetition",109
+1143,572,"/home/admingod/regicide-evalab-work/openings4.txt:572","K","V1",1/2-1/2,0.5,"repetition",64
+1137,569,"/home/admingod/regicide-evalab-work/openings4.txt:569","K","V1",1-0,1,"no legal moves",79
+1142,571,"/home/admingod/regicide-evalab-work/openings4.txt:571","V1","K",1-0,0,"no legal moves",149
+1140,570,"/home/admingod/regicide-evalab-work/openings4.txt:570","V1","K",1-0,0,"no legal moves",171
+1144,572,"/home/admingod/regicide-evalab-work/openings4.txt:572","V1","K",0-1,1,"no legal moves",122
+1145,573,"/home/admingod/regicide-evalab-work/openings4.txt:573","K","V1",1/2-1/2,0.5,"repetition",63
+1148,574,"/home/admingod/regicide-evalab-work/openings4.txt:574","V1","K",1/2-1/2,0.5,"repetition",78
+1149,575,"/home/admingod/regicide-evalab-work/openings4.txt:575","K","V1",1/2-1/2,0.5,"repetition",105
+1146,573,"/home/admingod/regicide-evalab-work/openings4.txt:573","V1","K",1/2-1/2,0.5,"repetition",99
+1147,574,"/home/admingod/regicide-evalab-work/openings4.txt:574","K","V1",0-1,0,"no legal moves",126
+1151,576,"/home/admingod/regicide-evalab-work/openings4.txt:576","K","V1",1-0,1,"no legal moves",119
+1150,575,"/home/admingod/regicide-evalab-work/openings4.txt:575","V1","K",1/2-1/2,0.5,"repetition",105
+1155,578,"/home/admingod/regicide-evalab-work/openings4.txt:578","K","V1",1/2-1/2,0.5,"repetition",69
+1152,576,"/home/admingod/regicide-evalab-work/openings4.txt:576","V1","K",1-0,0,"no legal moves",141
+1158,579,"/home/admingod/regicide-evalab-work/openings4.txt:579","V1","K",1/2-1/2,0.5,"repetition",85
+1141,571,"/home/admingod/regicide-evalab-work/openings4.txt:571","K","V1",1-0,1,"no legal moves",169
+1153,577,"/home/admingod/regicide-evalab-work/openings4.txt:577","K","V1",1-0,1,"no legal moves",75
+1156,578,"/home/admingod/regicide-evalab-work/openings4.txt:578","V1","K",1/2-1/2,0.5,"repetition",91
+1159,580,"/home/admingod/regicide-evalab-work/openings4.txt:580","K","V1",1/2-1/2,0.5,"repetition",105
+1162,581,"/home/admingod/regicide-evalab-work/openings4.txt:581","V1","K",1-0,0,"no legal moves",137
+1163,582,"/home/admingod/regicide-evalab-work/openings4.txt:582","K","V1",1/2-1/2,0.5,"repetition",79
+1154,577,"/home/admingod/regicide-evalab-work/openings4.txt:577","V1","K",1-0,0,"no legal moves",159
+1160,580,"/home/admingod/regicide-evalab-work/openings4.txt:580","V1","K",1/2-1/2,0.5,"repetition",71
+1161,581,"/home/admingod/regicide-evalab-work/openings4.txt:581","K","V1",1-0,1,"no legal moves",115
+1157,579,"/home/admingod/regicide-evalab-work/openings4.txt:579","K","V1",1/2-1/2,0.5,"repetition",133
+1170,585,"/home/admingod/regicide-evalab-work/openings4.txt:585","V1","K",1/2-1/2,0.5,"repetition",93
+1167,584,"/home/admingod/regicide-evalab-work/openings4.txt:584","K","V1",0-1,0,"no legal moves",72
+1172,586,"/home/admingod/regicide-evalab-work/openings4.txt:586","V1","K",1/2-1/2,0.5,"repetition",85
+1166,583,"/home/admingod/regicide-evalab-work/openings4.txt:583","V1","K",1-0,0,"no legal moves",155
+1168,584,"/home/admingod/regicide-evalab-work/openings4.txt:584","V1","K",1/2-1/2,0.5,"repetition",119
+1171,586,"/home/admingod/regicide-evalab-work/openings4.txt:586","K","V1",0-1,0,"no legal moves",108
+1164,582,"/home/admingod/regicide-evalab-work/openings4.txt:582","V1","K",1/2-1/2,0.5,"repetition",135
+1173,587,"/home/admingod/regicide-evalab-work/openings4.txt:587","K","V1",0-1,0,"no legal moves",62
+1179,590,"/home/admingod/regicide-evalab-work/openings4.txt:590","K","V1",1/2-1/2,0.5,"repetition",81
+1177,589,"/home/admingod/regicide-evalab-work/openings4.txt:589","K","V1",1/2-1/2,0.5,"repetition",95
+1176,588,"/home/admingod/regicide-evalab-work/openings4.txt:588","V1","K",0-1,1,"no legal moves",76
+1175,588,"/home/admingod/regicide-evalab-work/openings4.txt:588","K","V1",1/2-1/2,0.5,"repetition",95
+1181,591,"/home/admingod/regicide-evalab-work/openings4.txt:591","K","V1",1/2-1/2,0.5,"repetition",74
+1169,585,"/home/admingod/regicide-evalab-work/openings4.txt:585","K","V1",1/2-1/2,0.5,"repetition",134
+1165,583,"/home/admingod/regicide-evalab-work/openings4.txt:583","K","V1",1-0,1,"no legal moves",175
+1184,592,"/home/admingod/regicide-evalab-work/openings4.txt:592","V1","K",1/2-1/2,0.5,"repetition",64
+1174,587,"/home/admingod/regicide-evalab-work/openings4.txt:587","V1","K",0-1,1,"no legal moves",108
+1185,593,"/home/admingod/regicide-evalab-work/openings4.txt:593","K","V1",1/2-1/2,0.5,"repetition",65
+1178,589,"/home/admingod/regicide-evalab-work/openings4.txt:589","V1","K",1-0,0,"no legal moves",133
+1180,590,"/home/admingod/regicide-evalab-work/openings4.txt:590","V1","K",1-0,0,"no legal moves",123
+1188,594,"/home/admingod/regicide-evalab-work/openings4.txt:594","V1","K",1/2-1/2,0.5,"repetition",72
+1189,595,"/home/admingod/regicide-evalab-work/openings4.txt:595","K","V1",1/2-1/2,0.5,"repetition",81
+1192,596,"/home/admingod/regicide-evalab-work/openings4.txt:596","V1","K",1/2-1/2,0.5,"repetition",92
+1190,595,"/home/admingod/regicide-evalab-work/openings4.txt:595","V1","K",1/2-1/2,0.5,"repetition",91
+1193,597,"/home/admingod/regicide-evalab-work/openings4.txt:597","K","V1",1/2-1/2,0.5,"repetition",86
+1186,593,"/home/admingod/regicide-evalab-work/openings4.txt:593","V1","K",1-0,0,"no legal moves",137
+1182,591,"/home/admingod/regicide-evalab-work/openings4.txt:591","V1","K",1/2-1/2,0.5,"repetition",120
+1197,599,"/home/admingod/regicide-evalab-work/openings4.txt:599","K","V1",1/2-1/2,0.5,"repetition",83
+1200,600,"/home/admingod/regicide-evalab-work/openings4.txt:600","V1","K",1/2-1/2,0.5,"repetition",87
+1191,596,"/home/admingod/regicide-evalab-work/openings4.txt:596","K","V1",1/2-1/2,0.5,"repetition",124
+1194,597,"/home/admingod/regicide-evalab-work/openings4.txt:597","V1","K",1/2-1/2,0.5,"repetition",95
+1183,592,"/home/admingod/regicide-evalab-work/openings4.txt:592","K","V1",1/2-1/2,0.5,"repetition",139
+1198,599,"/home/admingod/regicide-evalab-work/openings4.txt:599","V1","K",1/2-1/2,0.5,"repetition",63
+1187,594,"/home/admingod/regicide-evalab-work/openings4.txt:594","K","V1",1-0,1,"no legal moves",179
+1205,603,"/home/admingod/regicide-evalab-work/openings4.txt:603","K","V1",1/2-1/2,0.5,"repetition",109
+1199,600,"/home/admingod/regicide-evalab-work/openings4.txt:600","K","V1",0-1,0,"no legal moves",114
+1201,601,"/home/admingod/regicide-evalab-work/openings4.txt:601","K","V1",0-1,0,"no legal moves",120
+1202,601,"/home/admingod/regicide-evalab-work/openings4.txt:601","V1","K",1-0,0,"no legal moves",131
+1207,604,"/home/admingod/regicide-evalab-work/openings4.txt:604","K","V1",1-0,1,"no legal moves",139
+1206,603,"/home/admingod/regicide-evalab-work/openings4.txt:603","V1","K",1-0,0,"no legal moves",93
+1204,602,"/home/admingod/regicide-evalab-work/openings4.txt:602","V1","K",0-1,1,"no legal moves",112
+1196,598,"/home/admingod/regicide-evalab-work/openings4.txt:598","V1","K",1-0,0,"no legal moves",123
+1195,598,"/home/admingod/regicide-evalab-work/openings4.txt:598","K","V1",0-1,0,"no legal moves",188
+1212,606,"/home/admingod/regicide-evalab-work/openings4.txt:606","V1","K",1/2-1/2,0.5,"repetition",71
+1208,604,"/home/admingod/regicide-evalab-work/openings4.txt:604","V1","K",1/2-1/2,0.5,"repetition",95
+1210,605,"/home/admingod/regicide-evalab-work/openings4.txt:605","V1","K",0-1,1,"no legal moves",80
+1211,606,"/home/admingod/regicide-evalab-work/openings4.txt:606","K","V1",1/2-1/2,0.5,"repetition",93
+1214,607,"/home/admingod/regicide-evalab-work/openings4.txt:607","V1","K",1/2-1/2,0.5,"repetition",67
+1203,602,"/home/admingod/regicide-evalab-work/openings4.txt:602","K","V1",1/2-1/2,0.5,"repetition",153
+1218,609,"/home/admingod/regicide-evalab-work/openings4.txt:609","V1","K",1/2-1/2,0.5,"repetition",86
+1216,608,"/home/admingod/regicide-evalab-work/openings4.txt:608","V1","K",1-0,0,"no legal moves",123
+1215,608,"/home/admingod/regicide-evalab-work/openings4.txt:608","K","V1",1/2-1/2,0.5,"repetition",89
+1217,609,"/home/admingod/regicide-evalab-work/openings4.txt:609","K","V1",1/2-1/2,0.5,"repetition",93
+1213,607,"/home/admingod/regicide-evalab-work/openings4.txt:607","K","V1",1-0,1,"no legal moves",147
+1220,610,"/home/admingod/regicide-evalab-work/openings4.txt:610","V1","K",1/2-1/2,0.5,"repetition",86
+1209,605,"/home/admingod/regicide-evalab-work/openings4.txt:605","K","V1",0-1,0,"no legal moves",136
+1222,611,"/home/admingod/regicide-evalab-work/openings4.txt:611","V1","K",1/2-1/2,0.5,"repetition",83
+1224,612,"/home/admingod/regicide-evalab-work/openings4.txt:612","V1","K",1/2-1/2,0.5,"repetition",92
+1225,613,"/home/admingod/regicide-evalab-work/openings4.txt:613","K","V1",1/2-1/2,0.5,"repetition",104
+1227,614,"/home/admingod/regicide-evalab-work/openings4.txt:614","K","V1",1/2-1/2,0.5,"repetition",89
+1219,610,"/home/admingod/regicide-evalab-work/openings4.txt:610","K","V1",1-0,1,"no legal moves",153
+1232,616,"/home/admingod/regicide-evalab-work/openings4.txt:616","V1","K",1/2-1/2,0.5,"repetition",72
+1228,614,"/home/admingod/regicide-evalab-work/openings4.txt:614","V1","K",1/2-1/2,0.5,"repetition",97
+1221,611,"/home/admingod/regicide-evalab-work/openings4.txt:611","K","V1",1/2-1/2,0.5,"repetition",108
+1223,612,"/home/admingod/regicide-evalab-work/openings4.txt:612","K","V1",1/2-1/2,0.5,"repetition",77
+1233,617,"/home/admingod/regicide-evalab-work/openings4.txt:617","K","V1",1/2-1/2,0.5,"repetition",87
+1229,615,"/home/admingod/regicide-evalab-work/openings4.txt:615","K","V1",0-1,0,"no legal moves",86
+1235,618,"/home/admingod/regicide-evalab-work/openings4.txt:618","K","V1",1/2-1/2,0.5,"repetition",74
+1230,615,"/home/admingod/regicide-evalab-work/openings4.txt:615","V1","K",1/2-1/2,0.5,"repetition",71
+1231,616,"/home/admingod/regicide-evalab-work/openings4.txt:616","K","V1",1/2-1/2,0.5,"repetition",101
+1226,613,"/home/admingod/regicide-evalab-work/openings4.txt:613","V1","K",1/2-1/2,0.5,"repetition",119
+1243,622,"/home/admingod/regicide-evalab-work/openings4.txt:622","K","V1",1/2-1/2,0.5,"repetition",65
+1237,619,"/home/admingod/regicide-evalab-work/openings4.txt:619","K","V1",0-1,0,"no legal moves",104
+1242,621,"/home/admingod/regicide-evalab-work/openings4.txt:621","V1","K",1/2-1/2,0.5,"repetition",63
+1238,619,"/home/admingod/regicide-evalab-work/openings4.txt:619","V1","K",1/2-1/2,0.5,"repetition",87
+1234,617,"/home/admingod/regicide-evalab-work/openings4.txt:617","V1","K",1/2-1/2,0.5,"repetition",101
+1241,621,"/home/admingod/regicide-evalab-work/openings4.txt:621","K","V1",1/2-1/2,0.5,"repetition",76
+1236,618,"/home/admingod/regicide-evalab-work/openings4.txt:618","V1","K",1/2-1/2,0.5,"repetition",119
+1244,622,"/home/admingod/regicide-evalab-work/openings4.txt:622","V1","K",1/2-1/2,0.5,"repetition",104
+1248,624,"/home/admingod/regicide-evalab-work/openings4.txt:624","V1","K",1/2-1/2,0.5,"repetition",59
+1246,623,"/home/admingod/regicide-evalab-work/openings4.txt:623","V1","K",1-0,0,"no legal moves",133
+1249,625,"/home/admingod/regicide-evalab-work/openings4.txt:625","K","V1",1/2-1/2,0.5,"repetition",83
+1245,623,"/home/admingod/regicide-evalab-work/openings4.txt:623","K","V1",1-0,1,"no legal moves",127
+1239,620,"/home/admingod/regicide-evalab-work/openings4.txt:620","K","V1",1/2-1/2,0.5,"repetition",117
+1250,625,"/home/admingod/regicide-evalab-work/openings4.txt:625","V1","K",1-0,0,"no legal moves",119
+1252,626,"/home/admingod/regicide-evalab-work/openings4.txt:626","V1","K",1/2-1/2,0.5,"repetition",85
+1247,624,"/home/admingod/regicide-evalab-work/openings4.txt:624","K","V1",1-0,1,"no legal moves",117
+1254,627,"/home/admingod/regicide-evalab-work/openings4.txt:627","V1","K",1/2-1/2,0.5,"repetition",82
+1251,626,"/home/admingod/regicide-evalab-work/openings4.txt:626","K","V1",1/2-1/2,0.5,"repetition",101
+1240,620,"/home/admingod/regicide-evalab-work/openings4.txt:620","V1","K",1-0,0,"no legal moves",201
+1257,629,"/home/admingod/regicide-evalab-work/openings4.txt:629","K","V1",0-1,0,"no legal moves",46
+1260,630,"/home/admingod/regicide-evalab-work/openings4.txt:630","V1","K",1/2-1/2,0.5,"repetition",84
+1255,628,"/home/admingod/regicide-evalab-work/openings4.txt:628","K","V1",0-1,0,"no legal moves",108
+1259,630,"/home/admingod/regicide-evalab-work/openings4.txt:630","K","V1",1/2-1/2,0.5,"repetition",111
+1258,629,"/home/admingod/regicide-evalab-work/openings4.txt:629","V1","K",0-1,1,"no legal moves",80
+1261,631,"/home/admingod/regicide-evalab-work/openings4.txt:631","K","V1",1/2-1/2,0.5,"repetition",68
+1256,628,"/home/admingod/regicide-evalab-work/openings4.txt:628","V1","K",0-1,1,"no legal moves",134
+1253,627,"/home/admingod/regicide-evalab-work/openings4.txt:627","K","V1",1-0,1,"no legal moves",145
+1263,632,"/home/admingod/regicide-evalab-work/openings4.txt:632","K","V1",1-0,1,"no legal moves",105
+1264,632,"/home/admingod/regicide-evalab-work/openings4.txt:632","V1","K",1-0,0,"no legal moves",75
+1268,634,"/home/admingod/regicide-evalab-work/openings4.txt:634","V1","K",1/2-1/2,0.5,"repetition",97
+1265,633,"/home/admingod/regicide-evalab-work/openings4.txt:633","K","V1",1/2-1/2,0.5,"repetition",87
+1267,634,"/home/admingod/regicide-evalab-work/openings4.txt:634","K","V1",1-0,1,"no legal moves",135
+1262,631,"/home/admingod/regicide-evalab-work/openings4.txt:631","V1","K",1/2-1/2,0.5,"repetition",109
+1275,638,"/home/admingod/regicide-evalab-work/openings4.txt:638","K","V1",1/2-1/2,0.5,"repetition",106
+1269,635,"/home/admingod/regicide-evalab-work/openings4.txt:635","K","V1",0-1,0,"no legal moves",72
+1271,636,"/home/admingod/regicide-evalab-work/openings4.txt:636","K","V1",1/2-1/2,0.5,"repetition",88
+1276,638,"/home/admingod/regicide-evalab-work/openings4.txt:638","V1","K",1/2-1/2,0.5,"repetition",88
+1272,636,"/home/admingod/regicide-evalab-work/openings4.txt:636","V1","K",1/2-1/2,0.5,"repetition",108
+1266,633,"/home/admingod/regicide-evalab-work/openings4.txt:633","V1","K",1/2-1/2,0.5,"repetition",80
+1270,635,"/home/admingod/regicide-evalab-work/openings4.txt:635","V1","K",0-1,1,"no legal moves",98
+1274,637,"/home/admingod/regicide-evalab-work/openings4.txt:637","V1","K",1/2-1/2,0.5,"repetition",89
+1277,639,"/home/admingod/regicide-evalab-work/openings4.txt:639","K","V1",1/2-1/2,0.5,"repetition",83
+1278,639,"/home/admingod/regicide-evalab-work/openings4.txt:639","V1","K",1/2-1/2,0.5,"repetition",102
+1279,640,"/home/admingod/regicide-evalab-work/openings4.txt:640","K","V1",1/2-1/2,0.5,"repetition",93
+1280,640,"/home/admingod/regicide-evalab-work/openings4.txt:640","V1","K",1/2-1/2,0.5,"repetition",77
+1273,637,"/home/admingod/regicide-evalab-work/openings4.txt:637","K","V1",1-0,1,"no legal moves",159
+1283,642,"/home/admingod/regicide-evalab-work/openings4.txt:642","K","V1",1-0,1,"no legal moves",109
+1287,644,"/home/admingod/regicide-evalab-work/openings4.txt:644","K","V1",1/2-1/2,0.5,"repetition",72
+1281,641,"/home/admingod/regicide-evalab-work/openings4.txt:641","K","V1",0-1,0,"no legal moves",68
+1285,643,"/home/admingod/regicide-evalab-work/openings4.txt:643","K","V1",1-0,1,"no legal moves",111
+1284,642,"/home/admingod/regicide-evalab-work/openings4.txt:642","V1","K",1-0,0,"no legal moves",153
+1286,643,"/home/admingod/regicide-evalab-work/openings4.txt:643","V1","K",1-0,0,"no legal moves",157
+1282,641,"/home/admingod/regicide-evalab-work/openings4.txt:641","V1","K",1/2-1/2,0.5,"repetition",105
+1288,644,"/home/admingod/regicide-evalab-work/openings4.txt:644","V1","K",1-0,0,"no legal moves",131
+1290,645,"/home/admingod/regicide-evalab-work/openings4.txt:645","V1","K",0-1,1,"no legal moves",68
+1294,647,"/home/admingod/regicide-evalab-work/openings4.txt:647","V1","K",0-1,1,"no legal moves",96
+1291,646,"/home/admingod/regicide-evalab-work/openings4.txt:646","K","V1",0-1,0,"no legal moves",66
+1293,647,"/home/admingod/regicide-evalab-work/openings4.txt:647","K","V1",1/2-1/2,0.5,"repetition",85
+1289,645,"/home/admingod/regicide-evalab-work/openings4.txt:645","K","V1",1/2-1/2,0.5,"repetition",113
+1297,649,"/home/admingod/regicide-evalab-work/openings4.txt:649","K","V1",1/2-1/2,0.5,"repetition",79
+1292,646,"/home/admingod/regicide-evalab-work/openings4.txt:646","V1","K",1-0,0,"no legal moves",143
+1299,650,"/home/admingod/regicide-evalab-work/openings4.txt:650","K","V1",1-0,1,"no legal moves",101
+1301,651,"/home/admingod/regicide-evalab-work/openings4.txt:651","K","V1",1-0,1,"no legal moves",57
+1296,648,"/home/admingod/regicide-evalab-work/openings4.txt:648","V1","K",0-1,1,"no legal moves",88
+1302,651,"/home/admingod/regicide-evalab-work/openings4.txt:651","V1","K",1-0,0,"no legal moves",123
+1304,652,"/home/admingod/regicide-evalab-work/openings4.txt:652","V1","K",1-0,0,"no legal moves",87
+1303,652,"/home/admingod/regicide-evalab-work/openings4.txt:652","K","V1",1-0,1,"no legal moves",157
+1298,649,"/home/admingod/regicide-evalab-work/openings4.txt:649","V1","K",1-0,0,"no legal moves",157
+1300,650,"/home/admingod/regicide-evalab-work/openings4.txt:650","V1","K",1/2-1/2,0.5,"repetition",119
+1308,654,"/home/admingod/regicide-evalab-work/openings4.txt:654","V1","K",1/2-1/2,0.5,"repetition",87
+1307,654,"/home/admingod/regicide-evalab-work/openings4.txt:654","K","V1",0-1,0,"no legal moves",110
+1310,655,"/home/admingod/regicide-evalab-work/openings4.txt:655","V1","K",1/2-1/2,0.5,"repetition",109
+1306,653,"/home/admingod/regicide-evalab-work/openings4.txt:653","V1","K",1-0,0,"no legal moves",149
+1309,655,"/home/admingod/regicide-evalab-work/openings4.txt:655","K","V1",0-1,0,"no legal moves",62
+1295,648,"/home/admingod/regicide-evalab-work/openings4.txt:648","K","V1",1/2-1/2,0.5,"repetition",167
+1305,653,"/home/admingod/regicide-evalab-work/openings4.txt:653","K","V1",1-0,1,"no legal moves",157
+1313,657,"/home/admingod/regicide-evalab-work/openings4.txt:657","K","V1",1-0,1,"no legal moves",65
+1314,657,"/home/admingod/regicide-evalab-work/openings4.txt:657","V1","K",1-0,0,"no legal moves",145
+1319,660,"/home/admingod/regicide-evalab-work/openings4.txt:660","K","V1",1/2-1/2,0.5,"repetition",83
+1312,656,"/home/admingod/regicide-evalab-work/openings4.txt:656","V1","K",1-0,0,"no legal moves",105
+1324,662,"/home/admingod/regicide-evalab-work/openings4.txt:662","V1","K",1/2-1/2,0.5,"repetition",75
+1318,659,"/home/admingod/regicide-evalab-work/openings4.txt:659","V1","K",1-0,0,"no legal moves",113
+1317,659,"/home/admingod/regicide-evalab-work/openings4.txt:659","K","V1",1-0,1,"no legal moves",131
+1311,656,"/home/admingod/regicide-evalab-work/openings4.txt:656","K","V1",0-1,0,"no legal moves",128
+1323,662,"/home/admingod/regicide-evalab-work/openings4.txt:662","K","V1",1/2-1/2,0.5,"repetition",112
+1315,658,"/home/admingod/regicide-evalab-work/openings4.txt:658","K","V1",1-0,1,"no legal moves",95
+1322,661,"/home/admingod/regicide-evalab-work/openings4.txt:661","V1","K",0-1,1,"no legal moves",112
+1325,663,"/home/admingod/regicide-evalab-work/openings4.txt:663","K","V1",1-0,1,"no legal moves",115
+1316,658,"/home/admingod/regicide-evalab-work/openings4.txt:658","V1","K",1-0,0,"no legal moves",125
+1327,664,"/home/admingod/regicide-evalab-work/openings4.txt:664","K","V1",1-0,1,"no legal moves",137
+1328,664,"/home/admingod/regicide-evalab-work/openings4.txt:664","V1","K",1-0,0,"no legal moves",121
+1321,661,"/home/admingod/regicide-evalab-work/openings4.txt:661","K","V1",0-1,0,"no legal moves",144
+1320,660,"/home/admingod/regicide-evalab-work/openings4.txt:660","V1","K",1/2-1/2,0.5,"repetition",145
+1332,666,"/home/admingod/regicide-evalab-work/openings4.txt:666","V1","K",1-0,0,"no legal moves",123
+1330,665,"/home/admingod/regicide-evalab-work/openings4.txt:665","V1","K",1-0,0,"no legal moves",143
+1335,668,"/home/admingod/regicide-evalab-work/openings4.txt:668","K","V1",1/2-1/2,0.5,"repetition",70
+1333,667,"/home/admingod/regicide-evalab-work/openings4.txt:667","K","V1",1/2-1/2,0.5,"repetition",120
+1329,665,"/home/admingod/regicide-evalab-work/openings4.txt:665","K","V1",1-0,1,"no legal moves",137
+1331,666,"/home/admingod/regicide-evalab-work/openings4.txt:666","K","V1",1-0,1,"no legal moves",131
+1326,663,"/home/admingod/regicide-evalab-work/openings4.txt:663","V1","K",1/2-1/2,0.5,"repetition",122
+1336,668,"/home/admingod/regicide-evalab-work/openings4.txt:668","V1","K",1/2-1/2,0.5,"repetition",86
+1337,669,"/home/admingod/regicide-evalab-work/openings4.txt:669","K","V1",0-1,0,"no legal moves",144
+1338,669,"/home/admingod/regicide-evalab-work/openings4.txt:669","V1","K",1/2-1/2,0.5,"repetition",110
+1334,667,"/home/admingod/regicide-evalab-work/openings4.txt:667","V1","K",0-1,1,"no legal moves",92
+1345,673,"/home/admingod/regicide-evalab-work/openings4.txt:673","K","V1",1/2-1/2,0.5,"repetition",85
+1341,671,"/home/admingod/regicide-evalab-work/openings4.txt:671","K","V1",1/2-1/2,0.5,"repetition",99
+1339,670,"/home/admingod/regicide-evalab-work/openings4.txt:670","K","V1",1-0,1,"no legal moves",151
+1342,671,"/home/admingod/regicide-evalab-work/openings4.txt:671","V1","K",1/2-1/2,0.5,"repetition",99
+1343,672,"/home/admingod/regicide-evalab-work/openings4.txt:672","K","V1",0-1,0,"no legal moves",92
+1340,670,"/home/admingod/regicide-evalab-work/openings4.txt:670","V1","K",1-0,0,"no legal moves",157
+1351,676,"/home/admingod/regicide-evalab-work/openings4.txt:676","K","V1",1/2-1/2,0.5,"repetition",88
+1348,674,"/home/admingod/regicide-evalab-work/openings4.txt:674","V1","K",1/2-1/2,0.5,"repetition",97
+1347,674,"/home/admingod/regicide-evalab-work/openings4.txt:674","K","V1",1/2-1/2,0.5,"repetition",97
+1352,676,"/home/admingod/regicide-evalab-work/openings4.txt:676","V1","K",1/2-1/2,0.5,"repetition",99
+1344,672,"/home/admingod/regicide-evalab-work/openings4.txt:672","V1","K",0-1,1,"no legal moves",96
+1346,673,"/home/admingod/regicide-evalab-work/openings4.txt:673","V1","K",1/2-1/2,0.5,"repetition",85
+1355,678,"/home/admingod/regicide-evalab-work/openings4.txt:678","K","V1",1-0,1,"no legal moves",121
+1349,675,"/home/admingod/regicide-evalab-work/openings4.txt:675","K","V1",1-0,1,"no legal moves",153
+1359,680,"/home/admingod/regicide-evalab-work/openings4.txt:680","K","V1",1/2-1/2,0.5,"repetition",68
+1356,678,"/home/admingod/regicide-evalab-work/openings4.txt:678","V1","K",1-0,0,"no legal moves",71
+1350,675,"/home/admingod/regicide-evalab-work/openings4.txt:675","V1","K",1-0,0,"no legal moves",131
+1358,679,"/home/admingod/regicide-evalab-work/openings4.txt:679","V1","K",0-1,1,"no legal moves",136
+1354,677,"/home/admingod/regicide-evalab-work/openings4.txt:677","V1","K",0-1,1,"no legal moves",84
+1360,680,"/home/admingod/regicide-evalab-work/openings4.txt:680","V1","K",1/2-1/2,0.5,"repetition",96
+1357,679,"/home/admingod/regicide-evalab-work/openings4.txt:679","K","V1",0-1,0,"no legal moves",66
+1364,682,"/home/admingod/regicide-evalab-work/openings4.txt:682","V1","K",1/2-1/2,0.5,"repetition",75
+1363,682,"/home/admingod/regicide-evalab-work/openings4.txt:682","K","V1",1/2-1/2,0.5,"repetition",67
+1353,677,"/home/admingod/regicide-evalab-work/openings4.txt:677","K","V1",1-0,1,"no legal moves",191
+1367,684,"/home/admingod/regicide-evalab-work/openings4.txt:684","K","V1",1/2-1/2,0.5,"repetition",95
+1368,684,"/home/admingod/regicide-evalab-work/openings4.txt:684","V1","K",1/2-1/2,0.5,"repetition",97
+1369,685,"/home/admingod/regicide-evalab-work/openings4.txt:685","K","V1",1/2-1/2,0.5,"repetition",107
+1370,685,"/home/admingod/regicide-evalab-work/openings4.txt:685","V1","K",0-1,1,"no legal moves",114
+1362,681,"/home/admingod/regicide-evalab-work/openings4.txt:681","V1","K",1/2-1/2,0.5,"repetition",114
+1366,683,"/home/admingod/regicide-evalab-work/openings4.txt:683","V1","K",0-1,1,"no legal moves",94
+1371,686,"/home/admingod/regicide-evalab-work/openings4.txt:686","K","V1",1/2-1/2,0.5,"repetition",90
+1361,681,"/home/admingod/regicide-evalab-work/openings4.txt:681","K","V1",1/2-1/2,0.5,"repetition",93
+1365,683,"/home/admingod/regicide-evalab-work/openings4.txt:683","K","V1",1/2-1/2,0.5,"repetition",111
+1377,689,"/home/admingod/regicide-evalab-work/openings4.txt:689","K","V1",1/2-1/2,0.5,"repetition",88
+1373,687,"/home/admingod/regicide-evalab-work/openings4.txt:687","K","V1",1-0,1,"no legal moves",113
+1378,689,"/home/admingod/regicide-evalab-work/openings4.txt:689","V1","K",1/2-1/2,0.5,"repetition",91
+1372,686,"/home/admingod/regicide-evalab-work/openings4.txt:686","V1","K",1-0,0,"no legal moves",159
+1374,687,"/home/admingod/regicide-evalab-work/openings4.txt:687","V1","K",1-0,0,"no legal moves",97
+1383,692,"/home/admingod/regicide-evalab-work/openings4.txt:692","K","V1",1/2-1/2,0.5,"repetition",77
+1381,691,"/home/admingod/regicide-evalab-work/openings4.txt:691","K","V1",1/2-1/2,0.5,"repetition",78
+1386,693,"/home/admingod/regicide-evalab-work/openings4.txt:693","V1","K",1/2-1/2,0.5,"repetition",82
+1388,694,"/home/admingod/regicide-evalab-work/openings4.txt:694","V1","K",1/2-1/2,0.5,"repetition",69
+1380,690,"/home/admingod/regicide-evalab-work/openings4.txt:690","V1","K",1/2-1/2,0.5,"repetition",104
+1382,691,"/home/admingod/regicide-evalab-work/openings4.txt:691","V1","K",1-0,0,"no legal moves",125
+1375,688,"/home/admingod/regicide-evalab-work/openings4.txt:688","K","V1",0-1,0,"no legal moves",128
+1376,688,"/home/admingod/regicide-evalab-work/openings4.txt:688","V1","K",1/2-1/2,0.5,"repetition",141
+1384,692,"/home/admingod/regicide-evalab-work/openings4.txt:692","V1","K",1/2-1/2,0.5,"repetition",97
+1387,694,"/home/admingod/regicide-evalab-work/openings4.txt:694","K","V1",1/2-1/2,0.5,"repetition",109
+1390,695,"/home/admingod/regicide-evalab-work/openings4.txt:695","V1","K",1/2-1/2,0.5,"repetition",76
+1394,697,"/home/admingod/regicide-evalab-work/openings4.txt:697","V1","K",1/2-1/2,0.5,"repetition",88
+1391,696,"/home/admingod/regicide-evalab-work/openings4.txt:696","K","V1",1-0,1,"no legal moves",53
+1385,693,"/home/admingod/regicide-evalab-work/openings4.txt:693","K","V1",1/2-1/2,0.5,"repetition",133
+1389,695,"/home/admingod/regicide-evalab-work/openings4.txt:695","K","V1",1/2-1/2,0.5,"repetition",66
+1392,696,"/home/admingod/regicide-evalab-work/openings4.txt:696","V1","K",1/2-1/2,0.5,"repetition",54
+1393,697,"/home/admingod/regicide-evalab-work/openings4.txt:697","K","V1",1/2-1/2,0.5,"repetition",105
+1401,701,"/home/admingod/regicide-evalab-work/openings4.txt:701","K","V1",1/2-1/2,0.5,"repetition",68
+1397,699,"/home/admingod/regicide-evalab-work/openings4.txt:699","K","V1",1/2-1/2,0.5,"repetition",97
+1396,698,"/home/admingod/regicide-evalab-work/openings4.txt:698","V1","K",0-1,1,"no legal moves",118
+1403,702,"/home/admingod/regicide-evalab-work/openings4.txt:702","K","V1",1/2-1/2,0.5,"repetition",87
+1405,703,"/home/admingod/regicide-evalab-work/openings4.txt:703","K","V1",1/2-1/2,0.5,"repetition",66
+1379,690,"/home/admingod/regicide-evalab-work/openings4.txt:690","K","V1",1/2-1/2,0.5,"no progress",174
+1399,700,"/home/admingod/regicide-evalab-work/openings4.txt:700","K","V1",1/2-1/2,0.5,"repetition",115
+1404,702,"/home/admingod/regicide-evalab-work/openings4.txt:702","V1","K",1/2-1/2,0.5,"repetition",81
+1398,699,"/home/admingod/regicide-evalab-work/openings4.txt:699","V1","K",1-0,0,"no legal moves",143
+1406,703,"/home/admingod/regicide-evalab-work/openings4.txt:703","V1","K",1/2-1/2,0.5,"repetition",93
+1400,700,"/home/admingod/regicide-evalab-work/openings4.txt:700","V1","K",1/2-1/2,0.5,"repetition",104
+1395,698,"/home/admingod/regicide-evalab-work/openings4.txt:698","K","V1",1/2-1/2,0.5,"repetition",143
+1408,704,"/home/admingod/regicide-evalab-work/openings4.txt:704","V1","K",1/2-1/2,0.5,"repetition",79
+1409,705,"/home/admingod/regicide-evalab-work/openings4.txt:705","K","V1",1/2-1/2,0.5,"repetition",91
+1412,706,"/home/admingod/regicide-evalab-work/openings4.txt:706","V1","K",1/2-1/2,0.5,"repetition",67
+1411,706,"/home/admingod/regicide-evalab-work/openings4.txt:706","K","V1",1/2-1/2,0.5,"repetition",90
+1402,701,"/home/admingod/regicide-evalab-work/openings4.txt:701","V1","K",1/2-1/2,0.5,"repetition",96
+1407,704,"/home/admingod/regicide-evalab-work/openings4.txt:704","K","V1",1-0,1,"no legal moves",129
+1414,707,"/home/admingod/regicide-evalab-work/openings4.txt:707","V1","K",1/2-1/2,0.5,"repetition",93
+1413,707,"/home/admingod/regicide-evalab-work/openings4.txt:707","K","V1",0-1,0,"no legal moves",86
+1410,705,"/home/admingod/regicide-evalab-work/openings4.txt:705","V1","K",0-1,1,"no legal moves",86
+1415,708,"/home/admingod/regicide-evalab-work/openings4.txt:708","K","V1",0-1,0,"no legal moves",94
+1421,711,"/home/admingod/regicide-evalab-work/openings4.txt:711","K","V1",1/2-1/2,0.5,"repetition",72
+1423,712,"/home/admingod/regicide-evalab-work/openings4.txt:712","K","V1",1/2-1/2,0.5,"repetition",73
+1419,710,"/home/admingod/regicide-evalab-work/openings4.txt:710","K","V1",1-0,1,"no legal moves",137
+1422,711,"/home/admingod/regicide-evalab-work/openings4.txt:711","V1","K",0-1,1,"no legal moves",94
+1425,713,"/home/admingod/regicide-evalab-work/openings4.txt:713","K","V1",1/2-1/2,0.5,"repetition",77
+1427,714,"/home/admingod/regicide-evalab-work/openings4.txt:714","K","V1",1/2-1/2,0.5,"repetition",101
+1426,713,"/home/admingod/regicide-evalab-work/openings4.txt:713","V1","K",1/2-1/2,0.5,"repetition",113
+1428,714,"/home/admingod/regicide-evalab-work/openings4.txt:714","V1","K",1/2-1/2,0.5,"repetition",94
+1417,709,"/home/admingod/regicide-evalab-work/openings4.txt:709","K","V1",1-0,1,"no legal moves",189
+1420,710,"/home/admingod/regicide-evalab-work/openings4.txt:710","V1","K",1-0,0,"no legal moves",181
+1424,712,"/home/admingod/regicide-evalab-work/openings4.txt:712","V1","K",1/2-1/2,0.5,"repetition",117
+1418,709,"/home/admingod/regicide-evalab-work/openings4.txt:709","V1","K",1-0,0,"no legal moves",157
+1432,716,"/home/admingod/regicide-evalab-work/openings4.txt:716","V1","K",1/2-1/2,0.5,"repetition",93
+1430,715,"/home/admingod/regicide-evalab-work/openings4.txt:715","V1","K",1/2-1/2,0.5,"repetition",83
+1429,715,"/home/admingod/regicide-evalab-work/openings4.txt:715","K","V1",0-1,0,"no legal moves",82
+1433,717,"/home/admingod/regicide-evalab-work/openings4.txt:717","K","V1",1/2-1/2,0.5,"repetition",86
+1431,716,"/home/admingod/regicide-evalab-work/openings4.txt:716","K","V1",1/2-1/2,0.5,"repetition",90
+1439,720,"/home/admingod/regicide-evalab-work/openings4.txt:720","K","V1",1/2-1/2,0.5,"repetition",78
+1440,720,"/home/admingod/regicide-evalab-work/openings4.txt:720","V1","K",1/2-1/2,0.5,"repetition",72
+1434,717,"/home/admingod/regicide-evalab-work/openings4.txt:717","V1","K",1-0,0,"no legal moves",145
+1436,718,"/home/admingod/regicide-evalab-work/openings4.txt:718","V1","K",1/2-1/2,0.5,"repetition",90
+1416,708,"/home/admingod/regicide-evalab-work/openings4.txt:708","V1","K",1/2-1/2,0.5,"no progress",184
+1441,721,"/home/admingod/regicide-evalab-work/openings4.txt:721","K","V1",1-0,1,"no legal moves",119
+1442,721,"/home/admingod/regicide-evalab-work/openings4.txt:721","V1","K",1-0,0,"no legal moves",115
+1437,719,"/home/admingod/regicide-evalab-work/openings4.txt:719","K","V1",1-0,1,"no legal moves",153
+1445,723,"/home/admingod/regicide-evalab-work/openings4.txt:723","K","V1",1/2-1/2,0.5,"repetition",72
+1446,723,"/home/admingod/regicide-evalab-work/openings4.txt:723","V1","K",1/2-1/2,0.5,"repetition",64
+1447,724,"/home/admingod/regicide-evalab-work/openings4.txt:724","K","V1",1/2-1/2,0.5,"repetition",91
+1444,722,"/home/admingod/regicide-evalab-work/openings4.txt:722","V1","K",1-0,0,"no legal moves",149
+1443,722,"/home/admingod/regicide-evalab-work/openings4.txt:722","K","V1",0-1,0,"no legal moves",96
+1438,719,"/home/admingod/regicide-evalab-work/openings4.txt:719","V1","K",1-0,0,"no legal moves",113
+1450,725,"/home/admingod/regicide-evalab-work/openings4.txt:725","V1","K",1/2-1/2,0.5,"repetition",86
+1449,725,"/home/admingod/regicide-evalab-work/openings4.txt:725","K","V1",1-0,1,"no legal moves",143
+1453,727,"/home/admingod/regicide-evalab-work/openings4.txt:727","K","V1",1/2-1/2,0.5,"repetition",70
+1454,727,"/home/admingod/regicide-evalab-work/openings4.txt:727","V1","K",1/2-1/2,0.5,"repetition",101
+1451,726,"/home/admingod/regicide-evalab-work/openings4.txt:726","K","V1",1/2-1/2,0.5,"repetition",107
+1452,726,"/home/admingod/regicide-evalab-work/openings4.txt:726","V1","K",1/2-1/2,0.5,"repetition",121
+1448,724,"/home/admingod/regicide-evalab-work/openings4.txt:724","V1","K",1-0,0,"no legal moves",81
+1458,729,"/home/admingod/regicide-evalab-work/openings4.txt:729","V1","K",1/2-1/2,0.5,"repetition",72
+1457,729,"/home/admingod/regicide-evalab-work/openings4.txt:729","K","V1",1/2-1/2,0.5,"repetition",113
+1456,728,"/home/admingod/regicide-evalab-work/openings4.txt:728","V1","K",1-0,0,"no legal moves",125
+1435,718,"/home/admingod/regicide-evalab-work/openings4.txt:718","K","V1",1-0,1,"no legal moves",199
+1460,730,"/home/admingod/regicide-evalab-work/openings4.txt:730","V1","K",1/2-1/2,0.5,"repetition",73
+1462,731,"/home/admingod/regicide-evalab-work/openings4.txt:731","V1","K",1-0,0,"no legal moves",63
+1463,732,"/home/admingod/regicide-evalab-work/openings4.txt:732","K","V1",1/2-1/2,0.5,"repetition",111
+1466,733,"/home/admingod/regicide-evalab-work/openings4.txt:733","V1","K",1/2-1/2,0.5,"repetition",61
+1461,731,"/home/admingod/regicide-evalab-work/openings4.txt:731","K","V1",1-0,1,"no legal moves",207
+1464,732,"/home/admingod/regicide-evalab-work/openings4.txt:732","V1","K",1/2-1/2,0.5,"repetition",93
+1465,733,"/home/admingod/regicide-evalab-work/openings4.txt:733","K","V1",1/2-1/2,0.5,"repetition",111
+1467,734,"/home/admingod/regicide-evalab-work/openings4.txt:734","K","V1",1-0,1,"no legal moves",139
+1459,730,"/home/admingod/regicide-evalab-work/openings4.txt:730","K","V1",1/2-1/2,0.5,"repetition",103
+1472,736,"/home/admingod/regicide-evalab-work/openings4.txt:736","V1","K",1/2-1/2,0.5,"repetition",64
+1469,735,"/home/admingod/regicide-evalab-work/openings4.txt:735","K","V1",1/2-1/2,0.5,"repetition",103
+1471,736,"/home/admingod/regicide-evalab-work/openings4.txt:736","K","V1",1/2-1/2,0.5,"repetition",64
+1474,737,"/home/admingod/regicide-evalab-work/openings4.txt:737","V1","K",1/2-1/2,0.5,"repetition",79
+1470,735,"/home/admingod/regicide-evalab-work/openings4.txt:735","V1","K",1-0,0,"no legal moves",131
+1468,734,"/home/admingod/regicide-evalab-work/openings4.txt:734","V1","K",1-0,0,"no legal moves",193
+1475,738,"/home/admingod/regicide-evalab-work/openings4.txt:738","K","V1",1-0,1,"no legal moves",143
+1476,738,"/home/admingod/regicide-evalab-work/openings4.txt:738","V1","K",1-0,0,"no legal moves",133
+1473,737,"/home/admingod/regicide-evalab-work/openings4.txt:737","K","V1",0-1,0,"no legal moves",68
+1480,740,"/home/admingod/regicide-evalab-work/openings4.txt:740","V1","K",1/2-1/2,0.5,"repetition",109
+1478,739,"/home/admingod/regicide-evalab-work/openings4.txt:739","V1","K",0-1,1,"no legal moves",54
+1481,741,"/home/admingod/regicide-evalab-work/openings4.txt:741","K","V1",1/2-1/2,0.5,"repetition",65
+1479,740,"/home/admingod/regicide-evalab-work/openings4.txt:740","K","V1",1-0,1,"no legal moves",137
+1483,742,"/home/admingod/regicide-evalab-work/openings4.txt:742","K","V1",1/2-1/2,0.5,"repetition",84
+1484,742,"/home/admingod/regicide-evalab-work/openings4.txt:742","V1","K",1/2-1/2,0.5,"repetition",78
+1455,728,"/home/admingod/regicide-evalab-work/openings4.txt:728","K","V1",1/2-1/2,0.5,"no progress",184
+1491,746,"/home/admingod/regicide-evalab-work/openings4.txt:746","K","V1",1/2-1/2,0.5,"repetition",70
+1487,744,"/home/admingod/regicide-evalab-work/openings4.txt:744","K","V1",1-0,1,"no legal moves",141
+1489,745,"/home/admingod/regicide-evalab-work/openings4.txt:745","K","V1",1-0,1,"no legal moves",139
+1485,743,"/home/admingod/regicide-evalab-work/openings4.txt:743","K","V1",1-0,1,"no legal moves",163
+1492,746,"/home/admingod/regicide-evalab-work/openings4.txt:746","V1","K",1/2-1/2,0.5,"repetition",88
+1486,743,"/home/admingod/regicide-evalab-work/openings4.txt:743","V1","K",1/2-1/2,0.5,"repetition",121
+1493,747,"/home/admingod/regicide-evalab-work/openings4.txt:747","K","V1",1/2-1/2,0.5,"repetition",76
+1482,741,"/home/admingod/regicide-evalab-work/openings4.txt:741","V1","K",1/2-1/2,0.5,"repetition",108
+1490,745,"/home/admingod/regicide-evalab-work/openings4.txt:745","V1","K",1-0,0,"no legal moves",123
+1488,744,"/home/admingod/regicide-evalab-work/openings4.txt:744","V1","K",0-1,1,"no legal moves",114
+1496,748,"/home/admingod/regicide-evalab-work/openings4.txt:748","V1","K",1/2-1/2,0.5,"repetition",86
+1499,750,"/home/admingod/regicide-evalab-work/openings4.txt:750","K","V1",1-0,1,"no legal moves",123
+1497,749,"/home/admingod/regicide-evalab-work/openings4.txt:749","K","V1",1-0,1,"no legal moves",125
+1477,739,"/home/admingod/regicide-evalab-work/openings4.txt:739","K","V1",1/2-1/2,0.5,"no progress",175
+1502,751,"/home/admingod/regicide-evalab-work/openings4.txt:751","V1","K",1-0,0,"no legal moves",141
+1501,751,"/home/admingod/regicide-evalab-work/openings4.txt:751","K","V1",1-0,1,"no legal moves",191
+1500,750,"/home/admingod/regicide-evalab-work/openings4.txt:750","V1","K",1-0,0,"no legal moves",85
+1504,752,"/home/admingod/regicide-evalab-work/openings4.txt:752","V1","K",0-1,1,"no legal moves",106
+1506,753,"/home/admingod/regicide-evalab-work/openings4.txt:753","V1","K",0-1,1,"no legal moves",68
+1508,754,"/home/admingod/regicide-evalab-work/openings4.txt:754","V1","K",1/2-1/2,0.5,"repetition",82
+1494,747,"/home/admingod/regicide-evalab-work/openings4.txt:747","V1","K",1/2-1/2,0.5,"repetition",169
+1503,752,"/home/admingod/regicide-evalab-work/openings4.txt:752","K","V1",1/2-1/2,0.5,"repetition",111
+1507,754,"/home/admingod/regicide-evalab-work/openings4.txt:754","K","V1",1/2-1/2,0.5,"repetition",86
+1505,753,"/home/admingod/regicide-evalab-work/openings4.txt:753","K","V1",0-1,0,"no legal moves",126
+1509,755,"/home/admingod/regicide-evalab-work/openings4.txt:755","K","V1",1/2-1/2,0.5,"repetition",95
+1510,755,"/home/admingod/regicide-evalab-work/openings4.txt:755","V1","K",1/2-1/2,0.5,"repetition",63
+1495,748,"/home/admingod/regicide-evalab-work/openings4.txt:748","K","V1",1/2-1/2,0.5,"no progress",157
+1515,758,"/home/admingod/regicide-evalab-work/openings4.txt:758","K","V1",1-0,1,"no legal moves",55
+1512,756,"/home/admingod/regicide-evalab-work/openings4.txt:756","V1","K",1/2-1/2,0.5,"repetition",106
+1514,757,"/home/admingod/regicide-evalab-work/openings4.txt:757","V1","K",1-0,0,"no legal moves",113
+1518,759,"/home/admingod/regicide-evalab-work/openings4.txt:759","V1","K",1-0,0,"no legal moves",117
+1517,759,"/home/admingod/regicide-evalab-work/openings4.txt:759","K","V1",1-0,1,"no legal moves",159
+1498,749,"/home/admingod/regicide-evalab-work/openings4.txt:749","V1","K",1-0,0,"no legal moves",207
+1516,758,"/home/admingod/regicide-evalab-work/openings4.txt:758","V1","K",1-0,0,"no legal moves",143
+1522,761,"/home/admingod/regicide-evalab-work/openings4.txt:761","V1","K",1/2-1/2,0.5,"repetition",87
+1513,757,"/home/admingod/regicide-evalab-work/openings4.txt:757","K","V1",1-0,1,"no legal moves",163
+1521,761,"/home/admingod/regicide-evalab-work/openings4.txt:761","K","V1",1-0,1,"no legal moves",183
+1526,763,"/home/admingod/regicide-evalab-work/openings4.txt:763","V1","K",1/2-1/2,0.5,"repetition",79
+1523,762,"/home/admingod/regicide-evalab-work/openings4.txt:762","K","V1",0-1,0,"no legal moves",72
+1527,764,"/home/admingod/regicide-evalab-work/openings4.txt:764","K","V1",0-1,0,"no legal moves",126
+1528,764,"/home/admingod/regicide-evalab-work/openings4.txt:764","V1","K",0-1,1,"no legal moves",72
+1519,760,"/home/admingod/regicide-evalab-work/openings4.txt:760","K","V1",1-0,1,"no legal moves",155
+1520,760,"/home/admingod/regicide-evalab-work/openings4.txt:760","V1","K",1-0,0,"no legal moves",173
+1511,756,"/home/admingod/regicide-evalab-work/openings4.txt:756","K","V1",0-1,0,"no legal moves",180
+1525,763,"/home/admingod/regicide-evalab-work/openings4.txt:763","K","V1",1/2-1/2,0.5,"repetition",99
+1529,765,"/home/admingod/regicide-evalab-work/openings4.txt:765","K","V1",1/2-1/2,0.5,"repetition",92
+1533,767,"/home/admingod/regicide-evalab-work/openings4.txt:767","K","V1",1/2-1/2,0.5,"repetition",87
+1524,762,"/home/admingod/regicide-evalab-work/openings4.txt:762","V1","K",1/2-1/2,0.5,"repetition",131
+1532,766,"/home/admingod/regicide-evalab-work/openings4.txt:766","V1","K",0-1,1,"no legal moves",108
+1538,769,"/home/admingod/regicide-evalab-work/openings4.txt:769","V1","K",1/2-1/2,0.5,"repetition",87
+1534,767,"/home/admingod/regicide-evalab-work/openings4.txt:767","V1","K",1/2-1/2,0.5,"repetition",83
+1535,768,"/home/admingod/regicide-evalab-work/openings4.txt:768","K","V1",1/2-1/2,0.5,"repetition",92
+1530,765,"/home/admingod/regicide-evalab-work/openings4.txt:765","V1","K",0-1,1,"no legal moves",88
+1537,769,"/home/admingod/regicide-evalab-work/openings4.txt:769","K","V1",0-1,0,"no legal moves",132
+1543,772,"/home/admingod/regicide-evalab-work/openings4.txt:772","K","V1",1/2-1/2,0.5,"repetition",95
+1540,770,"/home/admingod/regicide-evalab-work/openings4.txt:770","V1","K",1/2-1/2,0.5,"repetition",76
+1539,770,"/home/admingod/regicide-evalab-work/openings4.txt:770","K","V1",1/2-1/2,0.5,"repetition",99
+1547,774,"/home/admingod/regicide-evalab-work/openings4.txt:774","K","V1",1/2-1/2,0.5,"repetition",67
+1541,771,"/home/admingod/regicide-evalab-work/openings4.txt:771","K","V1",1-0,1,"no legal moves",127
+1545,773,"/home/admingod/regicide-evalab-work/openings4.txt:773","K","V1",1/2-1/2,0.5,"repetition",105
+1536,768,"/home/admingod/regicide-evalab-work/openings4.txt:768","V1","K",1/2-1/2,0.5,"repetition",123
+1531,766,"/home/admingod/regicide-evalab-work/openings4.txt:766","K","V1",1-0,1,"no legal moves",159
+1548,774,"/home/admingod/regicide-evalab-work/openings4.txt:774","V1","K",1/2-1/2,0.5,"repetition",86
+1546,773,"/home/admingod/regicide-evalab-work/openings4.txt:773","V1","K",1-0,0,"no legal moves",151
+1551,776,"/home/admingod/regicide-evalab-work/openings4.txt:776","K","V1",1/2-1/2,0.5,"repetition",68
+1555,778,"/home/admingod/regicide-evalab-work/openings4.txt:778","K","V1",1/2-1/2,0.5,"repetition",69
+1550,775,"/home/admingod/regicide-evalab-work/openings4.txt:775","V1","K",0-1,1,"no legal moves",92
+1544,772,"/home/admingod/regicide-evalab-work/openings4.txt:772","V1","K",1/2-1/2,0.5,"repetition",115
+1553,777,"/home/admingod/regicide-evalab-work/openings4.txt:777","K","V1",0-1,0,"no legal moves",60
+1554,777,"/home/admingod/regicide-evalab-work/openings4.txt:777","V1","K",0-1,1,"no legal moves",90
+1549,775,"/home/admingod/regicide-evalab-work/openings4.txt:775","K","V1",0-1,0,"no legal moves",132
+1552,776,"/home/admingod/regicide-evalab-work/openings4.txt:776","V1","K",0-1,1,"no legal moves",116
+1557,779,"/home/admingod/regicide-evalab-work/openings4.txt:779","K","V1",1/2-1/2,0.5,"repetition",67
+1542,771,"/home/admingod/regicide-evalab-work/openings4.txt:771","V1","K",1/2-1/2,0.5,"repetition",176
+1558,779,"/home/admingod/regicide-evalab-work/openings4.txt:779","V1","K",1-0,0,"no legal moves",57
+1560,780,"/home/admingod/regicide-evalab-work/openings4.txt:780","V1","K",1-0,0,"no legal moves",65
+1556,778,"/home/admingod/regicide-evalab-work/openings4.txt:778","V1","K",0-1,1,"no legal moves",72
+1559,780,"/home/admingod/regicide-evalab-work/openings4.txt:780","K","V1",1-0,1,"no legal moves",135
+1564,782,"/home/admingod/regicide-evalab-work/openings4.txt:782","V1","K",1/2-1/2,0.5,"repetition",60
+1563,782,"/home/admingod/regicide-evalab-work/openings4.txt:782","K","V1",1/2-1/2,0.5,"repetition",90
+1561,781,"/home/admingod/regicide-evalab-work/openings4.txt:781","K","V1",1-0,1,"no legal moves",129
+1565,783,"/home/admingod/regicide-evalab-work/openings4.txt:783","K","V1",1/2-1/2,0.5,"repetition",79
+1566,783,"/home/admingod/regicide-evalab-work/openings4.txt:783","V1","K",1/2-1/2,0.5,"repetition",113
+1572,786,"/home/admingod/regicide-evalab-work/openings4.txt:786","V1","K",1/2-1/2,0.5,"repetition",81
+1567,784,"/home/admingod/regicide-evalab-work/openings4.txt:784","K","V1",1/2-1/2,0.5,"repetition",85
+1562,781,"/home/admingod/regicide-evalab-work/openings4.txt:781","V1","K",1/2-1/2,0.5,"repetition",123
+1574,787,"/home/admingod/regicide-evalab-work/openings4.txt:787","V1","K",1-0,0,"no legal moves",155
+1571,786,"/home/admingod/regicide-evalab-work/openings4.txt:786","K","V1",1/2-1/2,0.5,"repetition",89
+1568,784,"/home/admingod/regicide-evalab-work/openings4.txt:784","V1","K",1/2-1/2,0.5,"repetition",104
+1569,785,"/home/admingod/regicide-evalab-work/openings4.txt:785","K","V1",1/2-1/2,0.5,"repetition",120
+1573,787,"/home/admingod/regicide-evalab-work/openings4.txt:787","K","V1",1-0,1,"no legal moves",185
+1577,789,"/home/admingod/regicide-evalab-work/openings4.txt:789","K","V1",1/2-1/2,0.5,"repetition",79
+1576,788,"/home/admingod/regicide-evalab-work/openings4.txt:788","V1","K",0-1,1,"no legal moves",92
+1575,788,"/home/admingod/regicide-evalab-work/openings4.txt:788","K","V1",0-1,0,"no legal moves",102
+1578,789,"/home/admingod/regicide-evalab-work/openings4.txt:789","V1","K",1-0,0,"no legal moves",67
+1570,785,"/home/admingod/regicide-evalab-work/openings4.txt:785","V1","K",1-0,0,"no legal moves",185
+1581,791,"/home/admingod/regicide-evalab-work/openings4.txt:791","K","V1",1/2-1/2,0.5,"repetition",85
+1582,791,"/home/admingod/regicide-evalab-work/openings4.txt:791","V1","K",1/2-1/2,0.5,"repetition",79
+1584,792,"/home/admingod/regicide-evalab-work/openings4.txt:792","V1","K",1-0,0,"no legal moves",59
+1583,792,"/home/admingod/regicide-evalab-work/openings4.txt:792","K","V1",1-0,1,"no legal moves",119
+1579,790,"/home/admingod/regicide-evalab-work/openings4.txt:790","K","V1",1-0,1,"no legal moves",157
+1586,793,"/home/admingod/regicide-evalab-work/openings4.txt:793","V1","K",1/2-1/2,0.5,"repetition",92
+1580,790,"/home/admingod/regicide-evalab-work/openings4.txt:790","V1","K",1-0,0,"no legal moves",135
+1588,794,"/home/admingod/regicide-evalab-work/openings4.txt:794","V1","K",1/2-1/2,0.5,"repetition",70
+1587,794,"/home/admingod/regicide-evalab-work/openings4.txt:794","K","V1",0-1,0,"no legal moves",80
+1585,793,"/home/admingod/regicide-evalab-work/openings4.txt:793","K","V1",0-1,0,"no legal moves",134
+1591,796,"/home/admingod/regicide-evalab-work/openings4.txt:796","K","V1",1/2-1/2,0.5,"repetition",82
+1589,795,"/home/admingod/regicide-evalab-work/openings4.txt:795","K","V1",1-0,1,"no legal moves",163
+1592,796,"/home/admingod/regicide-evalab-work/openings4.txt:796","V1","K",1/2-1/2,0.5,"repetition",82
+1590,795,"/home/admingod/regicide-evalab-work/openings4.txt:795","V1","K",1-0,0,"no legal moves",141
+1597,799,"/home/admingod/regicide-evalab-work/openings4.txt:799","K","V1",0-1,0,"no legal moves",52
+1596,798,"/home/admingod/regicide-evalab-work/openings4.txt:798","V1","K",0-1,1,"no legal moves",76
+1601,801,"/home/admingod/regicide-evalab-work/openings4.txt:801","K","V1",1/2-1/2,0.5,"repetition",66
+1599,800,"/home/admingod/regicide-evalab-work/openings4.txt:800","K","V1",0-1,0,"no legal moves",76
+1593,797,"/home/admingod/regicide-evalab-work/openings4.txt:797","K","V1",1-0,1,"no legal moves",103
+1598,799,"/home/admingod/regicide-evalab-work/openings4.txt:799","V1","K",0-1,1,"no legal moves",82
+1595,798,"/home/admingod/regicide-evalab-work/openings4.txt:798","K","V1",1/2-1/2,0.5,"repetition",109
+1602,801,"/home/admingod/regicide-evalab-work/openings4.txt:801","V1","K",1/2-1/2,0.5,"repetition",83
+1594,797,"/home/admingod/regicide-evalab-work/openings4.txt:797","V1","K",1-0,0,"no legal moves",151
+1607,804,"/home/admingod/regicide-evalab-work/openings4.txt:804","K","V1",1/2-1/2,0.5,"repetition",79
+1600,800,"/home/admingod/regicide-evalab-work/openings4.txt:800","V1","K",1-0,0,"no legal moves",157
+1608,804,"/home/admingod/regicide-evalab-work/openings4.txt:804","V1","K",1/2-1/2,0.5,"repetition",74
+1606,803,"/home/admingod/regicide-evalab-work/openings4.txt:803","V1","K",1-0,0,"no legal moves",119
+1609,805,"/home/admingod/regicide-evalab-work/openings4.txt:805","K","V1",0-1,0,"no legal moves",124
+1605,803,"/home/admingod/regicide-evalab-work/openings4.txt:803","K","V1",1/2-1/2,0.5,"repetition",113
+1610,805,"/home/admingod/regicide-evalab-work/openings4.txt:805","V1","K",0-1,1,"no legal moves",126
+1604,802,"/home/admingod/regicide-evalab-work/openings4.txt:802","V1","K",1/2-1/2,0.5,"repetition",171
+1603,802,"/home/admingod/regicide-evalab-work/openings4.txt:802","K","V1",0-1,0,"no legal moves",170

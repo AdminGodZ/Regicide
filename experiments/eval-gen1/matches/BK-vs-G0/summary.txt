@@ -1,0 +1,14 @@
+Match: A = BK, B = G0
+Openings: /home/admingod/regicide-evalab-work/openings4.txt (805 openings x 1 rounds, each played with both colours)
+Time control: 0.1s/move (CheckerBoard match rules); no-progress rule: 40 moves
+Games: 1610 of 1610 scheduled
+
+A: +550 =811 -249   score 955.5/1610 = 59.35%   draw rate 50.4%
+A as black: +331 =388 -86   A as white: +219 =423 -163
+By colour: black won 494, white won 305, drawn 811
+Pairs: 805   pentanomial [LL LD DD/WL WD WW] = [0 69 424 254 58]
+Elo (pentanomial, pairs): +65.7 [+56.6, +75.0] 95% CI, score 0.5935 +- 0.0128, LOS 100.00%
+Elo (trinomial, games):   +65.7 [+53.9, +77.8] 95% CI, LOS 100.00%
+Terminations: no legal moves 799; no progress 11; repetition 800;
+A BK: 85975 moves, avg 0.051s/move, max 1.030s
+B G0: 85831 moves, avg 0.051s/move, max 0.952s
