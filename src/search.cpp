@@ -429,6 +429,7 @@ void Worker::iterate(const Limits& limits, TimeControl& t, const Engine::InfoFn*
     const bool main = id == 0;
     Move last_best = roots[0].move;
     int stability = 0;
+    Score last_score = SCORE_INF;  // score of the previous completed iteration (main thread)
 
     prev_to[0] = 32;
     for (root_depth = 1; root_depth <= limits.depth; ++root_depth) {
@@ -475,12 +476,16 @@ void Worker::iterate(const Limits& limits, TimeControl& t, const Engine::InfoFn*
         else
             stability = 0;
         last_best = roots[0].move;
+        const bool dropping = P.tm_drop > 0 && last_score != SCORE_INF && !is_decisive(score) &&
+                              score < last_score - P.tm_drop;
+        last_score = score;
 
         if (limits.infinite) continue;
         if (roots.size() == 1 && (t.soft_ms || t.hard_ms) && limits.searchmoves.empty()) break;
         if (t.soft_ms) {
             // A stable best move lets us stop early; a fresh change of mind buys extra time.
-            const double factor = stability >= 6 ? 0.5 : stability >= 3 ? 0.8 : stability == 0 ? 1.6 : 1.0;
+            double factor = stability >= 6 ? 0.5 : stability >= 3 ? 0.8 : stability == 0 ? 1.6 : 1.0;
+            if (dropping) factor = std::max(factor, 1.0) * P.tm_drop_factor / 100.0;  // a falling score: think longer
             if (elapsed_ms(t.start) > std::int64_t(t.soft_ms * factor)) break;
         }
         if (is_decisive(score) && SCORE_WIN - std::abs(score) < root_depth && std::abs(score) > SCORE_MATE_BOUND)
@@ -504,7 +509,9 @@ bool SearchParams::set(const std::string& name, int value) {
         {"fut_depth", &SearchParams::fut_depth},               {"fut_margin", &SearchParams::fut_margin},
         {"cont_hist", &SearchParams::cont_hist},               {"se_depth", &SearchParams::se_depth},
         {"se_margin", &SearchParams::se_margin},               {"razor_depth", &SearchParams::razor_depth},
-        {"razor_margin", &SearchParams::razor_margin},
+        {"razor_margin", &SearchParams::razor_margin},     {"tm_soft", &SearchParams::tm_soft},
+        {"tm_hard", &SearchParams::tm_hard},               {"tm_drop", &SearchParams::tm_drop},
+        {"tm_drop_factor", &SearchParams::tm_drop_factor},
     };
     for (const auto& e : table)
         if (name == e.name) {
@@ -617,8 +624,8 @@ SearchResult Engine::go(const Limits& limits, InfoFn on_info) {
     if (limits.movetime_ms) {
         tc.soft_ms = tc.hard_ms = limits.movetime_ms;
     } else if (limits.target_ms) {
-        tc.soft_ms = std::max(1, limits.target_ms * 6 / 10);
-        tc.hard_ms = std::max(1, limits.target_ms * 5 / 2);
+        tc.soft_ms = std::max(1, limits.target_ms * params.tm_soft / 100);
+        tc.hard_ms = std::max(1, limits.target_ms * params.tm_hard / 100);
     } else if (limits.time_ms) {
         const int mtg = limits.moves_to_go ? std::min(limits.moves_to_go, 40) : 32;
         const std::int64_t reserve = std::min<std::int64_t>(limits.time_ms / 10, 1000);

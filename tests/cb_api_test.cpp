@@ -104,6 +104,13 @@ int main(int argc, char** argv) {
         }
     }
 
+    // Search parameters: known names are accepted (and set back to their defaults here), unknown ones rejected.
+    if (command("set param tm_drop=40,tm_drop_factor=200", reply) != 1 || command("set param tm_drop=0", reply) != 1 ||
+        command("set param no_such_param=1", reply) != 0) {
+        std::cerr << "set param failed: " << reply << '\n';
+        return 1;
+    }
+
     Position pos;
     int plies = 0;
     for (; plies < 200; ++plies) {

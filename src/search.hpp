@@ -74,6 +74,10 @@ struct SearchParams {
     int se_margin = 20;         // singular beta = tt score - se_margin * depth / 8 (tune1: 20 vs 40 +10.9 at 300 ms)
     int razor_depth = 0;        // razoring up to this depth (0 = off)
     int razor_margin = 150;
+    int tm_soft = 60;           // CheckerBoard time: soft limit (no new iteration) in % of maxtime
+    int tm_hard = 250;          // ... and hard limit (abort) in % of maxtime
+    int tm_drop = 0;            // score drop (cp) vs the previous iteration that buys extra time (0 = off)
+    int tm_drop_factor = 200;   // soft-limit multiplier in % while the score is dropping
 
     // Sets a parameter by name; returns false for an unknown name.
     bool set(const std::string& name, int value);

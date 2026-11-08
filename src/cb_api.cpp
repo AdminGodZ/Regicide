@@ -324,6 +324,11 @@ CB_EXPORT int WINAPI enginecommand(const char* command, char reply[1024]) {
             }
             return answer("", 1);
         }
+        if (p1 == "param") {
+            // "set param name=value[,name=value...]": search parameters (see SearchParams), e.g. for tuning matches.
+            if (!s.engine->params.set_all(p2)) return answer("?", 0);
+            return answer(p2, 1);
+        }
         if (p1 == "dbmbytes") {
             // The database is already mapped at startup; a larger budget pre-faults more of it now.
             s.egdb_cache_mb = std::size_t(std::max(0, std::atoi(p2.c_str())));
