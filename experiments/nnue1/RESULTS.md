@@ -94,7 +94,12 @@ bad path. The settings are those of the gen2 matches:
 
 gen3a datagen was paused (SIGSTOP) for the whole match, so the machine was otherwise idle.
 
-MATCH_TABLE
+| A vs B | Elo [95% CI] (pentanomial) | LOS | W / D / L | pairs LL LD DD+WL WD WW | avg time/move A / B |
+|---|---|---|---|---|---|
+| **nn1 vs bd2ef1d (G2c)** | **+18.4** [+12.9, +23.9] | 100.00% | 356 / 983 / 271 | 0 / 43 / 637 / 122 / 3 | 0.053 s / 0.053 s |
+
+Trinomial: +18.4 [+7.8, +29.0]. nn1 is clearly stronger than the linear built-in at 0.1 s/move, even though it
+searches about 11-17% fewer nodes per second. Time: 01:21:43 to 01:37:16.
 
 The control match first planned (1a32912 built-in vs a44591e built-in, for the circular-capture fix) was dropped when
 the plan changed to the same-binary comparison. It was stopped after 1095 of 1610 games at +0.6 [−4.0, +5.3]
