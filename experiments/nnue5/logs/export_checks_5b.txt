@@ -1,0 +1,54 @@
+== v2d (--arch v2 --ft 512 --l1 32 --l2 32 --buckets 8, 80 epochs) export check on 100k of the last data file (train_v2.sh)
+net v2 2x512 -> 32 -> 32 -> 1, 8 buckets
+positions 100000  distinct engine scores 1587  range [-868, 909]
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 6.43, max 104.47 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK
+v2d.nnue identical to net_e080.nnue
+== v2d check on the 200k gen2b slice
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 6.01, max 90.17 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK
+== v2e (--arch v1 --ft 1024 --l1 32 --l2 32 --buckets 8, 60 epochs) export check on 100k of the last data file (train_v2.sh)
+net v1 1024 -> 32 -> 32 -> 1, 8 buckets
+positions 100000  distinct engine scores 1529  range [-825, 802]
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 9.92, max 81.42 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK
+v2e.nnue identical to net_e060.nnue
+== v2e check on the 200k gen2b slice
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 9.75, max 55.16 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK
+== v2f (--arch v2 --ft 768 --l1 16 --l2 32 --buckets 8, 40 epochs) export check on 100k of the last data file (train_v2.sh)
+net v2 2x768 -> 16 -> 32 -> 1, 8 buckets
+positions 100000  distinct engine scores 1467  range [-735, 749]
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 6.65, max 77.53 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK
+v2f.nnue identical to net_e040.nnue
+== v2f check on the 200k gen2b slice
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 6.82, max 50.92 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK
+== v2d check on 100k validation positions (v2d set)
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 6.57, max 117.57 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK
+== v2e check on 100k validation positions (v2d set)
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 10.29, max 83.05 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK
+== v2f check on 100k validation positions (v2d set)
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 6.90, max 71.66 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK

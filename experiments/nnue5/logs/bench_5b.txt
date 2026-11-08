@@ -1,0 +1,13 @@
+bench nodes and nps, t3/nnue-v2 build, one binary, no matches (3 rounds)
+n4c (built-in)  bench: 7338658 nodes 2225 ms 3298273 nps
+v2d             bench: 7929421 nodes 2475 ms 3203806 nps
+v2e             bench: 6887518 nodes 2013 ms 3421519 nps
+v2f             bench: 8203054 nodes 2578 ms 3181944 nps
+n4c (built-in)  bench: 7338658 nodes 2247 ms 3265980 nps
+v2d             bench: 7929421 nodes 2388 ms 3320528 nps
+v2e             bench: 6887518 nodes 1996 ms 3450660 nps
+v2f             bench: 8203054 nodes 2521 ms 3253888 nps
+n4c (built-in)  bench: 7338658 nodes 2156 ms 3403830 nps
+v2d             bench: 7929421 nodes 2311 ms 3431164 nps
+v2e             bench: 6887518 nodes 1998 ms 3447206 nps
+v2f             bench: 8203054 nodes 2595 ms 3161099 nps

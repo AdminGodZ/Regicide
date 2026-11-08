@@ -1,0 +1,64 @@
+net v1 1024 -> 32 -> 32 -> 1, 8 buckets  train 268176739  valid 1000000  K 106.7  lambda 0.70  device cuda  6103 steps/epoch
+/home/admingod/regicide-nnue/.venv/lib/python3.12/site-packages/torch/_inductor/compile_fx.py:322: UserWarning: TensorFloat32 tensor cores for float32 matrix multiplication available but not enabled. Consider setting `torch.set_float32_matmul_precision('high')` for better performance.
+  warnings.warn(
+epoch   1  lr 9.99e-04  train 0.516069  valid 0.511562  valid(int) 0.512398  3198136 pos/s
+epoch   2  lr 9.97e-04  train 0.510038  valid 0.509732  valid(int) 0.510563  4161074 pos/s
+epoch   3  lr 9.94e-04  train 0.508725  valid 0.509118  valid(int) 0.509572  4136157 pos/s
+epoch   4  lr 9.89e-04  train 0.507928  valid 0.508368  valid(int) 0.509547  4123392 pos/s
+epoch   5  lr 9.83e-04  train 0.507458  valid 0.507881  valid(int) 0.508215  4317193 pos/s
+epoch   6  lr 9.76e-04  train 0.507206  valid 0.507727  valid(int) 0.507968  3711675 pos/s
+epoch   7  lr 9.67e-04  train 0.506940  valid 0.507542  valid(int) 0.507968  3416919 pos/s
+epoch   8  lr 9.58e-04  train 0.506766  valid 0.507281  valid(int) 0.507956  3691668 pos/s
+epoch   9  lr 9.46e-04  train 0.506582  valid 0.507178  valid(int) 0.507528  4128781 pos/s
+epoch  10  lr 9.34e-04  train 0.506477  valid 0.507302  valid(int) 0.507591  4247621 pos/s
+epoch  11  lr 9.21e-04  train 0.506317  valid 0.506914  valid(int) 0.507179  4342477 pos/s
+epoch  12  lr 9.06e-04  train 0.506187  valid 0.506982  valid(int) 0.507405  4314106 pos/s
+epoch  13  lr 8.90e-04  train 0.506156  valid 0.506845  valid(int) 0.507082  4337152 pos/s
+epoch  14  lr 8.73e-04  train 0.505990  valid 0.506720  valid(int) 0.506857  4361102 pos/s
+epoch  15  lr 8.55e-04  train 0.505964  valid 0.506701  valid(int) 0.507027  4241779 pos/s
+epoch  16  lr 8.37e-04  train 0.505901  valid 0.506549  valid(int) 0.506751  4291895 pos/s
+epoch  17  lr 8.17e-04  train 0.505806  valid 0.506470  valid(int) 0.506676  4280356 pos/s
+epoch  18  lr 7.96e-04  train 0.505721  valid 0.506415  valid(int) 0.506710  4235153 pos/s
+epoch  19  lr 7.75e-04  train 0.505675  valid 0.506350  valid(int) 0.506599  4104540 pos/s
+epoch  20  lr 7.53e-04  train 0.505592  valid 0.506364  valid(int) 0.506598  3803399 pos/s
+epoch  21  lr 7.30e-04  train 0.505501  valid 0.506312  valid(int) 0.506520  4174375 pos/s
+epoch  22  lr 7.07e-04  train 0.505490  valid 0.506361  valid(int) 0.506564  4169431 pos/s
+epoch  23  lr 6.83e-04  train 0.505446  valid 0.506169  valid(int) 0.506517  4204244 pos/s
+epoch  24  lr 6.58e-04  train 0.505345  valid 0.506110  valid(int) 0.506522  4197226 pos/s
+epoch  25  lr 6.34e-04  train 0.505322  valid 0.506046  valid(int) 0.506323  4131094 pos/s
+epoch  26  lr 6.08e-04  train 0.505286  valid 0.505953  valid(int) 0.506220  4189329 pos/s
+epoch  27  lr 5.83e-04  train 0.505234  valid 0.505927  valid(int) 0.506218  4050299 pos/s
+epoch  28  lr 5.57e-04  train 0.505138  valid 0.505917  valid(int) 0.506257  4186075 pos/s
+epoch  29  lr 5.31e-04  train 0.505159  valid 0.505874  valid(int) 0.506070  4205573 pos/s
+epoch  30  lr 5.05e-04  train 0.505066  valid 0.505812  valid(int) 0.506116  4220522 pos/s
+epoch  31  lr 4.80e-04  train 0.505048  valid 0.505801  valid(int) 0.506098  4125056 pos/s
+epoch  32  lr 4.54e-04  train 0.504988  valid 0.505694  valid(int) 0.506021  4088408 pos/s
+epoch  33  lr 4.28e-04  train 0.504983  valid 0.505663  valid(int) 0.506242  4236732 pos/s
+epoch  34  lr 4.02e-04  train 0.504940  valid 0.505608  valid(int) 0.505873  4152962 pos/s
+epoch  35  lr 3.77e-04  train 0.504870  valid 0.505603  valid(int) 0.505790  4257487 pos/s
+epoch  36  lr 3.52e-04  train 0.504843  valid 0.505577  valid(int) 0.505844  4272226 pos/s
+epoch  37  lr 3.28e-04  train 0.504810  valid 0.505495  valid(int) 0.505831  4315210 pos/s
+epoch  38  lr 3.04e-04  train 0.504765  valid 0.505543  valid(int) 0.505792  4250580 pos/s
+epoch  39  lr 2.81e-04  train 0.504690  valid 0.505492  valid(int) 0.505738  4251161 pos/s
+epoch  40  lr 2.58e-04  train 0.504667  valid 0.505430  valid(int) 0.505707  4334536 pos/s
+epoch  41  lr 2.36e-04  train 0.504636  valid 0.505383  valid(int) 0.505764  4462135 pos/s
+epoch  42  lr 2.14e-04  train 0.504552  valid 0.505346  valid(int) 0.505775  3702342 pos/s
+epoch  43  lr 1.94e-04  train 0.504624  valid 0.505338  valid(int) 0.505723  3395713 pos/s
+epoch  44  lr 1.74e-04  train 0.504565  valid 0.505284  valid(int) 0.505586  3343545 pos/s
+epoch  45  lr 1.55e-04  train 0.504576  valid 0.505258  valid(int) 0.505600  3435792 pos/s
+epoch  46  lr 1.37e-04  train 0.504523  valid 0.505225  valid(int) 0.505619  3420250 pos/s
+epoch  47  lr 1.20e-04  train 0.504454  valid 0.505216  valid(int) 0.505611  3460259 pos/s
+epoch  48  lr 1.05e-04  train 0.504405  valid 0.505194  valid(int) 0.505590  3420453 pos/s
+epoch  49  lr 8.99e-05  train 0.504427  valid 0.505175  valid(int) 0.505543  3413698 pos/s
+epoch  50  lr 7.64e-05  train 0.504377  valid 0.505177  valid(int) 0.505649  3435837 pos/s
+epoch  51  lr 6.40e-05  train 0.504338  valid 0.505134  valid(int) 0.505538  3460212 pos/s
+epoch  52  lr 5.28e-05  train 0.504385  valid 0.505116  valid(int) 0.505511  3465022 pos/s
+epoch  53  lr 4.29e-05  train 0.504377  valid 0.505096  valid(int) 0.505480  3496977 pos/s
+epoch  54  lr 3.43e-05  train 0.504304  valid 0.505095  valid(int) 0.505675  3452499 pos/s
+epoch  55  lr 2.69e-05  train 0.504300  valid 0.505080  valid(int) 0.505668  3489674 pos/s
+epoch  56  lr 2.08e-05  train 0.504283  valid 0.505064  valid(int) 0.505605  3477168 pos/s
+epoch  57  lr 1.61e-05  train 0.504306  valid 0.505062  valid(int) 0.505598  3480879 pos/s
+epoch  58  lr 1.27e-05  train 0.504291  valid 0.505061  valid(int) 0.505563  3490837 pos/s
+epoch  59  lr 1.07e-05  train 0.504494  valid 0.505457  valid(int) 0.505346  [qat]  3076093 pos/s
+epoch  60  lr 1.00e-05  train 0.504638  valid 0.505451  valid(int) 0.505680  [qat]  3221376 pos/s
+wrote /home/admingod/regicide-nnue5-work/runs/v2e/net_e060.nnue
