@@ -40,7 +40,7 @@ level was 10 because the launching shell was already at nice 5. The run was not 
 Log tail:
 
 ```
-expanded 39888  book positions 40105  next priority 142  start value 7
+expanded 39888  book positions 40105  next priority 140  start value 7
 expanded 39960  book positions 40177  next priority 142  start value 7
 expanded 40032  book positions 40249  next priority 143  start value 7
 wrote /home/admingod/regicide-data/book/book_w03.bin with 40249 positions
