@@ -1,0 +1,299 @@
+[2026-11-08 16:09:55] building 2..8 pieces into /home/admingod/regicide-data/egdb with 8 threads (mtc up to 0 pieces)
+[2026-11-08 16:10:00]   wld_0107.rgdb x0 y0: 168292800 positions, 12 passes, 4.2s
+[2026-11-08 16:10:00] 0107.rgdb + 0701.rgdb: 168292800 positions (W 55757520 D 0 L 54721048, cap/inv 57814232), max passes 12, 272 bytes, 4.2s
+[2026-11-08 16:10:16]   wld_0206.rgdb x0 y0: 589024800 positions, 13 passes, 16.1s
+[2026-11-08 16:10:16] 0206.rgdb + 0602.rgdb: 589024800 positions (W 143711504 D 3060 L 141043058, cap/inv 304267178), max passes 13, 909768 bytes, 16.1s
+[2026-11-08 16:10:19]   wld_0116.rgdb x0 y6: 147256200 positions, 8 passes, 2.7s
+[2026-11-08 16:10:22]   wld_0116.rgdb x0 y5: 147256200 positions, 6 passes, 2.7s
+[2026-11-08 16:10:24]   wld_0116.rgdb x0 y4: 147256200 positions, 6 passes, 2.8s
+[2026-11-08 16:10:27]   wld_0116.rgdb x0 y3: 147256200 positions, 6 passes, 2.8s
+[2026-11-08 16:10:30]   wld_0116.rgdb x0 y2: 147256200 positions, 6 passes, 2.8s
+[2026-11-08 16:10:33]   wld_0116.rgdb x0 y1: 147256200 positions, 6 passes, 2.6s
+[2026-11-08 16:10:35]   wld_0116.rgdb x0 y0: 147256200 positions, 6 passes, 2.8s
+[2026-11-08 16:10:35] 0116.rgdb + 1601.rgdb: 1030793400 positions (W 351141180 D 0 L 333184832, cap/inv 346467388), max passes 8, 1136 bytes, 19.2s
+[2026-11-08 16:10:45]   wld_0215.rgdb x0 y6: 441768600 positions, 11 passes, 9.6s
+[2026-11-08 16:10:56]   wld_0215.rgdb x0 y5: 441768600 positions, 6 passes, 10.0s
+[2026-11-08 16:11:05]   wld_0215.rgdb x0 y4: 441768600 positions, 6 passes, 9.8s
+[2026-11-08 16:11:15]   wld_0215.rgdb x0 y3: 441768600 positions, 6 passes, 9.8s
+[2026-11-08 16:11:26]   wld_0215.rgdb x0 y2: 441768600 positions, 6 passes, 9.8s
+[2026-11-08 16:11:35]   wld_0215.rgdb x0 y1: 441768600 positions, 6 passes, 9.6s
+[2026-11-08 16:11:45]   wld_0215.rgdb x0 y0: 441768600 positions, 6 passes, 9.6s
+[2026-11-08 16:11:45] 0215.rgdb + 1502.rgdb: 3092380200 positions (W 798539525 D 19646 L 730787057, cap/inv 1563033972), max passes 11, 4789264 bytes, 68.2s
+[2026-11-08 16:11:48]   wld_0611.rgdb x0 y6: 147256200 positions, 12 passes, 3.0s
+[2026-11-08 16:11:51]   wld_0611.rgdb x0 y5: 147256200 positions, 12 passes, 3.1s
+[2026-11-08 16:11:54]   wld_0611.rgdb x0 y4: 147256200 positions, 11 passes, 3.1s
+[2026-11-08 16:11:57]   wld_0611.rgdb x0 y3: 147256200 positions, 11 passes, 2.9s
+[2026-11-08 16:12:01]   wld_0611.rgdb x0 y2: 147256200 positions, 11 passes, 3.1s
+[2026-11-08 16:12:04]   wld_0611.rgdb x0 y1: 147256200 positions, 11 passes, 3.0s
+[2026-11-08 16:12:07]   wld_0611.rgdb x0 y0: 147256200 positions, 13 passes, 3.0s
+[2026-11-08 16:12:07] 0611.rgdb + 1106.rgdb: 1030793400 positions (W 236972568 D 3692 L 290071599, cap/inv 503745541), max passes 13, 1587160 bytes, 21.2s
+[2026-11-08 16:12:09] 0710.rgdb + 1007.rgdb: 147256200 positions (W 45239220 D 0 L 57496140, cap/inv 44520840), max passes 2, 1136 bytes, 2.7s
+[2026-11-08 16:12:22]   wld_0125.rgdb x0 y6: 726780600 positions, 8 passes, 12.5s
+[2026-11-08 16:12:33]   wld_0125.rgdb x0 y5: 612775800 positions, 6 passes, 10.6s
+[2026-11-08 16:12:42]   wld_0125.rgdb x0 y4: 498771000 positions, 6 passes, 8.8s
+[2026-11-08 16:12:48]   wld_0125.rgdb x0 y3: 384766200 positions, 6 passes, 6.7s
+[2026-11-08 16:12:53]   wld_0125.rgdb x0 y2: 270761400 positions, 6 passes, 4.6s
+[2026-11-08 16:12:56]   wld_0125.rgdb x0 y1: 156756600 positions, 6 passes, 2.7s
+[2026-11-08 16:12:56] 0125.rgdb + 2501.rgdb: 2693363400 positions (W 943058160 D 0 L 865130802, cap/inv 885174438), max passes 8, 1136 bytes, 46.6s
+[2026-11-08 16:13:33]   wld_0224.rgdb x0 y6: 1816951500 positions, 15 passes, 35.9s
+[2026-11-08 16:14:04]   wld_0224.rgdb x0 y5: 1531939500 positions, 6 passes, 30.5s
+[2026-11-08 16:14:29]   wld_0224.rgdb x0 y4: 1246927500 positions, 6 passes, 24.8s
+[2026-11-08 16:14:49]   wld_0224.rgdb x0 y3: 961915500 positions, 6 passes, 19.1s
+[2026-11-08 16:15:02]   wld_0224.rgdb x0 y2: 676903500 positions, 6 passes, 13.3s
+[2026-11-08 16:15:10]   wld_0224.rgdb x0 y1: 391891500 positions, 6 passes, 7.4s
+[2026-11-08 16:15:12] 0224.rgdb + 2402.rgdb: 6733408500 positions (W 1838268514 D 51620 L 1569168781, cap/inv 3325919585), max passes 15, 15137752 bytes, 133.0s
+[2026-11-08 16:15:15]   wld_0620.rgdb x0 y6: 121130100 positions, 11 passes, 2.6s
+[2026-11-08 16:15:17]   wld_0620.rgdb x0 y5: 102129300 positions, 9 passes, 2.2s
+[2026-11-08 16:15:22] 0620.rgdb + 2006.rgdb: 448893900 positions (W 96823771 D 694 L 147512351, cap/inv 204557084), max passes 11, 188648 bytes, 9.6s
+[2026-11-08 16:15:37] 1016.rgdb + 1610.rgdb: 931039200 positions (W 287013480 D 0 L 351220220, cap/inv 292805500), max passes 2, 7184 bytes, 14.9s
+[2026-11-08 16:15:39]   wld_1115.rgdb x6 y6: 114004800 positions, 8 passes, 2.0s
+[2026-11-08 16:15:41]   wld_1115.rgdb x5 y6: 114004800 positions, 8 passes, 2.1s
+[2026-11-08 16:15:43]   wld_1115.rgdb x6 y5: 114004800 positions, 6 passes, 2.1s
+[2026-11-08 16:15:45]   wld_1115.rgdb x4 y6: 114004800 positions, 7 passes, 2.1s
+[2026-11-08 16:15:48]   wld_1115.rgdb x5 y5: 114004800 positions, 6 passes, 2.1s
+[2026-11-08 16:15:52]   wld_1115.rgdb x3 y6: 114004800 positions, 6 passes, 2.1s
+[2026-11-08 16:15:54]   wld_1115.rgdb x4 y5: 114004800 positions, 6 passes, 2.2s
+[2026-11-08 16:15:56]   wld_1115.rgdb x5 y4: 114004800 positions, 6 passes, 2.2s
+[2026-11-08 16:15:58]   wld_1115.rgdb x6 y3: 114004800 positions, 6 passes, 2.1s
+[2026-11-08 16:16:02]   wld_1115.rgdb x3 y5: 114004800 positions, 6 passes, 2.1s
+[2026-11-08 16:16:04]   wld_1115.rgdb x4 y4: 114004800 positions, 6 passes, 2.1s
+[2026-11-08 16:16:06]   wld_1115.rgdb x5 y3: 114004800 positions, 6 passes, 2.1s
+[2026-11-08 16:16:08]   wld_1115.rgdb x6 y2: 114004800 positions, 6 passes, 2.0s
+[2026-11-08 16:16:20]   wld_1115.rgdb x0 y6: 114004800 positions, 11 passes, 2.1s
+[2026-11-08 16:16:26]   wld_1115.rgdb x3 y3: 114004800 positions, 6 passes, 2.1s
+[2026-11-08 16:16:29]   wld_1115.rgdb x4 y2: 114004800 positions, 6 passes, 2.1s
+[2026-11-08 16:16:31]   wld_1115.rgdb x5 y1: 114004800 positions, 6 passes, 2.1s
+[2026-11-08 16:16:33]   wld_1115.rgdb x6 y0: 114004800 positions, 6 passes, 2.1s
+[2026-11-08 16:16:35]   wld_1115.rgdb x0 y5: 114004800 positions, 6 passes, 2.2s
+[2026-11-08 16:16:37]   wld_1115.rgdb x1 y4: 114004800 positions, 6 passes, 2.0s
+[2026-11-08 16:16:39]   wld_1115.rgdb x2 y3: 114004800 positions, 6 passes, 2.2s
+[2026-11-08 16:16:41]   wld_1115.rgdb x3 y2: 114004800 positions, 6 passes, 2.2s
+[2026-11-08 16:16:43]   wld_1115.rgdb x4 y1: 114004800 positions, 6 passes, 2.2s
+[2026-11-08 16:16:46]   wld_1115.rgdb x5 y0: 114004800 positions, 6 passes, 2.2s
+[2026-11-08 16:16:48]   wld_1115.rgdb x0 y4: 114004800 positions, 6 passes, 2.0s
+[2026-11-08 16:16:50]   wld_1115.rgdb x1 y3: 114004800 positions, 6 passes, 2.1s
+[2026-11-08 16:16:52]   wld_1115.rgdb x2 y2: 114004800 positions, 6 passes, 2.1s
+[2026-11-08 16:16:54]   wld_1115.rgdb x3 y1: 114004800 positions, 6 passes, 2.1s
+[2026-11-08 16:16:57]   wld_1115.rgdb x4 y0: 114004800 positions, 6 passes, 2.1s
+[2026-11-08 16:16:59]   wld_1115.rgdb x0 y3: 114004800 positions, 6 passes, 2.0s
+[2026-11-08 16:17:03]   wld_1115.rgdb x2 y1: 114004800 positions, 6 passes, 2.1s
+[2026-11-08 16:17:05]   wld_1115.rgdb x3 y0: 114004800 positions, 6 passes, 2.1s
+[2026-11-08 16:17:07]   wld_1115.rgdb x0 y2: 114004800 positions, 6 passes, 2.1s
+[2026-11-08 16:17:09]   wld_1115.rgdb x1 y1: 114004800 positions, 6 passes, 2.1s
+[2026-11-08 16:17:11]   wld_1115.rgdb x2 y0: 114004800 positions, 6 passes, 2.0s
+[2026-11-08 16:17:13]   wld_1115.rgdb x0 y1: 114004800 positions, 6 passes, 2.1s
+[2026-11-08 16:17:15]   wld_1115.rgdb x1 y0: 114004800 positions, 6 passes, 2.1s
+[2026-11-08 16:17:17]   wld_1115.rgdb x0 y0: 114004800 positions, 6 passes, 2.1s
+[2026-11-08 16:17:17] 1115.rgdb + 1511.rgdb: 5586235200 positions (W 1325437793 D 24485 L 1508498732, cap/inv 2752274190), max passes 11, 8618816 bytes, 99.1s
+[2026-11-08 16:17:43]   wld_0134.rgdb x0 y6: 1486812600 positions, 8 passes, 25.6s
+[2026-11-08 16:18:03]   wld_0134.rgdb x0 y5: 1049794200 positions, 6 passes, 18.8s
+[2026-11-08 16:18:15]   wld_0134.rgdb x0 y4: 688779000 positions, 6 passes, 12.0s
+[2026-11-08 16:18:22]   wld_0134.rgdb x0 y3: 403767000 positions, 6 passes, 6.8s
+[2026-11-08 16:18:25]   wld_0134.rgdb x0 y2: 194758200 positions, 6 passes, 3.3s
+[2026-11-08 16:18:26] 0134.rgdb + 3401.rgdb: 3890413800 positions (W 1399532763 D 0 L 1241341971, cap/inv 1249539066), max passes 8, 4538592 bytes, 67.7s
+[2026-11-08 16:19:22]   wld_0233.rgdb x0 y6: 2973625200 positions, 17 passes, 54.8s
+[2026-11-08 16:20:01]   wld_0233.rgdb x0 y5: 2099588400 positions, 6 passes, 38.7s
+[2026-11-08 16:20:27]   wld_0233.rgdb x0 y4: 1377558000 positions, 6 passes, 25.1s
+[2026-11-08 16:20:42]   wld_0233.rgdb x0 y3: 807534000 positions, 6 passes, 14.5s
+[2026-11-08 16:20:49]   wld_0233.rgdb x0 y2: 389516400 positions, 5 passes, 6.7s
+[2026-11-08 16:20:51]   wld_0233.rgdb x0 y1: 123505200 positions, 4 passes, 2.1s
+[2026-11-08 16:20:51] 0233.rgdb + 3302.rgdb: 7780827600 positions (W 2242882767 D 71549 L 1786589694, cap/inv 3751283590), max passes 17, 18766064 bytes, 142.1s
+[2026-11-08 16:21:28] 1025.rgdb + 2510.rgdb: 2513805840 positions (W 776326140 D 0 L 915105060, cap/inv 822374640), max passes 2, 7184 bytes, 36.8s
+[2026-11-08 16:21:37]   wld_1124.rgdb x6 y6: 484520400 positions, 8 passes, 8.4s
+[2026-11-08 16:21:45]   wld_1124.rgdb x5 y6: 484520400 positions, 8 passes, 8.3s
+[2026-11-08 16:21:53]   wld_1124.rgdb x6 y5: 408517200 positions, 6 passes, 7.0s
+[2026-11-08 16:22:01]   wld_1124.rgdb x4 y6: 484520400 positions, 7 passes, 8.5s
+[2026-11-08 16:22:08]   wld_1124.rgdb x5 y5: 408517200 positions, 6 passes, 7.0s
+[2026-11-08 16:22:14]   wld_1124.rgdb x6 y4: 332514000 positions, 6 passes, 5.7s
+[2026-11-08 16:22:23]   wld_1124.rgdb x3 y6: 484520400 positions, 6 passes, 8.4s
+[2026-11-08 16:22:30]   wld_1124.rgdb x4 y5: 408517200 positions, 6 passes, 7.1s
+[2026-11-08 16:22:35]   wld_1124.rgdb x5 y4: 332514000 positions, 6 passes, 5.5s
+[2026-11-08 16:22:40]   wld_1124.rgdb x6 y3: 256510800 positions, 6 passes, 4.2s
+[2026-11-08 16:22:48]   wld_1124.rgdb x2 y6: 484520400 positions, 7 passes, 8.4s
+[2026-11-08 16:22:56]   wld_1124.rgdb x3 y5: 408517200 positions, 6 passes, 7.1s
+[2026-11-08 16:23:01]   wld_1124.rgdb x4 y4: 332514000 positions, 6 passes, 5.5s
+[2026-11-08 16:23:05]   wld_1124.rgdb x5 y3: 256510800 positions, 6 passes, 4.3s
+[2026-11-08 16:23:08]   wld_1124.rgdb x6 y2: 180507600 positions, 6 passes, 2.8s
+[2026-11-08 16:23:15]   wld_1124.rgdb x1 y6: 484520400 positions, 6 passes, 6.4s
+[2026-11-08 16:23:20]   wld_1124.rgdb x2 y5: 408517200 positions, 6 passes, 5.5s
+[2026-11-08 16:23:25]   wld_1124.rgdb x3 y4: 332514000 positions, 6 passes, 4.4s
+[2026-11-08 16:23:28]   wld_1124.rgdb x4 y3: 256510800 positions, 6 passes, 3.4s
+[2026-11-08 16:23:31]   wld_1124.rgdb x5 y2: 180507600 positions, 6 passes, 2.3s
+[2026-11-08 16:23:40]   wld_1124.rgdb x0 y6: 484520400 positions, 15 passes, 8.2s
+[2026-11-08 16:23:47]   wld_1124.rgdb x1 y5: 408517200 positions, 6 passes, 6.9s
+[2026-11-08 16:23:53]   wld_1124.rgdb x2 y4: 332514000 positions, 6 passes, 5.8s
+[2026-11-08 16:23:58]   wld_1124.rgdb x3 y3: 256510800 positions, 6 passes, 4.4s
+[2026-11-08 16:24:01]   wld_1124.rgdb x4 y2: 180507600 positions, 6 passes, 3.1s
+[2026-11-08 16:24:11]   wld_1124.rgdb x0 y5: 408517200 positions, 6 passes, 7.5s
+[2026-11-08 16:24:17]   wld_1124.rgdb x1 y4: 332514000 positions, 6 passes, 6.2s
+[2026-11-08 16:24:22]   wld_1124.rgdb x2 y3: 256510800 positions, 6 passes, 4.7s
+[2026-11-08 16:24:25]   wld_1124.rgdb x3 y2: 180507600 positions, 6 passes, 3.4s
+[2026-11-08 16:24:34]   wld_1124.rgdb x0 y4: 332514000 positions, 6 passes, 5.9s
+[2026-11-08 16:24:39]   wld_1124.rgdb x1 y3: 256510800 positions, 6 passes, 4.7s
+[2026-11-08 16:24:42]   wld_1124.rgdb x2 y2: 180507600 positions, 6 passes, 3.2s
+[2026-11-08 16:24:49]   wld_1124.rgdb x0 y3: 256510800 positions, 6 passes, 4.5s
+[2026-11-08 16:24:52]   wld_1124.rgdb x1 y2: 180507600 positions, 6 passes, 3.2s
+[2026-11-08 16:24:58]   wld_1124.rgdb x0 y2: 180507600 positions, 6 passes, 3.2s
+[2026-11-08 16:25:03] 1124.rgdb + 2411.rgdb: 12569029200 positions (W 3070468432 D 65804 L 3251792663, cap/inv 6246702301), max passes 15, 22905576 bytes, 210.9s
+[2026-11-08 16:25:51] 1520.rgdb + 2015.rgdb: 2513805840 positions (W 545424013 D 3798 L 769873504, cap/inv 1198504525), max passes 8, 1057296 bytes, 46.7s
+[2026-11-08 16:26:21]   wld_0143.rgdb x0 y6: 1613266200 positions, 6 passes, 30.2s
+[2026-11-08 16:26:39]   wld_0143.rgdb x0 y5: 946927800 positions, 4 passes, 17.8s
+[2026-11-08 16:26:49]   wld_0143.rgdb x0 y4: 495495000 positions, 4 passes, 9.3s
+[2026-11-08 16:26:53]   wld_0143.rgdb x0 y3: 217035000 positions, 4 passes, 3.8s
+[2026-11-08 16:26:54] 0143.rgdb + 4301.rgdb: 3353805000 positions (W 1238877661 D 0 L 1062584861, cap/inv 1052342478), max passes 6, 4924576 bytes, 62.5s
+[2026-11-08 16:27:41]   wld_0242.rgdb x0 y6: 2419899300 positions, 15 passes, 46.5s
+[2026-11-08 16:28:10]   wld_0242.rgdb x0 y5: 1420391700 positions, 6 passes, 27.5s
+[2026-11-08 16:28:25]   wld_0242.rgdb x0 y4: 743242500 positions, 6 passes, 14.3s
+[2026-11-08 16:28:31]   wld_0242.rgdb x0 y3: 325552500 positions, 4 passes, 6.0s
+[2026-11-08 16:28:33] 0242.rgdb + 4202.rgdb: 5030707500 positions (W 1528844534 D 54107 L 1137073137, cap/inv 2364735722), max passes 15, 13211856 bytes, 96.7s
+[2026-11-08 16:28:36]   wld_1034.rgdb x6 y6: 205077600 positions, 2 passes, 2.9s
+[2026-11-08 16:28:39]   wld_1034.rgdb x5 y6: 205077600 positions, 2 passes, 2.8s
+[2026-11-08 16:28:43]   wld_1034.rgdb x4 y6: 205077600 positions, 2 passes, 2.8s
+[2026-11-08 16:28:49]   wld_1034.rgdb x3 y6: 205077600 positions, 2 passes, 2.8s
+[2026-11-08 16:28:56]   wld_1034.rgdb x2 y6: 205077600 positions, 2 passes, 2.9s
+[2026-11-08 16:28:58]   wld_1034.rgdb x3 y5: 144799200 positions, 2 passes, 2.0s
+[2026-11-08 16:29:02]   wld_1034.rgdb x1 y6: 205077600 positions, 2 passes, 2.0s
+[2026-11-08 16:29:09]   wld_1034.rgdb x0 y6: 205077600 positions, 2 passes, 3.1s
+[2026-11-08 16:29:11]   wld_1034.rgdb x1 y5: 144799200 positions, 2 passes, 2.1s
+[2026-11-08 16:29:16]   wld_1034.rgdb x0 y5: 144799200 positions, 2 passes, 2.2s
+[2026-11-08 16:29:23] 1034.rgdb + 3410.rgdb: 3756261600 positions (W 1159975257 D 0 L 1317855411, cap/inv 1278430932), max passes 2, 633064 bytes, 49.9s
+[2026-11-08 16:29:39]   wld_1133.rgdb x6 y6: 820310400 positions, 6 passes, 14.6s
+[2026-11-08 16:29:52]   wld_1133.rgdb x5 y6: 820310400 positions, 6 passes, 13.6s
+[2026-11-08 16:30:02]   wld_1133.rgdb x6 y5: 579196800 positions, 5 passes, 9.1s
+[2026-11-08 16:30:16]   wld_1133.rgdb x4 y6: 820310400 positions, 6 passes, 14.4s
+[2026-11-08 16:30:26]   wld_1133.rgdb x5 y5: 579196800 positions, 5 passes, 9.7s
+[2026-11-08 16:30:33]   wld_1133.rgdb x6 y4: 380016000 positions, 5 passes, 6.4s
+[2026-11-08 16:30:47]   wld_1133.rgdb x3 y6: 820310400 positions, 6 passes, 14.3s
+[2026-11-08 16:30:57]   wld_1133.rgdb x4 y5: 579196800 positions, 5 passes, 9.7s
+[2026-11-08 16:31:03]   wld_1133.rgdb x5 y4: 380016000 positions, 4 passes, 6.2s
+[2026-11-08 16:31:07]   wld_1133.rgdb x6 y3: 222768000 positions, 6 passes, 3.6s
+[2026-11-08 16:31:22]   wld_1133.rgdb x2 y6: 820310400 positions, 6 passes, 14.4s
+[2026-11-08 16:31:31]   wld_1133.rgdb x3 y5: 579196800 positions, 6 passes, 9.7s
+[2026-11-08 16:31:38]   wld_1133.rgdb x4 y4: 380016000 positions, 4 passes, 6.2s
+[2026-11-08 16:31:42]   wld_1133.rgdb x5 y3: 222768000 positions, 5 passes, 3.5s
+[2026-11-08 16:31:54]   wld_1133.rgdb x1 y6: 820310400 positions, 6 passes, 11.1s
+[2026-11-08 16:32:02]   wld_1133.rgdb x2 y5: 579196800 positions, 4 passes, 7.7s
+[2026-11-08 16:32:07]   wld_1133.rgdb x3 y4: 380016000 positions, 4 passes, 5.0s
+[2026-11-08 16:32:11]   wld_1133.rgdb x4 y3: 222768000 positions, 5 passes, 2.9s
+[2026-11-08 16:32:27]   wld_1133.rgdb x0 y6: 820310400 positions, 17 passes, 14.8s
+[2026-11-08 16:32:37]   wld_1133.rgdb x1 y5: 579196800 positions, 5 passes, 10.2s
+[2026-11-08 16:32:45]   wld_1133.rgdb x2 y4: 380016000 positions, 4 passes, 6.8s
+[2026-11-08 16:32:49]   wld_1133.rgdb x3 y3: 222768000 positions, 5 passes, 3.9s
+[2026-11-08 16:33:02]   wld_1133.rgdb x0 y5: 579196800 positions, 6 passes, 11.4s
+[2026-11-08 16:33:10]   wld_1133.rgdb x1 y4: 380016000 positions, 4 passes, 7.4s
+[2026-11-08 16:33:14]   wld_1133.rgdb x2 y3: 222768000 positions, 6 passes, 4.4s
+[2026-11-08 16:33:17]   wld_1133.rgdb x3 y2: 107452800 positions, 4 passes, 2.1s
+[2026-11-08 16:33:25]   wld_1133.rgdb x0 y4: 380016000 positions, 5 passes, 7.1s
+[2026-11-08 16:33:29]   wld_1133.rgdb x1 y3: 222768000 positions, 6 passes, 4.1s
+[2026-11-08 16:33:36]   wld_1133.rgdb x0 y3: 222768000 positions, 6 passes, 4.3s
+[2026-11-08 16:33:42] 1133.rgdb + 3311.rgdb: 15025046400 positions (W 3768894641 D 92367 L 3717782741, cap/inv 7538276651), max passes 17, 32013040 bytes, 253.6s
+[2026-11-08 16:33:50]   wld_2024.rgdb x6 y6: 426043800 positions, 8 passes, 7.1s
+[2026-11-08 16:33:55]   wld_2024.rgdb x5 y6: 359213400 positions, 6 passes, 5.8s
+[2026-11-08 16:34:01]   wld_2024.rgdb x6 y5: 359213400 positions, 6 passes, 5.8s
+[2026-11-08 16:34:06]   wld_2024.rgdb x4 y6: 292383000 positions, 6 passes, 4.7s
+[2026-11-08 16:34:11]   wld_2024.rgdb x5 y5: 302866200 positions, 6 passes, 4.9s
+[2026-11-08 16:34:15]   wld_2024.rgdb x6 y4: 292383000 positions, 6 passes, 4.7s
+[2026-11-08 16:34:19]   wld_2024.rgdb x3 y6: 225552600 positions, 6 passes, 3.5s
+[2026-11-08 16:34:24]   wld_2024.rgdb x4 y5: 246519000 positions, 6 passes, 4.0s
+[2026-11-08 16:34:27]   wld_2024.rgdb x5 y4: 246519000 positions, 6 passes, 3.9s
+[2026-11-08 16:34:31]   wld_2024.rgdb x6 y3: 225552600 positions, 6 passes, 3.5s
+[2026-11-08 16:34:33]   wld_2024.rgdb x2 y6: 158722200 positions, 5 passes, 2.4s
+[2026-11-08 16:34:36]   wld_2024.rgdb x3 y5: 190171800 positions, 6 passes, 3.1s
+[2026-11-08 16:34:40]   wld_2024.rgdb x4 y4: 200655000 positions, 6 passes, 3.3s
+[2026-11-08 16:34:43]   wld_2024.rgdb x5 y3: 190171800 positions, 6 passes, 3.0s
+[2026-11-08 16:34:45]   wld_2024.rgdb x6 y2: 158722200 positions, 6 passes, 2.4s
+[2026-11-08 16:34:50]   wld_2024.rgdb x3 y4: 154791000 positions, 5 passes, 2.0s
+[2026-11-08 16:34:52]   wld_2024.rgdb x4 y3: 154791000 positions, 6 passes, 2.0s
+[2026-11-08 16:35:01]   wld_2024.rgdb x3 y3: 119410200 positions, 6 passes, 2.2s
+[2026-11-08 16:35:17] 2024.rgdb + 2420.rgdb: 5851099800 positions (W 1272124963 D 8185 L 1665882382, cap/inv 2913084270), max passes 8, 2411808 bytes, 93.2s
+[2026-11-08 16:35:35]   wld_0152.rgdb x0 y6: 978868800 positions, 6 passes, 17.2s
+[2026-11-08 16:35:43]   wld_0152.rgdb x0 y5: 473850000 positions, 4 passes, 8.4s
+[2026-11-08 16:35:47]   wld_0152.rgdb x0 y4: 195436800 positions, 4 passes, 3.4s
+[2026-11-08 16:35:48] 0152.rgdb + 5201.rgdb: 1724814000 positions (W 653799300 D 0 L 542380290, cap/inv 528634410), max passes 6, 2988320 bytes, 30.3s
+[2026-11-08 16:36:07]   wld_0251.rgdb x0 y6: 978868800 positions, 15 passes, 18.2s
+[2026-11-08 16:36:15]   wld_0251.rgdb x0 y5: 473850000 positions, 5 passes, 8.8s
+[2026-11-08 16:36:19]   wld_0251.rgdb x0 y4: 195436800 positions, 4 passes, 3.6s
+[2026-11-08 16:36:20] 0251.rgdb + 5102.rgdb: 1724814000 positions (W 551676441 D 21339 L 383374127, cap/inv 789742093), max passes 15, 5304104 bytes, 32.1s
+[2026-11-08 16:36:23]   wld_1043.rgdb x6 y6: 230466600 positions, 2 passes, 2.8s
+[2026-11-08 16:36:26]   wld_1043.rgdb x5 y6: 230466600 positions, 2 passes, 2.8s
+[2026-11-08 16:36:30]   wld_1043.rgdb x4 y6: 230466600 positions, 2 passes, 2.8s
+[2026-11-08 16:36:36]   wld_1043.rgdb x3 y6: 230466600 positions, 2 passes, 2.7s
+[2026-11-08 16:36:41]   wld_1043.rgdb x2 y6: 230466600 positions, 2 passes, 2.7s
+[2026-11-08 16:36:46]   wld_1043.rgdb x1 y6: 230466600 positions, 2 passes, 2.2s
+[2026-11-08 16:36:52]   wld_1043.rgdb x0 y6: 230466600 positions, 2 passes, 3.1s
+[2026-11-08 16:37:01] 1043.rgdb + 4310.rgdb: 3353805000 positions (W 1033542648 D 0 L 1132471974, cap/inv 1187790378), max passes 2, 1062288 bytes, 39.5s
+[2026-11-08 16:37:11]   wld_1142.rgdb x6 y6: 691399800 positions, 6 passes, 9.6s
+[2026-11-08 16:37:21]   wld_1142.rgdb x5 y6: 691399800 positions, 6 passes, 9.9s
+[2026-11-08 16:37:26]   wld_1142.rgdb x6 y5: 405826200 positions, 5 passes, 5.2s
+[2026-11-08 16:37:36]   wld_1142.rgdb x4 y6: 691399800 positions, 6 passes, 10.0s
+[2026-11-08 16:37:42]   wld_1142.rgdb x5 y5: 405826200 positions, 5 passes, 5.4s
+[2026-11-08 16:37:44]   wld_1142.rgdb x6 y4: 212355000 positions, 4 passes, 2.7s
+[2026-11-08 16:37:54]   wld_1142.rgdb x3 y6: 691399800 positions, 6 passes, 9.9s
+[2026-11-08 16:38:00]   wld_1142.rgdb x4 y5: 405826200 positions, 5 passes, 5.4s
+[2026-11-08 16:38:02]   wld_1142.rgdb x5 y4: 212355000 positions, 4 passes, 2.6s
+[2026-11-08 16:38:14]   wld_1142.rgdb x2 y6: 691399800 positions, 6 passes, 9.9s
+[2026-11-08 16:38:19]   wld_1142.rgdb x3 y5: 405826200 positions, 4 passes, 5.4s
+[2026-11-08 16:38:22]   wld_1142.rgdb x4 y4: 212355000 positions, 4 passes, 2.7s
+[2026-11-08 16:38:31]   wld_1142.rgdb x1 y6: 691399800 positions, 6 passes, 7.9s
+[2026-11-08 16:38:36]   wld_1142.rgdb x2 y5: 405826200 positions, 4 passes, 4.5s
+[2026-11-08 16:38:38]   wld_1142.rgdb x3 y4: 212355000 positions, 4 passes, 2.3s
+[2026-11-08 16:38:51]   wld_1142.rgdb x0 y6: 691399800 positions, 15 passes, 11.0s
+[2026-11-08 16:38:57]   wld_1142.rgdb x1 y5: 405826200 positions, 5 passes, 6.2s
+[2026-11-08 16:39:00]   wld_1142.rgdb x2 y4: 212355000 positions, 4 passes, 3.2s
+[2026-11-08 16:39:09]   wld_1142.rgdb x0 y5: 405826200 positions, 6 passes, 6.5s
+[2026-11-08 16:39:12]   wld_1142.rgdb x1 y4: 212355000 positions, 4 passes, 3.5s
+[2026-11-08 16:39:18]   wld_1142.rgdb x0 y4: 212355000 positions, 4 passes, 3.2s
+[2026-11-08 16:39:23] 1142.rgdb + 4211.rgdb: 10061415000 positions (W 2583833933 D 70301 L 2376672788, cap/inv 5100837978), max passes 15, 23004528 bytes, 138.9s
+[2026-11-08 16:39:32]   wld_2033.rgdb x6 y6: 747068400 positions, 6 passes, 9.7s
+[2026-11-08 16:39:40]   wld_2033.rgdb x5 y6: 629881200 positions, 6 passes, 8.1s
+[2026-11-08 16:39:47]   wld_2033.rgdb x6 y5: 527482800 positions, 4 passes, 6.3s
+[2026-11-08 16:39:54]   wld_2033.rgdb x4 y6: 512694000 positions, 6 passes, 6.5s
+[2026-11-08 16:39:59]   wld_2033.rgdb x5 y5: 444740400 positions, 4 passes, 5.7s
+[2026-11-08 16:40:03]   wld_2033.rgdb x6 y4: 346086000 positions, 4 passes, 4.0s
+[2026-11-08 16:40:08]   wld_2033.rgdb x3 y6: 395506800 positions, 6 passes, 4.9s
+[2026-11-08 16:40:13]   wld_2033.rgdb x4 y5: 361998000 positions, 4 passes, 4.7s
+[2026-11-08 16:40:17]   wld_2033.rgdb x5 y4: 291798000 positions, 4 passes, 3.6s
+[2026-11-08 16:40:19]   wld_2033.rgdb x6 y3: 202878000 positions, 4 passes, 2.3s
+[2026-11-08 16:40:22]   wld_2033.rgdb x2 y6: 278319600 positions, 5 passes, 3.4s
+[2026-11-08 16:40:26]   wld_2033.rgdb x3 y5: 279255600 positions, 5 passes, 3.6s
+[2026-11-08 16:40:29]   wld_2033.rgdb x4 y4: 237510000 positions, 5 passes, 3.0s
+[2026-11-08 16:40:32]   wld_2033.rgdb x5 y3: 171054000 positions, 5 passes, 2.1s
+[2026-11-08 16:40:36]   wld_2033.rgdb x2 y5: 196513200 positions, 4 passes, 2.0s
+[2026-11-08 16:40:54] 2033.rgdb + 3320.rgdb: 7244218800 positions (W 1571638614 D 8849 L 1912303451, cap/inv 3760267886), max passes 6, 10334896 bytes, 90.6s
+[2026-11-08 16:41:00]   wld_0161.rgdb x0 y6: 314787200 positions, 5 passes, 4.9s
+[2026-11-08 16:41:03] 0161.rgdb + 6101.rgdb: 489762000 positions (W 190350645 D 0 L 152781536, cap/inv 146629819), max passes 5, 992 bytes, 7.6s
+[2026-11-08 16:41:05]   wld_0260.rgdb x0 y6: 157393600 positions, 11 passes, 2.8s
+[2026-11-08 16:41:07] 0260.rgdb + 6002.rgdb: 244881000 positions (W 82274122 D 3454 L 53466183, cap/inv 109137241), max passes 11, 758224 bytes, 4.3s
+[2026-11-08 16:41:26] 1052.rgdb + 5210.rgdb: 1788696000 positions (W 548850297 D 0 L 580449681, cap/inv 659396022), max passes 2, 227480 bytes, 19.5s
+[2026-11-08 16:41:31]   wld_1151.rgdb x6 y6: 290035200 positions, 6 passes, 3.6s
+[2026-11-08 16:41:34]   wld_1151.rgdb x5 y6: 290035200 positions, 5 passes, 3.6s
+[2026-11-08 16:41:40]   wld_1151.rgdb x4 y6: 290035200 positions, 5 passes, 3.7s
+[2026-11-08 16:41:46]   wld_1151.rgdb x3 y6: 290035200 positions, 5 passes, 3.7s
+[2026-11-08 16:41:52]   wld_1151.rgdb x2 y6: 290035200 positions, 5 passes, 3.7s
+[2026-11-08 16:41:57]   wld_1151.rgdb x1 y6: 290035200 positions, 5 passes, 3.1s
+[2026-11-08 16:42:05]   wld_1151.rgdb x0 y6: 290035200 positions, 15 passes, 4.3s
+[2026-11-08 16:42:07]   wld_1151.rgdb x1 y5: 140400000 positions, 5 passes, 2.0s
+[2026-11-08 16:42:10]   wld_1151.rgdb x0 y5: 140400000 positions, 5 passes, 2.1s
+[2026-11-08 16:42:12] 1151.rgdb + 5111.rgdb: 3577392000 positions (W 937486822 D 27403 L 805102978, cap/inv 1834774797), max passes 15, 8180200 bytes, 44.8s
+[2026-11-08 16:42:20]   wld_2042.rgdb x6 y6: 652988700 positions, 6 passes, 7.5s
+[2026-11-08 16:42:26]   wld_2042.rgdb x5 y6: 550559100 positions, 6 passes, 6.3s
+[2026-11-08 16:42:30]   wld_2042.rgdb x6 y5: 383280300 positions, 4 passes, 4.1s
+[2026-11-08 16:42:36]   wld_2042.rgdb x4 y6: 448129500 positions, 6 passes, 5.2s
+[2026-11-08 16:42:40]   wld_2042.rgdb x5 y5: 323157900 positions, 4 passes, 3.7s
+[2026-11-08 16:42:42]   wld_2042.rgdb x6 y4: 200557500 positions, 4 passes, 2.0s
+[2026-11-08 16:42:46]   wld_2042.rgdb x3 y6: 345699900 positions, 6 passes, 3.9s
+[2026-11-08 16:42:49]   wld_2042.rgdb x4 y5: 263035500 positions, 4 passes, 3.1s
+[2026-11-08 16:42:54]   wld_2042.rgdb x2 y6: 243270300 positions, 5 passes, 2.7s
+[2026-11-08 16:42:57]   wld_2042.rgdb x3 y5: 202913100 positions, 4 passes, 2.4s
+[2026-11-08 16:43:11] 2042.rgdb + 4220.rgdb: 5030707500 positions (W 1084137952 D 4959 L 1227741133, cap/inv 2718823456), max passes 6, 8493064 bytes, 56.9s
+[2026-11-08 16:43:12] 0170.rgdb + 7001.rgdb: 59202000 positions (W 23570745 D 0 L 18311152, cap/inv 17320103), max passes 4, 992 bytes, 1.0s
+[2026-11-08 16:43:17] 1061.rgdb + 6110.rgdb: 527436000 positions (W 160749645 D 0 L 164228142, cap/inv 202458213), max passes 2, 6176 bytes, 5.7s
+[2026-11-08 16:43:24] 1160.rgdb + 6011.rgdb: 527436000 positions (W 140544119 D 4262 L 112847605, cap/inv 274040014), max passes 11, 776224 bytes, 7.1s
+[2026-11-08 16:43:27]   wld_2051.rgdb x6 y6: 284457600 positions, 4 passes, 3.1s
+[2026-11-08 16:43:30]   wld_2051.rgdb x5 y6: 239836800 positions, 4 passes, 2.6s
+[2026-11-08 16:43:34]   wld_2051.rgdb x4 y6: 195216000 positions, 4 passes, 2.1s
+[2026-11-08 16:43:45] 2051.rgdb + 5120.rgdb: 1857492000 positions (W 395675128 D 1304 L 417807932, cap/inv 1044007636), max passes 5, 2755264 bytes, 20.1s
+[2026-11-08 16:43:46] 1070.rgdb + 7010.rgdb: 66306240 positions (W 20018625 D 0 L 19775998, cap/inv 26511617), max passes 2, 6176 bytes, 1.1s
+[2026-11-08 16:43:50] 2060.rgdb + 6020.rgdb: 284815440 positions (W 59650888 D 108 L 58849082, cap/inv 166315362), max passes 4, 123816 bytes, 3.8s
+[2026-11-08 16:43:50] === 8 pieces done: 37 slice pairs built in 1998.2s
+[2026-11-08 16:43:50] finished after 1998.2s

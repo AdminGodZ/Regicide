@@ -1,0 +1,19 @@
+database /home/admingod/regicide-data/egdb: max_pieces 8, max_mtc_pieces 6
+ok   2 pieces: 14950 sampled positions consistent (incl. MTC) 
+ok   3 pieces: 41765 sampled positions consistent (incl. MTC) 
+ok   4 pieces: 79731 sampled positions consistent (incl. MTC) 
+ok   5 pieces: 127094 sampled positions consistent (incl. MTC) 
+ok   6 pieces: 179815 sampled positions consistent (incl. MTC) 
+ok   7 pieces: 234378 sampled positions consistent 
+ok   8 pieces: 287958 sampled positions consistent 
+ok   2 kings beat 1 king: 24338 of 24400 quiet positions won, lone king never wins
+ok   1 king vs 1 king: double corner always holds, 650 of 898 quiet positions drawn
+ok   K vs K far apart is a draw
+ok   K vs K: trapped single-corner king loses
+ok   K vs K: same trap rotated, white to move loses
+ok   black man captures the last white man (14x23)
+ok   white man captures the last black man (18x9)
+ok   adjacent kings: side to move captures
+ok   two kings vs one, strong side to move
+ok   two kings vs one, weak side to move
+all egdb tests passed
