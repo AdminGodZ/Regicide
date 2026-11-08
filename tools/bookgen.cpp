@@ -1,12 +1,14 @@
 // Opening book generator: best-first drop-out expansion over a minimax-backed tree.
 //
 //   bookgen --nodes 3000000 --expansions 20000 --threads 12 --out book.bin [--evalfile w.bin] [--resume book.bin]
-//           [--avoid avoid.bin]
+//           [--avoid avoid.bin] [--roots roots.txt]
 //
 // Every analysed position gets a fixed-node search score for each legal move. Leaves (analysed moves whose child
 // has not been analysed yet) are expanded in order of priority = ply * drop + "regret", where regret is the score
 // the side to move gives up along the path by not playing its best move. Expanded values are backed up by minimax.
-// Roots are the start position and every distinct position after 3 plies (covers all 3-move ballot openings).
+// Roots are the start position and every distinct position after 3 plies (covers all 3-move ballot openings), or,
+// with --roots, the positions listed in a file (one FEN per line, treated as ply 3), e.g. to deepen only the
+// ballots an opponent keeps winning.
 //
 // --avoid <file>: an avoid list (e.g. from lossprobe). Its moves are never analysed, added or expanded (unless every
 // legal move of a position is on it), and the output book carries the list (RGBK version 2), so embedding the book
@@ -41,6 +43,7 @@ struct Config {
     int max_ply = 40;
     std::string out = "book.bin";
     std::string evalfile;
+    std::string roots;  // optional file of root FENs
 };
 
 struct MoveInfo {
@@ -212,6 +215,7 @@ int main(int argc, char** argv) {
         else if (k == "--out") cfg.out = next();
         else if (k == "--evalfile") cfg.evalfile = next();
         else if (k == "--resume") resume = next();
+        else if (k == "--roots") cfg.roots = next();
         else if (k == "--avoid") {
             const std::string f = next();
             Book b;
@@ -231,7 +235,31 @@ int main(int argc, char** argv) {
 
     avoid_list.finalize();
     if (avoid_list.avoid_size()) std::printf("avoid list: %zu entries\n", avoid_list.avoid_size());
-    const std::vector<Position> root_list = roots();
+    std::vector<Position> root_list;
+    if (cfg.roots.empty()) {
+        root_list = roots();
+    } else {
+        std::FILE* in = std::fopen(cfg.roots.c_str(), "r");
+        if (!in) {
+            std::cerr << "cannot open " << cfg.roots << '\n';
+            return 1;
+        }
+        std::set<Key> seen;
+        char line[512];
+        while (std::fgets(line, sizeof line, in)) {
+            std::string fen(line);
+            while (!fen.empty() && (fen.back() == '\n' || fen.back() == '\r' || fen.back() == ' ')) fen.pop_back();
+            if (fen.empty() || fen[0] == '#') continue;
+            Position p;
+            if (!p.set_fen(fen)) {
+                std::cerr << "bad FEN in " << cfg.roots << ": " << fen << '\n';
+                return 1;
+            }
+            if (seen.insert(p.key()).second) root_list.push_back(p);
+        }
+        std::fclose(in);
+        std::printf("roots from %s: %zu positions\n", cfg.roots.c_str(), root_list.size());
+    }
 
     // Resume: rebuild analysed nodes from an existing book by walking from the roots.
     if (!resume.empty()) {
@@ -317,8 +345,10 @@ int main(int argc, char** argv) {
         for (auto& th : pool) th.join();
         done += long(batch);
         backup_all();
-        std::printf("expanded %ld  book positions %zu  next priority %ld  start value %d\n", done, tree.size(),
-                    leaves.back().priority, tree.at(Position().key()).value);
+        const auto start = tree.find(root_list.front().key());  // the start position, or the first --roots entry
+        std::printf("expanded %ld  book positions %zu  next priority %ld  %s value %d\n", done, tree.size(),
+                    leaves.back().priority, cfg.roots.empty() ? "start" : "first root",
+                    start == tree.end() ? 0 : start->second.value);
         std::fflush(stdout);
         if (done % (cfg.threads * 40) < long(batch)) save(cfg);
     }
