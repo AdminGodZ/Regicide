@@ -1,0 +1,66 @@
+== builtin
+nnue profile: v1 1024 -> 32 -> 32 -> 1, 8 output buckets, 1024 positions, ns per call
+  refresh (both views)            483.1
+  update (one move, both views)   114.8
+  evaluate                        193.1
+    transform (SCReLU)             48.9
+    FT -> L1                      147.7
+    L1 -> L2                        7.0
+    output                          1.1
+  FT output: 27.0% non-zero bytes, 63.6% non-zero chunks (162.8 of 256)
+  L1 output: 59.0% non-zero bytes, 97.6% non-zero chunks (7.8 of 8)
+== v1r1024.nnue
+nnue profile: v1 1024 -> 32 -> 32 -> 1, 8 output buckets, 1024 positions, ns per call
+  refresh (both views)            480.6
+  update (one move, both views)   114.8
+  evaluate                        246.4
+    transform (SCReLU)             49.0
+    FT -> L1                      202.2
+    L1 -> L2                        7.0
+    output                          1.1
+  FT output: 52.9% non-zero bytes, 89.2% non-zero chunks (228.5 of 256)
+  L1 output: 44.2% non-zero bytes, 89.8% non-zero chunks (7.2 of 8)
+== v2r512.nnue
+nnue profile: v2 2x512 -> 32 -> 32 -> 1, 8 buckets (all layers), 1024 positions, ns per call
+  refresh (both views)            238.0
+  update (one move, both views)    54.0
+  evaluate                        246.4
+    transform (SCReLU)             44.0
+    FT -> L1                      210.0
+    L1 -> L2                        7.1
+    output                          1.1
+  FT output: 52.5% non-zero bytes, 89.0% non-zero chunks (227.8 of 256)
+  L1 output: 51.4% non-zero bytes, 94.4% non-zero chunks (7.6 of 8)
+== v2r512b1.nnue
+nnue profile: v2 2x512 -> 32 -> 32 -> 1, 1 buckets (all layers), 1024 positions, ns per call
+  refresh (both views)            238.1
+  update (one move, both views)    54.1
+  evaluate                        243.8
+    transform (SCReLU)             44.0
+    FT -> L1                      201.9
+    L1 -> L2                        7.0
+    output                          1.1
+  FT output: 52.3% non-zero bytes, 89.0% non-zero chunks (227.7 of 256)
+  L1 output: 45.5% non-zero bytes, 92.1% non-zero chunks (7.4 of 8)
+== v2r1024.nnue
+nnue profile: v2 2x1024 -> 32 -> 32 -> 1, 8 buckets (all layers), 1024 positions, ns per call
+  refresh (both views)            482.0
+  update (one move, both views)   115.1
+  evaluate                        473.3
+    transform (SCReLU)             83.8
+    FT -> L1                      405.9
+    L1 -> L2                        7.1
+    output                          1.1
+  FT output: 52.1% non-zero bytes, 88.4% non-zero chunks (452.6 of 512)
+  L1 output: 51.8% non-zero bytes, 95.2% non-zero chunks (7.6 of 8)
+== v2r1024l16.nnue
+nnue profile: v2 2x1024 -> 16 -> 32 -> 1, 8 buckets (all layers), 1024 positions, ns per call
+  refresh (both views)            482.6
+  update (one move, both views)   115.2
+  evaluate                        318.6
+    transform (SCReLU)             83.9
+    FT -> L1                      255.2
+    L1 -> L2                        4.4
+    output                          1.1
+  FT output: 53.3% non-zero bytes, 89.2% non-zero chunks (456.6 of 512)
+  L1 output: 52.3% non-zero bytes, 96.8% non-zero chunks (3.9 of 4)

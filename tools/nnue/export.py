@@ -16,10 +16,9 @@ def main():
     if len(sys.argv) != 3:
         sys.exit(__doc__)
     ck = torch.load(sys.argv[1], map_location="cpu")
-    model = nnue.Net(ck["args"].get("out_scale", nnue.OUT_SCALE))
-    model.load_state_dict(ck["model"])
+    model = nnue.load_model(ck)
     nnue.write_rgnn(sys.argv[2], nnue.quantise(model))
-    print("wrote %s (epoch %d)" % (sys.argv[2], ck["epoch"]))
+    print("wrote %s (%s, epoch %d)" % (sys.argv[2], model.arch, ck["epoch"]))
 
 
 if __name__ == "__main__":

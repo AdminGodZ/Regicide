@@ -30,16 +30,12 @@ option(REGICIDE_EVAL_BANDS "Eval: two-row band patterns" ON)
 target_compile_definitions(regicide_core PUBLIC REGICIDE_EVAL_BANDS=$<BOOL:${REGICIDE_EVAL_BANDS}>)
 # Trained evaluation weights are compiled in with #embed (standard in C23/C++26; a Clang extension in C++ today).
 # src/weights/net.bin is an optional NNUE network (RGNN); left empty, the linear eval is used.
-# NNUE layer widths, to build for a net of another architecture (empty: the defaults in nnue.hpp, which the
-# built-in net uses; any other width rejects it and falls back to the linear eval).
-set(REGICIDE_NNUE_FT "" CACHE STRING "NNUE feature-transformer width (empty: 1024)")
-set(REGICIDE_NNUE_L1 "" CACHE STRING "NNUE first hidden layer width (empty: 32)")
-foreach(width FT L1)
-  if(REGICIDE_NNUE_${width})
-    target_compile_definitions(regicide_core PUBLIC REGICIDE_NNUE_${width}=${REGICIDE_NNUE_${width}})
-    set(REGICIDE_NNUE_CUSTOM ON)
-  endif()
-endforeach()
+# NNUE layer widths come from the net's header; this caps the feature transformer (per point of view), which sets
+# the size of the search's accumulators.
+set(REGICIDE_NNUE_MAX_FT "" CACHE STRING "Widest NNUE feature transformer this build loads (empty: 1024)")
+if(REGICIDE_NNUE_MAX_FT)
+  target_compile_definitions(regicide_core PUBLIC REGICIDE_NNUE_MAX_FT=${REGICIDE_NNUE_MAX_FT})
+endif()
 set_source_files_properties(src/eval.cpp PROPERTIES COMPILE_OPTIONS "-Wno-c23-extensions"
                             OBJECT_DEPENDS "${CMAKE_SOURCE_DIR}/src/weights/eval.bin;${CMAKE_SOURCE_DIR}/src/weights/net.bin")
 set_source_files_properties(src/book.cpp PROPERTIES COMPILE_OPTIONS "-Wno-c23-extensions"
@@ -85,26 +81,16 @@ target_link_libraries(nnue_test PRIVATE regicide_core)
 # Re-run CMake when net.bin changes, so the test knows whether a net is embedded.
 set_property(DIRECTORY APPEND PROPERTY CMAKE_CONFIGURE_DEPENDS ${CMAKE_SOURCE_DIR}/src/weights/net.bin)
 file(SIZE ${CMAKE_SOURCE_DIR}/src/weights/net.bin REGICIDE_NET_BYTES)
-if(REGICIDE_NNUE_CUSTOM)
-  set(REGICIDE_NET_BYTES 0)  # the built-in net does not fit, so the test expects it to be rejected
-endif()
 target_compile_definitions(nnue_test PRIVATE REGICIDE_SOURCE_DIR="${CMAKE_SOURCE_DIR}"
                            REGICIDE_NET_BYTES=${REGICIDE_NET_BYTES})
+# Random nets of several architectures (version, ft, l1, l2, buckets); the first also checks loading and the
+# built-in net.
 add_test(NAME nnue COMMAND nnue_test)
-# The same test for other net widths, each built from its own copy of the sources it needs.
-if(NOT REGICIDE_NNUE_CUSTOM)
-  # Widths other than the default, so the embedded net does not fit them (REGICIDE_NET_BYTES=0).
-  foreach(variant "ft512;REGICIDE_NNUE_FT=512" "l1_64;REGICIDE_NNUE_L1=64")
-    list(GET variant 0 name)
-    list(GET variant 1 def)
-    add_executable(nnue_test_${name} tests/nnue_test.cpp src/nnue.cpp src/eval.cpp src/position.cpp src/movegen.cpp)
-    target_include_directories(nnue_test_${name} PRIVATE src)
-    target_compile_options(nnue_test_${name} PRIVATE $<TARGET_PROPERTY:regicide_core,INTERFACE_COMPILE_OPTIONS>)
-    target_compile_definitions(nnue_test_${name} PRIVATE $<TARGET_PROPERTY:regicide_core,INTERFACE_COMPILE_DEFINITIONS>
-                               ${def} REGICIDE_SOURCE_DIR="${CMAKE_SOURCE_DIR}" REGICIDE_NET_BYTES=0)
-    add_test(NAME nnue_${name} COMMAND nnue_test_${name})
-  endforeach()
-endif()
+add_test(NAME nnue_ft512 COMMAND nnue_test 1 512 32 32 8)
+add_test(NAME nnue_l1_64 COMMAND nnue_test 1 768 64 32 8)
+add_test(NAME nnue_v2 COMMAND nnue_test 2 512 32 32 8)
+add_test(NAME nnue_v2_wide COMMAND nnue_test 2 1024 16 32 8)
+add_test(NAME nnue_v2_shapes COMMAND nnue_test 2 256 64 16 4)
 
 add_executable(cb_api_test tests/cb_api_test.cpp)
 target_link_libraries(cb_api_test PRIVATE regicide_core)

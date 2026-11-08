@@ -12,22 +12,42 @@ PyTorch trainer for Regicide's NNUE evaluation (`src/nnue.hpp`). It reads the sa
 
 ## Network
 
+Two architectures, told apart by the version in the RGNN header (`--arch v1|v2`):
+
 ```
-128 inputs   [our man, our king, their man, their king] x 32 squares, side to move's view
-             (black to move: board rotated 180 degrees, square s -> 31 - s; same as the linear eval)
-FT           128 -> 512    int16 weights (x255), SCReLU: clamp(acc, 0, 255)^2 >> 9   -> 0..127
-L1           512 -> 32     int8 weights (x64), int32 sums, clamp(sum >> 6, 0, 127)
-L2           32 -> 32      same
-output       32 -> 1, 8 buckets by piece count ((pieces - 1) / 3), int16 weights (x64)
+128 inputs   [our man, our king, their man, their king] x 32 squares, seen from one colour
+             (black's view: board rotated 180 degrees, square s -> 31 - s; same as the linear eval)
+FT           128 -> FT per point of view, int16 weights (x255), SCReLU: clamp(acc, 0, 255)^2 >> 9   -> 0..127
+L1           N -> L1       int8 weights (x64), int32 sums, clamp(sum >> 6, 0, 127)
+L2           L1 -> L2      same
+output       L2 -> 1, int16 weights (x64)
 score        output * out_scale / (127 * 64) centi-men (out_scale 400), clamped to +-14999
+
+v1 (default, the built-in n4c: FT 1024, L1 32, L2 32, 8 buckets)
+             N = FT: the side to move's view only. Only the output layer has buckets by piece count.
+v2 (--arch v2, default FT 512, L1 32, L2 32, 8 buckets)
+             N = 2 FT: the side to move's view followed by the opponent's, through the same FT weights.
+             L1, L2 and the output layer each have one set of weights per bucket.
 ```
 
+Buckets are `min((pieces - 1) * buckets / 24, buckets - 1)`, so `(pieces - 1) / 3` with 8. `--ft` (multiple of
+128), `--l1` / `--l2` (16, 32 or 64) and `--buckets` (1..24) set the sizes for either version. The bucketed v2 layers
+start with every bucket equal.
+
+The RGNN header records the version, every width and the quantisation constants. The engine reads the widths from it,
+so one build loads any v1 or v2 net within its limits: FT up to 1024 per point of view (raise with
+`cmake -DREGICIDE_NNUE_MAX_FT=2048`), L1/L2 16/32/64, up to 24 buckets. Anything else is rejected with the reason,
+e.g. `cannot load ...: net v2 2x512 -> 48 -> 32 -> 1, 8 buckets (all layers): l1 and l2 must be 16, 32 or 64`.
+No build flags are needed for other widths (the old `REGICIDE_NNUE_FT` / `REGICIDE_NNUE_L1` options are gone).
+
+File layout after the 44-byte header (`HB` = 1 in v1, `buckets` in v2; `N` = FT in v1, 2 FT in v2):
+`ft_bias i16[FT]`, `ft_weight i16[128][FT]`, `l1_bias i32[HB][L1]`, `l1_weight i8[HB][L1][N]`,
+`l2_bias i32[HB][L2]`, `l2_weight i8[HB][L2][L1]`, `out_bias i32[buckets]`, `out_weight i16[buckets][L2]`.
+A v1 file is byte-for-byte what earlier versions wrote.
+
 The engine keeps a feature-transformer accumulator per colour's view on its search stack and updates each view
-lazily from the moves (moved piece, crowning, captured pieces). The RGNN header records every dimension and
-quantisation constant, and the engine rejects a net built for a different architecture. To change the architecture,
-edit the constants at the top of `src/nnue.hpp` and `nnue.py` together. The FT and L1 widths can also be set when
-configuring the engine (`cmake -DREGICIDE_NNUE_FT=1024`, `-DREGICIDE_NNUE_L1=64`); that build rejects the
-built-in net and needs `set evalfile`.
+lazily from the moves (moved piece, crowning, captured pieces). A v1 net only needs the side to move's view at a leaf;
+a v2 net needs both.
 
 Training target and loss match `tools/train.cpp`. The target is `lambda * result + (1 - lambda) * sigmoid(score / K)`,
 with `K` fitted to the data unless `--k` is given. The loss is cross-entropy against `sigmoid(net / K)`. The last
@@ -78,10 +98,15 @@ build/datagen --games 400000 --nodes 10000 --threads 22 --seed 31 --out ~/regici
     --lr 1e-3 --lr-final 1e-5 --wd 0.01 --lambda 0.7 --qat-epochs 2 --compile \
     2>&1 | tee runs/nn1.log
 
+# A v2 net: add --arch v2 and the sizes (defaults FT 512, L1 32, L2 32, 8 buckets), e.g.
+#   --arch v2 --ft 512 --buckets 8          (as fast as v1 FT 1024)
+#   --arch v2 --ft 1024 --l1 16             (about 78% of that speed on the M5)
+
 # Resume after an interruption (same arguments, plus --resume):
 .venv/bin/python tools/nnue/train.py <same arguments> --resume runs/nn1/last.pt
 
-# Verify the final net against the engine on 1000 validation-file positions, then try it.
+# Verify the final net against the engine on 1000 validation-file positions, then try it. Without --checkpoint,
+# check_export tests a random net of --arch / --ft / --l1 / --l2 / --buckets.
 .venv/bin/python tools/nnue/check_export.py --engine build/regicide --data ~/regicide-data/nn1a.bin \
     --checkpoint runs/nn1/last.pt
 printf 'set evalfile runs/nn1/net_e040.nnue\nbench 15\nquit\n' | build/regicide
