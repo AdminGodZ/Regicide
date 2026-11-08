@@ -46,7 +46,8 @@ constexpr std::size_t weight_index(int out, int in, int N, int M) {
 }
 
 #if REGICIDE_NNUE_SIMD
-// For each 8-bit mask, the positions of its set bits and how many there are (find_nnz goes 8 chunks at a time).
+// For each 8-bit mask, the positions of its set bits and how many there are (the non-zero chunk lists are built 8
+// chunks at a time).
 struct NnzTable {
     alignas(16) std::uint16_t index[256][8];
     std::uint8_t count[256];
@@ -64,9 +65,7 @@ constexpr NnzTable make_nnz_table() {
 }
 
 constexpr NnzTable NNZ_TABLE = make_nnz_table();
-#endif
 
-#if REGICIDE_NNUE_NEON || REGICIDE_NNUE_AVX2
 // An order of the feature-transformer outputs in which the 4 outputs of a chunk tend to be zero together, so that
 // FT -> L1 has fewer non-zero chunks to multiply. Reordering the outputs only permutes integer sums, so no
 // evaluation changes. The order comes from the SCReLU outputs over random playouts: each chunk starts with the
