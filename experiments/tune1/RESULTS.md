@@ -92,12 +92,18 @@ Outcome: `se_margin=20` was merged into master (with the n4c net) as 3c87728. Se
 | se_depth | 5 (4) | 279 / 1009 / 312 | -7.2 [-12.9, -1.4] | 3 98 629 69 1 | 800 | 14 min |
 | single_reply_ext | 0 (1) | 266 / 1024 / 310 | -9.6 [-15.1, -4.0] | 1 105 631 63 0 | 800 | 14 min |
 | single_reply_ext | 2 (1) | 283 / 1033 / 284 | -0.2 [-5.6, +5.1] | 1 75 650 72 2 | 800 | 13 min |
+| lmr_min_depth | 2 (3) | 291 / 1026 / 283 | +1.7 [-3.9, +7.4] | 0 83 626 91 0 | 800 | 14 min |
 
 ### Re-tests at 300 ms/move, 400 pairs
 
 | param | value (default) | W / D / L | Elo [95% CI] | penta [LL LD DD/WL WD WW] | pairs | time |
 |---|---|---|---|---|---|---|
 | se_depth | 3 (4) | 141 / 535 / 124 | +7.4 [-0.1, +14.8] | 0 29 326 44 1 | 400 | 19 min |
+| se_depth | 3 (4) | 268 / 1074 / 258 | +2.2 [-2.6, +6.9] | 0 57 676 67 0 | 800 | 38 min |
 
 Note: on 2026-11-08 a T3 app restart killed the runner during series-3 `lmr_min_depth=2` (1160/1600 games, discarded). From 14:43 the runner has run as a systemd user service, and `lmr_min_depth=2` was re-run from scratch.
+
+**Series 3 paused** on 2026-11-08 at 15:36, after the `se_depth=3` 800-pair re-test at 300 ms, for the avoid-list job (t3/avoid-v1). Still queued in `~/regicide-jobs/tune1/queue.txt`: lmr_min_depth=4, etc_min_depth 3/6, cont_hist=0, aspiration_delta=20, and the Lazy SMP checks 2v1 and 4v2.
+
+`se_depth=3`: +9.1 [+3.2, +15.0] at 100 ms, but +7.4 [-0.1, +14.8] (400 pairs) and +2.2 [-2.6, +6.9] (800 pairs) at 300 ms. Not confirmed; se_depth stays 4.
 
