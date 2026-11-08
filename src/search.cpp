@@ -511,7 +511,8 @@ bool SearchParams::set(const std::string& name, int value) {
         {"se_margin", &SearchParams::se_margin},               {"razor_depth", &SearchParams::razor_depth},
         {"razor_margin", &SearchParams::razor_margin},     {"tm_soft", &SearchParams::tm_soft},
         {"tm_hard", &SearchParams::tm_hard},               {"tm_drop", &SearchParams::tm_drop},
-        {"tm_drop_factor", &SearchParams::tm_drop_factor},
+        {"tm_drop_factor", &SearchParams::tm_drop_factor}, {"tm_open_pieces", &SearchParams::tm_open_pieces},
+        {"tm_open_factor", &SearchParams::tm_open_factor},
     };
     for (const auto& e : table)
         if (name == e.name) {
@@ -624,8 +625,12 @@ SearchResult Engine::go(const Limits& limits, InfoFn on_info) {
     if (limits.movetime_ms) {
         tc.soft_ms = tc.hard_ms = limits.movetime_ms;
     } else if (limits.target_ms) {
-        tc.soft_ms = std::max(1, limits.target_ms * params.tm_soft / 100);
-        tc.hard_ms = std::max(1, limits.target_ms * params.tm_hard / 100);
+        // Opening moves decide most lost games, while the endgame is largely database play: optionally spend more
+        // of the banked time while the board is still full.
+        const bool opening = params.tm_open_pieces > 0 && root_.piece_count() >= params.tm_open_pieces;
+        const std::int64_t target = std::int64_t(limits.target_ms) * (opening ? params.tm_open_factor : 100) / 100;
+        tc.soft_ms = std::max<std::int64_t>(1, target * params.tm_soft / 100);
+        tc.hard_ms = std::max<std::int64_t>(1, target * params.tm_hard / 100);
     } else if (limits.time_ms) {
         const int mtg = limits.moves_to_go ? std::min(limits.moves_to_go, 40) : 32;
         const std::int64_t reserve = std::min<std::int64_t>(limits.time_ms / 10, 1000);
