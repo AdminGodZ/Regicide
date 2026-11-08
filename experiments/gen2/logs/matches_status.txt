@@ -1,0 +1,19 @@
+built-in valid 0.539564; selected: G2d
+G2c 2026-11-07T21:56:45+01:00
+built G2d.so (weights sha256 26995275000a81d3) 2026-11-07T21:56:51+01:00
+built G2c.so (weights sha256 48bca4696acb117a) 2026-11-07T21:56:53+01:00
+waiting for baseline ALL_DONE 2026-11-07T21:56:53+01:00
+start match G2d vs a44591e (gen2b datagen running: 0) 2026-11-07T23:39:53+01:00
+end match G2d rc=1 (gen2b datagen running: 0) 2026-11-07T23:39:53+01:00
+start match G2c vs a44591e (gen2b datagen running: 0) 2026-11-07T23:39:53+01:00
+end match G2c rc=1 (gen2b datagen running: 0) 2026-11-07T23:39:53+01:00
+GEN2_MATCHES_DONE 2026-11-07T23:39:53+01:00
+rerun after cbhost fix / power loss 2026-11-08T00:20:38+01:00
+built-in valid 0.539564; selected: G2d
+G2c 2026-11-08T00:20:38+01:00
+waiting for baseline ALL_DONE 2026-11-08T00:20:38+01:00
+start match G2d vs a44591e (gen2b datagen running: 0) 2026-11-08T00:20:38+01:00
+end match G2d rc=0 (gen2b datagen running: 0) 2026-11-08T00:35:02+01:00
+start match G2c vs a44591e (gen2b datagen running: 0) 2026-11-08T00:35:02+01:00
+end match G2c rc=0 (gen2b datagen running: 0) 2026-11-08T00:49:49+01:00
+GEN2_MATCHES_DONE 2026-11-08T00:49:49+01:00
