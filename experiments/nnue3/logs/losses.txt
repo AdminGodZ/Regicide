@@ -1,0 +1,10 @@
+== losses on nn3a's validation set (lambda 0.7, K from nn3a config)
+(nn2b.nnue identical to the 825f993 built-in net)
+valid positions 1000000  K 116.65  lambda 0.70  engine /home/admingod/regicide-825/build/regicide
+nn2b                         0.528788
+nn3a                         0.527885
+nn3b                         0.527465
+valid positions 1000000  K 116.65  lambda 0.70  engine /home/admingod/regicide-825-ft1024/build/regicide
+nn3c                         0.525319
+valid positions 1000000  K 116.65  lambda 0.70  engine /home/admingod/regicide-825-l1_64/build/regicide
+nn3d                         0.526833

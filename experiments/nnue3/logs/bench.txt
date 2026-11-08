@@ -1,0 +1,4 @@
+nn2b(builtin)|nn3a|nn3b|nn3c(FT1024)|nn3d(L1 64)
+bench: 4518329 nodes 1160 ms 3895111 nps|bench: 4102497 nodes 1022 ms 4014184 nps|bench: 3774421 nodes 966 ms 3907268 nps|bench: 4069124 nodes 1364 ms 2983228 nps|bench: 4407908 nodes 1277 ms 3451768 nps
+bench: 4518329 nodes 1096 ms 4122562 nps|bench: 4102497 nodes 1083 ms 3788085 nps|bench: 3774421 nodes 968 ms 3899195 nps|bench: 4069124 nodes 1417 ms 2871647 nps|bench: 4407908 nodes 1360 ms 3241108 nps
+bench: 4518329 nodes 1087 ms 4156696 nps|bench: 4102497 nodes 938 ms 4373664 nps|bench: 3774421 nodes 839 ms 4498713 nps|bench: 4069124 nodes 1309 ms 3108574 nps|bench: 4407908 nodes 1246 ms 3537646 nps
