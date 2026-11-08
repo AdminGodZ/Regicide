@@ -1,0 +1,28 @@
+bench nodes and nps, 385611e builds, datagen paused, no other jobs (3 runs each)
+ft512 nn2b(builtin)    bench: 6873528 nodes 1500 ms 4582352 nps
+built-in net rejected (net ft 512, this build expects 768), using the linear eval
+ft768 nn3e             bench: 7245436 nodes 1795 ms 4036454 nps
+built-in net rejected (net ft 512, this build expects 768), using the linear eval
+ft768 n4a              bench: 6984354 nodes 1728 ms 4041871 nps
+built-in net rejected (net ft 512, this build expects 1024), using the linear eval
+ft1024 n4c             bench: 5114091 nodes 1391 ms 3676557 nps
+built-in net rejected (net ft 512, this build expects 768), using the linear eval
+ft768 l1 64 n4d        bench: 5544944 nodes 1566 ms 3540832 nps
+ft512 nn2b(builtin)    bench: 6873528 nodes 1411 ms 4871387 nps
+built-in net rejected (net ft 512, this build expects 768), using the linear eval
+ft768 nn3e             bench: 7245436 nodes 1738 ms 4168835 nps
+built-in net rejected (net ft 512, this build expects 768), using the linear eval
+ft768 n4a              bench: 6984354 nodes 1759 ms 3970638 nps
+built-in net rejected (net ft 512, this build expects 1024), using the linear eval
+ft1024 n4c             bench: 5114091 nodes 1435 ms 3563826 nps
+built-in net rejected (net ft 512, this build expects 768), using the linear eval
+ft768 l1 64 n4d        bench: 5544944 nodes 1789 ms 3099465 nps
+ft512 nn2b(builtin)    bench: 6873528 nodes 1591 ms 4320256 nps
+built-in net rejected (net ft 512, this build expects 768), using the linear eval
+ft768 nn3e             bench: 7245436 nodes 1962 ms 3692882 nps
+built-in net rejected (net ft 512, this build expects 768), using the linear eval
+ft768 n4a              bench: 6984354 nodes 1886 ms 3703262 nps
+built-in net rejected (net ft 512, this build expects 1024), using the linear eval
+ft1024 n4c             bench: 5114091 nodes 1475 ms 3467180 nps
+built-in net rejected (net ft 512, this build expects 768), using the linear eval
+ft768 l1 64 n4d        bench: 5544944 nodes 1702 ms 3257898 nps

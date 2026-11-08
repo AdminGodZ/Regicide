@@ -32,7 +32,7 @@ target_compile_definitions(regicide_core PUBLIC REGICIDE_EVAL_BANDS=$<BOOL:${REG
 # src/weights/net.bin is an optional NNUE network (RGNN); left empty, the linear eval is used.
 # NNUE layer widths, to build for a net of another architecture (empty: the defaults in nnue.hpp, which the
 # built-in net uses; any other width rejects it and falls back to the linear eval).
-set(REGICIDE_NNUE_FT "" CACHE STRING "NNUE feature-transformer width (empty: 768)")
+set(REGICIDE_NNUE_FT "" CACHE STRING "NNUE feature-transformer width (empty: 1024)")
 set(REGICIDE_NNUE_L1 "" CACHE STRING "NNUE first hidden layer width (empty: 32)")
 foreach(width FT L1)
   if(REGICIDE_NNUE_${width})
@@ -91,9 +91,10 @@ endif()
 target_compile_definitions(nnue_test PRIVATE REGICIDE_SOURCE_DIR="${CMAKE_SOURCE_DIR}"
                            REGICIDE_NET_BYTES=${REGICIDE_NET_BYTES})
 add_test(NAME nnue COMMAND nnue_test)
-# The same test for wider nets, each built from its own copy of the sources it needs.
+# The same test for other net widths, each built from its own copy of the sources it needs.
 if(NOT REGICIDE_NNUE_CUSTOM)
-  foreach(variant "ft1024;REGICIDE_NNUE_FT=1024" "l1_64;REGICIDE_NNUE_L1=64")
+  # Widths other than the default, so the embedded net does not fit them (REGICIDE_NET_BYTES=0).
+  foreach(variant "ft512;REGICIDE_NNUE_FT=512" "l1_64;REGICIDE_NNUE_L1=64")
     list(GET variant 0 name)
     list(GET variant 1 def)
     add_executable(nnue_test_${name} tests/nnue_test.cpp src/nnue.cpp src/eval.cpp src/position.cpp src/movegen.cpp)

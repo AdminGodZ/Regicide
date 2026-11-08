@@ -1,0 +1,44 @@
+== n4a export check (/home/admingod/regicide-385-t768 vs /home/admingod/regicide-385/build-ft768, final net_e040.nnue)
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 7.08, max 43.32 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK
+n4a.nnue identical to net_e040.nnue
+== n4b export check (/home/admingod/regicide-385-t768 vs /home/admingod/regicide-385/build-ft768, final net_e080.nnue)
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 10.01, max 65.32 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK
+n4b.nnue identical to net_e080.nnue
+== n4c export check (/home/admingod/regicide-385-t1024 vs /home/admingod/regicide-385/build-ft1024, final net_e040.nnue)
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 8.55, max 38.97 centi-men
+simulated int (training) vs engine: max |diff| 0.99
+OK
+n4c.nnue identical to net_e040.nnue
+== n4d export check (/home/admingod/regicide-385-t768l64 vs /home/admingod/regicide-385/build-ft768_l164, final net_e040.nnue)
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 8.51, max 50.48 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK
+n4d.nnue identical to net_e040.nnue
+== n4a check on 100k validation positions
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 7.27, max 61.11 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK
+== n4b check on 100k validation positions
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 10.58, max 104.72 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK
+== n4c check on 100k validation positions
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 8.96, max 65.31 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK
+== n4d check on 100k validation positions
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 8.69, max 65.03 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK

@@ -1,0 +1,30 @@
+r4_chain start pid 131469 2026-11-08T09:43:11+01:00
+gen3d still running: snapshot /home/admingod/regicide-data/train/gen3d_partial_18365696.bin (18365696 records of 293851136 bytes, rem 0) 2026-11-08T09:46:11+01:00
+start n4a (/home/admingod/regicide-385-t768, epochs 40) 2026-11-08T09:46:11+01:00
+start n4b (/home/admingod/regicide-385-t768, epochs 80) 2026-11-08T09:48:11+01:00
+end n4a rc=0 2026-11-08T10:06:33+01:00
+start n4c (/home/admingod/regicide-385-t1024, epochs 40) 2026-11-08T10:06:33+01:00
+end n4c rc=0 2026-11-08T10:28:12+01:00
+start n4d (/home/admingod/regicide-385-t768l64, epochs 40) 2026-11-08T10:28:12+01:00
+end n4b rc=0 2026-11-08T10:29:20+01:00
+end n4d rc=0 2026-11-08T10:44:28+01:00
+NN4_TRAIN_DONE 2026-11-08T10:44:28+01:00
+== losses on n4a's validation set (lambda 0.7, K from n4a config), engine integer eval (385611e builds)
+(nn2b.nnue identical to the 385611e built-in net)
+valid positions 1000000  K 111.83  lambda 0.70  engine /home/admingod/regicide-385/build/regicide
+nn2b                         0.519335
+valid positions 1000000  K 111.83  lambda 0.70  engine /home/admingod/regicide-385/build-ft768/regicide
+nn3e                         0.516399
+n4a                          0.515184
+n4b                          0.515075
+valid positions 1000000  K 111.83  lambda 0.70  engine /home/admingod/regicide-385/build-ft1024/regicide
+n4c                          0.514373
+valid positions 1000000  K 111.83  lambda 0.70  engine /home/admingod/regicide-385/build-ft768_l164/regicide
+n4d                          0.514509
+selected for matches: n4c n4d  2026-11-08T10:45:30+01:00
+bench done 2026-11-08T11:01:00+01:00
+start match n4c vs nn3e (A r385_ft1024.so + evalfile n4c.nnue, B r385_ft768.so + evalfile nn3e.nnue) 2026-11-08T11:01:00+01:00
+end match n4c rc=0 Elo (pentanomial, pairs): +5.6 [+0.9, +10.3] 95% CI, score 0.5081 +- 0.0068, LOS 98.99% 2026-11-08T11:15:12+01:00
+start match n4d vs nn3e (A r385_ft768_l164.so + evalfile n4d.nnue, B r385_ft768.so + evalfile nn3e.nnue) 2026-11-08T11:15:12+01:00
+end match n4d rc=0 Elo (pentanomial, pairs): +3.2 [-1.3, +7.7] 95% CI, score 0.5047 +- 0.0065, LOS 92.11% 2026-11-08T11:29:14+01:00
+NN4_DONE 2026-11-08T11:29:14+01:00

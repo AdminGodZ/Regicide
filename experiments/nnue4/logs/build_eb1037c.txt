@@ -1,0 +1,25 @@
+== eb1037c Merge pull request #12 from AdminGodZ/t3/optimize-checkers-engine
+built-in net.bin == nn3e.nnue
+-- ctest
+100% tests passed out of 9
+
+Total Test time (real) =  37.54 sec
+-- bench
+bench: 7245436 nodes 3238 ms 2237626 nps
+-- bench of 385611e build-ft768 with set evalfile nn3e (should match)
+built-in net rejected (net ft 512, this build expects 768), using the linear eval
+bench: 7245436 nodes 3561 ms 2034663 nps
+== Windows DLL
+eval.bin 954892 embedded at 894353
+net.bin 224588 embedded at 1849249
+book.bin 0 embedded at (empty)
+egdb copy identical
+commit eb1037c7c6d5427cf826904fb088cdee883d4f37
+built 2026-11-08T10:14:54+01:00 with clang version 23.1.5 (https://github.com/llvm/llvm-project.git 392dfff97d29b59d77e5cac6d4b6ef2585fe7117)
+toolchain file: tools-src/tools/windows/mingw-clang.cmake
+egdb: full copy of ~/regicide-data/egdb (2-7 pieces) in egdb/
+-- regicide.exe bench (Windows)
+bench: 7245436 nodes 2108 ms 3437113 nps
+-- linux bench
+bench: 7245436 nodes 3737 ms 1938837 nps
+installed /mnt/c/regicide-match/engines/regicide/eb1037c
