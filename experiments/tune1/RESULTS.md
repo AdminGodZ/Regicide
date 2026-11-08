@@ -1,6 +1,6 @@
 # tune1: search-parameter A/B tests
 
-- **Bases:** series 1 on master 825f993 (NNUE nn2b, 512-wide, no embedded book, SE off; `regicide bench` = 4,518,329 nodes). Series 2 on master ae210fb (825f993 + se_depth=4; bench 6,873,528).
+- **Bases:** series 1 on master 825f993 (NNUE nn2b, SE off; bench 4,518,329). Series 2 on ae210fb (+ se_depth=4; bench 6,873,528). Series 3 on 3c87728 (NNUE n4c FT 1024, se_depth 4, se_margin 20; bench 7,338,658).
 - **Tool:** `selfplay --a "<param=value>" --b "" --movetime 100 --threads 16 --pairs 800` (in-process, A = changed
   parameter, B = defaults). Engines use 1 search thread each, and 16 games run in parallel.
 - **Openings:** the default 3-ply set (216 positions). selfplay shuffles it and cycles `i % 216`, so 800 pairs
@@ -64,6 +64,8 @@ Outcome: `se_depth=4` was merged into master as ae210fb. The rest of series 1 (l
 | se_margin | 20 (40) | 319 / 1003 / 278 | +8.9 [+2.6, +15.2] **✓** | 1 84 591 121 3 | 800 | 13 min |
 | threat_qext | 2 (1) | 300 / 1009 / 291 | +2.0 [-4.1, +8.0] | 0 93 610 92 5 | 800 | 13 min |
 | aspiration_delta | 8 (12) | 295 / 999 / 306 | -2.4 [-8.8, +4.0] | 4 106 587 103 0 | 800 | 13 min |
+| aspiration_delta | 20 (12) | 312 / 975 / 313 | -0.2 [-6.8, +6.3] | 3 108 578 109 2 | 800 | 14 min |
+| lmp_base | 8 (3) | 306 / 987 / 307 | -0.2 [-6.7, +6.2] | 2 106 586 103 3 | 800 | 14 min |
 
 ### Re-tests at 300 ms/move, 400 pairs
 
@@ -71,4 +73,18 @@ Outcome: `se_depth=4` was merged into master as ae210fb. The rest of series 1 (l
 |---|---|---|---|---|---|---|
 | se_margin | 30 (40) | 139 / 527 / 134 | +2.2 [-6.0, +10.4] | 0 43 310 46 1 | 400 | 19 min |
 | se_margin | 20 (40) | 153 / 519 / 128 | +10.9 [+3.1, +18.7] **✓** | 0 30 315 55 0 | 400 | 20 min |
+
+Outcome: `se_margin=20` was merged into master (with the n4c net) as 3c87728. Series 2 ended after `lmp_base=8`; the unfinished `se_margin=10` probe moved to series 3.
+
+## Series 3: base 3c87728 (NNUE n4c FT 1024, se_depth 4, se_margin 20)
+
+`regicide bench` = 7,338,658 nodes. Same method as series 2. Defaults in the value column are those of 3c87728. Lazy SMP checks use fewer parallel games so that search threads x games <= 18.
+
+### Single changes at 100 ms/move, 800 pairs
+
+| param | value (default) | W / D / L | Elo [95% CI] | penta [LL LD DD/WL WD WW] | pairs | time |
+|---|---|---|---|---|---|---|
+| lmp_base | 5 (3) | 291 / 1018 / 291 | -0.0 [-5.8, +5.8] | 1 89 619 91 0 | 800 | 13 min |
+| lmp_depth | 4 (3) | 284 / 1037 / 279 | +1.1 [-4.1, +6.2] | 2 65 659 74 0 | 800 | 14 min |
+| se_margin | 10 (20) | 285 / 1045 / 270 | +3.3 [-2.1, +8.6] | 1 68 647 83 1 | 800 | 13 min |
 
