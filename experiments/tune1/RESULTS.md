@@ -25,7 +25,7 @@
 | se_depth | 3 (99) | 359 / 975 / 266 | +20.2 [+13.7, +26.8] **✓** | 2 69 564 164 1 | 800 | 14 min |
 | lmr_mult | 35 (45) | 328 / 947 / 325 | +0.7 [-6.1, +7.4] | 1 119 559 118 3 | 800 | 14 min |
 
-### Re-tests at 300 ms/move, 400 pairs
+### Re-tests at 300 ms/move (pairs per row)
 
 | param | value (default) | W / D / L | Elo [95% CI] | penta [LL LD DD/WL WD WW] | pairs | time |
 |---|---|---|---|---|---|---|
@@ -67,7 +67,7 @@ Outcome: `se_depth=4` was merged into master as ae210fb. The rest of series 1 (l
 | aspiration_delta | 20 (12) | 312 / 975 / 313 | -0.2 [-6.8, +6.3] | 3 108 578 109 2 | 800 | 14 min |
 | lmp_base | 8 (3) | 306 / 987 / 307 | -0.2 [-6.7, +6.2] | 2 106 586 103 3 | 800 | 14 min |
 
-### Re-tests at 300 ms/move, 400 pairs
+### Re-tests at 300 ms/move (pairs per row)
 
 | param | value (default) | W / D / L | Elo [95% CI] | penta [LL LD DD/WL WD WW] | pairs | time |
 |---|---|---|---|---|---|---|
@@ -96,8 +96,12 @@ Outcome: `se_margin=20` was merged into master (with the n4c net) as 3c87728. Se
 | lmr_min_depth | 4 (3) | 272 / 1028 / 300 | -6.1 [-11.8, -0.4] | 1 102 621 76 0 | 800 | 14 min |
 | etc_min_depth | 3 (4) | 299 / 1006 / 295 | +0.9 [-5.0, +6.7] | 0 92 613 94 1 | 800 | 14 min |
 | etc_min_depth | 6 (4) | 300 / 1021 / 279 | +4.6 [-1.3, +10.5] | 0 83 616 98 3 | 800 | 14 min |
+| cont_hist | 0 (1) | 288 / 1025 / 287 | +0.2 [-5.5, +5.9] | 0 86 630 81 3 | 800 | 13 min |
+| aspiration_delta | 20 (12) | 283 / 1020 / 297 | -3.0 [-8.8, +2.7] | 1 96 619 84 0 | 800 | 13 min |
+| Lazy SMP | `--tha 2 --thb 1 --threads 9` (A threads vs B threads; games in parallel) | 162 / 525 / 113 | +21.3 [+13.3, +29.3] **✓** | 0 21 310 68 1 | 400 | 12 min |
+| Lazy SMP | `--tha 4 --thb 2 --threads 4` (A threads vs B threads; games in parallel) | 142 / 540 / 118 | +10.4 [+3.2, +17.7] **✓** | 0 25 326 49 0 | 400 | 26 min |
 
-### Re-tests at 300 ms/move, 400 pairs
+### Re-tests at 300 ms/move (pairs per row)
 
 | param | value (default) | W / D / L | Elo [95% CI] | penta [LL LD DD/WL WD WW] | pairs | time |
 |---|---|---|---|---|---|---|
@@ -110,3 +114,14 @@ Note: on 2026-11-08 a T3 app restart killed the runner during series-3 `lmr_min_
 
 `se_depth=3`: +9.1 [+3.2, +15.0] at 100 ms, but +7.4 [-0.1, +14.8] (400 pairs) and +2.2 [-2.6, +6.9] (800 pairs) at 300 ms. Not confirmed; se_depth stays 4.
 
+**Series 3 finished** on 2026-11-08 at 19:00, resumed at 17:11 on the same base 3c87728 after the avoid-v1 job.
+
+Outcome of series 3: **no confirmed winners, and the defaults stay as in 3c87728.**
+- `se_depth=3` looked good at 100 ms (+9.1) but did not hold at 300 ms (+7.4 [-0.1, +14.8], then +2.2 [-2.6, +6.9] over 800 pairs).
+- `se_margin=15` +5.9 [-0.0, +11.8] and `etc_min_depth=6` +4.6 [-1.3, +10.5] are below the re-test bar.
+- These clearly hurt: `single_reply_ext=0` -9.6, `se_depth=5` -7.2, `lmr_min_depth=4` -6.1.
+- `cont_hist=0` scored +0.2 [-5.5, +5.9]. Continuation history no longer measurably helps at 100 ms. It is cheap, so it is
+  kept; it could be removed as a simplification if a 300 ms test also shows it neutral.
+- **Lazy SMP scales:** 2 threads vs 1 thread is +21.3 [+13.3, +29.3], and 4 vs 2 is +10.4 [+3.2, +17.7] (100 ms, 400 pairs,
+  9 and 4 games in parallel). The 4v2 gain is about half the 2v1 gain, which is expected for Lazy SMP at a short time
+  control.
