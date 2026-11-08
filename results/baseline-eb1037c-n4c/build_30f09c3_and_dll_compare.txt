@@ -1,0 +1,56 @@
+== 30f09c3 build (m30_build.out; its nn3e/XX lines are leftovers from the eb1037c script and irrelevant)
+== 30f09c3 Merge pull request #13 from AdminGodZ/t3/optimize-checkers-engine
+cmp: /home/admingod/regicide-nnue3-work/XX: No such file or directory
+-- ctest
+100% tests passed out of 9
+
+Total Test time (real) =   6.29 sec
+-- bench
+bench: 5114091 nodes 1921 ms 2662202 nps
+-- bench of 385611e build-ft768 with set evalfile nn3e (should match)
+built-in net rejected (net ft 512, this build expects 768), using the linear eval
+bench: 7245436 nodes 2485 ms 2915668 nps
+== Windows DLL
+eval.bin 954892 embedded at 907153
+net.bin 298828 embedded at 1862049
+book.bin 0 embedded at (empty)
+egdb copy identical
+commit 30f09c37aa521f6d167b940fbdf1b5219db3b1f7
+built 2026-11-08T11:41:28+01:00 with clang version 23.1.5 (https://github.com/llvm/llvm-project.git 392dfff97d29b59d77e5cac6d4b6ef2585fe7117)
+toolchain file: tools-src/tools/windows/mingw-clang.cmake
+egdb: full copy of ~/regicide-data/egdb (2-7 pieces) in egdb/
+-- regicide.exe bench (Windows)
+bench: 5114091 nodes 1609 ms 3178428 nps
+-- linux bench
+bench: 5114091 nodes 2130 ms 2400981 nps
+installed /mnt/c/regicide-match/engines/regicide/30f09c3
+== 30f09c3 built-in net vs n4c
+built-in net.bin == n4c.nnue
+== ctest list
+  Test #1: perft
+  Test #2: eval_builtin
+  Test #3: nnue
+  Test #4: nnue_ft512
+  Test #5: nnue_l1_64
+  Test #6: cb_api
+  Test #7: egdb
+  Test #8: egdb_data
+  Test #9: referee
+== DLL 30f09c3 vs eb1037c-n4c (the DLL the baseline runs): PE sections
+.text      off     1024 size   900096  identical
+.rdata     off   901120 size  1461760  identical
+.buildid   off  2362880 size      512  DIFFERS
+.data      off  2363392 size     1536  identical
+.pdata     off  2364928 size    24064  identical
+.tls       off  2388992 size      512  identical
+.reloc     off  2389504 size     7680  identical
+/4         off  2397184 size    15360  identical
+/18        off  2412544 size      512  identical
+/58        off  2413056 size    72192  identical
+/70        off  2485248 size    59904  identical
+/82        off  2545152 size   130560  identical
+/33        off  2675712 size    11776  identical
+/47        off  2687488 size    34816  identical
+byte diffs (size, size, count, first, last):
+3105792 3105792 8038 [128, 129, 2362884, 2362885] [3105457, 3105458, 3105459, 3105460]
+(128-129: PE timestamp; 2362880+: .buildid; past 2722304: COFF symbol table, not loaded)
