@@ -1,0 +1,21 @@
+DLL = engines/regicide/30f09c3/regicide_cb.dll
+copy took 69 s
+egdb copy identical (2-8 pieces, 561 files, 11G)
+commit 30f09c37aa521f6d167b940fbdf1b5219db3b1f7
+built 2026-11-08T11:41:28+01:00 with clang version 23.1.5 (https://github.com/llvm/llvm-project.git 392dfff97d29b59d77e5cac6d4b6ef2585fe7117)
+toolchain file: tools-src/tools/windows/mingw-clang.cmake
+egdb: full copy of ~/regicide-data/egdb (2-8 pieces; 8-piece WLD built 2026-11-08 with egdb_gen 35ae5ea) in egdb/
+id name Regicide 0.2
+id protocol cbhost 1
+ready
+reply 1 8
+reply 1 C:\\regicide-match\\engines\\regicide\\30f09c3-egdb8/egdb
+reply 0 ?
+cbhost run 1: .250309966 s
+id name Regicide 0.2
+id protocol cbhost 1
+ready
+reply 1 8
+reply 1 C:\\regicide-match\\engines\\regicide\\30f09c3-egdb8/egdb
+reply 0 ?
+cbhost run 2: .173129452 s
