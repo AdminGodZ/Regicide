@@ -2,6 +2,7 @@
 
 #include "egdb/platform.hpp"
 
+#include <algorithm>
 #include <cstdio>
 #include <cstring>
 #include <filesystem>
@@ -230,11 +231,28 @@ bool load_dir(const std::string& dir, std::size_t cache_mb) {
             loaded.emplace_back(ent.path().string(), ent.file_size(ec));
         }
     }
-    if (total <= std::uint64_t(cache_mb) << 20) {
-        // Pre-fault everything so that probes never wait for the disk.
-        for (const MappedFile& mp : mappings()) prefault(mp);
-    }
+    prefault_within(cache_mb);
     return !loaded.empty();
+}
+
+void prefault_within(std::size_t cache_mb) {
+    // Pre-fault whole files, smallest first, while they fit in the budget: the small slices (few pieces, or
+    // lopsided material) are probed far more often per byte than the big balanced 8-piece ones.
+    static std::vector<bool> done;
+    static std::uint64_t used = 0;
+    std::vector<MappedFile>& maps = mappings();
+    done.resize(maps.size(), false);
+    std::vector<std::size_t> order(maps.size());
+    for (std::size_t i = 0; i < order.size(); ++i) order[i] = i;
+    std::sort(order.begin(), order.end(), [&](std::size_t a, std::size_t b) { return maps[a].size < maps[b].size; });
+    const std::uint64_t budget = std::uint64_t(cache_mb) << 20;
+    for (std::size_t i : order) {
+        if (done[i]) continue;
+        if (used + maps[i].size > budget) break;
+        prefault(maps[i]);
+        done[i] = true;
+        used += maps[i].size;
+    }
 }
 
 Wld probe_canon(const Pos& p) {
@@ -289,6 +307,11 @@ bool init(const std::string& dir, std::size_t cache_mb) {
     std::lock_guard lock(g_init_mutex);
     if (!g_init_ok) g_init_ok = detail::load_dir(dir, cache_mb);
     return g_init_ok;
+}
+
+void set_cache(std::size_t cache_mb) {
+    std::lock_guard lock(g_init_mutex);
+    if (g_init_ok) detail::prefault_within(cache_mb);
 }
 
 int max_pieces() { return detail::complete_pieces(detail::TableKind::Wld); }

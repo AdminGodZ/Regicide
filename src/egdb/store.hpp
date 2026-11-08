@@ -68,6 +68,7 @@ void clear_slice(TableKind kind, Material m);
 // file (`part`, used for resumable generation) only adds its subslices.
 bool load_file(const std::string& path, TableKind expected_kind, Material expected, bool part = false);
 bool load_dir(const std::string& dir, std::size_t cache_mb);
+void prefault_within(std::size_t cache_mb);  // pre-faults more files, smallest first, up to the budget
 bool check_file(const std::string& path);  // full checksum verification (e.g. after copying files)
 bool slice_complete(TableKind kind, Material m);
 int complete_pieces(TableKind kind);  // largest N with every slice of <= N pieces complete
