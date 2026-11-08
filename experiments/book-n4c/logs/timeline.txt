@@ -1,0 +1,18 @@
+BOOK start: bookgen-cc9f35f --nodes 1000000 --expansions 30000 --threads 10  (nice 5) 2026-11-08T15:15:26+01:00
+pausekeeper3 stopped bookgen: 478356:T 478364:T 2026-11-08T15:15:28+01:00
+pausekeeper3 resumed bookgen: 478356 478364 2026-11-08T15:26:28+01:00
+pausekeeper4 stopped bookgen: 478356:T 478364:T 2026-11-08T16:29:49+01:00
+pausekeeper4 resumed bookgen: 478356 478364 2026-11-08T16:44:39+01:00
+pausekeeper4 stopped bookgen: 478356:T 478364:T 2026-11-08T16:51:05+01:00
+pausekeeper4 resumed bookgen: 478356 478364 2026-11-08T17:31:55+01:00
+pausekeeper4 stopped bookgen: 478356:T 478364:T 2026-11-08T17:32:37+01:00
+pausekeeper4 resumed bookgen: 478356 478364 2026-11-08T17:43:20+01:00
+pausekeeper4 stopped bookgen: 478356:T 478364:T 2026-11-08T17:44:57+01:00
+pausekeeper5 stopped bookgen: 478356:T 478364:T 2026-11-08T17:59:07+01:00
+pausekeeper5 resumed bookgen: 478356 478364 2026-11-08T18:25:24+01:00
+pausekeeper5 stopped bookgen: 478356:T 478364:T 2026-11-08T18:44:24+01:00
+pausekeeper5 resumed bookgen: 478356 478364 2026-11-08T18:47:12+01:00
+pausekeeper5 stopped bookgen: 478356:T 478364:T 2026-11-08T19:03:15+01:00
+pausekeeper5 resumed bookgen: 478356 478364 2026-11-08T19:09:05+01:00
+BOOK end rc=0 wrote /home/admingod/regicide-data/book/book_n4c.bin with 30217 positions 2026-11-08T19:43:01+01:00
+BA book+avoid merge rc=0 avoid list: 79 entries resumed 30158 positions wrote /home/admingod/regicide-data/book/book_n4c_avoid.bin with 30158 positions  2026-11-08T19:43:07+01:00

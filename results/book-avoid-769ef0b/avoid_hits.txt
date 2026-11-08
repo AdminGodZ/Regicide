@@ -1,0 +1,12 @@
+avoid entries (distinct fen+move): 66 positions: 64
+off-769        kingsrow  games 312: avoid positions reached 3 times in 3 games; avoided move played 0 (in 0 games), other move 3
+off-769        cake      games 312: avoid positions reached 19 times in 14 games; avoided move played 6 (in 5 games), other move 13
+off-769        guinn     games 312: avoid positions reached 12 times in 9 games; avoided move played 3 (in 2 games), other move 9
+avoid-769      kingsrow  games 312: avoid positions reached 3 times in 3 games; avoided move played 0 (in 0 games), other move 3
+avoid-769      cake      games 312: avoid positions reached 16 times in 14 games; avoided move played 0 (in 0 games), other move 16
+avoid-769      guinn     games 312: avoid positions reached 11 times in 9 games; avoided move played 0 (in 0 games), other move 11
+bookavoid-769  kingsrow  games 312: avoid positions reached 1 times in 1 games; avoided move played 0 (in 0 games), other move 1
+bookavoid-769  cake      games 312: avoid positions reached 14 times in 12 games; avoided move played 0 (in 0 games), other move 14
+bookavoid-769  guinn     games 312: avoid positions reached 8 times in 7 games; avoided move played 0 (in 0 games), other move 8
+off            kingsrow  games 312: avoid positions reached 4 times in 4 games; avoided move played 2 (in 2 games), other move 2
+avoid          kingsrow  games 312: avoid positions reached 6 times in 5 games; avoided move played 0 (in 0 games), other move 6

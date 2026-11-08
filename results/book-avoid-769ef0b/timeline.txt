@@ -1,0 +1,49 @@
+BOOK start: bookgen-cc9f35f --nodes 1000000 --expansions 30000 --threads 10  (nice 5) 2026-11-08T15:15:26+01:00
+pausekeeper5 stopped bookgen: 478356:T 478364:T 2026-11-08T17:59:07+01:00
+pausekeeper5 resumed bookgen: 478356 478364 2026-11-08T18:25:24+01:00
+pausekeeper5 stopped gen5: 532931:T 723648:T 2026-11-08T18:25:31+01:00
+BA chain start 65f7143 (gen5yield set) 2026-11-08T18:25:35+01:00
+BA start off kingsrow movetime 0.5 dll 65f7143-egdb8; bg: datagen-eb1037c:T bookgen-cc9f35f:S datagen-635d949:T  2026-11-08T18:25:36+01:00
+BA end off kingsrow rc=0 Elo (pentanomial, pairs): -3.3 [-8.2, +1.5] 95% CI, score 0.4952 +- 0.0070, LOS 8.86% 2026-11-08T18:40:14+01:00
+BA start avoid kingsrow movetime 0.5 dll 65f7143-egdb8 option-a 'set avoidfile C:\regicide-match\avoid\avoid_v1.bin'; bg: datagen-eb1037c:T bookgen-cc9f35f:S datagen-635d949:T  2026-11-08T18:40:14+01:00
+BA chain stopped by hand for the EGDB cache speed check; partial ba-off-kingsrow discarded 2026-11-08T18:43:07+01:00
+pausekeeper5 stopped bookgen: 478356:T 478364:T 2026-11-08T18:44:24+01:00
+pausekeeper5 resumed bookgen: 478356 478364 2026-11-08T18:47:12+01:00
+BA correction: ba-off-kingsrow had finished (312/312) at 18:40 and is restored; ba-avoid-kingsrow was the run interrupted at 18:43 (moved to ~/regicide-jobs/ba/interrupted-ba-avoid-kingsrow) 2026-11-08T18:49:01+01:00
+BA chain start 65f7143 (gen5yield set) 2026-11-08T18:49:16+01:00
+BA skip off kingsrow 2026-11-08T18:49:16+01:00
+BA start avoid kingsrow movetime 0.5 dll 65f7143-egdb8 option-a 'set avoidfile C:\regicide-match\avoid\avoid_v1.bin'; bg: datagen-eb1037c:T bookgen-cc9f35f:S datagen-635d949:T  2026-11-08T18:49:16+01:00
+BA end avoid kingsrow rc=0 Elo (pentanomial, pairs): -0.0 [-0.0, -0.0] 95% CI, score 0.5000 +- 0.0000, LOS 50.00% 2026-11-08T19:03:00+01:00
+BA start off cake movetime 0.5 dll 65f7143-egdb8; bg: datagen-eb1037c:T bookgen-cc9f35f:S datagen-635d949:T  2026-11-08T19:03:00+01:00
+BA 65f7143 chain stopped after avoid kingsrow (switch to 769ef0b); runs kept: ba-off-kingsrow, ba-avoid-kingsrow 2026-11-08T19:03:13+01:00
+pausekeeper5 stopped bookgen: 478356:T 478364:T 2026-11-08T19:03:15+01:00
+EGDB8 speed check 2 (769ef0b) start 2026-11-08T19:03:21+01:00
+EGDB8 speed check 2 done: 8-piece x8 nps default 2.625M, dbmbytes 12288 2.575M -> setting '' 2026-11-08T19:09:05+01:00
+SWITCH769_DONE 2026-11-08T19:09:05+01:00
+pausekeeper5 resumed bookgen: 478356 478364 2026-11-08T19:09:05+01:00
+BA chain2 start 769ef0b (egdb setting 'default') 2026-11-08T19:09:15+01:00
+BA start off-769 kingsrow movetime 0.5 dll 769ef0b-egdb8; bg: datagen-eb1037c:T bookgen-cc9f35f:S datagen-635d949:T  2026-11-08T19:09:15+01:00
+BA end off-769 kingsrow rc=0 Elo (pentanomial, pairs): -0.0 [-0.0, -0.0] 95% CI, score 0.5000 +- 0.0000, LOS 50.00% 2026-11-08T19:22:53+01:00
+BA start avoid-769 kingsrow movetime 0.5 dll 769ef0b-egdb8 option-a 'set avoidfile C:\regicide-match\avoid\avoid_v1.bin'; bg: datagen-eb1037c:T bookgen-cc9f35f:S datagen-635d949:T  2026-11-08T19:22:54+01:00
+BA end avoid-769 kingsrow rc=0 Elo (pentanomial, pairs): -1.1 [-4.9, +2.7] 95% CI, score 0.4984 +- 0.0054, LOS 28.16% 2026-11-08T19:37:13+01:00
+BA start off-769 cake movetime 0.5 dll 769ef0b-egdb8; bg: datagen-eb1037c:T bookgen-cc9f35f:S datagen-635d949:T  2026-11-08T19:37:13+01:00
+BOOK end rc=0 wrote /home/admingod/regicide-data/book/book_n4c.bin with 30217 positions 2026-11-08T19:43:01+01:00
+pausekeeper5 resumed gen5: 532931 723648 2026-11-08T19:43:04+01:00
+BA book+avoid merge rc=0 avoid list: 79 entries resumed 30158 positions wrote /home/admingod/regicide-data/book/book_n4c_avoid.bin with 30158 positions  2026-11-08T19:43:07+01:00
+pausekeeper5 stopped gen5: 532931:T 723648:T 2026-11-08T19:43:08+01:00
+pausekeeper5 resumed gen5: 532931 723648 2026-11-08T19:43:11+01:00
+BA end off-769 cake rc=0 Elo (pentanomial, pairs): -12.3 [-19.2, -5.3] 95% CI, score 0.4824 +- 0.0100, LOS 0.03% 2026-11-08T19:49:13+01:00
+BA start avoid-769 cake movetime 0.5 dll 769ef0b-egdb8 option-a 'set avoidfile C:\regicide-match\avoid\avoid_v1.bin'; bg: datagen-eb1037c:T datagen-635d949:S  2026-11-08T19:49:13+01:00
+BA end avoid-769 cake rc=0 Elo (pentanomial, pairs): -12.3 [-19.2, -5.3] 95% CI, score 0.4824 +- 0.0100, LOS 0.03% 2026-11-08T20:01:08+01:00
+BA start off-769 guinn movetime 0.5 dll 769ef0b-egdb8; bg: datagen-eb1037c:T datagen-635d949:S  2026-11-08T20:01:08+01:00
+BA end off-769 guinn rc=0 Elo (pentanomial, pairs): -3.3 [-9.1, +2.4] 95% CI, score 0.4952 +- 0.0083, LOS 12.74% 2026-11-08T20:14:28+01:00
+BA start avoid-769 guinn movetime 0.5 dll 769ef0b-egdb8 option-a 'set avoidfile C:\regicide-match\avoid\avoid_v1.bin'; bg: datagen-eb1037c:T datagen-635d949:S  2026-11-08T20:14:28+01:00
+BA end avoid-769 guinn rc=0 Elo (pentanomial, pairs): -3.3 [-9.9, +3.2] 95% CI, score 0.4952 +- 0.0094, LOS 15.79% 2026-11-08T20:27:46+01:00
+BA start bookavoid-769 kingsrow movetime 0.5 dll 769ef0b-bookavoid-egdb8; bg: datagen-eb1037c:T datagen-635d949:S  2026-11-08T20:27:46+01:00
+BA end bookavoid-769 kingsrow rc=0 Elo (pentanomial, pairs): -2.2 [-5.3, +0.8] 95% CI, score 0.4968 +- 0.0044, LOS 7.73% 2026-11-08T20:41:57+01:00
+BA start bookavoid-769 cake movetime 0.5 dll 769ef0b-bookavoid-egdb8; bg: datagen-eb1037c:T datagen-635d949:S  2026-11-08T20:41:57+01:00
+BA end bookavoid-769 cake rc=0 Elo (pentanomial, pairs): -14.5 [-22.0, -6.9] 95% CI, score 0.4792 +- 0.0108, LOS 0.01% 2026-11-08T20:54:46+01:00
+BA start bookavoid-769 guinn movetime 0.5 dll 769ef0b-bookavoid-egdb8; bg: datagen-eb1037c:T datagen-635d949:S  2026-11-08T20:54:46+01:00
+BA end bookavoid-769 guinn rc=0 Elo (pentanomial, pairs): -2.2 [-7.6, +3.1] 95% CI, score 0.4968 +- 0.0077, LOS 20.66% 2026-11-08T21:07:17+01:00
+BA best variant: avoid-769 (mean Elo avoid -5.57, bookavoid -6.30, off -5.20) 2026-11-08T21:07:17+01:00
+BA start avoid-769 kingsrow-2s movetime 2 dll 769ef0b-egdb8 option-a 'set avoidfile C:\regicide-match\avoid\avoid_v1.bin'; bg: datagen-eb1037c:T datagen-635d949:S  2026-11-08T21:07:17+01:00

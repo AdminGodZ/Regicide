@@ -1,0 +1,3 @@
+b2caaf4b0f8c22d801e80116224140cc90f98fc5e5069956c69b64a5b9652ddb  /home/admingod/regicide-jobs/book/bin/bookgen-cc9f35f
+31358dd6328963b8114b9c772dbde7de4890d30dcbe002a4328e6a428fac807a  /home/admingod/regicide-data/book/book_n4c.bin
+107412211493459d4335fbbb973b2e547a76aa734c8e5887e88bf4eb0ab9f99e  /home/admingod/regicide-data/book/book_n4c_avoid.bin
