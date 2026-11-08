@@ -94,7 +94,9 @@ public:
 private:
     // Activations of one forward pass.
     struct alignas(64) Forward {
-        std::int8_t a[FT];  // feature transformer output
+        std::int8_t a[FT];          // feature transformer output
+        std::uint16_t nnz[FT / 4];  // SIMD builds: the 4-byte chunks of `a` that are not all zero
+        int count = 0;              // ... and how many there are
         std::int8_t h1[L1];
         std::int8_t h2[L2];
     };
@@ -105,8 +107,9 @@ private:
 
     alignas(64) std::int16_t ft_bias_[FT];
     alignas(64) std::int16_t ft_weight_[INPUTS][FT];
-    alignas(64) std::int8_t l1_weight_[L1][FT];
-    alignas(64) std::int8_t l2_weight_[L2][L1];
+    // Hidden-layer weights in the order the affine kernels read them (see weight_index in nnue.cpp).
+    alignas(64) std::int8_t l1_weight_[L1 * FT];
+    alignas(64) std::int8_t l2_weight_[L2 * L1];
     alignas(64) std::int32_t l1_bias_[L1];
     alignas(64) std::int32_t l2_bias_[L2];
     alignas(64) std::int16_t out_weight_[BUCKETS][L2];

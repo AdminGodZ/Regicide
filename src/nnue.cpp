@@ -12,9 +12,11 @@
 #if defined(__ARM_NEON) && defined(__ARM_FEATURE_DOTPROD)
 #include <arm_neon.h>
 #define REGICIDE_NNUE_NEON 1
+#define REGICIDE_NNUE_SIMD 1
 #elif defined(__AVX2__)
 #include <immintrin.h>
 #define REGICIDE_NNUE_AVX2 1
+#define REGICIDE_NNUE_SIMD 1
 #endif
 
 namespace regicide::nnue {
@@ -27,59 +29,169 @@ std::uint32_t read_u32(const unsigned char* p) {
     return v;
 }
 
+#if REGICIDE_NNUE_SIMD
+constexpr bool SIMD = true;
+#else
+constexpr bool SIMD = false;
+#endif
+
+// Where weight w[out][in] of an N -> M layer is kept. The SIMD kernels go through the inputs in 4-byte chunks and
+// multiply each chunk, broadcast, by the weights of 4 (NEON) or 8 (AVX2) outputs with one dot-product instruction,
+// so for each chunk they keep the 4 weights of every output in turn. The portable path keeps the file's order.
+constexpr std::size_t weight_index(int out, int in, int N, int M) {
+    return SIMD ? std::size_t(in / 4) * M * 4 + out * 4 + in % 4 : std::size_t(out) * N + in;
+}
+
+#if REGICIDE_NNUE_SIMD
+// For each 8-bit mask, the positions of its set bits and how many there are (find_nnz goes 8 chunks at a time).
+struct NnzTable {
+    alignas(16) std::uint16_t index[256][8];
+    std::uint8_t count[256];
+};
+
+constexpr NnzTable make_nnz_table() {
+    NnzTable t{};
+    for (int m = 0; m < 256; ++m)
+        for (int b = 0, k = 0; b < 8; ++b)
+            if ((m >> b) & 1) {
+                t.index[m][k++] = std::uint16_t(b);
+                t.count[m] = std::uint8_t(k);
+            }
+    return t;
+}
+
+constexpr NnzTable NNZ_TABLE = make_nnz_table();
+#endif
+
+#if REGICIDE_NNUE_NEON
+// Lists the 4-byte chunks of a[N] that are not all zero, in order, and returns how many there are.
+template <int N>
+inline int find_nnz(const std::int8_t* a, std::uint16_t* nnz) {
+    static_assert(N % 32 == 0);
+    const uint32x4_t lo_bits = {1, 2, 4, 8}, hi_bits = {16, 32, 64, 128};
+    uint16x8_t base = vdupq_n_u16(0);
+    int count = 0;
+    for (int i = 0; i < N; i += 32) {
+        const uint32x4_t c0 = vreinterpretq_u32_s8(vld1q_s8(a + i)), c1 = vreinterpretq_u32_s8(vld1q_s8(a + i + 16));
+        const unsigned mask =
+            vaddvq_u32(vorrq_u32(vandq_u32(vtstq_u32(c0, c0), lo_bits), vandq_u32(vtstq_u32(c1, c1), hi_bits)));
+        vst1q_u16(nnz + count, vaddq_u16(base, vld1q_u16(NNZ_TABLE.index[mask])));
+        count += NNZ_TABLE.count[mask];
+        base = vaddq_u16(base, vdupq_n_u16(8));
+    }
+    return count;
+}
+
+// out[j] = bias[j] + the sum over the chunks c = chunk(k), k < count, of a[4c..4c+3] . w[j][4c..4c+3], for j < M
+// (int8 inputs and weights, int32 sums). Narrow layers keep two sets of sums, so consecutive chunks do not wait
+// on each other.
+template <int M, class Chunk>
+inline void affine_chunks(const std::int8_t* a, Chunk chunk, int count, const std::int8_t* w,
+                          const std::int32_t* bias, std::int32_t* out) {
+    static_assert(M % 4 == 0);
+    constexpr int R = M / 4, SETS = M <= 32 ? 2 : 1;
+    int32x4_t s[SETS][R];
+    for (int r = 0; r < R; ++r) {
+        s[0][r] = vld1q_s32(bias + 4 * r);
+        if constexpr (SETS == 2) s[1][r] = vdupq_n_s32(0);
+    }
+    auto step = [&](int set, int c) {
+        std::int32_t x4;
+        std::memcpy(&x4, a + 4 * c, 4);
+        const int8x16_t x = vreinterpretq_s8_s32(vdupq_n_s32(x4));
+        const std::int8_t* wc = w + c * M * 4;
+        for (int r = 0; r < R; ++r) s[set][r] = vdotq_s32(s[set][r], vld1q_s8(wc + 16 * r), x);
+    };
+    int k = 0;
+    for (; k + SETS <= count; k += SETS)
+        for (int set = 0; set < SETS; ++set) step(set, chunk(k + set));
+    if (k < count) step(0, chunk(k));
+    if constexpr (SETS == 2)
+        for (int r = 0; r < R; ++r) s[0][r] = vaddq_s32(s[0][r], s[1][r]);
+    for (int r = 0; r < R; ++r) vst1q_s32(out + 4 * r, s[0][r]);
+}
+#elif REGICIDE_NNUE_AVX2
+// As the NEON version, 8 chunks per 32-byte load.
+template <int N>
+inline int find_nnz(const std::int8_t* a, std::uint16_t* nnz) {
+    static_assert(N % 32 == 0);
+    const __m256i zero = _mm256_setzero_si256();
+    __m128i base = _mm_setzero_si128();
+    int count = 0;
+    for (int i = 0; i < N; i += 32) {
+        // Activations are 0..127, so a chunk read as int32 is non-zero exactly when it is positive.
+        const __m256i c = _mm256_loadu_si256(reinterpret_cast<const __m256i*>(a + i));
+        const unsigned mask = unsigned(_mm256_movemask_ps(_mm256_castsi256_ps(_mm256_cmpgt_epi32(c, zero))));
+        const __m128i index = _mm_load_si128(reinterpret_cast<const __m128i*>(NNZ_TABLE.index[mask]));
+        _mm_storeu_si128(reinterpret_cast<__m128i*>(nnz + count), _mm_add_epi16(base, index));
+        count += NNZ_TABLE.count[mask];
+        base = _mm_add_epi16(base, _mm_set1_epi16(8));
+    }
+    return count;
+}
+
+// acc plus, in each 32-bit lane, the dot product of 4 unsigned bytes of x with 4 signed bytes of w.
+inline __m256i dot4(__m256i acc, __m256i x, __m256i w) {
+#if defined(__AVXVNNI__)
+    return _mm256_dpbusd_avx_epi32(acc, x, w);
+#elif defined(__AVX512VNNI__) && defined(__AVX512VL__)
+    return _mm256_dpbusd_epi32(acc, x, w);
+#else
+    // maddubs saturates its 16-bit pair sums, which stay exact here: inputs are 0..127 and weights -128..127, so
+    // |x0 w0 + x1 w1| <= 2 * 127 * 128 < 2^15.
+    return _mm256_add_epi32(acc, _mm256_madd_epi16(_mm256_maddubs_epi16(x, w), _mm256_set1_epi16(1)));
+#endif
+}
+
+// As the NEON version, 8 outputs per instruction.
+template <int M, class Chunk>
+inline void affine_chunks(const std::int8_t* a, Chunk chunk, int count, const std::int8_t* w,
+                          const std::int32_t* bias, std::int32_t* out) {
+    static_assert(M % 8 == 0);
+    constexpr int R = M / 8, SETS = M <= 32 ? 2 : 1;
+    __m256i s[SETS][R];
+    for (int r = 0; r < R; ++r) {
+        s[0][r] = _mm256_loadu_si256(reinterpret_cast<const __m256i*>(bias + 8 * r));
+        if constexpr (SETS == 2) s[1][r] = _mm256_setzero_si256();
+    }
+    auto step = [&](int set, int c) {
+        std::int32_t x4;
+        std::memcpy(&x4, a + 4 * c, 4);
+        const __m256i x = _mm256_set1_epi32(x4);
+        const std::int8_t* wc = w + c * M * 4;
+        for (int r = 0; r < R; ++r)
+            s[set][r] = dot4(s[set][r], x, _mm256_loadu_si256(reinterpret_cast<const __m256i*>(wc + 32 * r)));
+    };
+    int k = 0;
+    for (; k + SETS <= count; k += SETS)
+        for (int set = 0; set < SETS; ++set) step(set, chunk(k + set));
+    if (k < count) step(0, chunk(k));
+    if constexpr (SETS == 2)
+        for (int r = 0; r < R; ++r) s[0][r] = _mm256_add_epi32(s[0][r], s[1][r]);
+    for (int r = 0; r < R; ++r) _mm256_storeu_si256(reinterpret_cast<__m256i*>(out + 8 * r), s[0][r]);
+}
+#else
 // out[j] = sum of a[i] * w[j][i] over i < N, for j < M (int8 inputs and weights, int32 sums). Four rows at a
 // time, so the vectorised loop keeps independent accumulators instead of one dependency chain per row.
 template <int N, int M>
-inline void affine(const std::int8_t* a, const std::int8_t (*w)[N], std::int32_t* out) {
-#if REGICIDE_NNUE_NEON
-    static_assert(N % 16 == 0 && M % 4 == 0);
+inline void affine(const std::int8_t* a, const std::int8_t* w, std::int32_t* out) {
     for (int j = 0; j < M; j += 4) {
-        int32x4_t s0 = vdupq_n_s32(0), s1 = s0, s2 = s0, s3 = s0;
-        for (int i = 0; i < N; i += 16) {
-            const int8x16_t x = vld1q_s8(a + i);
-            s0 = vdotq_s32(s0, x, vld1q_s8(w[j] + i));
-            s1 = vdotq_s32(s1, x, vld1q_s8(w[j + 1] + i));
-            s2 = vdotq_s32(s2, x, vld1q_s8(w[j + 2] + i));
-            s3 = vdotq_s32(s3, x, vld1q_s8(w[j + 3] + i));
-        }
-        vst1q_s32(out + j, vpaddq_s32(vpaddq_s32(s0, s1), vpaddq_s32(s2, s3)));
-    }
-#elif REGICIDE_NNUE_AVX2
-    // maddubs takes unsigned inputs: fine, since activations are 0..127 (and pair sums stay below 2^15).
-    static_assert(N % 32 == 0 && M % 4 == 0);
-    const __m256i ones = _mm256_set1_epi16(1);
-    for (int j = 0; j < M; j += 4) {
-        __m256i s[4] = {_mm256_setzero_si256(), _mm256_setzero_si256(), _mm256_setzero_si256(),
-                        _mm256_setzero_si256()};
-        for (int i = 0; i < N; i += 32) {
-            const __m256i x = _mm256_loadu_si256(reinterpret_cast<const __m256i*>(a + i));
-            for (int k = 0; k < 4; ++k) {
-                const __m256i wk = _mm256_loadu_si256(reinterpret_cast<const __m256i*>(w[j + k] + i));
-                s[k] = _mm256_add_epi32(s[k], _mm256_madd_epi16(_mm256_maddubs_epi16(x, wk), ones));
-            }
-        }
-        // Horizontal sums of the four rows into out[j..j+3].
-        const __m256i p = _mm256_hadd_epi32(_mm256_hadd_epi32(s[0], s[1]), _mm256_hadd_epi32(s[2], s[3]));
-        const __m128i r = _mm_add_epi32(_mm256_castsi256_si128(p), _mm256_extracti128_si256(p, 1));
-        _mm_storeu_si128(reinterpret_cast<__m128i*>(out + j), r);
-    }
-#else
-    for (int j = 0; j < M; j += 4) {
+        const std::int8_t *w0 = w + j * N, *w1 = w0 + N, *w2 = w1 + N, *w3 = w2 + N;
         std::int32_t s0 = 0, s1 = 0, s2 = 0, s3 = 0;
         for (int i = 0; i < N; ++i) {
             const std::int32_t x = a[i];
-            s0 += x * w[j][i];
-            s1 += x * w[j + 1][i];
-            s2 += x * w[j + 2][i];
-            s3 += x * w[j + 3][i];
+            s0 += x * w0[i];
+            s1 += x * w1[i];
+            s2 += x * w2[i];
+            s3 += x * w3[i];
         }
         out[j] = s0;
         out[j + 1] = s1;
         out[j + 2] = s2;
         out[j + 3] = s3;
     }
-#endif
 }
+#endif
 
 }  // namespace
 
@@ -107,10 +219,15 @@ std::shared_ptr<const Network> Network::load(const unsigned char* data, std::siz
     };
     take(net->ft_bias_, sizeof net->ft_bias_);
     take(net->ft_weight_, sizeof net->ft_weight_);
+    // Hidden-layer weights come as one row per output, and are kept in the kernels' order.
+    auto take_weights = [&](std::int8_t* dst, int N, int M) {
+        for (int j = 0; j < M; ++j)
+            for (int i = 0; i < N; ++i) dst[weight_index(j, i, N, M)] = std::int8_t(*p++);
+    };
     take(net->l1_bias_, sizeof net->l1_bias_);
-    take(net->l1_weight_, sizeof net->l1_weight_);
+    take_weights(net->l1_weight_, FT, L1);
     take(net->l2_bias_, sizeof net->l2_bias_);
-    take(net->l2_weight_, sizeof net->l2_weight_);
+    take_weights(net->l2_weight_, L1, L2);
     take(net->out_bias_, sizeof net->out_bias_);
     take(net->out_weight_, sizeof net->out_weight_);
     return net;
@@ -154,23 +271,38 @@ void Network::update(const std::int16_t* src, std::int16_t* dst, const int* add,
         for (int i = 0; i < FT; ++i) dst[i] = std::int16_t(dst[i] - ft_weight_[sub[k]][i]);
 }
 
+// SCReLU of one point of view's accumulator into f.a; SIMD builds also list the non-zero 4-byte chunks of f.a.
 void Network::transform(const std::int16_t* v, Forward& f) const {
     for (int i = 0; i < FT; ++i) {
         const int c = std::clamp<int>(v[i], 0, QA);
         f.a[i] = std::int8_t((c * c) >> 9);
     }
+#if REGICIDE_NNUE_SIMD
+    f.count = find_nnz<FT>(f.a, f.nnz);
+#endif
 }
 
+// FT -> L1: SIMD builds only visit the non-zero chunks of f.a.
 void Network::hidden1(Forward& f) const {
     std::int32_t s[L1];
+#if REGICIDE_NNUE_SIMD
+    affine_chunks<L1>(f.a, [&](int k) { return f.nnz[k]; }, f.count, l1_weight_, l1_bias_, s);
+#else
     affine<FT, L1>(f.a, l1_weight_, s);
-    for (int j = 0; j < L1; ++j) f.h1[j] = std::int8_t(std::clamp((s[j] + l1_bias_[j]) >> SHIFT, 0, QH));
+    for (int j = 0; j < L1; ++j) s[j] += l1_bias_[j];
+#endif
+    for (int j = 0; j < L1; ++j) f.h1[j] = std::int8_t(std::clamp(s[j] >> SHIFT, 0, QH));
 }
 
 void Network::hidden2(Forward& f) const {
     std::int32_t s[L2];
+#if REGICIDE_NNUE_SIMD
+    affine_chunks<L2>(f.h1, [](int k) { return k; }, L1 / 4, l2_weight_, l2_bias_, s);
+#else
     affine<L1, L2>(f.h1, l2_weight_, s);
-    for (int j = 0; j < L2; ++j) f.h2[j] = std::int8_t(std::clamp((s[j] + l2_bias_[j]) >> SHIFT, 0, QH));
+    for (int j = 0; j < L2; ++j) s[j] += l2_bias_[j];
+#endif
+    for (int j = 0; j < L2; ++j) f.h2[j] = std::int8_t(std::clamp(s[j] >> SHIFT, 0, QH));
 }
 
 Score Network::output(const Forward& f, int pieces) const {
