@@ -1,0 +1,4 @@
+commit eb1037c7c6d5427cf826904fb088cdee883d4f37; cmake -DREGICIDE_NNUE_FT=1024; net.bin = n4c.nnue sha256 eba3545cebd3dd7b
+built 2026-11-08T11:30:31+01:00 with clang version 23.1.5 (https://github.com/llvm/llvm-project.git 392dfff97d29b59d77e5cac6d4b6ef2585fe7117)
+toolchain file: tools-src/tools/windows/mingw-clang.cmake
+egdb: full copy of ~/regicide-data/egdb (2-7 pieces) in egdb/
