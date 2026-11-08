@@ -18,3 +18,7 @@ BASELINE start eb1037c-n4c guinn movetime 0.5 2026-11-08T12:19:23+01:00
 BASELINE end eb1037c-n4c guinn rc=0 Elo (pentanomial, pairs): -3.3 [-9.9, +3.2] 95% CI, score 0.4952 +- 0.0094, LOS 15.79% 2026-11-08T12:41:32+01:00
 BASELINE_ALL_DONE eb1037c-n4c kingsrow cake guinn 2026-11-08T12:41:32+01:00
 BASELINE start eb1037c-n4c kingsrow-2s movetime 2 2026-11-08T12:41:32+01:00
+gen4a datagen end rc=0 done: games 273595 positions 28083233 2026-11-08T13:52:35+01:00
+BASELINE end eb1037c-n4c kingsrow-2s rc=0 Elo (pentanomial, pairs): -1.1 [-4.9, +2.7] 95% CI, score 0.4984 +- 0.0054, LOS 28.16% 2026-11-08T14:18:27+01:00
+BASELINE_ALL_DONE eb1037c-n4c kingsrow-2s 2026-11-08T14:18:27+01:00
+BASELINE_WRAPPER_DONE eb1037c-n4c 2026-11-08T14:18:27+01:00

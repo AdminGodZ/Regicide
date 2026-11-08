@@ -73,4 +73,36 @@ Machine load: Intel Core Ultra 9 285K, Windows 11 + WSL2.
   - `runner.log`.
 - `BUILD.txt`, `build_and_bench.txt`, `build_30f09c3_and_dll_compare.txt`, `n4c.nnue` (the embedded net).
 - `timeline.txt`: status lines for the baseline runs and the datagen.
-- The 2 s/move KingsRow run (same engine and settings, `--movetime 2`) will be in `kingsrow-2s/`.
+- `kingsrow-2s/`: the 2 s/move KingsRow run (below), with the same files.
+
+## KingsRow at 2 s/move
+
+The same engine (DLL `eb1037c-n4c`, play-identical to 30f09c3) and the same KingsRow settings, at `--movetime 2`
+instead of 0.5: `acf156`, 156 ballots × 2 = 312 games, `-c 8`, hash 128, threads 1, Regicide 2–7 piece EGDB,
+KingsRow with its book and 2–8 piece WLD database (`dbmbytes 512`), searchthreads 1, no Regicide book. The script is
+`run_baseline_r4.sh` (`RUNS=kingsrow-2s`, which sets `MT=2`). The expected duration was about 4× the 0.5 s run
+(~100 min); the run took 97 min.
+
+| Time | W / D / L | Score | Elo [95% CI] (pentanomial) | Pentanomial |
+|---|---|---|---|---|
+| 0.5 s/move (above) | 0 / 308 / 4 | 49.36% | −4.5 [−8.8, −0.1] | [0 4 152 0 0] |
+| **2 s/move** | **1 / 309 / 2** | **49.84%** | **−1.1 [−4.9, +2.7]** | [0 2 153 1 0] |
+
+- **Decisive games:**
+  - Regicide won ACF #157 as Black (game 281).
+  - It lost Inferno as Black (game 9) and Black Widow as White (game 276). Both openings also cost games in the
+    0.5 s runs: Inferno here, Black Widow in ae210fb's.
+- Regicide averaged 1.18 s/move (max 19.5 s) and KingsRow 0.51 s/move. At 0.5 s/move, the figures were 0.29 s and
+  0.14 s.
+- **Longer time vs shorter:** the point estimate moves from −4.5 to −1.1, but the 2 s CI contains both and the 0.5 s
+  CI almost does, so the run shows no significant change with the longer time. It does put Regicide within about
+  5 Elo of KingsRow at 2 s/move.
+- **Run time:** 12:41:32 to 14:18:27.
+- **Machine load during the run:**
+  - 12-thread datagen throughout: gen4a until 13:52:35, then gen4b (same engine, seed 54) from 13:53:05.
+  - A `nice`d 2-job build of `t3/nnue-v2`, about 12:52–13:07.
+  - NNUE round-5 GPU training, each trainer capped at one torch and one loader thread (about 1.2 cores):
+    - two trainers 13:07–13:36 (a script gate matched a stale log line, so the second lane started early);
+    - one trainer 13:36–13:51, then a ~1 min loss scoring;
+    - one trainer from 13:52.
+  - Peak load was about 22 of 24 cores, with no oversubscription.
