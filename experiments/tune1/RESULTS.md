@@ -80,3 +80,11 @@ Outcome: `se_margin=20` was merged into master (with the n4c net) as 3c87728. Se
 
 `regicide bench` = 7,338,658 nodes. Same method as series 2. Defaults in the value column are those of 3c87728. Lazy SMP checks use fewer parallel games so that search threads x games <= 18.
 
+### Single changes at 100 ms/move, 800 pairs
+
+| param | value (default) | W / D / L | Elo [95% CI] | penta [LL LD DD/WL WD WW] | pairs | time |
+|---|---|---|---|---|---|---|
+| lmp_base | 5 (3) | 291 / 1018 / 291 | -0.0 [-5.8, +5.8] | 1 89 619 91 0 | 800 | 13 min |
+| lmp_depth | 4 (3) | 284 / 1037 / 279 | +1.1 [-4.1, +6.2] | 2 65 659 74 0 | 800 | 14 min |
+| se_margin | 10 (20) | 285 / 1045 / 270 | +3.3 [-2.1, +8.6] | 1 68 647 83 1 | 800 | 13 min |
+
