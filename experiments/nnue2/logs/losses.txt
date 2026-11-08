@@ -1,0 +1,8 @@
+== losses on nn2a's validation set (lambda 0.7, K from nn2a config)
+valid positions 1000000  K 118.57  lambda 0.70
+nn1                          0.535867
+nn2a                         0.535018
+nn2c                         0.536344
+G2c_linear                   0.543507
+valid positions 1000000  K 118.57  lambda 0.70
+nn2b                         0.533141

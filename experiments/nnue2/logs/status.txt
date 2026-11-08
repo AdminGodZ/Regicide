@@ -1,0 +1,29 @@
+gen3a snapshot /home/admingod/regicide-data/train/gen3a_partial_11831552.bin: 11831552 records (file was 189304832 bytes) 2026-11-08T01:51:07+01:00
+games 112000  positions 11790250  black +25214 =59302 -27484
+start nn2a (/home/admingod/regicide-nnue, epochs 100, lambda 0.7) 2026-11-08T01:51:58+01:00
+end nn2a rc=0 2026-11-08T02:33:52+01:00
+start nn2b (/home/admingod/regicide-nnue512, epochs 40, lambda 0.7) 2026-11-08T02:33:52+01:00
+end nn2b rc=0 2026-11-08T02:50:42+01:00
+start nn2c (/home/admingod/regicide-nnue, epochs 60, lambda 0.5) 2026-11-08T02:50:42+01:00
+end nn2c rc=0 2026-11-08T03:12:48+01:00
+NN2_TRAIN_DONE 2026-11-08T03:12:48+01:00
+== losses on nn2a's validation set (lambda 0.7, K from nn2a config)
+valid positions 1000000  K 118.57  lambda 0.70
+nn1                          0.535867
+nn2a                         0.535018
+nn2c                         0.536344
+G2c_linear                   0.543507
+valid positions 1000000  K 118.57  lambda 0.70
+nn2b                         0.533141
+best two by loss: nn2b nn2a  2026-11-08T03:13:37+01:00
+paused datagen 44367  2026-11-08T03:13:37+01:00
+start match nn2b vs nn1 (A r747ab51_ft512.so + set evalfile nn2b.nnue, B r747ab51.so built-in nn1) 2026-11-08T03:13:39+01:00
+end match nn2b rc=0 2026-11-08T03:27:41+01:00
+resumed datagen 44367  2026-11-08T03:27:41+01:00
+paused datagen 44367  2026-11-08T03:27:41+01:00
+start match nn2a vs nn1 (A r747ab51.so + set evalfile nn2a.nnue, B r747ab51.so built-in nn1) 2026-11-08T03:27:43+01:00
+end match nn2a rc=0 2026-11-08T03:41:51+01:00
+resumed datagen 44367  2026-11-08T03:41:51+01:00
+NN2_MATCHES_DONE 2026-11-08T03:41:51+01:00
+paused datagen 44367  for bench 2026-11-08T03:43:04+01:00
+resumed datagen 44367  2026-11-08T03:43:15+01:00
