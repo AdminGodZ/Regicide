@@ -1,0 +1,11 @@
+total 4
+lrwxrwxrwx 1 admingod admingod 48 Nov  8 13:07 gen1_n10k.bin -> /home/admingod/regicide-data/train/gen1_n10k.bin
+lrwxrwxrwx 1 admingod admingod 49 Nov  8 13:07 gen1b_n10k.bin -> /home/admingod/regicide-data/train/gen1b_n10k.bin
+lrwxrwxrwx 1 admingod admingod 49 Nov  8 13:07 gen1c_n10k.bin -> /home/admingod/regicide-data/train/gen1c_n10k.bin
+lrwxrwxrwx 1 admingod admingod 49 Nov  8 13:07 gen2a_n10k.bin -> /home/admingod/regicide-data/train/gen2a_n10k.bin
+lrwxrwxrwx 1 admingod admingod 49 Nov  8 13:07 gen2b_n10k.bin -> /home/admingod/regicide-data/train/gen2b_n10k.bin
+lrwxrwxrwx 1 admingod admingod 49 Nov  8 13:07 gen3a_n10k.bin -> /home/admingod/regicide-data/train/gen3a_n10k.bin
+lrwxrwxrwx 1 admingod admingod 49 Nov  8 13:07 gen3b_n10k.bin -> /home/admingod/regicide-data/train/gen3b_n10k.bin
+lrwxrwxrwx 1 admingod admingod 49 Nov  8 13:07 gen3c_n10k.bin -> /home/admingod/regicide-data/train/gen3c_n10k.bin
+lrwxrwxrwx 1 admingod admingod 49 Nov  8 13:07 gen3d_n10k.bin -> /home/admingod/regicide-data/train/gen3d_n10k.bin
+lrwxrwxrwx 1 admingod admingod 61 Nov  8 13:07 gen4a_prefix_19267072.bin -> /home/admingod/regicide-data/train/gen4a_partial_19267072.bin
