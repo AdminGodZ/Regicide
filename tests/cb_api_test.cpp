@@ -7,8 +7,10 @@
 #endif
 
 #include <cstring>
+#include <filesystem>
 #include <iostream>
 
+#include "book.hpp"
 #include "movegen.hpp"
 #include "position.hpp"
 
@@ -69,6 +71,37 @@ int main(int argc, char** argv) {
         command("set evalfile builtin", reply) != 1) {
         std::cerr << "set evalfile failed: " << reply << '\n';
         return 1;
+    }
+
+    // Avoid list: with every opening move but one avoided, that one is played; "set avoid 0" turns it off.
+    {
+        const Position start;
+        MoveList list;
+        generate_moves(start, list);
+        Book avoid;
+        for (std::size_t i = 0; i < list.size(); ++i)
+            if (i != 3) avoid.add_avoid(Book::make_entry(start, list[i], 0, 1));
+        avoid.finalize();
+        const std::string path = (std::filesystem::temp_directory_path() / "regicide_cb_avoid.bin").string();
+        avoid.save(path);
+        Position expected = start;
+        expected.make_move(list[3]);
+        Board8x8 want, b;
+        to_board(expected, want);
+        to_board(start, b);
+        char str[1024] = "";
+        int playnow = 0;
+        unsigned char cbmove[512];
+        const bool loaded = command(("set avoidfile " + path).c_str(), reply) == 1 &&
+                            std::string(reply) == std::to_string(list.size() - 1);
+        getmove(b, 2, 0.01, str, &playnow, 1, 0, cbmove);
+        std::filesystem::remove(path);
+        if (!loaded || std::memcmp(b, want, sizeof(Board8x8)) != 0 || command("set avoid 0", reply) != 1 ||
+            command("get avoid", reply) != 1 || std::string(reply) != "0" || command("set avoid 1", reply) != 1 ||
+            command("set avoidfile builtin", reply) != 1 || command("set avoidfile /nonexistent.bin", reply) != 0) {
+            std::cerr << "avoid list failed: " << reply << '\n';
+            return 1;
+        }
     }
 
     Position pos;

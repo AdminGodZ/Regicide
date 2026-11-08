@@ -1,11 +1,16 @@
 // Opening book generator: best-first drop-out expansion over a minimax-backed tree.
 //
 //   bookgen --nodes 3000000 --expansions 20000 --threads 12 --out book.bin [--evalfile w.bin] [--resume book.bin]
+//           [--avoid avoid.bin]
 //
 // Every analysed position gets a fixed-node search score for each legal move. Leaves (analysed moves whose child
 // has not been analysed yet) are expanded in order of priority = ply * drop + "regret", where regret is the score
 // the side to move gives up along the path by not playing its best move. Expanded values are backed up by minimax.
 // Roots are the start position and every distinct position after 3 plies (covers all 3-move ballot openings).
+//
+// --avoid <file>: an avoid list (e.g. from lossprobe). Its moves are never analysed, added or expanded (unless every
+// legal move of a position is on it), and the output book carries the list (RGBK version 2), so embedding the book
+// also embeds the avoid list. Avoid entries of a --resume book are kept as well.
 #include <algorithm>
 #include <atomic>
 #include <cstdio>
@@ -54,6 +59,18 @@ struct Node {
 // Positions are shared between transpositions; keyed by Zobrist key.
 std::unordered_map<Key, Node> tree;
 std::mutex tree_mu;
+Book avoid_list;  // only its avoid entries are used
+
+// Legal moves minus avoided ones (all of them if every move is avoided, as in the engine).
+std::vector<Move> book_moves(const Position& pos) {
+    MoveList list;
+    generate_moves(pos, list);
+    std::vector<Move> out;
+    for (const Move& m : list)
+        if (!avoid_list.avoids(pos, m)) out.push_back(m);
+    if (out.empty()) out.assign(list.begin(), list.end());
+    return out;
+}
 
 int backed_value(const Node& n) {
     int best = -SCORE_INF;
@@ -133,11 +150,9 @@ Node analyse(Engine& engine, const Position& pos, int ply, const Config& cfg) {
     Node n;
     n.pos = pos;
     n.ply = ply;
-    MoveList list;
-    generate_moves(pos, list);
     Limits limits;
     limits.nodes = cfg.nodes;
-    for (const Move& m : list) {
+    for (const Move& m : book_moves(pos)) {
         Position c = pos;
         c.make_move(m);
         engine.set_position(c);
@@ -174,6 +189,7 @@ std::vector<Position> roots() {
 
 void save(const Config& cfg) {
     Book book;
+    for (const Book::Entry& e : avoid_list.avoid_entries()) book.add_avoid(e);
     for (const auto& [key, node] : tree)
         for (const MoveInfo& mi : node.moves) book.add(Book::make_entry(node.pos, mi.move, mi.score, mi.depth));
     book.finalize();
@@ -196,6 +212,15 @@ int main(int argc, char** argv) {
         else if (k == "--out") cfg.out = next();
         else if (k == "--evalfile") cfg.evalfile = next();
         else if (k == "--resume") resume = next();
+        else if (k == "--avoid") {
+            const std::string f = next();
+            Book b;
+            if (!b.load(f)) {
+                std::cerr << "cannot load " << f << '\n';
+                return 1;
+            }
+            for (const Book::Entry& e : b.avoid_entries()) avoid_list.add_avoid(e);
+        }
         else {
             std::cerr << "unknown option " << k << '\n';
             return 2;
@@ -204,6 +229,8 @@ int main(int argc, char** argv) {
     std::shared_ptr<const Evaluator> ev = Evaluator::builtin();
     if (!cfg.evalfile.empty() && !(ev = Evaluator::from_file(cfg.evalfile))) return 1;
 
+    avoid_list.finalize();
+    if (avoid_list.avoid_size()) std::printf("avoid list: %zu entries\n", avoid_list.avoid_size());
     const std::vector<Position> root_list = roots();
 
     // Resume: rebuild analysed nodes from an existing book by walking from the roots.
@@ -213,6 +240,8 @@ int main(int argc, char** argv) {
             std::cerr << "cannot load " << resume << '\n';
             return 1;
         }
+        for (const Book::Entry& e : old.avoid_entries()) avoid_list.add_avoid(e);
+        avoid_list.finalize();
         std::vector<std::pair<Position, int>> stack;
         for (const Position& r : root_list) stack.push_back({r, r == Position() ? 0 : 3});
         while (!stack.empty()) {
@@ -224,8 +253,9 @@ int main(int argc, char** argv) {
             Node n;
             n.pos = p;
             n.ply = ply;
+            const std::vector<Move> allowed = book_moves(p);
             for (const Book::Entry& e : es)
-                if (auto m = Book::to_move(p, e)) {
+                if (auto m = Book::to_move(p, e); m && std::ranges::contains(allowed, *m)) {
                     n.moves.push_back({*m, e.score, e.depth});
                     Position c = p;
                     c.make_move(*m);

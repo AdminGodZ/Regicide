@@ -3,6 +3,7 @@
 //   selfplay --a "lmr_mult=50" --b "" --nodes 20000 --threads 12 --pairs 300
 //
 // --threads is the number of games played in parallel; --tha/--thb are search threads per engine.
+// --avoida/--avoidb <file|builtin> give an engine the avoid list of a book file (default: none).
 //
 // Every distinct position after 3 plies from the start is an opening; each is played twice with colours
 // reversed. Reports W/D/L for A, and Elo with a 95% interval from the pentanomial distribution of game pairs.
@@ -31,6 +32,7 @@ namespace {
 struct Config {
     std::string a, b;
     std::string eval_a, eval_b;  // weight files; empty = built-in, "hce" = hand-crafted
+    std::string avoid_a, avoid_b;  // avoid lists (book files); empty = none, "builtin" = the embedded book's
     Limits limits;
     int threads = 8;
     int pairs = 0;  // 0 = every opening once
@@ -137,6 +139,8 @@ int main(int argc, char** argv) {
         else if (k == "--b") cfg.b = next();
         else if (k == "--evala") cfg.eval_a = next();
         else if (k == "--evalb") cfg.eval_b = next();
+        else if (k == "--avoida") cfg.avoid_a = next();
+        else if (k == "--avoidb") cfg.avoid_b = next();
         else if (k == "--nodes") cfg.limits.nodes = std::stoull(next());
         else if (k == "--depth") cfg.limits.depth = std::stoi(next()), cfg.limits.nodes = 0;
         else if (k == "--movetime") cfg.limits.movetime_ms = std::stoi(next()), cfg.limits.nodes = 0;
@@ -184,6 +188,18 @@ int main(int argc, char** argv) {
         return e;
     };
     const auto eval_a = load_eval(cfg.eval_a), eval_b = load_eval(cfg.eval_b);
+    auto load_avoid = [](const std::string& spec) -> std::shared_ptr<const Book> {
+        if (spec.empty()) return nullptr;
+        if (spec == "builtin") return Book::builtin();
+        auto b = std::make_shared<Book>();
+        if (!b->load(spec)) {
+            std::cerr << "cannot load " << spec << '\n';
+            std::exit(1);
+        }
+        std::printf("avoid list %s: %zu entries\n", spec.c_str(), b->avoid_size());
+        return b;
+    };
+    const auto avoid_a = load_avoid(cfg.avoid_a), avoid_b = load_avoid(cfg.avoid_b);
 
     std::atomic<int> next_pair{0};
     std::mutex mu;
@@ -196,6 +212,8 @@ int main(int argc, char** argv) {
         eb.set_hash_mb(cfg.hash_mb);
         ea.set_evaluator(eval_a);
         eb.set_evaluator(eval_b);
+        ea.set_avoid(avoid_a);
+        eb.set_avoid(avoid_b);
         ea.set_egdb_pieces(cfg.egdb_pieces);
         eb.set_egdb_pieces(cfg.egdb_pieces);
         ea.set_threads(cfg.threads_a);

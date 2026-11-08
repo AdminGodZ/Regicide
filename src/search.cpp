@@ -477,7 +477,7 @@ void Worker::iterate(const Limits& limits, TimeControl& t, const Engine::InfoFn*
         last_best = roots[0].move;
 
         if (limits.infinite) continue;
-        if (roots.size() == 1 && (t.soft_ms || t.hard_ms)) break;
+        if (roots.size() == 1 && (t.soft_ms || t.hard_ms) && limits.searchmoves.empty()) break;
         if (t.soft_ms) {
             // A stable best move lets us stop early; a fresh change of mind buys extra time.
             const double factor = stability >= 6 ? 0.5 : stability >= 3 ? 0.8 : stability == 0 ? 1.6 : 1.0;
@@ -567,7 +567,8 @@ void Engine::set_position(const Position& root, const std::vector<Position>& his
 
 // Perfect play from the database when the root is in it and decided: the winner follows moves-to-conversion
 // downhill (so the win is always realised), the loser maximises it. Draws are left to the search.
-std::optional<std::pair<Move, Score>> Engine::egdb_root_move(const Position& root, const MoveList& list) const {
+std::optional<std::pair<Move, Score>> Engine::egdb_root_move(const Position& root,
+                                                             const std::vector<Move>& list) const {
     if (!egdb_pieces_ || root.piece_count() > std::min(egdb_pieces_, egdb::max_mtc_pieces())) return std::nullopt;
     auto probe = [](const Position& p) {
         return egdb::probe(p.pieces(BLACK), p.pieces(WHITE), p.kings(), p.side_to_move());
@@ -631,8 +632,16 @@ SearchResult Engine::go(const Limits& limits, InfoFn on_info) {
     generate_moves(root_, list);
     SearchResult result;
     if (list.empty()) return result;
+    std::vector<Move> root_moves(list.begin(), list.end());
+    const bool analysis = !limits.searchmoves.empty();
+    if (analysis) {
+        std::vector<Move> chosen;
+        for (const Move& m : root_moves)
+            if (std::ranges::find(limits.searchmoves, m) != limits.searchmoves.end()) chosen.push_back(m);
+        if (!chosen.empty()) root_moves = std::move(chosen);
+    }
 
-    if (const auto db = egdb_root_move(root_, list); db.has_value() && !limits.infinite) {
+    if (const auto db = egdb_root_move(root_, root_moves); db.has_value() && !limits.infinite) {
         result.best = db->first;
         result.score = db->second;
         result.pv = {db->first};
@@ -646,9 +655,17 @@ SearchResult Engine::go(const Limits& limits, InfoFn on_info) {
         return result;
     }
 
-    if (book_ && limits.use_book && !limits.infinite && !book_->empty()) {
+    // Avoid list: drop excluded root moves, unless that would leave none.
+    if (avoid_ && avoid_->avoid_size() && !analysis) {
+        std::vector<Move> kept;
+        for (const Move& m : root_moves)
+            if (!avoid_->avoids(root_, m)) kept.push_back(m);
+        if (!kept.empty()) root_moves = std::move(kept);
+    }
+
+    if (book_ && limits.use_book && !limits.infinite && !analysis && !book_->empty()) {
         book_seed_ = book_seed_ * 6364136223846793005ull + 1442695040888963407ull;
-        if (auto m = book_->probe(root_, book_margin_, book_seed_ >> 33)) {
+        if (auto m = book_->probe(root_, book_margin_, book_seed_ >> 33, avoid_.get())) {
             for (const Book::Entry& e : book_->lookup(root_))
                 if (Book::to_move(root_, e) == m) result.score = e.score;
             result.best = *m;
@@ -662,8 +679,6 @@ SearchResult Engine::go(const Limits& limits, InfoFn on_info) {
             return result;
         }
     }
-    std::vector<Move> root_moves(list.begin(), list.end());
-
     for (auto& w : workers_) w->setup(root_, history_, root_moves);
 
     std::vector<std::thread> helpers;

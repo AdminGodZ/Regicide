@@ -35,6 +35,7 @@ void print_help() {
                  "  set threads|hash|<search param> <value>\n"
                  "  set evalfile <path|builtin|hce>  linear weights (RGEV) or an NNUE net (RGNN)\n"
                  "  set book <path|builtin|off>, set egdb <dir>\n"
+                 "  set avoidfile <path|builtin>  avoid list (moves never played) from a book file; set avoid 0|1\n"
                  "  bench [depth]       fixed-depth search over built-in positions (node count signature)\n"
                  "Command line: regicide bench [depth] | regicide evaldata <evalfile|builtin> <data.bin> [count]\n"
                  "              regicide nnuebench <evalfile|builtin> [data.bin] [count]  NNUE stage timings\n"
@@ -98,6 +99,9 @@ int nnue_bench(const std::string& evalfile, const std::string& data, long count)
 int main(int argc, char** argv) {
     Engine engine;
     engine.set_book(Book::builtin());
+    std::shared_ptr<const Book> avoid_list = Book::builtin();
+    bool avoid_on = true;
+    engine.set_avoid(avoid_list);
     auto load_egdb = [&](const std::string& path) {
         if (egdb::init(path, 4096)) {
             engine.set_egdb_pieces(egdb::max_pieces());
@@ -235,7 +239,7 @@ int main(int argc, char** argv) {
             std::string name;
             long long value = 0;
             in >> name;
-            if (name != "evalfile" && name != "book" && name != "egdb") in >> value;
+            if (name != "evalfile" && name != "book" && name != "egdb" && name != "avoidfile") in >> value;
             if (name == "egdb") {
                 load_egdb(line.substr(line.find("egdb") + 5));
                 continue;
@@ -246,6 +250,20 @@ int main(int argc, char** argv) {
                 else if (path == "builtin") engine.set_book(Book::builtin());
                 else if (auto b = std::make_shared<Book>(); b->load(path)) engine.set_book(b);
                 else std::cout << "cannot load " << path << std::endl;
+                continue;
+            }
+            if (name == "avoidfile" || name == "avoid") {
+                if (name == "avoid") {
+                    avoid_on = value != 0;
+                } else {
+                    std::string path = line.substr(line.find("avoidfile") + 10);
+                    auto b = std::make_shared<Book>();
+                    if (path == "builtin") avoid_list = Book::builtin();
+                    else if (b->load(path)) avoid_list = b;
+                    else std::cout << "cannot load " << path << std::endl;
+                }
+                engine.set_avoid(avoid_on ? avoid_list : nullptr);
+                std::cout << "avoid: " << (avoid_on ? avoid_list->avoid_size() : 0) << " entries" << std::endl;
                 continue;
             }
             if (name == "evalfile") {

@@ -92,6 +92,10 @@ add_test(NAME nnue_v2 COMMAND nnue_test 2 512 32 32 8)
 add_test(NAME nnue_v2_wide COMMAND nnue_test 2 1024 16 32 8)
 add_test(NAME nnue_v2_shapes COMMAND nnue_test 2 256 64 16 4)
 
+add_executable(avoid_test tests/avoid_test.cpp)
+target_link_libraries(avoid_test PRIVATE regicide_core)
+add_test(NAME avoid COMMAND avoid_test)
+
 add_executable(cb_api_test tests/cb_api_test.cpp)
 target_link_libraries(cb_api_test PRIVATE regicide_core)
 target_compile_definitions(cb_api_test PRIVATE REGICIDE_SOURCE_DIR="${CMAKE_SOURCE_DIR}")
@@ -108,6 +112,9 @@ target_link_libraries(train PRIVATE regicide_core)
 
 add_executable(bookgen tools/bookgen.cpp)
 target_link_libraries(bookgen PRIVATE regicide_core)
+
+add_executable(lossprobe tools/lossprobe.cpp)
+target_link_libraries(lossprobe PRIVATE regicide_core)
 
 # Endgame database: library, generator and tests (self-contained; depends only on types.hpp).
 add_library(regicide_egdb STATIC

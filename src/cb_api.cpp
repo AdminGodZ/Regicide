@@ -68,6 +68,9 @@ struct State {
     std::string egdb_dir;
     std::size_t egdb_cache_mb = 4096;
     std::string evalfile = "builtin";
+    bool avoid = true;
+    std::string avoidfile = "builtin";
+    std::shared_ptr<const Book> avoid_list = Book::builtin();
     std::mutex mutex;
 };
 
@@ -103,6 +106,7 @@ State& state() {
         s.engine = std::make_unique<Engine>();
         s.engine->set_hash_mb(s.hash_mb);
         s.engine->set_book(Book::builtin());
+        s.engine->set_avoid(s.avoid_list);
         load_egdb(s, library_dir() + "/egdb", s.egdb_cache_mb);
     }
     return s;
@@ -252,6 +256,8 @@ CB_EXPORT int WINAPI enginecommand(const char* command, char reply[1024]) {
         if (p1 == "dbpath") return answer(s.egdb_dir, 1);
         if (p1 == "dbpieces") return answer(std::to_string(s.engine->egdb_pieces()), 1);
         if (p1 == "evalfile") return answer(s.evalfile, 1);
+        if (p1 == "avoid") return answer(s.avoid ? "1" : "0", 1);
+        if (p1 == "avoidfile") return answer(s.avoidfile, 1);
     }
     if (cmd == "set") {
         std::lock_guard lock(s.mutex);
@@ -279,6 +285,27 @@ CB_EXPORT int WINAPI enginecommand(const char* command, char reply[1024]) {
             s.engine->set_evaluator(ev);
             s.evalfile = path;
             return answer(ev->network() ? "nnue" : ev->trained() ? "linear" : "hce", 1);
+        }
+        if (p1 == "avoid") {
+            // "set avoid 0|1": turn the avoid list (root moves never played) off or on.
+            s.avoid = std::atoi(p2.c_str()) != 0;
+            s.engine->set_avoid(s.avoid ? s.avoid_list : nullptr);
+            return answer(s.avoid ? "1" : "0", 1);
+        }
+        if (p1 == "avoidfile") {
+            // "set avoidfile <path|builtin>": the avoid list of a book file (RGBK version 2); paths may contain spaces.
+            const std::string full = command;
+            const std::string path = full.substr(full.find("avoidfile") + 10);
+            if (path == "builtin") {
+                s.avoid_list = Book::builtin();
+            } else {
+                auto b = std::make_shared<Book>();
+                if (!b->load(path)) return answer("cannot load " + path, 0);
+                s.avoid_list = b;
+            }
+            s.avoidfile = path;
+            s.engine->set_avoid(s.avoid ? s.avoid_list : nullptr);
+            return answer(std::to_string(s.avoid_list->avoid_size()), 1);
         }
         if (p1 == "gamehist") {
             // "set gamehist <FEN> <m1> <m2> ...": the position after the last conversion and the moves since.
