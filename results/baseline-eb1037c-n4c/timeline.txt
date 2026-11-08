@@ -1,0 +1,20 @@
+BASELINE start eb1037c-n4c kingsrow movetime 0.5 2026-11-08T11:31:33+01:00
+BASELINE end eb1037c-n4c kingsrow rc=1  2026-11-08T11:31:33+01:00
+BASELINE start eb1037c-n4c cake movetime 0.5 2026-11-08T11:31:33+01:00
+BASELINE end eb1037c-n4c cake rc=1  2026-11-08T11:31:33+01:00
+BASELINE start eb1037c-n4c guinn movetime 0.5 2026-11-08T11:31:33+01:00
+BASELINE end eb1037c-n4c guinn rc=1  2026-11-08T11:31:33+01:00
+BASELINE_ALL_DONE eb1037c-n4c kingsrow cake guinn 2026-11-08T11:31:33+01:00
+BASELINE start eb1037c-n4c kingsrow-2s movetime 2 2026-11-08T11:31:33+01:00
+BASELINE end eb1037c-n4c kingsrow-2s rc=1  2026-11-08T11:31:33+01:00
+BASELINE_ALL_DONE eb1037c-n4c kingsrow-2s 2026-11-08T11:31:33+01:00
+BASELINE_WRAPPER_DONE eb1037c-n4c 2026-11-08T11:31:33+01:00
+gen4a datagen (eb1037c-n4c) seed 53 threads 12 games 300000 nodes 10000 start 2026-11-08T11:31:53+01:00
+BASELINE start eb1037c-n4c kingsrow movetime 0.5 2026-11-08T11:32:42+01:00
+BASELINE end eb1037c-n4c kingsrow rc=0 Elo (pentanomial, pairs): -4.5 [-8.8, -0.1] 95% CI, score 0.4936 +- 0.0062, LOS 2.14% 2026-11-08T11:57:02+01:00
+BASELINE start eb1037c-n4c cake movetime 0.5 2026-11-08T11:57:02+01:00
+BASELINE end eb1037c-n4c cake rc=0 Elo (pentanomial, pairs): -15.6 [-23.4, -7.8] 95% CI, score 0.4776 +- 0.0112, LOS 0.00% 2026-11-08T12:19:23+01:00
+BASELINE start eb1037c-n4c guinn movetime 0.5 2026-11-08T12:19:23+01:00
+BASELINE end eb1037c-n4c guinn rc=0 Elo (pentanomial, pairs): -3.3 [-9.9, +3.2] 95% CI, score 0.4952 +- 0.0094, LOS 15.79% 2026-11-08T12:41:32+01:00
+BASELINE_ALL_DONE eb1037c-n4c kingsrow cake guinn 2026-11-08T12:41:32+01:00
+BASELINE start eb1037c-n4c kingsrow-2s movetime 2 2026-11-08T12:41:32+01:00

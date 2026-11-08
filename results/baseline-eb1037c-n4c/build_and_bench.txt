@@ -1,0 +1,26 @@
+ M src/weights/net.bin
+eval.bin 954892 embedded at 907153
+net.bin 298828 embedded at 1862049
+book.bin 0 embedded at (empty)
+egdb copy identical
+commit eb1037c7c6d5427cf826904fb088cdee883d4f37; cmake -DREGICIDE_NNUE_FT=1024; net.bin = n4c.nnue sha256 eba3545cebd3dd7b
+built 2026-11-08T11:30:31+01:00 with clang version 23.1.5 (https://github.com/llvm/llvm-project.git 392dfff97d29b59d77e5cac6d4b6ef2585fe7117)
+toolchain file: tools-src/tools/windows/mingw-clang.cmake
+egdb: full copy of ~/regicide-data/egdb (2-7 pieces) in egdb/
+-- regicide.exe bench (Windows)
+bench: 5114091 nodes 1255 ms 4074972 nps
+-- linux bench
+bench: 5114091 nodes 1402 ms 3647711 nps
+installed /mnt/c/regicide-match/engines/regicide/eb1037c-n4c
+-- linux ctest (nnue_test expects the built-in net to be rejected in custom-width builds, so it fails here by design)
+
+The following tests FAILED:
+	  3 - nnue (Failed)
+Errors while running CTest
+Output from these tests are in: /home/admingod/regicide-match/builds/eb1037c-n4c/build-linux/Testing/Temporary/LastTest.log
+Use "--rerun-failed --output-on-failure" to re-run the failed cases verbosely.
+-- reference: 385611e build-ft1024 + set evalfile n4c
+built-in net rejected (net ft 512, this build expects 1024), using the linear eval
+bench: 5114091 nodes 1466 ms 3488465 nps
+-- eb1037c FT1024 linux build with set evalfile n4c (same as embedded?)
+bench: 5114091 nodes 1467 ms 3486087 nps
