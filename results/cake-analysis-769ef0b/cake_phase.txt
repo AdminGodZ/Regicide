@@ -1,0 +1,41 @@
+35 lost games; per run: {'off-769': 11, 'avoid-769': 11, 'bookavoid-769': 13}
+colour (Regicide): {'B': 34, 'W': 1}
+phase of the decisive moment: {'middlegame': 2, 'endgame': 33}  no clear jump: 0
+ballots with more than one loss: {'ACF #16 Wilderness II': 3, 'ACF #62 Gemini I': 3, 'ACF #63': 3, 'ACF #6 Inferno': 2, 'ACF #7': 2, 'ACF #9 Wilderness I': 2, 'ACF #14': 2, 'ACF #74': 2, 'ACF #141': 2, 'ACF #5 Dreaded Edinburgh': 2}
+distinct ballots: 22
+run             game col ballot                       plies dec ply mv after  pcs phase        cake regicide
+avoid-769         23 B   ACF #14                        113      69       32    9 endgame       800   -19980
+off-769           23 B   ACF #14                        139     119       57    9 endgame      1023   -19993
+avoid-769        253 B   ACF #141                       105      89       42    9 endgame       825   -19991
+off-769          253 B   ACF #141                       163     131       63    9 endgame       865   -19997
+off-769          257 B   ACF #143                       117      81       38    9 endgame       951   -19995
+bookavoid-769    276 W   ACF #153 Black Widow           122     100       48    9 endgame       863   -19991
+off-769          277 B   ACF #154                        99      75       35    9 endgame       824   -19991
+avoid-769         27 B   ACF #16 Wilderness II           89      71       33    9 endgame       982   -19995
+bookavoid-769     27 B   ACF #16 Wilderness II          125     101       48    9 endgame       833   -19991
+off-769           27 B   ACF #16 Wilderness II           87      47       21    9 endgame       152   -19977
+bookavoid-769     33 B   ACF #19                        153      57       26   11 endgame       138     -118
+bookavoid-769     43 B   ACF #24                        157      85       40    9 endgame       204   -19989
+bookavoid-769     65 B   ACF #37                         91      71       33    9 endgame      1128   -19997
+avoid-769          7 B   ACF #5 Dreaded Edinburgh       125      91       43    9 endgame       260      -90
+bookavoid-769      7 B   ACF #5 Dreaded Edinburgh       137      31       13   12 endgame       124     -100
+avoid-769          9 B   ACF #6 Inferno                  99      27       11   16 middlegame    112     -180
+off-769            9 B   ACF #6 Inferno                  85      27       11   14 middlegame    100     -133
+avoid-769        107 B   ACF #62 Gemini I               109      75       35    9 endgame       809   -19993
+bookavoid-769    107 B   ACF #62 Gemini I               181      63       29    9 endgame       130     -121
+off-769          107 B   ACF #62 Gemini I               111      69       32   10 endgame       368   -19987
+avoid-769        109 B   ACF #63                        107      67       31    9 endgame       833   -19989
+bookavoid-769    109 B   ACF #63                        107      29       12   12 endgame       116     -139
+off-769          109 B   ACF #63                        103      73       34    9 endgame       803   -19985
+avoid-769         11 B   ACF #7                         145      73       34    9 endgame       192     -220
+off-769           11 B   ACF #7                         115     101       48    9 endgame       833   -19992
+bookavoid-769    127 B   ACF #72                        113      93       44    7 endgame       821   -19999
+avoid-769        131 B   ACF #74                        133     109       52    9 endgame       865   -19989
+off-769          131 B   ACF #74                        139     121       58    9 endgame      1024   -19995
+bookavoid-769    133 B   ACF #75                        117      95       45    9 endgame       863   -19989
+bookavoid-769    139 B   ACF #79                         97      79       37    9 endgame       829   -19989
+avoid-769        151 B   ACF #85                         97      77       36    9 endgame       826   -19991
+bookavoid-769    155 B   ACF #87 Tyne                   123      65       30    9 endgame       178     -161
+avoid-769         15 B   ACF #9 Wilderness I            125     103       49    9 endgame       952   -19987
+off-769           15 B   ACF #9 Wilderness I            155     113       54    9 endgame       865   -19986
+bookavoid-769    159 B   ACF #90                         97      87       41    9 endgame       834   -19997
