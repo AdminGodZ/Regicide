@@ -1,0 +1,6 @@
+net v1 1024 -> 32 -> 32 -> 1, 8 buckets
+positions 100000  distinct engine scores 1529  range [-825, 802]
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 9.92, max 81.42 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK
