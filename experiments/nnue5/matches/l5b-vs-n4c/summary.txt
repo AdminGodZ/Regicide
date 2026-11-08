@@ -1,0 +1,14 @@
+Match: A = l5b, B = n4c
+Openings: /home/admingod/regicide-gen2-work/openings4.txt (805 openings x 1 rounds, each played with both colours)
+Time control: 0.1s/move (CheckerBoard match rules); no-progress rule: 40 moves
+Games: 1610 of 1610 scheduled
+
+A: +267 =1057 -286   score 795.5/1610 = 49.41%   draw rate 65.7%
+A as black: +191 =534 -80   A as white: +76 =523 -206
+By colour: black won 397, white won 156, drawn 1057
+Pairs: 805   pentanomial [LL LD DD/WL WD WW] = [0 51 722 32 0]
+Elo (pentanomial, pairs): -4.1 [-7.9, -0.3] 95% CI, score 0.4941 +- 0.0055, LOS 1.83%
+Elo (trinomial, games):   -4.1 [-14.1, +5.8] 95% CI, LOS 20.95%
+Terminations: no legal moves 553; repetition 1057;
+A l5b: 78741 moves, avg 0.039s/move, max 0.978s
+B n4c: 78731 moves, avg 0.040s/move, max 0.972s

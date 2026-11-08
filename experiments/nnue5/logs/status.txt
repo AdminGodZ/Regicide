@@ -48,3 +48,43 @@ R5b start match v2d vs n4c (one rv2.so: A set evalfile v2d.nnue, B built-in n4c)
 R5b start v2g (--arch v2 --ft 1024 --l1 16 --l2 32 --buckets 8, 40 epochs, data2) 2026-11-08T15:16:24+01:00
 R5b end match v2d vs n4c rc=0 Elo (pentanomial, pairs): -0.2 [-4.7, +4.2] 95% CI, score 0.4997 +- 0.0064, LOS 46.22% 2026-11-08T15:26:25+01:00
 R5b R5B_DONE 2026-11-08T15:26:25+01:00
+R5b end v2g rc=0 python int vs engine: max |diff| 0, 0 positions differ 2026-11-08T15:39:07+01:00
+R5b v2g loss (v2d set): v2g                          0.502306 2026-11-08T15:39:46+01:00
+R5b V2G_DONE 2026-11-08T15:39:46+01:00
+R6 r6_lambda start pid 530936 2026-11-08T15:43:29+01:00
+R6 start l5a (v1 1024/32/32/8, lambda 0.5, 40 epochs, data2) 2026-11-08T15:43:29+01:00
+R6 end l5a rc=0 2026-11-08T15:58:21+01:00
+R6 start l5b (v1 1024/32/32/8, lambda 0.9, 40 epochs, data2) 2026-11-08T15:58:21+01:00
+R6 end l5b rc=0 2026-11-08T16:13:31+01:00
+R6 start l5c (v1 1024/32/32/8, lambda 1.0, 40 epochs, data2) 2026-11-08T16:13:31+01:00
+R6 end l5c rc=0 2026-11-08T16:28:35+01:00
+== losses on v2d's validation set (K 106.65 from v2d config), one t3/nnue-v2 binary; three targets
+-- target lambda 0.7
+valid positions 1000000  K 106.65  lambda 0.70  engine /home/admingod/regicide-v2/build/regicide
+n4c                          0.506345
+v2e                          0.505680
+l5a                          0.506489
+l5b                          0.507260
+l5c                          0.509768
+-- target lambda 1.0
+valid positions 1000000  K 106.65  lambda 1.00  engine /home/admingod/regicide-v2/build/regicide
+n4c                          0.494304
+v2e                          0.493044
+l5a                          0.497462
+l5b                          0.490490
+l5c                          0.490192
+-- target lambda 0.0
+valid positions 1000000  K 106.65  lambda 0.00  engine /home/admingod/regicide-v2/build/regicide
+n4c                          0.534441
+v2e                          0.535165
+l5a                          0.527553
+l5b                          0.546390
+l5c                          0.555447
+R6 L5_TRAIN_DONE 2026-11-08T16:29:48+01:00
+R6 matchlock taken: 236086:T 478364:T  2026-11-08T16:29:56+01:00
+R6 start match l5a vs n4c (one rv2.so: A set evalfile l5a.nnue, B built-in n4c) 2026-11-08T16:29:56+01:00
+R6 end match l5a rc=0 Elo (pentanomial, pairs): +1.9 [-2.4, +6.3] 95% CI, score 0.5028 +- 0.0062, LOS 81.02% 2026-11-08T16:44:38+01:00
+R6 matchlock taken: 236086:T 478364:T 723648:T  2026-11-08T17:32:42+01:00
+R6 start match l5b vs n4c (one rv2.so: A set evalfile l5b.nnue, B built-in n4c) 2026-11-08T17:32:42+01:00
+R6 end match l5b rc=0 Elo (pentanomial, pairs): -4.1 [-7.9, -0.3] 95% CI, score 0.4941 +- 0.0055, LOS 1.83% 2026-11-08T17:43:18+01:00
+R6 L5_DONE 2026-11-08T17:43:18+01:00

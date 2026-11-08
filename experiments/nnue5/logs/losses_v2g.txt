@@ -1,0 +1,2 @@
+valid positions 1000000  K 106.65  lambda 0.70  engine /home/admingod/regicide-v2/build/regicide
+v2g                          0.502306

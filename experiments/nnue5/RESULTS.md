@@ -158,10 +158,54 @@ games, 0.1 s/move, `-c 10`, book off, 2–7 EGDB. It ran 15:12–15:26.
 |---|---|---|---|---|
 | v2d vs n4c | 273 / 1063 / 274 | [0 56 694 55 0] | **−0.2 [−4.7, +4.2]** | 46.2% |
 
-### v2g (running)
+### v2g
 
-v2g is v2b's architecture (2×1024, L1 16) trained on all data for 40 epochs (`scripts/v2g.sh`), to keep the GPU busy.
-Its loss will be added to `logs/`; it has not been matched.
+v2g is v2b's architecture (2×1024, L1 16) trained on all data for 40 epochs (`scripts/v2g.sh`, 15:16–15:39), run to
+keep the GPU busy.
+- Its export check is exact (`logs/export_checks_v2g.txt`).
+- Loss on v2d's validation set: **0.502306**, the lowest of all nets. v2b scored 0.502362 and n4c 0.506345.
+- Not matched: v2b, the same architecture with slightly less data, was +0.6 [−4.0, +5.3].
+
+## λ sweep (v1 FT 1024, all data)
+
+n4c's architecture (v1 1024 → 32 → 32, 8 output buckets), trained on all data (the round-5b set) for 40 epochs with
+n4c's settings except `--lambda` (`scripts/r6_lambda.sh`). One GPU lane, 15:43–16:28.
+
+| Net | λ (weight of the game result in the target) |
+|---|---|
+| l5a | 0.5 |
+| v2e (round 5b, 60 epochs) | 0.7 (n4c's) |
+| l5b | 0.9 |
+| l5c | 1.0 (game result only) |
+
+All exports are exact (`logs/export_checks_l5.txt`). Loss on v2d's validation set (K 106.65, one t3/nnue-v2 binary) is
+given for three targets, because a loss is only comparable at a fixed target λ:
+
+| Net | Target λ 0.7 | Target λ 1.0 (result only) | Target λ 0.0 (search score only) |
+|---|---|---|---|
+| n4c | 0.506345 | 0.494304 | 0.534441 |
+| v2e (λ 0.7) | **0.505680** | 0.493044 | 0.535165 |
+| l5a (λ 0.5) | 0.506489 | 0.497462 | **0.527553** |
+| l5b (λ 0.9) | 0.507260 | 0.490490 | 0.546390 |
+| l5c (λ 1.0) | 0.509768 | **0.490192** | 0.555447 |
+
+Each net is best on the target nearest its own λ, as expected, so the losses cannot pick a λ. The matches decide. They
+used the round-5 settings (one `rv2.so`, `set evalfile` vs the built-in n4c, 1,610 games, 0.1 s/move, `-c 10`, book
+off, gen5 datagen and bookgen stopped):
+
+| Match | W / D / L | Pentanomial | Elo (pentanomial) [95% CI] | LOS |
+|---|---|---|---|---|
+| l5a (λ 0.5) vs n4c | 284 / 1051 / 275 | [0 48 700 57 0] | +1.9 [−2.4, +6.3] | 81.0% |
+| l5b (λ 0.9) vs n4c | 267 / 1057 / 286 | [0 51 722 32 0] | **−4.1 [−7.9, −0.3]** | 1.8% |
+
+- **More weight on the game result (λ 0.9) is worse.** Its CI is entirely below 0.
+- **Less weight (λ 0.5) is not significantly better** than n4c. Its point estimate (+1.9) is above l5b's by 6 Elo.
+- l5c (λ 1.0) was not matched; l5b already shows the direction.
+- If anything, λ ≤ 0.7 is right; λ 0.5 could be tried against v2e (the same data at λ 0.7) in a longer match.
+- **Run times:** l5a 16:30–16:44; l5b 17:32–17:43, after the 8-piece baseline.
+- **Machine load during l5b:** from about 17:36 to 17:42, ad-hoc engine speed tests (1 to 8 extra `regicide`
+  processes) ran alongside, for the 8-piece EGDB analysis. The total stayed under 24 busy cores, and both sides were
+  affected equally.
 
 ### Conclusion
 

@@ -1,0 +1,2 @@
+eval: nnue
+bench: 6769548 nodes 3257 ms 2078461 nps
