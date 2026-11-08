@@ -15,17 +15,19 @@ PyTorch trainer for Regicide's NNUE evaluation (`src/nnue.hpp`). It reads the sa
 ```
 128 inputs   [our man, our king, their man, their king] x 32 squares, side to move's view
              (black to move: board rotated 180 degrees, square s -> 31 - s; same as the linear eval)
-FT           128 -> 256    int16 weights (x255), SCReLU: clamp(acc, 0, 255)^2 >> 9   -> 0..127
-L1           256 -> 32     int8 weights (x64), int32 sums, clamp(sum >> 6, 0, 127)
+FT           128 -> 512    int16 weights (x255), SCReLU: clamp(acc, 0, 255)^2 >> 9   -> 0..127
+L1           512 -> 32     int8 weights (x64), int32 sums, clamp(sum >> 6, 0, 127)
 L2           32 -> 32      same
 output       32 -> 1, 8 buckets by piece count ((pieces - 1) / 3), int16 weights (x64)
 score        output * out_scale / (127 * 64) centi-men (out_scale 400), clamped to +-14999
 ```
 
-The engine keeps a feature-transformer accumulator per colour's view on its search stack and updates both from
-each move (moved piece, crowning, captured pieces). The RGNN header records every dimension and quantisation
-constant, and the engine rejects a net built for a different architecture. To change the architecture, edit the
-constants at the top of `src/nnue.hpp` and `nnue.py` together.
+The engine keeps a feature-transformer accumulator per colour's view on its search stack and updates each view
+lazily from the moves (moved piece, crowning, captured pieces). The RGNN header records every dimension and
+quantisation constant, and the engine rejects a net built for a different architecture. To change the architecture,
+edit the constants at the top of `src/nnue.hpp` and `nnue.py` together. The FT and L1 widths can also be set when
+configuring the engine (`cmake -DREGICIDE_NNUE_FT=1024`, `-DREGICIDE_NNUE_L1=64`); that build rejects the
+built-in net and needs `set evalfile`.
 
 Training target and loss match `tools/train.cpp`. The target is `lambda * result + (1 - lambda) * sigmoid(score / K)`,
 with `K` fitted to the data unless `--k` is given. The loss is cross-entropy against `sigmoid(net / K)`. The last
