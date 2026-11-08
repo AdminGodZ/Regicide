@@ -113,6 +113,9 @@ target_link_libraries(train PRIVATE regicide_core)
 add_executable(bookgen tools/bookgen.cpp)
 target_link_libraries(bookgen PRIVATE regicide_core)
 
+add_executable(lossprobe tools/lossprobe.cpp)
+target_link_libraries(lossprobe PRIVATE regicide_core)
+
 # Endgame database: library, generator and tests (self-contained; depends only on types.hpp).
 add_library(regicide_egdb STATIC
   src/egdb/store.cpp
