@@ -41,3 +41,12 @@ Outcome: `se_depth=4` was merged into master as ae210fb. The rest of series 1 (l
 
 `regicide bench` = 6,873,528 nodes. Same tool, openings, threads and hardware as series 1. Defaults in the value column are those of ae210fb (se_depth 4).
 
+### Single changes at 100 ms/move, 800 pairs
+
+| param | value (default) | W / D / L | Elo [95% CI] | penta [LL LD DD/WL WD WW] | pairs | time |
+|---|---|---|---|---|---|---|
+| lmr_mult | 35 (45) | 306 / 974 / 320 | -3.0 [-9.7, +3.6] | 4 115 575 103 3 | 800 | 14 min |
+| lmr_mult | 55 (45) | 298 / 1006 / 296 | +0.4 [-5.9, +6.7] | 0 104 594 98 4 | 800 | 13 min |
+| lmr_base | 40 (60) | 308 / 977 / 315 | -1.5 [-7.8, +4.8] | 2 106 590 101 1 | 800 | 14 min |
+| lmr_base | 80 (60) | 308 / 997 / 295 | +2.8 [-3.7, +9.3] | 4 93 594 104 5 | 800 | 14 min |
+
