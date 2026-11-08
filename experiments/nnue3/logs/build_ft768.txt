@@ -1,0 +1,14 @@
+ src/nnue.hpp        |   2 +-
+ src/weights/net.bin | Bin 150348 -> 0 bytes
+ tools/nnue/nnue.py  |   2 +-
+ 3 files changed, 2 insertions(+), 2 deletions(-)
+31:constexpr int FT = 768;
+21:INPUTS, FT, L1, L2, BUCKETS = 128, 768, 32, 32, 8
+100% tests passed out of 7
+
+Total Test time (real) =   6.31 sec
+bench: 4008356 nodes 1096 ms 3657259 nps
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 76.14, max 476.95 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK

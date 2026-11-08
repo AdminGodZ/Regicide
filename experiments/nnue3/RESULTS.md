@@ -149,3 +149,41 @@ net.**
   - `r3_chain.sh`: the whole pipeline (wait for gen3b, start gen3c, train, check, score, bench, match).
   - `r3_build.sh`: the builds.
   - `gen3c.sh`, `compare_loss.py`, `keepalive_r3.sh`.
+
+## Addendum: nn3e (FT 768)
+
+FT 768 sits between nn2b and nn3c, which may give a better trade between loss and nps. Like nn3c, it was trained and
+played with a scratch worktree of 825f993: `ft768.patch` sets `FT = 768`, and `src/weights/net.bin` is empty.
+- **Build checks** (`logs/build_ft768.txt`): ctest 7/7, bench with the linear fallback 4,008,356 nodes, random-net
+  `check_export` exact.
+- **Training:** the same data, settings and validation set as nn3a, 40 epochs. It ran 06:47 to 07:03, during the
+  ae210fb baseline, so it was capped at `--threads 1 --loader-threads 1` (OMP_NUM_THREADS=1).
+- **Export:** exact (max |diff| 0) on 1000 gen2b positions and on 100,000 validation positions. `nn3e.nnue` is
+  identical to `net_e040.nnue` (`logs/export_checks_nn3e.txt`).
+
+| Epoch | 1 | 10 | 20 | 30 | 40 |
+|---|---|---|---|---|---|
+| nn3e valid(int) | 0.532483 | 0.527586 | 0.526948 | 0.526670 | **0.526246** |
+
+The loss on the shared validation set is **0.526238** (`logs/losses_nn3e.txt`). That is 0.00255 below nn2b, between
+nn3d (0.526833) and nn3c (0.525319).
+
+Bench (`logs/bench_nn3e.txt`, 3 rounds at 08:21, datagen paused, otherwise idle):
+
+| Net | Build | bench nodes | nps (M) | median | vs nn2b |
+|---|---|---|---|---|---|
+| nn2b | 825f993 | 4,518,329 | 4.46 3.86 3.94 | 3.94M | 100% |
+| nn3e | FT 768 build | 4,586,075 | 3.40 3.33 3.34 | 3.34M | **85%** |
+| nn3c | FT 1024 build | 4,069,124 | 2.83 2.91 2.89 | 2.89M | 73% |
+
+The match used the same settings as the nn3c and nn3d matches: 1610 games at 0.1 s/move, with datagen paused.
+
+| A vs B | Elo [95% CI] (pentanomial) | LOS | W / D / L | pairs LL LD DD+WL WD WW |
+|---|---|---|---|---|
+| **nn3e (FT 768) vs nn2b** | **+0.2** [−4.9, +5.4] | 53.26% | 300 / 1011 / 299 | 0 / 74 / 656 / 75 / 0 |
+
+Time: 08:22 to 08:36. **nn3e is level with nn2b as well.** On the 825f993 code, every wider net (FT 768, FT 1024,
+L1 64) loses its lower loss to its nps cost at 0.1 s/move.
+
+Files: `nn3e.nnue` (**FT 768, needs `ft768.patch`**), `config_nn3e.json`, `logs/nn3e.log`,
+`matches/nn3e-vs-nn2b/`, `scripts/extra.sh` (the nn3e and gen3d job).
