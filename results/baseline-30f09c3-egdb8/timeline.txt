@@ -42,3 +42,5 @@ BASELINE end 30f09c3 kingsrow rc=0 Elo (pentanomial, pairs): -0.0 [-4.4, +4.4] 9
 EGDB8CTL_DONE 2026-11-08T18:25:23+01:00
 pausekeeper5 resumed bookgen: 478356 478364 2026-11-08T18:25:24+01:00
 pausekeeper5 stopped gen5: 532931:T 723648:T 2026-11-08T18:25:31+01:00
+pausekeeper5 stopped bookgen: 478356:T 478364:T 2026-11-08T18:44:24+01:00
+pausekeeper5 resumed bookgen: 478356 478364 2026-11-08T18:47:12+01:00
