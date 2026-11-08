@@ -1,0 +1,33 @@
+== nn2a export check (/home/admingod/regicide-nnue, final net_e100.nnue)
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 10.13, max 79.41 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK
+nn2a.nnue identical to net_e100.nnue
+== nn2b export check (/home/admingod/regicide-nnue512, final net_e040.nnue)
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 7.94, max 51.49 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK
+nn2b.nnue identical to net_e040.nnue
+== nn2c export check (/home/admingod/regicide-nnue, final net_e060.nnue)
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 6.06, max 34.02 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK
+nn2c.nnue identical to net_e060.nnue
+== nn2a check on 100k validation positions
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 10.68, max 118.87 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK
+== nn2b check on 100k validation positions
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 8.16, max 76.01 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK
+== nn2c check on 100k validation positions
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 6.42, max 60.25 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK

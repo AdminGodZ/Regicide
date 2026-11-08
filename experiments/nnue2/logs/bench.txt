@@ -1,0 +1,4 @@
+bench: 4082499 nodes 856 ms 4769274 nps|bench: 4374537 nodes 925 ms 4729229 nps|bench: 4518329 nodes 1156 ms 3908589 nps
+bench: 4082499 nodes 848 ms 4814267 nps|bench: 4374537 nodes 805 ms 5434207 nps|bench: 4518329 nodes 1041 ms 4340373 nps
+bench: 4082499 nodes 750 ms 5443332 nps|bench: 4374537 nodes 839 ms 5213989 nps|bench: 4518329 nodes 1036 ms 4361321 nps
+747ab51 build loading nn2b: cannot load /home/admingod/regicide-nnue2-work/nn2b.nnue: net ft 512, this build expects 256
