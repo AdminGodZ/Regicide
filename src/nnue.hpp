@@ -1,27 +1,35 @@
 #pragma once
 
-// NNUE evaluation: a small quantised network over the pieces seen from the side to move, oriented like the linear
-// eval (the side to move goes "up"; black positions are rotated 180 degrees with colours swapped).
+// NNUE evaluation: a small quantised network over the pieces, seen from a colour's point of view oriented like the
+// linear eval (that colour goes "up"; black's view is rotated 180 degrees with colours swapped). Two architectures,
+// told apart by the version in the file header; the layer widths come from the header too, so one build loads any
+// net within the limits below.
 //
 //   inputs   128 = [our man, our king, their man, their king] x 32 squares
-//   FT       128 -> FT (1024), int16 weights, SCReLU: a = clamp(acc, 0, QA)^2 >> 9 (0..127, 1.0 = 127)
-//   L1       FT -> L1 (32), int8 weights, int32 sums, clipped ReLU: h = clamp(sum >> 6, 0, 127)
-//   L2       L1 -> L2 (32), same
-//   output   L2 -> 1 per bucket (by piece count), int16 weights; score = out * out_scale / (127 * 64)
+//   FT       128 -> FT per point of view, int16 weights, SCReLU: a = clamp(acc, 0, QA)^2 >> 9 (0..127, 1.0 = 127)
+//   L1       N -> L1, int8 weights, int32 sums, clipped ReLU: h = clamp(sum >> 6, 0, 127)
+//   L2       L1 -> L2, same
+//   output   L2 -> 1, int16 weights; score = out * out_scale / (127 * 64)
 //
-// The search keeps one accumulator per colour's point of view on its stack and updates both from each move;
-// the forward pass uses the side to move's. tools/nnue/ trains and exports nets (see its README).
+//   version 1: N = FT, the side to move's FT output. Only the output layer has buckets (by piece count).
+//   version 2: N = 2 FT, the side to move's FT output followed by the opponent's (the FT weights are shared by the
+//              two points of view). L1, L2 and the output layer all have one set of weights per bucket.
+//
+// The search keeps one accumulator per colour's point of view on its stack and updates them from each move; version
+// 1 only needs the side to move's. tools/nnue/ trains and exports nets (see its README).
 //
 // File format (little endian): "RGNN", then u32 version, inputs, ft, l1, l2, buckets, activation, qa, qb,
-// out_scale, then ft_bias i16[FT], ft_weight i16[INPUTS][FT], l1_bias i32[L1], l1_weight i8[L1][FT],
-// l2_bias i32[L2], l2_weight i8[L2][L1], out_bias i32[BUCKETS], out_weight i16[BUCKETS][L2]. Everything but
-// out_scale must match the constants below, so a net for another architecture is rejected.
+// out_scale, then ft_bias i16[FT], ft_weight i16[INPUTS][FT], l1_bias i32[HB][L1], l1_weight i8[HB][L1][N],
+// l2_bias i32[HB][L2], l2_weight i8[HB][L2][L1], out_bias i32[BUCKETS], out_weight i16[BUCKETS][L2], where HB (hidden
+// buckets) is 1 in version 1 and BUCKETS in version 2. Inputs, activation, qa and qb must equal the constants
+// below, and the widths must be ones this build supports, or the net is rejected with the reason.
 
 #include <algorithm>
 #include <cstddef>
 #include <cstdint>
 #include <iosfwd>
 #include <memory>
+#include <new>
 #include <string>
 #include <vector>
 
@@ -29,45 +37,60 @@
 
 namespace regicide::nnue {
 
-// FT and L1 can be overridden at configure time (cmake -DREGICIDE_NNUE_FT=1024 -DREGICIDE_NNUE_L1=64) to build
-// for a net of another width; tools/nnue/nnue.py has the same constants.
-#ifndef REGICIDE_NNUE_FT
-#define REGICIDE_NNUE_FT 1024
-#endif
-#ifndef REGICIDE_NNUE_L1
-#define REGICIDE_NNUE_L1 32
+// The widest feature transformer (per point of view) this build loads: it sets the size of the search's
+// accumulators. Raise it at configure time (cmake -DREGICIDE_NNUE_MAX_FT=2048) for wider nets.
+#ifndef REGICIDE_NNUE_MAX_FT
+#define REGICIDE_NNUE_MAX_FT 1024
 #endif
 
 constexpr int INPUTS = 128;
-constexpr int FT = REGICIDE_NNUE_FT;
-constexpr int L1 = REGICIDE_NNUE_L1;
-constexpr int L2 = 32;
-constexpr int BUCKETS = 8;
+constexpr int MAX_FT = REGICIDE_NNUE_MAX_FT;
+constexpr int FT_TILE = 128;  // FT widths are multiples of this (see Network::update)
+constexpr int MAX_HIDDEN = 64;
+constexpr int MAX_BUCKETS = 24;
 
 constexpr int ACTIVATION = 1;  // 1 = SCReLU on the feature transformer (recorded in the header)
 constexpr int QA = 255;        // feature transformer: 1.0 = 255
 constexpr int QB = 64;         // hidden and output weights: 1.0 = 64
 constexpr int QH = 127;        // hidden activations: 1.0 = 127
 constexpr int SHIFT = 6;       // log2(QB)
-constexpr std::uint32_t VERSION = 1;
 constexpr std::size_t HEADER_BYTES = 44;
-constexpr std::size_t FILE_BYTES = HEADER_BYTES + 2 * FT + 2 * INPUTS * FT + 4 * L1 + L1 * FT + 4 * L2 + L2 * L1 +
-                                   4 * BUCKETS + 2 * BUCKETS * L2;
 
-static_assert(FT % 32 == 0 && L1 % 32 == 0 && L2 % 4 == 0, "layer widths must suit the SIMD kernels");
+static_assert(MAX_FT % FT_TILE == 0 && FT_TILE % 32 == 0);
 static_assert(QB == 1 << SHIFT);
+
+// Hidden-layer widths (L1, L2) with compiled kernels.
+constexpr bool supported_hidden(int n) { return n == 16 || n == 32 || n == 64; }
+
+// Layer sizes of a net, as its header gives them.
+struct Arch {
+    int version = 1;
+    int ft = 1024, l1 = 32, l2 = 32, buckets = 8;
+
+    int views() const { return version == 2 ? 2 : 1; }           // points of view feeding L1
+    int l1_inputs() const { return views() * ft; }               // N above
+    int hidden_buckets() const { return version == 2 ? buckets : 1; }
+    std::size_t file_bytes() const {
+        const std::size_t hb = std::size_t(hidden_buckets());
+        return HEADER_BYTES + 2 * std::size_t(ft) * (1 + INPUTS) + hb * (4 * l1 + std::size_t(l1) * l1_inputs()) +
+               hb * (4 * l2 + std::size_t(l2) * l1) + std::size_t(buckets) * (4 + 2 * l2);
+    }
+    std::string describe() const;  // e.g. "v2 2x512 -> 32 -> 32 -> 1, 8 buckets"
+};
 
 // Input index of a piece seen from `view`'s side: that side moves up, black's view is rotated 180 degrees.
 constexpr int feature(Color view, Color piece, bool king, int sq) {
     return ((piece == view ? 0 : 2) + king) * 32 + (view == BLACK ? 31 - sq : sq);
 }
 
-// Output bucket for the number of pieces on the board (1..24).
-constexpr int bucket(int pieces) { return std::min(std::max(pieces - 1, 0) * BUCKETS / 24, BUCKETS - 1); }
+// Bucket for the number of pieces on the board (1..24): (pieces - 1) / 3 with 8 buckets.
+constexpr int bucket(int pieces, int buckets) {
+    return std::min(std::max(pieces - 1, 0) * buckets / 24, buckets - 1);
+}
 
-// Feature-transformer outputs for both colours' points of view, indexed by colour.
+// Feature-transformer outputs for both colours' points of view, indexed by colour (the net's first FT entries).
 struct alignas(64) Accumulator {
-    std::int16_t v[2][FT];
+    std::int16_t v[2][MAX_FT];
 };
 
 class Network {
@@ -76,11 +99,15 @@ public:
     static std::shared_ptr<const Network> load(const unsigned char* data, std::size_t size,
                                                std::string* error = nullptr);
 
+    const Arch& arch() const { return arch_; }
+    // Whether evaluate() reads the opponent's point of view too (version 2).
+    bool both_views() const { return arch_.views() == 2; }
+
     void refresh(Accumulator& acc, const Position& pos) const;
     // One point of view only.
     void refresh(std::int16_t* v, const Position& pos, Color view) const;
-    // Score from the side to move's point of view, in centi-men.
-    Score evaluate(const Accumulator& acc, Color stm, int pieces) const;
+    // Score from the side to move's point of view, in centi-men. Reads acc.v[stm], and in version 2 acc.v[~stm].
+    Score evaluate(const Accumulator& acc, Color stm, int pieces) const { return (this->*forward_)(acc, stm, pieces); }
     // Full refresh, then evaluate.
     Score evaluate(const Position& pos) const;
 
@@ -99,34 +126,59 @@ public:
     void profile(const std::vector<Position>& positions, std::ostream& out) const;
 
 private:
+    struct AlignedFree {
+        void operator()(void* p) const { ::operator delete(p, std::align_val_t(64)); }
+    };
+    template <class T>
+    using Array = std::unique_ptr<T[], AlignedFree>;
+    template <class T>
+    static Array<T> allocate(std::size_t n) {
+        return Array<T>(static_cast<T*>(::operator new(n * sizeof(T), std::align_val_t(64))));
+    }
+
     // Activations of one forward pass.
     struct alignas(64) Forward {
-        std::int8_t a[FT];          // feature transformer output
-        std::uint16_t nnz[FT / 4];  // SIMD builds: the 4-byte chunks of `a` that are not all zero
-        int count = 0;              // ... and how many there are
-        std::int8_t h1[L1];
-        std::int8_t h2[L2];
+        std::int8_t a[2 * MAX_FT];          // L1's input: feature-transformer outputs
+        std::uint16_t nnz[2 * MAX_FT / 4];  // SIMD builds: the 4-byte chunks of `a` that are not all zero
+        int count = 0;                      // ... and how many there are
+        std::int8_t h1[MAX_HIDDEN];
+        std::int8_t h2[MAX_HIDDEN];
     };
-    void transform(const std::int16_t* v, Forward& f) const;
-    void hidden1(Forward& f) const;
-    void hidden2(Forward& f) const;
-    Score output(const Forward& f, int pieces) const;
+    // SCReLU of one point of view into a[0, FT); SIMD builds append its non-zero chunks, numbered from `base`, to
+    // nnz[count..]. Returns the new count.
+    int transform(const std::int16_t* v, std::int8_t* a, std::uint16_t* nnz, int count, int base) const;
+    void transform(const Accumulator& acc, Color stm, Forward& f) const;
+    // The layers after the feature transformer, for hidden bucket hb / bucket b, compiled per L1 and L2 width.
+    template <int L1>
+    void hidden1(Forward& f, int hb) const;
+    template <int L1, int L2>
+    void hidden2(Forward& f, int hb) const;
+    template <int L2>
+    Score output(const Forward& f, int b) const;
+    template <int L1, int L2>
+    Score forward(const Accumulator& acc, Color stm, int pieces) const;
 
-    alignas(64) std::int16_t ft_bias_[FT];
-    alignas(64) std::int16_t ft_weight_[INPUTS][FT];
-    // Hidden-layer weights in the order the affine kernels read them (see weight_index in nnue.cpp).
-    alignas(64) std::int8_t l1_weight_[L1 * FT];
-    alignas(64) std::int8_t l2_weight_[L2 * L1];
-    alignas(64) std::int32_t l1_bias_[L1];
-    alignas(64) std::int32_t l2_bias_[L2];
-    alignas(64) std::int16_t out_weight_[BUCKETS][L2];
-    std::int32_t out_bias_[BUCKETS];
+    const std::int16_t* ft_row(int feature) const { return ft_weight_.get() + std::size_t(feature) * arch_.ft; }
+
+    Arch arch_;
     int out_scale_ = 1;
+    Score (Network::*forward_)(const Accumulator&, Color, int) const = nullptr;  // forward<L1, L2>
+    Array<std::int16_t> ft_bias_;    // [FT]
+    Array<std::int16_t> ft_weight_;  // [INPUTS][FT]
+    // Hidden-layer weights per hidden bucket, each in the order the affine kernels read them (see weight_index in
+    // nnue.cpp).
+    Array<std::int8_t> l1_weight_;   // [HB][L1 * N]
+    Array<std::int8_t> l2_weight_;   // [HB][L2 * L1]
+    Array<std::int32_t> l1_bias_;    // [HB][L1]
+    Array<std::int32_t> l2_bias_;    // [HB][L2]
+    Array<std::int16_t> out_weight_;  // [BUCKETS][L2]
+    Array<std::int32_t> out_bias_;    // [BUCKETS]
 };
 
 // Accumulators along the current search path, one entry per ply. The search records each move with push();
 // accumulators are computed lazily when a position is evaluated, from the nearest computed ancestor, and one point
-// of view at a time: a leaf only needs its side to move's, the other is computed once a child needs it.
+// of view at a time: with a version 1 net a leaf only needs its side to move's, the other is computed once a child
+// needs it.
 class AccumulatorStack {
 public:
     static constexpr int SIZE = MAX_PLY + 8;
@@ -144,8 +196,14 @@ public:
         e.captures = m.captures;
         e.captured_kings = m.captures & parent.kings();
     }
-    // Brings the side to move's point of view of the accumulator at `ply` (holding `pos`) up to date.
-    const Accumulator& get(const Network& net, const Position& pos, int ply);
+    // Brings the points of view the net reads of the accumulator at `ply` (holding `pos`) up to date.
+    const Accumulator& get(const Network& net, const Position& pos, int ply) {
+        Entry& e = entries_[ply];
+        const Color stm = pos.side_to_move();
+        if (!e.computed[stm]) compute(net, pos, ply, stm);
+        if (net.both_views() && !e.computed[~stm]) compute(net, pos, ply, ~stm);
+        return e.acc;
+    }
     Score evaluate(const Network& net, const Position& pos, int ply) {
         return net.evaluate(get(net, pos, ply), pos.side_to_move(), pos.piece_count());
     }
@@ -160,6 +218,8 @@ private:
         bool computed[2] = {false, false};  // per point of view
     };
     static Network::Delta delta(const Entry& e, Color view);
+    // Brings one point of view at `ply` up to date (it is not yet).
+    void compute(const Network& net, const Position& pos, int ply, Color view);
 
     Entry entries_[SIZE];
 };
