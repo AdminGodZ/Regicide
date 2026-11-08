@@ -1,0 +1,52 @@
+r3_chain start pid 73873 2026-11-08T03:56:28+01:00
+gen3b done: 470392128 bytes, 29399508 records, rem 0; done: games 280968 positions 29399508 2026-11-08T04:50:28+01:00
+start nn3a (/home/admingod/regicide-825, epochs 40) 2026-11-08T04:50:28+01:00
+end nn3a rc=0 2026-11-08T05:05:59+01:00
+start nn3c (/home/admingod/regicide-825-ft1024, epochs 40) 2026-11-08T05:05:59+01:00
+end nn3c rc=0 2026-11-08T05:21:45+01:00
+start nn3d (/home/admingod/regicide-825-l1_64, epochs 40) 2026-11-08T05:21:45+01:00
+end nn3d rc=0 2026-11-08T05:37:24+01:00
+start nn3b (/home/admingod/regicide-825, epochs 80) 2026-11-08T05:37:24+01:00
+end nn3b rc=0 2026-11-08T06:08:27+01:00
+NN3_TRAIN_DONE 2026-11-08T06:08:27+01:00
+== losses on nn3a's validation set (lambda 0.7, K from nn3a config)
+(nn2b.nnue identical to the 825f993 built-in net)
+valid positions 1000000  K 116.65  lambda 0.70  engine /home/admingod/regicide-825/build/regicide
+nn2b                         0.528788
+nn3a                         0.527885
+nn3b                         0.527465
+valid positions 1000000  K 116.65  lambda 0.70  engine /home/admingod/regicide-825-ft1024/build/regicide
+nn3c                         0.525319
+valid positions 1000000  K 116.65  lambda 0.70  engine /home/admingod/regicide-825-l1_64/build/regicide
+nn3d                         0.526833
+selected for matches: nn3c nn3d  (best FT512 loss 0.527465) 2026-11-08T06:09:22+01:00
+paused datagen 76909  for bench + matches 2026-11-08T06:09:22+01:00
+bench done 2026-11-08T06:09:44+01:00
+start match nn3c vs nn2b (A r825f993_ft1024.so + set evalfile nn3c.nnue, B r825f993.so built-in nn2b) 2026-11-08T06:09:44+01:00
+end match nn3c rc=1  2026-11-08T06:09:44+01:00
+start match nn3d vs nn2b (A r825f993_l1_64.so + set evalfile nn3d.nnue, B r825f993.so built-in nn2b) 2026-11-08T06:09:44+01:00
+end match nn3d rc=1  2026-11-08T06:09:44+01:00
+resumed datagen 76909  2026-11-08T06:09:44+01:00
+NN3_MATCHES_DONE 2026-11-08T06:09:44+01:00
+r3_chain start pid 79490 2026-11-08T06:10:00+01:00
+gen3b done: 470392128 bytes, 29399508 records, rem 0; done: games 280968 positions 29399508 2026-11-08T06:10:00+01:00
+NN3_TRAIN_DONE 2026-11-08T06:10:00+01:00
+== losses on nn3a's validation set (lambda 0.7, K from nn3a config)
+(nn2b.nnue identical to the 825f993 built-in net)
+valid positions 1000000  K 116.65  lambda 0.70  engine /home/admingod/regicide-825/build/regicide
+nn2b                         0.528788
+nn3a                         0.527885
+nn3b                         0.527465
+valid positions 1000000  K 116.65  lambda 0.70  engine /home/admingod/regicide-825-ft1024/build/regicide
+nn3c                         0.525319
+valid positions 1000000  K 116.65  lambda 0.70  engine /home/admingod/regicide-825-l1_64/build/regicide
+nn3d                         0.526833
+selected for matches: nn3c nn3d  (best FT512 loss 0.527465) 2026-11-08T06:10:54+01:00
+paused datagen 76909  for bench + matches 2026-11-08T06:10:54+01:00
+bench done 2026-11-08T06:11:16+01:00
+start match nn3c vs nn2b (A r825f993_ft1024.so + set evalfile nn3c.nnue, B r825f993.so built-in nn2b) 2026-11-08T06:11:16+01:00
+end match nn3c rc=0 Elo (pentanomial, pairs): +0.9 [-4.1, +5.9] 95% CI, score 0.5012 +- 0.0072, LOS 63.24% 2026-11-08T06:25:27+01:00
+start match nn3d vs nn2b (A r825f993_l1_64.so + set evalfile nn3d.nnue, B r825f993.so built-in nn2b) 2026-11-08T06:25:27+01:00
+end match nn3d rc=0 Elo (pentanomial, pairs): -0.0 [-5.2, +5.2] 95% CI, score 0.5000 +- 0.0075, LOS 50.00% 2026-11-08T06:39:46+01:00
+resumed datagen 76909  2026-11-08T06:39:46+01:00
+NN3_MATCHES_DONE 2026-11-08T06:39:46+01:00

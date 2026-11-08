@@ -1,0 +1,55 @@
+== 825f993 825f993 Merge pull request #7 from AdminGodZ/t3/optimize-checkers-engine
+-- ctest
+
+100% tests passed out of 7
+
+Total Test time (real) =   3.79 sec
+-- bench
+bench: 4518329 nodes 1267 ms 3566163 nps
+-- check_export (random net)
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 78.67, max 364.78 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK
+== ft1024
+ src/nnue.hpp        |   2 +-
+ src/weights/net.bin | Bin 150348 -> 0 bytes
+ tools/nnue/nnue.py  |   2 +-
+ 3 files changed, 2 insertions(+), 2 deletions(-)
+31:constexpr int FT = 1024;
+32:constexpr int L1 = 32;
+21:INPUTS, FT, L1, L2, BUCKETS = 128, 1024, 32, 32, 8
+-- ctest
+
+100% tests passed out of 7
+
+Total Test time (real) =   3.75 sec
+-- bench
+bench: 4008356 nodes 926 ms 4328678 nps
+-- check_export (random net)
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 81.47, max 508.10 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK
+-- nn2b rejected: cannot load /home/admingod/regicide-nnue2-work/nn2b.nnue: net ft 512, this build expects 1024
+== l1_64
+ src/nnue.hpp        |   2 +-
+ src/weights/net.bin | Bin 150348 -> 0 bytes
+ tools/nnue/nnue.py  |   2 +-
+ 3 files changed, 2 insertions(+), 2 deletions(-)
+31:constexpr int FT = 512;
+32:constexpr int L1 = 64;
+21:INPUTS, FT, L1, L2, BUCKETS = 128, 512, 64, 32, 8
+-- ctest
+
+100% tests passed out of 7
+
+Total Test time (real) =   3.91 sec
+-- bench
+bench: 4008356 nodes 885 ms 4529215 nps
+-- check_export (random net)
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 82.04, max 476.93 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK
+-- nn2b rejected: cannot load /home/admingod/regicide-nnue2-work/nn2b.nnue: net l1 32, this build expects 64
