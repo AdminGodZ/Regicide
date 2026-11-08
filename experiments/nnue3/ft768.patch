@@ -1,0 +1,26 @@
+diff --git a/src/nnue.hpp b/src/nnue.hpp
+index 7891a5c..e3c9661 100644
+--- a/src/nnue.hpp
++++ b/src/nnue.hpp
+@@ -28,7 +28,7 @@
+ namespace regicide::nnue {
+ 
+ constexpr int INPUTS = 128;
+-constexpr int FT = 512;
++constexpr int FT = 768;
+ constexpr int L1 = 32;
+ constexpr int L2 = 32;
+ constexpr int BUCKETS = 8;
+diff --git a/tools/nnue/nnue.py b/tools/nnue/nnue.py
+index be978b0..5f3ae28 100644
+--- a/tools/nnue/nnue.py
++++ b/tools/nnue/nnue.py
+@@ -18,7 +18,7 @@ import torch
+ import torch.nn as nn
+ import torch.nn.functional as F
+ 
+-INPUTS, FT, L1, L2, BUCKETS = 128, 512, 32, 32, 8
++INPUTS, FT, L1, L2, BUCKETS = 128, 768, 32, 32, 8
+ ACTIVATION, QA, QB, QH = 1, 255, 64, 127
+ VERSION = 1
+ OUT_SCALE = 400

@@ -1,0 +1,4 @@
+nn2b(builtin)|nn3e(FT768)|nn3c(FT1024)
+bench: 4518329 nodes 1012 ms 4464751 nps|bench: 4586075 nodes 1349 ms 3399610 nps|bench: 4069124 nodes 1438 ms 2829710 nps
+bench: 4518329 nodes 1171 ms 3858521 nps|bench: 4586075 nodes 1378 ms 3328066 nps|bench: 4069124 nodes 1400 ms 2906517 nps
+bench: 4518329 nodes 1146 ms 3942695 nps|bench: 4586075 nodes 1373 ms 3340185 nps|bench: 4069124 nodes 1410 ms 2885903 nps
