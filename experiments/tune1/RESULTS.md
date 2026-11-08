@@ -87,4 +87,17 @@ Outcome: `se_margin=20` was merged into master (with the n4c net) as 3c87728. Se
 | lmp_base | 5 (3) | 291 / 1018 / 291 | -0.0 [-5.8, +5.8] | 1 89 619 91 0 | 800 | 13 min |
 | lmp_depth | 4 (3) | 284 / 1037 / 279 | +1.1 [-4.1, +6.2] | 2 65 659 74 0 | 800 | 14 min |
 | se_margin | 10 (20) | 285 / 1045 / 270 | +3.3 [-2.1, +8.6] | 1 68 647 83 1 | 800 | 13 min |
+| se_margin | 15 (20) | 304 / 1019 / 277 | +5.9 [-0.0, +11.8] | 1 79 613 106 1 | 800 | 14 min |
+| se_depth | 3 (4) | 322 / 998 / 280 | +9.1 [+3.2, +15.0] **✓** | 1 72 612 114 1 | 800 | 14 min |
+| se_depth | 5 (4) | 279 / 1009 / 312 | -7.2 [-12.9, -1.4] | 3 98 629 69 1 | 800 | 14 min |
+| single_reply_ext | 0 (1) | 266 / 1024 / 310 | -9.6 [-15.1, -4.0] | 1 105 631 63 0 | 800 | 14 min |
+| single_reply_ext | 2 (1) | 283 / 1033 / 284 | -0.2 [-5.6, +5.1] | 1 75 650 72 2 | 800 | 13 min |
+
+### Re-tests at 300 ms/move, 400 pairs
+
+| param | value (default) | W / D / L | Elo [95% CI] | penta [LL LD DD/WL WD WW] | pairs | time |
+|---|---|---|---|---|---|---|
+| se_depth | 3 (4) | 141 / 535 / 124 | +7.4 [-0.1, +14.8] | 0 29 326 44 1 | 400 | 19 min |
+
+Note: on 2026-11-08 a T3 app restart killed the runner during series-3 `lmr_min_depth=2` (1160/1600 games, discarded). From 14:43 the runner has run as a systemd user service, and `lmr_min_depth=2` was re-run from scratch.
 
