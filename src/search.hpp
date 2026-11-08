@@ -78,6 +78,8 @@ struct SearchParams {
     int tm_hard = 250;          // ... and hard limit (abort) in % of maxtime
     int tm_drop = 0;            // score drop (cp) vs the previous iteration that buys extra time (0 = off)
     int tm_drop_factor = 200;   // soft-limit multiplier in % while the score is dropping
+    int tm_open_pieces = 0;     // with at least this many pieces on the board ... (0 = off)
+    int tm_open_factor = 150;   // ... CheckerBoard soft/hard limits are scaled by this % (spend the bank early)
 
     // Sets a parameter by name; returns false for an unknown name.
     bool set(const std::string& name, int value);
