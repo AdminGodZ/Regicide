@@ -125,24 +125,6 @@ std::vector<int> sparse_order(const Network& net) {
 #endif
 
 #if REGICIDE_NNUE_NEON
-// Lists the 4-byte chunks of a[N] that are not all zero, in order, and returns how many there are.
-template <int N>
-inline int find_nnz(const std::int8_t* a, std::uint16_t* nnz) {
-    static_assert(N % 32 == 0);
-    const uint32x4_t lo_bits = {1, 2, 4, 8}, hi_bits = {16, 32, 64, 128};
-    uint16x8_t base = vdupq_n_u16(0);
-    int count = 0;
-    for (int i = 0; i < N; i += 32) {
-        const uint32x4_t c0 = vreinterpretq_u32_s8(vld1q_s8(a + i)), c1 = vreinterpretq_u32_s8(vld1q_s8(a + i + 16));
-        const unsigned mask =
-            vaddvq_u32(vorrq_u32(vandq_u32(vtstq_u32(c0, c0), lo_bits), vandq_u32(vtstq_u32(c1, c1), hi_bits)));
-        vst1q_u16(nnz + count, vaddq_u16(base, vld1q_u16(NNZ_TABLE.index[mask])));
-        count += NNZ_TABLE.count[mask];
-        base = vaddq_u16(base, vdupq_n_u16(8));
-    }
-    return count;
-}
-
 // out[j] = bias[j] + the sum over the chunks c = chunk(k), k < count, of a[4c..4c+3] . w[j][4c..4c+3], for j < M
 // (int8 inputs and weights, int32 sums). Narrow layers keep two sets of sums, so consecutive chunks do not wait
 // on each other.
@@ -172,7 +154,7 @@ inline void affine_chunks(const std::int8_t* a, Chunk chunk, int count, const st
     for (int r = 0; r < R; ++r) vst1q_s32(out + 4 * r, s[0][r]);
 }
 #elif REGICIDE_NNUE_AVX2
-// As the NEON version, 8 chunks per 32-byte load.
+// Lists the 4-byte chunks of a[N] that are not all zero, in order, and returns how many there are.
 template <int N>
 inline int find_nnz(const std::int8_t* a, std::uint16_t* nnz) {
     static_assert(N % 32 == 0);
@@ -344,12 +326,38 @@ void Network::update(const std::int16_t* src, std::int16_t* const* dst, const De
 
 // SCReLU of one point of view's accumulator into f.a; SIMD builds also list the non-zero 4-byte chunks of f.a.
 void Network::transform(const std::int16_t* v, Forward& f) const {
+#if REGICIDE_NNUE_NEON
+    static_assert(QA == 255 && FT % 32 == 0);
+    std::uint8_t* a = reinterpret_cast<std::uint8_t*>(f.a);
+    uint16x8_t base = vdupq_n_u16(0);
+    int count = 0;
+    for (int i = 0; i < FT; i += 32) {
+        uint8x16_t o[2];
+        for (int h = 0; h < 2; ++h) {
+            // clamp(x, 0, 255) by narrowing with unsigned saturation, then c^2 >> 9 = (c^2 >> 8) >> 1.
+            const int16_t* x = v + i + 16 * h;
+            const uint8x16_t c = vqmovun_high_s16(vqmovun_s16(vld1q_s16(x)), vld1q_s16(x + 8));
+            const uint16x8_t lo = vmull_u8(vget_low_u8(c), vget_low_u8(c)), hi = vmull_high_u8(c, c);
+            o[h] = vshrq_n_u8(vshrn_high_n_u16(vshrn_n_u16(lo, 8), hi, 8), 1);
+            vst1q_u8(a + i + 16 * h, o[h]);
+        }
+        // One byte per chunk that saturating narrowing keeps non-zero, as 0 or 1, then gathered into 8 bits.
+        const uint16x8_t n16 = vqmovn_high_u32(vqmovn_u32(vreinterpretq_u32_u8(o[0])), vreinterpretq_u32_u8(o[1]));
+        const uint8x8_t nz = vmin_u8(vqmovn_u16(n16), vdup_n_u8(1));
+        const unsigned mask = unsigned((vget_lane_u64(vreinterpret_u64_u8(nz), 0) * 0x0102040810204080ull) >> 56);
+        vst1q_u16(f.nnz + count, vaddq_u16(base, vld1q_u16(NNZ_TABLE.index[mask])));
+        count += NNZ_TABLE.count[mask];
+        base = vaddq_u16(base, vdupq_n_u16(8));
+    }
+    f.count = count;
+#else
     for (int i = 0; i < FT; ++i) {
         const int c = std::clamp<int>(v[i], 0, QA);
         f.a[i] = std::int8_t((c * c) >> 9);
     }
-#if REGICIDE_NNUE_SIMD
+#if REGICIDE_NNUE_AVX2
     f.count = find_nnz<FT>(f.a, f.nnz);
+#endif
 #endif
 }
 
