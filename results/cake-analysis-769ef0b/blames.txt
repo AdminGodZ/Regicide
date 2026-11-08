@@ -1,0 +1,54 @@
+35 games, 32 blamed, 3 unclear
+phase of the blamed move: {'opening': 25, 'middlegame': 6, 'endgame': 1}
+blamed move number after the ballot: median 5, quartiles 3-10, range 0-27
+buckets (moves after ballot): {'1-5': 21, '6-10': 4, '11-20': 6, '21-30': 1}
+pieces at the blamed move: {9: 1, 14: 1, 16: 3, 18: 3, 19: 4, 20: 10, 22: 7, 24: 3}
+blames into database losses (played score dbloss): 0
+colour: {'black': 34, 'white': 1}
+ballots lost in more than one run: {'ACF #16 Wilderness II': 3, 'ACF #62 Gemini I': 3, 'ACF #63': 3, 'ACF #6 Inferno': 2, 'ACF #7': 2, 'ACF #9 Wilderness I': 2, 'ACF #14': 2, 'ACF #74': 2, 'ACF #141': 2, 'ACF #5 Dreaded Edinburgh': 2}
+blamed (position, move) pairs: 24 ; repeated: 8
+   x2  15-18   ACF #7                     after-ballot move  5, 20 pcs, runs off,avoid  B:W20,21,22,23,25,27,28,30,31,32:B1,2,4,6,8,11,12,13,14,15
+   x2  14-17   ACF #9 Wilderness I        after-ballot move 11, 19 pcs, runs off,off  B:W11,20,22,25,26,28,30,31,32:B1,3,4,9,12,13,14,15,18,19
+   x2  7-11    ACF #16 Wilderness II      after-ballot move  1, 22 pcs, runs off,avoid  B:W14,22,24,25,26,27,28,29,30,31,32:B1,2,3,4,5,6,7,8,12,13,16
+   x2  5-9     ACF #14                    after-ballot move  0, 24 pcs, runs off,avoid  B:W18,21,22,23,24,25,26,28,29,30,31,32:B1,2,3,4,5,6,7,8,11,12,13,15
+   x2  10-14   ACF #62 Gemini I           after-ballot move  4, 20 pcs, runs off,avoid  B:W13,18,24,26,27,28,29,30,31,32:B1,2,3,4,5,9,10,11,12,16
+   x2  8-11    ACF #74                    after-ballot move  5, 18 pcs, runs off,avoid  B:W18,19,24,26,27,28,29,30,32:B1,2,3,4,5,7,8,12,17
+   x2  1-5     ACF #63                    after-ballot move  4, 20 pcs, runs avoid,bookavoid  B:W14,21,24,25,26,27,28,29,31,32:B1,2,3,4,7,8,9,11,12,18
+   x2  7-11    ACF #37                    after-ballot move 12, 16 pcs, runs bookavoid,bookavoid  B:W13,19,21,22,24,25,28,31:B3,6,7,8,9,10,12,23
+
+run          # col   ballot                      ply  mv  pcs phase      move         played        alt  drop
+avoid       16 black ACF #14                       4   0   24 opening    5-9             -42         +0    42
+off          5 black ACF #14                       4   0   24 opening    5-9             -34         +0    34
+avoid       22 black ACF #141                     28  12   19 middlegame 18-23           -96        -20    72
+off         10 black ACF #141                     26  11   19 middlegame 14-17          -134        -21   113
+off          9 black ACF #143                      6   1   24 opening    9-14            -66         +0    66
+bookavoid   35 white ACF #153 Black Widow         59  27    9 endgame    10-6           -319       -285    50
+off         11 black ACF #154                     24  10   16 opening    7-11           -211        -25   194
+avoid       17 black ACF #16 Wilderness II         6   1   22 opening    7-11            -63        -25    38
+bookavoid   24 black ACF #16 Wilderness II        20   8   19 opening    14-17           -94        -27    55
+off          4 black ACF #16 Wilderness II         6   1   22 opening    7-11           -123        -34    89
+bookavoid   25 black ACF #19                     unclear
+bookavoid   26 black ACF #24                     unclear
+bookavoid   27 black ACF #37                      28  12   16 middlegame 7-11           -168         +0   168
+avoid       13 black ACF #5 Dreaded Edinburgh     10   3   22 opening    8-11            -50         -5    39
+bookavoid   23 black ACF #5 Dreaded Edinburgh    unclear
+avoid       12 black ACF #6 Inferno                8   2   22 opening    1-5            -122        -48    80
+off          1 black ACF #6 Inferno                8   2   22 opening    7-10           -130       -103    94
+avoid       18 black ACF #62 Gemini I             12   4   20 opening    10-14          -162        -26   135
+bookavoid   29 black ACF #62 Gemini I             14   5   20 opening    16-20          -154        -22   105
+off          6 black ACF #62 Gemini I             12   4   20 opening    10-14          -161        -17   123
+avoid       19 black ACF #63                      12   4   20 opening    1-5             -69        -10    52
+bookavoid   28 black ACF #63                      12   4   20 opening    1-5             -45        -10    36
+off          7 black ACF #63                      14   5   20 opening    12-16          -128        -56   120
+avoid       14 black ACF #7                       14   5   20 opening    15-18          -127        -42    74
+off          2 black ACF #7                       14   5   20 opening    15-18          -129        -74    90
+bookavoid   30 black ACF #72                      16   6   18 opening    9-13           -112         +0   112
+avoid       20 black ACF #74                      14   5   18 opening    8-11            -68         +0    68
+off          8 black ACF #74                      14   5   18 opening    8-11            -39         +0    39
+bookavoid   31 black ACF #75                      28  12   16 middlegame 7-11           -160         +0   160
+bookavoid   32 black ACF #79                      28  12   14 middlegame 5-9            -189         -1   182
+avoid       21 black ACF #85                      18   7   20 opening    9-14           -100         +0   100
+bookavoid   34 black ACF #87 Tyne                 12   4   22 opening    2-6             -96        -11    73
+avoid       15 black ACF #9 Wilderness I          10   3   22 opening    16-19           -70        -33    51
+off          3 black ACF #9 Wilderness I          26  11   19 middlegame 14-17           -96        -20    76
+bookavoid   33 black ACF #90                      10   3   20 opening    11-16           -47        -22    36

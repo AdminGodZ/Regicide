@@ -1,0 +1,38 @@
+Cake eval >= +50 sustained        : {'opening': 4, 'endgame': 31}; move after ballot: median 36, quartiles 31-48
+Regicide score <= -100 sustained  : {'middlegame': 11, 'endgame': 22, 'opening': 2}; move after ballot: median 15, quartiles 13-18
+run             game col ballot                     plies | (a) mv  pcs phase      | (b) mv  pcs phase     
+avoid-769         23 B   ACF #14                      113 |     32    9 endgame    |     14   14 middlegame
+off-769           23 B   ACF #14                      139 |     57    9 endgame    |     14   14 middlegame
+avoid-769        253 B   ACF #141                     105 |     42    9 endgame    |     28   12 endgame   
+off-769          253 B   ACF #141                     163 |     63    9 endgame    |     12   19 middlegame
+off-769          257 B   ACF #143                     117 |     38    9 endgame    |     19   10 endgame   
+bookavoid-769    276 W   ACF #153 Black Widow         122 |     48    9 endgame    |     20   12 endgame   
+off-769          277 B   ACF #154                      99 |     35    9 endgame    |     19   10 endgame   
+avoid-769         27 B   ACF #16 Wilderness II         89 |     33    9 endgame    |     14   10 endgame   
+bookavoid-769     27 B   ACF #16 Wilderness II        125 |     48    9 endgame    |     30   10 endgame   
+off-769           27 B   ACF #16 Wilderness II         87 |     21    9 endgame    |     14   10 endgame   
+bookavoid-769     33 B   ACF #19                      153 |     26   11 endgame    |     16   12 endgame   
+bookavoid-769     43 B   ACF #24                      157 |     40    9 endgame    |     16   12 endgame   
+bookavoid-769     65 B   ACF #37                       91 |     33    9 endgame    |     16   14 middlegame
+avoid-769          7 B   ACF #5 Dreaded Edinburgh     125 |     43    9 endgame    |     11   16 middlegame
+bookavoid-769      7 B   ACF #5 Dreaded Edinburgh     137 |      7   16 opening    |     12   16 middlegame
+avoid-769          9 B   ACF #6 Inferno                99 |      4   22 opening    |      8   18 opening   
+off-769            9 B   ACF #6 Inferno                85 |      5   20 opening    |     11   14 middlegame
+avoid-769        107 B   ACF #62 Gemini I             109 |     35    9 endgame    |     12   12 endgame   
+bookavoid-769    107 B   ACF #62 Gemini I             181 |     29    9 endgame    |     13   16 middlegame
+off-769          107 B   ACF #62 Gemini I             111 |     32   10 endgame    |      8   16 opening   
+avoid-769        109 B   ACF #63                      107 |     31    9 endgame    |     15   10 endgame   
+bookavoid-769    109 B   ACF #63                      107 |      5   20 opening    |     15   10 endgame   
+off-769          109 B   ACF #63                      103 |     34    9 endgame    |     15   10 endgame   
+avoid-769         11 B   ACF #7                       145 |     34    9 endgame    |     16   12 endgame   
+off-769           11 B   ACF #7                       115 |     48    9 endgame    |     16   12 endgame   
+bookavoid-769    127 B   ACF #72                      113 |     44    7 endgame    |     18   12 endgame   
+avoid-769        131 B   ACF #74                      133 |     52    9 endgame    |     20   10 endgame   
+off-769          131 B   ACF #74                      139 |     58    9 endgame    |     20   10 endgame   
+bookavoid-769    133 B   ACF #75                      117 |     45    9 endgame    |     16   14 middlegame
+bookavoid-769    139 B   ACF #79                       97 |     37    9 endgame    |     15   12 endgame   
+avoid-769        151 B   ACF #85                       97 |     36    9 endgame    |     13   15 middlegame
+bookavoid-769    155 B   ACF #87 Tyne                 123 |     30    9 endgame    |     18   10 endgame   
+avoid-769         15 B   ACF #9 Wilderness I          125 |     49    9 endgame    |     28   12 endgame   
+off-769           15 B   ACF #9 Wilderness I          155 |     54    9 endgame    |     12   19 middlegame
+bookavoid-769    159 B   ACF #90                       97 |     41    9 endgame    |     15   12 endgame   

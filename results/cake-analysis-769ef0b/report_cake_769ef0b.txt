@@ -1,0 +1,547 @@
+lossprobe: 35 games; movetime 10000 ms, threads 6, jobs 2, egdb 8 pieces, eval nnue, drop 30, margin 20, lost 300
+== /home/admingod/regicide-jobs/cake/cake_losses_769ef0b.pdn #1: Regicide 0.2 (black) - Cake 1.89f (white)  0-1  ACF #6 Inferno: 9-13 22-18 10-14  round 5.1
+   black, ballot 3 plies, 84 plies played
+   ply  move  played            best/alternative           depth  pv (best)
+     4  3.    5x14    forced
+     6  4.    1-5     -36               6-9    -43       26/26   6-9
+     8  5.    7-10    -130              11-16  -103      26/27   11-16
+   BLAME ply 8 5. 7-10  FEN B:W19,21,22,23,25,27,28,29,30,31,32:B2,3,4,5,6,7,8,11,12,13,14
+     played 7-10 -130 (depth 27, pv 7-10 22-18 6-9 27-24 3-7 31-26 11-15 18x11)
+     best alternative 11-16 -103 (depth 26, pv 11-16)
+     drop 94 from the previous score -36, margin 27
+== /home/admingod/regicide-jobs/cake/cake_losses_769ef0b.pdn #2: Regicide 0.2 (black) - Cake 1.89f (white)  0-1  ACF #7: 9-13 22-18 10-15  round 6.1
+   black, ballot 3 plies, 114 plies played
+   ply  move  played            best/alternative           depth  pv (best)
+     4  3.    5-9     -45               6-10   -17       27/25   6-10 24-20 5-9 28-24 10-14 22-17 13x22 26x10
+     6  4.    7-10    -55               1-5    -49       26/27   1-5 21-17
+     8  5.    9x18    -39      (best)   10x17  -422      29/21   9x18 23x7 3x10 26-23 10-14 24-20 6-10 31-26
+    10  6.    3x10    forced
+    12  7.    10-14   -39      (best)   6-9    -47       28/29   10-14 24-20 6-10 31-26 2-6 27-24 1-5 23-19
+    14  8.    15-18   -129              6-10   -74       29/28   6-10 31-26 2-6 27-24 6-9 23-19 1-6 26-23
+   BLAME ply 14 8. 15-18  FEN B:W20,21,22,23,25,27,28,30,31,32:B1,2,4,6,8,11,12,13,14,15
+     played 15-18 -129 (depth 28, pv 15-18 22x15 11x18 28-24 8-11 24-19 4-8 30-26)
+     best alternative 6-10 -74 (depth 29, pv 6-10 31-26 2-6 27-24 6-9 23-19 1-6 26-23)
+     drop 90 from the previous score -39, margin 55
+== /home/admingod/regicide-jobs/cake/cake_losses_769ef0b.pdn #3: Regicide 0.2 (black) - Cake 1.89f (white)  0-1  ACF #9 Wilderness I: 9-13 22-18 11-16  round 8.1
+   black, ballot 3 plies, 154 plies played
+   ply  move  played            best/alternative           depth  pv (best)
+     4  3.    10x17   forced
+     6  4.    6-9     -40      (best)   16-20  -40       24/27   6-9 25-21 9x18 23x14 8-11 29-25 11-15 24-19
+     8  5.    7-11    -41      (best)   1-6    -67       26/26   7-11 24-20 11-15 18x11 9x18 25-22 18x25 29x22
+    10  6.    16-19   -49               11-15  -56       27/26   11-15 18x11
+    12  7.    11-15   -83      (best)   2-6    -346      28/23   11-15 18x11 8x15 14-10 2-7 20-16 7x14 25-22
+    14  8.    8x15    -79      (best)   9x18   -377      29/23   8x15 14-10 2-7 25-22 7x14 20-16 1-6 16-11
+    16  9.    2-7     -85               9-14   -63       26/28   9-14 25-22 2-7 20-16 14-18 29-25 7x14 16-11
+    18  10.   7x14    forced
+    20  11.   14-18   -83      (best)   1-6    -33       29/29   14-18 29-25 9-14 16-11 5-9 24-20 1-5 32-27
+    22  12.   9-14    -40      (best)   1-6    -20       29/30   9-14 16-11 5-9 24-20 1-5 32-27 14-17 11-7
+    24  13.   5-9     -24      (best)   1-6    -20       29/30   5-9 24-20 1-5 32-27 14-17 11-7 3x10 25-21
+    26  14.   14-17   -96               1-5    -20       29/29   1-5 32-27 14-17 11-7 3x10 25-21 18x25 21x7
+   BLAME ply 26 14. 14-17  FEN B:W11,20,22,25,26,28,30,31,32:B1,3,4,9,12,13,14,15,18,19
+     played 14-17 -96 (depth 29, pv 14-17 25-21 18x25 21x5 15-18 30x21 18-23 28-24)
+     best alternative 1-5 -20 (depth 29, pv 1-5 32-27 14-17 11-7 3x10 25-21 18x25 21x7)
+     drop 76 from the previous score -20, margin 76
+== /home/admingod/regicide-jobs/cake/cake_losses_769ef0b.pdn #4: Regicide 0.2 (black) - Cake 1.89f (white)  0-1  ACF #16 Wilderness II: 9-13 23-18 11-16  round 14.1
+   black, ballot 3 plies, 86 plies played
+   ply  move  played            best/alternative           depth  pv (best)
+     4  3.    10x17   forced
+     6  4.    7-11    -123              6-9    -34       25/25   6-9 22-18 7-11 25-21 11-15 18x11 9x18 26-23
+   BLAME ply 6 4. 7-11  FEN B:W14,22,24,25,26,27,28,29,30,31,32:B1,2,3,4,5,6,7,8,12,13,16
+     played 7-11 -123 (depth 25, pv 7-11 26-23 6-9 24-20 9x18 23x14 16-19 27-24)
+     best alternative 6-9 -34 (depth 25, pv 6-9 22-18 7-11 25-21 11-15 18x11 9x18 26-23)
+     drop 89 from the previous score -34, margin 89
+== /home/admingod/regicide-jobs/cake/cake_losses_769ef0b.pdn #5: Regicide 0.2 (black) - Cake 1.89f (white)  0-1  ACF #14: 9-13 23-18 10-15  round 12.1
+   black, ballot 3 plies, 138 plies played
+   ply  move  played            best/alternative           depth  pv (best)
+     4  3.    5-9     -34               6-10   +0        28/27   6-10 32-27 1-6 18-14 10x17 21x14 15-18 22x15
+   BLAME ply 4 3. 5-9  FEN B:W18,21,22,23,24,25,26,28,29,30,31,32:B1,2,3,4,5,6,7,8,11,12,13,15
+     played 5-9 -34 (depth 27, pv 5-9 32-27 6-10 18-14 9x18 23x14 10x17 21x14)
+     best alternative 6-10 +0 (depth 28, pv 6-10 32-27 1-6 18-14 10x17 21x14 15-18 22x15)
+     drop 34 from the previous score +0, margin 34
+== /home/admingod/regicide-jobs/cake/cake_losses_769ef0b.pdn #6: Regicide 0.2 (black) - Cake 1.89f (white)  0-1  ACF #62 Gemini I: 10-14 22-17 11-16  round 54.1
+   black, ballot 3 plies, 110 plies played
+   ply  move  played            best/alternative           depth  pv (best)
+     4  3.    6x15    -27      (best)   7x14   -136      26/25   6x15 23-18 15x22 25x18 7-10 29-25 3-7 25-22
+     6  4.    15x22   forced
+     8  5.    8-11    -37               1-6    -41       25/23   1-6 29-25 8-11 25-22 16-20 24-19 7-10 27-23
+    10  6.    7-10    -38               1-6    -70       24/26   1-6 17-13
+    12  7.    10-14   -161              1-6    -17       28/27   1-6 29-25 3-7 24-20 16-19 26-22 10-15 25-21
+   BLAME ply 12 7. 10-14  FEN B:W13,18,24,26,27,28,29,30,31,32:B1,2,3,4,5,9,10,11,12,16
+     played 10-14 -161 (depth 27, pv 10-14 13x6 14x23 27x18 1x10 29-25 16-20 24-19)
+     best alternative 1-6 -17 (depth 28, pv 1-6 29-25 3-7 24-20 16-19 26-22 10-15 25-21)
+     drop 123 from the previous score -38, margin 144
+== /home/admingod/regicide-jobs/cake/cake_losses_769ef0b.pdn #7: Regicide 0.2 (black) - Cake 1.89f (white)  0-1  ACF #63: 10-14 22-17 14-18  round 55.1
+   black, ballot 3 plies, 102 plies played
+   ply  move  played            best/alternative           depth  pv (best)
+     4  3.    9x18    forced
+     6  4.    6-9     -12      (best)   11-15  -194      26/24   6-9 23x14 9x18 30-26 5-9 17-14 9-13 26-23
+     8  5.    9x18    forced
+    10  6.    5-9     -4       (best)   2-6    -16       28/27   5-9 17-14 9-13 26-23 11-15 24-19 15x24 28x19
+    12  7.    1-5     -31               9-13   -8        28/26   9-13 26-23 11-15 24-19 15x24 28x19 8-11 14-9
+    14  8.    12-16   -128              9-13   -56       28/27   9-13 25-21 13x22 26x17 2-6 24-19 18-22 27-23
+   BLAME ply 14 8. 12-16  FEN B:W14,17,24,25,26,27,28,29,31,32:B2,3,4,5,7,8,9,11,12,18
+     played 12-16 -128 (depth 27, pv 12-16 17-13 16-20 13x6 2x9 26-22 9-13 22x15)
+     best alternative 9-13 -56 (depth 28, pv 9-13 25-21 13x22 26x17 2-6 24-19 18-22 27-23)
+     drop 120 from the previous score -8, margin 72
+== /home/admingod/regicide-jobs/cake/cake_losses_769ef0b.pdn #8: Regicide 0.2 (black) - Cake 1.89f (white)  0-1  ACF #74: 10-14 23-19 14-18  round 66.1
+   black, ballot 3 plies, 138 plies played
+   ply  move  played            best/alternative           depth  pv (best)
+     4  3.    11x18   forced
+     6  4.    9-13    -4       (best)   8-11   -5        27/27   9-13 26-22 7-11 22x15 11x18 17-14 2-7 19-15
+     8  5.    13x22   forced
+    10  6.    6-10    +0       (best)   8-11   -35       28/26   6-10 25x18 10x17 31-26 5-9 29-25 9-13 25-22
+    12  7.    10x17   forced
+    14  8.    8-11    -39               5-9    +0        29/27   5-9 29-25 9-13 25-22 8-11 27-23 11-16 24-20
+   BLAME ply 14 8. 8-11  FEN B:W18,19,24,26,27,28,29,30,32:B1,2,3,4,5,7,8,12,17
+     played 8-11 -39 (depth 27, pv 8-11 29-25 17-21 18-14 11-16 27-23 4-8 24-20)
+     best alternative 5-9 +0 (depth 29, pv 5-9 29-25 9-13 25-22 8-11 27-23 11-16 24-20)
+     drop 39 from the previous score +0, margin 39
+== /home/admingod/regicide-jobs/cake/cake_losses_769ef0b.pdn #9: Regicide 0.2 (black) - Cake 1.89f (white)  0-1  ACF #143: 11-16 22-18 7-11  round 129.1
+   black, ballot 3 plies, 116 plies played
+   ply  move  played            best/alternative           depth  pv (best)
+     4  3.    3-7     +0       (best)   9-14   -49       27/28   3-7 25-22 11-15 18x11 8x24 28x19 4-8 29-25
+     6  4.    9-14    -66               16-20  +0        30/27   16-20 25-22 11-15 18x11 8x15 32-28 4-8 29-25
+   BLAME ply 6 4. 9-14  FEN B:W18,19,21,23,24,25,26,27,29,30,31,32:B1,2,4,5,6,7,8,9,10,11,12,16
+     played 9-14 -66 (depth 27, pv 9-14 18x9 5x14 26-22 11-15 22-18 15x22 25x9)
+     best alternative 16-20 +0 (depth 30, pv 16-20 25-22 11-15 18x11 8x15 32-28 4-8 29-25)
+     drop 66 from the previous score +0, margin 66
+== /home/admingod/regicide-jobs/cake/cake_losses_769ef0b.pdn #10: Regicide 0.2 (black) - Cake 1.89f (white)  0-1  ACF #141: 11-16 22-17 9-13  round 127.1
+   black, ballot 3 plies, 162 plies played
+   ply  move  played            best/alternative           depth  pv (best)
+     4  3.    10x17   forced
+     6  4.    6-9     -59               16-20  -51       26/25   16-20
+     8  5.    7-11    -64      (best)   1-6    -42       25/26   7-11 24-20 16-19 27-24 11-15 18x11 8x15 14-10
+    10  6.    16-19   -58      (best)   11-15  -46       27/27   16-19 27-24 11-15 18x11 8x15 14-10 2-7 20-16
+    12  7.    11-15   -45      (best)   2-7    -326      27/24   11-15
+    14  8.    8x15    -49      (best)   9x18   -382      28/23   8x15 14-10 2-7 20-16 7x14 25-22 14-18 29-25
+    16  9.    2-7     -85               9-14   -84       26/27   9-14 25-22 2-7 20-16 14-18 29-25 7x14 16-11
+    18  10.   7x14    forced
+    20  11.   14-18   -45      (best)   1-6    -44       28/29   14-18 29-25 1-6 16-11 9-14 32-27 6-9 24-20
+    22  12.   9-14    -23               1-6    -25       29/30   1-6 32-27 6-10 16-11 10-14 24-20 14-17 11-7
+    24  13.   5-9     -21               1-6    -40       30/30   1-6
+    26  14.   14-17   -134              1-5    -21       30/28   1-5 11-7 3x10 32-27 14-17 25-21 18x25 21x7
+   BLAME ply 26 14. 14-17  FEN B:W11,20,22,25,26,28,30,31,32:B1,3,4,9,12,13,14,15,18,19
+     played 14-17 -134 (depth 28, pv 14-17 25-21 18x25 21x5 15-18 30x21 18-23 26-22)
+     best alternative 1-5 -21 (depth 30, pv 1-5 11-7 3x10 32-27 14-17 25-21 18x25 21x7)
+     drop 113 from the previous score -21, margin 113
+== /home/admingod/regicide-jobs/cake/cake_losses_769ef0b.pdn #11: Regicide 0.2 (black) - Cake 1.89f (white)  0-1  ACF #154: 11-16 24-19 7-11  round 139.1
+   black, ballot 3 plies, 98 plies played
+   ply  move  played            best/alternative           depth  pv (best)
+     4  3.    3-7     +0       (best)   9-14   -59       27/28   3-7 28-24 16-20 25-22 11-15 18x11 8x15 32-28
+     6  4.    9-14    -20               16-20  +0        30/26   16-20 25-22 11-15 18x11 8x15 32-28 4-8 19-16
+     8  5.    5x14    -69      (best)   6x13   -382      29/25   5x14 26-22
+    10  6.    11-15   -37      (best)   16-20  -88       29/29   11-15
+    12  7.    15x22   forced
+    14  8.    6x13    forced
+    16  9.    16-20   -88      (best)   1-5    -212      28/26   16-20 32-28 1-6 31-26 10-14 25-22 8-11 19-16
+    18  10.   1-6     -74      (best)   8-11   -130      30/29   1-6 31-26 10-14 25-22 8-11 19-16 12x19 24x8
+    20  11.   13-17   -17      (best)   7-11   -428      30/29   13-17 21x14 10x17 31-26 17-21 25-22 8-11 19-16
+    22  12.   10x17   forced
+    24  13.   7-11    -211              17-21  -25       32/29   17-21 25-22 8-11 19-16 12x19 24x8 4x11 22-17
+   BLAME ply 24 13. 7-11  FEN B:W18,19,24,25,26,27,28,30:B2,4,6,7,8,12,17,20
+     played 7-11 -211 (depth 29, pv 7-11 19-15 17-21 25-22 11-16 15-11 8x15 18x11)
+     best alternative 17-21 -25 (depth 32, pv 17-21 25-22 8-11 19-16 12x19 24x8 4x11 22-17)
+     drop 194 from the previous score -17, margin 186
+== /home/admingod/regicide-jobs/cake/cake_losses_769ef0b.pdn #12: Regicide 0.2 (black) - Cake 1.89f (white)  0-1  ACF #6 Inferno: 9-13 22-18 10-14  round 5.1
+   black, ballot 3 plies, 98 plies played
+   ply  move  played            best/alternative           depth  pv (best)
+     4  3.    5x14    forced
+     6  4.    6-9     -42      (best)   7-10   -49       26/26   6-9 22-18 12-16 24-19 8-12 28-24 16-20 19-15
+     8  5.    1-5     -122              7-10   -48       27/27   7-10 25-22
+   BLAME ply 8 5. 1-5  FEN B:W18,21,23,24,25,27,28,29,30,31,32:B1,2,3,4,7,8,9,11,12,13,14
+     played 1-5 -122 (depth 27, pv 1-5 24-19 7-10 27-24 3-7 31-26 11-15 18x11)
+     best alternative 7-10 -48 (depth 27, pv 7-10 25-22)
+     drop 80 from the previous score -42, margin 74
+== /home/admingod/regicide-jobs/cake/cake_losses_769ef0b.pdn #13: Regicide 0.2 (black) - Cake 1.89f (white)  0-1  ACF #5 Dreaded Edinburgh: 9-13 22-18 6-9  round 4.1
+   black, ballot 3 plies, 124 plies played
+   ply  move  played            best/alternative           depth  pv (best)
+     4  3.    11-15   -22               1-6    -34       26/25   1-6 30-25 10-15 23-19 11-16 19x1 2-6 1x10
+     6  4.    8x15    -16      (best)   7x16   -161      28/24   8x15 24-20 4-8 28-24 1-6 23-19 9-14 26-23
+     8  5.    4-8     -16      (best)   7-11   -11       28/26   4-8 28-24 1-6 23-19 9-14 26-23 15-18 22x15
+    10  6.    8-11    -50               1-6    -5        26/27   1-6 23-19 7-11 32-28 9-14 22-17 13x22 26x17
+   BLAME ply 10 6. 8-11  FEN B:W20,21,22,23,24,26,27,29,30,31,32:B1,2,3,5,7,8,9,10,12,13,15
+     played 8-11 -50 (depth 27, pv 8-11 23-19 10-14 19x10 14-17 21x14 9x25 29x22)
+     best alternative 1-6 -5 (depth 26, pv 1-6 23-19 7-11 32-28 9-14 22-17 13x22 26x17)
+     drop 39 from the previous score -11, margin 45
+== /home/admingod/regicide-jobs/cake/cake_losses_769ef0b.pdn #14: Regicide 0.2 (black) - Cake 1.89f (white)  0-1  ACF #7: 9-13 22-18 10-15  round 6.1
+   black, ballot 3 plies, 144 plies played
+   ply  move  played            best/alternative           depth  pv (best)
+     4  3.    5-9     -44               6-10   -17       27/25   6-10 24-20 5-9 28-24 10-14 22-17 13x22 26x10
+     6  4.    7-10    -56               6-10   -50       26/28   6-10 23-19 1-5 18-14 10x17 19x10 7x14 24-19
+     8  5.    9x18    -31      (best)   10x17  -425      28/21   9x18 23x7 3x10 26-23 10-14 24-20 6-10 31-26
+    10  6.    3x10    forced
+    12  7.    10-14   -56      (best)   6-9    -53       28/29   10-14 24-20
+    14  8.    15-18   -127              6-10   -42       29/27   6-10 31-26 2-6 27-24 1-5 23-19 5-9 26-23
+   BLAME ply 14 8. 15-18  FEN B:W20,21,22,23,25,27,28,30,31,32:B1,2,4,6,8,11,12,13,14,15
+     played 15-18 -127 (depth 27, pv 15-18 22x15 11x18 28-24 6-9 30-26 8-11 24-19)
+     best alternative 6-10 -42 (depth 29, pv 6-10 31-26 2-6 27-24 1-5 23-19 5-9 26-23)
+     drop 74 from the previous score -53, margin 85
+== /home/admingod/regicide-jobs/cake/cake_losses_769ef0b.pdn #15: Regicide 0.2 (black) - Cake 1.89f (white)  0-1  ACF #9 Wilderness I: 9-13 22-18 11-16  round 8.1
+   black, ballot 3 plies, 124 plies played
+   ply  move  played            best/alternative           depth  pv (best)
+     4  3.    10x17   forced
+     6  4.    6-9     -35               16-20  -58       25/25   16-20 24-19 6-10 25-21 10x17 21x14 2-6 29-25
+     8  5.    7-11    -33      (best)   1-6    -19       25/27   7-11 26-23 11-15 18x11 8x15 24-20 9x18 23x14
+    10  6.    16-19   -70               11-15  -33       25/26   11-15 18x11 8x15 20x11 9x18 26-22 1-6 25-21
+   BLAME ply 10 6. 16-19  FEN B:W14,18,20,25,26,27,28,29,30,31,32:B1,2,3,4,5,8,9,11,12,13,16
+     played 16-19 -70 (depth 26, pv 16-19 27-24 11-15 18x11 8x15 14-10 9-14 20-16)
+     best alternative 11-15 -33 (depth 25, pv 11-15 18x11 8x15 20x11 9x18 26-22 1-6 25-21)
+     drop 51 from the previous score -19, margin 37
+== /home/admingod/regicide-jobs/cake/cake_losses_769ef0b.pdn #16: Regicide 0.2 (black) - Cake 1.89f (white)  0-1  ACF #14: 9-13 23-18 10-15  round 12.1
+   black, ballot 3 plies, 112 plies played
+   ply  move  played            best/alternative           depth  pv (best)
+     4  3.    5-9     -42               6-10   +0        27/26   6-10 32-27 1-6 18-14 10x17 21x14 15-18 22x15
+   BLAME ply 4 3. 5-9  FEN B:W18,21,22,23,24,25,26,28,29,30,31,32:B1,2,3,4,5,6,7,8,11,12,13,15
+     played 5-9 -42 (depth 26, pv 5-9 32-27 6-10 18-14 9x18 23x14 10x17 21x14)
+     best alternative 6-10 +0 (depth 27, pv 6-10 32-27 1-6 18-14 10x17 21x14 15-18 22x15)
+     drop 42 from the previous score +0, margin 42
+== /home/admingod/regicide-jobs/cake/cake_losses_769ef0b.pdn #17: Regicide 0.2 (black) - Cake 1.89f (white)  0-1  ACF #16 Wilderness II: 9-13 23-18 11-16  round 14.1
+   black, ballot 3 plies, 88 plies played
+   ply  move  played            best/alternative           depth  pv (best)
+     4  3.    10x17   forced
+     6  4.    7-11    -63               6-9    -25       24/26   6-9 22-18 7-11 24-20 11-15 18x11 9x18 28-24
+   BLAME ply 6 4. 7-11  FEN B:W14,22,24,25,26,27,28,29,30,31,32:B1,2,3,4,5,6,7,8,12,13,16
+     played 7-11 -63 (depth 26, pv 7-11 26-23 6-9 30-26 9x18 23x14 1-6 26-23)
+     best alternative 6-9 -25 (depth 24, pv 6-9 22-18 7-11 24-20 11-15 18x11 9x18 28-24)
+     drop 38 from the previous score -25, margin 38
+== /home/admingod/regicide-jobs/cake/cake_losses_769ef0b.pdn #18: Regicide 0.2 (black) - Cake 1.89f (white)  0-1  ACF #62 Gemini I: 10-14 22-17 11-16  round 54.1
+   black, ballot 3 plies, 108 plies played
+   ply  move  played            best/alternative           depth  pv (best)
+     4  3.    6x15    -28      (best)   7x14   -149      27/23   6x15 23-18 15x22 25x18 7-10 27-23 16-20 24-19
+     6  4.    15x22   forced
+     8  5.    8-11    -51               7-10   -22       25/26   7-10 29-25 3-7 18-15 10x19 24x15 1-6 21-17
+    10  6.    7-10    -27               1-6    -48       26/27   1-6 17-13 7-10 29-25 3-7 24-20 16-19 26-22
+    12  7.    10-14   -162              1-6    -26       27/26   1-6 29-25 3-7 24-20 16-19 26-22 10-15 25-21
+   BLAME ply 12 7. 10-14  FEN B:W13,18,24,26,27,28,29,30,31,32:B1,2,3,4,5,9,10,11,12,16
+     played 10-14 -162 (depth 26, pv 10-14 13x6 14x23 27x18 1x10 29-25 3-7 25-22)
+     best alternative 1-6 -26 (depth 27, pv 1-6 29-25 3-7 24-20 16-19 26-22 10-15 25-21)
+     drop 135 from the previous score -27, margin 136
+== /home/admingod/regicide-jobs/cake/cake_losses_769ef0b.pdn #19: Regicide 0.2 (black) - Cake 1.89f (white)  0-1  ACF #63: 10-14 22-17 14-18  round 55.1
+   black, ballot 3 plies, 106 plies played
+   ply  move  played            best/alternative           depth  pv (best)
+     4  3.    9x18    forced
+     6  4.    6-9     -25      (best)   11-15  -200      26/24   6-9 23x14 9x18 30-26 5-9 17-14 9-13 26-23
+     8  5.    9x18    forced
+    10  6.    5-9     -17      (best)   2-6    -21       27/28   5-9 17-14 9-13 26-23 11-15 24-19 15x24 28x19
+    12  7.    1-5     -69               9-13   -10       27/26   9-13 26-23 11-15 24-19 15x24 28x19 8-11 14-9
+   BLAME ply 12 7. 1-5  FEN B:W14,21,24,25,26,27,28,29,31,32:B1,2,3,4,7,8,9,11,12,18
+     played 1-5 -69 (depth 26, pv 1-5 21-17 9-13 25-21 13x22 26x17 7-10 14x7)
+     best alternative 9-13 -10 (depth 27, pv 9-13 26-23 11-15 24-19 15x24 28x19 8-11 14-9)
+     drop 52 from the previous score -17, margin 59
+== /home/admingod/regicide-jobs/cake/cake_losses_769ef0b.pdn #20: Regicide 0.2 (black) - Cake 1.89f (white)  0-1  ACF #74: 10-14 23-19 14-18  round 66.1
+   black, ballot 3 plies, 132 plies played
+   ply  move  played            best/alternative           depth  pv (best)
+     4  3.    11x18   forced
+     6  4.    9-13    -24      (best)   8-11   +0        27/27   9-13 26-23 13x22 23x14 6-10 25x18 10x17 31-26
+     8  5.    13x22   forced
+    10  6.    6-10    +0       (best)   8-11   -20       27/26   6-10 25x18 10x17 31-26 5-9 29-25 9-13 25-22
+    12  7.    10x17   forced
+    14  8.    8-11    -68               5-9    +0        29/26   5-9 29-25 9-13 25-22 8-11 27-23 11-16 24-20
+   BLAME ply 14 8. 8-11  FEN B:W18,19,24,26,27,28,29,30,32:B1,2,3,4,5,7,8,12,17
+     played 8-11 -68 (depth 26, pv 8-11 29-25 17-21 18-14 11-16 27-23 4-8 25-22)
+     best alternative 5-9 +0 (depth 29, pv 5-9 29-25 9-13 25-22 8-11 27-23 11-16 24-20)
+     drop 68 from the previous score +0, margin 68
+== /home/admingod/regicide-jobs/cake/cake_losses_769ef0b.pdn #21: Regicide 0.2 (black) - Cake 1.89f (white)  0-1  ACF #85: 10-15 21-17 6-10  round 76.1
+   black, ballot 3 plies, 96 plies played
+   ply  move  played            best/alternative           depth  pv (best)
+     4  3.    1-6     -26      (best)   9-14   -57       28/25   1-6 23-18 11-16 18x11 8x15 22-18 15x22 25x18
+     6  4.    11-16   +0                12-16  +0        29/28   12-16 24-20 8-12 27-24 9-14 18x9 5x14 25-21
+     8  5.    8x15    forced
+    10  6.    15x22   forced
+    12  7.    4-8     +0       (best)   16-20  -1        26/27   4-8 24-20 8-11 28-24 10-15 27-23 15x22 26x17
+    14  8.    8-11    +0       (best)   16-20  +0        28/29   8-11 25-22 16-20 24-19 11-15 18x11 7x23 26x19
+    16  9.    16-19   +0                9-14   +0        29/26   9-14 18x9 5x14 28-24 10-15 25-22 14-17 32-28
+    18  10.   9-14    -100              10-15  +0        29/28   10-15 25-21 9-14 18x9 5x14 22-17 6-9 17x10
+   BLAME ply 18 10. 9-14  FEN B:W13,18,20,22,25,27,28,30,31,32:B2,3,5,6,7,9,10,11,12,19
+     played 9-14 -100 (depth 28, pv 9-14 18x9 5x14 22-18 14x23 27x18 10-15 25-22)
+     best alternative 10-15 +0 (depth 29, pv 10-15 25-21 9-14 18x9 5x14 22-17 6-9 17x10)
+     drop 100 from the previous score +0, margin 100
+== /home/admingod/regicide-jobs/cake/cake_losses_769ef0b.pdn #22: Regicide 0.2 (black) - Cake 1.89f (white)  0-1  ACF #141: 11-16 22-17 9-13  round 127.1
+   black, ballot 3 plies, 104 plies played
+   ply  move  played            best/alternative           depth  pv (best)
+     4  3.    10x17   forced
+     6  4.    6-9     -44               16-20  -56       27/25   16-20 24-19 6-10 25-21 10x17 21x14 1-6 29-25
+     8  5.    7-11    -49      (best)   1-6    -45       26/26   7-11 24-20 11-15 18x11 8x15 20x11 9x18 26-22
+    10  6.    16-19   -44               11-15  -38       27/25   11-15 18x11 9x18 26-22 8x15 20x11 1-6 27-24
+    12  7.    11-15   -55      (best)   19-23  -341      28/24   11-15 18x11 8x15 14-10 2-7 25-22 7x14 20-16
+    14  8.    8x15    -52      (best)   9x18   -402      27/22   8x15 14-10 9-14 25-22 2-7 20-16 14-18 29-25
+    16  9.    2-7     -48      (best)   9-14   -51       27/26   2-7 25-22 7x14 20-16 14-18 29-25 9-14 16-11
+    18  10.   7x14    forced
+    20  11.   14-18   -68      (best)   1-6    -108      28/26   14-18 29-25 9-14 16-11 5-9 24-20 1-5 11-7
+    22  12.   9-14    -32               1-6    -26       29/29   1-6 32-27 9-14 16-11 6-9 24-20 14-17 11-7
+    24  13.   5-9     -22      (best)   1-6    -30       30/31   5-9 24-20 1-5 32-27 14-17 11-7 3x10 25-21
+    26  14.   1-5     -24      (best)   14-17  -110      30/28   1-5 32-27 14-17 11-7 3x10 25-21 18x25 21x7
+    28  15.   18-23   -96               14-17  -20       29/27   14-17 11-7 3x10 25-21 18x25 21x7 15-18 30x21
+   BLAME ply 28 15. 18-23  FEN B:W11,20,22,25,26,27,28,30,31:B3,4,5,9,12,13,14,15,18,19
+     played 18-23 -96 (depth 27, pv 18-23 27x18 14x23 28-24 19x28 26x10 12-16 11-7)
+     best alternative 14-17 -20 (depth 29, pv 14-17 11-7 3x10 25-21 18x25 21x7 15-18 30x21)
+     drop 72 from the previous score -24, margin 76
+== /home/admingod/regicide-jobs/cake/cake_losses_769ef0b.pdn #23: Regicide 0.2 (black) - Cake 1.89f (white)  0-1  ACF #5 Dreaded Edinburgh: 9-13 22-18 6-9  round 4.1
+   black, ballot 3 plies, 136 plies played
+   ply  move  played            best/alternative           depth  pv (best)
+     4  3.    11-15   -18               1-6    -31       25/27   1-6
+     6  4.    8x15    -16      (best)   7x16   -144      28/24   8x15 24-20 4-8 28-24 1-6 23-19 9-14 26-23
+     8  5.    4-8     -25      (best)   7-11   -25       27/26   4-8 28-24 1-6 23-19 9-14 26-23 15-18 22x15
+    10  6.    8-11    -44               1-6    -12       28/27   1-6 23-19 9-14 26-23 15-18 22x15 7-11 29-25
+    12  7.    10-14   -81      (best)   1-6    -135      28/26   10-14 19x10 14-17 21x14 9x25 29x22 7x14 24-19
+    14  8.    14-17   -50      (best)   2-6    -424      29/25   14-17 21x14 9x25 29x22 7x14 24-19 3-7 27-24
+    16  9.    9x25    forced
+    18  10.   7x14    forced
+    20  11.   1-6     -102              3-7    -96       27/28   3-7 23-19 11-16 20x11 7x23 26x19 2-7 31-27
+    22  12.   14-17   -99               6-10   -98       31/30   6-10 19-16 12x19 23x7 2x11 22-18 14x23 26x19
+    24  13.   6-10    -105     (best)   2-7    -117      31/29   6-10 31-27 17-21 19-16 12x19 23x7 2x11 28-24
+    26  14.   17-21   -103     (best)   11-15  -122      32/31   17-21 19-16 12x19 23x7 2x11 28-24 10-14 27-23
+    28  15.   12x19   forced
+    30  16.   2x11    forced
+    32  17.   3-7     -102     (best)   10-14  -110      36/36   3-7 27-23 10-14 24-19 7-10 19-16 11-15 16-12
+    34  18.   10-14   -113     (best)   5-9    -238      37/36   10-14 24-19 7-10 19-16 11-15 16-12 15-19 23x16
+    36  19.   7-10    -116     (best)   13-17  dbloss/25  36/40   7-10 19-16 11-15 16-12 15-19 23x16 10-15 26-23
+    38  20.   11-15   -118     (best)   14-17  dbloss/12  36/40   11-15 16-12 15-19 23x16 10-15 26-23 5-9 12-8
+    40  21.   15-19   -120     (best)   13-17  -427      35/34   15-19 23x16 10-15 26-23 5-9 12-8 15-19 22-18
+    42  22.   10-15   -122     (best)   5-9    -503      36/31   10-15 26-23 5-9 12-8 15-19 22-18 19x26 30x23
+    44  23.   5-9     -121     (best)   14-17  dbloss/35  35/41   5-9 12-8 15-19 22-18 19x26 30x23 21-25 18-15
+    46  24.   15-19   -122     (best)   14-17  -468      32/29   15-19 22-18 19x26 30x23 21-25 18-15 25-30 15-10
+    48  25.   19x26   forced
+    50  26.   21-25   -119     (best)   14-17  -123      32/35   21-25 18-15 25-30 15-10 14-17 8-3 17-22 10-6
+    52  27.   25-30   -121     (best)   14-17  -149      33/36   25-30 18-15 13-17 15-10 30-26 23-19 17-21 3-7
+    54  28.   30-26   -120              13-17  -119      30/31   13-17 15-10 30-26 23-19 17-21 3-7 14-18 10-6
+    56  29.   14-18   -123     (best)   13-17  -124      33/33   14-18 3-7 18-23 15-10 13-17 10-6 17-21 6-1
+    58  30.   18-23   -125     (best)   26-31  -126      32/33   18-23 16-11 23-27 7-10 27-32 11-7 13-17 7-2
+    60  31.   13-17   -125     (best)   23-27  -137      33/32   13-17 10-6 9-14 6-2 17-21 7-10 14-18 10-14
+    62  32.   9-14    -130              17-21  -127      32/29   17-21 7-10 23-27 6-1 9-13 10-14 13-17 1-5
+    64  33.   14-18   -125     (best)   26-31  -132      28/31   14-18 10-14 17-21 6-1 21-25 1-6 18-22 6-9
+    66  34.   17-21   -126     (best)   17-22  -135      28/29   17-21
+    68  35.   26-31   -136              21-25  -125      30/29   21-25 2-7 18-22 16-12 26-31 19-15 23-27 7-10
+    70  36.   21-25   -152              31-27  -124      30/30   31-27 15-10 18-22 2-7 22-25 14-18 25-29 7-11
+    72  37.   31-27   -158     (best)   18-22  -148      30/28   31-27
+    74  38.   27-24   -159              18-22  -132      30/30   18-22 14-17 23-26 6-9 25-29 9-13 22-25 17-22
+    76  39.   18-22   dbloss/41 (best)   25-29  dbloss/6  37/36   18-22 14-17 23-26 10-14 25-29 17-21 26-30 14-17
+   already lost at ply 76 (best dbloss/41)
+   UNCLEAR: no move meets the blame rule
+== /home/admingod/regicide-jobs/cake/cake_losses_769ef0b.pdn #24: Regicide 0.2 (black) - Cake 1.89f (white)  0-1  ACF #16 Wilderness II: 9-13 23-18 11-16  round 14.1
+   black, ballot 3 plies, 124 plies played
+   ply  move  played            best/alternative           depth  pv (best)
+     4  3.    10x17   forced
+     6  4.    6-9     -28      (best)   8-11   -78       25/26   6-9 22-18 7-11 24-20 11-15 18x11 9x18 26-22
+     8  5.    7-11    -62               1-6    -55       26/26   1-6 27-23
+    10  6.    16-19   -68               11-15  -46       26/27   11-15
+    12  7.    11-15   -59      (best)   19-23  -327      28/23   11-15
+    14  8.    8x15    -74      (best)   9x18   -369      27/22   8x15 14-10 9-14 20-16 2-7 25-22 14-18 16-11
+    16  9.    2-7     -39      (best)   9-14   -43       27/26   2-7 20-16 7x14 25-22 14-18 29-25 9-14 16-11
+    18  10.   7x14    forced
+    20  11.   14-17   -94               14-18  -27       29/28   14-18 29-25 9-14 16-11 5-9 24-20 1-5 32-27
+   BLAME ply 20 11. 14-17  FEN B:W16,22,24,26,28,29,30,31,32:B1,3,4,5,9,12,13,14,15,19
+     played 14-17 -94 (depth 28, pv 14-17 16-11 9-14 32-27 1-6 24-20 6-10 27-24)
+     best alternative 14-18 -27 (depth 29, pv 14-18 29-25 9-14 16-11 5-9 24-20 1-5 32-27)
+     drop 55 from the previous score -39, margin 67
+== /home/admingod/regicide-jobs/cake/cake_losses_769ef0b.pdn #25: Regicide 0.2 (black) - Cake 1.89f (white)  0-1  ACF #19: 9-13 23-19 6-9  round 17.1
+   black, ballot 3 plies, 152 plies played
+   ply  move  played            best/alternative           depth  pv (best)
+     4  3.    11-15   +0       (best)   9-14   -18       28/28   11-15 22-18 15x22 25x18 8-11 19-15 10x19 24x8
+     6  4.    15x22   forced
+     8  5.    13-17   -17               8-11   +0        28/26   8-11 19-15 10x19 24x8 4x11 29-25 7-10 25-22
+    10  6.    10x17   forced
+    12  7.    9-13    -15      (best)   8-11   -28       27/28   9-13 25-22 8-11 24-20 1-6 28-24 6-9 32-28
+    14  8.    8-11    -62               5-9    -82       26/28   5-9 32-27 17-21 19-16 12x19 24x15 1-6 27-24
+    16  9.    1-6     -93      (best)   5-9    -91       28/28   1-6 32-27 17-21 19-15 7-10 15x8 4x11 27-24
+    18  10.   6-9     -96               17-21  -70       28/30   17-21 19-15 7-10 15x8 4x11 27-24 3-7 22-17
+    20  11.   12x19   forced
+    22  12.   4-8     -101     (best)   17-21  -325      31/28   4-8 16-12 9-14 18x9 5x14 27-23 11-15 28-24
+    24  13.   9-14    -110     (best)   17-21  -114      32/31   9-14 18x9 5x14 27-23 11-15 28-24 7-10 23-18
+    26  14.   5x14    forced
+    28  15.   11-15   -104     (best)   17-21  -323      34/29   11-15 28-24 7-10 23-18 14x23 26x19 17x26 31x22
+    30  16.   7-10    -118     (best)   17-21  -434      34/30   7-10 23-18 14x23 26x19 17x26 31x22 8-11 30-26
+    32  17.   14x23   forced
+    34  18.   17x26   forced
+    36  19.   8-11    -196     (best)   13-17  -406      30/30   8-11 30-26
+    38  20.   13-17   -261     (best)   2-6    dbloss/35  31/41   13-17 22x13 15-18 19-16 11-15 13-9 10-14 9-5
+    40  21.   15-18   -290     (best)   3-7    dbloss/11  32/38   15-18 19-16 11-15 13-9 10-14 9-5 14-17 5-1
+    42  22.   11-15   -298     (best)   2-7    dbloss/21  32/44   11-15 13-9 10-14 9-5 14-17 5-1 17-21 1-5
+    44  23.   10-14   -298     (best)   3-7    dbloss/13  30/36   10-14 9-5 14-17 5-1 17-21 1-5 21-25 26-22
+    46  24.   14-17   -297     (best)   2-6    dbloss/15  28/36   14-17 5-1 17-21 1-5 21-25 26-22 18-23 5-9
+    48  25.   18-22   -451              17-21  -320      29/25   17-21 1-5
+   already lost at ply 48 (best -320)
+   UNCLEAR: no move meets the blame rule
+== /home/admingod/regicide-jobs/cake/cake_losses_769ef0b.pdn #26: Regicide 0.2 (black) - Cake 1.89f (white)  0-1  ACF #24: 9-13 24-19 6-9  round 22.1
+   black, ballot 3 plies, 156 plies played
+   ply  move  played            best/alternative           depth  pv (best)
+     4  3.    11-15   +0       (best)   9-14   +0        28/27   11-15 22-18 15x22 25x18 8-11 19-15 10x19 24x8
+     6  4.    15x22   forced
+     8  5.    13-17   -12               8-11   +0        29/26   8-11 19-15 10x19 24x8 4x11 29-25 13-17 21x14
+    10  6.    10x17   forced
+    12  7.    9-13    -56      (best)   8-11   -78       26/28   9-13
+    14  8.    8-11    -91               5-9    -89       27/28   5-9 32-27
+    16  9.    1-6     -90      (best)   5-9    -96       27/27   1-6 32-27 6-9 19-16 12x19 23x16 4-8 16-12
+    18  10.   6-9     -89               17-21  -79       28/30   17-21 19-15 7-10 15x8 4x11 27-24 3-7 22-17
+    20  11.   12x19   forced
+    22  12.   4-8     -96      (best)   7-10   -261      32/28   4-8 16-12 9-14 18x9 5x14 28-24 14-18 22x15
+    24  13.   9-14    -101     (best)   17-21  -121      33/29   9-14 18x9 5x14 27-23 11-15 28-24 7-10 23-18
+    26  14.   5x14    forced
+    28  15.   11-15   -113     (best)   17-21  -274      33/31   11-15 28-24 7-10 23-18 14x23 26x19 17x26 31x22
+    30  16.   7-10    -126     (best)   17-21  -443      33/26   7-10 23-18 14x23 26x19 17x26 31x22 8-11 30-26
+    32  17.   14x23   forced
+    34  18.   17x26   forced
+    36  19.   8-11    -199     (best)   13-17  -495      33/30   8-11 30-26
+    38  20.   13-17   -279     (best)   2-6    dbloss/35  31/41   13-17 22x13 15-18 19-16 11-15 13-9 10-14 9-5
+    40  21.   15-18   -306     (best)   11-16  dbloss/11  32/37   15-18 19-16 11-15 13-9 10-14 9-5 14-17 5-1
+   already lost at ply 40 (best -306)
+   UNCLEAR: no move meets the blame rule
+== /home/admingod/regicide-jobs/cake/cake_losses_769ef0b.pdn #27: Regicide 0.2 (black) - Cake 1.89f (white)  0-1  ACF #37: 9-14 22-17 6-9  round 33.1
+   black, ballot 3 plies, 90 plies played
+   ply  move  played            best/alternative           depth  pv (best)
+     4  3.    11-15   +0       (best)   9-13   +0        29/28   11-15 17-13 15x24 13x6 2x9 28x19 8-11 26-22
+     6  4.    15x24   forced
+     8  5.    2x9     forced
+    10  6.    8-11    -9       (best)   9-13   -166      27/26   8-11 25-22 11-15 27-24 7-11 30-25 9-13 22-17
+    12  7.    11-15   -15      (best)   4-8    -14       27/27   11-15 27-24 14-18 23x14 9x25 29x22 5-9 22-17
+    14  8.    14-18   +0                4-8    +0        29/27   4-8 30-25 8-11 32-28 9-13 24-20 15x24 28x19
+    16  9.    9x25    +0       (best)   10x17  -670      30/22   9x25 29x22 5-9 21-17 9-14 17-13 1-6 26-23
+    18  10.   5-9     +0       (best)   7-11   -129      31/28   5-9 21-17 9-14 17-13 1-6 31-27 7-11 27-23
+    20  11.   4-8     -3       (best)   9-14   +0        29/30   4-8 17-13 1-6 26-22 15-18 22x15 12-16 19x12
+    22  12.   1-6     +0       (best)   9-14   -329      32/29   1-6 30-25 9-14 25-22 15-18 22x15 12-16 19x12
+    24  13.   15-18   +0                9-14   +0        33/29   9-14 21-17 14x30 19-16 12x28 31-27 30x23 27x2
+    26  14.   18-23   +0       (best)   7-11   +0        30/33   18-23 26-22 23-26 22-17 26-30 25-22 12-16 19x12
+    28  15.   7-11    -168              23-26  +0        32/32   23-26 19-15 10x19 24x15 9-14 22-17 14-18 31x22
+   BLAME ply 28 15. 7-11  FEN B:W13,19,21,22,24,25,28,31:B3,6,7,8,9,10,12,23
+     played 7-11 -168 (depth 32, pv 7-11 22-18 10-14 24-20 23-26 31x22 14x23 22-18)
+     best alternative 23-26 +0 (depth 32, pv 23-26 19-15 10x19 24x15 9-14 22-17 14-18 31x22)
+     drop 168 from the previous score +0, margin 168
+== /home/admingod/regicide-jobs/cake/cake_losses_769ef0b.pdn #28: Regicide 0.2 (black) - Cake 1.89f (white)  0-1  ACF #63: 10-14 22-17 14-18  round 55.1
+   black, ballot 3 plies, 106 plies played
+   ply  move  played            best/alternative           depth  pv (best)
+     4  3.    9x18    forced
+     6  4.    6-9     -10      (best)   12-16  -211      27/23   6-9 23x14 9x18 30-26 5-9 17-14 9-13 26-23
+     8  5.    9x18    forced
+    10  6.    5-9     -9       (best)   2-6    -25       27/27   5-9 17-14 9-13 26-23 11-15 14-9 1-5 23x14
+    12  7.    1-5     -45               9-13   -10       27/27   9-13 24-19 11-16 26-23 8-11 28-24 16-20 14-9
+   BLAME ply 12 7. 1-5  FEN B:W14,21,24,25,26,27,28,29,31,32:B1,2,3,4,7,8,9,11,12,18
+     played 1-5 -45 (depth 27, pv 1-5 21-17 9-13 25-21 13x22 26x17 2-6 24-19)
+     best alternative 9-13 -10 (depth 27, pv 9-13 24-19 11-16 26-23 8-11 28-24 16-20 14-9)
+     drop 36 from the previous score -9, margin 35
+== /home/admingod/regicide-jobs/cake/cake_losses_769ef0b.pdn #29: Regicide 0.2 (black) - Cake 1.89f (white)  0-1  ACF #62 Gemini I: 10-14 22-17 11-16  round 54.1
+   black, ballot 3 plies, 180 plies played
+   ply  move  played            best/alternative           depth  pv (best)
+     4  3.    6x15    -25      (best)   7x14   -135      25/24   6x15 23-18 15x22 25x18 7-10 29-25 3-7 25-22
+     6  4.    15x22   forced
+     8  5.    8-11    -33               7-10   -20       26/24   7-10 29-25 3-7 25-22 1-6 26-23 8-11 24-19
+    10  6.    7-10    -29      (best)   1-6    -31       26/26   7-10 17-13 1-6 27-23 3-7 26-22 16-20 24-19
+    12  7.    1-6     -49      (best)   10-15  -85       27/27   1-6
+    14  8.    16-20   -154              3-7    -22       28/25   3-7 24-20 16-19 26-22 10-15 25-21 9-14 18x9
+   BLAME ply 14 8. 16-20  FEN B:W13,18,24,25,26,27,28,30,31,32:B2,3,4,5,6,9,10,11,12,16
+     played 16-20 -154 (depth 25, pv 16-20 24-19 9-14 18x9 5x14 25-22 3-8 27-23)
+     best alternative 3-7 -22 (depth 28, pv 3-7 24-20 16-19 26-22 10-15 25-21 9-14 18x9)
+     drop 105 from the previous score -49, margin 132
+== /home/admingod/regicide-jobs/cake/cake_losses_769ef0b.pdn #30: Regicide 0.2 (black) - Cake 1.89f (white)  0-1  ACF #72: 10-14 23-19 11-15  round 64.1
+   black, ballot 3 plies, 112 plies played
+   ply  move  played            best/alternative           depth  pv (best)
+     4  3.    6x15    forced
+     6  4.    14x23   +0                15x22  +0        27/28   15x22 26x10 7x14 25-22 8-11 29-25 3-7 27-23
+     8  5.    7x14    forced
+    10  6.    3-7     -11               8-11   +0        27/27   8-11 29-25 3-7 22-17 14-18 17-13 9-14 30-26
+    12  7.    8-11    +0                7-10   +0        27/28   7-10 28-24 8-11 30-26 11-16 27-23 16-20 29-25
+    14  8.    14-18   +0       (best)   7-10   -3        27/29   14-18 28-24 1-6 17-13 7-10 29-25 11-16 21-17
+    16  9.    9-13    -112              1-6    +0        27/24   1-6 17-13 7-10 29-25 11-16 31-26 16x23 26x19
+   BLAME ply 16 9. 9-13  FEN B:W17,19,21,24,27,29,30,31,32:B1,2,4,5,7,9,11,12,18
+     played 9-13 -112 (depth 24, pv 9-13 17-14 1-6 19-15 12-16 15x8 4x11 24-20)
+     best alternative 1-6 +0 (depth 27, pv 1-6 17-13 7-10 29-25 11-16 31-26 16x23 26x19)
+     drop 112 from the previous score +0, margin 112
+== /home/admingod/regicide-jobs/cake/cake_losses_769ef0b.pdn #31: Regicide 0.2 (black) - Cake 1.89f (white)  0-1  ACF #75: 10-14 24-19 6-10  round 67.1
+   black, ballot 3 plies, 116 plies played
+   ply  move  played            best/alternative           depth  pv (best)
+     4  3.    11-15   -13               9-13   +0        29/28   9-13 28-24 13x22 25x9 5x14 26-22 11-15 22-17
+     6  4.    15x24   forced
+     8  5.    2x9     forced
+    10  6.    8-11    -7       (best)   9-13   -165      28/25   8-11 25-22 11-15 27-24 14-18 23x14 9x25 29x22
+    12  7.    11-15   -11      (best)   4-8    +0        28/27   11-15 27-24 14-18 23x14 9x25 29x22 5-9 22-17
+    14  8.    14-18   -2                4-8    +0        28/28   4-8 30-25 8-11 32-28 9-13 22-17 13x22 25x9
+    16  9.    9x25    +0       (best)   10x17  -656      30/21   9x25 29x22 5-9 26-23 9-14 30-26 4-8 32-27
+    18  10.   5-9     +0       (best)   7-11   -131      30/27   5-9 26-23 9-14 22-17 15-18 30-26 18x27 32x23
+    20  11.   4-8     +0       (best)   9-14   +0        30/31   4-8 17-13 1-6 26-22 12-16 19x12 15-18 22x15
+    22  12.   1-6     +0       (best)   9-14   -320      32/29   1-6 26-23 9-14 32-27 8-11 30-26 15-18 24-20
+    24  13.   15-18   +0                9-14   +0        32/30   9-14 26-23 15-18 24-20 18x27 32x23 8-11 25-22
+    26  14.   18-23   +0       (best)   7-11   +0        31/33   18-23 26-22 23-26 22-17 26-30 25-22 12-16 19x12
+    28  15.   7-11    -160              23-26  +0        32/30   23-26 19-15 10x19 24x15 9-14 22-17 14-18 31x22
+   BLAME ply 28 15. 7-11  FEN B:W13,19,21,22,24,25,28,31:B3,6,7,8,9,10,12,23
+     played 7-11 -160 (depth 30, pv 7-11 22-18 10-14 25-22 23-26 22-17 14x23 31x22)
+     best alternative 23-26 +0 (depth 32, pv 23-26 19-15 10x19 24x15 9-14 22-17 14-18 31x22)
+     drop 160 from the previous score +0, margin 160
+== /home/admingod/regicide-jobs/cake/cake_losses_769ef0b.pdn #32: Regicide 0.2 (black) - Cake 1.89f (white)  0-1  ACF #79: 10-14 24-19 14-18  round 70.1
+   black, ballot 3 plies, 96 plies played
+   ply  move  played            best/alternative           depth  pv (best)
+     4  3.    11x18   forced
+     6  4.    9x18    forced
+     8  5.    8-11    -16      (best)   6-9    -16       25/26   8-11 17-13 7-10 26-23 10-14 31-26 4-8 28-24
+    10  6.    11-16   -40               7-10   -18       27/27   7-10 28-24 11-16 26-23 10-14 31-26 6-10 25-21
+    12  7.    6-10    -16      (best)   6-9    -100      28/27   6-10 23x14 16x23 27x18 10x17 25-21 1-6 21x14
+    14  8.    16x23   -14      (best)   10x17  -15       28/28   16x23 27x18 10x17 25-21 1-6 21x14 6-10 31-26
+    16  9.    10x17   forced
+    18  10.   1-6     -15      (best)   2-6    -83       28/29   1-6 21x14 6-10 31-26 10x17 29-25 7-10 32-27
+    20  11.   6-10    -11      (best)   12-16  -617      29/22   6-10 29-25 10x17 31-26 7-10 32-27 17-21 27-23
+    22  12.   10x17   forced
+    24  13.   7-10    -5       (best)   17-21  -50       28/29   7-10 32-27 17-21 26-23 4-8 28-24 12-16 24-19
+    26  14.   17-21   -7                12-16  -9        30/32   12-16 27-23 17-21 25-22 4-8 22-17 8-12 26-22
+    28  15.   5-9     -189              12-16  -1        33/32   12-16 13-9 5x14 18x9 16-20 9-5 4-8 23-18
+   BLAME ply 28 15. 5-9  FEN B:W13,18,23,25,26,28,30:B2,3,4,5,10,12,21
+     played 5-9 -189 (depth 32, pv 5-9 13x6 2x9 26-22 12-16 22-17 9-13 25-22)
+     best alternative 12-16 -1 (depth 33, pv 12-16 13-9 5x14 18x9 16-20 9-5 4-8 23-18)
+     drop 182 from the previous score -7, margin 188
+== /home/admingod/regicide-jobs/cake/cake_losses_769ef0b.pdn #33: Regicide 0.2 (black) - Cake 1.89f (white)  0-1  ACF #90: 10-15 21-17 15-18  round 80.1
+   black, ballot 3 plies, 96 plies played
+   ply  move  played            best/alternative           depth  pv (best)
+     4  3.    11x18   forced
+     6  4.    9x18    forced
+     8  5.    8-11    -11               6-9    -18       24/26   6-9
+    10  6.    11-16   -47               7-10   -22       27/26   7-10 25-21 3-7 26-23 11-16 23x14 10x17 21x14
+   BLAME ply 10 6. 11-16  FEN B:W13,19,25,26,27,28,29,30,31,32:B1,2,3,4,5,6,7,11,12,18
+     played 11-16 -47 (depth 26, pv 11-16 26-23 6-10 23x14 16x23 27x18 10x17 25-21)
+     best alternative 7-10 -22 (depth 27, pv 7-10 25-21 3-7 26-23 11-16 23x14 10x17 21x14)
+     drop 36 from the previous score -11, margin 25
+== /home/admingod/regicide-jobs/cake/cake_losses_769ef0b.pdn #34: Regicide 0.2 (black) - Cake 1.89f (white)  0-1  ACF #87 Tyne: 10-15 21-17 9-13  round 78.1
+   black, ballot 3 plies, 122 plies played
+   ply  move  played            best/alternative           depth  pv (best)
+     4  3.    11-16   -31               15-18  -19       25/26   15-18 22x15 11x18 26-22 12-16 22x15 7-10 14x7
+     6  4.    15x24   forced
+     8  5.    6-9     -26      (best)   8-11   -26       27/28   6-9 22-18 8-11 25-21 16-20 29-25 11-16 19-15
+    10  6.    16-20   -43               8-11   -23       27/26   8-11 25-22 16-20 29-25 11-16 19-15 16-19 23x16
+    12  7.    2-6     -96               8-11   -11       28/28   8-11 29-25 11-16 19-15 16-19 23x16 12x19 32-28
+   BLAME ply 12 7. 2-6  FEN B:W14,18,19,22,23,26,27,29,30,31,32:B1,2,3,4,5,7,8,9,12,13,20
+     played 2-6 -96 (depth 28, pv 2-6 29-25 8-11 19-15 12-16 15x8 4x11 32-28)
+     best alternative 8-11 -11 (depth 28, pv 8-11 29-25 11-16 19-15 16-19 23x16 12x19 32-28)
+     drop 73 from the previous score -23, margin 85
+== /home/admingod/regicide-jobs/cake/cake_losses_769ef0b.pdn #35: Cake 1.89f (black) - Regicide 0.2 (white)  1-0  ACF #153 Black Widow: 11-16 23-19 16x23  round 138.2
+   white, ballot 3 plies, 121 plies played
+   ply  move  played            best/alternative           depth  pv (best)
+     3  2...  27x18   -52               26x19  -45       28/26   26x19 8-11 27-23 11-15 22-18 15x22 25x18 9-13
+     5  3...  32-27   -47               26-23  -39       27/26   26-23
+     7  4...  26-23   -46      (best)   18-14  -160      28/26   26-23 8-11 24-19 4-8 30-26 10-14 22-17 8-12
+     9  5...  24-19   -42      (best)   30-26  -36       28/27   24-19 4-8 30-26 10-14 22-17 8-12 17x10 7x14
+    11  6...  30-26   -65      (best)   22-17  -112      29/28   30-26 10-14 22-17 8-12 17x10 7x14 18-15 11x18
+    13  7...  22-17   -68      (best)   18-15  -212      30/27   22-17 8-12 17x10 7x14 18-15 11x18 26-22 9-13
+    15  8...  17x10   forced
+    17  9...  18-15   -103     (best)   26-22  -315      30/29   18-15 11x18 26-22 2-7 22x15 3-8 25-22 14-18
+    19  10... 26-22   -121     (best)   19-16  -421      31/27   26-22 3-8 22x15 2-7 25-22 14-18 23x14 9x25
+    21  11... 22x15   forced
+    23  12... 25-22   -116     (best)   31-26  dbloss/35  33/30   25-22 14-18 23x14 9x25 29x22 7-11 22-18 5-9
+    25  13... 23x14   forced
+    27  14... 29x22   forced
+    29  15... 22-18   -126     (best)   22-17  dbloss/37  34/29   22-18 11-16 27-23 5-9 31-26 1-5 26-22 9-13
+    31  16... 27-23   -119     (best)   27-24  dbloss/24  36/37   27-23 5-9 31-26 1-5 26-22 9-13 18-14 6-9
+    33  17... 31-26   -123     (best)   21-17  -317      36/31   31-26 1-5 26-22 9-13 18-14 6-9 14-10 20-24
+    35  18... 18-14   -134     (best)   26-22  -133      33/35   18-14 1-5 14-10 6-9 26-22 20-24 23-18 16x23
+    37  19... 26-22   -130     (best)   14-10  -132      34/32   26-22 6-9 14-10 20-24 23-18 16x23 28x19 23-26
+    39  20... 14-10   -140     (best)   22-18  -181      33/30   14-10 20-24 23-18 16x23 28x19 23-26 10-7 26-30
+    41  21... 23-18   -149     (best)   10-6   -186      32/28   23-18 16x23 28x19 23-26 10-7 26-30 7-2 30-25
+    43  22... 28x19   forced
+    45  23... 10-6    -153     (best)   10-7   -171      34/36   10-6 26-30 15-10 30-25 6-2 9-14 18x9 5x14
+    47  24... 15-10   -171     (best)   6-2    -187      32/35   15-10 30-25 6-2 9-14 18x9 5x14 22-17 13x22
+    49  25... 6-2     -204     (best)   22-17  dbloss/26  27/30   6-2 9-14 18x9 5x14 22-17 13x22 2-6 22-26
+    51  26... 18x9    forced
+    53  27... 22-17   -280     (best)   10-6   dbloss/16  35/38   22-17 13x22 2-6 22-26 6-9 14-18 19-15 25-22
+    55  28... 2-6     -285     (best)   10-7   dbloss/14  37/38   2-6 22-26 6-9 14-18 19-15 18-23 10-6 25-22
+    57  29... 6-9     -269     (best)   10-7   dbloss/12  35/38   6-9 14-18 19-15 18-23 10-6 25-22 6-2 23-27
+    59  30... 10-6    -319              19-15  -285      34/35   19-15 25-22 10-6 26-31 15-10 18-23 6-1 23-26
+   BLAME ply 59 30... 10-6  FEN W:WK9,10,19,21:B8,12,18,K25,26
+     played 10-6 -319 (depth 35, pv 10-6 26-31 19-15 25-22 15-10 18-23 6-1 31-27)
+     best alternative 19-15 -285 (depth 34, pv 19-15 25-22 10-6 26-31 15-10 18-23 6-1 23-26)
+     drop 50 from the previous score -269, margin 34
+summary: 35 games, 35 losses analysed, 32 blamed, 3 unclear, 0 errors; /home/admingod/regicide-jobs/cake/avoid_cake_769ef0b.bin: 24 avoid entries (0 merged from -)

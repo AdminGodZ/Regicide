@@ -1,0 +1,3 @@
+769ef0b Merge pull request #20 from AdminGodZ/t3/optimize-checkers-engine
+bcaf8293b2abd49a710d913ff3869426b02952085127fbe30b1747fdf8ec2aee  /home/admingod/regicide-jobs/cake/bin/lossprobe-769ef0b
+bench: 7338658 nodes 2736 ms 2682258 nps

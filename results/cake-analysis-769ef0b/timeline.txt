@@ -1,0 +1,4 @@
+CAKE lossprobe start (35 games, movetime 10000, threads 6, jobs 2, egdb 2-8) 2026-11-08T22:04:27+01:00
+CAKE lossprobe end rc=0 31 min:      drop 50 from the previous score -269, margin 34 summary: 35 games, 35 losses analysed, 32 blamed, 3 unclear, 0 errors; /home/admingod/regicide-jobs/cake/avoid_cake_769ef0b.bin: 24 avoid entries (0 merged from -)  2026-11-08T22:36:09+01:00
+CAKE_LOSSPROBE_DONE 2026-11-08T22:36:09+01:00
+BA start off-769-2s cake movetime 2 dll 769ef0b-egdb8; bg: datagen-eb1037c:T datagen-635d949:S  2026-11-08T22:36:39+01:00
