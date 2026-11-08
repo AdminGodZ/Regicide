@@ -11,6 +11,7 @@
 #include "datafile.hpp"
 #include "egdb/egdb.hpp"
 #include "movegen.hpp"
+#include "nnue.hpp"
 #include "perft.hpp"
 #include "position.hpp"
 #include "search.hpp"
@@ -36,6 +37,7 @@ void print_help() {
                  "  set book <path|builtin|off>, set egdb <dir>\n"
                  "  bench [depth]       fixed-depth search over built-in positions (node count signature)\n"
                  "Command line: regicide bench [depth] | regicide evaldata <evalfile|builtin> <data.bin> [count]\n"
+                 "              regicide nnuebench <evalfile|builtin> [data.bin] [count]  NNUE stage timings\n"
                  "  quit\n";
 }
 
@@ -70,6 +72,27 @@ int eval_data(const std::string& evalfile, const std::string& data, long count) 
     return 0;
 }
 
+// Times the NNUE stages (Network::profile) on the first `count` training records, or on the bench positions.
+int nnue_bench(const std::string& evalfile, const std::string& data, long count) {
+    std::string error;
+    const auto ev = evalfile == "builtin" ? Evaluator::builtin() : Evaluator::from_file(evalfile, &error);
+    if (!ev || !ev->network()) {
+        std::cerr << "cannot load a net from " << evalfile << (error.empty() ? "" : ": " + error) << std::endl;
+        return 1;
+    }
+    std::vector<Position> positions;
+    if (data.empty()) {
+        positions = bench_positions();
+    } else {
+        std::ifstream in(data, std::ios::binary);
+        DataRecord r;
+        while ((count <= 0 || long(positions.size()) < count) && in.read(reinterpret_cast<char*>(&r), sizeof r))
+            positions.push_back(r.position());
+    }
+    ev->network()->profile(positions, std::cout);
+    return 0;
+}
+
 }  // namespace
 
 int main(int argc, char** argv) {
@@ -94,6 +117,8 @@ int main(int argc, char** argv) {
     }
     if (argc > 3 && std::string(argv[1]) == "evaldata")
         return eval_data(argv[2], argv[3], argc > 4 ? std::atol(argv[4]) : 0);
+    if (argc > 2 && std::string(argv[1]) == "nnuebench")
+        return nnue_bench(argv[2], argc > 3 ? argv[3] : "", argc > 4 ? std::atol(argv[4]) : 1024);
 
     std::cout << "Regicide 0.2 (type 'help')" << std::endl;
 
