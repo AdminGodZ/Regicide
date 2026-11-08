@@ -60,4 +60,12 @@ Outcome: `se_depth=4` was merged into master as ae210fb. The rest of series 1 (l
 | razor_depth | 3 (0) | 289 / 1016 / 295 | -1.3 [-7.1, +4.5] | 2 90 621 86 1 | 800 | 13 min |
 | probcut_depth | 5 (99) | 284 / 973 / 343 | -12.8 [-19.6, -6.1] | 6 138 566 89 1 | 800 | 14 min |
 | se_margin | 30 (40) | 322 / 990 / 288 | +7.4 [+0.9, +13.8] **✓** | 2 89 585 121 3 | 800 | 13 min |
+| se_margin | 60 (40) | 310 / 981 / 309 | +0.2 [-6.3, +6.7] | 1 112 574 111 2 | 800 | 13 min |
+| se_margin | 20 (40) | 319 / 1003 / 278 | +8.9 [+2.6, +15.2] **✓** | 1 84 591 121 3 | 800 | 13 min |
+
+### Re-tests at 300 ms/move, 400 pairs
+
+| param | value (default) | W / D / L | Elo [95% CI] | penta [LL LD DD/WL WD WW] | pairs | time |
+|---|---|---|---|---|---|---|
+| se_margin | 30 (40) | 139 / 527 / 134 | +2.2 [-6.0, +10.4] | 0 43 310 46 1 | 400 | 19 min |
 
