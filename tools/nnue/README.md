@@ -36,9 +36,9 @@ start with every bucket equal.
 
 The RGNN header records the version, every width and the quantisation constants. The engine reads the widths from it,
 so one build loads any v1 or v2 net within its limits: FT up to 1024 per point of view (raise with
-`cmake -DREGICIDE_NNUE_MAX_FT=2048`), L1/L2 16/32/64, up to 24 buckets. Anything else is rejected with the reason
-(`cannot load ...: net v2 2x512 -> 48 -> 32 -> 1, 8 buckets (all layers): l1 and l2 must be 16, 32 or 64`). No build flags are
-needed for other widths (the old `REGICIDE_NNUE_FT` / `REGICIDE_NNUE_L1` options are gone).
+`cmake -DREGICIDE_NNUE_MAX_FT=2048`), L1/L2 16/32/64, up to 24 buckets. Anything else is rejected with the reason,
+e.g. `cannot load ...: net v2 2x512 -> 48 -> 32 -> 1, 8 buckets (all layers): l1 and l2 must be 16, 32 or 64`.
+No build flags are needed for other widths (the old `REGICIDE_NNUE_FT` / `REGICIDE_NNUE_L1` options are gone).
 
 File layout after the 44-byte header (`HB` = 1 in v1, `buckets` in v2; `N` = FT in v1, 2 FT in v2):
 `ft_bias i16[FT]`, `ft_weight i16[128][FT]`, `l1_bias i32[HB][L1]`, `l1_weight i8[HB][L1][N]`,
