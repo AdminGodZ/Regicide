@@ -1,6 +1,7 @@
 """Trains an NNUE net for Regicide on DataRecord files (datagen output) and exports it as RGNN.
 
   python tools/nnue/train.py --data a.bin --data b.bin --out runs/net1 [--epochs 40] [--lambda 0.7]
+                             [--arch v1|v2] [--ft N] [--l1 N] [--l2 N] [--buckets N]
 
 Target (as tools/train.cpp): lambda * game result + (1 - lambda) * sigmoid(search score / K), with K fitted to
 the data unless given; loss is cross-entropy against sigmoid(net score / K). Each epoch writes a checkpoint
@@ -27,6 +28,14 @@ def parse_args(argv=None):
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     p.add_argument("--data", action="append", required=True, help="DataRecord file (repeatable)")
     p.add_argument("--out", required=True, help="output directory for checkpoints and nets")
+    p.add_argument("--arch", choices=sorted(nnue.DEFAULTS), default="v1",
+                   help="v1: L1 sees the side to move's FT output, output buckets only; v2: L1 sees both points "
+                        "of view (2 x ft inputs), L1/L2/output bucketed")
+    p.add_argument("--ft", type=int, help="FT width per point of view (default: v1 %d, v2 %d)" %
+                   (nnue.V1.ft, nnue.V2.ft))
+    p.add_argument("--l1", type=int, help="L1 width, 16/32/64 (default 32)")
+    p.add_argument("--l2", type=int, help="L2 width, 16/32/64 (default 32)")
+    p.add_argument("--buckets", type=int, help="piece-count buckets, 1..24 (default 8)")
     p.add_argument("--epochs", type=int, default=40)
     p.add_argument("--epoch-size", type=int, default=0, help="positions per epoch (default: the training set)")
     p.add_argument("--batch", type=int, default=16384)
@@ -58,9 +67,9 @@ def lr_at(step, total, args):
     return args.lr_final + 0.5 * (args.lr - args.lr_final) * (1 + math.cos(math.pi * t))
 
 
-def batch_loss(model, t, K, lam, quant):
-    x, b = nnue.features(t["black"], t["white"], t["kings"], t["stm"])
-    pred = model(x, b, quant=quant)
+def batch_loss(model, arch, t, K, lam, quant):
+    x, xo, b = nnue.inputs(arch, t["black"], t["white"], t["kings"], t["stm"])
+    pred = model(x, xo, b, quant=quant)
     target = lam * t["result"] + (1 - lam) * torch.sigmoid(t["score"].float() / K)
     return F.binary_cross_entropy_with_logits(pred / K, target), pred
 
@@ -70,7 +79,7 @@ def validate(model, valid, K, lam, device, quant):
     total, n = 0.0, 0
     for i in range(0, len(valid), 65536):
         t = nnue.to_tensors(valid[i:i + 65536], device)
-        loss, _ = batch_loss(model, t, K, lam, quant)
+        loss, _ = batch_loss(model, model.arch, t, K, lam, quant)
         total += loss.item() * len(valid[i:i + 65536])
         n += len(valid[i:i + 65536])
     return total / max(1, n)
@@ -92,11 +101,14 @@ def main(argv=None):
         sys.exit("no training data")
     valid = data.validation(args.valid_max, rng)
 
-    model = nnue.Net(args.out_scale).to(device)
-    opt = torch.optim.AdamW(model.parameters(), lr=args.lr, weight_decay=args.wd)
+    arch = nnue.make_arch(args.arch, args.ft, args.l1, args.l2, args.buckets)
     start_epoch, step, K = 1, 0, args.k
-    if args.resume:
-        ck = torch.load(args.resume, map_location=device)
+    ck = torch.load(args.resume, map_location=device) if args.resume else None
+    if ck and nnue.arch_of_state(ck["model"]) != arch:
+        sys.exit("--resume: the checkpoint is %s, the arguments ask for %s" % (nnue.arch_of_state(ck["model"]), arch))
+    model = nnue.Net(arch, args.out_scale).to(device)
+    opt = torch.optim.AdamW(model.parameters(), lr=args.lr, weight_decay=args.wd)
+    if ck:
         model.load_state_dict(ck["model"])
         opt.load_state_dict(ck["optimizer"])
         start_epoch, step, K = ck["epoch"] + 1, ck["step"], ck["K"]
@@ -109,10 +121,10 @@ def main(argv=None):
     epoch_size = args.epoch_size or data.n_train
     steps_per_epoch = max(1, epoch_size // args.batch)
     total_steps = steps_per_epoch * args.epochs
-    print("train %d  valid %d  K %.1f  lambda %.2f  device %s  %d steps/epoch" %
-          (data.n_train, len(valid), K, args.lam, device, steps_per_epoch), flush=True)
+    print("net %s  train %d  valid %d  K %.1f  lambda %.2f  device %s  %d steps/epoch" %
+          (arch, data.n_train, len(valid), K, args.lam, device, steps_per_epoch), flush=True)
     with open(os.path.join(args.out, "config.json"), "w") as f:
-        json.dump(dict(vars(args), K=K), f, indent=1)
+        json.dump(dict(vars(args), K=K, net=dict(arch._asdict())), f, indent=1)
 
     loader = nnue.Prefetcher(data, args.batch, args.seed * 1000 + start_epoch, workers=args.loader_threads)
     t0 = time.time()
@@ -125,7 +137,7 @@ def main(argv=None):
                 for g in opt.param_groups:
                     g["lr"] = lr_at(step, total_steps, args)
                 t = nnue.to_tensors(loader.next(), device)
-                loss, _ = batch_loss(fwd, t, K, args.lam, quant)
+                loss, _ = batch_loss(fwd, arch, t, K, args.lam, quant)
                 opt.zero_grad(set_to_none=True)
                 loss.backward()
                 opt.step()
