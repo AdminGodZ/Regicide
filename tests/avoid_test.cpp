@@ -191,7 +191,9 @@ int main() {
         check(book.save(v1), "save v1");
         check(std::filesystem::file_size(v1) == 12 + sizeof(Book::Entry), "plain book is written as version 1");
         book.add_avoid(Book::make_entry(p, moves[1], -80, 30));
-        book.add_avoid(Book::make_entry(p, moves[1], -60, 20));  // merged: deepest kept, counts summed
+        Book::Entry shallow = Book::make_entry(p, moves[1], -60, 20);  // merged: deepest kept, highest count
+        shallow.count = 2;
+        book.add_avoid(shallow);
         book.add_avoid(Book::make_entry(after({"11-15"}), legal(after({"11-15"}))[0], -40, 25));
         book.finalize();
         check(book.avoid_size() == 2, "duplicate avoid entries are merged");

@@ -28,6 +28,7 @@
 #include <sstream>
 #include <string>
 #include <thread>
+#include <tuple>
 #include <vector>
 
 #include "book.hpp"
@@ -409,6 +410,7 @@ int main(int argc, char** argv) {
         }
     }
     const std::size_t merged = avoid.avoid_size();
+    Book blames;
     int analysed = 0, blamed = 0, unclear = 0, errors = 0;
     std::ostringstream report;
     report << head.str();
@@ -418,9 +420,23 @@ int main(int argc, char** argv) {
         unclear += o.unclear;
         errors += o.error;
         for (const Blame& b : o.blames) {
-            avoid.add_avoid(Book::make_entry(b.pos, b.move, b.score, b.depth));
+            blames.add_avoid(Book::make_entry(b.pos, b.move, b.score, b.depth));
             ++blamed;
         }
+    }
+    // The same move blamed in several games: one entry counting them.
+    std::vector<Book::Entry> run(blames.avoid_entries());
+    std::ranges::sort(run, {}, [](const Book::Entry& e) { return std::tuple(e.key, e.from, e.to, e.disc); });
+    for (std::size_t i = 0; i < run.size();) {
+        std::size_t j = i;
+        Book::Entry e = run[i];
+        for (; j < run.size() && run[j].key == e.key && run[j].from == e.from && run[j].to == e.to &&
+               run[j].disc == e.disc;
+             ++j)
+            if (run[j].depth > e.depth) e = run[j];
+        e.count = std::uint16_t(j - i);
+        avoid.add_avoid(e);
+        i = j;
     }
     avoid.finalize();
     std::ostringstream summary;

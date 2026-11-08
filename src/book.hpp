@@ -14,7 +14,7 @@ namespace regicide {
 // the engine must never play at the root (learned from lost games, see tools/lossprobe.cpp).
 // File version 1: "RGBK", u32 1, u32 count, then `count` sorted Entry records.
 // File version 2: "RGBK", u32 2, u32 count, u32 avoid_count, then the book entries, then `avoid_count` sorted Entry
-// records for the avoid list (score/depth: the analysis that blamed the move; count: how often it was blamed).
+// records for the avoid list (score/depth: the analysis that blamed the move; count: lost games that blamed it in one lossprobe run).
 // save() writes version 1 when the avoid list is empty, so plain books stay readable by older builds.
 class Book {
 public:
@@ -49,7 +49,7 @@ public:
 
     void add(const Entry& e) { entries_.push_back(e); }
     void add_avoid(const Entry& e) { avoid_.push_back(e); }
-    void finalize();  // sort and deduplicate (keeps the deepest analysis per position and move; sums avoid counts)
+    void finalize();  // sort and deduplicate (keeps the deepest analysis per position and move)
 
     static Entry make_entry(const Position& pos, const Move& m, int score, int depth);
     static std::optional<Move> to_move(const Position& pos, const Entry& e);

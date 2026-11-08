@@ -94,12 +94,12 @@ void sort_entries(std::vector<Book::Entry>& es) {
 void Book::finalize() {
     sort_entries(entries_);
     entries_.erase(std::unique(entries_.begin(), entries_.end(), same_move), entries_.end());
-    // Avoid entries: one per position and move, with the deepest analysis and the summed blame count.
+    // Avoid entries: one per position and move, with the deepest analysis and the highest blame count.
     sort_entries(avoid_);
     std::vector<Entry> merged;
     for (const Entry& e : avoid_) {
         if (!merged.empty() && same_move(merged.back(), e))
-            merged.back().count = std::uint16_t(std::min(0xFFFF, merged.back().count + e.count));
+            merged.back().count = std::max(merged.back().count, e.count);
         else
             merged.push_back(e);
     }
