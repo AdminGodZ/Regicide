@@ -32,7 +32,7 @@ target_compile_definitions(regicide_core PUBLIC REGICIDE_EVAL_BANDS=$<BOOL:${REG
 # src/weights/net.bin is an optional NNUE network (RGNN); left empty, the linear eval is used.
 # NNUE layer widths, to build for a net of another architecture (empty: the defaults in nnue.hpp, which the
 # built-in net uses; any other width rejects it and falls back to the linear eval).
-set(REGICIDE_NNUE_FT "" CACHE STRING "NNUE feature-transformer width (empty: 512)")
+set(REGICIDE_NNUE_FT "" CACHE STRING "NNUE feature-transformer width (empty: 768)")
 set(REGICIDE_NNUE_L1 "" CACHE STRING "NNUE first hidden layer width (empty: 32)")
 foreach(width FT L1)
   if(REGICIDE_NNUE_${width})

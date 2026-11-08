@@ -4,7 +4,7 @@
 // eval (the side to move goes "up"; black positions are rotated 180 degrees with colours swapped).
 //
 //   inputs   128 = [our man, our king, their man, their king] x 32 squares
-//   FT       128 -> FT (512), int16 weights, SCReLU: a = clamp(acc, 0, QA)^2 >> 9 (0..127, 1.0 = 127)
+//   FT       128 -> FT (768), int16 weights, SCReLU: a = clamp(acc, 0, QA)^2 >> 9 (0..127, 1.0 = 127)
 //   L1       FT -> L1 (32), int8 weights, int32 sums, clipped ReLU: h = clamp(sum >> 6, 0, 127)
 //   L2       L1 -> L2 (32), same
 //   output   L2 -> 1 per bucket (by piece count), int16 weights; score = out * out_scale / (127 * 64)
@@ -32,7 +32,7 @@ namespace regicide::nnue {
 // FT and L1 can be overridden at configure time (cmake -DREGICIDE_NNUE_FT=1024 -DREGICIDE_NNUE_L1=64) to build
 // for a net of another width; tools/nnue/nnue.py has the same constants.
 #ifndef REGICIDE_NNUE_FT
-#define REGICIDE_NNUE_FT 512
+#define REGICIDE_NNUE_FT 768
 #endif
 #ifndef REGICIDE_NNUE_L1
 #define REGICIDE_NNUE_L1 32
