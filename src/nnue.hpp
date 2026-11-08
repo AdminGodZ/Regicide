@@ -77,6 +77,8 @@ public:
                                                std::string* error = nullptr);
 
     void refresh(Accumulator& acc, const Position& pos) const;
+    // One point of view only.
+    void refresh(std::int16_t* v, const Position& pos, Color view) const;
     // Score from the side to move's point of view, in centi-men.
     Score evaluate(const Accumulator& acc, Color stm, int pieces) const;
     // Full refresh, then evaluate.
@@ -118,7 +120,8 @@ private:
 };
 
 // Accumulators along the current search path, one entry per ply. The search records each move with push();
-// accumulators are computed lazily when a position is evaluated, from the nearest computed ancestor.
+// accumulators are computed lazily when a position is evaluated, from the nearest computed ancestor, and one point
+// of view at a time: a leaf only needs its side to move's, the other is computed once a child needs it.
 class AccumulatorStack {
 public:
     static constexpr int SIZE = MAX_PLY + 8;
@@ -128,7 +131,7 @@ public:
     // Records the move that leads from `parent` (at ply - 1) to the position at `ply`.
     void push(int ply, const Position& parent, const Move& m) {
         Entry& e = entries_[ply];
-        e.computed = false;
+        e.computed[BLACK] = e.computed[WHITE] = false;
         e.us = parent.side_to_move();
         e.from = m.from;
         e.to = m.to;
@@ -136,7 +139,7 @@ public:
         e.captures = m.captures;
         e.captured_kings = m.captures & parent.kings();
     }
-    // Brings the accumulator at `ply` (holding `pos`) up to date.
+    // Brings the side to move's point of view of the accumulator at `ply` (holding `pos`) up to date.
     const Accumulator& get(const Network& net, const Position& pos, int ply);
     Score evaluate(const Network& net, const Position& pos, int ply) {
         return net.evaluate(get(net, pos, ply), pos.side_to_move(), pos.piece_count());
@@ -149,9 +152,9 @@ private:
         std::uint8_t from, to;
         Color us;
         bool king;  // the moved piece was a king before the move
-        bool computed = false;
+        bool computed[2] = {false, false};  // per point of view
     };
-    void apply(const Network& net, const Entry& parent, Entry& e) const;
+    void apply(const Network& net, const Entry& parent, Entry& e, Color view) const;
 
     Entry entries_[SIZE];
 };

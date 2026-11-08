@@ -234,16 +234,17 @@ std::shared_ptr<const Network> Network::load(const unsigned char* data, std::siz
 }
 
 void Network::refresh(Accumulator& acc, const Position& pos) const {
-    for (Color view : {BLACK, WHITE}) {
-        std::int16_t* v = acc.v[view];
-        std::memcpy(v, ft_bias_, sizeof ft_bias_);
-        for (Color c : {BLACK, WHITE})
-            for (Bitboard b = pos.pieces(c); b;) {
-                const int sq = pop_lsb(b);
-                const std::int16_t* w = ft_weight_[feature(view, c, (pos.kings() >> sq) & 1, sq)];
-                for (int i = 0; i < FT; ++i) v[i] = std::int16_t(v[i] + w[i]);
-            }
-    }
+    for (Color view : {BLACK, WHITE}) refresh(acc.v[view], pos, view);
+}
+
+void Network::refresh(std::int16_t* v, const Position& pos, Color view) const {
+    std::memcpy(v, ft_bias_, sizeof ft_bias_);
+    for (Color c : {BLACK, WHITE})
+        for (Bitboard b = pos.pieces(c); b;) {
+            const int sq = pop_lsb(b);
+            const std::int16_t* w = ft_weight_[feature(view, c, (pos.kings() >> sq) & 1, sq)];
+            for (int i = 0; i < FT; ++i) v[i] = std::int16_t(v[i] + w[i]);
+        }
 }
 
 void Network::update(const std::int16_t* src, std::int16_t* dst, const int* add, int nadd, const int* sub,
@@ -329,35 +330,34 @@ Score Network::evaluate(const Position& pos) const {
 
 void AccumulatorStack::reset(const Network& net, const Position& root) {
     net.refresh(entries_[0].acc, root);
-    entries_[0].computed = true;
+    entries_[0].computed[BLACK] = entries_[0].computed[WHITE] = true;
 }
 
-void AccumulatorStack::apply(const Network& net, const Entry& parent, Entry& e) const {
+void AccumulatorStack::apply(const Network& net, const Entry& parent, Entry& e, Color view) const {
     const Color us = e.us, them = ~us;
     const bool to_king = e.king || (bit(e.to) & promo_row(us));
-    for (Color view : {BLACK, WHITE}) {
-        int add[1] = {feature(view, us, to_king, e.to)};
-        int sub[13];
-        int nsub = 0;
-        sub[nsub++] = feature(view, us, e.king, e.from);
-        for (Bitboard b = e.captures; b;) {
-            const int sq = pop_lsb(b);
-            sub[nsub++] = feature(view, them, (e.captured_kings >> sq) & 1, sq);
-        }
-        net.update(parent.acc.v[view], e.acc.v[view], add, 1, sub, nsub);
+    int add[1] = {feature(view, us, to_king, e.to)};
+    int sub[13];
+    int nsub = 0;
+    sub[nsub++] = feature(view, us, e.king, e.from);
+    for (Bitboard b = e.captures; b;) {
+        const int sq = pop_lsb(b);
+        sub[nsub++] = feature(view, them, (e.captured_kings >> sq) & 1, sq);
     }
-    e.computed = true;
+    net.update(parent.acc.v[view], e.acc.v[view], add, 1, sub, nsub);
+    e.computed[view] = true;
 }
 
 const Accumulator& AccumulatorStack::get(const Network& net, const Position& pos, int ply) {
-    if (!entries_[ply].computed) {
+    const Color view = pos.side_to_move();
+    if (!entries_[ply].computed[view]) {
         int k = ply;
-        while (k > 0 && !entries_[k].computed) --k;
-        if (entries_[k].computed) {
-            for (int i = k + 1; i <= ply; ++i) apply(net, entries_[i - 1], entries_[i]);
+        while (k > 0 && !entries_[k].computed[view]) --k;
+        if (entries_[k].computed[view]) {
+            for (int i = k + 1; i <= ply; ++i) apply(net, entries_[i - 1], entries_[i], view);
         } else {
-            net.refresh(entries_[ply].acc, pos);
-            entries_[ply].computed = true;
+            net.refresh(entries_[ply].acc.v[view], pos, view);
+            entries_[ply].computed[view] = true;
         }
     }
     return entries_[ply].acc;
