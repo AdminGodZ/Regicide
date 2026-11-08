@@ -4,10 +4,10 @@
 // eval (the side to move goes "up"; black positions are rotated 180 degrees with colours swapped).
 //
 //   inputs   128 = [our man, our king, their man, their king] x 32 squares
-//   FT       128 -> 256, int16 weights, SCReLU: a = clamp(acc, 0, QA)^2 >> 9 (0..127, 1.0 = 127)
-//   L1       256 -> 32,  int8 weights, int32 sums, clipped ReLU: h = clamp(sum >> 6, 0, 127)
-//   L2       32 -> 32,   same
-//   output   32 -> 1 per bucket (by piece count), int16 weights; score = out * out_scale / (127 * 64)
+//   FT       128 -> FT (512), int16 weights, SCReLU: a = clamp(acc, 0, QA)^2 >> 9 (0..127, 1.0 = 127)
+//   L1       FT -> L1 (32), int8 weights, int32 sums, clipped ReLU: h = clamp(sum >> 6, 0, 127)
+//   L2       L1 -> L2 (32), same
+//   output   L2 -> 1 per bucket (by piece count), int16 weights; score = out * out_scale / (127 * 64)
 //
 // The search keeps one accumulator per colour's point of view on its stack and updates both from each move;
 // the forward pass uses the side to move's. tools/nnue/ trains and exports nets (see its README).
@@ -20,16 +20,27 @@
 #include <algorithm>
 #include <cstddef>
 #include <cstdint>
+#include <iosfwd>
 #include <memory>
 #include <string>
+#include <vector>
 
 #include "eval.hpp"
 
 namespace regicide::nnue {
 
+// FT and L1 can be overridden at configure time (cmake -DREGICIDE_NNUE_FT=1024 -DREGICIDE_NNUE_L1=64) to build
+// for a net of another width; tools/nnue/nnue.py has the same constants.
+#ifndef REGICIDE_NNUE_FT
+#define REGICIDE_NNUE_FT 512
+#endif
+#ifndef REGICIDE_NNUE_L1
+#define REGICIDE_NNUE_L1 32
+#endif
+
 constexpr int INPUTS = 128;
-constexpr int FT = 512;
-constexpr int L1 = 32;
+constexpr int FT = REGICIDE_NNUE_FT;
+constexpr int L1 = REGICIDE_NNUE_L1;
 constexpr int L2 = 32;
 constexpr int BUCKETS = 8;
 
@@ -66,21 +77,46 @@ public:
                                                std::string* error = nullptr);
 
     void refresh(Accumulator& acc, const Position& pos) const;
+    // One point of view only.
+    void refresh(std::int16_t* v, const Position& pos, Color view) const;
     // Score from the side to move's point of view, in centi-men.
     Score evaluate(const Accumulator& acc, Color stm, int pieces) const;
     // Full refresh, then evaluate.
     Score evaluate(const Position& pos) const;
 
-    // dst = src with the given features removed and added, for one point of view.
-    void update(const std::int16_t* src, std::int16_t* dst, const int* add, int nadd, const int* sub, int nsub) const;
+    // One move's change to one point of view: the feature added and those removed.
+    struct Delta {
+        int add, nsub;
+        int sub[13];
+    };
+    // Applies n moves to one point of view in one pass: dst[0] = src + delta[0], dst[i] = dst[i - 1] + delta[i].
+    void update(const std::int16_t* src, std::int16_t* const* dst, const Delta* delta, int n) const;
 
     int out_scale() const { return out_scale_; }
 
+    // Times each stage of the forward pass and the accumulator updates over `positions`, and prints them with
+    // the sparsity of the activations (regicide nnuebench).
+    void profile(const std::vector<Position>& positions, std::ostream& out) const;
+
 private:
+    // Activations of one forward pass.
+    struct alignas(64) Forward {
+        std::int8_t a[FT];          // feature transformer output
+        std::uint16_t nnz[FT / 4];  // SIMD builds: the 4-byte chunks of `a` that are not all zero
+        int count = 0;              // ... and how many there are
+        std::int8_t h1[L1];
+        std::int8_t h2[L2];
+    };
+    void transform(const std::int16_t* v, Forward& f) const;
+    void hidden1(Forward& f) const;
+    void hidden2(Forward& f) const;
+    Score output(const Forward& f, int pieces) const;
+
     alignas(64) std::int16_t ft_bias_[FT];
     alignas(64) std::int16_t ft_weight_[INPUTS][FT];
-    alignas(64) std::int8_t l1_weight_[L1][FT];
-    alignas(64) std::int8_t l2_weight_[L2][L1];
+    // Hidden-layer weights in the order the affine kernels read them (see weight_index in nnue.cpp).
+    alignas(64) std::int8_t l1_weight_[L1 * FT];
+    alignas(64) std::int8_t l2_weight_[L2 * L1];
     alignas(64) std::int32_t l1_bias_[L1];
     alignas(64) std::int32_t l2_bias_[L2];
     alignas(64) std::int16_t out_weight_[BUCKETS][L2];
@@ -89,7 +125,8 @@ private:
 };
 
 // Accumulators along the current search path, one entry per ply. The search records each move with push();
-// accumulators are computed lazily when a position is evaluated, from the nearest computed ancestor.
+// accumulators are computed lazily when a position is evaluated, from the nearest computed ancestor, and one point
+// of view at a time: a leaf only needs its side to move's, the other is computed once a child needs it.
 class AccumulatorStack {
 public:
     static constexpr int SIZE = MAX_PLY + 8;
@@ -99,7 +136,7 @@ public:
     // Records the move that leads from `parent` (at ply - 1) to the position at `ply`.
     void push(int ply, const Position& parent, const Move& m) {
         Entry& e = entries_[ply];
-        e.computed = false;
+        e.computed[BLACK] = e.computed[WHITE] = false;
         e.us = parent.side_to_move();
         e.from = m.from;
         e.to = m.to;
@@ -107,7 +144,7 @@ public:
         e.captures = m.captures;
         e.captured_kings = m.captures & parent.kings();
     }
-    // Brings the accumulator at `ply` (holding `pos`) up to date.
+    // Brings the side to move's point of view of the accumulator at `ply` (holding `pos`) up to date.
     const Accumulator& get(const Network& net, const Position& pos, int ply);
     Score evaluate(const Network& net, const Position& pos, int ply) {
         return net.evaluate(get(net, pos, ply), pos.side_to_move(), pos.piece_count());
@@ -120,9 +157,9 @@ private:
         std::uint8_t from, to;
         Color us;
         bool king;  // the moved piece was a king before the move
-        bool computed = false;
+        bool computed[2] = {false, false};  // per point of view
     };
-    void apply(const Network& net, const Entry& parent, Entry& e) const;
+    static Network::Delta delta(const Entry& e, Color view);
 
     Entry entries_[SIZE];
 };

@@ -1,0 +1,27 @@
+== match builds: bench
+m512 built-in: bench: 6873528 nodes 1455 ms 4724074 nps
+built-in net rejected (net ft 512, this build expects 1024), using the linear eval
+m1024 nn3c.nnue: bench: 6167330 nodes 1643 ms 3753700 nps
+built-in net rejected (net l1 32, this build expects 64), using the linear eval
+ml164 nn3d.nnue: bench: 5185919 nodes 1202 ms 4314408 nps
+built-in net rejected (net ft 512, this build expects 768), using the linear eval
+m768 nn3e.nnue: bench: 7245436 nodes 1740 ms 4164043 nps
+old ae210fb built-in: bench: 6873528 nodes 1582 ms 4344834 nps
+== FT 768: ctest (new code built with FT=768)
+100% tests passed out of 7
+
+Total Test time (real) =   6.26 sec
+31:constexpr int FT = 768;
+768 evaldata: 100000 evals, identical
+built-in net rejected (net ft 512, this build expects 768), using the linear eval
+base_768 bench: 7245436 nodes 2191 ms 3306908 nps
+built-in net rejected (net ft 512, this build expects 768), using the linear eval
+new_768  bench: 7245436 nodes 1940 ms 3734760 nps
+built-in net rejected (net ft 512, this build expects 768), using the linear eval
+base_768 bench: 7245436 nodes 2059 ms 3518910 nps
+built-in net rejected (net ft 512, this build expects 768), using the linear eval
+new_768  bench: 7245436 nodes 1808 ms 4007431 nps
+built-in net rejected (net ft 512, this build expects 768), using the linear eval
+base_768 bench: 7245436 nodes 2092 ms 3463401 nps
+built-in net rejected (net ft 512, this build expects 768), using the linear eval
+new_768  bench: 7245436 nodes 1784 ms 4061343 nps

@@ -1,0 +1,60 @@
+== e6a8e3f NNUE: one SIMD guard for the chunk table and sparse_order, baseline 821c89e
+== Ubuntu clang version 22.1.8 (++20260714014902+ca7933e47d3a-1~exp1~20260714135019.80)
+== -march=native: __AVX2__ __AVXVNNI__ 
+== vpdpbusd in the native build: 108 (must be > 0)
+== vpdpbusd in the haswell build: 0 (must be 0)
+== ctest, native (includes nnue_ft1024 and nnue_l1_64: the VNNI kernels against the naive reference)
+100% tests passed out of 8
+
+Total Test time (real) =   6.44 sec
+== ctest, -march=haswell (AVX2 maddubs path)
+100% tests passed out of 8
+
+Total Test time (real) =   6.51 sec
+== evaldata: new vs baseline on 100000 records (must be identical)
+512: 100000 evals, identical
+1024: 100000 evals, identical
+l164: 100000 evals, identical
+== built-in bench (must be 6873528): bench: 6873528 nodes 1424 ms 4826915 nps
+== bench nodes and nps, 6 alternating rounds
+base_512  nodes 6873528 (expect 6873528)  median nps 4344841  sorted runs 4214302 4298641 4339348 4350334 4355847 4372473 
+new_512   nodes 6873528 (expect 6873528)  median nps 4791682  sorted runs 4679052 4737097 4769970 4813394 4823528 4861052 
+base_1024 nodes 6167330 (expect 6167330)  median nps 3064579  sorted runs 2819995 2907746 3050113 3079046 3082123 3086751 
+new_1024  nodes 6167330 (expect 6167330)  median nps 3782520  sorted runs 3396106 3401726 3769761 3795280 3797616 3806993 
+base_l164 nodes 5185919 (expect 5185919)  median nps 3436917  sorted runs 3215076 3229090 3343597 3530237 3535050 3544715 
+new_l164  nodes 5185919 (expect 5185919)  median nps 4301888  sorted runs 3899187 4076980 4296536 4307241 4307241 4310822 
+== stage timings (new code)
+nnue profile: FT 512, L1 32, L2 32, 1024 positions, ns per call
+  refresh (both views)            162.2
+  update (one move, both views)    67.9
+  evaluate                         80.0
+    transform (SCReLU)             22.4
+    FT -> L1                       49.2
+    L1 -> L2                        4.2
+    output                          2.2
+  FT output: 38.1% non-zero bytes, 76.5% non-zero chunks (97.9 of 128)
+  L1 output: 75.1% non-zero bytes, 100.0% non-zero chunks (8.0 of 8)
+  (checksum -42)
+nnue profile: FT 1024, L1 32, L2 32, 1024 positions, ns per call
+  refresh (both views)            313.0
+  update (one move, both views)   156.0
+  evaluate                        128.5
+    transform (SCReLU)             59.4
+    FT -> L1                       81.4
+    L1 -> L2                        4.2
+    output                          2.2
+  FT output: 28.4% non-zero bytes, 65.2% non-zero chunks (166.9 of 256)
+  L1 output: 53.5% non-zero bytes, 97.1% non-zero chunks (7.8 of 8)
+  (checksum -20)
+nnue profile: FT 512, L1 64, L2 32, 1024 positions, ns per call
+  refresh (both views)            159.5
+  update (one move, both views)    63.5
+  evaluate                        132.8
+    transform (SCReLU)             22.5
+    FT -> L1                       96.7
+    L1 -> L2                        7.4
+    output                          2.3
+  FT output: 38.7% non-zero bytes, 77.4% non-zero chunks (99.1 of 128)
+  L1 output: 62.5% non-zero bytes, 98.9% non-zero chunks (15.8 of 16)
+  (checksum -256)
+== logs in /home/admingod/regicide-nsv/experiments/nnue_speed/logs/x86_20261108_0836

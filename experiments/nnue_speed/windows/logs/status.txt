@@ -1,0 +1,18 @@
+start match nn3e vs nn2b (A r825f993_ft768.so + set evalfile nn3e.nnue, B r825f993.so built-in nn2b) 2026-11-08T08:21:43+01:00
+end match nn3e rc=0 Elo (pentanomial, pairs): +0.2 [-4.9, +5.4] 95% CI, score 0.5003 +- 0.0074, LOS 53.26% 2026-11-08T08:36:06+01:00
+EXTRA_DONE 2026-11-08T08:36:06+01:00
+NSV checkout e6a8e3f NNUE: one SIMD guard for the chunk table and sparse_order 2026-11-08T08:36:47+01:00
+NSV paused datagen 100789  2026-11-08T08:36:47+01:00
+NSV_VERIFY_DONE (datagen still paused) 2026-11-08T08:38:39+01:00
+NSV phase 2 start e6a8e3f NNUE: one SIMD guard for the chunk table and sparse_order 2026-11-08T08:39:11+01:00
+NSV FT768 exact: 1 2026-11-08T08:40:04+01:00
+NSV start match new-nn2b vs old-nn2b (A new512_A.so -, B old_ae210fb.so built-in) 2026-11-08T08:40:04+01:00
+NSV end match new-nn2b vs old-nn2b rc=0 Elo (pentanomial, pairs): -1.5 [-5.1, +2.1] 95% CI, score 0.4978 +- 0.0051, LOS 20.30% 2026-11-08T08:53:28+01:00
+NSV start match nn3c-new vs nn2b-new (A new1024.so nn3c.nnue, B new512.so built-in) 2026-11-08T08:53:28+01:00
+NSV end match nn3c-new vs nn2b-new rc=0 Elo (pentanomial, pairs): +2.2 [-2.6, +6.9] 95% CI, score 0.5031 +- 0.0069, LOS 81.17% 2026-11-08T09:07:47+01:00
+NSV start match nn3d-new vs nn2b-new (A newl164.so nn3d.nnue, B new512.so built-in) 2026-11-08T09:07:47+01:00
+NSV end match nn3d-new vs nn2b-new rc=0 Elo (pentanomial, pairs): +1.7 [-2.9, +6.4] 95% CI, score 0.5025 +- 0.0067, LOS 76.75% 2026-11-08T09:21:51+01:00
+NSV start match nn3e-new vs nn2b-new (A new768.so nn3e.nnue, B new512.so built-in) 2026-11-08T09:21:51+01:00
+NSV end match nn3e-new vs nn2b-new rc=0 Elo (pentanomial, pairs): +5.4 [+0.9, +9.9] 95% CI, score 0.5078 +- 0.0064, LOS 99.09% 2026-11-08T09:35:52+01:00
+NSV resumed datagen 100789  2026-11-08T09:35:52+01:00
+NSV_MATCHES_DONE 2026-11-08T09:35:52+01:00

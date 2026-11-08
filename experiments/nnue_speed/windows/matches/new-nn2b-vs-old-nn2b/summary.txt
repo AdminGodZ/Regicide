@@ -1,0 +1,14 @@
+Match: A = new-nn2b, B = old-nn2b
+Openings: /home/admingod/regicide-gen2-work/openings4.txt (805 openings x 1 rounds, each played with both colours)
+Time control: 0.1s/move (CheckerBoard match rules); no-progress rule: 40 moves
+Games: 1610 of 1610 scheduled
+
+A: +285 =1033 -292   score 801.5/1610 = 49.78%   draw rate 64.2%
+A as black: +201 =512 -92   A as white: +84 =521 -200
+By colour: black won 401, white won 176, drawn 1033
+Pairs: 805   pentanomial [LL LD DD/WL WD WW] = [0 39 734 32 0]
+Elo (pentanomial, pairs): -1.5 [-5.1, +2.1] 95% CI, score 0.4978 +- 0.0051, LOS 20.30%
+Elo (trinomial, games):   -1.5 [-11.7, +8.7] 95% CI, LOS 38.54%
+Terminations: no legal moves 577; no progress 5; repetition 1028;
+A new-nn2b: 82467 moves, avg 0.048s/move, max 0.870s
+B old-nn2b: 82460 moves, avg 0.048s/move, max 0.945s

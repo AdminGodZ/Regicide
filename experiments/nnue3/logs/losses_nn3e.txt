@@ -1,0 +1,2 @@
+valid positions 1000000  K 116.65  lambda 0.70  engine /home/admingod/regicide-825-ft768/build/regicide
+nn3e                         0.526238

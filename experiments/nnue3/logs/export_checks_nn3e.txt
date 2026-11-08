@@ -1,0 +1,11 @@
+== nn3e export check (/home/admingod/regicide-825-ft768)
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 7.36, max 47.56 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK
+nn3e.nnue identical to the final net
+== nn3e check on 100k validation positions
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 7.69, max 66.19 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK
