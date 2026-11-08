@@ -26,6 +26,9 @@ struct Limits {
     int moves_to_go = 0;  // 0 = sudden death
     bool infinite = false;
     bool use_book = true;  // play a book move without searching when the engine has a book
+    // Analysis: search only these root moves (legal ones; empty = all). Skips the book and the avoid list, and
+    // searches a single move to the full limits instead of returning it at once.
+    std::vector<Move> searchmoves;
 };
 
 struct SearchInfo {
@@ -104,6 +107,10 @@ public:
         book_ = std::move(b);
         book_margin_ = margin;
     }
+    // Avoid list (Book::avoid_entries): root moves on it are never played unless every legal move is on it. The
+    // book probe skips them too. nullptr disables it. Positions decided by the endgame database ignore it.
+    void set_avoid(std::shared_ptr<const Book> a) { avoid_ = std::move(a); }
+    const Book* avoid() const { return avoid_.get(); }
     const Evaluator& evaluator() const { return *eval_; }
 
     SearchParams params;
@@ -111,7 +118,7 @@ public:
 private:
     friend struct Worker;
 
-    std::optional<std::pair<Move, Score>> egdb_root_move(const Position& root, const class MoveList& list) const;
+    std::optional<std::pair<Move, Score>> egdb_root_move(const Position& root, const std::vector<Move>& list) const;
 
     TranspositionTable tt_;
     std::vector<std::unique_ptr<struct Worker>> workers_;
@@ -121,6 +128,7 @@ private:
     std::function<bool()> stop_poll_;
     std::shared_ptr<const Evaluator> eval_ = Evaluator::builtin();
     std::shared_ptr<const Book> book_;
+    std::shared_ptr<const Book> avoid_;
     int egdb_pieces_ = 0;
     int book_margin_ = 0;
     std::uint64_t book_seed_ = 0x1234567;
