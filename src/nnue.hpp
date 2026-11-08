@@ -107,7 +107,7 @@ public:
     // One point of view only.
     void refresh(std::int16_t* v, const Position& pos, Color view) const;
     // Score from the side to move's point of view, in centi-men. Reads acc.v[stm], and in version 2 acc.v[~stm].
-    Score evaluate(const Accumulator& acc, Color stm, int pieces) const { return (this->*forward_)(acc, stm, pieces); }
+    Score evaluate(const Accumulator& acc, Color stm, int pieces) const;
     // Full refresh, then evaluate.
     Score evaluate(const Position& pos) const;
 
@@ -162,7 +162,6 @@ private:
 
     Arch arch_;
     int out_scale_ = 1;
-    Score (Network::*forward_)(const Accumulator&, Color, int) const = nullptr;  // forward<L1, L2>
     Array<std::int16_t> ft_bias_;    // [FT]
     Array<std::int16_t> ft_weight_;  // [INPUTS][FT]
     // Hidden-layer weights per hidden bucket, each in the order the affine kernels read them (see weight_index in

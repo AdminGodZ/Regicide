@@ -246,6 +246,18 @@ inline void with_width(int n, F&& f) {
     }
 }
 
+// Calls f(ft) with the FT width as a compile-time constant for the common widths, so their accumulator loops are
+// compiled for them (about 1% of search speed), and as an int otherwise.
+template <class F>
+inline decltype(auto) with_ft(int ft, F&& f) {
+    switch (ft) {
+    case 512: return f(std::integral_constant<int, 512>{});
+    case 768: return f(std::integral_constant<int, 768>{});
+    case 1024: return f(std::integral_constant<int, 1024>{});
+    default: return f(ft);
+    }
+}
+
 }  // namespace
 
 std::string Arch::describe() const {
@@ -293,9 +305,6 @@ std::shared_ptr<const Network> Network::load(const unsigned char* data, std::siz
 
     auto net = std::make_shared<Network>();
     net->arch_ = arch;
-    with_width(arch.l1, [&](auto l1) {
-        with_width(arch.l2, [&](auto l2) { net->forward_ = &Network::forward<l1(), l2()>; });
-    });
     net->out_scale_ = int(read_u32(data + 40));
     const int ft = arch.ft, l1 = arch.l1, l2 = arch.l2, n1 = arch.l1_inputs(), hb = arch.hidden_buckets();
     net->ft_bias_ = allocate<std::int16_t>(ft);
@@ -352,75 +361,82 @@ void Network::refresh(Accumulator& acc, const Position& pos) const {
 }
 
 void Network::refresh(std::int16_t* v, const Position& pos, Color view) const {
-    const int ft = arch_.ft;
-    std::memcpy(v, ft_bias_.get(), 2 * std::size_t(ft));
-    for (Color c : {BLACK, WHITE})
-        for (Bitboard b = pos.pieces(c); b;) {
-            const int sq = pop_lsb(b);
-            const std::int16_t* w = ft_row(feature(view, c, (pos.kings() >> sq) & 1, sq));
-            for (int i = 0; i < ft; ++i) v[i] = std::int16_t(v[i] + w[i]);
-        }
+    with_ft(arch_.ft, [&](auto ft) {
+        std::memcpy(v, ft_bias_.get(), 2 * std::size_t(ft));
+        for (Color c : {BLACK, WHITE})
+            for (Bitboard b = pos.pieces(c); b;) {
+                const int sq = pop_lsb(b);
+                const std::int16_t* w = ft_row(feature(view, c, (pos.kings() >> sq) & 1, sq));
+                for (int i = 0; i < ft; ++i) v[i] = std::int16_t(v[i] + w[i]);
+            }
+    });
 }
 
 void Network::update(const std::int16_t* src, std::int16_t* const* dst, const Delta* delta, int n) const {
     // Tile by tile, so a tile stays in registers across the moves.
     // Locals, as the stores to dst could alias the members.
     constexpr int TILE = FT_TILE;
-    const int ft = arch_.ft;
     const std::int16_t* weight = ft_weight_.get();
-    auto row = [&](int feature) { return weight + std::size_t(feature) * ft; };
-    for (int t = 0; t < ft; t += TILE) {
-        std::int16_t v[TILE];
-        std::memcpy(v, src + t, sizeof v);
-        for (int m = 0; m < n; ++m) {
-            const Delta& d = delta[m];
-            const std::int16_t *a = row(d.add) + t, *s = row(d.sub[0]) + t;
-            for (int i = 0; i < TILE; ++i) v[i] = std::int16_t(v[i] + a[i] - s[i]);
-            for (int k = 1; k < d.nsub; ++k) {
-                s = row(d.sub[k]) + t;
-                for (int i = 0; i < TILE; ++i) v[i] = std::int16_t(v[i] - s[i]);
+    with_ft(arch_.ft, [&](auto ft) {
+        auto row = [&](int feature) { return weight + std::size_t(feature) * ft; };
+        // Unrolled (as clang does for 4 tiles), the tile no longer stays in registers: twice as slow.
+#if defined(__clang__)
+#pragma clang loop unroll(disable)
+#endif
+        for (int t = 0; t < ft; t += TILE) {
+            std::int16_t v[TILE];
+            std::memcpy(v, src + t, sizeof v);
+            for (int m = 0; m < n; ++m) {
+                const Delta& d = delta[m];
+                const std::int16_t *a = row(d.add) + t, *s = row(d.sub[0]) + t;
+                for (int i = 0; i < TILE; ++i) v[i] = std::int16_t(v[i] + a[i] - s[i]);
+                for (int k = 1; k < d.nsub; ++k) {
+                    s = row(d.sub[k]) + t;
+                    for (int i = 0; i < TILE; ++i) v[i] = std::int16_t(v[i] - s[i]);
+                }
+                std::memcpy(dst[m] + t, v, sizeof v);
             }
-            std::memcpy(dst[m] + t, v, sizeof v);
         }
-    }
+    });
 }
 
 int Network::transform(const std::int16_t* v, std::int8_t* out, std::uint16_t* nnz, int count, int base) const {
-    const int ft = arch_.ft;
+    return with_ft(arch_.ft, [&](auto ft) {
 #if REGICIDE_NNUE_NEON
-    static_assert(QA == 255);
-    std::uint8_t* a = reinterpret_cast<std::uint8_t*>(out);
-    uint16x8_t index_base = vdupq_n_u16(std::uint16_t(base));
-    for (int i = 0; i < ft; i += 32) {
-        uint8x16_t o[2];
-        for (int h = 0; h < 2; ++h) {
-            // clamp(x, 0, 255) by narrowing with unsigned saturation, then c^2 >> 9 = (c^2 >> 8) >> 1.
-            const int16_t* x = v + i + 16 * h;
-            const uint8x16_t c = vqmovun_high_s16(vqmovun_s16(vld1q_s16(x)), vld1q_s16(x + 8));
-            const uint16x8_t lo = vmull_u8(vget_low_u8(c), vget_low_u8(c)), hi = vmull_high_u8(c, c);
-            o[h] = vshrq_n_u8(vshrn_high_n_u16(vshrn_n_u16(lo, 8), hi, 8), 1);
-            vst1q_u8(a + i + 16 * h, o[h]);
+        static_assert(QA == 255);
+        std::uint8_t* a = reinterpret_cast<std::uint8_t*>(out);
+        uint16x8_t index_base = vdupq_n_u16(std::uint16_t(base));
+        for (int i = 0; i < ft; i += 32) {
+            uint8x16_t o[2];
+            for (int h = 0; h < 2; ++h) {
+                // clamp(x, 0, 255) by narrowing with unsigned saturation, then c^2 >> 9 = (c^2 >> 8) >> 1.
+                const int16_t* x = v + i + 16 * h;
+                const uint8x16_t c = vqmovun_high_s16(vqmovun_s16(vld1q_s16(x)), vld1q_s16(x + 8));
+                const uint16x8_t lo = vmull_u8(vget_low_u8(c), vget_low_u8(c)), hi = vmull_high_u8(c, c);
+                o[h] = vshrq_n_u8(vshrn_high_n_u16(vshrn_n_u16(lo, 8), hi, 8), 1);
+                vst1q_u8(a + i + 16 * h, o[h]);
+            }
+            // One byte per chunk that saturating narrowing keeps non-zero, as 0 or 1, then gathered into 8 bits.
+            const uint16x8_t n16 = vqmovn_high_u32(vqmovn_u32(vreinterpretq_u32_u8(o[0])), vreinterpretq_u32_u8(o[1]));
+            const uint8x8_t nz = vmin_u8(vqmovn_u16(n16), vdup_n_u8(1));
+            const unsigned mask = unsigned((vget_lane_u64(vreinterpret_u64_u8(nz), 0) * 0x0102040810204080ull) >> 56);
+            vst1q_u16(nnz + count, vaddq_u16(index_base, vld1q_u16(NNZ_TABLE.index[mask])));
+            count += NNZ_TABLE.count[mask];
+            index_base = vaddq_u16(index_base, vdupq_n_u16(8));
         }
-        // One byte per chunk that saturating narrowing keeps non-zero, as 0 or 1, then gathered into 8 bits.
-        const uint16x8_t n16 = vqmovn_high_u32(vqmovn_u32(vreinterpretq_u32_u8(o[0])), vreinterpretq_u32_u8(o[1]));
-        const uint8x8_t nz = vmin_u8(vqmovn_u16(n16), vdup_n_u8(1));
-        const unsigned mask = unsigned((vget_lane_u64(vreinterpret_u64_u8(nz), 0) * 0x0102040810204080ull) >> 56);
-        vst1q_u16(nnz + count, vaddq_u16(index_base, vld1q_u16(NNZ_TABLE.index[mask])));
-        count += NNZ_TABLE.count[mask];
-        index_base = vaddq_u16(index_base, vdupq_n_u16(8));
-    }
 #else
-    for (int i = 0; i < ft; ++i) {
-        const int c = std::clamp<int>(v[i], 0, QA);
-        out[i] = std::int8_t((c * c) >> 9);
-    }
+        for (int i = 0; i < ft; ++i) {
+            const int c = std::clamp<int>(v[i], 0, QA);
+            out[i] = std::int8_t((c * c) >> 9);
+        }
 #if REGICIDE_NNUE_AVX2
-    count = find_nnz(out, ft, nnz, count, base);
+        count = find_nnz(out, ft, nnz, count, base);
 #endif
 #endif
-    (void)nnz;
-    (void)base;
-    return count;
+        (void)nnz;
+        (void)base;
+        return count;
+    });
 }
 
 // L1's input: SCReLU of the side to move's point of view, then (version 2) of the opponent's.
@@ -476,6 +492,14 @@ Score Network::forward(const Accumulator& acc, Color stm, int pieces) const {
     hidden1<L1>(f, hb);
     hidden2<L1, L2>(f, hb);
     return output<L2>(f, b);
+}
+
+Score Network::evaluate(const Accumulator& acc, Color stm, int pieces) const {
+    Score s = 0;
+    with_width(arch_.l1, [&](auto l1) {
+        with_width(arch_.l2, [&](auto l2) { s = forward<l1(), l2()>(acc, stm, pieces); });
+    });
+    return s;
 }
 
 Score Network::evaluate(const Position& pos) const {
