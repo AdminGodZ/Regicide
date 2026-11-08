@@ -1,0 +1,14 @@
+EGDB8 chain start pid 239881, egdb_gen 35ae5ea, free 903 GB 2026-11-08T14:27:06+01:00
+EGDB8 start gen8_44: egdb_gen build --max 8 --threads 8 --sides 44 --dir /home/admingod/regicide-data/egdb 2026-11-08T14:27:06+01:00
+EGDB8 end gen8_44 rc=0 2446 s, maxrss 9309224 kB, db 8.8G, free 895 GB 2026-11-08T15:07:52+01:00
+EGDB8 start gen8_53: egdb_gen build --max 8 --threads 8 --sides 53 --dir /home/admingod/regicide-data/egdb 2026-11-08T15:07:52+01:00
+EGDB8 end gen8_53 rc=0 3723 s, maxrss 3498080 kB, db 9.9G, free 893 GB 2026-11-08T16:09:55+01:00
+EGDB8 start gen8_rest: egdb_gen build --max 8 --threads 8  --dir /home/admingod/regicide-data/egdb 2026-11-08T16:09:55+01:00
+EGDB8 end gen8_rest rc=0 2035 s, maxrss 3128492 kB, db 11G, free 893 GB 2026-11-08T16:43:50+01:00
+EGDB8 BUILD_DONE rc=0 (gen4b datagen resumed by pausekeeper2) 2026-11-08T16:43:50+01:00
+EGDB8 new files: 147, 9.70 GB 2026-11-08T16:43:50+01:00
+EGDB8 verify rc=0 2 s: TOTAL: checked 3613877, wld mismatches 0, mtc checked 0, mtc mismatches 0 2026-11-08T16:43:52+01:00
+EGDB8 manifest rc=0 561 ok lines, 0 other 2026-11-08T16:44:08+01:00
+EGDB8 egdb_test --data rc=0 database /home/admingod/regicide-data/egdb: max_pieces 8, max_mtc_pieces 6 2026-11-08T16:44:09+01:00
+EGDB8 EGDB8_DONE 2026-11-08T16:44:09+01:00
+EGDB8DLL_DONE 2026-11-08T16:50:44+01:00

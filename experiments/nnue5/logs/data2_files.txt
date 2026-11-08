@@ -1,0 +1,11 @@
+total 4275828
+-rw-r--r-- 1 admingod admingod 154288128 Nov  7 00:16 gen1_n10k.bin
+-rw-r--r-- 1 admingod admingod 477080736 Nov  7 16:16 gen1b_n10k.bin
+-rw-r--r-- 1 admingod admingod 477064160 Nov  7 18:12 gen1c_n10k.bin
+-rw-r--r-- 1 admingod admingod 480975952 Nov  7 20:57 gen2a_n10k.bin
+-rw-r--r-- 1 admingod admingod 472261552 Nov  7 23:15 gen2b_n10k.bin
+-rw-r--r-- 1 admingod admingod 480528800 Nov  8 02:49 gen3a_n10k.bin
+-rw-r--r-- 1 admingod admingod 470392128 Nov  8 04:46 gen3b_n10k.bin
+-rw-r--r-- 1 admingod admingod 458881168 Nov  8 07:14 gen3c_n10k.bin
+-rw-r--r-- 1 admingod admingod 457591312 Nov  8 10:34 gen3d_n10k.bin
+-rw-r--r-- 1 admingod admingod 449331728 Nov  8 13:52 gen4a_n10k.bin

@@ -1,0 +1,9 @@
+== losses on v2d's validation set (all data incl. full gen4a; lambda 0.7, K from v2d config), engine integer eval, one t3/nnue-v2 binary
+valid positions 1000000  K 106.65  lambda 0.70  engine /home/admingod/regicide-v2/build/regicide
+n4c                          0.506345
+v2a                          0.503762
+v2b                          0.502362
+v2c                          0.506604
+v2d                          0.503256
+v2e                          0.505680
+v2f                          0.503292

@@ -1,9 +1,13 @@
 # NNUE round 5: v2 architecture (both views into L1, bucketed hidden layers) vs n4c
 
-**Result so far: neither v2 net beats n4c in play, although both have clearly lower validation loss.**
-v2b (2×1024, L1 16) is +0.6 [−4.0, +5.3] and v2a (2×512) is −1.3 [−5.5, +2.9] vs n4c (95% CI, pentanomial, 1,610
-games at 0.1 s/move). The round-5b batch (v2d: v2a for 80 epochs; v2e: v1 FT 1024 for 60 epochs, an n4c retrain on more
-data; v2f: 2×768, L1 16) is still training. Its results will be added here.
+**Result: no v2 net beats n4c in play, although all of them have clearly lower validation loss.** All results are vs
+n4c, 95% CI, pentanomial, 1,610 games at 0.1 s/move:
+- v2b (2×1024, L1 16): +0.6 [−4.0, +5.3];
+- v2a (2×512): −1.3 [−5.5, +2.9];
+- round 5b's best by loss, v2d (2×512, 80 epochs on all data): −0.2 [−4.7, +4.2].
+
+Validation-loss gains of 0.002–0.004 over n4c gave about 0 Elo at this time control. The ablation v2c (1 bucket) is no
+better than n4c. v2e, n4c's arch retrained on more data, shows that data alone is worth about 0.0007.
 
 ## Setup
 
@@ -93,14 +97,81 @@ was worth +5.6. Two caveats:
 
 Neither net is a round-5 winner (CI lower bound > 0), so the round-5b match is against n4c.
 
-## Round 5b (in progress)
+## Round 5b: longer training, an n4c retrain, 2×768
 
-- **v2d:** v2 2×512, 8 buckets, 80 epochs. Finished at 14:32; its export check is exact.
-- **v2e:** v1 FT 1024, 60 epochs. Training.
-- **v2f:** v2 2×768, L1 16, 8 buckets. Training.
-- **Data:** all of it, including gen4a complete (28,083,233 positions).
-- **Plan:** the losses of every round-5/5b net and n4c on v2d's validation set, the nps bench, then the best 5b net vs
-  n4c under the same match settings.
+- **Data:** all of it: gen1…gen3d plus gen4a complete (28,083,233 positions). `logs/data2_files.txt`.
+- **Training:** the same settings (`scripts/r5b_chain.sh`).
+  - v2d started at 13:52 on one lane. The second lane started only after the round-5 matches, so at most one trainer
+    ran during matches.
+  - Wall times: v2d 13:52–14:32 (80 epochs), v2e 14:32–14:59 (60 epochs), v2f 14:49–15:10.
+- **Exports:** every 5b net's export is exact (max |diff| 0) on 100k positions of the last data file, the 200k gen2b
+  slice and 100k validation positions (`logs/export_checks_5b.txt`).
+
+| Net | Arch | Epochs |
+|---|---|---|
+| v2d | v2 2×512 → 32 → 32, 8 buckets | 80 |
+| v2e | **v1** 1024 → 32 → 32 (n4c's arch, retrained on all data) | 60 |
+| v2f | v2 2×768 → 16 → 32, 8 buckets | 40 |
+
+### Loss on v2d's validation set
+
+This set includes the tail of the complete gen4a, so it is new to every net. λ 0.7, K 106.65, one t3/nnue-v2 binary
+(`logs/losses_5b.txt`).
+
+| Net | Loss | vs n4c |
+|---|---|---|
+| n4c | 0.506345 | — |
+| v2c (2×512, 1 bucket) | 0.506604 | +0.000259 |
+| **v2e (n4c arch, all data, 60 ep)** | 0.505680 | **−0.000665** |
+| v2a (2×512, 40 ep, round-5 data) | 0.503762 | −0.002583 |
+| v2f (2×768, L1 16) | 0.503292 | −0.003053 |
+| **v2d (2×512, 80 ep, all data)** | 0.503256 | −0.003089 |
+| v2b (2×1024, L1 16, round-5 data) | 0.502362 | −0.003983 |
+
+- **Data alone is worth about 0.0007** (v2e vs n4c, same arch).
+- **The v2 bucketed layers are worth about 0.0025–0.0033 more.** Doubling the epochs (v2d vs v2a) adds 0.0005.
+- v2b is still the lowest-loss net, but it is a round-5 net and was already matched (+0.6). The best 5b net, v2d, was
+  matched.
+
+### Speed (one t3/nnue-v2 build, `logs/bench_5b.txt`)
+
+Three rounds, run while the 8-piece EGDB build was running at 8 threads (bookgen and datagen paused, no matches).
+
+| Net | Bench nodes | Mean nps | vs n4c |
+|---|---|---|---|
+| n4c (built-in) | 7,338,658 | 3,322,694 | 100% |
+| v2d | 7,929,421 | 3,318,499 | 99.9% |
+| v2e | 6,887,518 | 3,439,795 | 103.5% |
+| v2f | 8,203,054 | 3,198,977 | 96.3% |
+
+### Match: v2d vs n4c
+
+The match used the same settings as round 5: one `rv2.so`, `set evalfile v2d.nnue` vs the built-in n4c, 1,610
+games, 0.1 s/move, `-c 10`, book off, 2–7 EGDB. It ran 15:12–15:26.
+- **Machine load:**
+  - the EGDB build at 8 threads;
+  - the v2g trainer from 15:16 (about 1.2 cores);
+  - gen4b datagen and bookgen were stopped.
+- No round-5 net had a CI lower bound > 0, so the opponent was n4c.
+
+| Match | W / D / L | Pentanomial | Elo (pentanomial) [95% CI] | LOS |
+|---|---|---|---|---|
+| v2d vs n4c | 273 / 1063 / 274 | [0 56 694 55 0] | **−0.2 [−4.7, +4.2]** | 46.2% |
+
+### v2g (running)
+
+v2g is v2b's architecture (2×1024, L1 16) trained on all data for 40 epochs (`scripts/v2g.sh`), to keep the GPU busy.
+Its loss will be added to `logs/`; it has not been matched.
+
+### Conclusion
+
+At 0.1 s/move, the v2 nets' 0.0025–0.004 lower validation loss is worth about 0 Elo against n4c. In round 4, a 0.0020
+gain (n4c over nn3e) was worth +5.6. Possible reasons:
+- The loss gain may sit in positions that matter little in play.
+- The bucketed nets may need different λ/K.
+- The time control may be too short to show it.
+
+A longer-time-control match (for example v2b or v2d at 0.3 s) would be the next check before giving up on v2.
 
 ## Files
 
