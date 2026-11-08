@@ -1,0 +1,34 @@
+eval.bin 954892 embedded at 814481
+net.bin 150348 embedded at 1769377
+book.bin 0 embedded at (empty)
+egdb copy identical
+commit ae210fb37b821b5afde7cdc1e29a06f0219f8693
+built 2026-11-08T06:40:55+01:00 with clang version 23.1.5 (https://github.com/llvm/llvm-project.git 392dfff97d29b59d77e5cac6d4b6ef2585fe7117)
+toolchain file: tools-src/tools/windows/mingw-clang.cmake
+egdb: full copy of ~/regicide-data/egdb (2-7 pieces) in egdb/
+-- regicide.exe bench (Windows)
+bench: 6873528 nodes 1830 ms 3756026 nps
+-- linux bench
+bench: 6873528 nodes 2071 ms 3318941 nps
+installed /mnt/c/regicide-match/engines/regicide/ae210fb
+-- linux ctest
+100% tests passed out of 7
+
+Total Test time (real) =   5.14 sec
+net.bin 150348 embedded at 5745697
+book.bin 3975804 embedded at 811297
+egdb copy identical
+commit ae210fb37b821b5afde7cdc1e29a06f0219f8693; book.bin = book_w03.bin sha256 1121af3b4f51d779
+built 2026-11-08T06:41:56+01:00 with clang version 23.1.5 (https://github.com/llvm/llvm-project.git 392dfff97d29b59d77e5cac6d4b6ef2585fe7117)
+toolchain file: tools-src/tools/windows/mingw-clang.cmake
+egdb: full copy of ~/regicide-data/egdb (2-7 pieces) in egdb/
+-- regicide.exe bench (Windows)
+bench: 6044379 nodes 1550 ms 3899599 nps
+-- linux bench
+bench: 6044379 nodes 1951 ms 3098092 nps
+installed /mnt/c/regicide-match/engines/regicide/ae210fb-book-w03
+bench: 6873528 nodes 2098 ms 3276228 nps
+info depth 0 seldepth 0 score 7 nodes 0 nps 0 time 0 hashfull 0 tbhits 0 pv 11-15
+bestmove 11-15
+info depth 0 seldepth 0 score 7 nodes 0 nps 0 time 0 hashfull 0 tbhits 0 pv 11-15
+bestmove 11-15
