@@ -76,7 +76,7 @@ distinct `BLAME` entries of `report_v1.txt`, with Regicide to move.
   - Until 19:43 it was bookgen (`book_n4c`, nice 5, 10 threads). That covers off kingsrow, avoid kingsrow and off cake.
   - From 19:43 it was gen5a datagen (master 635d949, 50k nodes/position, 12 threads), for all other runs.
   - **So off vs avoid against Cake ran under different backgrounds.** A repeat of off vs Cake under gen5 is in
-    `off-b-cake/` (added when it finishes).
+    `results/cake-analysis-769ef0b` on `t3/cake-analysis` (added when it finishes).
 
 ## Extra runs with master 65f7143 (`extra-65f7143/`)
 
@@ -93,9 +93,20 @@ against KingsRow within noise of each other.
 
 ## 2 s/move KingsRow check
 
-The better variant by mean Elo was **avoid** (−5.6 vs book+avoid −6.3), so it played KingsRow at `--movetime 2`. The
-earlier 2 s reference (−1.1 [−4.9, +2.7]) is the n4c engine with the 7-piece EGDB. A clean reference, off at 2 s with
-the same 769ef0b 8-piece DLL, follows (`ba_followup.sh`). **Results: see below once finished.**
+The better variant by mean Elo was **avoid** (−5.6 vs book+avoid −6.3), so it played KingsRow at `--movetime 2`
+(`avoid-kingsrow-2s/`, 21:07–22:04, gen5a alongside):
+
+| Run | W / D / L | Elo [95% CI] | Pentanomial |
+|---|---|---|---|
+| **avoid, 2 s, 769ef0b + 8-piece EGDB** | **0 / 312 / 0** | **−0.0** [−0.0, −0.0] | [0 0 156 0 0] |
+| reference: n4c, no avoid, 2 s, 7-piece EGDB (`results/baseline-eb1037c-n4c/kingsrow-2s`) | 1 / 309 / 2 | −1.1 [−4.9, +2.7] | [0 2 153 1 0] |
+
+- **All 312 games were drawn.** Regicide no longer loses to KingsRow at 2 s/move with the 8-piece database and the
+  avoid list, but it does not win either.
+- **This is not a clean A/B.** The reference differs in two things: no avoid list, and the 7-piece database. The 2 s
+  "off" run with the same DLL was dropped, because neither variant won at 0.5 s, so the 2 s check was not needed
+  (parent's decision).
+- The run took 57 min, against 97 min for the 7-piece 2 s run. With 8 pieces many moves are instant database moves.
 
 ## Files
 
@@ -103,7 +114,7 @@ the same 769ef0b 8-piece DLL, follows (`ba_followup.sh`). **Results: see below o
   - `off-kingsrow`, `off-cake`, `off-guinn`;
   - `avoid-kingsrow`, `avoid-cake`, `avoid-guinn`;
   - `bookavoid-kingsrow`, `bookavoid-cake`, `bookavoid-guinn`;
-  - later `avoid-kingsrow-2s`, `off-kingsrow-2s`, `off-b-cake`.
+  - `avoid-kingsrow-2s`.
 - `extra-65f7143/`
 - `avoid_hits.txt`
 - `BUILD-*.txt`, `build_769ef0b*.txt`, `book_avoid_merge.log`, `timeline.txt`
