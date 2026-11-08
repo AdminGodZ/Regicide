@@ -68,7 +68,7 @@ struct SearchParams {
     int fut_margin = 60;
     int cont_hist = 1;          // use counter-move continuation history in ordering
     int se_depth = 4;           // singular extensions from this depth (99 = off); tune1: se4 vs se8 +13.5 at 300 ms
-    int se_margin = 40;         // singular beta = tt score - se_margin * depth / 8
+    int se_margin = 20;         // singular beta = tt score - se_margin * depth / 8 (tune1: 20 vs 40 +10.9 at 300 ms)
     int razor_depth = 0;        // razoring up to this depth (0 = off)
     int razor_margin = 150;
 
