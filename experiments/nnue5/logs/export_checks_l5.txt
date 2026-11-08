@@ -1,0 +1,18 @@
+== l5a (lambda 0.5) export check, 100k validation positions (v2d set)
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 7.33, max 87.18 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK
+l5a.nnue identical to net_e040.nnue
+== l5b (lambda 0.9) export check, 100k validation positions (v2d set)
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 7.35, max 67.04 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK
+l5b.nnue identical to net_e040.nnue
+== l5c (lambda 1.0) export check, 100k validation positions (v2d set)
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 7.44, max 81.83 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK
+l5c.nnue identical to net_e040.nnue

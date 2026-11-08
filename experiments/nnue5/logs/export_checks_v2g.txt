@@ -1,0 +1,4 @@
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 6.55, max 87.62 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK
