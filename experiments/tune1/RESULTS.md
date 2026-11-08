@@ -1,6 +1,6 @@
 # tune1: search-parameter A/B tests
 
-- **Base:** master 825f993 (NNUE nn2b, 512-wide, no embedded book). `regicide bench` = 4,518,329 nodes.
+- **Bases:** series 1 on master 825f993 (NNUE nn2b, 512-wide, no embedded book, SE off; `regicide bench` = 4,518,329 nodes). Series 2 on master ae210fb (825f993 + se_depth=4; bench 6,873,528).
 - **Tool:** `selfplay --a "<param=value>" --b "" --movetime 100 --threads 16 --pairs 800` (in-process, A = changed
   parameter, B = defaults). Engines use 1 search thread each, and 16 games run in parallel.
 - **Openings:** the default 3-ply set (216 positions). selfplay shuffles it and cycles `i % 216`, so 800 pairs
@@ -13,15 +13,19 @@
 
 ✓ = at least +5 Elo with the CI lower bound above 0.
 
-## Single changes at 100 ms/move
+## Series 1: base 825f993 (singular extensions off, se_depth = 99)
+
+### Single changes at 100 ms/move, 800 pairs
 
 | param | value (default) | W / D / L | Elo [95% CI] | penta [LL LD DD/WL WD WW] | pairs | time |
 |---|---|---|---|---|---|---|
 | se_depth | 8 (99) | 336 / 968 / 296 | +8.7 [+2.0, +15.4] **✓** | 2 96 565 134 3 | 800 | 14 min |
 | se_depth | 6 (99) | 369 / 929 / 302 | +14.6 [+7.7, +21.4] **✓** | 3 82 566 143 6 | 800 | 14 min |
 | se_depth | 4 (99) | 376 / 945 / 279 | +21.1 [+14.3, +27.9] **✓** | 3 71 557 164 5 | 800 | 14 min |
+| se_depth | 3 (99) | 359 / 975 / 266 | +20.2 [+13.7, +26.8] **✓** | 2 69 564 164 1 | 800 | 14 min |
+| lmr_mult | 35 (45) | 328 / 947 / 325 | +0.7 [-6.1, +7.4] | 1 119 559 118 3 | 800 | 14 min |
 
-## Re-tests at 300 ms/move (400 pairs)
+### Re-tests at 300 ms/move, 400 pairs
 
 | param | value (default) | W / D / L | Elo [95% CI] | penta [LL LD DD/WL WD WW] | pairs | time |
 |---|---|---|---|---|---|---|
@@ -30,4 +34,22 @@
 | head-to-head | se_depth=8 **vs** se_depth=6 | 136 / 521 / 143 | -3.0 [-10.7, +4.6] | 0 44 319 37 0 | 400 | 19 min |
 | se_depth | 4 (99) | 168 / 495 / 137 | +13.5 [+4.9, +22.0] **✓** | 0 36 297 67 0 | 400 | 19 min |
 | head-to-head | se_depth=4 **vs** se_depth=8 | 153 / 525 / 122 | +13.5 [+5.7, +21.2] **✓** | 0 27 315 58 0 | 400 | 19 min |
+
+Outcome: `se_depth=4` was merged into master as ae210fb. The rest of series 1 (lmr_mult=35 ran on the old base) was dropped and is re-run in series 2, because LMR and pruning interact with SE.
+
+## Series 2: base ae210fb (se_depth = 4 default, SE on in both A and B)
+
+`regicide bench` = 6,873,528 nodes. Same tool, openings, threads and hardware as series 1. Defaults in the value column are those of ae210fb (se_depth 4).
+
+### Single changes at 100 ms/move, 800 pairs
+
+| param | value (default) | W / D / L | Elo [95% CI] | penta [LL LD DD/WL WD WW] | pairs | time |
+|---|---|---|---|---|---|---|
+| lmr_mult | 35 (45) | 306 / 974 / 320 | -3.0 [-9.7, +3.6] | 4 115 575 103 3 | 800 | 14 min |
+| lmr_mult | 55 (45) | 298 / 1006 / 296 | +0.4 [-5.9, +6.7] | 0 104 594 98 4 | 800 | 13 min |
+| lmr_base | 40 (60) | 308 / 977 / 315 | -1.5 [-7.8, +4.8] | 2 106 590 101 1 | 800 | 14 min |
+| lmr_base | 80 (60) | 308 / 997 / 295 | +2.8 [-3.7, +9.3] | 4 93 594 104 5 | 800 | 14 min |
+| rfp_margin | 50 (70) | 308 / 993 / 299 | +2.0 [-4.5, +8.4] | 4 93 597 102 4 | 800 | 13 min |
+| rfp_margin | 90 (70) | 303 / 987 / 310 | -1.5 [-8.3, +5.3] | 2 119 569 104 6 | 800 | 13 min |
+| rfp_max_depth | 6 (4) | 312 / 984 / 304 | +1.7 [-4.6, +8.1] | 3 95 596 103 3 | 800 | 13 min |
 

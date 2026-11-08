@@ -1,0 +1,44 @@
+== nn3a export check (/home/admingod/regicide-825, final net_e040.nnue)
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 16.99, max 74.59 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK
+nn3a.nnue identical to net_e040.nnue
+== nn3b export check (/home/admingod/regicide-825, final net_e080.nnue)
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 6.97, max 91.11 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK
+nn3b.nnue identical to net_e080.nnue
+== nn3c export check (/home/admingod/regicide-825-ft1024, final net_e040.nnue)
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 7.19, max 54.09 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK
+nn3c.nnue identical to net_e040.nnue
+== nn3d export check (/home/admingod/regicide-825-l1_64, final net_e040.nnue)
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 7.48, max 37.71 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK
+nn3d.nnue identical to net_e040.nnue
+== nn3a check on 100k validation positions
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 17.04, max 93.99 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK
+== nn3b check on 100k validation positions
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 7.03, max 142.32 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK
+== nn3c check on 100k validation positions
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 7.41, max 69.85 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK
+== nn3d check on 100k validation positions
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 7.73, max 62.82 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK

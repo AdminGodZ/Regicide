@@ -1,0 +1,182 @@
+[Event "Regicide 0.2 vs Regicide 0.2"]
+[Site "Regicide match runner"]
+[Date "2026.11.08"]
+[Round "1.1"]
+[Black "Regicide 0.2"]
+[White "Regicide 0.2"]
+[Result "1-0"]
+[GameType "21"]
+[Opening "/mnt/c/regicide-match/jobs/r3/startpos/start.pdn:1: *"]
+[TimeControl "0.5s/move (CheckerBoard match rules)"]
+[Termination "white has no legal moves"]
+1. 11-15 {0.01s depth 0/0 score 7 nodes 0 0 kN/s pv 11-15} 22-17 {0.17s depth
+16/32 score -11 nodes 544973 3427 kN/s pv 22-17 15-19 23x16 12x19 24x15 10x19
+25-22 8-11 27-23 4-8} 2. 8-11 {0.00s depth 0/0 score 7 nodes 0 0 kN/s pv 8-11}
+17-13 {0.51s depth 18/36 score 3 nodes 1692062 3343 kN/s pv 17-13 3-8 24-20
+15-19 23x16 12x19 25-22 9-14 22-17 14-18} 3. 15-18 {0.00s depth 0/0 score 9
+nodes 0 0 kN/s pv 15-18} 23x14 {0.00s depth 1/2 score -19 nodes 4 4 kN/s pv
+23x14 9x18} 4. 9x18 {0.00s depth 0/0 score 9 nodes 0 0 kN/s pv 9x18} 21-17
+{0.26s depth 16/32 score -20 nodes 834982 3211 kN/s pv 21-17 10-15 24-19 15x24
+27x20 11-15 32-27 15-19 26-23 19x26} 5. 10-15 {0.00s depth 0/0 score 9 nodes 0 0
+kN/s pv 10-15} 24-20 {0.64s depth 18/39 score -18 nodes 1892703 2985 kN/s pv
+24-20 4-8 28-24 6-10 26-23 18-22 25x18 15x22 23-18 10-15} 6. 18-22 {0.91s depth
+19/41 score 43 nodes 3265155 3599 kN/s pv 18-22 25x18 15x22 17-14 6-9 26x17 9x18
+30-26 11-15 29-25} 25x18 {0.00s depth 1/6 score 36 nodes 16 16 kN/s pv 25x18
+15x22 27-23} 7. 15x22 {0.00s depth 1/5 score 33 nodes 34 34 kN/s pv 15x22 17-14
+3-8 26x17} 17-14 {0.65s depth 19/34 score -39 nodes 2228142 3433 kN/s pv 17-14
+6-9 26x17 9x18 29-25 3-8 25-22 18x25 30x21 1-6} 8. 6-9 {0.75s depth 20/35 score
+32 nodes 2545755 3389 kN/s pv 6-9 26x17 9x18 29-25 3-8 25-22 18x25 30x21 7-10
+31-26} 26x17 {0.39s depth 18/35 score -25 nodes 1322345 3434 kN/s pv 26x17 9x18
+30-26 3-8 27-24 11-15 29-25 8-11 25-21 1-6} 9. 9x18 {0.00s depth 1/2 score 29
+nodes 12 12 kN/s pv 9x18 29-25} 30-26 {0.68s depth 19/35 score -30 nodes 2168747
+3189 kN/s pv 30-26 11-15 29-25 7-11 27-23 18x27 31x24 11-16 20x11 2-7} 10. 11-15
+{0.93s depth 20/36 score 35 nodes 2980571 3208 kN/s pv 11-15 29-25 7-11 27-23
+18x27 31x24 15-18 32-27 11-16 20x11} 29-25 {0.40s depth 19/34 score -33 nodes
+1285050 3261 kN/s pv 29-25 7-11 27-23 18x27 31x24 11-16 20x11 2-7 11x2 1-6} 11.
+7-11 {0.54s depth 19/34 score 55 nodes 1710817 3144 kN/s pv 7-11 27-23 18x27
+31x24 15-18 32-27 1-6 26-23 11-15 23x14} 27-23 {0.37s depth 19/33 score -34
+nodes 1274665 3435 kN/s pv 27-23 18x27 31x24 11-16 20x11 2-7 11x2 1-6 2x9 5x30}
+12. 18x27 {0.00s depth 1/2 score 55 nodes 5 5 kN/s pv 18x27 32x23} 31x24 {0.42s
+depth 20/32 score -34 nodes 1470276 3509 kN/s pv 31x24 11-16 20x11 2-7 11x2 1-6
+2x9 5x30 26-22 30-26} 13. 15-18 {0.51s depth 20/41 score 119 nodes 1687575 3341
+kN/s pv 15-18 32-27 11-15 26-23 1-6 23x14 6-9 13x6 2x18 25-21} 32-27 {0.49s
+depth 19/40 score -97 nodes 1640935 3328 kN/s pv 32-27 11-15 26-23 1-6 23x14 6-9
+13x6 2x18 25-21 4-8} 14. 11-15 {0.80s depth 22/45 score 99 nodes 2851610 3551
+kN/s pv 11-15 26-23 1-6 23x14 6-9 13x6 2x18 25-21 4-8 17-14} 26-23 {0.43s depth
+21/43 score -96 nodes 1487522 3483 kN/s pv 26-23 1-6 23x14 6-9 13x6 2x18 25-21
+4-8 17-14 8-11} 15. 1-6 {0.50s depth 24/42 score 89 nodes 1864123 3765 kN/s pv
+1-6 23x14 6-9 13x6 2x18 25-21 4-8 17-14 8-11 14-10} 23x14 {0.00s depth 1/4 score
+14 nodes 20 20 kN/s pv 23x14 6-9 13x6 2x18} 16. 6-9 {0.49s depth 25/35 score 77
+nodes 1739115 3527 kN/s pv 6-9 13x6 2x18 25-21 4-8 17-14 8-11 14-10 12-16 10-6}
+13x6 {0.00s depth 1/3 score 8 nodes 10 10 kN/s pv 13x6 2x18 25-21} 17. 2x9x18
+{0.00s depth 1/2 score -8 nodes 9 9 kN/s pv 2x18 25-21} 17-14 {0.56s depth 25/41
+score -131 nodes 2009953 3589 kN/s pv 17-14 4-8 14-10 8-11 25-21 12-16 10-6
+16-19 6-1 19-23} 18. 4-8 {0.87s depth 26/44 score 164 nodes 3213534 3685 kN/s pv
+4-8 25-21 8-11 14-10 12-16 10-6 16-19 6-1 19-23 1-6} 25-21 {0.58s depth 25/42
+score -151 nodes 2077605 3600 kN/s pv 25-21 8-11 14-10 12-16 10-6 16-19 6-1
+19-23 1-6 23x32} 19. 8-11 {1.15s depth 27/46 score 97 nodes 4182929 3634 kN/s pv
+8-11 14-10 12-16 10-6 16-19 6-1 19-23 1-6 23x32 6-10} 14-10 {0.46s depth 25/42
+score -164 nodes 1734164 3778 kN/s pv 14-10 12-16 10-6 16-19 6-1 19-23 1-6 23x32
+6-10 32-27} 20. 12-16 {0.42s depth 27/48 score 141 nodes 1526771 3661 kN/s pv
+12-16 10-6 16-19 6-1 19-23 1-6 23x32 6-10 18-22 10x19} 10-6 {1.07s depth 27/44
+score -152 nodes 3733508 3505 kN/s pv 10-6 16-19 6-1 19-23 1-6 23x32 24-19 15x24
+28x19 18-22} 21. 16-19 {0.43s depth 26/46 score 158 nodes 1576199 3640 kN/s pv
+16-19 6-1 19-23 1-6 23x32 24-19 15x24 28x19 18-22 19-16} 6-1 {0.45s depth 26/37
+score -159 nodes 1609518 3584 kN/s pv 6-1 19-23 1-6 23x32 24-19 15x24 28x19
+18-22 19-16 11-15} 22. 19-23 {0.45s depth 26/36 score 161 nodes 1691313 3775
+kN/s pv 19-23 1-6 23x32 24-19 15x24 28x19 18-22 19-16 11-15 16-11} 1-6 {0.50s
+depth 26/36 score -168 nodes 1798657 3641 kN/s pv 1-6 23x32 24-19 15x24 28x19
+18-22 19-16 11-15 16-11 22-25} 23. 23x32 {0.00s depth 1/5 score 63 nodes 37 37
+kN/s pv 23x32 6-10 32-27 10x19} 24-19 {0.76s depth 26/35 score -172 nodes
+2991978 3921 kN/s pv 24-19 15x24 28x19 18-22 19-16 11-15 16-11 22-25 6-10 15-19}
+24. 15x24 {0.00s depth 1/4 score 131 nodes 17 17 kN/s pv 15x24 28x19 32-28}
+28x19 {0.00s depth 1/3 score -131 nodes 16 16 kN/s pv 28x19 32-28} 25. 18-22
+{1.12s depth 25/32 score 165 nodes 4141344 3687 kN/s pv 18-22 19-16 11-15 16-11
+22-25 6-10 15-19 11-7 19-23 7-2} 19-16 {1.33s depth 25/33 score -179 nodes
+4772744 3593 kN/s pv 19-16 11-15 16-11 22-25 6-10 15-18 11-7 18-22 7-2 25-30}
+26. 11-15 {0.83s depth 25/32 score 180 nodes 3023909 3656 kN/s pv 11-15 16-11
+22-25 6-10 15-19 11-7 19-23 7-2 25-30 2-6} 16-11 {0.32s depth 24/31 score -181
+nodes 1133752 3520 kN/s pv 16-11 22-25 6-10 15-18 11-7 18-23 7-2 25-29 21-17
+29-25} 27. 22-25 {0.68s depth 24/31 score 185 nodes 2572843 3772 kN/s pv 22-25
+6-10 15-19 11-7 19-23 7-2 25-30 21-17 30-25 17-13} 6-10 {0.63s depth 23/31 score
+-175 nodes 2253939 3560 kN/s pv 6-10 15-19 11-7 19-23 7-2 25-29 21-17 29-25
+17-13 32-27} 28. 15-19 {0.47s depth 23/29 score 179 nodes 1815245 3878 kN/s pv
+15-19 11-7 19-23 7-2 25-29 20-16 29-25 2-6 32-27 16-11} 11-7 {0.38s depth 22/29
+score -177 nodes 1427032 3795 kN/s pv 11-7 19-23 7-2 25-29 20-16 29-25 2-6 23-26
+16-11 25-22} 29. 19-23 {0.51s depth 22/30 score 181 nodes 1939490 3802 kN/s pv
+19-23 7-2 25-29 20-16 29-25 2-6 32-27 16-11 23-26 11-7} 7-2 {0.47s depth 21/29
+score -175 nodes 1797807 3833 kN/s pv 7-2 25-30 2-6 30-25 20-16 32-27 16-11
+23-26 11-7 27-23} 30. 25-30 {0.46s depth 22/27 score 191 nodes 1821128 4002 kN/s
+pv 25-30 2-6 30-25 20-16 32-27 16-11 23-26 11-7 25-22 7-2} 2-6 {0.39s depth
+22/32 score -193 nodes 1559659 4061 kN/s pv 2-6 30-25 20-16 23-26 16-11 32-27
+11-7 25-22 7-2 27-23} 31. 30-25 {0.63s depth 23/29 score 223 nodes 2472105 3899
+kN/s pv 30-25 20-16 32-27 16-11 23-26 11-7 27-23 7-2 25-22 10-14} 20-16 {0.75s
+depth 22/35 score -279 nodes 3146845 4218 kN/s pv 20-16 23-26 21-17 25-22 17-13
+32-27 10-15 26-31 6-1 22-17} 32. 32-27 {0.40s depth 23/35 score 207 nodes
+1556782 3931 kN/s pv 32-27 16-11 23-26 11-7 25-22 7-2 27-23 10-14 26-31 6-1}
+21-17 {0.44s depth 22/32 score -354 nodes 1982854 4486 kN/s pv 21-17 25-22 17-13
+22-17 16-12 27-24 10-15 17-14 15-11 23-27} 33. 25-22 {0.53s depth 22/33 score
+360 nodes 2193119 4145 kN/s pv 25-22 17-13 22-17 6-1 23-26 1-6 27-23 6-1 23-18
+10-6} 17-13 {0.37s depth 23/31 score -19973 nodes 1621157 4381 kN/s pv 17-13
+22-17 16-12 27-24 10-15 17-14 6-1 23-27 15-11 24-20} 34. 22-17 {0.43s depth
+23/30 score 19970 nodes 1852359 4268 kN/s pv 22-17 16-12 23-26 10-15 17-14 15-11
+27-24 11-8 26-31 6-1} 16-12 {0.57s depth 25/31 score -19979 nodes 2307916 4070
+kN/s pv 16-12 27-24 10-15 17-14 6-1 24-20 15-19 23-26 19-23 26-31} 35. 27-24
+{0.82s depth 25/30 score 19980 nodes 3496562 4285 kN/s pv 27-24 10-15 17-14 6-1
+24-20 15-19 23-26 19-23 26-31 1-6} 6-1 {0.68s depth 25/30 score -19981 nodes
+2739237 4028 kN/s pv 6-1 24-20 10-15 17-14 15-19 23-26 19-23 26-31 1-6 20-16}
+36. 24-19 {0.48s depth 25/30 score 19982 nodes 2021755 4256 kN/s pv 24-19 1-6
+19-16 10-15 23-27 6-2 27-32 15-10 16-11 10-6} 1-6 {0.41s depth 26/31 score
+-19983 nodes 1809966 4382 kN/s pv 1-6 19-16 10-15 23-27 15-10 16-11 6-2 27-32
+10-6 17-14} 37. 19-16 {0.49s depth 26/30 score 19984 nodes 2111935 4363 kN/s pv
+19-16 10-15 23-27 6-2 27-32 15-10 16-11 10-6 17-14 6-9} 10-15 {0.80s depth 26/31
+score -19985 nodes 3505452 4414 kN/s pv 10-15 23-27 15-10 16-11 6-2 27-32 10-6
+17-14 6-9 14-10} 38. 23-27 {0.60s depth 26/32 score 19986 nodes 2568587 4316
+kN/s pv 23-27 6-2 27-32 15-10 16-11 10-6 17-14 6-9 14-10 2-6} 15-10 {0.69s depth
+26/31 score -19987 nodes 2892775 4229 kN/s pv 15-10 16-11 6-2 27-32 10-6 17-14
+6-9 14-10 9-14 10x17} 39. 16-11 {0.67s depth 26/28 score 19988 nodes 3008692
+4463 kN/s pv 16-11 6-2 27-32 10-6 17-14 6-9 14-10 2-6 10x1 9-14} 6-2 {0.45s
+depth 26/31 score -19989 nodes 2073996 4619 kN/s pv 6-2 27-32 10-6 17-14 6-9
+14-10 9-14 10x17 2-6 3-8} 40. 27-32 {0.70s depth 26/30 score 19990 nodes 3034902
+4354 kN/s pv 27-32 10-6 17-14 6-9 14-10 2-6 10x1 9-14 3-8 12x3} 10-6 {0.40s
+depth 26/30 score -19991 nodes 1736266 4373 kN/s pv 10-6 17-14 6-9 14-10 9-14
+10x17 2-6 3-8 12x3} 41. 17-14 {0.54s depth 27/30 score 19992 nodes 2456373 4557
+kN/s pv 17-14 6-9 14-10 2-6 10x1 9-14 3-8 12x3} 13-9 {0.32s depth 25/29 score
+-19993 nodes 1549940 4936 kN/s pv 13-9 14-18 6-1 5x14 1-6 3-8 12x3} 42. 14-18
+{0.48s depth 26/28 score 19994 nodes 2217291 4667 kN/s pv 14-18 6-1 5x14 1-5 3-8
+12x3} 6-1 {0.42s depth 28/31 score -19995 nodes 2166047 5132 kN/s pv 6-1 5x14
+1-6 3-8 12x3} 43. 5x14 {0.00s depth 1/2 score 324 nodes 7 7 kN/s pv 5x14 1-5}
+1-5 {0.36s depth 28/29 score -19997 nodes 1828543 5065 kN/s pv 1-5 3-8 12x3} 44.
+11-7 {0.59s depth 28/28 score 19998 nodes 2912606 4970 kN/s pv 11-7 2x11} 2x11
+{0.00s depth 1/1 score -19999 nodes 2 2 kN/s pv 2x11} 45. 32-27 {0.00s depth
+127/1 score 19999 nodes 1143 1143 kN/s pv 32-27} 11-7 {0.00s depth 127/1 score
+-19999 nodes 1016 1016 kN/s pv 11-7} 46. 3x10 {0.00s depth 1/1 score 19999 nodes
+2 2 kN/s pv 3x10} 12-8 {0.00s depth 0/0 score -19999 nodes 0 0 kN/s pv 12-8} 47.
+14-17 {0.00s depth 0/0 score 20000 nodes 0 0 kN/s pv 14-17} 8-3 {0.00s depth 0/0
+score -19999 nodes 0 0 kN/s pv 8-3} 48. 17-21 {0.00s depth 0/0 score 20000 nodes
+0 0 kN/s pv 17-21} 3-7 {0.00s depth 0/0 score -19998 nodes 0 0 kN/s pv 3-7} 49.
+10-14 {0.00s depth 0/0 score 19999 nodes 0 0 kN/s pv 10-14} 7-2 {0.00s depth 0/0
+score -19999 nodes 0 0 kN/s pv 7-2} 50. 14-17 {0.00s depth 0/0 score 20000 nodes
+0 0 kN/s pv 14-17} 5-1 {0.00s depth 0/0 score -19999 nodes 0 0 kN/s pv 5-1} 51.
+21-25 {0.00s depth 0/0 score 20000 nodes 0 0 kN/s pv 21-25} 1-5 {0.00s depth 0/0
+score -19999 nodes 0 0 kN/s pv 1-5} 52. 25-29 {0.00s depth 0/0 score 20000 nodes
+0 0 kN/s pv 25-29} 5-1 {0.00s depth 0/0 score -19999 nodes 0 0 kN/s pv 5-1} 53.
+17-21 {0.00s depth 0/0 score 20000 nodes 0 0 kN/s pv 17-21} 1-5 {0.00s depth 0/0
+score -19999 nodes 0 0 kN/s pv 1-5} 54. 21-25 {0.00s depth 0/0 score 20000 nodes
+0 0 kN/s pv 21-25} 5-1 {0.00s depth 0/0 score -19999 nodes 0 0 kN/s pv 5-1} 55.
+25-30 {0.00s depth 0/0 score 20000 nodes 0 0 kN/s pv 25-30} 1-5 {0.00s depth 0/0
+score -19994 nodes 0 0 kN/s pv 1-5} 56. 30-25 {0.00s depth 0/0 score 19995 nodes
+0 0 kN/s pv 30-25} 5-1 {0.00s depth 0/0 score -19996 nodes 0 0 kN/s pv 5-1} 57.
+18-14 {0.00s depth 0/0 score 19997 nodes 0 0 kN/s pv 18-14} 1-5 {0.00s depth 0/0
+score -19998 nodes 0 0 kN/s pv 1-5} 58. 14-9 {0.00s depth 0/0 score 19999 nodes
+0 0 kN/s pv 14-9} 5x14 {0.00s depth 0/0 score -20000 nodes 0 0 kN/s pv 5x14} 59.
+25-22 {0.00s depth 0/0 score 19971 nodes 0 0 kN/s pv 25-22} 14-9 {0.00s depth
+0/0 score -19972 nodes 0 0 kN/s pv 14-9} 60. 27-23 {0.00s depth 0/0 score 19973
+nodes 0 0 kN/s pv 27-23} 9-5 {0.00s depth 0/0 score -19974 nodes 0 0 kN/s pv
+9-5} 61. 22-17 {0.00s depth 0/0 score 19975 nodes 0 0 kN/s pv 22-17} 5-1 {0.00s
+depth 0/0 score -19976 nodes 0 0 kN/s pv 5-1} 62. 23-18 {0.00s depth 0/0 score
+19977 nodes 0 0 kN/s pv 23-18} 2-6 {0.00s depth 0/0 score -19978 nodes 0 0 kN/s
+pv 2-6} 63. 17-13 {0.00s depth 0/0 score 19979 nodes 0 0 kN/s pv 17-13} 6-2
+{0.00s depth 0/0 score -19980 nodes 0 0 kN/s pv 6-2} 64. 29-25 {0.00s depth 0/0
+score 19981 nodes 0 0 kN/s pv 29-25} 1-6 {0.00s depth 0/0 score -19982 nodes 0 0
+kN/s pv 1-6} 65. 25-21 {0.00s depth 0/0 score 19983 nodes 0 0 kN/s pv 25-21} 2-7
+{0.00s depth 0/0 score -19984 nodes 0 0 kN/s pv 2-7} 66. 18-15 {0.00s depth 0/0
+score 19985 nodes 0 0 kN/s pv 18-15} 6-2 {0.00s depth 0/0 score -19986 nodes 0 0
+kN/s pv 6-2} 67. 21-17 {0.00s depth 0/0 score 19987 nodes 0 0 kN/s pv 21-17} 7-3
+{0.00s depth 0/0 score -19988 nodes 0 0 kN/s pv 7-3} 68. 17-14 {0.00s depth 0/0
+score 19989 nodes 0 0 kN/s pv 17-14} 2-7 {0.00s depth 0/0 score -19990 nodes 0 0
+kN/s pv 2-7} 69. 13-9 {0.00s depth 0/0 score 19991 nodes 0 0 kN/s pv 13-9} 3-8
+{0.00s depth 0/0 score -19992 nodes 0 0 kN/s pv 3-8} 70. 9-6 {0.00s depth 0/0
+score 19993 nodes 0 0 kN/s pv 9-6} 7-3 {0.00s depth 0/0 score -19994 nodes 0 0
+kN/s pv 7-3} 71. 14-10 {0.00s depth 0/0 score 19995 nodes 0 0 kN/s pv 14-10} 8-4
+{0.00s depth 0/0 score -19996 nodes 0 0 kN/s pv 8-4} 72. 6-1 {0.00s depth 0/0
+score 19997 nodes 0 0 kN/s pv 6-1} 4-8 {0.00s depth 0/0 score -19998 nodes 0 0
+kN/s pv 4-8} 73. 15-11 {0.00s depth 0/0 score 19999 nodes 0 0 kN/s pv 15-11}
+8x15x6 {0.00s depth 0/0 score -20000 nodes 0 0 kN/s pv 8x6} 74. 1x10 {0.00s
+depth 0/0 score 20000 nodes 0 0 kN/s pv 1x10} 3-8 {0.00s depth 0/0 score -19995
+nodes 0 0 kN/s pv 3-8} 75. 10-7 {0.00s depth 0/0 score 19996 nodes 0 0 kN/s pv
+10-7} 8-3 {0.00s depth 0/0 score -19997 nodes 0 0 kN/s pv 8-3} 76. 7-11 {0.00s
+depth 0/0 score 19998 nodes 0 0 kN/s pv 7-11} 3-7 {0.00s depth 0/0 score -19999
+nodes 0 0 kN/s pv 3-7} 77. 11x2 {0.00s depth 0/0 score 20000 nodes 0 0 kN/s pv
+11x2} 1-0
+
