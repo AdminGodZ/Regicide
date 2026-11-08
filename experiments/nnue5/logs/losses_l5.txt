@@ -1,0 +1,22 @@
+== losses on v2d's validation set (K 106.65 from v2d config), one t3/nnue-v2 binary; three targets
+-- target lambda 0.7
+valid positions 1000000  K 106.65  lambda 0.70  engine /home/admingod/regicide-v2/build/regicide
+n4c                          0.506345
+v2e                          0.505680
+l5a                          0.506489
+l5b                          0.507260
+l5c                          0.509768
+-- target lambda 1.0
+valid positions 1000000  K 106.65  lambda 1.00  engine /home/admingod/regicide-v2/build/regicide
+n4c                          0.494304
+v2e                          0.493044
+l5a                          0.497462
+l5b                          0.490490
+l5c                          0.490192
+-- target lambda 0.0
+valid positions 1000000  K 106.65  lambda 0.00  engine /home/admingod/regicide-v2/build/regicide
+n4c                          0.534441
+v2e                          0.535165
+l5a                          0.527553
+l5b                          0.546390
+l5c                          0.555447

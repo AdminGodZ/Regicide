@@ -1,0 +1,35 @@
+== nps.py (7-piece eb1037c-n4c vs 8-piece 30f09c3-egdb8, all three opponents)
+kingsrow  eb1037c-n4c    moves  25964  instant(<0.05s)  44.0%  mean t(searched) 0.523s  median kN/s (>=0.3s)   3737  median depth 25
+kingsrow  30f09c3-egdb8  moves  23735  instant(<0.05s)  76.6%  mean t(searched) 0.506s  median kN/s (>=0.3s)   2157  median depth 21
+cake      eb1037c-n4c    moves  19342  instant(<0.05s)  26.8%  mean t(searched) 0.517s  median kN/s (>=0.3s)   3719  median depth 25
+cake      30f09c3-egdb8  moves  12971  instant(<0.05s)  59.9%  mean t(searched) 0.494s  median kN/s (>=0.3s)   2224  median depth 21
+guinn     eb1037c-n4c    moves  19014  instant(<0.05s)  27.3%  mean t(searched) 0.518s  median kN/s (>=0.3s)   3719  median depth 25
+guinn     30f09c3-egdb8  moves  13231  instant(<0.05s)  59.0%  mean t(searched) 0.507s  median kN/s (>=0.3s)   2242  median depth 21
+== nps2.py (median kN/s per block of 52 games)
+kingsrow  eb1037c-n4c    median kN/s by game block of 52:  3724  3772  3500  3617  3769  3877
+kingsrow  30f09c3-egdb8  median kN/s by game block of 52:  2126  2135  2138  2182  2155  2194
+cake      eb1037c-n4c    median kN/s by game block of 52:  3672  3772  3856  3610  3745  3646
+cake      30f09c3-egdb8  median kN/s by game block of 52:  2226  2232  2244  2216  2202  2219
+guinn     eb1037c-n4c    median kN/s by game block of 52:  3642  3774  3415  3798  3786  3741
+guinn     30f09c3-egdb8  median kN/s by game block of 52:  2252  2219  2234  2237  2244  2264
+== ctl2.py (KingsRow: 7-piece, 8-piece, 7-piece control under the 8-piece load)
+eb1037c-n4c-kingsrow     moves  25964 instant  44.0%  median kN/s  3737  depth 25
+30f09c3-egdb8-kingsrow   moves  23735 instant  76.6%  median kN/s  2157  depth 21
+30f09c3-kingsrow         moves  25933 instant  43.2%  median kN/s  2928  depth 24
+== nps_check.txt (Windows regicide.exe, 120 game positions, 2-7 vs 2-8)
+== (a) quiet (matchlock)
+states: datagen-eb1037c-n4c:T bookgen-cc9f35f:T datagen-635d949:T 
+ 17:45:04 up 17:23,  1 user,  load average: 15.49, 12.57, 12.13
+positions 120
+1 process(es), egdb 7: ['egdb: 7 pieces (mtc 6) from C:\\regicide-match\\engines\\regicide\\30f09c3\\egdb'] searches 120, median nps 2,153,241, mean 1,837,299
+1 process(es), egdb 8: ['egdb: 8 pieces (mtc 6) from C:\\regicide-match\\engines\\regicide\\30f09c3-egdb8\\egdb'] searches 120, median nps 1,686,856, mean 1,499,141
+8 process(es), egdb 7: ['egdb: 7 pieces (mtc 6) from C:\\regicide-match\\engines\\regicide\\30f09c3\\egdb'] searches 960, median nps 1,602,088, mean 1,440,270
+8 process(es), egdb 8: ['egdb: 8 pieces (mtc 6) from C:\\regicide-match\\engines\\regicide\\30f09c3-egdb8\\egdb'] searches 960, median nps 1,360,673, mean 1,181,663
+== (b) gen5 running (baselock: bookgen stopped; gen4b held)
+states: datagen-eb1037c-n4c:T bookgen-cc9f35f:T datagen-635d949:S 
+ 17:53:00 up 17:31,  1 user,  load average: 1.85, 3.04, 7.47
+positions 120
+1 process(es), egdb 7: ['egdb: 7 pieces (mtc 6) from C:\\regicide-match\\engines\\regicide\\30f09c3\\egdb'] searches 120, median nps 2,255,582, mean 1,889,534
+1 process(es), egdb 8: ['egdb: 8 pieces (mtc 6) from C:\\regicide-match\\engines\\regicide\\30f09c3-egdb8\\egdb'] searches 120, median nps 2,169,215, mean 1,562,202
+8 process(es), egdb 7: ['egdb: 7 pieces (mtc 6) from C:\\regicide-match\\engines\\regicide\\30f09c3\\egdb'] searches 960, median nps 2,255,407, mean 1,839,515
+8 process(es), egdb 8: ['egdb: 8 pieces (mtc 6) from C:\\regicide-match\\engines\\regicide\\30f09c3-egdb8\\egdb'] searches 960, median nps 2,158,385, mean 1,502,849
