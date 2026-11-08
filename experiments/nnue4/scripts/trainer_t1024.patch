@@ -1,0 +1,13 @@
+diff --git a/tools/nnue/nnue.py b/tools/nnue/nnue.py
+index be978b0..74af62f 100644
+--- a/tools/nnue/nnue.py
++++ b/tools/nnue/nnue.py
+@@ -18,7 +18,7 @@ import torch
+ import torch.nn as nn
+ import torch.nn.functional as F
+ 
+-INPUTS, FT, L1, L2, BUCKETS = 128, 512, 32, 32, 8
++INPUTS, FT, L1, L2, BUCKETS = 128, 1024, 32, 32, 8
+ ACTIVATION, QA, QB, QH = 1, 255, 64, 127
+ VERSION = 1
+ OUT_SCALE = 400

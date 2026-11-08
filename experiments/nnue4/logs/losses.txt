@@ -1,0 +1,12 @@
+== losses on n4a's validation set (lambda 0.7, K from n4a config), engine integer eval (385611e builds)
+(nn2b.nnue identical to the 385611e built-in net)
+valid positions 1000000  K 111.83  lambda 0.70  engine /home/admingod/regicide-385/build/regicide
+nn2b                         0.519335
+valid positions 1000000  K 111.83  lambda 0.70  engine /home/admingod/regicide-385/build-ft768/regicide
+nn3e                         0.516399
+n4a                          0.515184
+n4b                          0.515075
+valid positions 1000000  K 111.83  lambda 0.70  engine /home/admingod/regicide-385/build-ft1024/regicide
+n4c                          0.514373
+valid positions 1000000  K 111.83  lambda 0.70  engine /home/admingod/regicide-385/build-ft768_l164/regicide
+n4d                          0.514509

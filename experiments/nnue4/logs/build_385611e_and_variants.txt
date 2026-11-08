@@ -1,0 +1,72 @@
+== 385611e Merge pull request #11 from AdminGodZ/t3/optimize-checkers-engine
+== default (FT 512, L1 32, built-in nn2b)
+-- build ctest
+100% tests passed out of 9
+
+Total Test time (real) =   6.58 sec
+-- build bench
+bench: 6873528 nodes 2181 ms 3151548 nps
+built-in net.bin == nn2b.nnue
+-- check_export (default trainer widths vs engine)
+float model vs engine: mean |diff| 78.67, max 364.78 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK
+== ft768 (-DREGICIDE_NNUE_FT=768)
+-- build-ft768 ctest
+100% tests passed out of 7
+
+Total Test time (real) =   6.41 sec
+-- build-ft768 bench
+built-in net rejected (net ft 512, this build expects 768), using the linear eval
+bench: 6581419 nodes 1820 ms 3616164 nps
+== ft1024 (-DREGICIDE_NNUE_FT=1024)
+-- build-ft1024 ctest
+100% tests passed out of 7
+
+Total Test time (real) =   9.09 sec
+-- build-ft1024 bench
+built-in net rejected (net ft 512, this build expects 1024), using the linear eval
+bench: 6581419 nodes 1849 ms 3559447 nps
+== ft768_l164 (-DREGICIDE_NNUE_FT=768 -DREGICIDE_NNUE_L1=64)
+-- build-ft768_l164 ctest
+100% tests passed out of 7
+
+Total Test time (real) =   8.35 sec
+-- build-ft768_l164 bench
+built-in net rejected (net ft 512, this build expects 768), using the linear eval
+bench: 6581419 nodes 1671 ms 3938611 nps
+== trainer t768: 21:INPUTS, FT, L1, L2, BUCKETS = 128, 768, 32, 32, 8
+ tools/nnue/nnue.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+== trainer t1024: 21:INPUTS, FT, L1, L2, BUCKETS = 128, 1024, 32, 32, 8
+ tools/nnue/nnue.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+== trainer t768l64: 21:INPUTS, FT, L1, L2, BUCKETS = 128, 768, 64, 32, 8
+ tools/nnue/nnue.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+-- check_export random net, trainer t768 vs engine build-ft768
+float model vs engine: mean |diff| 76.14, max 476.95 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK
+-- check_export random net, trainer t1024 vs engine build-ft1024
+float model vs engine: mean |diff| 81.47, max 508.10 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK
+-- check_export random net, trainer t768l64 vs engine build-ft768_l164
+float model vs engine: mean |diff| 94.52, max 481.19 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK
+== Windows DLL
+eval.bin 954892 embedded at 879505
+net.bin 150348 embedded at 1834401
+book.bin 0 embedded at (empty)
+egdb copy identical
+commit 385611e23fea7ebc47a30fdb0cbdcc828080d853
+built 2026-11-08T09:47:48+01:00 with clang version 23.1.5 (https://github.com/llvm/llvm-project.git 392dfff97d29b59d77e5cac6d4b6ef2585fe7117)
+toolchain file: tools-src/tools/windows/mingw-clang.cmake
+egdb: full copy of ~/regicide-data/egdb (2-7 pieces) in egdb/
+-- regicide.exe bench (Windows)
+bench: 6873528 nodes 1883 ms 3650306 nps
+-- linux bench
+bench: 6873528 nodes 2422 ms 2837955 nps
+installed /mnt/c/regicide-match/engines/regicide/385611e
