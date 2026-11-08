@@ -1,0 +1,31 @@
+{
+ "data": [
+  "/home/admingod/regicide-data/train/gen1_n10k.bin",
+  "/home/admingod/regicide-data/train/gen1b_n10k.bin",
+  "/home/admingod/regicide-data/train/gen1c_n10k.bin",
+  "/home/admingod/regicide-data/train/gen2a_n10k.bin",
+  "/home/admingod/regicide-data/train/gen2b_n10k.bin"
+ ],
+ "out": "/home/admingod/regicide-nnue-work/runs/nn1",
+ "epochs": 40,
+ "epoch_size": 100000000,
+ "batch": 16384,
+ "lr": 0.001,
+ "lr_final": 1e-05,
+ "warmup": 200,
+ "wd": 0.01,
+ "lam": 0.7,
+ "k": 0,
+ "valid_frac": 0.02,
+ "valid_max": 1000000,
+ "qat_epochs": 2,
+ "out_scale": 400,
+ "device": "auto",
+ "threads": 0,
+ "loader_threads": 2,
+ "compile": true,
+ "resume": null,
+ "seed": 1,
+ "max_minutes": 0,
+ "K": 116.56945276123079
+}

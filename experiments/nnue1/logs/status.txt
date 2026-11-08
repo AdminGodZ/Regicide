@@ -1,0 +1,14 @@
+start match r1a32912 vs a44591e 2026-11-08T00:51:17+01:00 (datagen running: 0)
+control match r1a32912 vs a44591e dropped (parent: master bd2ef1d, nn1 vs same-binary built-in) 2026-11-08T01:00:44+01:00
+bd2ef1d Merge pull request #4 from AdminGodZ/t3/optimize-checkers-engine
+gen3a datagen (bd2ef1d built-in = G2c) seed 41 threads 12 games 300000 start 2026-11-08T01:02:45+01:00 pid 19864
+start nn1 train epochs 40  2026-11-08T01:02:45+01:00
+end nn1 train rc=0 2026-11-08T01:16:42+01:00
+NN1_TRAIN_DONE 2026-11-08T01:16:42+01:00
+paused datagen 19874 2026-11-08T01:20:49+01:00
+resumed datagen 19874 2026-11-08T01:20:57+01:00
+paused gen3a datagen 19874 for match 2026-11-08T01:21:41+01:00
+start match nn1 vs bd2ef1d 2026-11-08T01:21:43+01:00 (datagen running: 1)
+end match nn1 vs bd2ef1d rc=0 2026-11-08T01:37:16+01:00 (datagen running: 1)
+MATCH_DONE nn1-vs-bd2ef1d
+resumed gen3a datagen 19874 2026-11-08T01:37:16+01:00
