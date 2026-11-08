@@ -28,7 +28,7 @@
 namespace regicide::nnue {
 
 constexpr int INPUTS = 128;
-constexpr int FT = 256;
+constexpr int FT = 512;
 constexpr int L1 = 32;
 constexpr int L2 = 32;
 constexpr int BUCKETS = 8;
