@@ -1,5 +1,6 @@
 #include "nnue.hpp"
 
+#include <array>
 #include <bit>
 #include <chrono>
 #include <cstring>
@@ -321,29 +322,24 @@ void Network::refresh(std::int16_t* v, const Position& pos, Color view) const {
         }
 }
 
-void Network::update(const std::int16_t* src, std::int16_t* dst, const int* add, int nadd, const int* sub,
-                     int nsub) const {
-    // Fuse the common cases into one pass: a quiet move (one add, one remove) and a single capture.
-    if (nadd == 1 && nsub >= 1) {
-        const std::int16_t *a = ft_weight_[add[0]], *s = ft_weight_[sub[0]];
-        if (nsub >= 2) {
-            const std::int16_t* s2 = ft_weight_[sub[1]];
-            for (int i = 0; i < FT; ++i) dst[i] = std::int16_t(src[i] + a[i] - s[i] - s2[i]);
-            sub += 2;
-            nsub -= 2;
-        } else {
-            for (int i = 0; i < FT; ++i) dst[i] = std::int16_t(src[i] + a[i] - s[i]);
-            sub += 1;
-            nsub -= 1;
+void Network::update(const std::int16_t* src, std::int16_t* const* dst, const Delta* delta, int n) const {
+    // Tile by tile, so a tile stays in registers across the moves.
+    constexpr int TILE = 128;
+    static_assert(FT % TILE == 0);
+    for (int t = 0; t < FT; t += TILE) {
+        std::int16_t v[TILE];
+        std::memcpy(v, src + t, sizeof v);
+        for (int m = 0; m < n; ++m) {
+            const Delta& d = delta[m];
+            const std::int16_t *a = ft_weight_[d.add] + t, *s = ft_weight_[d.sub[0]] + t;
+            for (int i = 0; i < TILE; ++i) v[i] = std::int16_t(v[i] + a[i] - s[i]);
+            for (int k = 1; k < d.nsub; ++k) {
+                s = ft_weight_[d.sub[k]] + t;
+                for (int i = 0; i < TILE; ++i) v[i] = std::int16_t(v[i] - s[i]);
+            }
+            std::memcpy(dst[m] + t, v, sizeof v);
         }
-        nadd = 0;
-    } else if (src != dst) {
-        std::memcpy(dst, src, FT * sizeof(std::int16_t));
     }
-    for (int k = 0; k < nadd; ++k)
-        for (int i = 0; i < FT; ++i) dst[i] = std::int16_t(dst[i] + ft_weight_[add[k]][i]);
-    for (int k = 0; k < nsub; ++k)
-        for (int i = 0; i < FT; ++i) dst[i] = std::int16_t(dst[i] - ft_weight_[sub[k]][i]);
 }
 
 // SCReLU of one point of view's accumulator into f.a; SIMD builds also list the non-zero 4-byte chunks of f.a.
@@ -407,19 +403,18 @@ void AccumulatorStack::reset(const Network& net, const Position& root) {
     entries_[0].computed[BLACK] = entries_[0].computed[WHITE] = true;
 }
 
-void AccumulatorStack::apply(const Network& net, const Entry& parent, Entry& e, Color view) const {
+Network::Delta AccumulatorStack::delta(const Entry& e, Color view) {
     const Color us = e.us, them = ~us;
     const bool to_king = e.king || (bit(e.to) & promo_row(us));
-    int add[1] = {feature(view, us, to_king, e.to)};
-    int sub[13];
-    int nsub = 0;
-    sub[nsub++] = feature(view, us, e.king, e.from);
+    Network::Delta d;
+    d.add = feature(view, us, to_king, e.to);
+    d.nsub = 0;
+    d.sub[d.nsub++] = feature(view, us, e.king, e.from);
     for (Bitboard b = e.captures; b;) {
         const int sq = pop_lsb(b);
-        sub[nsub++] = feature(view, them, (e.captured_kings >> sq) & 1, sq);
+        d.sub[d.nsub++] = feature(view, them, (e.captured_kings >> sq) & 1, sq);
     }
-    net.update(parent.acc.v[view], e.acc.v[view], add, 1, sub, nsub);
-    e.computed[view] = true;
+    return d;
 }
 
 const Accumulator& AccumulatorStack::get(const Network& net, const Position& pos, int ply) {
@@ -428,7 +423,20 @@ const Accumulator& AccumulatorStack::get(const Network& net, const Position& pos
         int k = ply;
         while (k > 0 && !entries_[k].computed[view]) --k;
         if (entries_[k].computed[view]) {
-            for (int i = k + 1; i <= ply; ++i) apply(net, entries_[i - 1], entries_[i], view);
+            // All the moves since then in one pass, in batches of up to 8.
+            while (k < ply) {
+                const int n = std::min(ply - k, 8);
+                Network::Delta deltas[8];
+                std::int16_t* dst[8];
+                for (int i = 0; i < n; ++i) {
+                    Entry& e = entries_[k + 1 + i];
+                    deltas[i] = delta(e, view);
+                    dst[i] = e.acc.v[view];
+                    e.computed[view] = true;
+                }
+                net.update(entries_[k].acc.v[view], dst, deltas, n);
+                k += n;
+            }
         } else {
             net.refresh(entries_[ply].acc.v[view], pos, view);
             entries_[ply].computed[view] = true;
@@ -441,13 +449,10 @@ void Network::profile(const std::vector<Position>& positions, std::ostream& out)
     const int n = int(positions.size());
     if (n == 0) return;
     // Inputs for every stage, prepared up front: accumulators, forward-pass activations and one random legal move
-    // per position as feature lists for both points of view (as AccumulatorStack::apply builds them).
+    // per position as feature changes for both points of view (as AccumulatorStack::delta builds them).
     std::vector<Accumulator> accs(n), next(n);
     std::vector<Forward> fw(n);
-    struct Move1 {
-        int add[2], sub[2][13], nsub = 0;
-    };
-    std::vector<Move1> moves(n);
+    std::vector<std::array<Delta, 2>> moves(n);
     std::mt19937_64 rng(1);
     for (int i = 0; i < n; ++i) {
         const Position& pos = positions[i];
@@ -461,16 +466,15 @@ void Network::profile(const std::vector<Position>& positions, std::ostream& out)
         const Move m = list[rng() % list.size()];
         const Color us = pos.side_to_move();
         const bool king = (pos.kings() >> m.from) & 1, to_king = king || (bit(m.to) & promo_row(us));
-        Move1& mv = moves[i];
         for (Color view : {BLACK, WHITE}) {
-            int k = 0;
-            mv.add[view] = feature(view, us, to_king, m.to);
-            mv.sub[view][k++] = feature(view, us, king, m.from);
+            Delta& d = moves[i][view];
+            d.add = feature(view, us, to_king, m.to);
+            d.nsub = 0;
+            d.sub[d.nsub++] = feature(view, us, king, m.from);
             for (Bitboard b = m.captures; b;) {
                 const int sq = pop_lsb(b);
-                mv.sub[view][k++] = feature(view, ~us, (pos.kings() >> sq) & 1, sq);
+                d.sub[d.nsub++] = feature(view, ~us, (pos.kings() >> sq) & 1, sq);
             }
-            mv.nsub = k;
         }
     }
 
@@ -492,9 +496,10 @@ void Network::profile(const std::vector<Position>& positions, std::ostream& out)
     };
     const double t_refresh = time([&](int i) { refresh(next[i], positions[i]); });
     const double t_update = time([&](int i) {
-        const Move1& mv = moves[i];
-        for (Color view : {BLACK, WHITE})
-            update(accs[i].v[view], next[i].v[view], &mv.add[view], 1, mv.sub[view], mv.nsub);
+        for (Color view : {BLACK, WHITE}) {
+            std::int16_t* dst = next[i].v[view];
+            update(accs[i].v[view], &dst, &moves[i][view], 1);
+        }
     });
     const double t_eval = time([&](int i) {
         sink += evaluate(accs[i], positions[i].side_to_move(), positions[i].piece_count());

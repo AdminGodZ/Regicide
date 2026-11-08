@@ -84,8 +84,13 @@ public:
     // Full refresh, then evaluate.
     Score evaluate(const Position& pos) const;
 
-    // dst = src with the given features removed and added, for one point of view.
-    void update(const std::int16_t* src, std::int16_t* dst, const int* add, int nadd, const int* sub, int nsub) const;
+    // One move's change to one point of view: the feature added and those removed.
+    struct Delta {
+        int add, nsub;
+        int sub[13];
+    };
+    // Applies n moves to one point of view in one pass: dst[0] = src + delta[0], dst[i] = dst[i - 1] + delta[i].
+    void update(const std::int16_t* src, std::int16_t* const* dst, const Delta* delta, int n) const;
 
     int out_scale() const { return out_scale_; }
 
@@ -154,7 +159,7 @@ private:
         bool king;  // the moved piece was a king before the move
         bool computed[2] = {false, false};  // per point of view
     };
-    void apply(const Network& net, const Entry& parent, Entry& e, Color view) const;
+    static Network::Delta delta(const Entry& e, Color view);
 
     Entry entries_[SIZE];
 };
