@@ -80,6 +80,31 @@ Median nps of Regicide's searched moves (≥ 0.3 s), by Regicide move index (`np
   searches 50k nodes/position on 12 threads, and its larger per-thread hash tables likely press harder on the shared
   cache and memory. The earlier datagens searched 10k nodes.
 
+## Re-check with master 769ef0b (cache fix)
+
+769ef0b (PR #20) changes two things:
+- `egdb::init` pre-faults files smallest first, within the budget. Before, pre-faulting was all-or-nothing.
+- `set dbmbytes N` now raises the budget of the already-loaded database.
+
+`speed_check2.py` (log `speed/speed_check2.txt`) uses the engine dirs as they are used in matches:
+- `769ef0b-egdb7` (2–7) and `769ef0b-egdb8` (2–8), each with its own `egdb/` folder;
+- `set dbmbytes 12288` sent after the first load for the third setup;
+- the same 88 positions, two rounds, generators stopped (19:03–19:09).
+
+| Setup | Working set / proc | `set dbmbytes` time | nps 9–10 pc (rounds 1, 2) | 11–12 pc | 16–20 pc |
+|---|---|---|---|---|---|
+| 7-piece (default) | 1.11 GB | — | 2.77M, 2.96M | 2.62M, 2.67M | 2.40M, 2.39M |
+| 8-piece, default 4096 MB (now 4.09 GB pre-faulted) | 4.09 → 4.40 GB | — | 3.00M, 3.03M | 2.48M, 2.59M | 2.35M, 2.45M |
+| 8-piece + `set dbmbytes 12288` (all pre-faulted) | 10.15 GB | 1.6–2.5 s | 2.87M, 2.97M | 2.50M, 2.52M | 2.37M, 2.35M |
+
+All rows use 8 concurrent processes. Private memory is 0.13–0.15 GB per process in every setup.
+- The fix works as described: the default now pre-faults 4.09 GB, and `set dbmbytes 12288` raises it to the full
+  11 GB in about 2 s.
+- **The speed is the same in all three setups**, within run-to-run noise (±4%). Over all searched moves, the 8-piece
+  default gave 2.63M and `set dbmbytes 12288` 2.58M; the two-round means differ by under 2%.
+- **Setting chosen for the book/avoid tests: the default** (no `set dbmbytes`), using the 769ef0b DLL with the 2–8
+  folder. `switch769.sh` chooses `set dbmbytes 12288` only if it is more than 2% faster.
+
 ## Consequences
 
 - **The 8-piece baseline result is valid as an 8-piece result.** It ran at full 8-piece speed. Against KingsRow, 7 vs

@@ -1,0 +1,27 @@
+2026-11-08T19:03:21+01:00
+datagen-eb1037c:T bookgen-cc9f35f:T datagen-635d949:T 
+round 1 7-piece           x8: reply 1 7; first-command load 0.00 s; nps: 9-10 2.77M (59)  11-12 2.62M (62)  16-20 2.40M (52)  all 2.79M (207)  
+   memory after load: cbhost x8: working set max 1.11 GB/proc, private 0.13 GB/proc; during search: cbhost x8: working set max 1.12 GB/proc, private 0.13 GB/proc
+round 1 7-piece           x1: reply 1 7; first-command load 0.00 s; nps: 9-10 2.02M (8)  11-12 1.93M (4)  16-20 1.79M (8)  all 2.32M (23)  
+   memory after load: cbhost x1: working set max 1.11 GB/proc, private 0.13 GB/proc; during search: cbhost x1: working set max 1.12 GB/proc, private 0.13 GB/proc
+round 1 8-piece 4096 MB   x8: reply 1 8; first-command load 0.00 s; nps: 9-10 3.00M (45)  11-12 2.48M (44)  16-20 2.35M (49)  all 2.59M (138)  
+   memory after load: cbhost x8: working set max 4.09 GB/proc, private 0.15 GB/proc; during search: cbhost x8: working set max 4.39 GB/proc, private 0.15 GB/proc
+round 1 8-piece 4096 MB   x1: reply 1 8; first-command load 0.00 s; nps: 9-10 3.13M (3)  11-12 1.75M (7)  16-20 1.82M (6)  all 2.05M (16)  
+   memory after load: cbhost x1: working set max 4.09 GB/proc, private 0.15 GB/proc; during search: cbhost x1: working set max 4.34 GB/proc, private 0.15 GB/proc
+round 1 8-piece 12288 MB  x8: reply 1 8; first-command load 0.00 s; set dbmbytes 1.61 s; nps: 9-10 2.87M (44)  11-12 2.50M (37)  16-20 2.37M (51)  all 2.56M (132)  
+   memory after load: cbhost x8: working set max 10.15 GB/proc, private 0.15 GB/proc; during search: cbhost x8: working set max 10.15 GB/proc, private 0.15 GB/proc
+round 1 8-piece 12288 MB  x1: reply 1 8; first-command load 0.00 s; set dbmbytes 1.69 s; nps: 9-10 2.44M (8)  11-12 2.22M (7)  16-20 1.95M (5)  all 2.23M (20)  
+   memory after load: cbhost x1: working set max 10.15 GB/proc, private 0.15 GB/proc; during search: cbhost x1: working set max 10.15 GB/proc, private 0.15 GB/proc
+round 2 7-piece           x8: reply 1 7; first-command load 0.00 s; nps: 9-10 2.96M (52)  11-12 2.67M (65)  16-20 2.39M (60)  all 2.85M (210)  
+   memory after load: cbhost x8: working set max 1.11 GB/proc, private 0.13 GB/proc; during search: cbhost x8: working set max 1.12 GB/proc, private 0.13 GB/proc
+round 2 7-piece           x1: reply 1 7; first-command load 0.00 s; nps: 9-10 2.26M (10)  11-12 1.87M (5)  16-20 1.68M (9)  all 2.40M (29)  
+   memory after load: cbhost x1: working set max 1.11 GB/proc, private 0.13 GB/proc; during search: cbhost x1: working set max 1.12 GB/proc, private 0.13 GB/proc
+round 2 8-piece 4096 MB   x8: reply 1 8; first-command load 0.00 s; nps: 9-10 3.03M (43)  11-12 2.59M (43)  16-20 2.45M (55)  all 2.66M (141)  
+   memory after load: cbhost x8: working set max 4.09 GB/proc, private 0.15 GB/proc; during search: cbhost x8: working set max 4.40 GB/proc, private 0.15 GB/proc
+round 2 8-piece 4096 MB   x1: reply 1 8; first-command load 0.00 s; nps: 9-10 3.04M (7)  11-12 1.83M (6)  16-20 1.70M (8)  all 2.17M (21)  
+   memory after load: cbhost x1: working set max 4.09 GB/proc, private 0.15 GB/proc; during search: cbhost x1: working set max 4.32 GB/proc, private 0.15 GB/proc
+round 2 8-piece 12288 MB  x8: reply 1 8; first-command load 0.00 s; set dbmbytes 1.61 s; nps: 9-10 2.97M (48)  11-12 2.52M (48)  16-20 2.35M (49)  all 2.59M (145)  
+   memory after load: cbhost x8: working set max 10.15 GB/proc, private 0.15 GB/proc; during search: cbhost x8: working set max 10.15 GB/proc, private 0.15 GB/proc
+round 2 8-piece 12288 MB  x1: reply 1 8; first-command load 0.00 s; set dbmbytes 2.50 s; nps: 9-10 2.30M (7)  11-12 2.02M (8)  16-20 1.85M (7)  all 2.05M (22)  
+   memory after load: cbhost x1: working set max 10.15 GB/proc, private 0.15 GB/proc; during search: cbhost x1: working set max 10.15 GB/proc, private 0.15 GB/proc
+2026-11-08T19:09:05+01:00
