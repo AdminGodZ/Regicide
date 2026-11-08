@@ -1,0 +1,14 @@
+Match: A = Regicide 0.2, B = Cake 1.89f
+Openings: acf156 (156 openings x 1 rounds, each played with both colours)
+Time control: 0.5s/move (CheckerBoard match rules); no-progress rule: 40 moves
+Games: 312 of 312 scheduled
+
+A: +0 =291 -21   score 145.5/312 = 46.63%   draw rate 93.3%
+A as black: +0 =138 -18   A as white: +0 =153 -3
+By colour: black won 3, white won 18, drawn 291
+Pairs: 156   pentanomial [LL LD DD/WL WD WW] = [0 21 135 0 0]
+Elo (pentanomial, pairs): -23.4 [-32.8, -14.1] 95% CI, score 0.4663 +- 0.0134, LOS 0.00%
+Elo (trinomial, games):   -23.4 [-33.1, -13.7] 95% CI, LOS 0.00%
+Terminations: no legal moves 21; repetition 291;
+A Regicide 0.2: 12971 moves, avg 0.198s/move, max 4.203s
+B Cake 1.89f: 12962 moves, avg 0.241s/move, max 3.350s
