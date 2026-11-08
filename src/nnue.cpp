@@ -1,6 +1,13 @@
 #include "nnue.hpp"
 
+#include <chrono>
 #include <cstring>
+#include <iomanip>
+#include <ostream>
+#include <random>
+#include <sstream>
+
+#include "movegen.hpp"
 
 #if defined(__ARM_NEON) && defined(__ARM_FEATURE_DOTPROD)
 #include <arm_neon.h>
@@ -147,25 +154,39 @@ void Network::update(const std::int16_t* src, std::int16_t* dst, const int* add,
         for (int i = 0; i < FT; ++i) dst[i] = std::int16_t(dst[i] - ft_weight_[sub[k]][i]);
 }
 
-Score Network::evaluate(const Accumulator& acc, Color stm, int pieces) const {
-    alignas(64) std::int8_t a[FT];
-    alignas(64) std::int8_t h1[L1];
-    alignas(64) std::int8_t h2[L2];
-    const std::int16_t* v = acc.v[stm];
+void Network::transform(const std::int16_t* v, Forward& f) const {
     for (int i = 0; i < FT; ++i) {
         const int c = std::clamp<int>(v[i], 0, QA);
-        a[i] = std::int8_t((c * c) >> 9);
+        f.a[i] = std::int8_t((c * c) >> 9);
     }
-    std::int32_t s1[L1], s2[L2];
-    affine<FT, L1>(a, l1_weight_, s1);
-    for (int j = 0; j < L1; ++j) h1[j] = std::int8_t(std::clamp((s1[j] + l1_bias_[j]) >> SHIFT, 0, QH));
-    affine<L1, L2>(h1, l2_weight_, s2);
-    for (int j = 0; j < L2; ++j) h2[j] = std::int8_t(std::clamp((s2[j] + l2_bias_[j]) >> SHIFT, 0, QH));
+}
+
+void Network::hidden1(Forward& f) const {
+    std::int32_t s[L1];
+    affine<FT, L1>(f.a, l1_weight_, s);
+    for (int j = 0; j < L1; ++j) f.h1[j] = std::int8_t(std::clamp((s[j] + l1_bias_[j]) >> SHIFT, 0, QH));
+}
+
+void Network::hidden2(Forward& f) const {
+    std::int32_t s[L2];
+    affine<L1, L2>(f.h1, l2_weight_, s);
+    for (int j = 0; j < L2; ++j) f.h2[j] = std::int8_t(std::clamp((s[j] + l2_bias_[j]) >> SHIFT, 0, QH));
+}
+
+Score Network::output(const Forward& f, int pieces) const {
     const int b = bucket(pieces);
     std::int32_t out = out_bias_[b];
-    for (int j = 0; j < L2; ++j) out += std::int32_t(h2[j]) * out_weight_[b][j];
+    for (int j = 0; j < L2; ++j) out += std::int32_t(f.h2[j]) * out_weight_[b][j];
     const std::int64_t s = std::int64_t(out) * out_scale_ / (QH * QB);
     return Score(std::clamp<std::int64_t>(s, -SCORE_KNOWN_WIN + 1, SCORE_KNOWN_WIN - 1));
+}
+
+Score Network::evaluate(const Accumulator& acc, Color stm, int pieces) const {
+    Forward f;
+    transform(acc.v[stm], f);
+    hidden1(f);
+    hidden2(f);
+    return output(f, pieces);
 }
 
 Score Network::evaluate(const Position& pos) const {
@@ -208,6 +229,104 @@ const Accumulator& AccumulatorStack::get(const Network& net, const Position& pos
         }
     }
     return entries_[ply].acc;
+}
+
+void Network::profile(const std::vector<Position>& positions, std::ostream& out) const {
+    const int n = int(positions.size());
+    if (n == 0) return;
+    // Inputs for every stage, prepared up front: accumulators, forward-pass activations and one random legal move
+    // per position as feature lists for both points of view (as AccumulatorStack::apply builds them).
+    std::vector<Accumulator> accs(n), next(n);
+    std::vector<Forward> fw(n);
+    struct Move1 {
+        int add[2], sub[2][13], nsub = 0;
+    };
+    std::vector<Move1> moves(n);
+    std::mt19937_64 rng(1);
+    for (int i = 0; i < n; ++i) {
+        const Position& pos = positions[i];
+        refresh(accs[i], pos);
+        transform(accs[i].v[pos.side_to_move()], fw[i]);
+        hidden1(fw[i]);
+        hidden2(fw[i]);
+        MoveList list;
+        generate_moves(pos, list);
+        if (list.empty()) continue;
+        const Move m = list[rng() % list.size()];
+        const Color us = pos.side_to_move();
+        const bool king = (pos.kings() >> m.from) & 1, to_king = king || (bit(m.to) & promo_row(us));
+        Move1& mv = moves[i];
+        for (Color view : {BLACK, WHITE}) {
+            int k = 0;
+            mv.add[view] = feature(view, us, to_king, m.to);
+            mv.sub[view][k++] = feature(view, us, king, m.from);
+            for (Bitboard b = m.captures; b;) {
+                const int sq = pop_lsb(b);
+                mv.sub[view][k++] = feature(view, ~us, (pos.kings() >> sq) & 1, sq);
+            }
+            mv.nsub = k;
+        }
+    }
+
+    // Nanoseconds per call of fn(i), the best of 5 rounds of at least 40 ms over all positions.
+    std::int64_t sink = 0;
+    auto time = [&](auto&& fn) {
+        using clock = std::chrono::steady_clock;
+        double best = 1e300;
+        for (int round = 0; round < 5; ++round) {
+            const auto t0 = clock::now();
+            long calls = 0;
+            do {
+                for (int i = 0; i < n; ++i) fn(i);
+                calls += n;
+            } while (clock::now() - t0 < std::chrono::milliseconds(40));
+            best = std::min(best, std::chrono::duration<double, std::nano>(clock::now() - t0).count() / double(calls));
+        }
+        return best;
+    };
+    const double t_refresh = time([&](int i) { refresh(next[i], positions[i]); });
+    const double t_update = time([&](int i) {
+        const Move1& mv = moves[i];
+        for (Color view : {BLACK, WHITE})
+            update(accs[i].v[view], next[i].v[view], &mv.add[view], 1, mv.sub[view], mv.nsub);
+    });
+    const double t_eval = time([&](int i) {
+        sink += evaluate(accs[i], positions[i].side_to_move(), positions[i].piece_count());
+    });
+    const double t_transform = time([&](int i) { transform(accs[i].v[positions[i].side_to_move()], fw[i]); });
+    const double t_hidden1 = time([&](int i) { hidden1(fw[i]); });
+    const double t_hidden2 = time([&](int i) { hidden2(fw[i]); });
+    const double t_output = time([&](int i) { sink += output(fw[i], positions[i].piece_count()); });
+
+    // Share of non-zero bytes and non-zero 4-byte chunks in an activation vector.
+    auto density = [&](auto member, int size) {
+        long bytes = 0, chunks = 0;
+        for (const Forward& f : fw) {
+            const std::int8_t* x = f.*member;
+            for (int i = 0; i < size; i += 4) {
+                const int nz = (x[i] != 0) + (x[i + 1] != 0) + (x[i + 2] != 0) + (x[i + 3] != 0);
+                bytes += nz;
+                chunks += nz > 0;
+            }
+        }
+        std::ostringstream s;
+        s << std::fixed << std::setprecision(1) << 100.0 * double(bytes) / (double(n) * size) << "% non-zero bytes, "
+          << 100.0 * double(chunks) / (double(n) * size / 4) << "% non-zero chunks ("
+          << double(chunks) / n << " of " << size / 4 << ")";
+        return s.str();
+    };
+    out << std::fixed << std::setprecision(1) << "nnue profile: FT " << FT << ", L1 " << L1 << ", L2 " << L2 << ", "
+        << n << " positions, ns per call\n"
+        << "  refresh (both views)          " << std::setw(7) << t_refresh << '\n'
+        << "  update (one move, both views) " << std::setw(7) << t_update << '\n'
+        << "  evaluate                      " << std::setw(7) << t_eval << '\n'
+        << "    transform (SCReLU)          " << std::setw(7) << t_transform << '\n'
+        << "    FT -> L1                    " << std::setw(7) << t_hidden1 << '\n'
+        << "    L1 -> L2                    " << std::setw(7) << t_hidden2 << '\n'
+        << "    output                      " << std::setw(7) << t_output << '\n'
+        << "  FT output: " << density(&Forward::a, FT) << '\n'
+        << "  L1 output: " << density(&Forward::h1, L1) << '\n'
+        << "  (checksum " << sink % 1000 << ")" << std::endl;
 }
 
 }  // namespace regicide::nnue

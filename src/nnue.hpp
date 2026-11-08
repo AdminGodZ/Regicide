@@ -4,10 +4,10 @@
 // eval (the side to move goes "up"; black positions are rotated 180 degrees with colours swapped).
 //
 //   inputs   128 = [our man, our king, their man, their king] x 32 squares
-//   FT       128 -> 256, int16 weights, SCReLU: a = clamp(acc, 0, QA)^2 >> 9 (0..127, 1.0 = 127)
-//   L1       256 -> 32,  int8 weights, int32 sums, clipped ReLU: h = clamp(sum >> 6, 0, 127)
-//   L2       32 -> 32,   same
-//   output   32 -> 1 per bucket (by piece count), int16 weights; score = out * out_scale / (127 * 64)
+//   FT       128 -> FT (512), int16 weights, SCReLU: a = clamp(acc, 0, QA)^2 >> 9 (0..127, 1.0 = 127)
+//   L1       FT -> L1 (32), int8 weights, int32 sums, clipped ReLU: h = clamp(sum >> 6, 0, 127)
+//   L2       L1 -> L2 (32), same
+//   output   L2 -> 1 per bucket (by piece count), int16 weights; score = out * out_scale / (127 * 64)
 //
 // The search keeps one accumulator per colour's point of view on its stack and updates both from each move;
 // the forward pass uses the side to move's. tools/nnue/ trains and exports nets (see its README).
@@ -20,16 +20,27 @@
 #include <algorithm>
 #include <cstddef>
 #include <cstdint>
+#include <iosfwd>
 #include <memory>
 #include <string>
+#include <vector>
 
 #include "eval.hpp"
 
 namespace regicide::nnue {
 
+// FT and L1 can be overridden at configure time (cmake -DREGICIDE_NNUE_FT=1024 -DREGICIDE_NNUE_L1=64) to build
+// for a net of another width; tools/nnue/nnue.py has the same constants.
+#ifndef REGICIDE_NNUE_FT
+#define REGICIDE_NNUE_FT 512
+#endif
+#ifndef REGICIDE_NNUE_L1
+#define REGICIDE_NNUE_L1 32
+#endif
+
 constexpr int INPUTS = 128;
-constexpr int FT = 512;
-constexpr int L1 = 32;
+constexpr int FT = REGICIDE_NNUE_FT;
+constexpr int L1 = REGICIDE_NNUE_L1;
 constexpr int L2 = 32;
 constexpr int BUCKETS = 8;
 
@@ -76,7 +87,22 @@ public:
 
     int out_scale() const { return out_scale_; }
 
+    // Times each stage of the forward pass and the accumulator updates over `positions`, and prints them with
+    // the sparsity of the activations (regicide nnuebench).
+    void profile(const std::vector<Position>& positions, std::ostream& out) const;
+
 private:
+    // Activations of one forward pass.
+    struct alignas(64) Forward {
+        std::int8_t a[FT];  // feature transformer output
+        std::int8_t h1[L1];
+        std::int8_t h2[L2];
+    };
+    void transform(const std::int16_t* v, Forward& f) const;
+    void hidden1(Forward& f) const;
+    void hidden2(Forward& f) const;
+    Score output(const Forward& f, int pieces) const;
+
     alignas(64) std::int16_t ft_bias_[FT];
     alignas(64) std::int16_t ft_weight_[INPUTS][FT];
     alignas(64) std::int8_t l1_weight_[L1][FT];
