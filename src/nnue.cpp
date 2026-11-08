@@ -1,8 +1,10 @@
 #include "nnue.hpp"
 
+#include <bit>
 #include <chrono>
 #include <cstring>
 #include <iomanip>
+#include <numeric>
 #include <ostream>
 #include <random>
 #include <sstream>
@@ -61,6 +63,64 @@ constexpr NnzTable make_nnz_table() {
 }
 
 constexpr NnzTable NNZ_TABLE = make_nnz_table();
+#endif
+
+#if REGICIDE_NNUE_NEON || REGICIDE_NNUE_AVX2
+// An order of the feature-transformer outputs in which the 4 outputs of a chunk tend to be zero together, so that
+// FT -> L1 has fewer non-zero chunks to multiply. Reordering the outputs only permutes integer sums, so no
+// evaluation changes. The order comes from the SCReLU outputs over random playouts: each chunk starts with the
+// least active output left and greedily adds the three that keep it all zero in the most positions.
+// order[new index] = index in the file.
+std::vector<int> sparse_order(const Network& net) {
+    constexpr int SAMPLES = 4096, WORDS = SAMPLES / 64;
+    std::vector<std::uint64_t> active(std::size_t(FT) * WORDS);  // bit s of output i: non-zero in sample s
+    auto row = [&](int i) { return active.data() + std::size_t(i) * WORDS; };
+    std::mt19937_64 rng(1);
+    alignas(64) std::int16_t v[FT];
+    for (int s = 0; s < SAMPLES; ++s) {
+        Position pos;
+        for (int plies = int(rng() % 80); plies > 0; --plies) {
+            MoveList list;
+            generate_moves(pos, list);
+            if (list.empty()) break;
+            pos.make_move(list[rng() % list.size()]);
+        }
+        net.refresh(v, pos, pos.side_to_move());
+        for (int i = 0; i < FT; ++i) {
+            const int c = std::clamp<int>(v[i], 0, QA);
+            if ((c * c) >> 9) row(i)[s / 64] |= std::uint64_t(1) << (s % 64);
+        }
+    }
+    auto popcount = [&](const std::uint64_t* a, const std::uint64_t* b) {
+        int n = 0;
+        for (int w = 0; w < WORDS; ++w) n += std::popcount(a[w] | b[w]);
+        return n;
+    };
+    std::vector<int> by_activity(FT), order;
+    std::iota(by_activity.begin(), by_activity.end(), 0);
+    std::vector<int> activity(FT);
+    for (int i = 0; i < FT; ++i) activity[i] = popcount(row(i), row(i));
+    std::stable_sort(by_activity.begin(), by_activity.end(), [&](int a, int b) { return activity[a] < activity[b]; });
+    std::vector<bool> used(FT);
+    std::uint64_t chunk[WORDS];
+    for (int next = 0; int(order.size()) < FT;) {
+        while (used[by_activity[next]]) ++next;
+        int pick = by_activity[next];
+        std::fill(chunk, chunk + WORDS, 0);
+        for (int k = 0; k < 4; ++k) {
+            if (k > 0) {
+                int best = SAMPLES + 1;
+                for (int i = 0; i < FT; ++i)
+                    if (!used[i])
+                        if (const int n = popcount(chunk, row(i)); n < best) best = n, pick = i;
+            }
+            used[pick] = true;
+            order.push_back(pick);
+            for (int w = 0; w < WORDS; ++w) chunk[w] |= row(pick)[w];
+        }
+    }
+    return order;
+}
 #endif
 
 #if REGICIDE_NNUE_NEON
@@ -219,15 +279,29 @@ std::shared_ptr<const Network> Network::load(const unsigned char* data, std::siz
     };
     take(net->ft_bias_, sizeof net->ft_bias_);
     take(net->ft_weight_, sizeof net->ft_weight_);
+    // SIMD builds reorder the feature-transformer outputs (see sparse_order).
+    std::vector<int> order(FT);
+    std::iota(order.begin(), order.end(), 0);
+#if REGICIDE_NNUE_SIMD
+    order = sparse_order(*net);
+    const auto file = std::make_unique<Network>(*net);
+    for (int i = 0; i < FT; ++i) {
+        net->ft_bias_[i] = file->ft_bias_[order[i]];
+        for (int f = 0; f < INPUTS; ++f) net->ft_weight_[f][i] = file->ft_weight_[f][order[i]];
+    }
+#endif
     // Hidden-layer weights come as one row per output, and are kept in the kernels' order.
-    auto take_weights = [&](std::int8_t* dst, int N, int M) {
+    auto take_weights = [&](std::int8_t* dst, int N, int M, const int* in_order) {
         for (int j = 0; j < M; ++j)
-            for (int i = 0; i < N; ++i) dst[weight_index(j, i, N, M)] = std::int8_t(*p++);
+            for (int i = 0; i < N; ++i) dst[weight_index(j, i, N, M)] = std::int8_t(p[j * N + in_order[i]]);
+        p += N * M;
     };
     take(net->l1_bias_, sizeof net->l1_bias_);
-    take_weights(net->l1_weight_, FT, L1);
+    take_weights(net->l1_weight_, FT, L1, order.data());
     take(net->l2_bias_, sizeof net->l2_bias_);
-    take_weights(net->l2_weight_, L1, L2);
+    std::vector<int> identity(L1);
+    std::iota(identity.begin(), identity.end(), 0);
+    take_weights(net->l2_weight_, L1, L2, identity.data());
     take(net->out_bias_, sizeof net->out_bias_);
     take(net->out_weight_, sizeof net->out_weight_);
     return net;
