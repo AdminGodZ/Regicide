@@ -1,8 +1,10 @@
 """Checks that an exported net evaluates identically in Python and in the engine.
 
   python tools/nnue/check_export.py --engine build/regicide --data positions.bin [--checkpoint last.pt] [--n 1000]
+                                   [--arch v1|v2 --ft N --l1 N --l2 N --buckets N]   (random net)
 
-Exports the checkpoint (or a random net with weights spread over the quantisation ranges) to RGNN, evaluates
+Exports the checkpoint (or a random net of the given architecture, with weights spread over the quantisation
+ranges) to RGNN, evaluates
 --n positions from the data file with the Python integer forward pass (nnue.forward_int) and with
 "regicide evaldata", and fails if any score differs by more than --tolerance centi-men. Also reports how far
 the integer net is from the float model it was quantised from.
@@ -21,13 +23,15 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import nnue  # noqa: E402
 
 
-def random_model(seed):
+def random_model(arch, seed):
     torch.manual_seed(seed)
-    m = nnue.Net()
+    m = nnue.Net(arch)
+    # L1 sums grow with its input count; these ranges were set for 1024 inputs.
+    l1_scale = (1024 / arch.l1_inputs) ** 0.5
     with torch.no_grad():
         m.ft.weight.uniform_(-1.2, 1.2)
         m.ft.bias.uniform_(-0.5, 1.0)
-        m.l1.weight.uniform_(-0.4, 0.4)
+        m.l1.weight.uniform_(-0.4 * l1_scale, 0.4 * l1_scale)
         m.l1.bias.uniform_(-0.5, 0.5)
         m.l2.weight.uniform_(-0.6, 0.6)
         m.l2.bias.uniform_(-0.3, 0.6)
@@ -43,17 +47,20 @@ def main():
     p.add_argument("--data", required=True)
     p.add_argument("--checkpoint")
     p.add_argument("--net", help="also keep the exported net here")
+    p.add_argument("--arch", choices=sorted(nnue.DEFAULTS), default="v1", help="random net: architecture")
+    p.add_argument("--ft", type=int)
+    p.add_argument("--l1", type=int)
+    p.add_argument("--l2", type=int)
+    p.add_argument("--buckets", type=int)
     p.add_argument("--n", type=int, default=1000)
     p.add_argument("--tolerance", type=int, default=0)
     p.add_argument("--seed", type=int, default=3)
     args = p.parse_args()
 
     if args.checkpoint:
-        ck = torch.load(args.checkpoint, map_location="cpu")
-        model = nnue.Net(ck["args"].get("out_scale", nnue.OUT_SCALE))
-        model.load_state_dict(ck["model"])
+        model = nnue.load_model(torch.load(args.checkpoint, map_location="cpu"))
     else:
-        model = random_model(args.seed)
+        model = random_model(nnue.make_arch(args.arch, args.ft, args.l1, args.l2, args.buckets), args.seed)
     model.eval()
 
     rec = np.fromfile(args.data, dtype=nnue.RECORD)
@@ -74,9 +81,11 @@ def main():
 
     diff = np.abs(engine - python)
     with torch.no_grad():
-        x, b = nnue.features(*(torch.from_numpy(rec[k].astype(np.int64)) for k in ("black", "white", "kings", "stm")))
-        fl = model(x, b).clamp(-nnue.SCORE_LIMIT, nnue.SCORE_LIMIT).numpy()
-        sim = model(x, b, quant=True).clamp(-nnue.SCORE_LIMIT, nnue.SCORE_LIMIT).numpy()
+        x, xo, b = nnue.inputs(model.arch, *(torch.from_numpy(rec[k].astype(np.int64))
+                                             for k in ("black", "white", "kings", "stm")))
+        fl = model(x, xo, b).clamp(-nnue.SCORE_LIMIT, nnue.SCORE_LIMIT).numpy()
+        sim = model(x, xo, b, quant=True).clamp(-nnue.SCORE_LIMIT, nnue.SCORE_LIMIT).numpy()
+    print("net %s" % (model.arch,))
     print("positions %d  distinct engine scores %d  range [%d, %d]" %
           (len(rec), len(np.unique(engine)), engine.min(), engine.max()))
     print("python int vs engine: max |diff| %d, %d positions differ" % (diff.max(), np.count_nonzero(diff)))

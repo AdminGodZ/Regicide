@@ -73,10 +73,11 @@ constexpr NnzTable NNZ_TABLE = make_nnz_table();
 // order[new index] = index in the file.
 std::vector<int> sparse_order(const Network& net) {
     constexpr int SAMPLES = 4096, WORDS = SAMPLES / 64;
-    std::vector<std::uint64_t> active(std::size_t(FT) * WORDS);  // bit s of output i: non-zero in sample s
+    const int ft = net.arch().ft;
+    std::vector<std::uint64_t> active(std::size_t(ft) * WORDS);  // bit s of output i: non-zero in sample s
     auto row = [&](int i) { return active.data() + std::size_t(i) * WORDS; };
     std::mt19937_64 rng(1);
-    alignas(64) std::int16_t v[FT];
+    std::vector<std::int16_t> v(ft);
     for (int s = 0; s < SAMPLES; ++s) {
         Position pos;
         for (int plies = int(rng() % 80); plies > 0; --plies) {
@@ -85,8 +86,10 @@ std::vector<int> sparse_order(const Network& net) {
             if (list.empty()) break;
             pos.make_move(list[rng() % list.size()]);
         }
-        net.refresh(v, pos, pos.side_to_move());
-        for (int i = 0; i < FT; ++i) {
+        // Version 2 feeds L1 both points of view, so half the samples are the opponent's.
+        const Color view = net.both_views() && s % 2 ? ~pos.side_to_move() : pos.side_to_move();
+        net.refresh(v.data(), pos, view);
+        for (int i = 0; i < ft; ++i) {
             const int c = std::clamp<int>(v[i], 0, QA);
             if ((c * c) >> 9) row(i)[s / 64] |= std::uint64_t(1) << (s % 64);
         }
@@ -96,21 +99,21 @@ std::vector<int> sparse_order(const Network& net) {
         for (int w = 0; w < WORDS; ++w) n += std::popcount(a[w] | b[w]);
         return n;
     };
-    std::vector<int> by_activity(FT), order;
+    std::vector<int> by_activity(ft), order;
     std::iota(by_activity.begin(), by_activity.end(), 0);
-    std::vector<int> activity(FT);
-    for (int i = 0; i < FT; ++i) activity[i] = popcount(row(i), row(i));
+    std::vector<int> activity(ft);
+    for (int i = 0; i < ft; ++i) activity[i] = popcount(row(i), row(i));
     std::stable_sort(by_activity.begin(), by_activity.end(), [&](int a, int b) { return activity[a] < activity[b]; });
-    std::vector<bool> used(FT);
+    std::vector<bool> used(ft);
     std::uint64_t chunk[WORDS];
-    for (int next = 0; int(order.size()) < FT;) {
+    for (int next = 0; int(order.size()) < ft;) {
         while (used[by_activity[next]]) ++next;
         int pick = by_activity[next];
         std::fill(chunk, chunk + WORDS, 0);
         for (int k = 0; k < 4; ++k) {
             if (k > 0) {
                 int best = SAMPLES + 1;
-                for (int i = 0; i < FT; ++i)
+                for (int i = 0; i < ft; ++i)
                     if (!used[i])
                         if (const int n = popcount(chunk, row(i)); n < best) best = n, pick = i;
             }
@@ -153,14 +156,12 @@ inline void affine_chunks(const std::int8_t* a, Chunk chunk, int count, const st
     for (int r = 0; r < R; ++r) vst1q_s32(out + 4 * r, s[0][r]);
 }
 #elif REGICIDE_NNUE_AVX2
-// Lists the 4-byte chunks of a[N] that are not all zero, in order, and returns how many there are.
-template <int N>
-inline int find_nnz(const std::int8_t* a, std::uint16_t* nnz) {
-    static_assert(N % 32 == 0);
+// Appends the 4-byte chunks of a[n] that are not all zero, numbered from `base`, to nnz[count..], in order, and
+// returns the new count.
+inline int find_nnz(const std::int8_t* a, int n, std::uint16_t* nnz, int count, int base_chunk) {
     const __m256i zero = _mm256_setzero_si256();
-    __m128i base = _mm_setzero_si128();
-    int count = 0;
-    for (int i = 0; i < N; i += 32) {
+    __m128i base = _mm_set1_epi16(std::int16_t(base_chunk));
+    for (int i = 0; i < n; i += 32) {
         // Activations are 0..127, so a chunk read as int32 is non-zero exactly when it is positive.
         const __m256i c = _mm256_loadu_si256(reinterpret_cast<const __m256i*>(a + i));
         const unsigned mask = unsigned(_mm256_movemask_ps(_mm256_castsi256_ps(_mm256_cmpgt_epi32(c, zero))));
@@ -215,8 +216,8 @@ inline void affine_chunks(const std::int8_t* a, Chunk chunk, int count, const st
 #else
 // out[j] = sum of a[i] * w[j][i] over i < N, for j < M (int8 inputs and weights, int32 sums). Four rows at a
 // time, so the vectorised loop keeps independent accumulators instead of one dependency chain per row.
-template <int N, int M>
-inline void affine(const std::int8_t* a, const std::int8_t* w, std::int32_t* out) {
+template <int M>
+inline void affine(const std::int8_t* a, int N, const std::int8_t* w, std::int32_t* out) {
     for (int j = 0; j < M; j += 4) {
         const std::int8_t *w0 = w + j * N, *w1 = w0 + N, *w2 = w1 + N, *w3 = w2 + N;
         std::int32_t s0 = 0, s1 = 0, s2 = 0, s3 = 0;
@@ -235,7 +236,36 @@ inline void affine(const std::int8_t* a, const std::int8_t* w, std::int32_t* out
 }
 #endif
 
+// Calls f(std::integral_constant<int, n>) for a supported hidden-layer width n (supported_hidden).
+template <class F>
+inline void with_width(int n, F&& f) {
+    switch (n) {
+    case 16: f(std::integral_constant<int, 16>{}); break;
+    case 32: f(std::integral_constant<int, 32>{}); break;
+    default: f(std::integral_constant<int, 64>{}); break;
+    }
+}
+
+// Calls f(ft) with the FT width as a compile-time constant for the common widths, so their accumulator loops are
+// compiled for them (about 1% of search speed), and as an int otherwise.
+template <class F>
+inline decltype(auto) with_ft(int ft, F&& f) {
+    switch (ft) {
+    case 512: return f(std::integral_constant<int, 512>{});
+    case 768: return f(std::integral_constant<int, 768>{});
+    case 1024: return f(std::integral_constant<int, 1024>{});
+    default: return f(ft);
+    }
+}
+
 }  // namespace
+
+std::string Arch::describe() const {
+    std::ostringstream s;
+    s << 'v' << version << ' ' << (views() == 2 ? "2x" : "") << ft << " -> " << l1 << " -> " << l2 << " -> 1, "
+      << buckets << (version == 2 ? " buckets (all layers)" : " output buckets");
+    return s.str();
+}
 
 std::shared_ptr<const Network> Network::load(const unsigned char* data, std::size_t size, std::string* error) {
     auto fail = [&](const std::string& why) -> std::shared_ptr<const Network> {
@@ -243,49 +273,86 @@ std::shared_ptr<const Network> Network::load(const unsigned char* data, std::siz
         return nullptr;
     };
     if (size < HEADER_BYTES || std::memcmp(data, "RGNN", 4) != 0) return fail("not an RGNN file");
-    const std::uint32_t expect[10] = {VERSION, INPUTS, FT, L1, L2, BUCKETS, ACTIVATION, QA, QB, 0};
-    const char* names[10] = {"version", "inputs", "ft", "l1", "l2", "buckets", "activation", "qa", "qb", ""};
-    for (int i = 0; i < 9; ++i)
-        if (const std::uint32_t got = read_u32(data + 4 + 4 * i); got != expect[i])
-            return fail(std::string("net ") + names[i] + " " + std::to_string(got) + ", this build expects " +
+    auto field = [&](int i) { return read_u32(data + 4 + 4 * i); };
+    const std::uint32_t version = field(0);
+    if (version != 1 && version != 2)
+        return fail("net version " + std::to_string(version) + ", this build supports versions 1 and 2");
+    const char* names[9] = {"version", "inputs", "ft", "l1", "l2", "buckets", "activation", "qa", "qb"};
+    const std::uint32_t expect[9] = {version, INPUTS, 0, 0, 0, 0, ACTIVATION, QA, QB};
+    for (int i : {1, 6, 7, 8})
+        if (field(i) != expect[i])
+            return fail(std::string("net ") + names[i] + " " + std::to_string(field(i)) + ", this build expects " +
                         std::to_string(expect[i]));
-    if (size != FILE_BYTES)
-        return fail("net size " + std::to_string(size) + ", expected " + std::to_string(FILE_BYTES));
+    // Width fields are checked before they are used as ints.
+    for (int i = 2; i <= 5; ++i)
+        if (field(i) == 0 || field(i) > 1u << 16)
+            return fail(std::string("net ") + names[i] + " " + std::to_string(field(i)) + " is out of range");
+    Arch arch;
+    arch.version = int(version);
+    arch.ft = int(field(2));
+    arch.l1 = int(field(3));
+    arch.l2 = int(field(4));
+    arch.buckets = int(field(5));
+    const std::string what = "net " + arch.describe() + ": ";
+    if (arch.ft % FT_TILE != 0 || arch.ft > MAX_FT)
+        return fail(what + "ft must be a multiple of " + std::to_string(FT_TILE) + " up to " + std::to_string(MAX_FT) +
+                    " (raise the limit with cmake -DREGICIDE_NNUE_MAX_FT)");
+    if (!supported_hidden(arch.l1) || !supported_hidden(arch.l2))
+        return fail(what + "l1 and l2 must be 16, 32 or 64");
+    if (arch.buckets > MAX_BUCKETS) return fail(what + "at most " + std::to_string(MAX_BUCKETS) + " buckets");
+    if (size != arch.file_bytes())
+        return fail(what + "size " + std::to_string(size) + ", expected " + std::to_string(arch.file_bytes()));
 
     auto net = std::make_shared<Network>();
+    net->arch_ = arch;
     net->out_scale_ = int(read_u32(data + 40));
+    const int ft = arch.ft, l1 = arch.l1, l2 = arch.l2, n1 = arch.l1_inputs(), hb = arch.hidden_buckets();
+    net->ft_bias_ = allocate<std::int16_t>(ft);
+    net->ft_weight_ = allocate<std::int16_t>(std::size_t(INPUTS) * ft);
+    net->l1_bias_ = allocate<std::int32_t>(std::size_t(hb) * l1);
+    net->l1_weight_ = allocate<std::int8_t>(std::size_t(hb) * l1 * n1);
+    net->l2_bias_ = allocate<std::int32_t>(std::size_t(hb) * l2);
+    net->l2_weight_ = allocate<std::int8_t>(std::size_t(hb) * l2 * l1);
+    net->out_bias_ = allocate<std::int32_t>(arch.buckets);
+    net->out_weight_ = allocate<std::int16_t>(std::size_t(arch.buckets) * l2);
+
     const unsigned char* p = data + HEADER_BYTES;
     auto take = [&](void* dst, std::size_t bytes) {
         std::memcpy(dst, p, bytes);
         p += bytes;
     };
-    take(net->ft_bias_, sizeof net->ft_bias_);
-    take(net->ft_weight_, sizeof net->ft_weight_);
-    // SIMD builds reorder the feature-transformer outputs (see sparse_order).
-    std::vector<int> order(FT);
+    take(net->ft_bias_.get(), 2 * std::size_t(ft));
+    take(net->ft_weight_.get(), 2 * std::size_t(INPUTS) * ft);
+    // SIMD builds reorder the feature-transformer outputs (see sparse_order); both points of view the same way.
+    std::vector<int> order(ft);
     std::iota(order.begin(), order.end(), 0);
 #if REGICIDE_NNUE_SIMD
     order = sparse_order(*net);
-    const auto file = std::make_unique<Network>(*net);
-    for (int i = 0; i < FT; ++i) {
-        net->ft_bias_[i] = file->ft_bias_[order[i]];
-        for (int f = 0; f < INPUTS; ++f) net->ft_weight_[f][i] = file->ft_weight_[f][order[i]];
+    const std::vector<std::int16_t> bias(net->ft_bias_.get(), net->ft_bias_.get() + ft),
+        weight(net->ft_weight_.get(), net->ft_weight_.get() + std::size_t(INPUTS) * ft);
+    for (int i = 0; i < ft; ++i) {
+        net->ft_bias_[i] = bias[order[i]];
+        for (std::size_t row = 0; row < std::size_t(INPUTS) * ft; row += ft)
+            net->ft_weight_[row + i] = weight[row + order[i]];
     }
 #endif
-    // Hidden-layer weights come as one row per output, and are kept in the kernels' order.
+    // Hidden-layer weights come as one row per output, bucket after bucket, and are kept in the kernels' order.
     auto take_weights = [&](std::int8_t* dst, int N, int M, const int* in_order) {
-        for (int j = 0; j < M; ++j)
-            for (int i = 0; i < N; ++i) dst[weight_index(j, i, N, M)] = std::int8_t(p[j * N + in_order[i]]);
-        p += N * M;
+        for (int b = 0; b < hb; ++b, dst += std::size_t(N) * M, p += std::size_t(N) * M)
+            for (int j = 0; j < M; ++j)
+                for (int i = 0; i < N; ++i)
+                    dst[weight_index(j, i, N, M)] = std::int8_t(p[std::size_t(j) * N + in_order[i]]);
     };
-    take(net->l1_bias_, sizeof net->l1_bias_);
-    take_weights(net->l1_weight_, FT, L1, order.data());
-    take(net->l2_bias_, sizeof net->l2_bias_);
-    std::vector<int> identity(L1);
+    std::vector<int> l1_order(n1);
+    for (int i = 0; i < n1; ++i) l1_order[i] = i / ft * ft + order[i % ft];
+    take(net->l1_bias_.get(), 4 * std::size_t(hb) * l1);
+    take_weights(net->l1_weight_.get(), n1, l1, l1_order.data());
+    take(net->l2_bias_.get(), 4 * std::size_t(hb) * l2);
+    std::vector<int> identity(l1);
     std::iota(identity.begin(), identity.end(), 0);
-    take_weights(net->l2_weight_, L1, L2, identity.data());
-    take(net->out_bias_, sizeof net->out_bias_);
-    take(net->out_weight_, sizeof net->out_weight_);
+    take_weights(net->l2_weight_.get(), l1, l2, identity.data());
+    take(net->out_bias_.get(), 4 * std::size_t(arch.buckets));
+    take(net->out_weight_.get(), 2 * std::size_t(arch.buckets) * l2);
     return net;
 }
 
@@ -294,109 +361,145 @@ void Network::refresh(Accumulator& acc, const Position& pos) const {
 }
 
 void Network::refresh(std::int16_t* v, const Position& pos, Color view) const {
-    std::memcpy(v, ft_bias_, sizeof ft_bias_);
-    for (Color c : {BLACK, WHITE})
-        for (Bitboard b = pos.pieces(c); b;) {
-            const int sq = pop_lsb(b);
-            const std::int16_t* w = ft_weight_[feature(view, c, (pos.kings() >> sq) & 1, sq)];
-            for (int i = 0; i < FT; ++i) v[i] = std::int16_t(v[i] + w[i]);
-        }
+    with_ft(arch_.ft, [&](auto ft) {
+        std::memcpy(v, ft_bias_.get(), 2 * std::size_t(ft));
+        for (Color c : {BLACK, WHITE})
+            for (Bitboard b = pos.pieces(c); b;) {
+                const int sq = pop_lsb(b);
+                const std::int16_t* w = ft_row(feature(view, c, (pos.kings() >> sq) & 1, sq));
+                for (int i = 0; i < ft; ++i) v[i] = std::int16_t(v[i] + w[i]);
+            }
+    });
 }
 
 void Network::update(const std::int16_t* src, std::int16_t* const* dst, const Delta* delta, int n) const {
     // Tile by tile, so a tile stays in registers across the moves.
-    constexpr int TILE = 128;
-    static_assert(FT % TILE == 0);
-    for (int t = 0; t < FT; t += TILE) {
-        std::int16_t v[TILE];
-        std::memcpy(v, src + t, sizeof v);
-        for (int m = 0; m < n; ++m) {
-            const Delta& d = delta[m];
-            const std::int16_t *a = ft_weight_[d.add] + t, *s = ft_weight_[d.sub[0]] + t;
-            for (int i = 0; i < TILE; ++i) v[i] = std::int16_t(v[i] + a[i] - s[i]);
-            for (int k = 1; k < d.nsub; ++k) {
-                s = ft_weight_[d.sub[k]] + t;
-                for (int i = 0; i < TILE; ++i) v[i] = std::int16_t(v[i] - s[i]);
+    // Locals, as the stores to dst could alias the members.
+    constexpr int TILE = FT_TILE;
+    const std::int16_t* weight = ft_weight_.get();
+    with_ft(arch_.ft, [&](auto ft) {
+        auto row = [&](int feature) { return weight + std::size_t(feature) * ft; };
+        // Unrolled (as clang does for 4 tiles), the tile no longer stays in registers: twice as slow.
+#if defined(__clang__)
+#pragma clang loop unroll(disable)
+#endif
+        for (int t = 0; t < ft; t += TILE) {
+            std::int16_t v[TILE];
+            std::memcpy(v, src + t, sizeof v);
+            for (int m = 0; m < n; ++m) {
+                const Delta& d = delta[m];
+                const std::int16_t *a = row(d.add) + t, *s = row(d.sub[0]) + t;
+                for (int i = 0; i < TILE; ++i) v[i] = std::int16_t(v[i] + a[i] - s[i]);
+                for (int k = 1; k < d.nsub; ++k) {
+                    s = row(d.sub[k]) + t;
+                    for (int i = 0; i < TILE; ++i) v[i] = std::int16_t(v[i] - s[i]);
+                }
+                std::memcpy(dst[m] + t, v, sizeof v);
             }
-            std::memcpy(dst[m] + t, v, sizeof v);
         }
-    }
+    });
 }
 
-// SCReLU of one point of view's accumulator into f.a; SIMD builds also list the non-zero 4-byte chunks of f.a.
-void Network::transform(const std::int16_t* v, Forward& f) const {
+int Network::transform(const std::int16_t* v, std::int8_t* out, std::uint16_t* nnz, int count, int base) const {
+    return with_ft(arch_.ft, [&](auto ft) {
 #if REGICIDE_NNUE_NEON
-    static_assert(QA == 255 && FT % 32 == 0);
-    std::uint8_t* a = reinterpret_cast<std::uint8_t*>(f.a);
-    uint16x8_t base = vdupq_n_u16(0);
-    int count = 0;
-    for (int i = 0; i < FT; i += 32) {
-        uint8x16_t o[2];
-        for (int h = 0; h < 2; ++h) {
-            // clamp(x, 0, 255) by narrowing with unsigned saturation, then c^2 >> 9 = (c^2 >> 8) >> 1.
-            const int16_t* x = v + i + 16 * h;
-            const uint8x16_t c = vqmovun_high_s16(vqmovun_s16(vld1q_s16(x)), vld1q_s16(x + 8));
-            const uint16x8_t lo = vmull_u8(vget_low_u8(c), vget_low_u8(c)), hi = vmull_high_u8(c, c);
-            o[h] = vshrq_n_u8(vshrn_high_n_u16(vshrn_n_u16(lo, 8), hi, 8), 1);
-            vst1q_u8(a + i + 16 * h, o[h]);
+        static_assert(QA == 255);
+        std::uint8_t* a = reinterpret_cast<std::uint8_t*>(out);
+        uint16x8_t index_base = vdupq_n_u16(std::uint16_t(base));
+        for (int i = 0; i < ft; i += 32) {
+            uint8x16_t o[2];
+            for (int h = 0; h < 2; ++h) {
+                // clamp(x, 0, 255) by narrowing with unsigned saturation, then c^2 >> 9 = (c^2 >> 8) >> 1.
+                const int16_t* x = v + i + 16 * h;
+                const uint8x16_t c = vqmovun_high_s16(vqmovun_s16(vld1q_s16(x)), vld1q_s16(x + 8));
+                const uint16x8_t lo = vmull_u8(vget_low_u8(c), vget_low_u8(c)), hi = vmull_high_u8(c, c);
+                o[h] = vshrq_n_u8(vshrn_high_n_u16(vshrn_n_u16(lo, 8), hi, 8), 1);
+                vst1q_u8(a + i + 16 * h, o[h]);
+            }
+            // One byte per chunk that saturating narrowing keeps non-zero, as 0 or 1, then gathered into 8 bits.
+            const uint16x8_t n16 = vqmovn_high_u32(vqmovn_u32(vreinterpretq_u32_u8(o[0])), vreinterpretq_u32_u8(o[1]));
+            const uint8x8_t nz = vmin_u8(vqmovn_u16(n16), vdup_n_u8(1));
+            const unsigned mask = unsigned((vget_lane_u64(vreinterpret_u64_u8(nz), 0) * 0x0102040810204080ull) >> 56);
+            vst1q_u16(nnz + count, vaddq_u16(index_base, vld1q_u16(NNZ_TABLE.index[mask])));
+            count += NNZ_TABLE.count[mask];
+            index_base = vaddq_u16(index_base, vdupq_n_u16(8));
         }
-        // One byte per chunk that saturating narrowing keeps non-zero, as 0 or 1, then gathered into 8 bits.
-        const uint16x8_t n16 = vqmovn_high_u32(vqmovn_u32(vreinterpretq_u32_u8(o[0])), vreinterpretq_u32_u8(o[1]));
-        const uint8x8_t nz = vmin_u8(vqmovn_u16(n16), vdup_n_u8(1));
-        const unsigned mask = unsigned((vget_lane_u64(vreinterpret_u64_u8(nz), 0) * 0x0102040810204080ull) >> 56);
-        vst1q_u16(f.nnz + count, vaddq_u16(base, vld1q_u16(NNZ_TABLE.index[mask])));
-        count += NNZ_TABLE.count[mask];
-        base = vaddq_u16(base, vdupq_n_u16(8));
-    }
-    f.count = count;
 #else
-    for (int i = 0; i < FT; ++i) {
-        const int c = std::clamp<int>(v[i], 0, QA);
-        f.a[i] = std::int8_t((c * c) >> 9);
-    }
+        for (int i = 0; i < ft; ++i) {
+            const int c = std::clamp<int>(v[i], 0, QA);
+            out[i] = std::int8_t((c * c) >> 9);
+        }
 #if REGICIDE_NNUE_AVX2
-    f.count = find_nnz<FT>(f.a, f.nnz);
+        count = find_nnz(out, ft, nnz, count, base);
 #endif
 #endif
+        (void)nnz;
+        (void)base;
+        return count;
+    });
 }
 
-// FT -> L1: SIMD builds only visit the non-zero chunks of f.a.
-void Network::hidden1(Forward& f) const {
+// L1's input: SCReLU of the side to move's point of view, then (version 2) of the opponent's.
+void Network::transform(const Accumulator& acc, Color stm, Forward& f) const {
+    f.count = transform(acc.v[stm], f.a, f.nnz, 0, 0);
+    if (both_views()) f.count = transform(acc.v[~stm], f.a + arch_.ft, f.nnz, f.count, arch_.ft / 4);
+}
+
+// L1 of hidden bucket hb: SIMD builds only visit the non-zero chunks of f.a.
+template <int L1>
+void Network::hidden1(Forward& f, int hb) const {
+    const int n = arch_.l1_inputs();
+    const std::int8_t* w = l1_weight_.get() + std::size_t(hb) * L1 * n;
+    const std::int32_t* bias = l1_bias_.get() + std::size_t(hb) * L1;
     std::int32_t s[L1];
 #if REGICIDE_NNUE_SIMD
-    affine_chunks<L1>(f.a, [&](int k) { return f.nnz[k]; }, f.count, l1_weight_, l1_bias_, s);
+    affine_chunks<L1>(f.a, [&](int k) { return f.nnz[k]; }, f.count, w, bias, s);
 #else
-    affine<FT, L1>(f.a, l1_weight_, s);
-    for (int j = 0; j < L1; ++j) s[j] += l1_bias_[j];
+    affine<L1>(f.a, n, w, s);
+    for (int j = 0; j < L1; ++j) s[j] += bias[j];
 #endif
     for (int j = 0; j < L1; ++j) f.h1[j] = std::int8_t(std::clamp(s[j] >> SHIFT, 0, QH));
 }
 
-void Network::hidden2(Forward& f) const {
+template <int L1, int L2>
+void Network::hidden2(Forward& f, int hb) const {
+    const std::int8_t* w = l2_weight_.get() + std::size_t(hb) * L2 * L1;
+    const std::int32_t* bias = l2_bias_.get() + std::size_t(hb) * L2;
     std::int32_t s[L2];
 #if REGICIDE_NNUE_SIMD
-    affine_chunks<L2>(f.h1, [](int k) { return k; }, L1 / 4, l2_weight_, l2_bias_, s);
+    affine_chunks<L2>(f.h1, [](int k) { return k; }, L1 / 4, w, bias, s);
 #else
-    affine<L1, L2>(f.h1, l2_weight_, s);
-    for (int j = 0; j < L2; ++j) s[j] += l2_bias_[j];
+    affine<L2>(f.h1, L1, w, s);
+    for (int j = 0; j < L2; ++j) s[j] += bias[j];
 #endif
     for (int j = 0; j < L2; ++j) f.h2[j] = std::int8_t(std::clamp(s[j] >> SHIFT, 0, QH));
 }
 
-Score Network::output(const Forward& f, int pieces) const {
-    const int b = bucket(pieces);
+template <int L2>
+Score Network::output(const Forward& f, int b) const {
+    const std::int16_t* w = out_weight_.get() + std::size_t(b) * L2;
     std::int32_t out = out_bias_[b];
-    for (int j = 0; j < L2; ++j) out += std::int32_t(f.h2[j]) * out_weight_[b][j];
+    for (int j = 0; j < L2; ++j) out += std::int32_t(f.h2[j]) * w[j];
     const std::int64_t s = std::int64_t(out) * out_scale_ / (QH * QB);
     return Score(std::clamp<std::int64_t>(s, -SCORE_KNOWN_WIN + 1, SCORE_KNOWN_WIN - 1));
 }
 
-Score Network::evaluate(const Accumulator& acc, Color stm, int pieces) const {
+template <int L1, int L2>
+Score Network::forward(const Accumulator& acc, Color stm, int pieces) const {
+    const int b = bucket(pieces, arch_.buckets), hb = arch_.version == 2 ? b : 0;
     Forward f;
-    transform(acc.v[stm], f);
-    hidden1(f);
-    hidden2(f);
-    return output(f, pieces);
+    transform(acc, stm, f);
+    hidden1<L1>(f, hb);
+    hidden2<L1, L2>(f, hb);
+    return output<L2>(f, b);
+}
+
+Score Network::evaluate(const Accumulator& acc, Color stm, int pieces) const {
+    Score s = 0;
+    with_width(arch_.l1, [&](auto l1) {
+        with_width(arch_.l2, [&](auto l2) { s = forward<l1(), l2()>(acc, stm, pieces); });
+    });
+    return s;
 }
 
 Score Network::evaluate(const Position& pos) const {
@@ -424,49 +527,60 @@ Network::Delta AccumulatorStack::delta(const Entry& e, Color view) {
     return d;
 }
 
-const Accumulator& AccumulatorStack::get(const Network& net, const Position& pos, int ply) {
-    const Color view = pos.side_to_move();
-    if (!entries_[ply].computed[view]) {
-        int k = ply;
-        while (k > 0 && !entries_[k].computed[view]) --k;
-        if (entries_[k].computed[view]) {
-            // All the moves since then in one pass, in batches of up to 8.
-            while (k < ply) {
-                const int n = std::min(ply - k, 8);
-                Network::Delta deltas[8];
-                std::int16_t* dst[8];
-                for (int i = 0; i < n; ++i) {
-                    Entry& e = entries_[k + 1 + i];
-                    deltas[i] = delta(e, view);
-                    dst[i] = e.acc.v[view];
-                    e.computed[view] = true;
-                }
-                net.update(entries_[k].acc.v[view], dst, deltas, n);
-                k += n;
+void AccumulatorStack::compute(const Network& net, const Position& pos, int ply, Color view) {
+    int k = ply;
+    while (k > 0 && !entries_[k].computed[view]) --k;
+    if (entries_[k].computed[view]) {
+        // All the moves since then in one pass, in batches of up to 8.
+        while (k < ply) {
+            const int n = std::min(ply - k, 8);
+            Network::Delta deltas[8];
+            std::int16_t* dst[8];
+            for (int i = 0; i < n; ++i) {
+                Entry& e = entries_[k + 1 + i];
+                deltas[i] = delta(e, view);
+                dst[i] = e.acc.v[view];
+                e.computed[view] = true;
             }
-        } else {
-            net.refresh(entries_[ply].acc.v[view], pos, view);
-            entries_[ply].computed[view] = true;
+            net.update(entries_[k].acc.v[view], dst, deltas, n);
+            k += n;
         }
+    } else {
+        net.refresh(entries_[ply].acc.v[view], pos, view);
+        entries_[ply].computed[view] = true;
     }
-    return entries_[ply].acc;
 }
 
 void Network::profile(const std::vector<Position>& positions, std::ostream& out) const {
     const int n = int(positions.size());
     if (n == 0) return;
+    // The layers at this net's widths.
+    auto hidden1 = [&](Forward& f, int hb) { with_width(arch_.l1, [&](auto l1) { this->hidden1<l1()>(f, hb); }); };
+    auto hidden2 = [&](Forward& f, int hb) {
+        with_width(arch_.l1, [&](auto l1) {
+            with_width(arch_.l2, [&](auto l2) { this->hidden2<l1(), l2()>(f, hb); });
+        });
+    };
+    auto output = [&](const Forward& f, int b) {
+        Score s = 0;
+        with_width(arch_.l2, [&](auto l2) { s = this->output<l2()>(f, b); });
+        return s;
+    };
     // Inputs for every stage, prepared up front: accumulators, forward-pass activations and one random legal move
     // per position as feature changes for both points of view (as AccumulatorStack::delta builds them).
     std::vector<Accumulator> accs(n), next(n);
     std::vector<Forward> fw(n);
+    std::vector<int> buckets(n), hidden_buckets(n);
     std::vector<std::array<Delta, 2>> moves(n);
     std::mt19937_64 rng(1);
     for (int i = 0; i < n; ++i) {
         const Position& pos = positions[i];
+        buckets[i] = bucket(pos.piece_count(), arch_.buckets);
+        hidden_buckets[i] = arch_.version == 2 ? buckets[i] : 0;
         refresh(accs[i], pos);
-        transform(accs[i].v[pos.side_to_move()], fw[i]);
-        hidden1(fw[i]);
-        hidden2(fw[i]);
+        transform(accs[i], pos.side_to_move(), fw[i]);
+        hidden1(fw[i], hidden_buckets[i]);
+        hidden2(fw[i], hidden_buckets[i]);
         MoveList list;
         generate_moves(pos, list);
         if (list.empty()) continue;
@@ -511,10 +625,10 @@ void Network::profile(const std::vector<Position>& positions, std::ostream& out)
     const double t_eval = time([&](int i) {
         sink += evaluate(accs[i], positions[i].side_to_move(), positions[i].piece_count());
     });
-    const double t_transform = time([&](int i) { transform(accs[i].v[positions[i].side_to_move()], fw[i]); });
-    const double t_hidden1 = time([&](int i) { hidden1(fw[i]); });
-    const double t_hidden2 = time([&](int i) { hidden2(fw[i]); });
-    const double t_output = time([&](int i) { sink += output(fw[i], positions[i].piece_count()); });
+    const double t_transform = time([&](int i) { transform(accs[i], positions[i].side_to_move(), fw[i]); });
+    const double t_hidden1 = time([&](int i) { hidden1(fw[i], hidden_buckets[i]); });
+    const double t_hidden2 = time([&](int i) { hidden2(fw[i], hidden_buckets[i]); });
+    const double t_output = time([&](int i) { sink += output(fw[i], buckets[i]); });
 
     // Share of non-zero bytes and non-zero 4-byte chunks in an activation vector.
     auto density = [&](auto member, int size) {
@@ -533,8 +647,8 @@ void Network::profile(const std::vector<Position>& positions, std::ostream& out)
           << double(chunks) / n << " of " << size / 4 << ")";
         return s.str();
     };
-    out << std::fixed << std::setprecision(1) << "nnue profile: FT " << FT << ", L1 " << L1 << ", L2 " << L2 << ", "
-        << n << " positions, ns per call\n"
+    out << std::fixed << std::setprecision(1) << "nnue profile: " << arch_.describe() << ", " << n
+        << " positions, ns per call\n"
         << "  refresh (both views)          " << std::setw(7) << t_refresh << '\n'
         << "  update (one move, both views) " << std::setw(7) << t_update << '\n'
         << "  evaluate                      " << std::setw(7) << t_eval << '\n'
@@ -542,8 +656,8 @@ void Network::profile(const std::vector<Position>& positions, std::ostream& out)
         << "    FT -> L1                    " << std::setw(7) << t_hidden1 << '\n'
         << "    L1 -> L2                    " << std::setw(7) << t_hidden2 << '\n'
         << "    output                      " << std::setw(7) << t_output << '\n'
-        << "  FT output: " << density(&Forward::a, FT) << '\n'
-        << "  L1 output: " << density(&Forward::h1, L1) << '\n'
+        << "  FT output: " << density(&Forward::a, arch_.l1_inputs()) << '\n'
+        << "  L1 output: " << density(&Forward::h1, arch_.l1) << '\n'
         << "  (checksum " << sink % 1000 << ")" << std::endl;
 }
 

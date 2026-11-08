@@ -1,0 +1,21 @@
+new  bench: 7338658 nodes 1674 ms 4383905 nps
+base bench: 7338658 nodes 1657 ms 4428882 nps
+new  bench: 7338658 nodes 1669 ms 4397038 nps
+base bench: 7338658 nodes 1654 ms 4436915 nps
+new  bench: 7338658 nodes 1665 ms 4407602 nps
+base bench: 7338658 nodes 1657 ms 4428882 nps
+new  bench: 7338658 nodes 1673 ms 4386526 nps
+base bench: 7338658 nodes 1654 ms 4436915 nps
+new  bench: 7338658 nodes 1675 ms 4381288 nps
+base bench: 7338658 nodes 1651 ms 4444977 nps
+--- after 7aac617 (accumulator loops compiled for FT 512/768/1024)
+new  bench: 7338658 nodes 1675 ms 4381288 nps
+base bench: 7338658 nodes 1676 ms 4378674 nps
+new  bench: 7338658 nodes 1662 ms 4415558 nps
+base bench: 7338658 nodes 1661 ms 4418216 nps
+new  bench: 7338658 nodes 1669 ms 4397038 nps
+base bench: 7338658 nodes 1663 ms 4412903 nps
+new  bench: 7338658 nodes 1694 ms 4332147 nps
+base bench: 7338658 nodes 1710 ms 4291612 nps
+new  bench: 7338658 nodes 1702 ms 4311784 nps
+base bench: 7338658 nodes 1670 ms 4394405 nps

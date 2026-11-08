@@ -1,0 +1,47 @@
+== b05f80a experiments/nnue_v2: design, checks, speed on the M5, RTX 5080 training commands (train_v2.sh); README fix
+CMAKE_BUILD_TYPE:STRING=Release
+REGICIDE_NATIVE:BOOL=ON
+-- ctest
+      Start  3: nnue
+ 2/12 Test  #1: perft ............................   Passed    0.21 sec
+      Start  4: nnue_ft512
+ 3/12 Test  #4: nnue_ft512 .......................   Passed    0.31 sec
+      Start  5: nnue_l1_64
+ 4/12 Test  #3: nnue .............................   Passed    0.54 sec
+      Start  6: nnue_v2
+ 5/12 Test  #6: nnue_v2 ..........................   Passed    0.47 sec
+      Start  7: nnue_v2_wide
+ 6/12 Test  #5: nnue_l1_64 .......................   Passed    0.57 sec
+      Start  8: nnue_v2_shapes
+ 7/12 Test  #8: nnue_v2_shapes ...................   Passed    0.42 sec
+      Start  9: cb_api
+ 8/12 Test  #7: nnue_v2_wide .....................   Passed    0.74 sec
+      Start 10: egdb
+ 9/12 Test  #9: cb_api ...........................   Passed    2.16 sec
+      Start 11: egdb_data
+10/12 Test #11: egdb_data ........................   Passed    0.81 sec
+      Start 12: referee
+11/12 Test #12: referee ..........................   Passed    0.17 sec
+12/12 Test #10: egdb .............................   Passed    4.77 sec
+
+100% tests passed out of 12
+
+Total Test time (real) =   6.55 sec
+-- bench
+bench: 7338658 nodes 2580 ms 2844441 nps
+avx_vnni 
+-- random-net check_export --arch v1
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 80.30, max 488.03 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK
+-- random-net check_export --arch v2
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 79.90, max 687.11 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK
+-- random-net check_export --arch v2 --ft 1024 --l1 16
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 80.55, max 945.50 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK
