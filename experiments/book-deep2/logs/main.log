@@ -1,0 +1,13 @@
+1794230546 roots from /home/admingod/regicide-jobs/deep2/roots2.txt: 5 positions
+1794230546 resumed 111 positions
+1794230546 roots analysed: 111 positions
+1794232118 expanded 80  book positions 191  next priority 108  first root value -40
+1794233828 expanded 160  book positions 271  next priority 108  first root value -42
+1794235501 expanded 240  book positions 351  next priority 115  first root value -21
+1794237321 expanded 320  book positions 431  next priority 112  first root value -27
+1794238926 expanded 400  book positions 511  next priority 117  first root value -27
+1794240611 expanded 480  book positions 591  next priority 121  first root value -45
+1794242347 expanded 560  book positions 671  next priority 128  first root value -48
+1794244059 expanded 640  book positions 751  next priority 130  first root value -48
+1794245814 expanded 720  book positions 831  next priority 132  first root value -52
+1794245814 wrote /home/admingod/regicide-data/book/book2.bin with 831 positions

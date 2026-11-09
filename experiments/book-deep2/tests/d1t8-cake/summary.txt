@@ -1,0 +1,14 @@
+Match: A = Regicide 0.2, B = Cake 1.89f
+Openings: /home/admingod/regicide-jobs/deep2/target_openings.txt (50 openings x 1 rounds, each played with both colours)
+Time control: 0.5s/move (CheckerBoard match rules); no-progress rule: 40 moves
+Games: 100 of 100 scheduled
+
+A: +0 =65 -35   score 32.5/100 = 32.50%   draw rate 65.0%
+A as black: +0 =29 -21   A as white: +0 =36 -14
+By colour: black won 14, white won 21, drawn 65
+Pairs: 50   pentanomial [LL LD DD/WL WD WW] = [0 35 15 0 0]
+Elo (pentanomial, pairs): -127.0 [-152.8, -102.4] 95% CI, score 0.3250 +- 0.0318, LOS 0.00%
+Elo (trinomial, games):   -127.0 [-165.6, -91.2] 95% CI, LOS 0.00%
+Terminations: no legal moves 35; repetition 65;
+A Regicide 0.2: 5161 moves, avg 0.327s/move, max 2.493s
+B Cake 1.89f: 5170 moves, avg 0.366s/move, max 4.871s
