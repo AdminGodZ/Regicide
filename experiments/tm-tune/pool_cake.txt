@@ -1,0 +1,7 @@
+T6: runs ba-tm-T6-cake, ba-tm-T6b-cake
+   games 624: W/D/L 0/609/15; pairs 312, pentanomial [LL LD DD/WL WD WW] = [0, 15, 297, 0, 0]
+   score 0.4880 +- 0.0059; Elo (pentanomial) -8.4 [-12.5, -4.2] 95% CI
+off: runs ba-off-769-cake, ba-off-769b-cake, ba-tm-off-cake
+   games 936: W/D/L 0/904/32; pairs 468, pentanomial [LL LD DD/WL WD WW] = [0, 32, 436, 0, 0]
+   score 0.4829 +- 0.0057; Elo (pentanomial) -11.9 [-15.9, -7.9] 95% CI
+T6 - off: +3.5 Elo [-2.2, +9.3] 95% CI, LOS 88.6%
