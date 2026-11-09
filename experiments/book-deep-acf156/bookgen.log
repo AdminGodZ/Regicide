@@ -1,0 +1,44 @@
+2026-11-09T04:52:05+01:00 START expansions=2160 extra=
+2026-11-09T05:29:33 roots from /home/admingod/regicide-jobs/bookdeep/acf156_roots.txt: 156 positions
+2026-11-09T05:29:33 roots analysed: 156 positions
+2026-11-09T05:45:39 expanded 72  book positions 228  next priority 48  first root value -2
+2026-11-09T06:03:11 expanded 144  book positions 300  next priority 48  first root value -2
+2026-11-09T06:21:24 expanded 216  book positions 372  next priority 52  first root value -5
+2026-11-09T06:42:54 expanded 288  book positions 444  next priority 58  first root value -5
+2026-11-09T07:00:57 expanded 360  book positions 516  next priority 60  first root value -5
+2026-11-09T07:18:45 expanded 432  book positions 588  next priority 60  first root value -5
+2026-11-09T07:36:09 expanded 504  book positions 660  next priority 60  first root value -2
+2026-11-09T07:55:25 expanded 576  book positions 732  next priority 63  first root value -5
+2026-11-09T08:15:47 expanded 648  book positions 804  next priority 65  first root value -5
+2026-11-09T08:36:21 expanded 720  book positions 876  next priority 68  first root value -5
+2026-11-09T08:54:24 expanded 792  book positions 948  next priority 70  first root value -5
+2026-11-09T09:11:45 expanded 864  book positions 1020  next priority 72  first root value -5
+2026-11-09T09:28:41 expanded 936  book positions 1092  next priority 72  first root value -5
+2026-11-09T09:44:30 expanded 1008  book positions 1164  next priority 72  first root value -5
+2026-11-09T10:00:47 expanded 1080  book positions 1236  next priority 72  first root value -5
+2026-11-09T10:20:55 expanded 1152  book positions 1308  next priority 73  first root value -5
+2026-11-09T10:39:37 expanded 1224  book positions 1380  next priority 75  first root value -5
+2026-11-09T10:58:07 expanded 1296  book positions 1452  next priority 76  first root value -5
+2026-11-09T11:16:24 expanded 1368  book positions 1524  next priority 77  first root value -5
+2026-11-09T11:34:09 expanded 1440  book positions 1596  next priority 78  first root value -5
+2026-11-09T11:54:24 expanded 1512  book positions 1668  next priority 79  first root value -5
+2026-11-09T12:10:17 expanded 1584  book positions 1740  next priority 80  first root value -5
+2026-11-09T12:29:39 expanded 1656  book positions 1812  next priority 81  first root value -5
+2026-11-09T12:48:53 expanded 1728  book positions 1884  next priority 82  first root value -5
+2026-11-09T13:07:59 expanded 1800  book positions 1956  next priority 82  first root value -5
+2026-11-09T13:26:19 expanded 1872  book positions 2028  next priority 83  first root value -5
+2026-11-09T13:42:14 expanded 1944  book positions 2100  next priority 84  first root value -5
+2026-11-09T14:00:26 expanded 2016  book positions 2172  next priority 84  first root value -5
+2026-11-09T14:18:35 expanded 2088  book positions 2244  next priority 84  first root value -5
+2026-11-09T14:33:44 expanded 2160  book positions 2316  next priority 84  first root value -5
+2026-11-09T14:33:44 wrote /home/admingod/regicide-data/book/book_deep_acf156.bin with 2316 positions
+2026-11-09T14:33:44+01:00 END rc=0
+2026-11-09T14:33:53+01:00 START expansions=216 extra=--resume /home/admingod/regicide-data/book/book_deep_acf156.bin
+2026-11-09T14:33:53 roots from /home/admingod/regicide-jobs/bookdeep/acf156_roots.txt: 156 positions
+2026-11-09T14:33:53 resumed 2316 positions
+2026-11-09T14:33:53 roots analysed: 2316 positions
+2026-11-09T14:50:24 expanded 72  book positions 2388  next priority 85  first root value -5
+2026-11-09T15:08:23 expanded 144  book positions 2460  next priority 86  first root value -5
+2026-11-09T15:27:46 expanded 216  book positions 2532  next priority 86  first root value -5
+2026-11-09T15:27:46 wrote /home/admingod/regicide-data/book/book_deep_acf156.bin with 2532 positions
+2026-11-09T15:27:46+01:00 END rc=0
