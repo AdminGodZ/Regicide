@@ -95,6 +95,8 @@ OUT_WEIGHT_MAX = 500.0
 RECORD = np.dtype([("black", "<u4"), ("white", "<u4"), ("kings", "<u4"), ("score", "<i2"), ("stm", "u1"),
                    ("result", "i1")])
 BLACK, WHITE = 0, 1
+# stm bit 7: the score is proven (src/datafile.hpp); its sign is the exact result. Bit 0 is the side to move.
+PROVEN = 0x80
 
 
 def bucket_of(pieces, buckets):
@@ -103,28 +105,62 @@ def bucket_of(pieces, buckets):
         min(max(pieces - 1, 0) * buckets // 24, buckets - 1)
 
 
+def stm_of(rec):
+    """Side to move of records (the stm byte without the PROVEN flag)."""
+    return rec["stm"] & 1
+
+
+def proven_of(rec):
+    return (rec["stm"] & PROVEN) != 0
+
+
+def piece_counts(rec):
+    return np.bitwise_count(rec["black"] | rec["white"])
+
+
 def stm_result(rec):
     """Game result from the side to move's point of view, 0 / 0.5 / 1."""
     r = rec["result"].astype(np.float64)
-    return 0.5 + 0.5 * np.where(rec["stm"] == BLACK, r, -r)
+    return 0.5 + 0.5 * np.where(stm_of(rec) == BLACK, r, -r)
 
 
 # ----------------------------------------------------------------------------------------------------------------
 # Data
 
 
+def kept_indices(m, min_pieces, chunk=1 << 22):
+    """Indices (uint32) of the records of memmap `m` with at least `min_pieces` pieces."""
+    parts = []
+    for s in range(0, len(m), chunk):
+        parts.append((np.flatnonzero(piece_counts(m[s:s + chunk]) >= min_pieces) + s).astype(np.uint32))
+    return np.concatenate(parts) if parts else np.empty(0, np.uint32)
+
+
 class Data:
     """Several DataRecord files, memory-mapped. The last `valid_frac` of each file is held out for validation
-    (files are written game by game, so this keeps validation games apart from training games)."""
+    (files are written game by game, so this keeps validation games apart from training games).
+    min_pieces > 0 leaves out every record with fewer pieces (training and validation)."""
 
-    def __init__(self, files, valid_frac=0.02):
-        self.maps, self.train_sizes, self.valid_parts = [], [], []
+    def __init__(self, files, valid_frac=0.02, min_pieces=0):
+        self.maps, self.train_sizes, self.valid_parts, self.keep = [], [], [], []
+        cache = {}
         for f in files:
             m = np.memmap(f, dtype=RECORD, mode="r")
             nv = int(len(m) * valid_frac)
             self.maps.append(m)
-            self.train_sizes.append(len(m) - nv)
-            self.valid_parts.append(m[len(m) - nv:])
+            if min_pieces > 0:
+                if f not in cache:
+                    k = kept_indices(m, min_pieces)
+                    cut = np.searchsorted(k, len(m) - nv)
+                    cache[f] = (k[:cut], m[k[cut:].astype(np.int64)])
+                k, v = cache[f]
+                self.keep.append(k)
+                self.train_sizes.append(len(k))
+                self.valid_parts.append(v)
+            else:
+                self.keep.append(None)
+                self.train_sizes.append(len(m) - nv)
+                self.valid_parts.append(m[len(m) - nv:])
         self.train_ends = np.cumsum(self.train_sizes)
         self.n_train = int(self.train_ends[-1]) if files else 0
         self.n_valid = sum(len(v) for v in self.valid_parts)
@@ -137,7 +173,8 @@ class Data:
         out = np.empty(len(idx), dtype=RECORD)
         for f in np.unique(which):
             sel = which == f
-            out[sel] = self.maps[f][idx[sel] - starts[f]]
+            local = idx[sel] - starts[f]
+            out[sel] = self.maps[f][local if self.keep[f] is None else self.keep[f][local]]
         return out
 
     def sample(self, rng, n):
@@ -184,7 +221,9 @@ class Prefetcher:
 
 def to_tensors(rec, device):
     """Raw record fields as int64 tensors on `device`."""
-    cols = {k: torch.from_numpy(rec[k].astype(np.int64)) for k in ("black", "white", "kings", "stm", "score")}
+    cols = {k: torch.from_numpy(rec[k].astype(np.int64)) for k in ("black", "white", "kings", "score")}
+    cols["stm"] = torch.from_numpy(stm_of(rec).astype(np.int64))
+    cols["proven"] = torch.from_numpy(proven_of(rec))
     cols["result"] = torch.from_numpy(stm_result(rec).astype(np.float32))
     pin = torch.device(device).type == "cuda"
     return {k: (v.pin_memory() if pin else v).to(device, non_blocking=True) for k, v in cols.items()}
@@ -226,7 +265,9 @@ def features_np(rec, view):
 
 
 def fit_k(rec, lo=20.0, hi=2000.0):
-    """K such that sigmoid(score / K) best predicts the game results (as tools/train.cpp)."""
+    """K such that sigmoid(score / K) best predicts the game results (as tools/train.cpp). Proven records (clamped
+    scores) are left out."""
+    rec = rec[~proven_of(rec)]
     s = rec["score"].astype(np.float64)
     t = stm_result(rec)
 
@@ -400,7 +441,7 @@ def read_rgnn(path):
 def forward_int(qw, rec):
     """The engine's integer forward pass on records (numpy int64; must match Network::evaluate exactly)."""
     a = qw["arch"]
-    stm = rec["stm"].astype(np.int64)
+    stm = stm_of(rec).astype(np.int64)
 
     def transform(view):
         x, pieces = features_np(rec, view)

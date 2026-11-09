@@ -81,7 +81,7 @@ def main():
 
     diff = np.abs(engine - python)
     with torch.no_grad():
-        x, xo, b = nnue.inputs(model.arch, *(torch.from_numpy(rec[k].astype(np.int64))
+        x, xo, b = nnue.inputs(model.arch, *(torch.from_numpy(np.asarray(nnue.stm_of(rec) if k == "stm" else rec[k]).astype(np.int64))
                                              for k in ("black", "white", "kings", "stm")))
         fl = model(x, xo, b).clamp(-nnue.SCORE_LIMIT, nnue.SCORE_LIMIT).numpy()
         sim = model(x, xo, b, quant=True).clamp(-nnue.SCORE_LIMIT, nnue.SCORE_LIMIT).numpy()

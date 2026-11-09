@@ -1,13 +1,19 @@
 // Self-play data generation for training the evaluation.
 //
-//   datagen --games 100000 --nodes 5000 --threads 12 --out data/run1.bin [--evalfile w.bin]
+//   datagen --games 100000 --nodes 5000 --threads 12 --out data/run1.bin [--evalfile w.bin] [--egdb DIR]
+//           [--seeds seeds.txt]
 //
 // Each game starts with a few uniformly random plies, then both sides play with a fixed node budget.
 // Every quiet position (side to move has no capture) is written with its search score and the game result.
+// With --egdb, a game ends (and takes its result from the database) at the first position the database knows, and
+// positions whose search score is proven (decisive) are kept, clamped and flagged (DataRecord::make_proven), instead
+// of being dropped. With --seeds (one FEN per line), each game starts from a random seed position followed by
+// --random-min..--random-max random plies (default 0..2 with seeds).
 #include <atomic>
 #include <cstdint>
 #include <cstdio>
 #include <cstring>
+#include <fstream>
 #include <iostream>
 #include <mutex>
 #include <random>
@@ -38,6 +44,8 @@ struct Config {
     std::string out = "datagen.bin";
     std::string evalfile;
     int egdb_pieces = 0;
+    std::vector<Position> seeds;
+    bool random_set = false;
 };
 
 }  // namespace
@@ -50,8 +58,22 @@ int main(int argc, char** argv) {
         if (k == "--games") cfg.games = std::stol(next());
         else if (k == "--threads") cfg.threads = std::stoi(next());
         else if (k == "--nodes") cfg.nodes = std::stoull(next());
-        else if (k == "--random-min") cfg.random_min = std::stoi(next());
-        else if (k == "--random-max") cfg.random_max = std::stoi(next());
+        else if (k == "--random-min") cfg.random_min = std::stoi(next()), cfg.random_set = true;
+        else if (k == "--random-max") cfg.random_max = std::stoi(next()), cfg.random_set = true;
+        else if (k == "--seeds") {
+            std::ifstream in(next());
+            for (std::string line; std::getline(in, line);) {
+                if (line.empty() || line[0] == '#') continue;
+                Position p;
+                if (p.set_fen(line)) cfg.seeds.push_back(p);
+                else std::cerr << "bad seed FEN: " << line << '\n';
+            }
+            if (cfg.seeds.empty()) {
+                std::cerr << "no seed positions\n";
+                return 1;
+            }
+            std::printf("seeds: %zu positions\n", cfg.seeds.size());
+        }
         else if (k == "--seed") cfg.seed = std::stoull(next());
         else if (k == "--out") cfg.out = next();
         else if (k == "--evalfile") cfg.evalfile = next();
@@ -68,6 +90,7 @@ int main(int argc, char** argv) {
         }
     }
 
+    if (!cfg.seeds.empty() && !cfg.random_set) cfg.random_min = 0, cfg.random_max = 2;
     std::shared_ptr<const Evaluator> ev = Evaluator::builtin();
     if (!cfg.evalfile.empty() && !(ev = Evaluator::from_file(cfg.evalfile))) {
         std::cerr << "cannot load " << cfg.evalfile << '\n';
@@ -95,7 +118,7 @@ int main(int argc, char** argv) {
         std::vector<DataRecord> game;
 
         while (next_game++ < cfg.games) {
-            Position pos;
+            Position pos = cfg.seeds.empty() ? Position() : cfg.seeds[rng() % cfg.seeds.size()];
             std::vector<Position> history;
             bool ok = true;
             const int nrandom = cfg.random_min + int(rng() % (cfg.random_max - cfg.random_min + 1));
@@ -143,7 +166,10 @@ int main(int argc, char** argv) {
 
                 engine.set_position(pos, history);
                 const SearchResult r = engine.go(limits);
-                if (!list[0].is_capture() && !is_decisive(r.score)) game.push_back(DataRecord::make(pos, r.score));
+                if (!list[0].is_capture()) {
+                    if (!is_decisive(r.score)) game.push_back(DataRecord::make(pos, r.score));
+                    else if (cfg.egdb_pieces > 0) game.push_back(DataRecord::make_proven(pos, r.score));
+                }
 
                 const int black_view = pos.side_to_move() == BLACK ? r.score : -r.score;
                 const int sign = black_view >= cfg.adjudicate_score ? 1 : black_view <= -cfg.adjudicate_score ? -1 : 0;
