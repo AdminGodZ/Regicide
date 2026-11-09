@@ -1,0 +1,4 @@
+commit ff0a3d27d771ab775c8d5ac9d0594d9e7d3bf524; book.bin = book_deep.bin sha256 f43a790a07dbfef3
+built 2026-11-09T09:36:21+01:00 with clang version 23.1.5 (https://github.com/llvm/llvm-project.git 392dfff97d29b59d77e5cac6d4b6ef2585fe7117)
+toolchain file: tools-src/tools/windows/mingw-clang.cmake
+egdb: full copy of ~/regicide-data/egdb (2-7 pieces) in egdb/
