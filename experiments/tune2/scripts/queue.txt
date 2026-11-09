@@ -1,0 +1,10 @@
+# tune2 on 6bb8c6c (n6c, se_depth 4, se_margin 20). name|A|movetime|pairs|B|extra
+t2_semargin15|se_margin=15|300|800
+t2_semargin30|se_margin=30|300|800
+t2_se3|se_depth=3|300|800
+t2_lmrbase80|lmr_base=80|300|800
+t2_rfp50|rfp_margin=50|300|800
+t2_etc6|etc_min_depth=6|300|800
+# extras added at 19:23 (all six screens done, ~2 h before the push deadline)
+t2_conthist0|cont_hist=0|300|800
+t2_asp20|aspiration_delta=20|300|800

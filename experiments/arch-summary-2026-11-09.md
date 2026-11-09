@@ -60,3 +60,5 @@ systemd-run --user --unit=regicide-tune2 --collect -p Nice=10 -p WorkingDirector
   `Regicide-tune2/experiments/tune2/RESULTS.md`), then commit and push t3/tune2.
 - If master moves, rebuild in a new worktree, pin a new selfplay binary, point the runner at it, and start a new
   section in RESULTS.md (the base matters: tune1 showed parameters interact with the net and with SE).
+
+- Copies of the runner, queue, done list and results generator are in `experiments/tune2/scripts/` (the live copies are in `~/regicide-jobs/tune2/`). The gen5b file has a local backup at `~/regicide-data/backup/gen5b_n50k.bin` (same sha256), on the same disk, so a copy on another machine is still needed.

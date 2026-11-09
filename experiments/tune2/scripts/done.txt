@@ -1,0 +1,8 @@
+t2_semargin15|se_margin=15|300|800
+t2_semargin30|se_margin=30|300|800
+t2_se3|se_depth=3|300|800
+t2_lmrbase80|lmr_base=80|300|800
+t2_rfp50|rfp_margin=50|300|800
+t2_etc6|etc_min_depth=6|300|800
+t2_conthist0|cont_hist=0|300|800
+t2_asp20|aspiration_delta=20|300|800
