@@ -1,0 +1,56 @@
+-- shared validation set, target lambda 0.7
+valid positions 1000000  K 106.65  lambda 0.70  engine /home/admingod/regicide-match/builds/b88c02e-egdb8/build-linux/regicide
+n4c                          0.506345
+n6c                          0.506910
+n6d                          0.509411
+n6e                          0.507058
+n6f                          0.506640
+-- shared validation set, target lambda 0.5
+valid positions 1000000  K 106.65  lambda 0.50  engine /home/admingod/regicide-match/builds/b88c02e-egdb8/build-linux/regicide
+n4c                          0.514372
+n6c                          0.513005
+n6d                          0.513461
+n6e                          0.513195
+n6f                          0.512858
+-- shared validation set, target lambda 1.0
+valid positions 1000000  K 106.65  lambda 1.00  engine /home/admingod/regicide-match/builds/b88c02e-egdb8/build-linux/regicide
+n4c                          0.494304
+n6c                          0.497767
+n6d                          0.503336
+n6e                          0.497852
+n6f                          0.497314
+-- shared validation set, target lambda 0.0
+valid positions 1000000  K 106.65  lambda 0.00  engine /home/admingod/regicide-match/builds/b88c02e-egdb8/build-linux/regicide
+n4c                          0.534441
+n6c                          0.528244
+n6d                          0.523585
+n6e                          0.528538
+n6f                          0.528401
+-- gen5a validation set, target lambda 0.7
+valid positions 208702  K 106.65  lambda 0.70  engine /home/admingod/regicide-match/builds/b88c02e-egdb8/build-linux/regicide
+n4c                          0.459453
+n6c                          0.447642
+n6d                          0.453032
+n6e                          0.447941
+n6f                          0.447642
+-- gen5a validation set, target lambda 0.5
+valid positions 208702  K 106.65  lambda 0.50  engine /home/admingod/regicide-match/builds/b88c02e-egdb8/build-linux/regicide
+n4c                          0.471847
+n6c                          0.462203
+n6d                          0.466041
+n6e                          0.462337
+n6f                          0.462143
+-- gen5a validation set, target lambda 1.0
+valid positions 208702  K 106.65  lambda 1.00  engine /home/admingod/regicide-match/builds/b88c02e-egdb8/build-linux/regicide
+n4c                          0.440861
+n6c                          0.425801
+n6d                          0.433518
+n6e                          0.426348
+n6f                          0.425891
+-- gen5a validation set, target lambda 0.0
+valid positions 208702  K 106.65  lambda 0.00  engine /home/admingod/regicide-match/builds/b88c02e-egdb8/build-linux/regicide
+n4c                          0.502834
+n6c                          0.498605
+n6d                          0.498565
+n6e                          0.498326
+n6f                          0.498396

@@ -1,0 +1,10 @@
+== ff0a3d2 Merge pull request #25 from AdminGodZ/t3/optimize-checkers-engine
+built-in net.bin == n6c.nnue
+-- ctest
+100% tests passed out of 13
+
+Total Test time (real) =   6.23 sec
+-- bench
+bench: 8089571 nodes 3259 ms 2482224 nps
+cde5c9158355baf5791be5de901faeaac81ec3c17cf0f904f396c49046ec97a5  /home/admingod/regicide-nnue6-work/engines/rff0a3d2.so
+b45498781905a1eb74df7c0182e2bdd7301968b8f6fec0022a64c4b052c5ad86  /home/admingod/regicide-jobs/deep/bin/bookgen-ff0a3d2

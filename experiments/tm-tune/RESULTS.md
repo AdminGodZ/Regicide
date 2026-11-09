@@ -63,6 +63,35 @@ The settings match the `results/book-avoid-769ef0b` off run:
   first moves.
 - **Run times:** off 00:39–00:51, T6 00:51–01:03.
 
+## T6 confirmation
+
+The confirmation runs used the same DLL (`b88c02e-egdb8`, n4c) and settings as the first T6 and off runs against Cake,
+01:35–02:15, with gen5c alongside.
+
+| Run | W / D / L | Pentanomial | Elo [95% CI] |
+|---|---|---|---|
+| T6 vs Cake, second run (`cake/tm-T6b`) | 0 / 303 / 9 | [0 9 147 0 0] | −10.0 [−16.4, −3.7] |
+| T6 vs KingsRow (`cake/tm-T6-kingsrow`) | 0 / 310 / 2 | [0 2 154 0 0] | −2.2 [−5.3, +0.8] |
+| T6 vs GuiNN (`cake/tm-T6-guinn`) | 4 / 306 / 2 | [0 2 150 4 0] | **+2.2** [−3.1, +7.6] |
+
+**Pooled vs Cake** (`pool.py`, `pool_cake.txt`). Each pool's Elo comes from the pentanomial pair scores, normal
+approximation. The difference treats the two pools as independent samples.
+- **T6 pool:** tm-T6 and tm-T6b. 624 games, W/D/L **0 / 609 / 15**, pentanomial [0 15 297 0 0], score 0.4880.
+  **−8.4 [−12.5, −4.2]**.
+- **off pool:** book-avoid `off-cake` (769ef0b), cake-analysis `off-769b-cake` (769ef0b) and `tm-off` (b88c02e). All
+  three are the same engine (n4c, defaults, 2–8 EGDB, no book or avoid list). 936 games, W/D/L **0 / 904 / 32**,
+  pentanomial [0 32 436 0 0], score 0.4829. **−11.9 [−15.9, −7.9]**.
+- **T6 − off: +3.5 Elo [−2.2, +9.3]**, LOS 88.6%.
+
+**Verdict: not significant.**
+- T6 loses about 2.4% of its Cake games against 3.4% for off. The second run (9 losses) fell back towards off's level,
+  and the pooled CI includes 0.
+- **T6 does not hurt the other opponents:**
+  - KingsRow −2.2 (off on 769ef0b: −0.0; on 65f7143: −3.3);
+  - GuiNN +2.2 (off on 769ef0b: −3.3), the first time today's engine scored above 0 against GuiNN.
+- **Per the plan, T6 does not become the default on this evidence.** The deep book goes ahead. A longer pooled test
+  (for example 3 × 312 more games against Cake) could settle the +3.5.
+
 ## Files
 
 - `matches/T1-0.1s` … `matches/T6-0.1s`: `summary.txt` and `results.csv` per self-play match.
