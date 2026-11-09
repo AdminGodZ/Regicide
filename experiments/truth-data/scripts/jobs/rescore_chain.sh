@@ -3,7 +3,9 @@
 #   1. held-out proven set for the database-truth metric: the 2% validation tails of gen5a, gen5c and gen4a,
 #      9-12 pieces, searched at 50k nodes with the 8-piece database; proven records kept.
 #   2. rescore the E2 (relabelled) files, gen5a and gen4a first (n8c's data), then gen5c and the rest, newest first.
-# Threads: RS_THREADS (default 6: 2 more for my GPU training runs keep me within 8). Budgets: RS_NODES / RS_KEEP.
+# Threads: RS_THREADS (default 6: 2 more for my GPU training runs keep me within 8). Budgets: RS_NODES (10k-node
+# files, default 9-12 pieces 50k, 13-16 20k), RS_NODES50 (gen5 files, default 50k for 9-16), RS_KEEP (default 16:
+# records with 17+ pieces keep their stored score).
 # The rescore binary is a copy named rescore-tr1 (pausekeeper_truth stops it while r4/matchlock exists).
 source /mnt/c/regicide-match/jobs/truth/common.sh
 O=~/regicide-data/truth; EG=~/regicide-data/egdb; B=$J/bin; mkdir -p $B $O/tails
@@ -24,7 +26,8 @@ st "PROVEN_SET_DONE"
 for f in gen5a_n50k gen4a_n10k gen5c_n50k gen3d_n10k gen3c_n10k gen3b_n10k gen3a_n10k gen2b_n10k gen2a_n10k gen1c_n10k gen1b_n10k gen1_n10k; do
   [ -s $O/${f}_e3.bin ] && continue
   st "rescore $f start"
-  $B/rescore-tr1 --egdb $EG --in $O/${f}_e2.bin --out $O/${f}_e3.bin.part --threads $TH --nodes $NODES --keep-above $KEEP >> $J/rescore_$f.log 2>&1 || { st "rescore $f stopped rc=$?"; exit 1; }
+  nodes=$NODES; [[ $f == *n50k ]] && nodes=${RS_NODES50:-9:50000}  # 50k-node files: never below their original budget
+  $B/rescore-tr1 --egdb $EG --in $O/${f}_e2.bin --out $O/${f}_e3.bin.part --threads $TH --nodes $nodes --keep-above $KEEP >> $J/rescore_$f.log 2>&1 || { st "rescore $f stopped rc=$?"; exit 1; }
   mv $O/${f}_e3.bin.part $O/${f}_e3.bin
   st "rescore $f done: $(tail -n 2 $J/rescore_$f.log | head -n 1)"
 done

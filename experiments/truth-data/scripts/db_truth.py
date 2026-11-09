@@ -21,6 +21,8 @@ def main():
     p.add_argument("--set", action="append", required=True)
     p.add_argument("--net", action="append", required=True, help="NAME=file.nnue")
     p.add_argument("--chunk", type=int, default=50000)
+    p.add_argument("--general", help="DataRecord file: also report mean |eval| on its >= 9-piece records (eval scale)")
+    p.add_argument("--general-n", type=int, default=200000)
     a = p.parse_args()
     rec = np.concatenate([np.fromfile(f, nnue.RECORD) for f in a.set])
     rec = rec[nnue.proven_of(rec)]
@@ -29,8 +31,14 @@ def main():
     print("proven positions %d (wins %d, losses %d); by pieces: %s" % (
         len(rec), (sign > 0).sum(), (sign < 0).sum(),
         ", ".join("%d: %d" % (k, (pieces == k).sum()) for k in range(9, 13))))
-    print("| net | sign agrees | 9 | 10 | 11 | 12 | proven losses > -30 | proven wins < +30 | mean eval wins / losses |")
-    print("|---|---|---|---|---|---|---|---|---|")
+    gen = None
+    if a.general:
+        g = np.fromfile(a.general, nnue.RECORD)
+        g = g[nnue.piece_counts(g) >= 9][: a.general_n]
+        gen = g
+    print("| net | sign agrees | 9 | 10 | 11 | 12 | proven losses > -30 | proven wins < +30 | mean eval wins / losses |"
+          + (" mean abs eval (>= 9 pieces, %d general positions) |" % len(gen) if gen is not None else ""))
+    print("|---|---|---|---|---|---|---|---|---|" + ("---|" if gen is not None else ""))
     for spec in a.net:
         name, path = spec.split("=", 1)
         qw = nnue.read_rgnn(path)
@@ -42,7 +50,9 @@ def main():
         wi = (sign > 0) & (ev < 30)
         print("| %s | %.2f%% | %s | %d (%.2f%%) | %d (%.2f%%) | %.0f / %.0f |" % (
             name, 100 * agree.mean(), by, lo.sum(), 100 * lo.sum() / max(1, (sign < 0).sum()), wi.sum(),
-            100 * wi.sum() / max(1, (sign > 0).sum()), ev[sign > 0].mean(), ev[sign < 0].mean()))
+            100 * wi.sum() / max(1, (sign > 0).sum()), ev[sign > 0].mean(), ev[sign < 0].mean())
+            + ("" if gen is None else " %.1f |" % np.abs(np.concatenate(
+                [nnue.forward_int(qw, gen[i:i + a.chunk]) for i in range(0, len(gen), a.chunk)])).mean()))
 
 
 if __name__ == "__main__":

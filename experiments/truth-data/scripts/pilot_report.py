@@ -76,6 +76,25 @@ def main():
                 line += " - |"
             print(line)
 
+    # How confident the stored labels were on positions the search proves (at 50k nodes, the rescore budget).
+    b50 = "s50000" if "s50000" in S else budgets[-1]
+    print("\n## stored score on proven-at-%s records, in the proven winner's direction (score x sign)" % b50[1:])
+    print("| pieces | proven | median | < 50 | < 100 | < 200 | mean target at lambda 0.5, K 102 (stored result / E2) |")
+    print("|---|---|---|---|---|---|---|")
+    for pc in list(range(9, 15)) + ["9-14"]:
+        sel = (np.abs(S[b50]) >= KNOWN_WIN) & ((pieces == pc) if pc != "9-14" else True)
+        if not sel.any():
+            continue
+        sg = np.sign(S[b50][sel])
+        v = stored[sel] * sg
+        # the old training target for the proven side (1 = certain win), with the stored and the E2 result
+        res_w = 0.5 + 0.5 * result_stm[sel] * sg
+        t_old = 0.5 * res_w + 0.5 / (1 + np.exp(-v / 102.4))
+        t_e2 = t_old if e2_stm is None else 0.5 * (0.5 + 0.5 * e2_stm[sel] * sg) + 0.5 / (1 + np.exp(-v / 102.4))
+        print("| %s | %d | %.0f | %.1f%% | %.1f%% | %.1f%% | %.3f / %.3f |" % (
+            pc, sel.sum(), np.median(v), 100 * (v < 50).mean(), 100 * (v < 100).mean(), 100 * (v < 200).mean(),
+            t_old.mean(), t_e2.mean()))
+
     # Consistency of proofs across budgets: a proof at a small budget against the score at the largest one.
     print("\n## proofs at smaller budgets vs the score at %s nodes" % budgets[-1][1:])
     big = S[budgets[-1]]

@@ -1,0 +1,53 @@
+TR r7 match n7b vs n6c queued 2026-11-09T22:06:30+01:00
+TR timing lock + matchlock taken; bg: datagen-eb1037c:T  2026-11-09T22:06:40+01:00
+TR census start 2026-11-09T22:11:56+01:00
+TR census end rc=0 2026-11-09T22:12:02+01:00
+TR pilot start 2026-11-09T22:13:52+01:00
+TR matchlock removed, timing lock released (rc=0) 2026-11-09T22:17:34+01:00
+TR r7 end n7b: Elo (pentanomial, pairs): -2.6 [-6.6, +1.4] 95% CI, score 0.4963 +- 0.0057, LOS 10.02% 2026-11-09T22:17:34+01:00
+TR r7 match n7a vs n6c queued 2026-11-09T22:17:34+01:00
+TR pilot start 2026-11-09T22:17:37+01:00
+TR relabel start 2026-11-09T22:17:40+01:00
+TR relabel end 2026-11-09T22:17:51+01:00
+TR train n8a start: --data /home/admingod/regicide-data/train/gen1_n10k.bin --data /home/admingod/regicide-data/train/gen1b_n10k.bin --data /home/admingod/regicide-data/train/gen1c_n10k.bin --data /home/admingod/regicide-data/train/gen2a_n10k.bin --data /home/admingod/regicide-data/train/gen2b_n10k.bin --data /home/admingod/regicide-data/train/gen3a_n10k.bin --data /home/admingod/regicide-data/train/gen3b_n10k.bin --data /home/admingod/regicide-data/train/gen3c_n10k.bin --data /home/admingod/regicide-data/train/gen3d_n10k.bin --data /home/admingod/regicide-data/train/gen4a_n10k.bin --data /home/admingod/regicide-data/train/gen5a_n50k.bin --data /home/admingod/regicide-data/train/gen5a_n50k.bin --data /home/admingod/regicide-data/train/gen5a_n50k.bin --lambda 0.5 --min-pieces 9 2026-11-09T22:19:22+01:00
+TR r7 match n7b vs n6c queued 2026-11-09T22:22:51+01:00
+TR train n8a end rc=0 2026-11-09T22:35:44+01:00
+TR train n8a exported /home/admingod/regicide-truth-work/n8a.nnue: OK 2026-11-09T22:36:01+01:00
+TR train n8b start: --data /home/admingod/regicide-data/truth/gen1_n10k_e2.bin --data /home/admingod/regicide-data/truth/gen1b_n10k_e2.bin --data /home/admingod/regicide-data/truth/gen1c_n10k_e2.bin --data /home/admingod/regicide-data/truth/gen2a_n10k_e2.bin --data /home/admingod/regicide-data/truth/gen2b_n10k_e2.bin --data /home/admingod/regicide-data/truth/gen3a_n10k_e2.bin --data /home/admingod/regicide-data/truth/gen3b_n10k_e2.bin --data /home/admingod/regicide-data/truth/gen3c_n10k_e2.bin --data /home/admingod/regicide-data/truth/gen3d_n10k_e2.bin --data /home/admingod/regicide-data/truth/gen4a_n10k_e2.bin --data /home/admingod/regicide-data/truth/gen5a_n50k_e2.bin --data /home/admingod/regicide-data/truth/gen5a_n50k_e2.bin --data /home/admingod/regicide-data/truth/gen5a_n50k_e2.bin --lambda 0.5 --min-pieces 9 2026-11-09T22:36:22+01:00
+TR timing lock + matchlock taken; bg: datagen-eb1037c:T  2026-11-09T22:44:08+01:00
+TR matchlock removed, timing lock released (rc=0) 2026-11-09T22:44:08+01:00
+TR r7 end n7b: Elo (pentanomial, pairs): -2.6 [-6.6, +1.4] 95% CI, score 0.4963 +- 0.0057, LOS 10.02% 2026-11-09T22:44:08+01:00
+TR r7 match n7a vs n6c queued 2026-11-09T22:44:08+01:00
+TR train n8b end rc=0 2026-11-09T22:52:18+01:00
+TR train n8b exported /home/admingod/regicide-truth-work/n8b.nnue: OK 2026-11-09T22:52:35+01:00
+TR match n8a-vs-n6c queued 2026-11-09T22:52:35+01:00
+TR train n8bk start: --data /home/admingod/regicide-data/truth/gen1_n10k_e2.bin --data /home/admingod/regicide-data/truth/gen1b_n10k_e2.bin --data /home/admingod/regicide-data/truth/gen1c_n10k_e2.bin --data /home/admingod/regicide-data/truth/gen2a_n10k_e2.bin --data /home/admingod/regicide-data/truth/gen2b_n10k_e2.bin --data /home/admingod/regicide-data/truth/gen3a_n10k_e2.bin --data /home/admingod/regicide-data/truth/gen3b_n10k_e2.bin --data /home/admingod/regicide-data/truth/gen3c_n10k_e2.bin --data /home/admingod/regicide-data/truth/gen3d_n10k_e2.bin --data /home/admingod/regicide-data/truth/gen4a_n10k_e2.bin --data /home/admingod/regicide-data/truth/gen5a_n50k_e2.bin --data /home/admingod/regicide-data/truth/gen5a_n50k_e2.bin --data /home/admingod/regicide-data/truth/gen5a_n50k_e2.bin --lambda 0.5 --min-pieces 9 --k 77.3635753274215 2026-11-09T22:52:45+01:00
+TR pilot end rc=0 2026-11-09T23:02:33+01:00
+TR rescore_chain start pid 1482183 threads 6 nodes 9:50000,13:20000 keep-above 16 2026-11-09T23:03:05+01:00
+TR timing lock + matchlock taken; bg: datagen-eb1037c:T rescore-tr1:T  2026-11-09T23:04:29+01:00
+TR train n8bk end rc=0 2026-11-09T23:08:58+01:00
+TR train n8bk exported /home/admingod/regicide-truth-work/n8bk.nnue: OK 2026-11-09T23:09:14+01:00
+TR match n8bk-vs-n6c queued 2026-11-09T23:09:14+01:00
+TR matchlock removed, timing lock released (rc=0) 2026-11-09T23:15:29+01:00
+TR r7 end n7a: Elo (pentanomial, pairs): -0.2 [-4.2, +3.8] 95% CI, score 0.4997 +- 0.0057, LOS 45.78% 2026-11-09T23:15:29+01:00
+TR r7 match n6d vs n6c queued 2026-11-09T23:15:29+01:00
+TR timing lock + matchlock taken; bg: datagen-eb1037c:T rescore-tr1:T  2026-11-09T23:15:37+01:00
+TR datagen test start 2026-11-09T23:16:48+01:00
+TR matchlock removed, timing lock released (rc=0) 2026-11-09T23:26:45+01:00
+TR match n8a-vs-n6c end: Elo (pentanomial, pairs): -3.2 [-7.2, +0.7] 95% CI, score 0.4953 +- 0.0057, LOS 5.56% 2026-11-09T23:26:45+01:00
+TR match n8b-vs-n6c queued 2026-11-09T23:26:45+01:00
+TR datagen test end: records 881 min pieces 9 max pieces 22 proven 58 proven scores [-3000, 3000] stm values [0, 1, 128, 129] 2026-11-09T23:26:49+01:00
+TR train n8ak start: --data /home/admingod/regicide-data/train/gen1_n10k.bin --data /home/admingod/regicide-data/train/gen1b_n10k.bin --data /home/admingod/regicide-data/train/gen1c_n10k.bin --data /home/admingod/regicide-data/train/gen2a_n10k.bin --data /home/admingod/regicide-data/train/gen2b_n10k.bin --data /home/admingod/regicide-data/train/gen3a_n10k.bin --data /home/admingod/regicide-data/train/gen3b_n10k.bin --data /home/admingod/regicide-data/train/gen3c_n10k.bin --data /home/admingod/regicide-data/train/gen3d_n10k.bin --data /home/admingod/regicide-data/train/gen4a_n10k.bin --data /home/admingod/regicide-data/train/gen5a_n50k.bin --data /home/admingod/regicide-data/train/gen5a_n50k.bin --data /home/admingod/regicide-data/train/gen5a_n50k.bin --lambda 0.5 --min-pieces 9 --k 102.39766405914318 2026-11-09T23:27:06+01:00
+TR proven tail set gen5a_n50k: 23009 records 2026-11-09T23:27:20+01:00
+TR proven tail set gen5c_n50k: 21779 records 2026-11-09T23:29:10+01:00
+TR proven tail set gen4a_n10k: 51569 records 2026-11-09T23:33:33+01:00
+TR PROVEN_SET_DONE 2026-11-09T23:33:33+01:00
+TR rescore gen5a_n50k start 2026-11-09T23:33:33+01:00
+TR train n8ak end rc=0 2026-11-09T23:42:44+01:00
+TR train n8ak exported /home/admingod/regicide-truth-work/n8ak.nnue: OK 2026-11-09T23:43:01+01:00
+TR match n8ak-vs-n6c queued 2026-11-09T23:43:01+01:00
+TR timing lock + matchlock taken; bg: datagen-eb1037c:T rescore-tr1:T  2026-11-09T23:53:43+01:00
+TR matchlock removed, timing lock released (rc=0) 2026-11-10T00:04:46+01:00
+TR match n8bk-vs-n6c end: Elo (pentanomial, pairs): +3.5 [-0.8, +7.7] 95% CI, score 0.5050 +- 0.0061, LOS 94.55% 2026-11-10T00:04:46+01:00
+TR CHAIN2_DONE 2026-11-10T00:04:46+01:00
+TR timing lock + matchlock taken; bg: datagen-eb1037c:T rescore-tr1:T  2026-11-10T00:04:54+01:00
