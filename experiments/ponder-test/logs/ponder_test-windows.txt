@@ -1,0 +1,26 @@
+== ponder_test hit
+hit after 1000 ms, maxtime 0.1: 0.1173 ms, depth 18/39  score 373  nodes 1845949  2902 kN/s  pv 14x30 28-24 2x11 27-23 3-8 32-28 9-13 23-18 5-9 18-15  ponder hit 1020 ms
+hit after 0 ms, maxtime 0.4: 127.816 ms, depth 15/35  score 326  nodes 418178  3192 kN/s  pv 14x30 28-24 2x11 27-23 3-8 23-18 10-15 32-28 6-10 31-27  ponder hit 4 ms
+hit passed
+== ponder_test predict
+hit after 500 ms, maxtime 0.1: 0.1213 ms, depth 0/0  score 9  nodes 0  0 kN/s  pv 24-20  ponder hit 513 ms
+predict passed
+== ponder_test miss
+miss: 39.1543 ms, depth 12/27  score 3  nodes 120301  3165 kN/s  pv 11-15 22-17 15-19 23x16 12x19 24x15 10x19 25-22 8-11 27-23  ponder miss 316 ms
+miss passed
+== ponder_test stop
+worst stop latency 0.2311 ms
+stop passed
+== ponder_test newgame
+new game: 50.5808 ms, depth 13/29  score 315  nodes 138302  3292 kN/s  pv 14x30 28-24 2x11 32-28 4-8 24-19 9-13 27-23 5-9 28-24  ponder miss 209 ms
+newgame passed
+== ponder_test teardown
+unload while pondering: 0.0172 ms
+unload while pondering: 0.0062 ms
+unload while pondering: 0.0225 ms
+the library stayed loaded
+== ponder_test exit
+exit passed
+== ponder_test games
+games: 31 hits, 38 misses
+games passed

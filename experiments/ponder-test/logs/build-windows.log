@@ -1,0 +1,50 @@
+[1/46] Scanning /home/admingod/regicide-ponder/src/src/position.cpp for CXX dependencies
+[2/46] Scanning /home/admingod/regicide-ponder/src/src/perft.cpp for CXX dependencies
+[3/46] Scanning /home/admingod/regicide-ponder/src/src/movegen.cpp for CXX dependencies
+[4/46] Scanning /home/admingod/regicide-ponder/src/src/eval.cpp for CXX dependencies
+[5/46] Scanning /home/admingod/regicide-ponder/src/src/tt.cpp for CXX dependencies
+[6/46] Scanning /home/admingod/regicide-ponder/src/src/search.cpp for CXX dependencies
+[7/46] Scanning /home/admingod/regicide-ponder/src/src/bench.cpp for CXX dependencies
+[8/46] Scanning /home/admingod/regicide-ponder/src/src/nnue.cpp for CXX dependencies
+[9/46] Scanning /home/admingod/regicide-ponder/src/src/book.cpp for CXX dependencies
+[10/46] Generating CXX dyndep file CMakeFiles/regicide_core.dir/CXX.dd
+[11/46] Scanning /home/admingod/regicide-ponder/src/src/cb_api.cpp for CXX dependencies
+[12/46] Scanning /home/admingod/regicide-ponder/src/tests/cb_api_test.cpp for CXX dependencies
+[13/46] Scanning /home/admingod/regicide-ponder/src/tests/ponder_test.cpp for CXX dependencies
+[14/46] Building CXX object CMakeFiles/regicide_core.dir/src/position.cpp.obj
+[15/46] Building CXX object CMakeFiles/regicide_core.dir/src/movegen.cpp.obj
+[16/46] Building CXX object CMakeFiles/regicide_core.dir/src/perft.cpp.obj
+[17/46] Building CXX object CMakeFiles/regicide_core.dir/src/tt.cpp.obj
+[18/46] Building CXX object CMakeFiles/regicide_core.dir/src/eval.cpp.obj
+[19/46] Building CXX object CMakeFiles/regicide_core.dir/src/bench.cpp.obj
+[20/46] Generating CXX dyndep file CMakeFiles/regicide_cb.dir/CXX.dd
+[21/46] Building CXX object CMakeFiles/regicide_core.dir/src/book.cpp.obj
+[22/46] Generating CXX dyndep file CMakeFiles/cb_api_test.dir/CXX.dd
+[23/46] Building CXX object CMakeFiles/regicide_core.dir/src/search.cpp.obj
+[24/46] Generating CXX dyndep file CMakeFiles/ponder_test.dir/CXX.dd
+[25/46] Building CXX object CMakeFiles/regicide_core.dir/src/nnue.cpp.obj
+[26/46] Scanning /home/admingod/regicide-ponder/src/src/egdb/store.cpp for CXX dependencies
+[27/46] Scanning /home/admingod/regicide-ponder/src/src/egdb/codec.cpp for CXX dependencies
+[28/46] Scanning /home/admingod/regicide-ponder/src/src/egdb/index.cpp for CXX dependencies
+[29/46] Scanning /home/admingod/regicide-ponder/src/src/egdb/build.cpp for CXX dependencies
+[30/46] Scanning /home/admingod/regicide-ponder/src/src/egdb/verify.cpp for CXX dependencies
+[31/46] Scanning /home/admingod/regicide-ponder/src/src/egdb/platform.cpp for CXX dependencies
+[32/46] Generating CXX dyndep file CMakeFiles/regicide_egdb.dir/CXX.dd
+[33/46] Building CXX object CMakeFiles/cb_api_test.dir/tests/cb_api_test.cpp.obj
+[34/46] Building CXX object CMakeFiles/regicide_cb.dir/src/cb_api.cpp.obj
+[35/46] Building CXX object CMakeFiles/ponder_test.dir/tests/ponder_test.cpp.obj
+[36/46] Building CXX object CMakeFiles/regicide_egdb.dir/src/egdb/index.cpp.obj
+[37/46] Building CXX object CMakeFiles/regicide_egdb.dir/src/egdb/codec.cpp.obj
+[38/46] Building CXX object CMakeFiles/regicide_egdb.dir/src/egdb/store.cpp.obj
+/home/admingod/regicide-ponder/src/src/egdb/store.cpp:215:19: warning: variable 'total' set but not used [-Wunused-but-set-variable]
+  215 |     std::uint64_t total = 0;
+      |                   ^
+1 warning generated.
+[39/46] Building CXX object CMakeFiles/regicide_egdb.dir/src/egdb/platform.cpp.obj
+[40/46] Building CXX object CMakeFiles/regicide_egdb.dir/src/egdb/verify.cpp.obj
+[41/46] Building CXX object CMakeFiles/regicide_egdb.dir/src/egdb/build.cpp.obj
+[42/46] Linking CXX static library libregicide_egdb.a
+[43/46] Linking CXX static library libregicide_core.a
+[44/46] Linking CXX executable cb_api_test.exe
+[45/46] Linking CXX executable ponder_test.exe
+[46/46] Linking CXX shared library libregicide_cb.dll

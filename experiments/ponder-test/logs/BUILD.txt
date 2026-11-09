@@ -1,0 +1,4 @@
+commit df7780af610a6df2bf73161afd2f5ad80c3221b6 (t3/ponder); book.bin = src/weights/book.bin sha256 e72e384f425f9d58 (= book_deep2b, master)
+built 2026-11-09T22:46:27+01:00 with clang version 23.1.5 (https://github.com/llvm/llvm-project.git 392dfff97d29b59d77e5cac6d4b6ef2585fe7117)
+toolchain file: tools-src/tools/windows/mingw-clang.cmake; build tree ~/regicide-ponder/build-win
+egdb: junction to ..\6bb8c6c-deep2b-egdb8\egdb (2-8 pieces)

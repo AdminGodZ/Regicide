@@ -1,0 +1,17 @@
+PS> C:\regicide-match\engines\regicide\ponder-df7780a-t\unload_check.exe C:\regicide-match\engines\regicide\ponder-df7780a\regicide_cb.dll
+round 0: get ponder after load = 0
+  move: depth 18/36  score 6  nodes 2707985  11622 kN/s  pv 11-15 21-17 9-13 25-21 5-9 29-25 9-14 23-18 14x23 27x11
+  pondering: B:W17,22,23,24,25,26,27,28,29,30,31,32:B1,2,3,4,5,6,7,8,9,10,12,15
+  FreeLibrary returned after 0.00 ms
+  module still mapped right after FreeLibrary: yes
+  module unmapped: yes, 4730 ms after FreeLibrary
+round 1: get ponder after load = 0
+  move: depth 17/31  score 10  nodes 1398872  8797 kN/s  pv 11-15 23-18 8-11 27-23 4-8 23-19 9-14 18x9 5x14 22-17
+  pondering: B:W18,21,22,24,25,26,27,28,29,30,31,32:B1,2,3,4,5,6,7,8,9,10,12,15
+  FreeLibrary returned after 0.00 ms
+  module still mapped right after FreeLibrary: yes
+  reload while pinned: get ponder = 1
+  move after reload (173 ms): depth 17/34  score 13  nodes 1162663  8875 kN/s  pv 11-15 21-17 9-13 25-21 5-9 29-25 9-14 23-18 14x23 27x11
+  module unmapped: yes, 0 ms after FreeLibrary
+unload_check passed
+exit=0 total 14s

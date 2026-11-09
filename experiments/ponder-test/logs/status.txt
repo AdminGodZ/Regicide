@@ -1,0 +1,6 @@
+PT wait-lock smoke-c cake cfg C book 0 c 4 pairs 20 mt 0.5 dll ponder-df7780a 2026-11-09T22:49:34+01:00
+PT start smoke-c cake cfg C book 0; matchlock 1; load 7.00; bg: datagen-eb1037c:T truth-tr1:T python:S  2026-11-09T22:53:09+01:00
+PT matchlock removed (smoke-c) 2026-11-09T22:56:31+01:00
+PT end smoke-c rc=0 A: +0 =39 -1   score 19.5/40 = 48.75%   draw rate 97.5% | Elo (pentanomial, pairs): -8.7 [-25.3, +7.9] 95% CI, score 0.4875 +- 0.0239, LOS 15.25% |   ponder: 598 hits, 771 misses (hit rate 43.7%), 387 ms pondered per hit 2026-11-09T22:56:31+01:00
+PT chain start 2026-11-09T22:57:08+01:00
+PT wait-lock s2-a1-cake cake cfg A book 0 c 8 mt 0.5 dll ponder-df7780a 2026-11-09T22:57:08+01:00

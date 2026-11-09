@@ -1,0 +1,13 @@
+PASS ponder off by default: reply 1 0
+PASS ponder 0: move in time, no ponder note, no ponder search: 22-17 0.17s [info depth 17/35  score -13  nodes 568070  3191 kN/s  pv 22-17 9-14 17-13 11-16 24-20 15x24 20x11 7x16 27x11 3-7] [reply 1 ]
+PASS ponder 0: second move, no ponder note: 0.15s [info depth 17/37  score -7  nodes 473996  3019 kN/s  pv 17-13 11-16 25-22 16x23 27x11 7x16 22-17 4-8 29-25 16-19]
+PASS ponder 0: quit: 0.11s
+PASS ponder 1: ponder search starts after the move: 22-17 pv ['22-17', '9-14', '25-22'] [reply 1 W:W17,19,21,24,25,26,27,28,29,30,31,32:B1,2,3,4,5,6,7,10,11,12,14,15]
+PASS ponder 1: predicted reply is a hit: 25-22 0.00s [info depth 21/40  score 0  nodes 3063751  11100 kN/s  pv 25-22 11-16 24-20 15x24 20x11 7x16 27x11 3-7 11-8 4x11  ponder hit 589 ms]
+PASS ponder 1: other reply is a miss, answered in time: reply 12-16 (predicted 11-16): 19x12 0.00s [info depth 1/4  score 173  nodes 17  17 kN/s  pv 19x12 11-16  ponder miss 323 ms]
+PASS ponder 1: new game while pondering: [reply 1 W:W12,17,21,22,24,26,27,28,29,30,31,32:B1,2,3,4,5,6,7,10,14,15,16] -> 25-22 0.23s [info depth 20/47  score 10  nodes 2420944  11752 kN/s  pv 25-22 11-16 24-19 7-11 22-17 9-13 18x9 13x22 26x17 6x22  ponder miss 215 ms]
+PASS ponder 1: 10 new games right after a move: worst 0.12s
+PASS ponder 1: enginecommand while pondering stops it: 0.14s
+PASS ponder 1: quit while pondering: 0.16s rc 0
+PASS ponder 1: EOF while pondering: 0.16s rc 0
+ALL PASSED
