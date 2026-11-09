@@ -101,6 +101,13 @@ target_link_libraries(cb_api_test PRIVATE regicide_core)
 target_compile_definitions(cb_api_test PRIVATE REGICIDE_SOURCE_DIR="${CMAKE_SOURCE_DIR}")
 add_test(NAME cb_api COMMAND cb_api_test $<TARGET_FILE:regicide_cb>)
 
+add_executable(ponder_test tests/ponder_test.cpp)
+target_link_libraries(ponder_test PRIVATE regicide_core)
+foreach(case hit predict miss stop newgame teardown exit games)
+  add_test(NAME ponder_${case} COMMAND ponder_test $<TARGET_FILE:regicide_cb> ${case})
+  set_tests_properties(ponder_${case} PROPERTIES TIMEOUT 60)
+endforeach()
+
 add_executable(selfplay tools/selfplay.cpp)
 target_link_libraries(selfplay PRIVATE regicide_core)
 

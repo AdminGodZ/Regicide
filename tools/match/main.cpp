@@ -118,6 +118,9 @@ struct GameRecord {
     double time_used[2] = {0, 0};  // by colour
     int moves_made[2] = {0, 0};
     double max_time[2] = {0, 0};
+    // Engines that think on the opponent's time report "ponder hit <ms> ms" or "ponder miss <ms> ms" in their info.
+    int ponder_hits[2] = {0, 0}, ponder_misses[2] = {0, 0};
+    double ponder_hit_ms[2] = {0, 0};  // total time pondered before the hits
     bool a_is_black() const { return leg == 0; }
     double a_score() const {
         if (winner == Winner::Draw) return 0.5;
@@ -233,6 +236,12 @@ void play_game(const Config& cfg, Engine* eng[2], GameRecord& g) {
         g.time_used[side] += r.elapsed;
         g.max_time[side] = std::max(g.max_time[side], r.elapsed);
         g.moves_made[side]++;
+        if (auto at = r.info.find("ponder hit "); at != std::string::npos) {
+            g.ponder_hits[side]++;
+            g.ponder_hit_ms[side] += std::atof(r.info.c_str() + at + 11);
+        } else if (r.info.find("ponder miss ") != std::string::npos) {
+            g.ponder_misses[side]++;
+        }
 
         switch (r.status) {
             case GoResult::Status::Ok: break;
@@ -393,6 +402,8 @@ struct Match {
     double engine_time[2] = {0, 0};
     long engine_moves[2] = {0, 0};
     double engine_max[2] = {0, 0};
+    long ponder_hits[2] = {0, 0}, ponder_misses[2] = {0, 0};
+    double ponder_hit_ms[2] = {0, 0};
     std::vector<GameRecord> records;
     std::ofstream all_pdn, csv;
 
@@ -447,6 +458,9 @@ struct Match {
             engine_time[engine] += g.time_used[c];
             engine_moves[engine] += g.moves_made[c];
             engine_max[engine] = std::max(engine_max[engine], g.max_time[c]);
+            ponder_hits[engine] += g.ponder_hits[c];
+            ponder_misses[engine] += g.ponder_misses[c];
+            ponder_hit_ms[engine] += g.ponder_hit_ms[c];
         }
         ++done;
 
@@ -541,6 +555,12 @@ struct Match {
             std::snprintf(buf, sizeof buf, "%s %s: %ld moves, avg %.3fs/move, max %.3fs\n", e == 0 ? "A" : "B",
                           names[e].c_str(), engine_moves[e], engine_time[e] / std::max(1L, engine_moves[e]), engine_max[e]);
             o << buf;
+            if (const long n = ponder_hits[e] + ponder_misses[e]) {
+                std::snprintf(buf, sizeof buf, "  ponder: %ld hits, %ld misses (hit rate %.1f%%), %.0f ms pondered per hit\n",
+                              ponder_hits[e], ponder_misses[e], 100.0 * ponder_hits[e] / n,
+                              ponder_hit_ms[e] / std::max(1L, ponder_hits[e]));
+                o << buf;
+            }
         }
         if (!fatal.empty()) o << "FATAL: " << fatal << "\n";
         return o.str();

@@ -58,7 +58,8 @@ struct RootMove {
 };
 
 struct TimeControl {
-    Clock::time_point start;
+    Clock::time_point start;        // start of the search (reported times)
+    Clock::time_point clock_start;  // the limits below count from here: the start, or a ponder hit
     std::int64_t soft_ms = 0;  // don't start a new iteration after this
     std::int64_t hard_ms = 0;  // abort the search at this point (0 = no limit)
     std::uint64_t node_limit = 0;
@@ -159,8 +160,8 @@ bool Worker::is_repetition(const Position& pos, int ply) const {
 
 void Worker::check_limits() {
     if (eng.stop_poll_ && eng.stop_poll_()) eng.stop();
-    if (!tc) return;
-    if (tc->hard_ms && elapsed_ms(tc->start) >= tc->hard_ms) eng.stop();
+    if (!tc || eng.pondering()) return;  // a ponder search has no limits yet
+    if (tc->hard_ms && elapsed_ms(tc->clock_start) >= tc->hard_ms) eng.stop();
     if (tc->node_limit && nodes.load(std::memory_order_relaxed) * eng.threads_ >= tc->node_limit) eng.stop();
 }
 
@@ -481,15 +482,20 @@ void Worker::iterate(const Limits& limits, TimeControl& t, const Engine::InfoFn*
         last_score = score;
 
         if (limits.infinite) continue;
-        if (roots.size() == 1 && (t.soft_ms || t.hard_ms) && limits.searchmoves.empty()) break;
-        if (t.soft_ms) {
-            // A stable best move lets us stop early; a fresh change of mind buys extra time.
-            double factor = stability >= 6 ? 0.5 : stability >= 3 ? 0.8 : stability == 0 ? 1.6 : 1.0;
-            if (dropping) factor = std::max(factor, 1.0) * P.tm_drop_factor / 100.0;  // a falling score: think longer
-            if (elapsed_ms(t.start) > std::int64_t(t.soft_ms * factor)) break;
+        // A stable best move lets us stop early; a fresh change of mind buys extra time.
+        double factor = stability >= 6 ? 0.5 : stability >= 3 ? 0.8 : stability == 0 ? 1.6 : 1.0;
+        if (dropping) factor = std::max(factor, 1.0) * P.tm_drop_factor / 100.0;  // a falling score: think longer
+        const bool single = roots.size() == 1 && limits.searchmoves.empty();
+        // Found a forced win/loss shorter than the search depth.
+        const bool decided =
+            is_decisive(score) && SCORE_WIN - std::abs(score) < root_depth && std::abs(score) > SCORE_MATE_BOUND;
+        if (limits.ponder && eng.ponder_iteration(elapsed_ms(t.start), factor, single)) {
+            if (decided) break;
+            continue;
         }
-        if (is_decisive(score) && SCORE_WIN - std::abs(score) < root_depth && std::abs(score) > SCORE_MATE_BOUND)
-            break;  // found a forced win/loss shorter than the search depth
+        if (single && (t.soft_ms || t.hard_ms)) break;
+        if (t.soft_ms && elapsed_ms(t.clock_start) > std::int64_t(t.soft_ms * factor)) break;
+        if (decided) break;
     }
     if (main) eng.stop();
 }
@@ -614,13 +620,8 @@ std::optional<std::pair<Move, Score>> Engine::egdb_root_move(const Position& roo
     return std::pair{*best, winning ? SCORE_DB_WIN - root_mtc : -SCORE_DB_WIN + root_mtc};
 }
 
-SearchResult Engine::go(const Limits& limits, InfoFn on_info) {
-    init_lmr(params);
-    stop_ = false;
-    tt_.new_search();
-
-    TimeControl tc;
-    tc.start = Clock::now();
+void Engine::set_time(TimeControl& tc, const Limits& limits, Clock::time_point start) const {
+    tc.clock_start = start;
     tc.node_limit = limits.nodes;
     if (limits.movetime_ms) {
         tc.soft_ms = tc.hard_ms = limits.movetime_ms;
@@ -639,6 +640,72 @@ SearchResult Engine::go(const Limits& limits, InfoFn on_info) {
         tc.soft_ms = std::max<std::int64_t>(1, base * 6 / 10);
         tc.hard_ms = std::max<std::int64_t>(1, std::min<std::int64_t>(avail * 4 / 10, base * 3));
     }
+}
+
+void Engine::expect_ponder() {
+    std::lock_guard lock(tc_mutex_);
+    ponder_expected_ = true;
+    hit_pending_ = false;
+}
+
+bool Engine::ponderhit(const Limits& limits) {
+    std::lock_guard lock(tc_mutex_);
+    if (!pondering_.load(std::memory_order_relaxed)) {
+        if (!ponder_expected_) return false;
+        hit_limits_ = limits;
+        hit_time_ = Clock::now();
+        hit_pending_ = true;
+        return true;
+    }
+    set_time(*tc_, limits, Clock::now());
+    pondering_.store(false, std::memory_order_release);
+    // A normal search would already have stopped after the last completed iteration: play its move now.
+    const auto& it = ponder_iter_;
+    if (it.elapsed_ms >= 0 && ((it.single && (tc_->soft_ms || tc_->hard_ms)) ||
+                               (tc_->soft_ms && it.elapsed_ms > std::int64_t(tc_->soft_ms * it.factor))))
+        stop();
+    return true;
+}
+
+bool Engine::ponder_iteration(std::int64_t elapsed_ms, double factor, bool single) {
+    std::lock_guard lock(tc_mutex_);
+    if (!pondering_.load(std::memory_order_relaxed)) return false;
+    ponder_iter_ = {elapsed_ms, factor, single};
+    return true;
+}
+
+SearchResult Engine::go(const Limits& limits, InfoFn on_info) {
+    init_lmr(params);
+    stop_ = false;
+    tt_.new_search();
+
+    TimeControl tc;
+    tc.start = Clock::now();
+    {
+        std::lock_guard lock(tc_mutex_);
+        tc_ = &tc;
+        ponder_iter_ = {};
+        if (!limits.ponder) {
+            set_time(tc, limits, tc.start);
+        } else if (hit_pending_) {
+            set_time(tc, hit_limits_, hit_time_);  // the hit came first: a normal search, clock from the hit
+        } else {
+            tc.clock_start = tc.start;
+            pondering_.store(true, std::memory_order_release);
+        }
+        if (limits.ponder) hit_pending_ = false;
+    }
+    // However go() returns, the search is over: a later ponderhit() finds nothing to switch.
+    struct Finish {
+        Engine& e;
+        bool ponder;
+        ~Finish() {
+            std::lock_guard lock(e.tc_mutex_);
+            e.tc_ = nullptr;
+            e.pondering_.store(false, std::memory_order_relaxed);
+            if (ponder) e.ponder_expected_ = false;
+        }
+    } finish{*this, limits.ponder};
 
     MoveList list;
     generate_moves(root_, list);

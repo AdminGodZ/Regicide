@@ -1,13 +1,18 @@
 // CheckerBoard engine interface (https://github.com/eygilbert/CheckerBoard, source/cb_interface.h).
 // Built as a shared library so Regicide runs inside CheckerBoard on Windows and in our match runner.
 #include <algorithm>
+#include <atomic>
+#include <chrono>
 #include <cstdint>
 #include <cstdio>
 #include <cstring>
+#include <functional>
 #include <memory>
 #include <mutex>
+#include <optional>
 #include <sstream>
 #include <string>
+#include <thread>
 #include <vector>
 
 #include "egdb/egdb.hpp"
@@ -56,6 +61,87 @@ coor square_to_coors(int sq) {
     return {2 * (3 - n % 4) + (y & 1), y};
 }
 
+using Clock = std::chrono::steady_clock;
+
+// The ponder thread. On Windows it holds a reference to this library while it runs and drops it as it exits
+// (FreeLibraryAndExitThread), so a FreeLibrary during pondering cannot unload the code the thread is running, and
+// the library's static destructors never wait for a thread under the loader lock.
+class PonderThread {
+public:
+    bool joinable() const {
+#if defined(_WIN32)
+        return handle_ != nullptr;
+#else
+        return thread_.joinable();
+#endif
+    }
+#if defined(_WIN32)
+    bool start(std::function<void()> fn) {
+        auto* st = new Start{std::move(fn), nullptr};
+        if (!GetModuleHandleExA(GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS, reinterpret_cast<LPCSTR>(&proc), &st->self) ||
+            !(handle_ = CreateThread(nullptr, 0, proc, st, 0, nullptr))) {
+            if (st->self) FreeLibrary(st->self);
+            delete st;
+            return false;
+        }
+        return true;
+    }
+    void join() {
+        WaitForSingleObject(handle_, INFINITE);
+        detach();
+    }
+    void detach() {
+        if (handle_) CloseHandle(handle_);
+        handle_ = nullptr;
+    }
+#else
+    bool start(std::function<void()> fn) {
+        thread_ = std::thread(std::move(fn));
+        return true;
+    }
+    void join() { thread_.join(); }
+#endif
+
+private:
+#if defined(_WIN32)
+    struct Start {
+        std::function<void()> fn;
+        HMODULE self;
+    };
+    static DWORD WINAPI proc(void* arg) {
+        auto* st = static_cast<Start*>(arg);
+        st->fn();
+        HMODULE self = st->self;
+        delete st;
+        FreeLibraryAndExitThread(self, 0);
+    }
+    HANDLE handle_ = nullptr;
+#else
+    std::thread thread_;
+#endif
+};
+
+// Thinking on the opponent's time. After getmove has played, a thread searches the position after the reply the
+// search expects (without one, a short search of the position after our move finds it first). The next getmove
+// either finds that position (a hit: the running search gets the move's time limits, its clock starting then) or
+// stops the thread and searches as usual, on the warm hash table.
+struct Ponder {
+    PonderThread thread;
+    std::atomic<bool> abort{false};
+    std::atomic<int*> playnow{nullptr};  // the playnow flag of a getmove waiting for a hit
+    Clock::time_point start;             // thread start
+    std::int64_t cap_ms = 0;             // the ponder search stops by itself after this long
+    // Set by the thread, under `mutex`: just before the ponder search starts, and when it is done.
+    std::mutex mutex;
+    bool searching = false;
+    bool finished = false;
+    Position predicted;
+    std::vector<Position> history;  // game positions before `predicted`
+    // Written by the thread, read after it has been joined.
+    SearchResult result;
+    std::string info;
+};
+
 struct State {
     std::unique_ptr<Engine> engine;
     std::vector<Position> history;  // game positions before the current one
@@ -71,6 +157,8 @@ struct State {
     bool avoid = true;
     std::string avoidfile = "builtin";
     std::shared_ptr<const Book> avoid_list = Book::builtin();
+    bool ponder_on = false;  // "set ponder"
+    Ponder ponder;
     std::mutex mutex;
 };
 
@@ -172,6 +260,117 @@ bool follows(const Position& prev, const Position& next) {
     return false;
 }
 
+std::string format_info(const SearchInfo& i) {
+    std::ostringstream o;
+    o << "depth " << i.depth << "/" << i.seldepth << "  score " << i.score << "  nodes " << i.nodes << "  "
+      << i.nodes / std::max<std::int64_t>(1, i.time_ms) << " kN/s  pv";
+    for (std::size_t k = 0; k < i.pv.size() && k < 10; ++k) o << ' ' << move_to_string(i.pv[k]);
+    return o.str();
+}
+
+std::int64_t since_ms(Clock::time_point t) {
+    return std::chrono::duration_cast<std::chrono::milliseconds>(Clock::now() - t).count();
+}
+
+// The ponder thread. `reply` is the expected reply to our move, if the search gave one.
+void ponder_main(State& s, Position after, std::vector<Position> history, std::optional<Move> reply,
+                 int predict_ms) {
+    Ponder& p = s.ponder;
+    if (!reply) {
+        Limits l;
+        l.movetime_ms = predict_ms;
+        s.engine->set_position(after, history);
+        const SearchResult r = s.engine->go(l);
+        if (!r.pv.empty()) reply = r.best;
+    }
+    history.push_back(after);
+    Position root = after;
+    if (reply) root.make_move(*reply);
+    MoveList list;
+    if (reply) generate_moves(root, list);
+    // Nothing to think about if the game ends there or our move is forced.
+    if (list.size() >= 2 && !p.abort.load()) {
+        s.engine->set_position(root, history);
+        {
+            std::lock_guard lock(p.mutex);
+            s.engine->expect_ponder();
+            p.searching = true;
+            p.predicted = root;
+            p.history = history;
+        }
+        Limits l;
+        l.ponder = true;
+        p.result = s.engine->go(l, [&p](const SearchInfo& i) { p.info = format_info(i); });
+    }
+    std::lock_guard lock(p.mutex);
+    p.finished = true;
+}
+
+// Stops the ponder thread (abort and join) and clears its state.
+void stop_ponder(State& s) {
+    Ponder& p = s.ponder;
+    if (!p.thread.joinable()) return;
+    p.abort = true;
+    s.engine->stop();
+    p.thread.join();
+    s.engine->set_stop_poll({});
+    p.abort = false;
+    std::lock_guard lock(p.mutex);
+    p.searching = false;
+}
+
+// Stops pondering when the library is unloaded or the process exits. Constructed (at the first ponder) after the
+// statics the search uses, such as the endgame database's, so it is destroyed before them.
+struct PonderReaper {
+    ~PonderReaper() {
+#if defined(_WIN32)
+        // The thread holds a reference to the library, so either this runs on the thread itself as it drops the
+        // last one, or the thread is already inside FreeLibraryAndExitThread, or the process is exiting and Windows
+        // has ended it: there is nothing to wait for, and waiting under the loader lock would deadlock.
+        state().ponder.thread.detach();
+#else
+        stop_ponder(state());
+#endif
+    }
+};
+
+// Thinks about the position after our move `best` (now s.after_our_move) until the next library call.
+void start_ponder(State& s, const SearchResult& r, const Limits& limits) {
+    static PonderReaper reaper;
+    Ponder& p = s.ponder;
+    const Position& after = s.after_our_move;
+    MoveList replies;
+    generate_moves(after, replies);
+    if (replies.empty() || is_decisive(r.score)) return;  // the game is decided
+
+    std::optional<Move> reply;
+    if (replies.size() == 1) reply = replies[0];
+    if (r.pv.size() >= 2 && r.pv[0] == r.best && std::ranges::find(replies, r.pv[1]) != replies.end())
+        reply = r.pv[1];
+    // The time this move was given; a reply is predicted with a quarter of it, and the ponder search stops by
+    // itself after ten times it (a game abandoned while pondering does not keep the CPU busy).
+    const std::int64_t budget = limits.movetime_ms   ? limits.movetime_ms
+                                : limits.target_ms ? limits.target_ms
+                                                   : limits.time_ms / 32 + limits.inc_ms;
+    const int predict_ms = int(std::clamp<std::int64_t>(budget / 4, 10, 1000));
+    p.cap_ms = std::max<std::int64_t>(1000, budget * 10);
+    p.start = Clock::now();
+    p.searching = p.finished = false;
+    p.info.clear();
+    s.engine->set_stop_poll([&s] {
+        Ponder& p = s.ponder;
+        if (p.abort.load(std::memory_order_relaxed)) return true;
+        if (const int* playnow = p.playnow.load(std::memory_order_acquire);
+            playnow && *static_cast<const volatile int*>(playnow))
+            return true;
+        return s.engine->pondering() && since_ms(p.start) > p.cap_ms;
+    });
+    if (!p.thread.start([&s, after, history = s.history, reply, predict_ms]() mutable {
+            ponder_main(s, after, std::move(history), reply, predict_ms);
+        }))
+        s.engine->set_stop_poll({});
+}
+
 }  // namespace
 
 CB_EXPORT int WINAPI getmove(Board8x8 board, int color, double maxtime, char str[1024], int* playnow, int info,
@@ -179,25 +378,17 @@ CB_EXPORT int WINAPI getmove(Board8x8 board, int color, double maxtime, char str
     State& s = state();
     std::lock_guard lock(s.mutex);
     const Position pos = read_board(board, color);
+    const bool reset = info & CB_RESET_MOVES;
 
-    if (info & CB_RESET_MOVES) s.engine->new_game();
     if (!s.gamehist.empty() && s.gamehist.back() == pos) {
         // CheckerBoard told us the game since the last conversion move: exact, also after takebacks or edits.
         s.history.assign(s.gamehist.begin(), s.gamehist.end() - 1);
-    } else if ((info & CB_RESET_MOVES) || !s.have_after || !follows(s.after_our_move, pos)) {
+    } else if (reset || !s.have_after || !follows(s.after_our_move, pos)) {
         s.history.clear();
     } else {
         s.history.push_back(s.after_our_move);
     }
     s.gamehist.clear();
-
-    MoveList list;
-    generate_moves(pos, list);
-    if (list.empty()) {
-        if (str) std::snprintf(str, 1024, "no legal moves");
-        s.have_after = false;
-        return CB_LOSS;
-    }
 
     Limits limits;
     const int tcmode = (info >> CB_INCR_TIME_SHIFT) & 3;
@@ -211,23 +402,70 @@ CB_EXPORT int WINAPI getmove(Board8x8 board, int color, double maxtime, char str
         limits.target_ms = std::max(1, int(maxtime * 1000));
     }
 
-    s.engine->set_stop_poll([playnow] { return playnow && *playnow; });
-    s.engine->set_position(pos, s.history);
-    SearchResult r = s.engine->go(limits, [str](const SearchInfo& i) {
-        if (!str) return;
-        std::ostringstream o;
-        o << "depth " << i.depth << "/" << i.seldepth << "  score " << i.score << "  nodes " << i.nodes << "  "
-          << i.nodes / std::max<std::int64_t>(1, i.time_ms) << " kN/s  pv";
-        for (std::size_t k = 0; k < i.pv.size() && k < 10; ++k) o << ' ' << move_to_string(i.pv[k]);
-        std::snprintf(str, 1024, "%s", o.str().c_str());
-    });
-    s.engine->set_stop_poll({});
+    // A ponder hit is the predicted position in the same game, with the same history (CheckerBoard's history starts
+    // at the last conversion, so it may be a suffix of ours).
+    std::optional<SearchResult> pondered;
+    std::string ponder_note;
+    if (s.ponder.thread.joinable()) {
+        Ponder& p = s.ponder;
+        bool hit, idle;
+        {
+            std::lock_guard plock(p.mutex);
+            hit = !reset && p.searching && p.predicted == pos && p.history.size() >= s.history.size() &&
+                  std::equal(s.history.begin(), s.history.end(), p.history.end() - s.history.size());
+            idle = p.finished && !p.searching;  // there was nothing to ponder (our next move was forced)
+        }
+        const std::int64_t ms = since_ms(p.start);
+        if (idle) {
+            stop_ponder(s);
+        } else if (hit) {
+            p.playnow.store(playnow, std::memory_order_release);
+            s.engine->ponderhit(limits);
+            p.thread.join();
+            p.playnow = nullptr;
+            s.engine->set_stop_poll({});
+            pondered = p.result;
+            if (str) std::snprintf(str, 1024, "%s", p.info.c_str());
+            std::lock_guard plock(p.mutex);
+            p.searching = false;
+        } else {
+            stop_ponder(s);
+        }
+        if (!idle) ponder_note = std::string(hit ? "ponder hit " : "ponder miss ") + std::to_string(ms) + " ms";
+    }
+    if (reset) s.engine->new_game();
+
+    MoveList list;
+    generate_moves(pos, list);
+    if (list.empty()) {
+        if (str) std::snprintf(str, 1024, "no legal moves");
+        s.have_after = false;
+        return CB_LOSS;
+    }
+
+    SearchResult r;
+    if (pondered) {
+        r = *pondered;
+    } else {
+        s.engine->set_stop_poll([playnow] { return playnow && *playnow; });
+        s.engine->set_position(pos, s.history);
+        r = s.engine->go(limits, [str](const SearchInfo& i) {
+            if (str) std::snprintf(str, 1024, "%s", format_info(i).c_str());
+        });
+        s.engine->set_stop_poll({});
+    }
+    // For match logs: whether the move came from the ponder search, and how long it had been thinking.
+    if (str && !ponder_note.empty()) {
+        const std::string text = std::string(str) + (str[0] ? "  " : "") + ponder_note;
+        std::snprintf(str, 1024, "%s", text.c_str());
+    }
 
     write_move(board, pos, r.best, move);
     s.history.push_back(pos);
     s.after_our_move = pos;
     s.after_our_move.make_move(r.best);
     s.have_after = true;
+    if (s.ponder_on) start_ponder(s, r, limits);
 
     if (r.score >= SCORE_KNOWN_WIN) return CB_WIN;
     if (r.score <= -SCORE_KNOWN_WIN) return CB_LOSS;
@@ -244,6 +482,14 @@ CB_EXPORT int WINAPI enginecommand(const char* command, char reply[1024]) {
         return ret;
     };
 
+    // Queries and the game history leave a ponder search running; anything else stops it first.
+    const bool keeps_ponder = cmd == "name" || cmd == "about" || cmd == "help" || cmd == "get" ||
+                              (cmd == "set" && p1 == "gamehist");
+    if (!keeps_ponder) {
+        std::lock_guard lock(s.mutex);
+        stop_ponder(s);
+    }
+
     if (cmd == "name") return answer("Regicide 0.2", 1);
     if (cmd == "about") return answer("Regicide 0.2\nAn English checkers engine.", 1);
     if (cmd == "help") return answer("", 0);
@@ -258,6 +504,12 @@ CB_EXPORT int WINAPI enginecommand(const char* command, char reply[1024]) {
         if (p1 == "evalfile") return answer(s.evalfile, 1);
         if (p1 == "avoid") return answer(s.avoid ? "1" : "0", 1);
         if (p1 == "avoidfile") return answer(s.avoidfile, 1);
+        if (p1 == "ponder") return answer(s.ponder_on ? "1" : "0", 1);
+        if (p1 == "ponderpos") {
+            // The position the running ponder search is thinking about (FEN), or "" (for tests).
+            std::lock_guard plock(s.ponder.mutex);
+            return answer(s.ponder.searching ? s.ponder.predicted.fen() : "", 1);
+        }
     }
     if (cmd == "set") {
         std::lock_guard lock(s.mutex);
@@ -341,6 +593,11 @@ CB_EXPORT int WINAPI enginecommand(const char* command, char reply[1024]) {
             const int margin[] = {0, 60, 10, 0};
             s.engine->set_book(s.book_mode ? Book::builtin() : nullptr, margin[s.book_mode]);
             return answer(std::to_string(s.book_mode), 1);
+        }
+        if (p1 == "ponder") {
+            // "set ponder 0|1": think on the opponent's time, with the configured threads (default off).
+            s.ponder_on = std::atoi(p2.c_str()) != 0;
+            return answer(s.ponder_on ? "1" : "0", 1);
         }
         if (p1 == "threads") {
             s.threads = std::max(1, std::atoi(p2.c_str()));

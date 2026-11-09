@@ -31,6 +31,24 @@ tools/opponents/build_all.sh
 build/tools/match -a build/opponents/cake/cake.dylib -b build/opponents/guinn/guinn.dylib --movetime 0.2
 ```
 
+## Pondering (CheckerBoard DLL)
+
+`set ponder 1` (`get ponder`; off by default) lets the engine library think on the opponent's time with its configured
+`set threads`. After `getmove` has played, a background search starts in the position after the reply the search
+expects (the second move of its PV; without one, for example after a book or database move, a short search of the
+position after our move predicts the reply first). The next `getmove`:
+
+- **hit** (the predicted position, same game): the running search gets this move's time limits, its clock starting
+  now, and stops at once if it has already gone further than a normal search of this move would;
+- **miss** (anything else, or `CB_RESET_MOVES`): the ponder search is stopped and a normal search runs on the warm
+  hash table.
+
+Every other library call except queries (`get ...`, `name`, ...) and `set gamehist` stops pondering first, as do
+unloading the library and process exit. No pondering when the game is decided or our next move is forced; a ponder
+search stops by itself after 10x the time of the last move (at least 1 s). The info string ends with
+`ponder hit <ms> ms` / `ponder miss <ms> ms` (time since pondering started), and `match` prints the hit rate per
+engine. Match runner: `--option-a "set ponder 1" --option-a "set threads N"`.
+
 ## Opening book and avoid list
 
 The book file (`src/weights/book.bin`, RGBK, embedded at build time, empty by default) can also carry an

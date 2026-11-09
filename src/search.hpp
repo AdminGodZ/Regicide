@@ -1,9 +1,11 @@
 #pragma once
 
 #include <atomic>
+#include <chrono>
 #include <cstdint>
 #include <functional>
 #include <memory>
+#include <mutex>
 #include <optional>
 #include <utility>
 #include <string>
@@ -25,6 +27,8 @@ struct Limits {
     int inc_ms = 0;
     int moves_to_go = 0;  // 0 = sudden death
     bool infinite = false;
+    // Think on the opponent's time: search without limits until Engine::ponderhit() supplies them.
+    bool ponder = false;
     bool use_book = true;  // play a book move without searching when the engine has a book
     // Analysis: search only these root moves (legal ones; empty = all). Skips the book and the avoid list, and
     // searches a single move to the full limits instead of returning it at once.
@@ -102,6 +106,15 @@ public:
     using InfoFn = std::function<void(const SearchInfo&)>;
     SearchResult go(const Limits& limits, InfoFn on_info = {});
     void stop() { stop_.store(true, std::memory_order_relaxed); }
+
+    // Pondering. go() with Limits::ponder searches without limits; ponderhit() (from another thread) turns it into a
+    // normal search with the time and node limits of `limits`, its clock starting at the hit. If the ponder search
+    // has already gone further than that search would (by the soft limit and the best move's stability), it stops at
+    // once. expect_ponder() announces the next ponder search, so a hit that comes before that search has started
+    // still applies to it. Returns false if no ponder search is running or announced (it has finished).
+    void expect_ponder();
+    bool ponderhit(const Limits& limits);
+    bool pondering() const { return pondering_.load(std::memory_order_acquire); }
     // Polled by the main search thread; returning true aborts the search (e.g. a GUI "play now").
     void set_stop_poll(std::function<bool()> poll) { stop_poll_ = std::move(poll); }
     void set_evaluator(std::shared_ptr<const Evaluator> e) { eval_ = std::move(e); }
@@ -125,6 +138,10 @@ private:
     friend struct Worker;
 
     std::optional<std::pair<Move, Score>> egdb_root_move(const Position& root, const std::vector<Move>& list) const;
+    void set_time(struct TimeControl& tc, const Limits& limits, std::chrono::steady_clock::time_point start) const;
+    // Called by the main thread after each completed iteration of a ponder search: records it and returns true
+    // while the search is still pondering.
+    bool ponder_iteration(std::int64_t elapsed_ms, double factor, bool single);
 
     TranspositionTable tt_;
     std::vector<std::unique_ptr<struct Worker>> workers_;
@@ -132,6 +149,19 @@ private:
     std::vector<Key> history_;
     std::atomic<bool> stop_{false};
     std::function<bool()> stop_poll_;
+    // Pondering state, guarded by tc_mutex_ (pondering_ is also read without it, by check_limits).
+    std::mutex tc_mutex_;
+    struct TimeControl* tc_ = nullptr;  // time control of the running search
+    std::atomic<bool> pondering_{false};
+    bool ponder_expected_ = false;
+    bool hit_pending_ = false;  // ponderhit() came before the ponder search started
+    Limits hit_limits_;
+    std::chrono::steady_clock::time_point hit_time_;
+    struct {
+        std::int64_t elapsed_ms = -1;  // when the last ponder iteration completed (-1 = none yet)
+        double factor = 1;             // soft-limit factor after it
+        bool single = false;           // one root move
+    } ponder_iter_;
     std::shared_ptr<const Evaluator> eval_ = Evaluator::builtin();
     std::shared_ptr<const Book> book_;
     std::shared_ptr<const Book> avoid_;
