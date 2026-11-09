@@ -1,0 +1,15 @@
+== n6d export check (100k positions of v2d's validation set), final net_e040.nnue
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 7.60, max 63.38 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK
+== n6e export check (100k positions of v2d's validation set), final net_e040.nnue
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 9.82, max 76.12 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK
+== n6f export check (100k positions of v2d's validation set), final net_e040.nnue
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 6.83, max 64.78 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK

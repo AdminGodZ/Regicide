@@ -77,6 +77,53 @@ every set and target. Two validation sets are used:
 | n6b vs n4c | 266 / 1062 / 282 | [0 49 723 33 0] | −3.5 [−7.3, +0.4] | 3.8% |
 | **n6c vs n4c** | 289 / 1052 / 269 | [0 36 713 56 0] | **+4.3 [+0.3, +8.4]** | **98.2%** |
 
+## Round 6b: follow-ups to n6c (now the built-in net, master ff0a3d2)
+
+These nets keep n6c's recipe (v1 1024, all 10k data, 40 × 100M, lr 1e-3 → 1e-5, the b88c02e trainer, one capped GPU
+lane, 02:14–02:47) and change one thing each:
+
+| Net | Change vs n6c | λ | Deep data |
+|---|---|---|---|
+| n6d | λ 0.3 | 0.3 | gen5a ×3 |
+| n6e | more weight on the deep data | 0.5 | gen5a **×6** |
+| n6f | more deep data | 0.5 | gen5a ×3 + **gen5c prefix ×3** |
+
+The gen5c prefix is `gen5c_partial_2759168.bin`, a whole-record snapshot of 2,759,168 records taken at 02:14 while
+gen5c (same engine and settings as gen5a, seed 62) was still running.
+
+All three exports are exact (`logs/export_checks_6b.txt`). Losses (`logs/losses_6b.txt`) use the same sets and
+K 106.65, adding a λ-0.5 target:
+
+| Net | shared λ 0.7 | shared λ 0.5 | gen5a λ 0.7 | gen5a λ 0.5 | gen5a result | gen5a score |
+|---|---|---|---|---|---|---|
+| n4c | 0.506345 | 0.514372 | 0.459453 | 0.471847 | 0.440861 | 0.502834 |
+| n6c | 0.506910 | 0.513005 | 0.447642 | 0.462203 | 0.425801 | 0.498605 |
+| n6d (λ 0.3) | 0.509411 | 0.513461 | 0.453032 | 0.466041 | 0.433518 | 0.498565 |
+| n6e (gen5a ×6) | 0.507058 | 0.513195 | 0.447941 | 0.462337 | 0.426348 | **0.498326** |
+| n6f (+gen5c) | **0.506640** | **0.512858** | **0.447642** | **0.462143** | 0.425891 | 0.498396 |
+
+- **n6d (λ 0.3) is worse than n6c on every target except search-score-only,** where it ties.
+- **n6e and n6f are within ±0.0005 of n6c everywhere.**
+- The two best on the gen5a tail at target λ 0.5 (n6c's λ) were matched against n6c.
+
+**Matches vs n6c** (02:49–03:11):
+- **Engine:** one `libregicide_cb.so` of master **ff0a3d2** (built-in n6c; bench 8,089,571, ctest 13/13;
+  `logs/build_ff0a3d2.txt`); A: `set evalfile <net>`, B: built-in n6c.
+- **Settings:** the round-6 settings (0.1 s/move, 1,610 games, `-c 10`, book off, 2–8 EGDB), datagen stopped.
+
+| Match | W / D / L | Pentanomial | Elo [95% CI] | LOS |
+|---|---|---|---|---|
+| n6f vs n6c | 277 / 1056 / 277 | [1 41 720 43 0] | −0.0 [−4.0, +4.0] | 50.0% |
+| n6e vs n6c | 265 / 1069 / 276 | [0 50 716 39 0] | −2.4 [−6.4, +1.6] | 12.2% |
+
+**No follow-up beats n6c.**
+- Doubling the weight of gen5a (n6e) adds nothing.
+- Adding 2.8M more 50k-node positions (n6f) is neutral.
+- λ 0.3 (n6d) fits worse.
+- The +4.3 of n6c over n4c seems to come from the deep data at λ 0.5 as such. More of the same deep data at this scale
+  does not add more. The full gen5b (laptop) and gen5c would bring about 3× more deep positions, which is the next
+  thing to try.
+
 ## Next
 
 - **Confirm n6c** at a longer time control (for example 0.3 s/move against n4c) before making it the default.

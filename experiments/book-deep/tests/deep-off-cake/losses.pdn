@@ -1,0 +1,1284 @@
+[Event "Regicide 0.2 vs Cake 1.89f"]
+[Site "Regicide match runner"]
+[Date "2026.11.09"]
+[Round "6.1"]
+[Black "Regicide 0.2"]
+[White "Cake 1.89f"]
+[Result "0-1"]
+[GameType "21"]
+[Opening "ACF #7: 9-13 22-18 10-15"]
+[TimeControl "0.5s/move (CheckerBoard match rules)"]
+[Termination "black has no legal moves"]
+1. 9-13 22-18 2. 10-15 25-22 {0.00s book move: 25-22 v 2 d 23} 3. 6-10 {0.36s
+depth 17/38 score -32 nodes 1118774 3048 kN/s pv 6-10 23-19 11-16 18x11 16x23
+27x18 8x15 18x11 7x16 22-18} 23-19 {0.00s book 23-19 v2 d21 24-20 v0 d19 21-17
+v0 d19 24-19 v0 d19 30-25 v0 d19 18-14 v0 d17 } 4. 11-16 {0.26s depth 18/38
+score -36 nodes 605910 2219 kN/s pv 11-16 18x11 16x23 27x18 8x15 18x11 7x16
+22-18 4-8 29-25} 18x11 {0.00s book 18x11 v2 d19 } 5. 16x23 {0.27s depth 18/39
+score -27 nodes 851624 2977 kN/s pv 16x23 27x18 8x15 18x11 7x16 32-27 1-6 22-18
+4-8 29-25} 27x18 {0.00s book 27x18 v2 d17 26x19 v0 d16 } 6. 8x15 {0.54s depth
+19/38 score -25 nodes 1536205 2704 kN/s pv 8x15 18x11 7x16 22-18 4-8 26-23 1-6
+29-25 8-11 32-27} 18x11 {0.00s book 18x11 v2 d15 } 7. 7x16 {0.00s depth 1/2
+score -44 nodes 12 12 kN/s pv 7x16 22-18} 22-18 {0.00s book 22-18 v2 d13 31-27
+v0 d10 29-25 v0 d10 26-23 v0 d10 32-27 v0 d10 30-25 v0 d9 24-20 v0 d8 24-19 v0
+d8 22-17 v-10 d3 } 8. 4-8 {0.29s depth 18/36 score -18 nodes 802700 2631 kN/s pv
+4-8 26-23 1-6 18-14 10x17 21x14 8-11 29-25 2-7 32-27} 18-15 {0.00s book 18-15 v2
+d11 24-20 v0 d8 29-25 v0 d7 26-23 v0 d7 18-14 v0 d7 31-27 v0 d5 32-27 v0 d5
+30-25 v0 d5 26-22 v0 d3 } 9. 10x19 {0.00s depth 1/3 score -16 nodes 13 13 kN/s
+pv 10x19 24x15 1-6} 24x15 {0.00s book 24x15 v2 d9 } 10. 5-9 {0.79s depth 18/31
+score -15 nodes 2098066 2549 kN/s pv 5-9 30-25 16-19 15-11 8x15 21-17 13x22
+25x11 1-6 32-27} 28-24 {0.00s book move: 28-24 v 2 d 7} 11. 16-19 {1.07s depth
+19/33 score -26 nodes 3207485 2856 kN/s pv 16-19 32-28 1-6 30-25 3-7 15-10 7x14
+24x15 14-18 25-22} 32-28 {0.00s book move: 32-28 v 2 d 5} 12. 2-7 {1.47s depth
+20/40 score -15 nodes 4493100 2910 kN/s pv 2-7 31-27 9-14 24-20 7-11 27-24 11x18
+24x15 1-6 28-24} 31-27 {1.90s depth 27/54/24.0 time 1.99s value=32 nodes
+10543526 5298kN/s db 86% cut 97.6% pv 31-27 9-14 29-25 1-6 24-20 7-11 26-22
+11x18 } 13. 1-6 {0.29s depth 19/38 score -56 nodes 968902 3218 kN/s pv 1-6 29-25
+9-14 24-20 7-11 26-22 11x18 22x15 3-7 20-16} 29-25 {1.99s depth 29/54/30.9 time
+2.09s value=84 nodes 9668711 4623kN/s db 76% cut 97.1% pv 29-25 9-14 24-20 7-11
+26-22 11x18 22x15 14-18 } 14. 9-14 {0.29s depth 20/42 score -78 nodes 889530
+2965 kN/s pv 9-14 24-20 7-11 26-22 11x18 22x15 14-18 30-26 3-7 20-16} 24-20
+{1.19s depth 29/60/32.4 time 1.25s value=86 nodes 5610521 4506kN/s db 74% cut
+97.1% pv 24-20 7-11 26-22 11x18 22x15 14-18 30-26 3-7 } 15. 7-11 {0.25s depth
+21/38 score -74 nodes 773725 3010 kN/s pv 7-11 26-22 11x18 22x15 14-18 30-26 3-7
+20-16 6-9 27-24} 26-22 {1.19s depth 29/55/32.9 time 1.25s value=90 nodes 5509051
+4396kN/s db 75% cut 96.8% pv 26-22 11x18 22x15 14-18 30-26 3-7 20-16 6-9 } 16.
+11x18 {0.00s depth 1/3 score -5 nodes 13 13 kN/s pv 11x18 22x15 14-18} 22x15
+{0.00s depth 1/3/2.5 time 0.00s value=-6 nodes 26 2600kN/s db 0% cut 100.0% pv
+22x15 14-18 30-26 3-7 20-16 6-9 27-24 18-23 } 17. 3-7 {0.35s depth 21/40 score
+-84 nodes 1042426 2871 kN/s pv 3-7 20-16 14-18 30-26 6-9 27-24 18-23 26-22 23-26
+24-20} 20-16 {2.02s depth 28/55/33.1 time 2.12s value=98 nodes 8954126 4223kN/s
+db 72% cut 95.9% pv 20-16 14-18 30-26 6-9 27-24 18-23 26-22 23-26 } 18. 14-18
+{0.37s depth 22/37 score -92 nodes 1098165 2808 kN/s pv 14-18 30-26 6-9 27-24
+18-23 26-22 23-26 24-20 19-23 16-11} 30-26 {0.19s depth 25/47/29.9 time 0.20s
+value=100 nodes 823773 4160kN/s db 73% cut 94.9% pv 30-26 6-9 27-24 18-23 26-22
+23-26 16-11 7x16 } 19. 6-9 {0.58s depth 24/39 score -96 nodes 1720646 2858 kN/s
+pv 6-9 27-24 18-23 26-22 23-26 24-20 19-23 16-11 7x16 20x4} 27-24 {0.81s depth
+26/52/31.4 time 0.84s value=100 nodes 3489345 4148kN/s db 71% cut 95.6% pv 27-24
+18-23 26-22 23-26 16-11 7x16 24-20 9-14 } 20. 18-23 {0.50s depth 24/36 score -97
+nodes 1284529 2465 kN/s pv 18-23 26-22 23-26 24-20 26-31 16-11 7x16 20x4 19-23
+15-10} 26-22 {0.15s depth 22/43/29.7 time 0.15s value=96 nodes 707732 4655kN/s
+db 74% cut 96.0% pv 26-22 23-26 16-11 7x16 24-20 9-14 20x4 14-18 } 21. 23-26
+{0.74s depth 24/36 score -97 nodes 2129293 2765 kN/s pv 23-26 24-20 19-23 16-11
+7x16 20x4 23-27 21-17 26-30 25-21} 16-11 {0.38s depth 23/45/30.3 time 0.40s
+value=102 nodes 1812105 4541kN/s db 72% cut 95.6% pv 16-11 7x16 24-20 26-30 20x4
+19-23 15-11 23-27 } 22. 7x16 {0.00s depth 1/4 score 34 nodes 20 20 kN/s pv 7x16
+24-20 8-11 15x8} 24-20 {1.37s depth 25/49/30.1 time 1.44s value=0 nodes 5767233
+4016kN/s db 70% cut 96.3% pv 24-20 26-30 20x4 19-23 15-10 23-27 22-18 27-32 }
+23. 19-23 {0.46s depth 23/33 score -98 nodes 1388251 2886 kN/s pv 19-23 20x4
+23-27 21-17 26-30 25-21 12-16 15-10 27-31 10-6} 20x11x4 {0.00s depth 1/2/2.0
+time 0.00s value=70 nodes 6 600kN/s db 0% cut 100.0% pv 20x4 23-27 21-17 26-30
+25-21 27-31 4-8 12-16 } 24. 23-27 {0.91s depth 24/33 score -104 nodes 2738214
+2873 kN/s pv 23-27 21-17 26-30 25-21 27-31 15-10 12-16 10-6 16-19 6-1} 21-17
+{0.43s depth 22/46/27.6 time 0.45s value=104 nodes 1688268 3759kN/s db 64% cut
+95.8% pv 21-17 26-30 25-21 27-31 4-8 31-27 15-10 12-16 } 25. 26-30 {0.38s depth
+23/33 score -103 nodes 1086058 2735 kN/s pv 26-30 25-21 27-31 15-10 12-16 10-6
+16-19 6-1 19-23 1-6} 25-21 {0.93s depth 23/48/27.7 time 0.97s value=0 nodes
+3670137 3779kN/s db 67% cut 95.7% pv 25-21 27-31 4-8 31-27 15-10 12-16 10-6
+16-19 } 26. 12-16 {0.51s depth 23/31 score -101 nodes 1618928 3066 kN/s pv 12-16
+15-10 16-19 10-6 19-23 6-2 27-32 2-6 23-26 4-8} 15-10 {0.17s depth 19/37/24.2
+time 0.18s value=108 nodes 691354 3883kN/s db 56% cut 94.8% pv 15-10 27-31 4-8
+31-26 10-6 16-19 6-2 19-23 } 27. 16-19 {0.62s depth 23/30 score -104 nodes
+1974853 3090 kN/s pv 16-19 10-7 19-23 7-2 27-31 2-6 23-27 22-18 13x22 6x13} 10-6
+{0.64s depth 21/43/26.7 time 0.66s value=110 nodes 2789228 4213kN/s db 54% cut
+95.2% pv 10-6 27-32 4-8 19-23 6-2 23-26 2-6 26-31 } 28. 27-31 {0.33s depth 22/29
+score -102 nodes 1061460 3076 kN/s pv 27-31 6-1 31-26 1-6 19-23 22-18 13x22 6x13
+23-27 18-15} 4-8 {0.16s depth 19/41/23.1 time 0.16s value=110 nodes 717338
+4400kN/s db 59% cut 95.5% pv 4-8 19-23 6-2 23-27 2-6 27-32 8-11 32-27 } 29.
+19-23 {0.36s depth 21/28 score -102 nodes 1197506 3236 kN/s pv 19-23 6-2 23-27
+2-6 31-26 22-18 13x22 6x13 22-25 18-14} 6-2 {0.35s depth 19/42/23.2 time 0.36s
+value=112 nodes 1583059 4360kN/s db 55% cut 96.1% pv 6-2 23-27 2-6 27-32 22-18
+13x22 6x13 30-26 } 30. 23-27 {0.79s depth 21/29 score -103 nodes 2645987 3250
+kN/s pv 23-27 2-6 27-32 22-18 13x22 6x13 30-26 18-14 22-25 8-11} 2-6 {0.80s
+depth 19/41/23.5 time 0.83s value=114 nodes 3648258 4395kN/s db 57% cut 95.9% pv
+2-6 27-32 22-18 13x22 6x13 32-27 18-14 22-25 } 31. 27-32 {0.35s depth 20/28
+score -104 nodes 1271156 3530 kN/s pv 27-32 22-18 13x22 6x13 32-27 21-17 27-23
+17-14 30-25 18-15} 22-18 {0.52s depth 19/39/22.5 time 0.54s value=114 nodes
+2229883 4136kN/s db 65% cut 95.9% pv 22-18 13x22 6x13 32-27 18-14 31-26 8-11
+30-25 } 32. 13x22 {0.00s depth 1/3 score -88 nodes 11 11 kN/s pv 13x22 6x13
+31-27} 6x13 {0.00s depth 1/2/2.0 time 0.00s value=96 nodes 13 1300kN/s db 0% cut
+100.0% pv 6x13 32-27 18-14 31-26 8-11 30-25 11-15 26-23 } 33. 30-26 {0.48s depth
+19/25 score -106 nodes 1841055 3704 kN/s pv 30-26 21-17 32-27 18-15 22-25 17-14
+27-23 13-17 25-30 15-10} 28-24 {0.46s depth 17/36/18.5 time 0.47s value=116
+nodes 1952049 4109kN/s db 61% cut 95.4% pv 28-24 32-27 24-20 27-24 8-11 22-25
+18-14 25-30 } 34. 32-28 {0.40s depth 19/25 score -104 nodes 1508960 3627 kN/s pv
+32-28 24-20 22-25 8-11 28-24 18-15 25-30 15-10 26-22 11-15} 24-20 {0.61s depth
+17/37/19.4 time 0.63s value=124 nodes 2619539 4138kN/s db 60% cut 94.4% pv 24-20
+22-25 8-11 26-22 18-14 28-24 14-10 22-18 } 35. 28-24 {0.53s depth 19/25 score
+-110 nodes 1929624 3470 kN/s pv 28-24 18-15 24-19 15-10 19-15 10-7 22-25 7-3
+15-18 3-7} 8-11 {0.57s depth 17/34/18.5 time 0.61s value=128 nodes 2457246
+4048kN/s db 66% cut 94.9% pv 8-11 22-25 18-14 26-22 14-10 25-30 10-7 24-19 } 36.
+22-25 {0.37s depth 20/27 score -104 nodes 1450637 3644 kN/s pv 22-25 18-15 25-30
+15-10 30-25 11-15 26-22 20-16 24-20 16-11} 18-14 {0.70s depth 18/35/20.1 time
+0.75s value=130 nodes 3098157 4125kN/s db 65% cut 95.5% pv 18-14 26-22 14-10
+25-30 10-7 31-27 21-17 24-19 } 37. 26-22 {0.47s depth 20/26 score -108 nodes
+1635121 3283 kN/s pv 26-22 21-17 25-29 14-9 31-26 17-14 22-25 13-17 25-21 11-15}
+14-10 {0.38s depth 17/34/19.5 time 0.40s value=134 nodes 1674098 4143kN/s db 69%
+cut 93.4% pv 14-10 31-27 10-7 24-19 21-17 27-23 7-3 19-24 } 38. 31-26 {0.55s
+depth 20/25 score -110 nodes 2184723 3709 kN/s pv 31-26 21-17 25-30 17-14 26-23
+10-7 23-19 7-2 30-26 11-7} 11-15 {0.36s depth 17/32/18.5 time 0.39s value=136
+nodes 1651056 4277kN/s db 73% cut 94.9% pv 11-15 25-30 10-7 30-25 7-2 26-23 2-7
+22-26 } 39. 25-30 {0.62s depth 21/27 score -110 nodes 2364684 3572 kN/s pv 25-30
+21-17 26-23 10-7 23-19 15-10 30-26 17-14 24-28 14-9} 10-7 {0.78s depth
+19/38/21.6 time 0.83s value=136 nodes 3410004 4103kN/s db 75% cut 95.4% pv 10-7
+26-31 15-11 31-27 7-2 30-26 21-17 26-23 } 40. 26-31 {0.36s depth 20/25 score
+-112 nodes 1370548 3550 kN/s pv 26-31 7-2 30-26 21-17 26-23 17-14 31-27 15-10
+27-32 2-6} 7-2 {1.03s depth 19/37/20.0 time 1.10s value=140 nodes 4522097
+4122kN/s db 77% cut 94.6% pv 7-2 31-27 2-7 27-23 21-17 23-19 7-10 19-23 } 41.
+31-26 {0.57s depth 21/26 score -113 nodes 2204763 3674 kN/s pv 31-26 21-17 26-23
+17-14 23-19 14-10 30-26 2-6 26-31 6-9} 21-17 {0.14s depth 17/35/19.0 time 0.14s
+value=140 nodes 560611 3866kN/s db 74% cut 94.6% pv 21-17 26-23 2-7 30-25 17-14
+23-19 15-11 19-23 } 42. 26-23 {0.56s depth 21/28 score -114 nodes 2174704 3704
+kN/s pv 26-23 17-14 23-27 2-7 27-23 14-9 22-26 9-6 23-19 7-10} 2-7 {0.20s depth
+17/35/19.2 time 0.20s value=140 nodes 842624 4130kN/s db 74% cut 95.1% pv 2-7
+30-25 17-14 23-19 7-10 19-23 15-11 24-19 } 43. 30-26 {0.41s depth 22/27 score
+-112 nodes 1566977 3669 kN/s pv 30-26 17-14 23-19 15-10 26-23 10-6 23-27 14-10
+22-26 6-9} 17-14 {0.74s depth 17/33/18.2 time 0.77s value=160 nodes 3500739
+4546kN/s db 81% cut 93.5% pv 17-14 23-19 7-10 19-23 14-9 23-18 15-11 22-25 } 44.
+26-31 {0.41s depth 21/27 score -114 nodes 1513732 3536 kN/s pv 26-31 14-10 31-27
+7-2 23-19 2-6 19-23 6-9 23-18 15-11} 7-11 {0.20s depth 16/30/18.2 time 0.21s
+value=162 nodes 863913 4193kN/s db 81% cut 94.4% pv 7-11 23-19 15-10 31-27 14-9
+19-23 9-6 22-18 } 45. 23-19 {0.58s depth 24/29 score -114 nodes 2218333 3684
+kN/s pv 23-19 15-10 31-27 10-6 19-23 14-10 23-19 6-9 27-32 9-14} 15-10 {0.38s
+depth 18/36/20.6 time 0.40s value=166 nodes 1671327 4157kN/s db 78% cut 94.3% pv
+15-10 31-27 14-9 19-23 9-6 22-18 6-2 18-22 } 46. 31-27 {0.41s depth 22/27 score
+-114 nodes 1641141 3790 kN/s pv 31-27 10-6 27-31 11-7 22-25 14-10 25-21 7-11
+31-26 6-9} 14-9 {0.99s depth 19/35/19.5 time 1.04s value=168 nodes 4657249
+4478kN/s db 80% cut 95.2% pv 14-9 19-23 9-6 23-19 11-15 22-25 6-2 19-23 } 47.
+22-26 {1.88s depth 23/30 score -120 nodes 7843196 3989 kN/s pv 22-26 11-15 26-31
+13-17 19-23 17-14 23-26 9-6 24-28 15-19} 11-15 {0.39s depth 19/35/20.1 time
+0.41s value=172 nodes 1882391 4591kN/s db 83% cut 95.9% pv 11-15 27-31 13-17
+19-23 17-14 23-27 15-18 26-23 } 48. 26-31 {0.24s depth 22/29 score -132 nodes
+955924 3870 kN/s pv 26-31 13-17 19-23 9-6 23-26 17-21 24-28 10-14 27-32 14-18}
+9-6 {0.22s depth 19/37/22.1 time 0.23s value=186 nodes 980307 4243kN/s db 82%
+cut 95.9% pv 9-6 27-32 13-17 31-27 17-14 32-28 6-2 19-23 } 49. 27-32 {0.37s
+depth 26/29 score -19977 nodes 1343771 3436 kN/s pv 27-32 13-17 32-28 17-14
+31-27 6-2 19-23 15-18 28-32 2-7} 13-17 {0.54s depth 22/37/25.1 time 0.56s
+value=214 nodes 1747413 3103kN/s db 89% cut 95.1% pv 13-17 31-27 17-14 32-28 6-2
+19-23 15-18 28-32 Cake claims a win} 50. 31-27 {0.33s depth 26/28 score -19979
+nodes 1382576 3984 kN/s pv 31-27 17-14 32-28 6-2 19-23 15-18 23-19 2-7 19-23
+18-22} 17-14 {0.64s depth 21/38/24.3 time 0.67s value=202 nodes 2825555 4236kN/s
+db 84% cut 96.0% pv 17-14 32-28 6-2 19-23 15-18 28-32 2-7 24-28 Cake claims a
+win} 51. 32-28 {0.35s depth 26/29 score -19981 nodes 1386721 3820 kN/s pv 32-28
+6-2 19-23 15-18 23-19 2-7 19-23 18-22 23-19 14-18} 6-2 {0.50s depth 22/38/25.0
+time 0.52s value=280 nodes 1418758 2749kN/s db 95% cut 91.6% pv 6-2 19-23 15-18
+28-32 2-7 24-28 10-15 23-26 Cake claims a win} 52. 19-23 {0.34s depth 25/27
+score -19983 nodes 1406833 4008 kN/s pv 19-23 15-18 23-19 2-7 19-23 18-22 23-19
+14-18 28-32 18-15} 15-18 {0.26s depth 21/35/24.0 time 0.27s value=280 nodes
+833563 3075kN/s db 99% cut 88.0% pv 15-18 28-32 2-7 32-28 18-22 23-19 14-18
+27-31 Cake claims a win} 53. 24-19 {0.52s depth 27/30 score -19985 nodes 2050369
+3776 kN/s pv 24-19 2-7 19-24 18-22 23-19 14-18 28-32 18-15 32-28 22-18} 2-7
+{0.69s depth 30/49/31.4 time 0.72s value=830 nodes 2925476 4085kN/s db 99% cut
+94.2% pv 2-7 19-24 18-22 23-26 22x31 28-32 7-11 32-28 Cake claims a win} 54.
+19-24 {0.66s depth 26/29 score -19987 nodes 2433266 3562 kN/s pv 19-24 18-22
+23-19 14-18 28-32 18-15 32-28 22-18 27-32 7-3} 18-22 {0.27s depth 24/40/26.7
+time 0.28s value=830 nodes 1075065 3812kN/s db 99% cut 94.3% pv 18-22 23-19
+14-18 19-16 20x11 24-20 22-26 27-24 Cake claims a win} 55. 23-19 {0.78s depth
+27/29 score -19989 nodes 3048898 3778 kN/s pv 23-19 14-18 28-32 18-15 32-28
+22-18 27-32 7-3 32-27 10-7} 14-18 {0.69s depth 25/44/29.6 time 0.71s value=863
+nodes 2885355 4052kN/s db 99% cut 94.4% pv 14-18 28-32 18-15 27-23 15-18 23x14
+10x17 19-15 Cake claims a win} 56. 27-31 {0.69s depth 27/31 score -19991 nodes
+2601551 3633 kN/s pv 27-31 18-15 28-32 22-18 31-27 7-3 19-23 3-7 23x14} 18-15
+{0.33s depth 23/43/26.9 time 0.34s value=864 nodes 1406343 4160kN/s db 100% cut
+94.7% pv 18-15 31-27 22-18 28-32 7-3 19-23 3-7 23x14 Cake claims a win} 57.
+31-27 {0.52s depth 26/28 score -19993 nodes 1897545 3527 kN/s pv 31-27 22-18
+27-32 7-3 32-27 10-7 19x10} 22-18 {0.45s depth 23/38/26.9 time 0.47s value=865
+nodes 1983690 4220kN/s db 99% cut 95.0% pv 22-18 28-32 7-3 32-28 10-7 19x10 7x14
+24-19 Cake claims a win} 58. 27-31 {0.54s depth 28/30 score -19995 nodes 2060395
+3699 kN/s pv 27-31 7-3 31-27 10-7 19x10} 7-3 {0.90s depth 25/46/30.9 time 0.92s
+value=865 nodes 3697422 4023kN/s db 99% cut 95.9% pv 7-3 31-27 10-7 19x10 7x14
+24-19 3-7 28-24 Cake claims a win} 59. 31-26 {0.73s depth 28/32 score -19997
+nodes 2806955 3762 kN/s pv 31-26 10-7 19x10} 18-22 {0.29s depth 23/44/23.7 time
+0.29s value=1023 nodes 1268237 4298kN/s db 100% cut 96.3% pv 18-22 26x17 10-7
+19x10 7x21 24-19 3-8 28-32 Cake claims a win} 60. 26x17 {0.00s depth 1/1 score
+-19999 nodes 2 2 kN/s pv 26x17} 10-7 {0.39s depth 27/45/32.7 time 0.40s
+value=1024 nodes 1610355 4066kN/s db 100% cut 94.9% pv 10-7 19x10 7x21 24-19 3-8
+28-32 8-12 32-27 Cake claims a win} 61. 19x10 {0.00s depth 1/1 score -19999
+nodes 2 2 kN/s pv 19x10} 7x14x21 {0.00s depth 1/2/2.0 time 0.00s value=987 nodes
+8 799kN/s db 80% cut 100.0% pv 7x21 24-19 3-8 28-32 8-12 32-27 20-16 27-23 } 62.
+24-19 {0.00s depth 0/0 score -19995 nodes 0 0 kN/s pv 24-19} 3-8 {0.48s depth
+27/47/28.0 time 0.49s value=1024 nodes 1821298 3747kN/s db 100% cut 95.0% pv 3-8
+19-15 20-16 28-24 16-11 15-10 21-25 24-19 Cake claims a win} 63. 28-24 {0.00s
+depth 0/0 score -19997 nodes 0 0 kN/s pv 28-24} 8-11 {0.51s depth 28/48/30.8
+time 0.52s value=1025 nodes 2063563 3945kN/s db 100% cut 96.0% pv 8-11 19-16
+11-15 16-19 15-18 24-27 21-17 19-23 Cake claims a win} 64. 19-16 {0.00s depth
+0/0 score -19989 nodes 0 0 kN/s pv 19-16} 11-15 {0.57s depth 31/55/34.4 time
+0.58s value=1182 nodes 2024723 3490kN/s db 100% cut 96.8% pv 11-15 16-19 15-18
+24-27 21-17 19-23 17-14 23-19 Cake claims a win} 65. 16-19 {0.00s depth 0/0
+score -19989 nodes 0 0 kN/s pv 16-19} 15-18 {0.56s depth 32/63/35.2 time 0.57s
+value=1183 nodes 1857603 3247kN/s db 100% cut 98.2% pv 15-18 24-27 21-17 19-23
+17-14 23-19 14-10 19-23 Cake claims a win} 66. 24-27 {0.00s depth 0/0 score
+-19991 nodes 0 0 kN/s pv 24-27} 21-17 {0.67s depth 32/53/34.5 time 0.68s
+value=1320 nodes 2314826 3404kN/s db 100% cut 97.2% pv 21-17 19-23 17-14 23-19
+14-10 19-23 18-15 27-24 Cake claims a win} 67. 27-24 {0.00s depth 0/0 score
+-19993 nodes 0 0 kN/s pv 27-24} 17-22 {0.38s depth 31/54/34.6 time 0.39s
+value=1324 nodes 1474193 3799kN/s db 100% cut 95.6% pv 17-22 24-28 22-26 19-24
+20-16 24-27 26-31 27-24 Cake claims a win} 68. 24-27 {0.00s depth 0/0 score
+-19995 nodes 0 0 kN/s pv 24-27} 22-26 {0.45s depth 28/56/31.6 time 0.46s
+value=1324 nodes 1685938 3681kN/s db 100% cut 96.6% pv 22-26 27-32 26-31 19-24
+20-16 24-20 16-12 32-28 Cake claims a win} 69. 27-24 {0.00s depth 0/0 score
+-19997 nodes 0 0 kN/s pv 27-24} 26-31 {0.02s depth 19/39/20.8 time 0.01s
+value=1859 nodes 53530 5941kN/s db 100% cut 94.6% pv 26-31 24-28 18-23 19x26
+31x22 28-24 Cake claims a win} 70. 24-28 {0.00s depth 0/0 score -19998 nodes 0 0
+kN/s pv 24-28} 18-23 {0.14s depth 27/52/27.8 time 0.14s value=1861 nodes 767391
+5642kN/s db 100% cut 97.7% pv 18-23 19x26 31x22 28-24 Cake claims a win} 71.
+19x26 {0.00s depth 0/0 score -20000 nodes 0 0 kN/s pv 19x26} 31x22 {0.00s depth
+1/1/1.0 time 0.00s value=1148 nodes 6 600kN/s db 75% cut -nan(ind)% pv 31x22 }
+72. 28-24 {0.00s depth 0/0 score -19999 nodes 0 0 kN/s pv 28-24} 20-16 {0.02s
+depth 25/50/38.8 time 0.01s value=1867 nodes 114492 7627kN/s db 100% cut 96.6%
+pv 20-16 24-27 16-11 27-32 11-8 32-27 8-4 27-23 Cake claims a win} 73. 24-19
+{0.00s depth 0/0 score -19999 nodes 0 0 kN/s pv 24-19} 16-11 {0.03s depth
+25/44/36.0 time 0.02s value=1867 nodes 136979 7605kN/s db 100% cut 95.7% pv
+16-11 19-24 11-8 24-19 8-3 19-24 3-8 24-27 Cake claims a win} 74. 19-15 {0.00s
+depth 0/0 score -19999 nodes 0 0 kN/s pv 19-15} 22-26 {0.01s depth 11/18/12.4
+time 0.00s value=1889 nodes 6132 6071kN/s db 100% cut 95.4% pv 22-26 15x8 26-23
+8-11 23-19 11-7 19-15 7-2 Cake claims a win} 75. 15x8 {0.00s depth 0/0 score
+-20000 nodes 0 0 kN/s pv 15x8} 26-23 {0.01s depth 7/11/10.2 time 0.00s
+value=1891 nodes 332 33199kN/s db 100% cut 91.7% pv 26-23 8-11 23-18 11-8 18-15
+8-4 15-11 4-8 Cake claims a win} 76. 8-3 {0.00s depth 0/0 score -19993 nodes 0 0
+kN/s pv 8-3} 23-19 {0.01s depth 7/6/5.0 time 0.00s value=1893 nodes 159
+15899kN/s db 99% cut 84.6% pv 23-19 3-7 19-15 7-2 15-10 2-7 10x3 Cake claims a
+win} 77. 3-7 {0.00s depth 0/0 score -19995 nodes 0 0 kN/s pv 3-7} 19-15 {0.01s
+depth 5/4/0.0 time 0.00s value=1895 nodes 89 8900kN/s db 98% cut 82.4% pv 19-15
+7-2 15-10 2-7 10x3 Cake claims a win} 78. 7-2 {0.00s depth 0/0 score -19997
+nodes 0 0 kN/s pv 7-2} 15-10 {0.01s depth 3/1/0.0 time 0.00s value=1897 nodes 29
+2899kN/s db 94% cut 100.0% pv 15-10 2-7 10x3 Cake claims a win} 79. 2-6 {0.00s
+depth 0/0 score -19999 nodes 0 0 kN/s pv 2-6} 10x1 {0.00s depth 1/0/0.0 time
+0.00s value=1899 nodes 4 399kN/s db 0% cut -nan(ind)% pv 10x1 } 0-1
+
+[Event "Cake 1.89f vs Regicide 0.2"]
+[Site "Regicide match runner"]
+[Date "2026.11.09"]
+[Round "40.2"]
+[Black "Cake 1.89f"]
+[White "Regicide 0.2"]
+[Result "1-0"]
+[GameType "21"]
+[Opening "ACF #46 Double Cross: 9-14 23-18 14x23"]
+[TimeControl "0.5s/move (CheckerBoard match rules)"]
+[Termination "white has no legal moves"]
+1. 9-14 23-18 2. 14x23 27x18 {0.19s depth 17/31 score -42 nodes 509600 2739 kN/s
+pv 27x18 12-16 18-14 10x17 21x14 6-9 14-10 7x14 22-18 14x23} 3. 12-16 {0.00s
+book 12-16 v10 d22 5-9 v2 d22 11-15 v0 d22 10-14 v0 d21 11-16 v0 d20 10-15 v0
+d19 6-9 v-12 d10 } 18-14 {0.18s depth 17/35 score -44 nodes 446068 2311 kN/s pv
+18-14 10x17 21x14 6-9 32-27 9x18 22x15 11x18 26-23 1-6} 4. 10x17 {0.00s book
+10x17 v10 d20 } 21x14 {0.27s depth 19/38 score -32 nodes 769304 2689 kN/s pv
+21x14 6-9 32-27 9x18 22x15 11x18 26-23 1-6 23x14 8-11} 5. 6-9 {0.00s book 6-9
+v10 d18 8-12 v0 d16 6-10 v0 d16 11-15 v0 d14 16-20 v0 d12 16-19 v-8 d7 } 14-10
+{0.83s depth 19/40 score -58 nodes 2402636 2777 kN/s pv 14-10 7x14 22-18 14x23
+26x12 11-15 25-22 8-11 29-25 4-8} 6. 7x14 {0.00s book 7x14 v38 d6 } 22-18 {0.22s
+depth 19/36 score -41 nodes 633345 2741 kN/s pv 22-18 14x23 26x12 11-15 25-22
+8-11 32-27 4-8 29-25 11-16} 7. 14x23 {0.00s book 14x23 v38 d4 } 26x19x12 {0.00s
+depth 1/2 score -50 nodes 10 10 kN/s pv 26x12 11-15} 8. 11-15 {0.00s book move:
+11-15 v 38 d 2} 32-27 {0.51s depth 18/31 score -53 nodes 1444815 2720 kN/s pv
+32-27 15-18 24-20 8-11 28-24 1-6 31-26 9-14 24-19 4-8} 9. 8-11 {1.01s depth
+20/37/20.7 time 1.05s value=30 nodes 6845674 6494kN/s db 99% cut 95.5% pv 8-11
+25-22 4-8 29-25 1-6 30-26 9-14 26-23 } 25-22 {0.81s depth 19/35 score -49 nodes
+2479016 2916 kN/s pv 25-22 4-8 29-25 1-6 30-26 9-14 26-23 15-18 22x15 11x18} 10.
+4-8 {0.82s depth 21/39/21.0 time 0.86s value=28 nodes 5079795 5920kN/s db 98%
+cut 96.4% pv 4-8 29-25 1-6 30-26 9-14 26-23 6-10 24-20 } 29-25 {0.55s depth
+19/33 score -56 nodes 1598460 2779 kN/s pv 29-25 1-6 30-26 9-14 26-23 15-18
+22x15 11x18 31-26 8-11} 11. 1-6 {1.36s depth 23/44/22.2 time 1.42s value=44
+nodes 8061408 5681kN/s db 93% cut 97.1% pv 1-6 30-26 11-16 26-23 8-11 24-19
+15x24 28x19 } 30-26 {0.34s depth 19/40 score -65 nodes 1051517 2937 kN/s pv
+30-26 9-14 26-23 15-18 22x15 11x18 24-19 6-9 19-15 14-17} 12. 9-14 {0.65s depth
+23/46/24.6 time 0.68s value=42 nodes 3643533 5326kN/s db 91% cut 97.1% pv 9-14
+26-23 15-18 22x15 11x18 24-19 6-9 19-15 } 26-23 {0.41s depth 20/34 score -52
+nodes 1196415 2801 kN/s pv 26-23 15-18 22x15 11x18 24-19 6-9 19-15 14-17 23x14
+9x18} 13. 15-18 {0.96s depth 25/49/29.0 time 0.99s value=58 nodes 4999481
+5024kN/s db 80% cut 96.6% pv 15-18 22x15 11x18 24-19 6-9 19-15 14-17 23x14 }
+22x15 {0.00s depth 1/4 score -66 nodes 10 10 kN/s pv 22x15 11x18 24-19} 14.
+11x18 {0.00s depth 1/3/2.2 time 0.00s value=38 nodes 14 1400kN/s db 0% cut 50.0%
+pv 11x18 24-20 5-9 28-24 9-13 24-19 13-17 19-15 } 24-19 {0.43s depth 20/37 score
+-88 nodes 1143006 2658 kN/s pv 24-19 6-9 19-15 14-17 23x14 9x18 25-21 17-22
+21-17 22-25} 15. 6-9 {0.69s depth 25/50/26.8 time 0.70s value=82 nodes 3343834
+4770kN/s db 80% cut 96.6% pv 6-9 19-15 14-17 23x14 9x18 25-21 17-22 15-10 }
+28-24 {0.82s depth 21/40 score -145 nodes 2393576 2897 kN/s pv 28-24 14-17 23x14
+9x18 25-21 17-22 24-20 22-25 21-17 25-30} 16. 14-17 {0.63s depth 25/47/28.1 time
+0.63s value=102 nodes 2890579 4566kN/s db 84% cut 96.9% pv 14-17 23x14 9x18
+25-21 17-22 24-20 22-25 31-26 } 23x14 {0.00s depth 1/5 score -111 nodes 21 21
+kN/s pv 23x14 9x18 25-21 17-22} 17. 9x18 {0.00s depth 1/0/2.0 time 0.00s
+value=34 nodes 5 499kN/s db 0% cut 100.0% pv 9x18 25-21 17-22 24-20 22-25 31-26
+25-29 20-16 } 25-21 {0.50s depth 22/36 score -164 nodes 1568834 3100 kN/s pv
+25-21 17-22 24-20 22-25 31-26 25-29 19-15 2-7 26-23 18-22} 18. 17-22 {0.85s
+depth 24/48/26.2 time 0.86s value=120 nodes 3679600 4253kN/s db 84% cut 96.7% pv
+17-22 24-20 22-25 31-26 25-29 19-15 29-25 20-16 } 24-20 {0.40s depth 21/40 score
+-198 nodes 1267308 3121 kN/s pv 24-20 22-25 31-26 25-29 19-15 2-7 20-16 5-9
+26-23 18-22} 19. 22-25 {0.96s depth 24/41/26.1 time 0.99s value=138 nodes
+4207126 4258kN/s db 80% cut 96.0% pv 22-25 31-26 25-29 19-15 2-7 26-23 18-22
+23-18 } 31-26 {0.45s depth 22/38 score -207 nodes 1447419 3066 kN/s pv 31-26
+25-29 19-15 2-7 26-23 18-22 23-18 22-26 18-14 26-31} 20. 25-29 {0.79s depth
+25/41/26.2 time 0.83s value=152 nodes 3620560 4362kN/s db 70% cut 96.2% pv 25-29
+19-15 2-7 27-24 29-25 26-22 18-23 22-17 } 19-15 {0.42s depth 22/37 score -202
+nodes 1280000 2915 kN/s pv 19-15 2-7 20-16 5-9 26-23 18-22 23-18 22-26 21-17
+26-31} 21. 2-7 {0.74s depth 25/44/27.3 time 0.78s value=154 nodes 3322590
+4287kN/s db 68% cut 95.7% pv 2-7 26-23 18-22 27-24 22-26 21-17 29-25 17-13 }
+20-16 {0.60s depth 25/39 score -204 nodes 1833179 2919 kN/s pv 20-16 5-9 26-23
+18-22 23-18 22-26 21-17 26-31 17-13 31x24} 22. 5-9 {0.48s depth 25/49/28.2 time
+0.51s value=184 nodes 2061968 4083kN/s db 51% cut 96.7% pv 5-9 26-23 18-22 23-18
+22-26 21-17 26-31 17-13 } 26-23 {1.48s depth 25/42 score -387 nodes 4541474 2901
+kN/s pv 26-23 18-22 15-11 8x15 23-18 15-19 18-15 22-26 27-23 9-14} 23. 18-22
+{0.30s depth 25/47/26.9 time 0.32s value=186 nodes 1235280 3896kN/s db 51% cut
+97.5% pv 18-22 23-18 22-26 21-17 26-31 17-13 31x24 13x6 } 15-11 {0.85s depth
+25/46 score -624 nodes 2687688 2983 kN/s pv 15-11 8x15 23-18 15-19 18-15 22-26
+27-23 9-14 15-11 7-10} 24. 8x15 {0.00s depth 1/4/3.9 time 0.00s value=174 nodes
+25 2500kN/s db 50% cut 100.0% pv 8x15 23-18 15-19 21-17 22-26 17-13 9-14 18x9 }
+23-18 {0.26s depth 26/41 score -708 nodes 766572 2747 kN/s pv 23-18 15-19 18-15
+22-26 27-23 9-14 15-11 7-10 23-18 14x23} 25. 15-19 {0.43s depth 22/38/24.6 time
+0.45s value=284 nodes 1961470 4329kN/s db 59% cut 93.0% pv 15-19 18-15 22-26
+27-23 9-14 15-10 26-31 10-6 Cake claims a win} 18-15 {0.51s depth 27/38 score
+-640 nodes 1442575 2691 kN/s pv 18-15 22-26 27-23 9-14 15-11 7-10 23-18 14x23
+21-17 29-25} 26. 22-26 {0.83s depth 24/46/29.1 time 0.88s value=308 nodes
+3169812 3597kN/s db 64% cut 92.2% pv 22-26 15-11 7-10 27-23 9-14 23-18 14x23
+21-17 Cake claims a win} 27-23 {0.26s depth 24/41 score -664 nodes 729083 2660
+kN/s pv 27-23 9-14 15-11 7-10 11-8 26-30 23-18 14x23 21-17 29-25} 27. 9-14
+{1.20s depth 25/44/28.7 time 1.27s value=320 nodes 4306201 3393kN/s db 69% cut
+91.2% pv 9-14 23-18 14x23 21-17 29-25 17-13 25-22 15-11 Cake claims a win} 15-11
+{0.69s depth 27/42 score -710 nodes 1931006 2670 kN/s pv 15-11 7-10 11-8 26-31
+23-18 14x23 21-17 29-25 8-4 25-22} 28. 7-10 {0.23s depth 23/43/27.8 time 0.25s
+value=322 nodes 839872 3400kN/s db 76% cut 88.5% pv 7-10 11-8 26-31 23-18 14x23
+21-17 29-25 17-13 Cake claims a win} 23-18 {0.29s depth 25/39 score -691 nodes
+916202 2927 kN/s pv 23-18 14x23 21-17 29-25 17-13 25-22 11-8 26-30 8-4 22-18}
+29. 14x23 {0.00s depth 1/2/2.0 time 0.00s value=268 nodes 6 600kN/s db 0% cut
+100.0% pv 14x23 21-17 29-25 17-13 25-22 13-9 22-18 9-6 } 21-17 {0.53s depth
+26/34 score -710 nodes 1615765 2875 kN/s pv 21-17 29-25 17-13 25-22 11-8 22-18
+8-4 26-30 4-8 18-15} 30. 29-25 {0.86s depth 23/41/26.3 time 0.92s value=338
+nodes 3139618 3423kN/s db 81% cut 87.6% pv 29-25 17-13 25-22 13-9 22-18 9-6
+23-27 6-1 Cake claims a win} 17-13 {0.37s depth 27/35 score -19971 nodes 1114465
+2835 kN/s pv 17-13 25-22 11-8 22-18 8-4 18-15 4-8 26-30 8-4 30-26} 31. 25-22
+{0.42s depth 22/39/22.9 time 0.45s value=340 nodes 1762586 3916kN/s db 76% cut
+87.2% pv 25-22 13-9 22-18 11-8 26-31 8-4 23-26 4-8 Cake claims a win} 11-8
+{0.65s depth 26/32 score -19974 nodes 1932182 2784 kN/s pv 11-8 22-18 13-9 18-15
+8-4 26-30 4-8 30-25 8-4 25-22} 32. 22-18 {0.40s depth 21/39/22.0 time 0.43s
+value=342 nodes 1844231 4298kN/s db 79% cut 85.2% pv 22-18 13-9 26-31 9-6 23-26
+16-11 10-15 8-4 Cake claims a win} 13-9 {0.42s depth 26/31 score -19976 nodes
+1456853 3237 kN/s pv 13-9 26-30 8-4 18-15 4-8 30-25 9-5 25-22 5-1 22-17} 33.
+26-31 {0.46s depth 20/38/23.7 time 0.49s value=352 nodes 1875853 3789kN/s db 78%
+cut 85.3% pv 26-31 8-4 23-26 4-8 18-14 9-5 31-27 8-4 Cake claims a win} 8-4
+{0.69s depth 25/29 score -19980 nodes 2170735 2953 kN/s pv 8-4 10-14 4-8 31-27
+9-6 27-24 16-11 24-20 8-4 20-16} 34. 23-26 {0.57s depth 21/45/23.3 time 0.61s
+value=364 nodes 2608474 4255kN/s db 81% cut 85.0% pv 23-26 4-8 18-14 9-5 31-27
+8-4 14-18 16-11 Cake claims a win} 4-8 {0.34s depth 23/27 score -19980 nodes
+1168665 3320 kN/s pv 4-8 31-27 8-4 18-15 4-8 27-24 16-11 24-20 11-7 10-14} 35.
+18-14 {0.40s depth 20/37/21.9 time 0.42s value=370 nodes 1873063 4459kN/s db 83%
+cut 84.6% pv 18-14 9-5 31-27 8-4 14-18 5-1 18-14 16-11 Cake claims a win} 9-5
+{0.37s depth 23/28 score -19981 nodes 1197713 3071 kN/s pv 9-5 14-9 8-4 31-27
+16-11 9-6 4-8 27-23 8-4 23-18} 36. 31-27 {0.53s depth 21/39/24.9 time 0.55s
+value=384 nodes 2245640 4053kN/s db 81% cut 87.0% pv 31-27 8-4 14-18 5-1 26-31
+16-11 10-14 4-8 Cake claims a win} 16-11 {0.44s depth 24/29 score -19983 nodes
+1436704 3150 kN/s pv 16-11 14-9 11-7 9-6 7-2 6-1 8-4 27-23 4-8 26-31} 37. 10-15
+{0.43s depth 22/39/25.9 time 0.45s value=412 nodes 1760373 3894kN/s db 77% cut
+87.9% pv 10-15 8-4 15-18 4-8 26-31 11-7 3x10 8-3 Cake claims a win} 11-7 {0.33s
+depth 23/27 score -19983 nodes 1187004 3480 kN/s pv 11-7 3x10 8-3 27-24 3-8
+24-20 8-3 14-9 3-8 20-16} 38. 3x10 {0.00s depth 1/2/2.0 time 0.00s value=332
+nodes 6 600kN/s db 0% cut 100.0% pv 3x10 8-3 19-23 12-8 15-19 8-4 14-18 5-1 }
+8-3 {0.41s depth 24/27 score -19985 nodes 1473527 3410 kN/s pv 8-3 27-24 3-8
+24-20 8-3 14-9 3-8 20-16 8-4 16-11} 39. 19-23 {0.53s depth 26/39/29.9 time 0.56s
+value=440 nodes 2020331 3620kN/s db 83% cut 91.3% pv 19-23 3-8 26-31 8-3 15-18
+12-8 18-22 8-4 Cake claims a win} 3-8 {0.52s depth 24/27 score -19985 nodes
+1845324 3423 kN/s pv 3-8 27-24 8-3 24-20 3-8 20-16 8-4 16-11 5-1 15-18} 40.
+26-31 {0.50s depth 28/45/31.3 time 0.52s value=460 nodes 1552260 2973kN/s db 97%
+cut 90.9% pv 26-31 8-4 15-18 4-8 18-22 8-3 23-26 12-8 Cake claims a win} 8-4
+{0.40s depth 24/29 score -19986 nodes 1432873 3411 kN/s pv 8-4 15-19 4-8 14-18
+8-4 18-15 5-1 15-11 12-8 11-7} 41. 15-18 {0.62s depth 27/41/30.6 time 0.64s
+value=460 nodes 1869949 2908kN/s db 99% cut 87.8% pv 15-18 4-8 10-15 8-3 14-10
+3-8 18-22 8-3 Cake claims a win} 4-8 {0.49s depth 25/27 score -19986 nodes
+1801907 3498 kN/s pv 4-8 10-15 8-4 14-10 4-8 10-7 8-4 7-11 12-8 11-7} 42. 18-22
+{0.85s depth 33/53/34.9 time 0.89s value=833 nodes 3389902 3821kN/s db 96% cut
+90.3% pv 18-22 8-4 23-26 4-8 10-15 5-1 14-10 1-6 Cake claims a win} 8-3 {0.51s
+depth 25/25 score -19987 nodes 1890681 3560 kN/s pv 8-3 27-24 3-8 24-19 8-4
+19-15 5-1 15-11 12-8 14-9} 43. 23-26 {0.61s depth 30/47/35.4 time 0.64s
+value=862 nodes 2674824 4179kN/s db 98% cut 91.7% pv 23-26 3-8 10-15 8-3 14-10
+3-8 10-7 5-1 Cake claims a win} 3-8 {0.52s depth 23/27 score -19988 nodes
+1718139 3193 kN/s pv 3-8 14-18 8-4 18-15 5-1 15-11 12-8 11-7 1-5 7-3} 44. 10-15
+{0.55s depth 30/58/34.1 time 0.57s value=863 nodes 2128162 3733kN/s db 98% cut
+94.5% pv 10-15 8-3 14-10 3-8 10-7 5-1 7-10 1-5 Cake claims a win} 8-3 {0.44s
+depth 24/26 score -19987 nodes 1610487 3547 kN/s pv 8-3 14-10 3-8 26-30 8-4 10-7
+5-1 7-10 1-5 10-6} 45. 14-10 {0.35s depth 29/53/36.6 time 0.37s value=863 nodes
+1157394 3136kN/s db 99% cut 95.2% pv 14-10 3-8 10-7 5-1 7-10 1-5 27-23 8-4 Cake
+claims a win} 3-8 {0.41s depth 25/26 score -19989 nodes 1512567 3575 kN/s pv 3-8
+26-30 8-4 10-7 5-1 7-10 1-5 10-6 4-8 6-9} 46. 10-7 {0.50s depth 29/55/34.3 time
+0.51s value=863 nodes 1650479 3261kN/s db 99% cut 94.6% pv 10-7 5-1 7-10 1-5
+27-23 8-4 23-18 4-8 Cake claims a win} 8-4 {0.48s depth 26/27 score -19991 nodes
+1801433 3721 kN/s pv 8-4 26-30 5-1 7-10 1-5 10-6 4-8 6-9 5x14} 47. 15-19 {0.55s
+depth 27/51/33.9 time 0.55s value=863 nodes 2194921 3969kN/s db 99% cut 93.3% pv
+15-19 5-1 27-23 1-5 23-18 5-1 26-30 1-5 Cake claims a win} 5-1 {0.46s depth
+26/26 score -19993 nodes 1703305 3719 kN/s pv 5-1 7-10 1-5 10-6 4-8 6-9 5x14}
+48. 27-23 {0.43s depth 25/45/30.9 time 0.43s value=863 nodes 1616642 3777kN/s db
+100% cut 93.7% pv 27-23 1-5 23-18 5-1 26-30 1-5 18-14 5-1 Cake claims a win} 1-5
+{0.61s depth 26/27 score -19993 nodes 2356947 3820 kN/s pv 1-5 7-10 4-8 10-6 8-4
+6-9 5x14} 49. 23-18 {0.52s depth 25/43/31.6 time 0.53s value=863 nodes 2222703
+4225kN/s db 99% cut 93.5% pv 23-18 5-1 26-30 1-5 18-14 5-1 14-9 1-5 Cake claims
+a win} 5-1 {0.55s depth 27/28 score -19994 nodes 2072999 3775 kN/s pv 5-1 18-14
+12-8 7-3 1-5 3x12} 50. 26-30 {0.60s depth 23/40/28.1 time 0.61s value=863 nodes
+2366169 3872kN/s db 100% cut 94.1% pv 26-30 1-5 18-14 5-1 14-9 1-5 7-10 5x7 Cake
+claims a win} 1-5 {0.38s depth 26/25 score -19993 nodes 1543582 3868 kN/s pv 1-5
+7-3 4-8 18-15 8-4 3-8 4x25} 51. 18-14 {0.41s depth 23/37/28.1 time 0.43s
+value=863 nodes 1754370 4089kN/s db 99% cut 93.8% pv 18-14 5-1 14-9 1-5 22-25
+5x14 7-10 14x7 Cake claims a win} 5-1 {0.50s depth 28/25 score -19995 nodes
+2020056 3869 kN/s pv 5-1 14-9 12-8 9-6 1x3} 52. 14-9 {0.43s depth 22/36/24.4
+time 0.45s value=863 nodes 1795751 4035kN/s db 99% cut 94.2% pv 14-9 1-5 22-25
+5x14 7-10 14x7 25-29 4-8 Cake claims a win} 12-8 {0.40s depth 32/26 score -19997
+nodes 1604856 3821 kN/s pv 12-8 9-6 1x3} 53. 7-3 {0.46s depth 20/37/21.1 time
+0.48s value=1322 nodes 2289281 4749kN/s db 99% cut 96.9% pv 7-3 1-5 3x12 5x14
+22-26 14-10 19-24 10-7 Cake claims a win} 1-5 {0.00s depth 127/2 score -19998
+nodes 634 634 kN/s pv 1-5 3x12} 54. 3x12 {0.00s depth 1/4/3.1 time 0.00s
+value=1241 nodes 31 3099kN/s db 50% cut 66.7% pv 3x12 5x14 19-23 14-10 23-27
+10-15 22-26 15-18 } 5x14 {0.00s depth 1/1 score -19999 nodes 2 2 kN/s pv 5x14}
+55. 19-24 {0.57s depth 24/39/24.0 time 0.60s value=1430 nodes 2678320 4493kN/s
+db 100% cut 97.5% pv 19-24 14-10 22-26 10-7 31-27 7-3 26-31 4-8 Cake claims a
+win} 14-9 {0.00s depth 127/1 score -19999 nodes 762 762 kN/s pv 14-9} 56. 22-26
+{0.61s depth 27/37/25.2 time 0.66s value=1430 nodes 2813776 4282kN/s db 100% cut
+97.0% pv 22-26 9-14 31-27 14-10 26-31 10-14 27-23 14-17 Cake claims a win} 9-5
+{0.00s depth 127/1 score -19999 nodes 762 762 kN/s pv 9-5} 57. 31-27 {0.43s
+depth 25/46/34.2 time 0.45s value=1867 nodes 3284935 7332kN/s db 100% cut 98.4%
+pv 31-27 5-9 26-31 9-6 30-25 6-2 27-23 2-6 Cake claims a win} 5-1 {0.00s depth
+127/1 score -19999 nodes 508 508 kN/s pv 5-1} 58. 26-31 {0.62s depth 26/38/26.5
+time 0.67s value=1605 nodes 3491780 5234kN/s db 100% cut 97.1% pv 26-31 1-6
+27-23 6-9 30-26 9-6 26-22 6-10 Cake claims a win} 1-5 {0.00s depth 127/1 score
+-19999 nodes 508 508 kN/s pv 1-5} 59. 27-23 {1.93s depth 27/46/31.4 time 2.06s
+value=0 nodes 18808898 9121kN/s db 100% cut 98.5% pv 27-23 5-1 30-26 1-6 26-22
+6-10 23-18 10-7 } 5-1 {0.00s depth 127/1 score -19999 nodes 508 508 kN/s pv 5-1}
+60. 30-26 {0.06s depth 21/32/22.4 time 0.05s value=1873 nodes 260437 4822kN/s db
+100% cut 95.9% pv 30-26 1-5 26-22 5-1 23-18 1-5 18-15 4-8 Cake claims a win} 1-5
+{0.00s depth 127/1 score -19999 nodes 508 508 kN/s pv 1-5} 61. 26-22 {0.09s
+depth 19/34/21.8 time 0.08s value=1871 nodes 527008 6273kN/s db 100% cut 97.0%
+pv 26-22 5-9 24-28 9-6 22-18 6-2 18-15 2-6 Cake claims a win} 5-1 {0.00s depth
+127/1 score -19999 nodes 508 508 kN/s pv 5-1} 62. 23-19 {0.08s depth 17/34/19.1
+time 0.08s value=1873 nodes 521458 6517kN/s db 100% cut 97.2% pv 23-19 1-5 22-18
+5-1 19-15 1-6 12-8 4x11 Cake claims a win} 1-5 {0.00s depth 127/1 score -19999
+nodes 508 508 kN/s pv 1-5} 63. 22-18 {0.02s depth 13/26/15.4 time 0.01s
+value=1875 nodes 85361 7107kN/s db 100% cut 97.3% pv 22-18 5-9 19-15 9-13 12-8
+4x11 15x8 13-9 Cake claims a win} 5-1 {0.00s depth 127/1 score -19999 nodes 508
+508 kN/s pv 5-1} 64. 19-15 {0.02s depth 13/26/15.5 time 0.01s value=1877 nodes
+79996 7991kN/s db 100% cut 97.4% pv 19-15 1-5 12-8 4x11 15x8 5-9 8-11 9-6 Cake
+claims a win} 1-5 {0.00s depth 127/1 score -19999 nodes 508 508 kN/s pv 1-5} 65.
+12-8 {0.02s depth 13/26/15.7 time 0.01s value=1877 nodes 114844 12746kN/s db
+100% cut 95.4% pv 12-8 4x11 15x8 5-9 24-28 9-6 28-32 6-9 Cake claims a win} 4x11
+{0.00s depth 1/1 score -19999 nodes 2 2 kN/s pv 4x11} 66. 15x8 {0.00s depth
+1/1/1.0 time 0.00s value=1432 nodes 6 600kN/s db 75% cut -nan(ind)% pv 15x8 }
+5-1 {0.00s depth 0/0 score -19999 nodes 0 0 kN/s pv 5-1} 67. 24-28 {0.01s depth
+11/20/11.4 time 0.01s value=1883 nodes 71616 10216kN/s db 100% cut 95.2% pv
+24-28 1-6 28-32 6-9 8-11 9-6 31-27 6-1 Cake claims a win} 1-5 {0.00s depth 0/0
+score -19999 nodes 0 0 kN/s pv 1-5} 68. 28-32 {0.01s depth 9/16/9.4 time 0.00s
+value=1885 nodes 18061 17882kN/s db 100% cut 95.6% pv 28-32 5-9 31-27 9-6 8-11
+6-1 18-14 1-6 Cake claims a win} 5-1 {0.00s depth 0/0 score -19996 nodes 0 0
+kN/s pv 5-1} 69. 32-27 {0.01s depth 9/18/9.5 time 0.00s value=1885 nodes 22875
+11380kN/s db 100% cut 95.0% pv 32-27 1-6 27-23 6-2 8-11 2-6 18-14 6-1 Cake
+claims a win} 1-5 {0.00s depth 0/0 score -19994 nodes 0 0 kN/s pv 1-5} 70. 27-23
+{0.01s depth 9/16/9.6 time 0.00s value=1887 nodes 22364 11126kN/s db 100% cut
+95.4% pv 27-23 5-1 8-11 1-6 18-14 6-1 14-10 1-5 Cake claims a win} 5-1 {0.00s
+depth 0/0 score -19996 nodes 0 0 kN/s pv 5-1} 71. 8-11 {0.01s depth 9/16/9.6
+time 0.00s value=1891 nodes 31969 10620kN/s db 100% cut 96.7% pv 8-11 1-6 18-14
+6-1 11-15 1-6 14-10 6-2 Cake claims a win} 1-5 {0.00s depth 0/0 score -19994
+nodes 0 0 kN/s pv 1-5} 72. 11-15 {0.01s depth 7/12/7.5 time 0.00s value=1891
+nodes 6311 6248kN/s db 100% cut 95.3% pv 11-15 5-9 15-10 9-5 10-6 5-1 18-15 1x26
+Cake claims a win} 5-1 {0.00s depth 0/0 score -19996 nodes 0 0 kN/s pv 5-1} 73.
+15-10 {0.01s depth 5/8/5.6 time 0.00s value=1893 nodes 1554 155400kN/s db 100%
+cut 91.9% pv 15-10 1-5 10-6 5-1 18-15 1x26 31x22 Cake claims a win} 1-5 {0.00s
+depth 0/0 score -19996 nodes 0 0 kN/s pv 1-5} 74. 10-6 {0.01s depth 3/6/3.2 time
+0.00s value=1895 nodes 297 29699kN/s db 99% cut 90.2% pv 10-6 5-1 18-15 1x26
+31x22 Cake claims a win} 5-1 {0.00s depth 0/0 score -19998 nodes 0 0 kN/s pv
+5-1} 75. 18-15 {0.01s depth 1/2/1.7 time 0.00s value=1897 nodes 52 5200kN/s db
+93% cut 100.0% pv 18-15 1x26 Cake claims a win} 1x10x19x26 {0.00s depth 0/0
+score -20000 nodes 0 0 kN/s pv 1x26} 76. 31x22 {0.00s depth 1/0/0.0 time 0.00s
+value=1899 nodes 4 399kN/s db 0% cut -nan(ind)% pv 31x22 } 1-0
+
+[Event "Regicide 0.2 vs Cake 1.89f"]
+[Site "Regicide match runner"]
+[Date "2026.11.09"]
+[Round "54.1"]
+[Black "Regicide 0.2"]
+[White "Cake 1.89f"]
+[Result "0-1"]
+[GameType "21"]
+[Opening "ACF #62 Gemini I: 10-14 22-17 11-16"]
+[TimeControl "0.5s/move (CheckerBoard match rules)"]
+[Termination "black has no legal moves"]
+1. 10-14 22-17 2. 11-16 17x10 {0.00s book 17x10 v4 d21 } 3. 6x15 {0.22s depth
+18/35 score -47 nodes 590375 2695 kN/s pv 6x15 24-19 15x24 28x19 7-10 25-22 8-11
+22-18 3-7 26-22} 23-18 {0.00s book 23-18 v4 d19 21-17 v2 d17 26-22 v0 d21 23-19
+v0 d18 24-19 v0 d18 25-22 v0 d17 24-20 v0 d15 } 4. 15x22 {0.00s depth 1/2 score
+-52 nodes 4 4 kN/s pv 15x22 25x18} 25x18 {0.00s book 25x18 v4 d17 26x17 v0 d13 }
+5. 8-11 {0.79s depth 18/36 score -40 nodes 2338215 2823 kN/s pv 8-11 21-17 9-14
+17x10 7x23 27x18 16-20 24-19 3-7 29-25} 21-17 {0.00s book 21-17 v44 d5 24-20 v38
+d3 27-23 v24 d5 } 6. 9-14 {0.50s depth 19/36 score -43 nodes 1474945 2820 kN/s
+pv 9-14 17x10 7x23 27x18 16-20 24-19 3-7 29-25 7-10 25-22} 17x10 {0.00s book
+17x10 v62 d4 } 7. 7x14x23 {0.00s depth 1/2 score -34 nodes 4 4 kN/s pv 7x23
+27x18} 27x18 {0.00s book move: 27x18 v 62 d 2} 8. 16-20 {0.35s depth 18/32 score
+-49 nodes 1020081 2794 kN/s pv 16-20 31-27 3-7 29-25 7-10 26-23 4-8 24-19 10-14
+18x9} 24-19 {0.00s book move: 24-19 v 68 d 3} 9. 3-7 {0.34s depth 17/32 score
+-55 nodes 1014966 2843 kN/s pv 3-7 29-25 7-10 25-22 10-14 18x9 5x14 26-23 2-7
+22-18} 29-25 {0.00s book move: 29-25 v 68 d 1} 10. 7-10 {0.38s depth 17/33 score
+-85 nodes 1095693 2766 kN/s pv 7-10 25-22 11-16 18-15 16x23 26x19 4-8 15x6 1x10
+32-27} 25-22 {1.24s depth 23/44/22.2 time 1.30s value=50 nodes 7588714 5841kN/s
+db 98% cut 96.7% pv 25-22 5-9 22-17 9-13 26-22 11-16 18-14 16x23 } 11. 11-16
+{0.39s depth 19/35 score -63 nodes 1224083 3000 kN/s pv 11-16 18-15 16x23 15x6
+1x10 26x19 4-8 32-27 10-14 19-15} 18-15 {1.05s depth 25/45/25.7 time 1.10s
+value=100 nodes 5600373 5100kN/s db 97% cut 96.9% pv 18-15 16x23 26x19 4-8 15x6
+1x10 32-27 10-14 } 12. 16x23 {0.00s depth 1/5 score -19 nodes 26 26 kN/s pv
+16x23 26x19 4-8 15x6 1x10} 26x19 {1.44s depth 25/45/25.3 time 1.51s value=122
+nodes 6995725 4642kN/s db 95% cut 97.0% pv 26x19 4-8 15x6 1x10 32-27 10-14 27-23
+2-6 } 13. 2-7 {0.94s depth 20/33 score -266 nodes 2959327 3022 kN/s pv 2-7 15x6
+1x10 32-27 10-14 30-25 7-11 25-21 11-16 27-23} 15x6 {0.00s depth 1/4/4.0 time
+0.00s value=72 nodes 20 1999kN/s db 0% cut 100.0% pv 15x6 1x10 32-27 10-14 27-23
+7-11 28-24 20x27 } 14. 1x10 {0.00s depth 1/4 score -110 nodes 19 19 kN/s pv 1x10
+22-17} 32-27 {1.36s depth 28/47/29.7 time 1.43s value=156 nodes 5426377 3805kN/s
+db 90% cut 96.6% pv 32-27 10-14 27-23 7-11 28-24 20x27 31x24 5-9 } 15. 10-14
+{0.52s depth 24/35 score -19971 nodes 1656162 3072 kN/s pv 10-14 30-25 7-11
+25-21 11-16 27-23 20-24 19-15 24-27 31x24} 27-23 {1.67s depth 28/49/30.2 time
+1.75s value=204 nodes 5971148 3417kN/s db 89% cut 95.5% pv 27-23 4-8 19-15 7-11
+15-10 5-9 10-7 11-15 Cake claims a win} 16. 4-8 {0.74s depth 26/30 score -19973
+nodes 2342601 3030 kN/s pv 4-8 19-15 7-11 15-10 20-24 28x19 11-15 10-7 15x24
+7-2} 19-15 {1.05s depth 27/49/29.7 time 1.09s value=180 nodes 3521225 3218kN/s
+db 84% cut 94.1% pv 19-15 7-11 15-10 20-24 28x19 11-15 10-6 15x24 } 17. 7-11
+{0.51s depth 28/34 score -19975 nodes 1620263 3068 kN/s pv 7-11 15-10 20-24
+28x19 11-15 10-7 15x24 7-2 24-28 2-6} 15-10 {0.18s depth 22/41/25.8 time 0.19s
+value=180 nodes 595922 3103kN/s db 87% cut 92.4% pv 15-10 20-24 28x19 11-15 10-6
+15x24 6-2 8-11 } 18. 20-24 {0.47s depth 28/33 score -19977 nodes 1449268 2982
+kN/s pv 20-24 28x19 11-15 10-6 15x24 6-1 24-28 1-6 12-16 6-10} 28x19 {0.00s
+depth 1/6/4.8 time 0.00s value=68 nodes 99 9900kN/s db 67% cut 97.3% pv 28x19
+11-15 10-6 15x24 6-2 8-11 2-6 11-16 } 19. 11-15 {0.45s depth 28/32 score -19979
+nodes 1479082 3167 kN/s pv 11-15 10-6 15x24 6-1 24-28 1-6 12-16 6-10 28-32
+10x17} 10-7 {0.44s depth 26/43/27.6 time 0.46s value=236 nodes 1250447 2748kN/s
+db 99% cut 92.2% pv 10-7 15x24 7-2 24-28 2-6 8-11 6-10 11-16 Cake claims a win}
+20. 15x24 {0.00s depth 1/3 score -131 nodes 16 16 kN/s pv 15x24 7-2} 7-2 {0.39s
+depth 28/41/29.1 time 0.41s value=256 nodes 1143958 2783kN/s db 98% cut 91.2% pv
+7-2 24-28 2-6 28-32 6-10 5-9 10x17 32-28 Cake claims a win} 21. 24-28 {0.77s
+depth 28/31 score -19983 nodes 2245256 2908 kN/s pv 24-28 2-6 12-16 6-10 28-32
+10x17 16-20 17-14 20-24 14-10} 2-6 {1.91s depth 37/62/32.8 time 1.93s value=0
+nodes 5111923 2648kN/s db 98% cut 93.7% pv 2-6 28-32 6-10 12-16 10x17 16-20
+22-18 20-24 } 22. 28-32 {0.54s depth 28/31 score -19985 nodes 1701946 3117 kN/s
+pv 28-32 6-10 12-16 10x17 16-20 17-14 20-24 14-10 32-28 23-19} 6-10 {0.14s depth
+27/40/24.8 time 0.14s value=757 nodes 491703 3487kN/s db 100% cut 92.7% pv 6-10
+32-28 10x17 5-9 17-13 28-24 13x6 24-28 Cake claims a win} 23. 12-16 {0.44s depth
+28/31 score -19987 nodes 1414509 3200 kN/s pv 12-16 10x17 16-20 17-14 20-24
+23-19 32-27 14-18 27-32 19-16} 10x17 {0.00s depth 1/2/2.0 time 0.00s value=122
+nodes 5 499kN/s db 0% cut 100.0% pv 10x17 16-20 22-18 20-24 18-15 8-12 17-14
+32-28 } 24. 16-20 {0.63s depth 29/30 score -19989 nodes 2100498 3287 kN/s pv
+16-20 17-14 20-24 23-19 32-27 14-18 27-32 19-16 8-12 18-15} 22-18 {0.75s depth
+33/46/26.7 time 0.79s value=782 nodes 2448008 3118kN/s db 98% cut 93.4% pv 22-18
+8-11 17-13 20-24 13-9 5x14 18x9 32-27 Cake claims a win} 25. 20-24 {0.39s depth
+29/29 score -19991 nodes 1290817 3187 kN/s pv 20-24 17-14 32-27 30-25 8-11 23-19
+27-23 18-15 23x16} 17-14 {0.65s depth 27/46/27.7 time 0.68s value=786 nodes
+2456172 3622kN/s db 98% cut 92.1% pv 17-14 32-27 14-10 27-32 18-15 8-12 10-14
+32-27 Cake claims a win} 26. 32-27 {0.51s depth 31/31 score -19993 nodes 1786555
+3345 kN/s pv 32-27 30-25 8-11 23-19 27-23 18-15 23x16} 14-10 {0.23s depth
+23/39/29.0 time 0.24s value=787 nodes 887801 3745kN/s db 99% cut 92.5% pv 14-10
+8-12 10-14 27-32 18-15 32-27 14-18 27-32 Cake claims a win} 27. 27-32 {0.50s
+depth 31/31 score -19993 nodes 1793196 3435 kN/s pv 27-32 18-15 8-12 23-19 32-27
+19-16 12x19} 18-15 {0.54s depth 27/45/27.8 time 0.57s value=789 nodes 2011137
+3540kN/s db 98% cut 93.2% pv 18-15 8-12 10-14 32-27 14-18 5-9 23-19 9-14 Cake
+claims a win} 28. 8-12 {0.53s depth 31/31 score -19995 nodes 1903372 3380 kN/s
+pv 8-12 23-19 32-27 19-16 12x19} 10-14 {1.09s depth 26/43/29.5 time 1.15s
+value=0 nodes 4587616 3978kN/s db 96% cut 92.4% pv 10-14 12-16 23-19 16x23 15-10
+23-27 14-18 32-28 } 29. 32-27 {0.44s depth 32/31 score -19993 nodes 1579886 3390
+kN/s pv 32-27 14-18 5-9 23-19 9-13 19-16 12x19} 14-18 {0.23s depth 20/36/23.8
+time 0.25s value=792 nodes 1015144 4093kN/s db 100% cut 96.3% pv 14-18 5-9 23-19
+9-14 18x9 27-23 9-14 23x16 Cake claims a win} 30. 27-32 {0.47s depth 30/29 score
+-19995 nodes 1674696 3342 kN/s pv 27-32 23-19 32-27 19-16 12x19} 23-19 {0.42s
+depth 20/35/23.5 time 0.45s value=949 nodes 1979505 4418kN/s db 98% cut 94.6% pv
+23-19 32-27 19-16 12x19 15-11 19-23 11-7 24-28 Cake claims a win} 31. 32-27
+{0.42s depth 33/30 score -19997 nodes 1399415 3137 kN/s pv 32-27 19-16 12x19}
+19-16 {0.23s depth 21/34/23.1 time 0.24s value=950 nodes 1029818 4203kN/s db 96%
+cut 96.3% pv 19-16 12x19 15-10 5-9 10-7 19-23 7-3 9-13 Cake claims a win} 32.
+12x19 {0.00s depth 1/1 score -19999 nodes 2 2 kN/s pv 12x19} 15-11 {0.41s depth
+21/35/22.6 time 0.43s value=956 nodes 1856972 4288kN/s db 99% cut 95.7% pv 15-11
+19-23 11-7 24-28 31x24 28-32 18x27 32x23 Cake claims a win} 33. 27-23 {0.00s
+depth 127/1 score -19999 nodes 762 762 kN/s pv 27-23} 18x27x20 {0.00s depth
+1/1/1.0 time 0.00s value=1050 nodes 6 600kN/s db 75% cut -nan(ind)% pv 18x20 }
+34. 19-23 {0.00s depth 0/0 score -19999 nodes 0 0 kN/s pv 19-23} 20-16 {0.01s
+depth 9/16/9.9 time 0.00s value=1887 nodes 12651 6294kN/s db 100% cut 98.7% pv
+20-16 5-9 16-19 23-27 31x24 9-14 24-20 14-17 Cake claims a win} 35. 23-26 {0.00s
+depth 0/0 score -19999 nodes 0 0 kN/s pv 23-26} 30x23 {0.01s depth 5/10/7.2 time
+0.00s value=1893 nodes 1213 121299kN/s db 100% cut 94.3% pv 30x23 5-9 31-26 9-14
+26-22 14-17 22x13 Cake claims a win} 36. 5-9 {0.00s depth 0/0 score -20000 nodes
+0 0 kN/s pv 5-9} 31-26 {0.01s depth 5/8/6.1 time 0.00s value=1895 nodes 1582
+158200kN/s db 100% cut 93.0% pv 31-26 9-13 26-22 13-17 22x13 Cake claims a win}
+37. 9-13 {0.00s depth 0/0 score -20000 nodes 0 0 kN/s pv 9-13} 26-22 {0.01s
+depth 3/6/4.4 time 0.00s value=1897 nodes 245 24499kN/s db 99% cut 95.9% pv
+26-22 13-17 22x13 Cake claims a win} 38. 13-17 {0.00s depth 0/0 score -20000
+nodes 0 0 kN/s pv 13-17} 22x13 {0.00s depth 1/0/0.0 time 0.00s value=1899 nodes
+4 399kN/s db 0% cut -nan(ind)% pv 22x13 } 0-1
+
+[Event "Regicide 0.2 vs Cake 1.89f"]
+[Site "Regicide match runner"]
+[Date "2026.11.09"]
+[Round "60.1"]
+[Black "Regicide 0.2"]
+[White "Cake 1.89f"]
+[Result "0-1"]
+[GameType "21"]
+[Opening "ACF #68 White Doctor: 10-14 22-18 12-16"]
+[TimeControl "0.5s/move (CheckerBoard match rules)"]
+[Termination "black has no legal moves"]
+1. 10-14 22-18 2. 12-16 24-20 {0.00s book 24-20 v10 d34 25-22 v0 d27 24-19 v0
+d27 26-22 v0 d27 23-19 v-46 d5 } 3. 16-19 {0.16s depth 18/40 score -52 nodes
+435568 2756 kN/s pv 16-19 23x16 14x23 26x19 8-12 30-26 6-10 27-23 11-15 16-11}
+23x16 {0.00s book 23x16 v10 d32 } 4. 14x23 {0.00s depth 1/2 score -74 nodes 4 4
+kN/s pv 14x23 26x19} 26x19 {0.00s book 26x19 v10 d30 27x18 v0 d15 } 5. 8-12
+{0.32s depth 19/39 score -7 nodes 1006103 3012 kN/s pv 8-12 30-26 6-10 27-23
+9-13 25-22 2-6 32-27 5-9 27-24} 25-22 {0.00s book 25-22 v10 d28 31-26 v10 d28
+21-17 v0 d14 30-26 v0 d9 27-24 v0 d9 } 6. 6-10 {0.85s depth 20/45 score -16
+nodes 2538099 2804 kN/s pv 6-10 29-25 11-15 22-17 15x24 28x19 4-8 31-26 8-11
+27-23} 31-26 {0.00s book 31-26 v10 d26 29-25 v2 d12 21-17 v0 d15 22-18 v0 d11
+22-17 v0 d9 27-23 v0 d9 30-26 v0 d7 27-24 v0 d7 } 7. 9-14 {0.25s depth 19/40
+score -14 nodes 713031 2711 kN/s pv 9-14 27-23 5-9 29-25 11-15 16-11 15x24 28x19
+7x16 20x11} 27-23 {0.99s depth 25/52/27.8 time 1.06s value=48 nodes 6523565
+6177kN/s db 94% cut 96.1% pv 27-23 5-9 32-27 11-15 27-24 9-13 16-11 7x16 } 8.
+5-9 {0.38s depth 20/40 score -13 nodes 1004776 2518 kN/s pv 5-9 29-25 11-15
+28-24 9-13 16-11 7x16 20x11 3-8 32-28} 32-27 {1.21s depth 27/57/30.5 time 1.28s
+value=64 nodes 7003380 5450kN/s db 92% cut 96.7% pv 32-27 2-6 29-25 4-8 27-24
+10-15 19x10 12x19 } 9. 9-13 {0.30s depth 19/38 score -36 nodes 911178 2829 kN/s
+pv 9-13 27-24 11-15 16-11 7x16 20x11 13-17 22x13 15-18 19-16} 27-24 {0.78s depth
+27/53/30.6 time 0.83s value=72 nodes 4423979 5323kN/s db 91% cut 96.7% pv 27-24
+1-5 22-18 4-8 18x9 5x14 29-25 2-6 } 10. 11-15 {0.38s depth 19/45 score -89 nodes
+1109237 2766 kN/s pv 11-15 16-11 7x16 20x11 13-17 22x13 15-18 19-16 18x27 13-9}
+16-11 {1.26s depth 26/53/33.7 time 1.35s value=94 nodes 6502035 4812kN/s db 80%
+cut 95.7% pv 16-11 7x16 20x11 13-17 22x13 15-18 13-9 18x27 } 11. 7x16 {0.00s
+depth 1/4 score -51 nodes 16 16 kN/s pv 7x16 20x11 13-17 22x13} 20x11 {0.00s
+depth 1/13/6.8 time 0.00s value=26 nodes 583 58299kN/s db 0% cut 92.9% pv 20x11
+13-17 22x13 15-18 13-9 18x27 9-6 2x9 } 12. 13-17 {0.74s depth 20/45 score -114
+nodes 2177261 2756 kN/s pv 13-17 22x13 15-18 19-16 18x27 13-9 12x19 24x6 1x10
+9-6} 22x13 {0.00s depth 1/3/2.5 time 0.00s value=128 nodes 23 2300kN/s db 0% cut
+100.0% pv 22x13 15-18 13-9 18x27 9-6 2x9 19-16 12x19 } 13. 15-18 {0.39s depth
+20/40 score -71 nodes 1161246 2825 kN/s pv 15-18 19-16 18x27 13-9 12x19 24x6
+1x10 9-6 2x9 11-7} 13-9 {1.35s depth 25/50/31.9 time 1.44s value=98 nodes
+6757011 4685kN/s db 79% cut 95.2% pv 13-9 18x27 9-6 2x9 19-16 12x19 24x6 1x10 }
+14. 18x27 {0.00s depth 1/5 score -90 nodes 17 17 kN/s pv 18x27 19-16 12x19 24x6
+1x10} 19-16 {1.56s depth 25/49/31.3 time 1.66s value=0 nodes 7471191 4495kN/s db
+76% cut 95.6% pv 19-16 12x19 24x6 1x10 9-6 2x9 11-7 4-8 } 15. 12x19 {0.00s depth
+1/5 score -40 nodes 21 21 kN/s pv 12x19 24x6 1x10 26-23} 24x15x6 {0.00s depth
+1/4/4.0 time 0.00s value=32 nodes 22 2200kN/s db 0% cut 100.0% pv 24x6 1x10 9-6
+2x9 11-7 4-8 7-2 8-12 } 16. 1x10 {0.00s depth 1/2 score -40 nodes 12 12 kN/s pv
+1x10 26-23} 9-6 {0.22s depth 21/40/24.3 time 0.23s value=102 nodes 1091183
+4662kN/s db 83% cut 94.1% pv 9-6 2x9 11-7 10-15 7-2 4-8 26-22 9-13 } 17. 2x9
+{0.00s depth 1/3 score 0 nodes 11 11 kN/s pv 2x9 11-7} 11-7 {0.36s depth
+21/43/24.0 time 0.38s value=104 nodes 1617178 4222kN/s db 81% cut 95.1% pv 11-7
+27-31 26-22 10-15 7-2 3-8 2-6 9-13 } 18. 10-15 {1.31s depth 22/35 score -124
+nodes 3933960 2816 kN/s pv 10-15 7-2 14-18 26-23 9-14 2-6 3-8 28-24 27-32 23-19}
+7-2 {0.44s depth 20/41/22.0 time 0.46s value=108 nodes 2006839 4362kN/s db 78%
+cut 94.4% pv 7-2 14-18 26-23 18-22 2-6 27-32 6x13 22-26 } 19. 14-18 {0.49s depth
+21/34 score -128 nodes 1473960 2901 kN/s pv 14-18 26-23 9-14 2-6 3-8 28-24 27-32
+23-19 32-28 19x10} 26-23 {0.95s depth 21/40/23.3 time 0.99s value=120 nodes
+4524499 4584kN/s db 73% cut 94.2% pv 26-23 9-14 2-6 4-8 28-24 18-22 6-10 22-26 }
+20. 18-22 {1.13s depth 22/34 score -127 nodes 3014326 2580 kN/s pv 18-22 2-6
+27-32 6x13 22-26 13-17 26-31 17-22 32-27 23-18} 2-6 {0.63s depth 21/40/24.5 time
+0.65s value=122 nodes 2800589 4282kN/s db 66% cut 94.2% pv 2-6 22-26 6x13 26-31
+23-19 15x24 28x19 27-32 } 21. 22-26 {0.55s depth 22/32 score -134 nodes 1609671
+2833 kN/s pv 22-26 6x13 26-31 13-17 27-32 17-22 32-27 23-18 15-19 21-17} 6x13
+{0.00s depth 1/2/2.3 time 0.00s value=72 nodes 20 1999kN/s db 0% cut 66.7% pv
+6x13 4-8 13-17 } 22. 26-31 {0.41s depth 21/29 score -133 nodes 1342529 3144 kN/s
+pv 26-31 13-17 27-32 17-22 31-27 23-18 15-19 18-14 27-24 21-17} 23-19 {0.74s
+depth 21/43/24.5 time 0.76s value=122 nodes 3146864 4135kN/s db 66% cut 93.3% pv
+23-19 15x24 28x19 27-32 19-15 32-27 15-10 27-23 } 23. 15x24 {0.00s depth 1/3
+score -124 nodes 8 8 kN/s pv 15x24 28x19 4-8} 28x19 {0.00s depth 1/3/2.2 time
+0.00s value=90 nodes 14 1400kN/s db 0% cut 50.0% pv 28x19 4-8 19-15 27-32 15-10
+32-27 13-17 8-11 } 24. 27-32 {0.67s depth 22/28 score -130 nodes 2181615 3134
+kN/s pv 27-32 19-15 4-8 15-10 32-27 10-6 8-12 6-2 12-16 13-9} 19-15 {0.43s depth
+19/36/22.6 time 0.44s value=126 nodes 1725579 3912kN/s db 70% cut 93.0% pv 19-15
+31-27 15-10 27-23 13-17 4-8 10-6 32-27 } 25. 32-27 {0.65s depth 22/29 score -141
+nodes 2177416 3259 kN/s pv 32-27 15-10 4-8 10-6 8-11 6-1 11-15 1-6 15-19 13-17}
+15-10 {1.38s depth 20/40/22.0 time 1.42s value=130 nodes 5400979 3795kN/s db 65%
+cut 93.5% pv 15-10 3-8 13-17 8-11 10-7 11-16 17-22 27-23 } 26. 4-8 {0.84s depth
+22/28 score -152 nodes 2653979 3167 kN/s pv 4-8 10-6 8-11 6-1 11-15 1-6 15-19
+13-17 19-24 17-22} 13-17 {0.36s depth 19/40/20.7 time 0.36s value=130 nodes
+1332641 3743kN/s db 66% cut 93.8% pv 13-17 8-11 10-6 27-23 6-2 23-19 17-14 3-8 }
+27. 8-12 {0.68s depth 22/29 score -151 nodes 2052698 3027 kN/s pv 8-12 10-6
+27-23 6-2 12-16 2-6 16-19 6-10 19-24 17-22} 10-6 {0.28s depth 18/38/20.2 time
+0.28s value=132 nodes 980497 3565kN/s db 70% cut 94.5% pv 10-6 27-23 6-2 23-19
+17-14 19-23 2-6 31-27 } 28. 27-23 {0.57s depth 22/29 score -150 nodes 1808173
+3161 kN/s pv 27-23 6-2 23-19 2-6 19-15 17-14 31-27 6-2 15-19 21-17} 6-2 {1.11s
+depth 19/37/21.1 time 1.12s value=132 nodes 4318370 3855kN/s db 67% cut 94.5% pv
+6-2 31-27 2-6 12-16 6-10 16-20 17-22 20-24 } 29. 23-19 {0.81s depth 22/29 score
+-154 nodes 2687610 3176 kN/s pv 23-19 17-14 3-8 2-7 12-16 21-17 31-27 29-25
+16-20 14-18} 17-14 {0.31s depth 17/36/20.2 time 0.32s value=134 nodes 1299101
+4059kN/s db 66% cut 93.7% pv 17-14 19-23 29-25 31-27 14-10 23-19 25-22 12-16 }
+30. 31-27 {0.45s depth 21/29 score -153 nodes 1594593 3371 kN/s pv 31-27 21-17
+3-8 2-7 12-16 7-10 19-23 30-25 8-12 10-15} 21-17 {0.21s depth 16/32/19.0 time
+0.22s value=140 nodes 786231 3606kN/s db 63% cut 94.1% pv 21-17 3-8 14-18 12-16
+2-7 16-20 29-25 20-24 } 31. 3-8 {0.67s depth 22/28 score -153 nodes 2291302 3292
+kN/s pv 3-8 2-7 12-16 7-10 19-23 30-25 8-12 10-15 27-24 14-10} 14-18 {0.40s
+depth 17/34/18.1 time 0.42s value=144 nodes 1500368 3563kN/s db 58% cut 95.1% pv
+14-18 12-16 2-7 16-20 29-25 20-24 25-22 8-12 } 32. 8-11 {0.36s depth 21/28 score
+-153 nodes 1205939 3233 kN/s pv 8-11 29-25 11-16 2-7 16-20 7-10 20-24 10-14
+19-16 18-22} 17-14 {0.33s depth 17/37/18.9 time 0.34s value=144 nodes 1319142
+3845kN/s db 59% cut 95.1% pv 17-14 11-16 2-7 16-20 29-25 20-24 25-22 24-28 } 33.
+11-16 {0.41s depth 21/28 score -157 nodes 1493197 3456 kN/s pv 11-16 2-7 16-20
+18-22 20-24 7-11 24-28 22-26 19-24 11-15} 2-7 {0.59s depth 18/36/19.9 time 0.62s
+value=148 nodes 2439470 3915kN/s db 59% cut 96.5% pv 2-7 16-20 29-25 20-24 25-22
+24-28 22-17 28-32 } 34. 16-20 {0.42s depth 21/28 score -166 nodes 1463813 3231
+kN/s pv 16-20 18-22 19-16 14-10 20-24 10-6 24-28 6-2 16-20 7-10} 29-25 {0.52s
+depth 18/36/20.2 time 0.56s value=150 nodes 2193072 3895kN/s db 58% cut 96.6% pv
+29-25 20-24 25-22 24-28 22-17 28-32 14-9 19-23 } 35. 20-24 {0.36s depth 20/27
+score -163 nodes 1370350 3587 kN/s pv 20-24 14-9 12-16 7-10 19-23 10-14 24-28
+9-6 23-19 6-2} 25-22 {0.58s depth 19/36/20.9 time 0.63s value=162 nodes 2477814
+3958kN/s db 66% cut 94.9% pv 25-22 24-28 22-17 19-16 7-10 16-11 14-9 27-24 } 36.
+24-28 {0.92s depth 23/31 score -173 nodes 3224809 3273 kN/s pv 24-28 7-11 27-31
+14-9 28-32 18-14 32-27 22-17 19-23 17-13} 22-17 {0.47s depth 19/36/21.7 time
+0.51s value=166 nodes 1931556 3817kN/s db 63% cut 95.7% pv 22-17 28-32 14-9
+19-23 17-14 23-19 9-6 12-16 } 37. 28-32 {0.52s depth 21/30 score -164 nodes
+1968354 3559 kN/s pv 28-32 18-22 19-15 14-9 12-16 9-6 15-11 6-2 32-28 22-26}
+7-10 {0.39s depth 19/37/20.3 time 0.41s value=170 nodes 1627289 3921kN/s db 64%
+cut 95.6% pv 7-10 19-23 10-15 32-28 17-13 28-24 13-9 23-19 } 38. 19-23 {0.41s
+depth 22/29 score -190 nodes 1439939 3257 kN/s pv 19-23 17-13 32-28 13-9 28-32
+9-6 23-19 6-2 32-28 2-7} 10-15 {0.43s depth 21/41/24.0 time 0.46s value=172
+nodes 1937472 4258kN/s db 61% cut 95.6% pv 10-15 32-28 17-13 28-24 13-9 23-19
+15-10 19-23 } 39. 32-28 {0.39s depth 25/41 score -235 nodes 1479599 3522 kN/s pv
+32-28 17-13 28-24 13-9 23-19 15-10 12-16 9-6 16-20 6-2} 17-13 {0.64s depth
+21/40/24.2 time 0.68s value=174 nodes 2982248 4359kN/s db 68% cut 95.7% pv 17-13
+28-24 13-9 23-19 15-10 19-16 9-6 16-11 } 40. 28-24 {0.40s depth 25/37 score -283
+nodes 1517298 3528 kN/s pv 28-24 13-9 23-19 15-10 19-23 9-6 24-28 6-2 28-24 2-7}
+13-9 {0.30s depth 20/37/24.0 time 0.32s value=180 nodes 1334558 4170kN/s db 70%
+cut 95.5% pv 13-9 23-19 15-10 24-20 9-6 20-24 6-2 24-20 } 41. 23-19 {0.47s depth
+26/39 score -352 nodes 1708432 3363 kN/s pv 23-19 15-10 19-23 9-6 24-28 6-2
+28-24 2-7 24-20 18-22} 15-10 {0.40s depth 19/40/23.5 time 0.43s value=182 nodes
+1920007 4506kN/s db 68% cut 95.7% pv 15-10 19-16 9-6 16-11 14-9 27-32 6-2 12-16
+} 42. 24-20 {0.64s depth 27/39 score -19965 nodes 2232228 3326 kN/s pv 24-20 9-6
+20-16 14-9 19-24 10-14 27-32 6-2 32-28 2-7} 9-6 {0.49s depth 21/42/25.8 time
+0.51s value=202 nodes 2097876 4081kN/s db 73% cut 96.0% pv 9-6 19-23 6-2 20-24
+2-7 24-20 7-11 23-19 Cake claims a win} 43. 20-16 {0.37s depth 26/36 score -386
+nodes 1421113 3672 kN/s pv 20-16 14-9 19-24 10-14 27-32 6-2 32-28 2-6 16-20
+6-10} 14-9 {0.40s depth 22/42/24.1 time 0.43s value=208 nodes 1588698 3720kN/s
+db 67% cut 96.9% pv 14-9 19-24 6-2 24-28 2-7 16-19 10-14 19-23 Cake claims a
+win} 44. 19-24 {0.46s depth 25/40 score -430 nodes 2074671 4277 kN/s pv 19-24
+6-2 27-32 18-23 16-20 2-6 20-16 10-15 24-27 15-18} 10-14 {0.49s depth 25/46/25.7
+time 0.52s value=240 nodes 1678463 3259kN/s db 70% cut 96.4% pv 10-14 27-32 6-2
+16-20 2-7 20-16 14-10 24-27 Cake claims a win} 45. 27-32 {0.51s depth 26/35
+score -19975 nodes 1914771 3579 kN/s pv 27-32 6-2 32-28 2-7 28-32 7-3 16-20
+18-15 24-27 14-18} 6-2 {0.49s depth 25/39/25.6 time 0.51s value=238 nodes
+1728456 3362kN/s db 77% cut 96.1% pv 6-2 16-20 2-7 20-16 14-10 32-27 9-6 16-19
+Cake claims a win} 46. 32-28 {0.45s depth 27/33 score -19977 nodes 1677700 3502
+kN/s pv 32-28 2-7 28-32 7-3 16-20 18-15 24-27 14-18 20-24 9-6} 2-7 {0.63s depth
+26/45/28.1 time 0.66s value=238 nodes 1694467 2563kN/s db 85% cut 94.1% pv 2-7
+28-32 9-6 24-27 18-15 27-24 6-2 16-19 Cake claims a win} 47. 24-19 {0.48s depth
+27/28 score -19979 nodes 1723614 3373 kN/s pv 24-19 7-3 19-24 14-10 28-32 9-6
+32-27 6-2 16-19 2-7} 9-6 {0.41s depth 28/41/29.2 time 0.43s value=282 nodes
+1188601 2770kN/s db 88% cut 92.8% pv 9-6 28-24 6-2 24-27 14-10 19-24 7-3 24-28
+Cake claims a win} 48. 28-24 {0.44s depth 26/28 score -19981 nodes 1716902 3716
+kN/s pv 28-24 14-10 24-28 7-3 19-24 6-2 28-32 10-15 16-20 2-7} 6-2 {1.67s depth
+33/49/30.1 time 1.76s value=0 nodes 7209109 4098kN/s db 98% cut 93.2% pv 6-2
+24-27 14-10 16-20 7-3 12-16 2-7 19-24 } 49. 24-27 {0.38s depth 26/28 score
+-19983 nodes 1404028 3545 kN/s pv 24-27 14-10 19-24 7-3 27-32 10-15 16-20 2-7
+32-27 7-11} 14-10 {0.12s depth 21/32/22.7 time 0.12s value=827 nodes 536400
+4360kN/s db 99% cut 92.6% pv 14-10 19-24 7-3 16-11 18-23 27x18 10-15 18-23 Cake
+claims a win} 50. 27-32 {0.49s depth 27/27 score -19985 nodes 1855181 3616 kN/s
+pv 27-32 7-3 19-24 10-15 16-20 2-7 32-27 7-11 27-32 18-23} 7-3 {0.38s depth
+23/38/23.8 time 0.40s value=832 nodes 1671192 4188kN/s db 97% cut 93.0% pv 7-3
+19-24 2-7 16-20 10-15 24-27 7-11 12-16 Cake claims a win} 51. 19-24 {0.76s depth
+27/28 score -19987 nodes 2906788 3684 kN/s pv 19-24 2-7 24-27 10-15 16-20 7-11
+27-24 18-23 24-28 15-19} 2-7 {0.26s depth 22/34/23.0 time 0.27s value=833 nodes
+1137587 4292kN/s db 99% cut 94.2% pv 2-7 24-27 10-15 16-20 7-11 20-24 18-23
+27x18 Cake claims a win} 52. 32-27 {0.50s depth 27/27 score -19989 nodes 1858582
+3587 kN/s pv 32-27 10-15 16-20 7-11 27-32 18-23 24-28 15-19 20-24 11-16} 10-15
+{0.38s depth 19/32/20.0 time 0.39s value=863 nodes 1773677 4536kN/s db 97% cut
+95.7% pv 10-15 16-19 30-25 19x10 7x14 12-16 25-21 16-20 Cake claims a win} 53.
+16-20 {0.49s depth 28/29 score -19991 nodes 1844596 3602 kN/s pv 16-20 7-11
+27-32 18-23 24-28 15-19 20-24 11-16 24x15} 7-11 {0.48s depth 22/41/27.7 time
+0.50s value=988 nodes 2278756 4575kN/s db 99% cut 96.9% pv 7-11 27-32 18-23
+32-28 3-8 28-32 15-19 24x15 Cake claims a win} 54. 27-32 {0.65s depth 31/29
+score -19993 nodes 2622176 3884 kN/s pv 27-32 18-23 24-28 15-19 20-24 11-16
+24x15} 18-23 {0.34s depth 23/41/24.5 time 0.35s value=992 nodes 1574732 4486kN/s
+db 97% cut 95.8% pv 18-23 32-28 3-8 12-16 23-19 16x23 15-19 24x15 Cake claims a
+win} 55. 32-28 {0.41s depth 31/29 score -19995 nodes 1635999 3849 kN/s pv 32-28
+23-19 24-27 19-23 27x18} 3-8 {0.40s depth 21/39/25.6 time 0.41s value=993 nodes
+1896335 4602kN/s db 99% cut 97.1% pv 3-8 12-16 23-19 16x23 15-19 24x15 11x27
+28-24 Cake claims a win} 56. 28-32 {0.37s depth 32/29 score -19997 nodes 1456501
+3812 kN/s pv 28-32 15-19 24x15} 15-19 {0.50s depth 21/37/24.2 time 0.52s
+value=1022 nodes 2381966 4571kN/s db 99% cut 98.3% pv 15-19 24x15 11x18 20-16
+30-25 32-28 25-22 28-32 Cake claims a win} 57. 24x15 {0.00s depth 1/1 score
+-19999 nodes 2 2 kN/s pv 24x15} 11x18 {0.00s depth 1/2/2.0 time 0.00s value=823
+nodes 8 7kN/s db 80% cut 100.0% pv 11x18 20-16 30-25 32-28 25-22 28-32 22-17
+32-28 } 58. 32-27 {0.00s depth 127/1 score -19999 nodes 762 762 kN/s pv 32-27}
+23x32 {0.00s depth 1/1/1.0 time 0.00s value=1122 nodes 6 600kN/s db 75% cut
+-nan(ind)% pv 23x32 } 59. 20-16 {0.00s depth 0/0 score -19999 nodes 0 0 kN/s pv
+20-16} 32-28 {0.01s depth 7/14/7.9 time 0.00s value=1891 nodes 9002 4478kN/s db
+100% cut 97.9% pv 32-28 16-19 18-23 19x26 30x23 12-16 8-11 16-19 Cake claims a
+win} 60. 16-11 {0.00s depth 0/0 score -19999 nodes 0 0 kN/s pv 16-11} 8x15
+{0.00s depth 1/1/1.0 time 0.00s value=1422 nodes 6 600kN/s db 75% cut -nan(ind)%
+pv 8x15 } 61. 12-16 {0.00s depth 0/0 score -20000 nodes 0 0 kN/s pv 12-16} 15-19
+{0.01s depth 1/2/1.1 time 0.00s value=1897 nodes 23 2300kN/s db 92% cut 100.0%
+pv 15-19 16x23 Cake claims a win} 62. 16x23 {0.00s depth 0/0 score -20000 nodes
+0 0 kN/s pv 16x23} 18x27 {0.00s depth 1/0/0.0 time 0.00s value=1899 nodes 4
+399kN/s db 0% cut -nan(ind)% pv 18x27 } 0-1
+
+[Event "Cake 1.89f vs Regicide 0.2"]
+[Site "Regicide match runner"]
+[Date "2026.11.09"]
+[Round "138.2"]
+[Black "Cake 1.89f"]
+[White "Regicide 0.2"]
+[Result "1-0"]
+[GameType "21"]
+[Opening "ACF #153 Black Widow: 11-16 23-19 16x23"]
+[TimeControl "0.5s/move (CheckerBoard match rules)"]
+[Termination "white has no legal moves"]
+1. 11-16 23-19 2. 16x23 26x19 {0.15s depth 17/33 score -38 nodes 445234 2910
+kN/s pv 26x19 8-11 27-23 11-15 22-18 15x22 25x18 9-13 29-25 13-17} 3. 8-11
+{0.00s book 8-11 v8 d31 10-15 v0 d26 9-13 v0 d26 7-11 v0 d24 10-14 v0 d24 9-14
+v0 d23 } 27-23 {0.23s depth 18/38 score -49 nodes 794948 3105 kN/s pv 27-23
+11-15 22-18 15x22 25x18 9-13 31-26 13-17 21x14 10x17} 4. 11-15 {0.00s book 11-15
+v8 d29 4-8 v2 d26 10-15 v0 d24 9-13 v0 d24 3-8 v0 d22 10-14 v0 d22 11-16 v0 d21
+9-14 v0 d21 } 22-18 {0.25s depth 18/41 score -60 nodes 814761 2962 kN/s pv 22-18
+15x22 25x18 9-13 31-26 13-17 21x14 10x17 29-25 12-16} 5. 15x22 {0.00s book 15x22
+v8 d27 } 25x18 {0.00s depth 1/4 score -56 nodes 14 14 kN/s pv 25x18 9-13} 6.
+9-13 {0.00s book 9-13 v8 d25 9-14 v0 d15 4-8 v0 d15 10-14 v0 d14 3-8 v0 d13 7-11
+v0 d13 10-15 v0 d8 } 29-25 {0.79s depth 20/37 score -43 nodes 2343920 2716 kN/s
+pv 29-25 13-17 21x14 10x17 31-26 12-16 19x12 3-8 12x3 17-21} 7. 13-17 {0.00s
+book 13-17 v8 d23 7-11 v0 d12 5-9 v0 d12 6-9 v0 d12 4-8 v0 d11 10-14 v0 d11 3-8
+v0 d10 } 21x14 {0.00s depth 1/3 score -39 nodes 14 14 kN/s pv 21x14 10x17 31-26}
+8. 10x17 {0.00s book 10x17 v8 d21 } 31-26 {0.57s depth 20/37 score -51 nodes
+1742991 2815 kN/s pv 31-26 12-16 19x12 3-8 12x3 17-21 3x10 6x31 23-19 31-26} 9.
+5-9 {0.00s book move: 5-9 v 54 d 5} 25-22 {0.37s depth 19/37 score -26 nodes
+1186818 2959 kN/s pv 25-22 17-21 24-20 4-8 32-27 9-13 18-14 1-5 22-18 6-9} 10.
+17-21 {0.00s book move: 17-21 v 54 d 3} 24-20 {0.44s depth 19/36 score -20 nodes
+1254671 2608 kN/s pv 24-20 4-8 32-27 9-13 18-14 6-10 14-9 8-11 27-24 11-15} 11.
+4-8 {1.13s depth 23/49/21.4 time 1.23s value=2 nodes 7627721 6186kN/s db 98% cut
+97.1% pv 4-8 32-27 9-13 18-14 6-10 14-9 8-11 27-24 } 32-27 {0.41s depth 19/35
+score 0 nodes 1308685 2954 kN/s pv 32-27 9-13 18-14 8-11 14-9 6-10 27-24 10-15
+19x10 7x14} 12. 8-11 {1.13s depth 26/46/26.2 time 1.21s value=82 nodes 6867329
+5694kN/s db 93% cut 96.9% pv 8-11 27-24 3-8 19-16 12x19 23x16 7-10 16x7 } 27-24
+{0.38s depth 19/44 score -118 nodes 1043570 2655 kN/s pv 27-24 3-8 19-16 12x19
+23x16 7-10 16x7 2x11 24-19 8-12} 13. 3-8 {1.47s depth 28/55/31.5 time 1.54s
+value=120 nodes 6863604 4465kN/s db 88% cut 95.3% pv 3-8 19-16 12x19 23x16 7-10
+16x7 2x11 26-23 } 19-16 {0.94s depth 23/45 score -180 nodes 2686616 2747 kN/s pv
+19-16 12x19 23x16 7-10 16x7 2x11 26-23 9-13 22-17 13x22} 14. 12x19 {0.00s depth
+1/2/2.0 time 0.00s value=2 nodes 18 1799kN/s db 0% cut 100.0% pv 12x19 23x16
+7-10 16x7 2x11 26-23 9-13 23-19 } 23x16 {0.40s depth 23/45 score -206 nodes
+1280014 3084 kN/s pv 23x16 7-10 16x7 2x11 24-19 8-12 19-15 10x19 22-17 12-16}
+15. 7-10 {3.15s depth 29/60/32.8 time 3.30s value=140 nodes 14250927 4321kN/s db
+74% cut 94.9% pv 7-10 16x7 2x11 24-19 8-12 19-15 10x19 22-17 } 16x7 {0.00s depth
+1/3 score 32 nodes 10 10 kN/s pv 16x7 2x11 24-19} 16. 2x11 {0.00s depth 1/3/2.5
+time 0.00s value=-2 nodes 25 2500kN/s db 0% cut 100.0% pv 2x11 24-19 8-12 19-15
+10x19 22-17 12-16 17-13 } 24-19 {0.52s depth 24/44 score -224 nodes 1682356 3121
+kN/s pv 24-19 8-12 19-15 10x19 22-17 12-16 17-13 6-10 13x6 10-15} 17. 8-12
+{0.45s depth 26/46/27.8 time 0.47s value=122 nodes 1928509 4094kN/s db 78% cut
+95.7% pv 8-12 28-24 10-15 19x10 6x15 26-23 1-6 22-17 } 28-24 {0.80s depth 23/44
+score -374 nodes 2415581 2879 kN/s pv 28-24 10-15 19x10 6x15 24-19 15x24 22-17
+9-13 17-14 24-27} 18. 10-15 {0.34s depth 25/45/31.5 time 0.35s value=108 nodes
+1304055 3673kN/s db 78% cut 94.4% pv 10-15 19x10 6x15 26-23 1-6 22-17 15x22
+23-18 } 19x10 {0.00s depth 1/4 score -247 nodes 10 10 kN/s pv 19x10 6x15 24-19
+15x24} 19. 6x15 {0.00s depth 1/3/2.7 time 0.00s value=-6 nodes 18 1799kN/s db 0%
+cut 100.0% pv 6x15 26-23 1-6 22-17 15x22 23-18 6-10 24-19 } 26-23 {0.41s depth
+28/32 score -19968 nodes 1406178 3270 kN/s pv 26-23 1-6 23-19 6-10 22-17 15x22
+17-13 9-14 13-9 14-18} 20. 1-6 {0.55s depth 27/46/31.7 time 0.57s value=154
+nodes 2114989 3697kN/s db 86% cut 96.6% pv 1-6 22-17 15x22 24-19 6-10 23-18 9-13
+17-14 } 23-19 {0.46s depth 34/40 score -19970 nodes 1489796 3071 kN/s pv 23-19
+6-10 22-17 15x22 17-13 9-14 13-9 14-18 9-6 18-23} 21. 6-10 {1.07s depth
+27/43/29.8 time 1.12s value=332 nodes 4128956 3673kN/s db 96% cut 88.3% pv 6-10
+22-17 15x22 17-13 9-14 13-9 14-18 9-6 Cake claims a win} 22-17 {0.65s depth
+34/41 score -19972 nodes 2039998 3013 kN/s pv 22-17 15x22 17-13 9-14 13-9 14-18
+9-6 18-23 6-2 23-27} 22. 15x22 {0.00s depth 1/4/3.6 time 0.00s value=92 nodes 42
+4200kN/s db 0% cut 100.0% pv 15x22 17-13 9-14 13-9 14-18 9-6 18-23 6-1 } 17-13
+{0.43s depth 34/38 score -19974 nodes 1487651 3291 kN/s pv 17-13 9-14 13-9 14-18
+9-6 18-23 6-2 23-27 2-6 11-15} 23. 9-14 {0.53s depth 27/41/30.4 time 0.55s
+value=332 nodes 2221598 4039kN/s db 99% cut 88.5% pv 9-14 13-9 14-18 9-6 18-23
+6-1 23-27 1-6 Cake claims a win} 13-9 {0.60s depth 33/37 score -19976 nodes
+1905334 3058 kN/s pv 13-9 14-18 9-6 18-23 6-2 22-26 2-6 11-15 6-2 23-27} 24.
+14-18 {0.75s depth 27/45/31.3 time 0.79s value=402 nodes 2110768 2685kN/s db 98%
+cut 93.4% pv 14-18 9-6 18-23 6-1 23-27 1-6 11-15 6-1 Cake claims a win} 9-5
+{0.81s depth 32/36 score -19978 nodes 2585637 3067 kN/s pv 9-5 11-15 5-1 18-23
+1-6 23-27 6-2 22-26 30x23 21-25} 25. 18-23 {0.44s depth 22/39/26.3 time 0.46s
+value=472 nodes 1735818 3798kN/s db 99% cut 75.1% pv 18-23 5-1 23-27 1-6 11-15
+30-25 21x30 6-2 Cake claims a win} 5-1 {0.72s depth 31/36 score -19980 nodes
+2238343 2960 kN/s pv 5-1 23-27 1-6 11-15 6-2 22-26 30x23 21-25 2-6 25-30} 26.
+23-27 {0.71s depth 25/43/28.0 time 0.74s value=498 nodes 2686457 3615kN/s db 99%
+cut 81.1% pv 23-27 1-6 11-15 6-1 27-32 30-25 21x30 19-16 Cake claims a win} 1-6
+{0.42s depth 30/34 score -19982 nodes 1446564 3325 kN/s pv 1-6 11-15 6-2 22-26
+30x23 21-25 2-6 25-30 6-9 30-26} 27. 11-15 {0.29s depth 28/45/31.8 time 0.30s
+value=476 nodes 1017827 3370kN/s db 95% cut 87.3% pv 11-15 6-9 27-32 20-16 32-27
+16-11 27x20 11-7 Cake claims a win} 6-2 {0.35s depth 29/32 score -19984 nodes
+1162945 3151 kN/s pv 6-2 22-26 30x23 21-25 2-6 25-30 6-9 30-26 20-16 27-32} 28.
+22-26 {0.45s depth 27/41/31.6 time 0.47s value=792 nodes 1542146 3288kN/s db 95%
+cut 91.3% pv 22-26 30x23 27-32 2-6 32-27 6-9 27x18 9-6 Cake claims a win} 30x23
+{0.00s depth 1/3 score -7 nodes 12 12 kN/s pv 30x23 27-31} 29. 27-32 {0.46s
+depth 27/43/31.4 time 0.48s value=796 nodes 1472147 3086kN/s db 97% cut 93.1% pv
+27-32 2-6 32-27 6-9 27x18 9-13 18-23 13-17 Cake claims a win} 2-6 {0.58s depth
+33/34 score -19986 nodes 1976819 3272 kN/s pv 2-6 21-25 6-9 25-30 9-6 30-26 6-9
+32-27 23-18 15x22} 30. 32-27 {0.63s depth 27/43/31.1 time 0.66s value=799 nodes
+2143237 3252kN/s db 96% cut 91.5% pv 32-27 6-9 27x18 9-13 18-23 13-17 23x16
+20x11 Cake claims a win} 6-2 {0.64s depth 35/35 score -19987 nodes 2366691 3537
+kN/s pv 6-2 27x18 2-7 18-14 7-3 15-18 3-7 21-25 7-3 18-23} 31. 27x18 {0.00s
+depth 1/0/2.0 time 0.00s value=122 nodes 5 499kN/s db 0% cut 100.0% pv 27x18 2-7
+18-14 7-3 15-18 3-7 18-23 7-3 } 2-7 {0.50s depth 35/34 score -19989 nodes
+1645020 3175 kN/s pv 2-7 18-14 7-3 15-18 3-7 21-25 7-3 18-23 3-7 14-18} 32.
+18-14 {0.76s depth 25/44/32.1 time 0.80s value=863 nodes 3268915 4106kN/s db 92%
+cut 94.6% pv 18-14 7-2 15-18 2-7 18-23 7-11 23-27 20-16 Cake claims a win} 7-2
+{0.61s depth 34/34 score -19991 nodes 2183787 3439 kN/s pv 7-2 15-18 2-7 21-25
+7-3 18-23 3-7 14-18 7x14} 33. 15-18 {0.53s depth 25/42/31.6 time 0.56s value=957
+nodes 2179882 3920kN/s db 94% cut 95.4% pv 15-18 2-7 21-25 7-3 18-23 3-8 10-15
+19x10 Cake claims a win} 2-7 {0.64s depth 33/32 score -19993 nodes 2422003 3625
+kN/s pv 2-7 21-25 7-3 18-23 3-7 14-18 7x14} 34. 21-25 {0.69s depth 25/46/30.8
+time 0.73s value=1022 nodes 2841346 3913kN/s db 98% cut 97.5% pv 21-25 7-11
+10-15 19x10 14x16 20x11 12-16 24-20 Cake claims a win} 7-2 {0.47s depth 32/30
+score -19995 nodes 1705616 3459 kN/s pv 7-2 18-23 2-7 14-18 7x14} 35. 18-23
+{0.40s depth 21/40/25.0 time 0.41s value=1131 nodes 1966388 4749kN/s db 99% cut
+95.2% pv 18-23 2-6 10-15 19x10 14x7 24-19 7-11 6-9 Cake claims a win} 20-16
+{0.64s depth 30/30 score -19997 nodes 2244353 3329 kN/s pv 20-16 10-15 19x10}
+36. 10-15 {0.40s depth 23/45/23.7 time 0.41s value=1857 nodes 1955105 4780kN/s
+db 100% cut 98.4% pv 10-15 19x10 14x7 2x11 12x28 11-15 28-32 15-10 Cake claims a
+win} 19x10 {0.00s depth 1/1 score -19999 nodes 2 2 kN/s pv 19x10} 37. 14x7
+{0.54s depth 24/48/26.8 time 0.56s value=1867 nodes 3759043 6700kN/s db 100% cut
+98.4% pv 14x7 2x11 12x28 11-16 28-32 16-11 25-30 Cake claims a win} 2x11 {0.00s
+depth 1/1 score -19999 nodes 2 2 kN/s pv 2x11} 38. 12x19x28 {0.00s depth 1/2/2.0
+time 0.00s value=1230 nodes 5 499kN/s db 67% cut 100.0% pv 12x28 11-16 28-32
+16-11 25-30 } 11-7 {0.00s depth 0/0 score -19999 nodes 0 0 kN/s pv 11-7} 39.
+28-32 {0.01s depth 19/36/30.0 time 0.00s value=1871 nodes 6726 6659kN/s db 100%
+cut 97.9% pv 28-32 7-10 25-30 10-6 23-27 6-10 27-31 10-6 Cake claims a win} 7-2
+{0.00s depth 0/0 score -19999 nodes 0 0 kN/s pv 7-2} 40. 25-30 {2.75s depth
+23/44/29.2 time 2.88s value=0 nodes 33620016 11677kN/s db 100% cut 99.9% pv
+25-30 2-7 32-27 7-11 27-31 11-15 23-27 15-11 } 2-6 {0.00s depth 0/0 score -19999
+nodes 0 0 kN/s pv 2-6} 41. 32-28 {0.01s depth 15/17/15.2 time 0.00s value=1883
+nodes 1286 1273kN/s db 100% cut 90.7% pv 32-28 6-10 23-26 10-14 26-31 14-10
+31-27 10-6 Cake claims a win} 6-1 {0.00s depth 0/0 score -19999 nodes 0 0 kN/s
+pv 6-1} 42. 23-26 {0.67s depth 21/41/26.2 time 0.70s value=1883 nodes 7789673
+11175kN/s db 100% cut 99.7% pv 23-26 1-6 28-32 6-10 26-31 10-15 30-26 15-11 Cake
+claims a win} 1-5 {0.00s depth 0/0 score -19999 nodes 0 0 kN/s pv 1-5} 43. 30-25
+{0.01s depth 1/2/1.2 time 0.00s value=1883 nodes 14 1400kN/s db 88% cut 100.0%
+pv 30-25 5-1 26-31 1-5 31-27 5-9 28-24 9-6 Cake claims a win} 5-1 {0.00s depth
+0/0 score -19999 nodes 0 0 kN/s pv 5-1} 44. 28-24 {0.46s depth 19/38/23.3 time
+0.48s value=1885 nodes 5474068 11427kN/s db 100% cut 99.7% pv 28-24 1-6 26-31
+6-10 25-22 10-15 31-27 15-10 Cake claims a win} 1-5 {0.00s depth 0/0 score
+-19999 nodes 0 0 kN/s pv 1-5} 45. 25-29 {0.01s depth 1/2/1.5 time 0.00s
+value=1878 nodes 22 2200kN/s db 89% cut 100.0% pv 25-29 5-9 26-31 9-14 31-27
+14-10 27-23 10-7 Cake claims a win} 5-1 {0.00s depth 0/0 score -19999 nodes 0 0
+kN/s pv 5-1} 46. 26-31 {0.05s depth 19/32/22.7 time 0.04s value=1877 nodes
+416953 9925kN/s db 100% cut 96.3% pv 26-31 1-6 31-27 6-10 29-25 10-14 27-23 14-9
+Cake claims a win} 1-5 {0.00s depth 0/0 score -19992 nodes 0 0 kN/s pv 1-5} 47.
+24-28 {0.08s depth 17/30/19.3 time 0.07s value=1885 nodes 917696 12234kN/s db
+100% cut 98.9% pv 24-28 5-9 29-25 9-14 31-27 14-10 27-23 10-7 Cake claims a win}
+5-1 {0.00s depth 0/0 score -19990 nodes 0 0 kN/s pv 5-1} 48. 28-32 {0.04s depth
+19/36/24.7 time 0.03s value=1877 nodes 426558 13325kN/s db 100% cut 96.5% pv
+28-32 1-6 29-25 6-10 32-27 10-15 25-22 15-10 Cake claims a win} 1-5 {0.00s depth
+0/0 score -19990 nodes 0 0 kN/s pv 1-5} 49. 32-27 {0.18s depth 19/36/22.5 time
+0.18s value=1883 nodes 2110953 11598kN/s db 100% cut 99.3% pv 32-27 5-9 27-23
+9-14 31-27 14-10 29-25 10-14 Cake claims a win} 5-1 {0.00s depth 0/0 score
+-19992 nodes 0 0 kN/s pv 5-1} 50. 29-25 {0.07s depth 17/32/20.1 time 0.07s
+value=1885 nodes 894146 13147kN/s db 100% cut 99.0% pv 29-25 1-6 27-23 6-10
+31-26 10-14 25-21 14-10 Cake claims a win} 1-5 {0.00s depth 0/0 score -19990
+nodes 0 0 kN/s pv 1-5} 51. 25-22 {0.02s depth 15/32/18.9 time 0.01s value=1883
+nodes 131729 14620kN/s db 100% cut 98.2% pv 25-22 5-9 31-26 9-6 27-23 6-10 23-18
+10-6 Cake claims a win} 5-1 {0.00s depth 0/0 score -19992 nodes 0 0 kN/s pv 5-1}
+52. 27-23 {0.03s depth 15/26/16.9 time 0.02s value=1887 nodes 233757 12979kN/s
+db 100% cut 97.8% pv 27-23 1-6 31-26 6-10 23-19 10-6 26-23 6-10 Cake claims a
+win} 1-5 {0.00s depth 0/0 score -19994 nodes 0 0 kN/s pv 1-5} 53. 22-17 {0.03s
+depth 15/28/18.1 time 0.02s value=1887 nodes 263593 13866kN/s db 100% cut 98.6%
+pv 22-17 5-1 31-27 1-6 23-19 6-9 17-13 9-6 Cake claims a win} 5-1 {0.00s depth
+0/0 score -19996 nodes 0 0 kN/s pv 5-1} 54. 23-18 {0.01s depth 13/20/13.8 time
+0.00s value=1889 nodes 55674 13883kN/s db 100% cut 98.5% pv 23-18 1-6 18-14 6-1
+14-9 1-5 31-26 5x21 Cake claims a win} 1-5 {0.00s depth 0/0 score -19994 nodes 0
+0 kN/s pv 1-5} 55. 18-14 {0.01s depth 7/12/7.7 time 0.00s value=1891 nodes 3481
+3446kN/s db 100% cut 95.0% pv 18-14 5-1 14-9 1-5 31-26 5x21 26-22 21-25 Cake
+claims a win} 5-1 {0.00s depth 0/0 score -19996 nodes 0 0 kN/s pv 5-1} 56. 14-9
+{0.01s depth 7/10/7.6 time 0.00s value=1893 nodes 3096 309600kN/s db 100% cut
+98.5% pv 14-9 1-5 31-26 5x21 26-22 21-25 22x29 Cake claims a win} 1-5 {0.00s
+depth 0/0 score -19998 nodes 0 0 kN/s pv 1-5} 57. 31-26 {0.01s depth 5/8/6.3
+time 0.00s value=1895 nodes 781 78100kN/s db 100% cut 98.5% pv 31-26 5x21 26-22
+21-25 22x29 Cake claims a win} 5x14x21 {0.00s depth 0/0 score -20000 nodes 0 0
+kN/s pv 5x21} 58. 26-22 {0.01s depth 3/3/3.0 time 0.00s value=1897 nodes 36
+3599kN/s db 96% cut 100.0% pv 26-22 21-25 22x29 Cake claims a win} 21-17 {0.00s
+depth 0/0 score -19999 nodes 0 0 kN/s pv 21-17} 59. 22x13 {0.00s depth 1/0/0.0
+time 0.00s value=1899 nodes 4 399kN/s db 0% cut -nan(ind)% pv 22x13 } 1-0
+
+[Event "Regicide 0.2 vs Cake 1.89f"]
+[Site "Regicide match runner"]
+[Date "2026.11.09"]
+[Round "156.1"]
+[Black "Regicide 0.2"]
+[White "Cake 1.89f"]
+[Result "0-1"]
+[GameType "21"]
+[Opening "ACF #174 Skunk: 12-16 24-20 10-15"]
+[TimeControl "0.5s/move (CheckerBoard match rules)"]
+[Termination "black has no legal moves"]
+1. 12-16 24-20 2. 10-15 22-18 {0.00s book 22-18 v2 d20 21-17 v0 d31 23-18 v0 d31
+22-17 v0 d31 28-24 v0 d22 23-19 v-6 d14 27-24 v-18 d11 } 3. 15x22 {0.01s depth
+1/2 score -22 nodes 4 4 kN/s pv 15x22 25x18} 25x18 {0.00s book 25x18 v2 d18
+26x17 v0 d17 } 4. 11-15 {0.41s depth 18/35 score -54 nodes 1281675 2973 kN/s pv
+11-15 18x11 8x15 20x11 7x16 23-19 16x23 27x11 3-8 11-7} 18x11 {0.00s book 18x11
+v36 d5 } 5. 8x15 {0.00s depth 1/7 score -52 nodes 21 21 kN/s pv 8x15 20x11 7x16
+29-25} 20x11 {0.00s book 20x11 v36 d3 } 6. 7x16 {0.00s depth 1/2 score -52 nodes
+10 10 kN/s pv 7x16 29-25} 23-19 {0.00s book move: 23-19 v 36 d 1} 7. 16x23
+{0.45s depth 20/34 score -56 nodes 1498824 3182 kN/s pv 16x23 27x11 3-8 11-7
+2x11 21-17 8-12 29-25 11-16 25-22} 27x18x11 {1.23s depth 20/38/21.7 time 1.28s
+value=28 nodes 8077917 6305kN/s db 100% cut 95.5% pv 27x11 3-8 11-7 2x11 21-17
+11-15 28-24 8-11 } 8. 3-8 {0.33s depth 19/33 score -45 nodes 978771 2812 kN/s pv
+3-8 11-7 2x11 21-17 11-16 17-13 8-12 31-27 4-8 26-23} 11-7 {1.72s depth
+21/39/21.8 time 1.80s value=26 nodes 10877570 6039kN/s db 99% cut 95.9% pv 11-7
+2x11 21-17 11-15 28-24 8-11 29-25 4-8 } 9. 2x11 {0.00s depth 1/2 score -59 nodes
+10 10 kN/s pv 2x11 21-17} 21-17 {1.19s depth 21/38/21.0 time 1.25s value=30
+nodes 7258081 5811kN/s db 99% cut 96.0% pv 21-17 8-12 29-25 4-8 28-24 12-16
+31-27 16-20 } 10. 8-12 {0.84s depth 19/31 score -38 nodes 2362654 2706 kN/s pv
+8-12 29-25 4-8 25-22 6-10 17-13 9-14 13-9 14-17 22x13} 29-25 {0.84s depth
+21/42/20.6 time 0.88s value=26 nodes 4702981 5356kN/s db 99% cut 96.4% pv 29-25
+4-8 25-22 11-16 28-24 16-20 31-27 6-10 } 11. 4-8 {0.73s depth 18/34 score -30
+nodes 2132698 2806 kN/s pv 4-8 25-21 11-15 26-22 6-10 17-13 1-6 31-27 9-14
+22-17} 28-24 {0.40s depth 20/38/20.2 time 0.42s value=24 nodes 2227481 5278kN/s
+db 98% cut 96.3% pv 28-24 6-10 17-13 1-6 24-20 11-15 32-28 8-11 } 12. 6-10
+{0.72s depth 20/37 score -24 nodes 2062749 2754 kN/s pv 6-10 25-21 12-16 26-23
+16-20 31-27 1-6 17-14 10x17 21x14} 17-13 {0.23s depth 21/39/21.3 time 0.24s
+value=70 nodes 1333124 5485kN/s db 98% cut 96.8% pv 17-13 1-6 24-20 11-15 32-28
+10-14 31-27 14-17 } 13. 1-6 {0.33s depth 18/35 score -100 nodes 1083477 3122
+kN/s pv 1-6 24-20 11-15 32-28 8-11 26-23 12-16 31-27 10-14 30-26} 24-20 {0.25s
+depth 23/40/22.3 time 0.27s value=82 nodes 1433651 5409kN/s db 96% cut 97.7% pv
+24-20 11-15 32-28 9-14 26-23 14-17 23-19 15x24 } 14. 11-15 {0.54s depth 20/41
+score -126 nodes 1726199 3055 kN/s pv 11-15 32-28 9-14 26-23 15-18 31-27 8-11
+23-19 5-9 25-22} 32-28 {0.77s depth 25/48/26.2 time 0.80s value=108 nodes
+4056026 5069kN/s db 92% cut 97.5% pv 32-28 9-14 26-23 15-18 31-27 8-11 23-19 5-9
+} 15. 9-14 {0.41s depth 21/40 score -130 nodes 1405202 3275 kN/s pv 9-14 26-23
+15-18 31-27 8-11 23-19 5-9 25-22 18x25 30x21} 26-23 {0.58s depth 25/47/27.4 time
+0.60s value=124 nodes 2888911 4798kN/s db 89% cut 96.8% pv 26-23 15-18 31-27
+8-11 23-19 5-9 25-22 18x25 } 16. 15-18 {0.46s depth 22/45 score -138 nodes
+1574498 3280 kN/s pv 15-18 31-27 8-11 23-19 5-9 25-22 18x25 30x21 14-18 27-24}
+31-27 {0.18s depth 25/49/28.5 time 0.19s value=122 nodes 912955 4830kN/s db 78%
+cut 97.2% pv 31-27 8-11 23-19 5-9 25-22 18x25 30x21 14-18 } 17. 8-11 {0.68s
+depth 24/43 score -141 nodes 2250383 3165 kN/s pv 8-11 23-19 5-9 25-22 18x25
+30x21 14-18 27-24 11-15 20-16} 23-19 {0.38s depth 26/53/32.8 time 0.40s
+value=118 nodes 2044914 5150kN/s db 64% cut 97.3% pv 23-19 5-9 25-22 18x25 30x21
+14-18 27-24 11-15 } 18. 5-9 {0.34s depth 25/40 score -138 nodes 1259211 3497
+kN/s pv 5-9 25-22 18x25 30x21 14-18 27-24 11-15 20-16 18-22 16-11} 25-22 {0.45s
+depth 27/54/36.5 time 0.47s value=122 nodes 2312760 4931kN/s db 51% cut 96.7% pv
+25-22 18x25 30x21 14-18 27-24 11-15 20-16 18-22 } 19. 18x25 {0.00s depth 1/3
+score -6 nodes 9 9 kN/s pv 18x25 30x21 14-18} 30x21 {0.00s depth 1/3/2.7 time
+0.00s value=8 nodes 19 1899kN/s db 0% cut 100.0% pv 30x21 14-18 27-24 11-15
+20-16 18-22 16-11 15-18 } 20. 14-18 {0.76s depth 27/41 score -136 nodes 2501616
+3170 kN/s pv 14-18 27-24 11-15 20-16 18-22 16-11 15-18 11-7 10-14 7-2} 27-24
+{0.56s depth 27/54/34.6 time 0.59s value=124 nodes 2670159 4556kN/s db 48% cut
+96.4% pv 27-24 11-15 20-16 18-22 16-11 15-18 11-7 10-14 } 21. 11-15 {0.49s depth
+27/38 score -136 nodes 1738621 3429 kN/s pv 11-15 20-16 18-22 16-11 22-25 11-7
+15-18 7-3 10-14 3-7} 20-16 {0.83s depth 27/54/34.0 time 0.87s value=126 nodes
+3983341 4573kN/s db 47% cut 96.2% pv 20-16 18-22 16-11 15-18 11-7 10-14 7-3
+18-23 } 22. 18-23 {0.66s depth 27/39 score -139 nodes 2339472 3415 kN/s pv 18-23
+16-11 15-18 11-7 10-14 7-2 18-22 2-7 22-25 24-20} 16-11 {1.53s depth 27/52/33.8
+time 1.60s value=128 nodes 6999406 4377kN/s db 47% cut 96.1% pv 16-11 15-18 11-7
+10-14 7-3 18-22 3-7 22-25 } 23. 15-18 {0.65s depth 27/37 score -142 nodes
+2259917 3308 kN/s pv 15-18 11-7 10-14 7-2 18-22 2-7 22-25 24-20 14-18 19-15}
+11-7 {0.12s depth 23/42/28.4 time 0.13s value=130 nodes 512185 4097kN/s db 62%
+cut 95.5% pv 11-7 10-14 7-2 18-22 2-7 23-27 19-16 12x19 } 24. 10-14 {0.86s depth
+26/37 score -139 nodes 3010499 3356 kN/s pv 10-14 7-2 18-22 2-7 22-25 24-20
+14-18 19-15 25-29 7-10} 7-3 {0.23s depth 22/46/28.6 time 0.24s value=130 nodes
+1053261 4370kN/s db 60% cut 96.2% pv 7-3 23-27 3-7 27-32 19-16 12x19 24x15 18-22
+} 25. 23-26 {0.54s depth 24/35 score -140 nodes 1826328 3232 kN/s pv 23-26 3-7
+18-22 19-15 14-18 24-20 26-30 7-10 22-25 10x1} 3-7 {0.79s depth 25/50/25.8 time
+0.83s value=130 nodes 3731967 4507kN/s db 63% cut 96.4% pv 3-7 18-23 19-16 12x19
+24x15 14-18 7-10 23-27 } 26. 18-22 {0.39s depth 22/35 score -138 nodes 1497884
+3689 kN/s pv 18-22 19-15 14-18 24-20 26-30 7-10 18-23 10x1 9-14 1-6} 19-16
+{0.50s depth 23/46/27.1 time 0.53s value=132 nodes 2293819 4369kN/s db 59% cut
+96.8% pv 19-16 12x19 24x15 14-18 7-10 18-23 10x1 9-14 } 27. 12x19 {0.00s depth
+1/3 score -146 nodes 10 10 kN/s pv 12x19 24x15 26-31} 24x15 {0.00s depth 1/3/2.3
+time 0.00s value=44 nodes 18 1799kN/s db 0% cut 66.7% pv 24x15 22-25 15-10 6x15
+13x6 } 28. 14-18 {0.43s depth 23/34 score -125 nodes 1716349 3865 kN/s pv 14-18
+7-10 22-25 10x1 9-14 1-6 18-23 6-10 14-18 15-11} 7-10 {1.40s depth 23/44/28.3
+time 1.47s value=0 nodes 6029374 4109kN/s db 49% cut 97.4% pv 7-10 22-25 10x1
+9-14 1-6 18-23 6-10 14-18 } 29. 22-25 {0.48s depth 23/34 score -127 nodes
+1892813 3800 kN/s pv 22-25 10x1 9-14 1-6 18-23 6-10 14-18 13-9 26-31 10-14} 10x1
+{0.00s depth 1/3/2.7 time 0.00s value=142 nodes 25 2500kN/s db 0% cut 100.0% pv
+10x1 9-14 1-6 18-23 6-10 14-18 10-14 26-31 } 30. 9-14 {0.61s depth 24/33 score
+-126 nodes 2482301 3866 kN/s pv 9-14 1-6 18-23 6-10 14-18 10-14 26-31 15-11
+31-26 13-9} 1-6 {0.21s depth 19/37/21.6 time 0.22s value=134 nodes 794080
+3642kN/s db 54% cut 97.4% pv 1-6 18-23 6-10 14-18 10-14 26-31 13-9 31-26 } 31.
+18-23 {0.38s depth 23/29 score -129 nodes 1659025 4168 kN/s pv 18-23 6-10 14-18
+10-14 26-31 13-9 31-26 15-11 18-22 9-6} 6-10 {1.28s depth 21/42/25.3 time 1.34s
+value=0 nodes 5570653 4147kN/s db 56% cut 97.2% pv 6-10 14-18 10-14 26-31 13-9
+31-26 9-6 18-22 } 32. 14-18 {0.54s depth 23/29 score -137 nodes 2285153 4023
+kN/s pv 14-18 10-14 26-31 15-11 31-26 13-9 18-22 9-6 23-27 6-2} 10-14 {0.22s
+depth 17/36/19.3 time 0.23s value=132 nodes 900737 3916kN/s db 74% cut 98.0% pv
+10-14 26-31 13-9 31-26 9-6 18-22 6-2 23-27 } 33. 26-30 {0.58s depth 23/31 score
+-131 nodes 2175548 3566 kN/s pv 26-30 13-9 30-26 15-11 18-22 9-6 23-27 6-1 25-30
+14-17} 13-9 {0.21s depth 18/36/19.5 time 0.22s value=136 nodes 830176 3790kN/s
+db 55% cut 98.0% pv 13-9 18-22 9-6 23-27 6-2 30-26 2-7 26-23 } 34. 18-22 {0.43s
+depth 21/27 score -124 nodes 1897267 4253 kN/s pv 18-22 15-11 23-27 9-6 30-26
+6-1 25-30 14-17 27-31 28-24} 9-6 {0.76s depth 19/38/21.1 time 0.79s value=136
+nodes 3353776 4250kN/s db 62% cut 97.2% pv 9-6 23-27 6-2 30-26 2-7 26-23 15-10
+25-30 } 35. 30-26 {0.55s depth 23/31 score -133 nodes 2320362 4042 kN/s pv 30-26
+6-1 23-27 1-6 26-23 6-9 27-31 15-11 31-27 14-17} 6-2 {0.12s depth 17/34/21.2
+time 0.12s value=138 nodes 554213 4505kN/s db 65% cut 97.0% pv 6-2 23-27 2-7
+26-23 15-10 22-26 7-11 25-29 } 36. 23-27 {0.53s depth 23/29 score -136 nodes
+2151063 3889 kN/s pv 23-27 15-11 25-30 14-17 27-32 2-6 32-27 11-7 27-23 28-24}
+2-7 {0.65s depth 18/35/21.5 time 0.68s value=146 nodes 3058826 4478kN/s db 67%
+cut 96.1% pv 2-7 26-23 15-10 22-26 7-11 25-30 28-24 26-31 } 37. 26-23 {0.45s
+depth 21/28 score -136 nodes 1916139 4120 kN/s pv 26-23 7-10 25-30 15-11 23-19
+11-7 22-26 14-18 26-31 18-15} 15-10 {0.84s depth 19/38/22.3 time 0.88s value=0
+nodes 4194354 4782kN/s db 70% cut 96.1% pv 15-10 22-26 7-11 25-29 11-15 26-30
+28-24 29-25 } 38. 25-29 {0.38s depth 20/25 score -126 nodes 1620809 4124 kN/s pv
+25-29 7-11 22-26 10-7 26-31 28-24 23-26 7-2 27-32 24-20} 7-11 {0.28s depth
+19/36/20.4 time 0.29s value=152 nodes 1338704 4537kN/s db 71% cut 97.4% pv 7-11
+22-25 11-15 25-30 28-24 29-25 24-20 23-26 } 39. 22-26 {0.54s depth 22/29 score
+-128 nodes 2250054 4003 kN/s pv 22-26 10-7 26-31 28-24 23-26 7-3 27-32 24-20
+29-25 3-7} 11-15 {0.22s depth 17/31/17.8 time 0.23s value=152 nodes 1088007
+4750kN/s db 72% cut 97.1% pv 11-15 26-31 28-24 23-26 24-20 29-25 21-17 27-32 }
+40. 26-31 {0.42s depth 22/29 score -128 nodes 1788143 4110 kN/s pv 26-31 28-24
+23-26 24-20 29-25 10-6 27-32 6-2 31-27 2-7} 28-24 {0.52s depth 18/34/20.2 time
+0.54s value=158 nodes 2690868 5001kN/s db 74% cut 96.7% pv 28-24 23-26 24-20
+29-25 10-7 27-32 7-3 31-27 } 41. 23-26 {1.15s depth 25/33 score -147 nodes
+4803528 3996 kN/s pv 23-26 24-20 29-25 10-7 27-32 14-18 32-27 7-3 26-23 18-14}
+24-20 {0.60s depth 19/38/20.8 time 0.63s value=164 nodes 2982888 4757kN/s db 73%
+cut 96.0% pv 24-20 29-25 10-7 27-32 7-3 31-27 3-7 27-24 } 42. 29-25 {0.35s depth
+24/30 score -143 nodes 1622286 4493 kN/s pv 29-25 10-7 27-32 14-18 26-30 7-3
+32-28 3-7 25-29 7-2} 10-7 {0.45s depth 19/36/20.5 time 0.47s value=166 nodes
+2044386 4331kN/s db 78% cut 96.6% pv 10-7 27-32 7-3 31-27 3-7 27-24 14-18 32-28
+} 43. 27-32 {0.39s depth 23/29 score -140 nodes 1786124 4443 kN/s pv 27-32 14-18
+26-30 20-16 31-26 7-2 32-28 2-7 26-22 7-3} 7-3 {0.39s depth 18/33/18.5 time
+0.41s value=166 nodes 1785973 4366kN/s db 81% cut 95.8% pv 7-3 31-27 3-7 27-24
+14-18 32-28 7-11 26-22 } 44. 32-28 {0.42s depth 24/29 score -145 nodes 1835105
+4170 kN/s pv 32-28 3-7 26-30 14-18 31-26 7-11 26-22 11-8 22-26 20-16} 3-7 {0.31s
+depth 17/33/17.4 time 0.32s value=166 nodes 1481707 4601kN/s db 83% cut 96.2% pv
+3-7 26-30 14-18 31-26 7-11 26-22 11-8 22-26 } 45. 31-27 {1.17s depth 25/33 score
+-162 nodes 5050129 4139 kN/s pv 31-27 20-16 27-24 16-11 25-30 14-18 26-31 11-8
+30-25 7-11} 14-18 {0.53s depth 18/33/19.8 time 0.55s value=168 nodes 2529543
+4565kN/s db 83% cut 95.8% pv 14-18 27-24 7-10 24-27 10-14 26-22 20-16 28-32 }
+46. 27-24 {0.35s depth 26/36 score -168 nodes 1621125 4417 kN/s pv 27-24 7-11
+26-22 11-16 24-27 16-19 22-26 20-16 27-24 16-11} 7-10 {0.57s depth 19/35/21.1
+time 0.60s value=176 nodes 2932951 4912kN/s db 86% cut 95.7% pv 7-10 24-27 10-14
+28-32 14-17 26-31 20-16 25-30 } 47. 26-22 {0.36s depth 26/32 score -170 nodes
+1548957 4097 kN/s pv 26-22 18-23 25-30 10-14 22-26 23-18 28-32 20-16 26-31
+14-17} 10-6 {0.48s depth 20/38/22.5 time 0.50s value=182 nodes 2557242 5094kN/s
+db 86% cut 96.5% pv 10-6 22-26 6-9 26-31 9-13 24-27 13-17 25-30 } 48. 22-26
+{0.33s depth 24/30 score -174 nodes 1496430 4414 kN/s pv 22-26 6-9 26-30 18-23
+28-32 20-16 25-22 16-11 24-20 23-18} 6-9 {0.37s depth 20/41/24.8 time 0.38s
+value=192 nodes 1808517 4734kN/s db 85% cut 97.0% pv 6-9 26-31 9-14 24-27 14-17
+25-30 20-16 27-24 } 49. 26-30 {0.36s depth 24/33 score -167 nodes 1732802 4633
+kN/s pv 26-30 9-13 25-29 18-23 30-25 13-17 25-30 15-18 28-32 18-22} 9-13 {0.40s
+depth 22/41/21.2 time 0.42s value=206 nodes 2043101 4852kN/s db 85% cut 96.8% pv
+9-13 25-29 13-17 24-27 17-22 30-25 15-19 27-31 Cake claims a win} 50. 25-29
+{0.45s depth 27/34 score -212 nodes 2023211 4295 kN/s pv 25-29 18-23 30-25 13-17
+25-30 17-22 28-32 20-16 30-25 22-17} 13-17 {0.47s depth 23/48/23.8 time 0.49s
+value=208 nodes 2424363 4917kN/s db 87% cut 97.3% pv 13-17 28-32 18-23 24-27
+15-18 27-31 17-22 30-25 Cake claims a win} 51. 28-32 {0.36s depth 28/43 score
+-259 nodes 1643912 4383 kN/s pv 28-32 17-22 30-25 20-16 32-27 22-26 25-30 26-23
+27-32 18-22} 18-23 {0.61s depth 24/49/27.9 time 0.64s value=216 nodes 3566732
+5564kN/s db 87% cut 97.4% pv 18-23 24-27 15-18 27-31 17-22 30-25 21-17 25-30
+Cake claims a win} 52. 24-27 {0.39s depth 30/32 score -19973 nodes 1643933 4039
+kN/s pv 24-27 15-18 27-24 17-22 30-25 21-17 25-30 17-13 30-25 13-9} 15-18 {0.34s
+depth 23/43/29.3 time 0.35s value=216 nodes 2172168 6118kN/s db 84% cut 97.4% pv
+15-18 27-31 17-22 30-25 21-17 25-30 17-14 31-27 Cake claims a win} 53. 27-24
+{0.68s depth 31/36 score -19977 nodes 2647436 3749 kN/s pv 27-24 17-22 24-27
+21-17 30-25 17-13 27-24 13-9 32-28 23-26} 17-22 {0.55s depth 23/46/28.3 time
+0.58s value=218 nodes 3135232 5424kN/s db 88% cut 97.2% pv 17-22 24-27 20-16
+30-25 16-11 27-24 21-17 25-30 Cake claims a win} 54. 24-27 {0.55s depth 30/33
+score -19979 nodes 2281203 4009 kN/s pv 24-27 21-17 30-25 17-13 27-24 13-9 32-28
+23-26 25-30 26-31} 20-16 {0.86s depth 23/46/28.3 time 0.90s value=226 nodes
+4906803 5476kN/s db 89% cut 97.3% pv 20-16 30-25 16-11 27-24 11-8 32-28 8-3
+24-20 Cake claims a win} 55. 30-25 {0.42s depth 30/33 score -19973 nodes 1838000
+4167 kN/s pv 30-25 23-19 25-30 21-17 27-31 19-23 31-27 17-13 30-25 23-26} 16-11
+{0.32s depth 23/42/26.3 time 0.34s value=230 nodes 1643410 4905kN/s db 90% cut
+97.1% pv 16-11 25-30 11-7 27-31 7-3 32-28 3-7 28-32 Cake claims a win} 56. 25-30
+{0.48s depth 27/31 score -19975 nodes 2347005 4638 kN/s pv 25-30 21-17 27-24
+11-7 24-27 17-13 30-25 7-2 25-21 23-26} 11-7 {0.47s depth 24/44/26.9 time 0.49s
+value=248 nodes 2240602 4553kN/s db 89% cut 96.8% pv 11-7 30-25 22-26 27-31
+26-30 32-28 7-2 28-32 Cake claims a win} 57. 27-31 {0.44s depth 28/32 score
+-19981 nodes 1779503 3868 kN/s pv 27-31 21-17 30-25 17-13 31-27 22-17 25-21
+17-14 29-25 23-26} 7-3 {0.38s depth 25/46/28.6 time 0.40s value=260 nodes
+1713363 4315kN/s db 90% cut 97.1% pv 7-3 30-25 3-7 32-28 21-17 28-32 17-13 31-27
+Cake claims a win} 58. 31-27 {0.59s depth 28/33 score -19981 nodes 2569029 4157
+kN/s pv 31-27 21-17 30-25 17-13 25-21 23-26 27-24 26-30 24-19 18-14} 3-7 {0.76s
+depth 25/45/29.6 time 0.80s value=264 nodes 2342757 2943kN/s db 98% cut 94.6% pv
+3-7 30-25 21-17 27-24 23-26 24-19 26-30 25-21 Cake claims a win} 59. 27-31
+{0.43s depth 28/30 score -19981 nodes 1978988 4368 kN/s pv 27-31 21-17 31-27
+17-13 30-25 23-26 25-30 26-31 27-24 22-17} 21-17 {0.40s depth 25/45/29.6 time
+0.42s value=292 nodes 1305322 3137kN/s db 98% cut 94.1% pv 21-17 30-25 17-13
+31-27 7-11 25-30 22-17 27-24 Cake claims a win} 60. 30-25 {0.47s depth 28/31
+score -19983 nodes 2058275 4200 kN/s pv 30-25 17-13 31-27 23-26 25-30 26-31
+27-24 22-17 32-28 7-10} 17-13 {0.90s depth 25/43/29.4 time 0.94s value=292 nodes
+3180672 3390kN/s db 96% cut 93.6% pv 17-13 31-27 7-11 27-24 22-26 25-21 11-16
+24-27 Cake claims a win} 61. 31-27 {0.57s depth 28/32 score -19985 nodes 2569525
+4304 kN/s pv 31-27 23-26 25-30 26-31 27-24 22-17 32-28 7-10 28-32 10-14} 7-11
+{0.23s depth 23/41/25.9 time 0.24s value=302 nodes 770398 3250kN/s db 99% cut
+89.6% pv 7-11 27-24 22-26 25-30 18-14 30-25 11-16 24-19 Cake claims a win} 62.
+25-30 {0.45s depth 27/28 score -19987 nodes 1972812 4206 kN/s pv 25-30 22-17
+27-24 17-21 29-25 18-15 25-29 11-16 24-28 16-20} 22-17 {0.35s depth 25/41/27.3
+time 0.37s value=304 nodes 1123217 3060kN/s db 99% cut 92.9% pv 22-17 27-24 13-9
+30-25 17-14 25-21 18-15 32-28 Cake claims a win} 63. 27-24 {0.41s depth 26/29
+score -19989 nodes 1772423 4170 kN/s pv 27-24 17-21 29-25 18-15 25-29 11-16
+24-28 16-20 29-25 23-26} 13-9 {0.30s depth 30/41/26.4 time 0.31s value=423 nodes
+1015059 3242kN/s db 94% cut 95.8% pv 13-9 30-25 17-14 25-21 18-15 24-20 23-26
+20-16 Cake claims a win} 64. 32-28 {0.41s depth 26/27 score -19987 nodes 1876814
+4354 kN/s pv 32-28 17-21 29-25 9-5 28-32 18-15 25-29 11-16 24-28 16-20} 17-14
+{0.56s depth 33/52/34.2 time 0.59s value=864 nodes 3352059 5700kN/s db 99% cut
+94.5% pv 17-14 30-25 23-26 25-21 18-15 28-32 14-18 21-17 Cake claims a win} 65.
+30-25 {0.48s depth 28/30 score -19987 nodes 2174007 4356 kN/s pv 30-25 23-26
+25-21 11-16 24-20 16-19 28-32 26-31 32-28 31-27} 23-26 {0.40s depth 31/50/38.4
+time 0.42s value=864 nodes 2232649 5353kN/s db 99% cut 94.8% pv 23-26 25-21
+18-15 28-32 14-18 21-17 9-6 17-21 Cake claims a win} 66. 25-21 {0.47s depth
+28/29 score -19989 nodes 2063474 4185 kN/s pv 25-21 11-16 24-20 16-19 28-32
+26-31 32-28 31-27 28-32 19-15} 18-15 {0.41s depth 25/39/29.4 time 0.43s
+value=723 nodes 1801744 4209kN/s db 97% cut 93.1% pv 18-15 28-32 14-18 21-17 9-6
+17-21 6-2 32-28 Cake claims a win} 67. 28-32 {0.48s depth 23/24 score -19989
+nodes 2128889 4283 kN/s pv 28-32 11-7 32-28 26-30 24-27 9-6 27-32 15-10 29-25
+14-17} 14-18 {1.37s depth 31/48/33.1 time 1.43s value=865 nodes 7931876 5542kN/s
+db 100% cut 94.8% pv 14-18 21-17 9-6 17-21 6-2 32-28 26-30 28-32 Cake claims a
+win} 68. 21-17 {0.49s depth 25/25 score -19987 nodes 2133245 4207 kN/s pv 21-17
+9-6 17-21 26-30 32-28 18-14 29-25 11-7 25-22 7-10} 9-6 {0.14s depth 24/43/30.0
+time 0.14s value=865 nodes 657934 4600kN/s db 100% cut 95.4% pv 9-6 17-21 26-30
+32-28 6-2 28-32 2-7 24-20 Cake claims a win} 69. 32-28 {0.66s depth 26/26 score
+-19989 nodes 2949054 4286 kN/s pv 32-28 26-30 17-21 18-14 29-25 11-7 25-29 15-10
+24-19 14-17} 26-30 {0.42s depth 26/45/30.1 time 0.43s value=865 nodes 1920880
+4415kN/s db 100% cut 95.5% pv 26-30 17-21 6-2 28-32 2-7 24-20 18-22 20-24 Cake
+claims a win} 70. 17-21 {0.46s depth 27/28 score -19991 nodes 2212900 4591 kN/s
+pv 17-21 11-7 29-25 18-14 25-29 15-10 24-19 14-17 21x14} 6-2 {0.48s depth
+26/45/29.2 time 0.50s value=865 nodes 2467997 4896kN/s db 100% cut 95.3% pv 6-2
+28-32 2-7 24-20 18-22 20-24 15-10 29-25 Cake claims a win} 71. 28-32 {0.55s
+depth 29/28 score -19991 nodes 2617904 4537 kN/s pv 28-32 18-14 24-20 11-7 20-24
+15-10 24-27 14-17 21x14} 2-7 {0.63s depth 25/38/27.4 time 0.66s value=865 nodes
+3509859 5317kN/s db 100% cut 94.9% pv 2-7 32-28 18-22 24-27 15-10 29-25 22x29
+27-31 Cake claims a win} 72. 24-20 {0.50s depth 29/27 score -19993 nodes 2460444
+4695 kN/s pv 24-20 18-14 20-24 15-10 29-25 14-17 21x14} 18-22 {0.83s depth
+25/38/26.8 time 0.87s value=866 nodes 4529066 5193kN/s db 100% cut 95.1% pv
+18-22 32-27 15-10 21-17 22x13 20-24 10-15 27-32 Cake claims a win} 73. 20-24
+{0.65s depth 32/29 score -19995 nodes 3055678 4493 kN/s pv 20-24 15-10 24-20
+22-17 21x14} 15-10 {0.14s depth 19/29/21.3 time 0.15s value=865 nodes 756495
+5042kN/s db 100% cut 95.4% pv 15-10 29-25 22x29 24-27 30-26 21-17 26-22 17x26
+Cake claims a win} 74. 32-27 {0.60s depth 32/30 score -19997 nodes 2830872 4543
+kN/s pv 32-27 22-17 21x14} 22-17 {0.44s depth 20/36/22.1 time 0.46s value=1025
+nodes 2702042 5886kN/s db 100% cut 98.0% pv 22-17 21x14 10x17 24-19 17-22 19-23
+7-10 27-32 Cake claims a win} 75. 21x14 {0.00s depth 1/1 score -19999 nodes 2 2
+kN/s pv 21x14} 10x17 {0.00s depth 1/2/2.0 time 0.00s value=862 nodes 8 799kN/s
+db 80% cut 100.0% pv 10x17 24-19 17-22 19-23 7-10 27-32 22-26 23-27 } 76. 27-23
+{0.00s depth 127/1 score -19999 nodes 1016 1016 kN/s pv 27-23} 11-16 {0.91s
+depth 20/38/19.8 time 0.95s value=1181 nodes 5411898 5678kN/s db 100% cut 97.7%
+pv 11-16 24-27 7-10 27-24 16-20 24-19 17-22 23-27 Cake claims a win} 77. 23-18
+{0.00s depth 127/1 score -19999 nodes 1270 1270 kN/s pv 23-18} 17-22 {0.35s
+depth 21/35/19.7 time 0.36s value=1324 nodes 2060771 5645kN/s db 100% cut 98.7%
+pv 17-22 18x25 30x21 24-28 16-19 28-32 7-11 32-27 Cake claims a win} 78. 18x25
+{0.00s depth 1/1 score -19999 nodes 2 2 kN/s pv 18x25} 30x21 {0.00s depth
+1/2/2.0 time 0.00s value=1021 nodes 11 1100kN/s db 86% cut 50.0% pv 30x21 24-27
+16-19 27-32 7-11 32-27 } 79. 24-27 {0.00s depth 0/0 score -19988 nodes 0 0 kN/s
+pv 24-27} 7-10 {0.06s depth 19/36/20.3 time 0.05s value=1869 nodes 315408
+5839kN/s db 100% cut 97.9% pv 7-10 27-24 10-14 24-27 16-19 27-32 14-18 32-27
+Cake claims a win} 80. 27-24 {0.00s depth 0/0 score -19990 nodes 0 0 kN/s pv
+27-24} 10-15 {0.24s depth 21/38/23.5 time 0.24s value=1881 nodes 2039868
+8606kN/s db 100% cut 99.1% pv 10-15 24-27 16-20 27-32 20-24 32-28 24-19 28-32
+Cake claims a win} 81. 24-27 {0.00s depth 0/0 score -19992 nodes 0 0 kN/s pv
+24-27} 16-19 {0.04s depth 17/30/16.5 time 0.03s value=1877 nodes 263569 7984kN/s
+db 100% cut 98.4% pv 16-19 27-32 19-23 32-28 15-18 28-32 18-22 32-28 Cake claims
+a win} 82. 27-32 {0.00s depth 0/0 score -19994 nodes 0 0 kN/s pv 27-32} 15-18
+{0.04s depth 17/30/16.3 time 0.03s value=1875 nodes 199926 7401kN/s db 100% cut
+98.4% pv 15-18 32-27 18-22 27-32 21-17 32-28 17-14 28-32 Cake claims a win} 83.
+32-27 {0.00s depth 0/0 score -19996 nodes 0 0 kN/s pv 32-27} 19-23 {0.02s depth
+15/23/14.2 time 0.01s value=1881 nodes 104623 8041kN/s db 100% cut 98.3% pv
+19-23 27-32 18-22 32-28 21-25 28-24 25-30 24-28 Cake claims a win} 84. 27-32
+{0.00s depth 0/0 score -19994 nodes 0 0 kN/s pv 27-32} 18-22 {0.02s depth
+15/28/16.6 time 0.01s value=1883 nodes 115835 10520kN/s db 100% cut 98.9% pv
+18-22 32-28 21-25 28-24 25-30 24-28 23-27 29-25 Cake claims a win} 85. 32-28
+{0.00s depth 0/0 score -19992 nodes 0 0 kN/s pv 32-28} 21-17 {0.01s depth
+11/20/12.5 time 0.00s value=1881 nodes 17017 8466kN/s db 100% cut 97.9% pv 21-17
+28-24 17-14 24-28 23-27 29-25 22x29 28-32 Cake claims a win} 86. 28-24 {0.00s
+depth 0/0 score -19994 nodes 0 0 kN/s pv 28-24} 17-14 {0.01s depth 11/20/12.0
+time 0.00s value=1883 nodes 18288 9098kN/s db 100% cut 98.9% pv 17-14 24-28
+23-27 29-25 22x29 28-32 27-23 32-28 Cake claims a win} 87. 24-28 {0.00s depth
+0/0 score -19996 nodes 0 0 kN/s pv 24-28} 23-27 {0.01s depth 9/16/9.4 time 0.00s
+value=1885 nodes 7545 7470kN/s db 100% cut 98.8% pv 23-27 29-25 22x29 28-32
+27-23 32-28 29-25 28-32 Cake claims a win} 88. 28-32 {0.00s depth 0/0 score
+-19998 nodes 0 0 kN/s pv 28-32} 22-18 {0.01s depth 5/9/7.0 time 0.00s value=1891
+nodes 481 48099kN/s db 100% cut 95.9% pv 22-18 32x23 18x27 29-25 14-18 25-30
+18-22 30-25 Cake claims a win} 89. 32x23 {0.00s depth 0/0 score -20000 nodes 0 0
+kN/s pv 32x23} 18x27 {0.00s depth 1/1/1.0 time 0.00s value=1182 nodes 6 600kN/s
+db 75% cut -nan(ind)% pv 18x27 } 90. 29-25 {0.00s depth 0/0 score -19995 nodes 0
+0 kN/s pv 29-25} 14-18 {0.01s depth 5/7/5.4 time 0.00s value=1895 nodes 450
+45000kN/s db 100% cut 96.3% pv 14-18 25-30 18-22 30-25 22x29 Cake claims a win}
+91. 25-21 {0.00s depth 0/0 score -19997 nodes 0 0 kN/s pv 25-21} 18-22 {0.01s
+depth 3/3/3.0 time 0.00s value=1897 nodes 95 9500kN/s db 99% cut 100.0% pv 18-22
+21-25 22x29 Cake claims a win} 92. 21-17 {0.00s depth 0/0 score -19999 nodes 0 0
+kN/s pv 21-17} 22x13 {0.00s depth 1/0/0.0 time 0.00s value=1899 nodes 4 399kN/s
+db 0% cut -nan(ind)% pv 22x13 } 0-1
+
