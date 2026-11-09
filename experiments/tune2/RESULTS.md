@@ -21,3 +21,10 @@
 
 ## Results
 
+### Screen at 300 ms/move
+
+| param | value (default) | W / D / L | Elo [95% CI] | penta [LL LD DD/WL WD WW] | pairs | time |
+|---|---|---|---|---|---|---|
+| se_margin | 15 (20) | 270 / 1052 / 278 | -1.7 [-6.7, +3.2] | 0 71 666 63 0 | 800 | 39 min |
+| se_margin | 30 (20) | 255 / 1060 / 285 | -6.5 [-11.5, -1.5] | 0 84 662 54 0 | 800 | 39 min |
+
