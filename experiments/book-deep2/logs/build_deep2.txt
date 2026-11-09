@@ -1,0 +1,23 @@
+ M src/weights/book.bin
+eval.bin 954892 embedded at 1441009
+net.bin 298828 embedded at 2395905
+book.bin 549472 embedded at 891025
+egdb copy identical
+commit 6bb8c6c4f908965148e721803db085c49cbac1b5; book.bin = book_deep2.bin sha256 585de2b23305041d
+built 2026-11-09T18:41:21+01:00 with clang version 23.1.5 (https://github.com/llvm/llvm-project.git 392dfff97d29b59d77e5cac6d4b6ef2585fe7117)
+toolchain file: tools-src/tools/windows/mingw-clang.cmake
+egdb: full copy of ~/regicide-data/egdb (2-7 pieces) in egdb/
+-- regicide.exe bench (Windows)
+bench: 7712020 nodes 1960 ms 3934704 nps
+-- linux bench
+bench: 7712020 nodes 2351 ms 3280314 nps
+installed /mnt/c/regicide-match/engines/regicide/6bb8c6c-deep2-egdb8
+-- linux bench with set book off
+bench: 8089571 nodes 2059 ms 3928883 nps
+-- cbhost
+id name Regicide 0.2
+id protocol cbhost 1
+ready
+reply 1 8
+reply 1 3
+reply 1 6

@@ -1,0 +1,4 @@
+ M src/weights/book.bin
+eval.bin 954892 embedded at 1440401
+net.bin 298828 embedded at 2395297
+book.bin 548848 embedded at 891025

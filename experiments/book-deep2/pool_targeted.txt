@@ -1,0 +1,7 @@
+deep2: runs ba-d2t1-cake, ba-d2t2-cake, ba-d2t3-cake
+   games 300: W/D/L 0/219/81; pairs 150, pentanomial [LL LD DD/WL WD WW] = [0, 81, 69, 0, 0]
+   score 0.3650 +- 0.0200; Elo (pentanomial) -96.2 [-111.2, -81.2] 95% CI
+deep: runs ba-d1t1-cake, ba-d1t2-cake, ba-d1t3-cake
+   games 300: W/D/L 0/208/92; pairs 150, pentanomial [LL LD DD/WL WD WW] = [0, 92, 58, 0, 0]
+   score 0.3467 +- 0.0195; Elo (pentanomial) -110.1 [-125.1, -95.1] 95% CI
+deep2 - deep: +13.9 Elo [-7.3, +35.1] 95% CI, LOS 90.1%

@@ -1,0 +1,10 @@
+== n7a export check (100k positions of v2d's validation set), final net_e040.nnue
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 4.65, max 58.20 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK
+== n7b export check (100k positions of v2d's validation set), final net_e060.nnue
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 5.56, max 79.60 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK
