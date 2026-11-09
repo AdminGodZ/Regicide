@@ -166,5 +166,27 @@
 - `logs/`: `build_6bb8c6c.txt`, `lossprobe.log`, `calib.log`, `main.log`, `merge.log`, `finalize.log`,
   `build_deep2.txt`, `timeline.txt`
 - `tests/`: per-run `summary.txt` and `results.csv`; `pool_targeted.txt`, `per_ballot.txt`
-- `scripts/`: `d2_build.sh`, `d2_chain.sh`, `d2_extend.sh`, `d2b.sh`, `merge_books.py`, `run_ba3.sh`, `pool.py`,
+- `scripts/`: `d2_build.sh`, `d2_chain.sh`, `d2_extend.sh`, `d2b.sh`, `d2b_full.sh`, `merge_books.py`, `run_ba3.sh`, `pool.py`,
   `per_ballot.py`, `d3_chain.sh`
+
+## 4. Install checks: book_deep2b, full acf156 runs (2026-11-09 21:12–21:40)
+
+DLL `6bb8c6c-deep2b-egdb8`, settings of the deep-book tests (acf156, 312 games, 0.5 s/move, `-c 8`, 2–8 EGDB, no
+background generator), run back to back (`scripts/d2b_full.sh`; `tests/deep2b-full-cake`, `tests/deep2b-full-kingsrow`).
+
+| Opponent | book_deep2b | Reference: book_deep on-runs (`t3/book-deep`) | Difference [95% CI] |
+|---|---|---|---|
+| Cake | **0 / 307 / 5**, −5.6 [−10.4, −0.8] | 3 runs pooled 0 / 924 / 12, −4.5 [−6.9, −2.0] (3, 5, 4 losses per run) | −1.1 [−6.5, +4.3], LOS 34% |
+| KingsRow | **0 / 312 / 0**, −0.0 | 1 / 310 / 1, −0.0 | +0.0 [−3.1, +3.1] |
+
+- **Cake:**
+  - 5 losses, inside the 3–5 range of the book_deep runs. The point estimate is 1.1 Elo below the pooled −4.5, well
+    within noise.
+  - The losses were #7, Gemini I, #79, #90 (Black) and Black Widow (White). None came from White Doctor, Wilderness II
+    or Double Cross, the three ballots book_deep2b fixed.
+- **KingsRow:** no losses (book_deep: one loss, one win).
+- **Reading of the embed condition:**
+  - **KingsRow passes** (0/312/0 vs 1/310/1).
+  - **Cake is equal within noise** but not better than −4.5 on the point estimate (−5.6). Whether that counts as "not
+    worse" is the user's call. The targeted gain (+59.9 on the 5 ballots) does not show up as a full-deck gain in one
+    312-game run, because those ballots are only 10 of the 312 games.
