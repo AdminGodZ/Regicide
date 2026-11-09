@@ -29,3 +29,27 @@ BA start d2t4 cake movetime 0.5 openings /home/admingod/regicide-jobs/deep2/targ
 D2 interrupted run set aside: ba-d2t4-cake 2026-11-09T19:31:37+01:00
 D2 d2_extend stopped; building book_deep2b (book2 without the Double Cross root) 2026-11-09T19:31:37+01:00
 D2 book_deep2b: roots2b 4; book2b wrote /home/admingod/regicide-data/book/book2b.bin with 746 positions; merge base: 32541 entries / 5646 positions; ext: 4429 entries / 746 positions; overlapping positions 445; merged: 34296 entries / 5947 positions (4429 entries from ext), avoid 0; avoid list: 6 entries wrote /home/admingod/regicide-data/book/book_deep2b.bin with 5947 positions  2026-11-09T19:31:38+01:00
+D2 DLL deep2b built: bench: 7712020 nodes 1975 ms 3904820 nps bench: 7712020 nodes 2007 ms 3842561 nps bench: 8089571 nodes 2082 ms 3885480 nps reply 1 8 reply 1 3 reply 1 6  2026-11-09T19:35:40+01:00
+BA start d2bt1 cake movetime 0.5 openings /home/admingod/regicide-jobs/deep2/target_openings.txt dll 6bb8c6c-deep2b-egdb8; bg: datagen-eb1037c:T  2026-11-09T19:35:40+01:00
+BA end d2bt1 cake rc=0 Elo (pentanomial, pairs): -52.5 [-75.3, -30.1] 95% CI, score 0.4250 +- 0.0318, LOS 0.00% 2026-11-09T19:43:36+01:00
+BA start d1t4 cake movetime 0.5 openings /home/admingod/regicide-jobs/deep2/target_openings.txt dll 6bb8c6c-egdb8; bg: datagen-eb1037c:T  2026-11-09T19:43:36+01:00
+BA end d1t4 cake rc=0 Elo (pentanomial, pairs): -115.2 [-141.7, -90.0] 95% CI, score 0.3400 +- 0.0333, LOS 0.00% 2026-11-09T19:52:13+01:00
+BA start d2bt2 cake movetime 0.5 openings /home/admingod/regicide-jobs/deep2/target_openings.txt dll 6bb8c6c-deep2b-egdb8; bg: datagen-eb1037c:T  2026-11-09T19:52:13+01:00
+BA end d2bt2 cake rc=0 Elo (pentanomial, pairs): -59.6 [-83.4, -36.4] 95% CI, score 0.4150 +- 0.0328, LOS 0.00% 2026-11-09T20:00:18+01:00
+BA start d1t5 cake movetime 0.5 openings /home/admingod/regicide-jobs/deep2/target_openings.txt dll 6bb8c6c-egdb8; bg: datagen-eb1037c:T  2026-11-09T20:00:18+01:00
+BA end d1t5 cake rc=0 Elo (pentanomial, pairs): -127.0 [-152.8, -102.4] 95% CI, score 0.3250 +- 0.0318, LOS 0.00% 2026-11-09T20:08:59+01:00
+BA start d2bt3 cake movetime 0.5 openings /home/admingod/regicide-jobs/deep2/target_openings.txt dll 6bb8c6c-deep2b-egdb8; bg: datagen-eb1037c:T  2026-11-09T20:08:59+01:00
+BA end d2bt3 cake rc=0 Elo (pentanomial, pairs): -59.6 [-83.4, -36.4] 95% CI, score 0.4150 +- 0.0328, LOS 0.00% 2026-11-09T20:16:29+01:00
+BA start d1t6 cake movetime 0.5 openings /home/admingod/regicide-jobs/deep2/target_openings.txt dll 6bb8c6c-egdb8; bg: datagen-eb1037c:T  2026-11-09T20:16:30+01:00
+BA end d1t6 cake rc=0 Elo (pentanomial, pairs): -123.0 [-149.1, -98.2] 95% CI, score 0.3300 +- 0.0323, LOS 0.00% 2026-11-09T20:24:58+01:00
+BA start d2bt4 cake movetime 0.5 openings /home/admingod/regicide-jobs/deep2/target_openings.txt dll 6bb8c6c-deep2b-egdb8; bg: datagen-eb1037c:T  2026-11-09T20:24:58+01:00
+BA end d2bt4 cake rc=0 Elo (pentanomial, pairs): -56.1 [-79.4, -33.2] 95% CI, score 0.4200 +- 0.0323, LOS 0.00% 2026-11-09T20:32:34+01:00
+BA start d1t7 cake movetime 0.5 openings /home/admingod/regicide-jobs/deep2/target_openings.txt dll 6bb8c6c-egdb8; bg: datagen-eb1037c:T  2026-11-09T20:32:34+01:00
+BA end d1t7 cake rc=0 Elo (pentanomial, pairs): -115.2 [-141.7, -90.0] 95% CI, score 0.3400 +- 0.0333, LOS 0.00% 2026-11-09T20:41:02+01:00
+BA start d2bt5 cake movetime 0.5 openings /home/admingod/regicide-jobs/deep2/target_openings.txt dll 6bb8c6c-deep2b-egdb8; bg: datagen-eb1037c:T  2026-11-09T20:41:02+01:00
+BA end d2bt5 cake rc=0 Elo (pentanomial, pairs): -56.1 [-79.4, -33.2] 95% CI, score 0.4200 +- 0.0323, LOS 0.00% 2026-11-09T20:48:55+01:00
+BA start d1t8 cake movetime 0.5 openings /home/admingod/regicide-jobs/deep2/target_openings.txt dll 6bb8c6c-egdb8; bg: datagen-eb1037c:T  2026-11-09T20:48:55+01:00
+BA end d1t8 cake rc=0 Elo (pentanomial, pairs): -127.0 [-152.8, -102.4] 95% CI, score 0.3250 +- 0.0318, LOS 0.00% 2026-11-09T20:57:38+01:00
+BA start d2bt6 cake movetime 0.5 openings /home/admingod/regicide-jobs/deep2/target_openings.txt dll 6bb8c6c-deep2b-egdb8; bg: datagen-eb1037c:T  2026-11-09T20:57:38+01:00
+BA end d2bt6 cake rc=0 Elo (pentanomial, pairs): -59.6 [-83.4, -36.4] 95% CI, score 0.4150 +- 0.0328, LOS 0.00% 2026-11-09T21:05:23+01:00
+D2 D2B_DONE: 6 deep2b runs 2026-11-09T21:05:23+01:00

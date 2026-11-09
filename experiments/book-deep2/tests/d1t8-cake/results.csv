@@ -1,0 +1,101 @@
+game,pair,opening,black,white,result,score_a,termination,engine_plies
+6,3,"/home/admingod/regicide-jobs/deep2/target_openings.txt:3","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",80
+1,1,"/home/admingod/regicide-jobs/deep2/target_openings.txt:1","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",68
+3,2,"/home/admingod/regicide-jobs/deep2/target_openings.txt:2","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",77
+2,1,"/home/admingod/regicide-jobs/deep2/target_openings.txt:1","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",83
+8,4,"/home/admingod/regicide-jobs/deep2/target_openings.txt:4","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",111
+10,5,"/home/admingod/regicide-jobs/deep2/target_openings.txt:5","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",79
+11,6,"/home/admingod/regicide-jobs/deep2/target_openings.txt:6","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",68
+7,4,"/home/admingod/regicide-jobs/deep2/target_openings.txt:4","Regicide 0.2","Cake 1.89f",0-1,0,"no legal moves",113
+5,3,"/home/admingod/regicide-jobs/deep2/target_openings.txt:3","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",154
+4,2,"/home/admingod/regicide-jobs/deep2/target_openings.txt:2","Cake 1.89f","Regicide 0.2",1-0,0,"no legal moves",128
+13,7,"/home/admingod/regicide-jobs/deep2/target_openings.txt:7","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",77
+16,8,"/home/admingod/regicide-jobs/deep2/target_openings.txt:8","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",75
+20,10,"/home/admingod/regicide-jobs/deep2/target_openings.txt:10","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",78
+15,8,"/home/admingod/regicide-jobs/deep2/target_openings.txt:8","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",115
+12,6,"/home/admingod/regicide-jobs/deep2/target_openings.txt:6","Cake 1.89f","Regicide 0.2",1-0,0,"no legal moves",124
+18,9,"/home/admingod/regicide-jobs/deep2/target_openings.txt:9","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",81
+17,9,"/home/admingod/regicide-jobs/deep2/target_openings.txt:9","Regicide 0.2","Cake 1.89f",0-1,0,"no legal moves",95
+21,11,"/home/admingod/regicide-jobs/deep2/target_openings.txt:11","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",68
+22,11,"/home/admingod/regicide-jobs/deep2/target_openings.txt:11","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",67
+9,5,"/home/admingod/regicide-jobs/deep2/target_openings.txt:5","Regicide 0.2","Cake 1.89f",0-1,0,"no legal moves",179
+23,12,"/home/admingod/regicide-jobs/deep2/target_openings.txt:12","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",77
+26,13,"/home/admingod/regicide-jobs/deep2/target_openings.txt:13","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",78
+14,7,"/home/admingod/regicide-jobs/deep2/target_openings.txt:7","Cake 1.89f","Regicide 0.2",1-0,0,"no legal moves",170
+19,10,"/home/admingod/regicide-jobs/deep2/target_openings.txt:10","Regicide 0.2","Cake 1.89f",0-1,0,"no legal moves",115
+30,15,"/home/admingod/regicide-jobs/deep2/target_openings.txt:15","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",77
+31,16,"/home/admingod/regicide-jobs/deep2/target_openings.txt:16","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",68
+28,14,"/home/admingod/regicide-jobs/deep2/target_openings.txt:14","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",95
+24,12,"/home/admingod/regicide-jobs/deep2/target_openings.txt:12","Cake 1.89f","Regicide 0.2",1-0,0,"no legal moves",116
+27,14,"/home/admingod/regicide-jobs/deep2/target_openings.txt:14","Regicide 0.2","Cake 1.89f",0-1,0,"no legal moves",85
+33,17,"/home/admingod/regicide-jobs/deep2/target_openings.txt:17","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",77
+36,18,"/home/admingod/regicide-jobs/deep2/target_openings.txt:18","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",67
+25,13,"/home/admingod/regicide-jobs/deep2/target_openings.txt:13","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",140
+32,16,"/home/admingod/regicide-jobs/deep2/target_openings.txt:16","Cake 1.89f","Regicide 0.2",1-0,0,"no legal moves",154
+40,20,"/home/admingod/regicide-jobs/deep2/target_openings.txt:20","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",74
+38,19,"/home/admingod/regicide-jobs/deep2/target_openings.txt:19","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",93
+29,15,"/home/admingod/regicide-jobs/deep2/target_openings.txt:15","Regicide 0.2","Cake 1.89f",0-1,0,"no legal moves",169
+41,21,"/home/admingod/regicide-jobs/deep2/target_openings.txt:21","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",68
+34,17,"/home/admingod/regicide-jobs/deep2/target_openings.txt:17","Cake 1.89f","Regicide 0.2",1-0,0,"no legal moves",132
+37,19,"/home/admingod/regicide-jobs/deep2/target_openings.txt:19","Regicide 0.2","Cake 1.89f",0-1,0,"no legal moves",115
+42,21,"/home/admingod/regicide-jobs/deep2/target_openings.txt:21","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",79
+46,23,"/home/admingod/regicide-jobs/deep2/target_openings.txt:23","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",120
+43,22,"/home/admingod/regicide-jobs/deep2/target_openings.txt:22","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",77
+50,25,"/home/admingod/regicide-jobs/deep2/target_openings.txt:25","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",76
+35,18,"/home/admingod/regicide-jobs/deep2/target_openings.txt:18","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",206
+48,24,"/home/admingod/regicide-jobs/deep2/target_openings.txt:24","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",119
+39,20,"/home/admingod/regicide-jobs/deep2/target_openings.txt:20","Regicide 0.2","Cake 1.89f",0-1,0,"no legal moves",165
+44,22,"/home/admingod/regicide-jobs/deep2/target_openings.txt:22","Cake 1.89f","Regicide 0.2",1-0,0,"no legal moves",112
+47,24,"/home/admingod/regicide-jobs/deep2/target_openings.txt:24","Regicide 0.2","Cake 1.89f",0-1,0,"no legal moves",89
+51,26,"/home/admingod/regicide-jobs/deep2/target_openings.txt:26","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",68
+52,26,"/home/admingod/regicide-jobs/deep2/target_openings.txt:26","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",79
+45,23,"/home/admingod/regicide-jobs/deep2/target_openings.txt:23","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",154
+56,28,"/home/admingod/regicide-jobs/deep2/target_openings.txt:28","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",75
+53,27,"/home/admingod/regicide-jobs/deep2/target_openings.txt:27","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",77
+49,25,"/home/admingod/regicide-jobs/deep2/target_openings.txt:25","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",115
+60,30,"/home/admingod/regicide-jobs/deep2/target_openings.txt:30","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",71
+61,31,"/home/admingod/regicide-jobs/deep2/target_openings.txt:31","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",68
+58,29,"/home/admingod/regicide-jobs/deep2/target_openings.txt:29","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",87
+57,29,"/home/admingod/regicide-jobs/deep2/target_openings.txt:29","Regicide 0.2","Cake 1.89f",0-1,0,"no legal moves",121
+62,31,"/home/admingod/regicide-jobs/deep2/target_openings.txt:31","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",73
+54,27,"/home/admingod/regicide-jobs/deep2/target_openings.txt:27","Cake 1.89f","Regicide 0.2",1-0,0,"no legal moves",130
+63,32,"/home/admingod/regicide-jobs/deep2/target_openings.txt:32","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",115
+55,28,"/home/admingod/regicide-jobs/deep2/target_openings.txt:28","Regicide 0.2","Cake 1.89f",0-1,0,"no legal moves",129
+66,33,"/home/admingod/regicide-jobs/deep2/target_openings.txt:33","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",72
+71,36,"/home/admingod/regicide-jobs/deep2/target_openings.txt:36","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",68
+70,35,"/home/admingod/regicide-jobs/deep2/target_openings.txt:35","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",89
+65,33,"/home/admingod/regicide-jobs/deep2/target_openings.txt:33","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",94
+67,34,"/home/admingod/regicide-jobs/deep2/target_openings.txt:34","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",81
+68,34,"/home/admingod/regicide-jobs/deep2/target_openings.txt:34","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",105
+64,32,"/home/admingod/regicide-jobs/deep2/target_openings.txt:32","Cake 1.89f","Regicide 0.2",1-0,0,"no legal moves",114
+76,38,"/home/admingod/regicide-jobs/deep2/target_openings.txt:38","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",67
+73,37,"/home/admingod/regicide-jobs/deep2/target_openings.txt:37","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",77
+59,30,"/home/admingod/regicide-jobs/deep2/target_openings.txt:30","Regicide 0.2","Cake 1.89f",0-1,0,"no legal moves",211
+72,36,"/home/admingod/regicide-jobs/deep2/target_openings.txt:36","Cake 1.89f","Regicide 0.2",1-0,0,"no legal moves",114
+77,39,"/home/admingod/regicide-jobs/deep2/target_openings.txt:39","Regicide 0.2","Cake 1.89f",0-1,0,"no legal moves",95
+78,39,"/home/admingod/regicide-jobs/deep2/target_openings.txt:39","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",87
+69,35,"/home/admingod/regicide-jobs/deep2/target_openings.txt:35","Regicide 0.2","Cake 1.89f",0-1,0,"no legal moves",161
+80,40,"/home/admingod/regicide-jobs/deep2/target_openings.txt:40","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",78
+75,38,"/home/admingod/regicide-jobs/deep2/target_openings.txt:38","Regicide 0.2","Cake 1.89f",0-1,0,"no legal moves",115
+81,41,"/home/admingod/regicide-jobs/deep2/target_openings.txt:41","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",68
+82,41,"/home/admingod/regicide-jobs/deep2/target_openings.txt:41","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",94
+86,43,"/home/admingod/regicide-jobs/deep2/target_openings.txt:43","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",78
+83,42,"/home/admingod/regicide-jobs/deep2/target_openings.txt:42","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",92
+74,37,"/home/admingod/regicide-jobs/deep2/target_openings.txt:37","Cake 1.89f","Regicide 0.2",1-0,0,"no legal moves",150
+79,40,"/home/admingod/regicide-jobs/deep2/target_openings.txt:40","Regicide 0.2","Cake 1.89f",0-1,0,"no legal moves",123
+90,45,"/home/admingod/regicide-jobs/deep2/target_openings.txt:45","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",78
+91,46,"/home/admingod/regicide-jobs/deep2/target_openings.txt:46","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",68
+88,44,"/home/admingod/regicide-jobs/deep2/target_openings.txt:44","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",101
+84,42,"/home/admingod/regicide-jobs/deep2/target_openings.txt:42","Cake 1.89f","Regicide 0.2",1-0,0,"no legal moves",130
+93,47,"/home/admingod/regicide-jobs/deep2/target_openings.txt:47","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",77
+87,44,"/home/admingod/regicide-jobs/deep2/target_openings.txt:44","Regicide 0.2","Cake 1.89f",0-1,0,"no legal moves",113
+85,43,"/home/admingod/regicide-jobs/deep2/target_openings.txt:43","Regicide 0.2","Cake 1.89f",0-1,0,"no legal moves",139
+96,48,"/home/admingod/regicide-jobs/deep2/target_openings.txt:48","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",65
+92,46,"/home/admingod/regicide-jobs/deep2/target_openings.txt:46","Cake 1.89f","Regicide 0.2",1-0,0,"no legal moves",132
+97,49,"/home/admingod/regicide-jobs/deep2/target_openings.txt:49","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",108
+94,47,"/home/admingod/regicide-jobs/deep2/target_openings.txt:47","Cake 1.89f","Regicide 0.2",1-0,0,"no legal moves",120
+100,50,"/home/admingod/regicide-jobs/deep2/target_openings.txt:50","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",90
+98,49,"/home/admingod/regicide-jobs/deep2/target_openings.txt:49","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",93
+99,50,"/home/admingod/regicide-jobs/deep2/target_openings.txt:50","Regicide 0.2","Cake 1.89f",0-1,0,"no legal moves",91
+89,45,"/home/admingod/regicide-jobs/deep2/target_openings.txt:45","Regicide 0.2","Cake 1.89f",0-1,0,"no legal moves",207
+95,48,"/home/admingod/regicide-jobs/deep2/target_openings.txt:48","Regicide 0.2","Cake 1.89f",0-1,0,"no legal moves",191

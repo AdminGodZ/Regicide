@@ -1,6 +1,6 @@
 # book-deep2: second, deeper pass on the ballots Cake still wins against the deep book (master 6bb8c6c)
 
-**Status (2026-11-09, pushed before the 22:00 presentation):**
+**Status (2026-11-09, pushed before the 22:00 presentation).** The candidate is **book_deep2b** (section 3).
 - **book_deep2** (150M-node pass on 5 ballots + 6 lossprobe avoid entries) is **not better overall** than the master
   book (book_deep) on those ballots: **+13.9 Elo [−7.3, +35.1]** over 300 + 300 targeted games against Cake (LOS 90%),
   **not significant**.
@@ -10,8 +10,13 @@
   - leaves Black Widow (W) unchanged (28/30 → 28/30);
   - **breaks Double Cross (W, 6/30 → 30/30)**: book2's deeper analysis switches Regicide's 2nd move from 18-14 to
     26-23, and Cake wins every game after 26-23.
-- **book_deep2b** keeps book_deep's Double Cross subtree and uses book2 only for the other 4 ballots. It was built at
-  19:31 and tested the same way until 21:12. **Results: see "book_deep2b" below.**
+- **book_deep2b** keeps book_deep's Double Cross subtree and uses book2 only for the other 4 ballots, with the same 6
+  avoid entries. **On the 5 targeted ballots against Cake it is +59.9 Elo [+46.8, +73.0] over book_deep** (600 vs 800
+  games):
+  - Regicide lost 98 of 600 games against 260 of 800;
+  - it fixes White Doctor, Wilderness II and Double Cross completely (0 losses in 60 each) and halves the #7 losses.
+  - **It is the install candidate.** The full acf156 Cake and KingsRow runs are still needed (not run, for the
+    deadline).
 - **Skipped for the deadline** (setups ready, see "Next steps"): the full acf156 Cake and KingsRow runs with the new
   book, the round-7 matches, and book_deep3 (merge with Arch's acf156 book).
 
@@ -98,14 +103,53 @@
 
 ## 3. book_deep2b: book2 without the Double Cross root
 
-*(filled in below)*
+- **Built at 19:31** (`scripts/d2b.sh`):
+  - `book2b`: `bookgen --resume book2.bin` with the 4 other roots (`logs/roots2b.txt`), `--expansions 0`. 746
+    positions.
+  - Merged into book_deep (445 positions overlapping) and re-saved with the same 6 avoid entries:
+    **`book_deep2b.bin`, 5,947 positions + 6 avoid entries**.
+  - So Double Cross keeps book_deep's line (18-14), plus the confident avoid entry 24-20 at ply 19.
+- **DLL** `6bb8c6c-deep2b-egdb8` (`logs/build_deep2b.txt`): bench 7,712,020 with the book on, 8,089,571 with
+  `set book off`; `dbpieces` 8, book mode 3, avoid list 6.
+- **Test:** the same targeted test, alternating book_deep2b (`tests/d2bt1`–`d2bt6`) with the master book_deep
+  (`tests/d1t4`–`d1t8`), 19:36–21:05.
+
+| Book | Runs | W / D / L | Elo vs Cake on the 5 ballots [95% CI] |
+|---|---|---|---|
+| **book_deep2b** | 6 (600 games) | 0 / 502 / **98** | **−57.3 [−66.7, −47.8]** |
+| book_deep (all 8 runs) | 8 (800 games) | 0 / 540 / 260 | −117.2 [−126.3, −108.1] |
+| book_deep2 (for reference) | 3 (300 games) | 0 / 219 / 81 | −96.2 [−111.2, −81.2] |
+
+**book_deep2b − book_deep: +59.9 Elo [+46.8, +73.0]** (LOS 100%). Against the 5 interleaved book_deep runs only, it is
++64.2 [+49.3, +79.0] (`pool_targeted_2b.txt`).
+
+**Per ballot** (Regicide's losses / games; `per_ballot.txt`):
+
+| Ballot | Regicide as | book_deep (8 runs) | book_deep2 (3 runs) | **book_deep2b (6 runs)** |
+|---|---|---|---|---|
+| ACF #7 | B | 78 / 80 | 22 / 30 | **39 / 60** |
+| Wilderness II | B | 25 / 80 | 1 / 30 | **0 / 60** |
+| White Doctor | B | 59 / 80 | 0 / 30 | **0 / 60** |
+| Black Widow | W | 78 / 80 | 28 / 30 | 59 / 60 |
+| **Double Cross** | W | 20 / 80 | 30 / 30 | **0 / 60** |
+
+- **book_deep2b fixes three ballots completely** (Wilderness II, White Doctor, Double Cross) and halves the #7 losses.
+  - **Double Cross:** with book_deep's line plus the new avoid entry (24-20 at ply 19, the move lossprobe blamed in
+    that line), it went from 20/80 to 0/60.
+  - **Black Widow (W)** stays lost almost every time. lossprobe found no confident blame there.
+- **Caveat:** these games repeat a few lines many times, so the effective sample is small and the CI is optimistic. But
+  the per-ballot changes are large and consistent across every run.
+- **book_deep2b is the install candidate.** What remains for the embed condition: one full acf156 run against Cake
+  (not worse than the book_deep on-runs, −4.5) and one against KingsRow, with DLL `6bb8c6c-deep2b-egdb8`. These were
+  skipped for the deadline.
 
 ## Next steps (setups ready)
 
-1. **Install candidate:**
-   - If book_deep2b passes on the targeted ballots, run the full acf156 runs vs Cake and vs KingsRow with it (`run_ba3.sh
-     6bb8c6c-deep2b-egdb8 <tag> cake|kingsrow 0.5`). Compare with the book_deep on-runs (`pool.py`).
-   - Embed condition: targeted CI lower bound > 0; full Cake and KingsRow not worse.
+1. **Install candidate book_deep2b:** it passed the targeted condition (+59.9 [+46.8, +73.0]).
+   - Next, run the full acf156 runs vs Cake and vs KingsRow with it: `run_ba3.sh 6bb8c6c-deep2b-egdb8 <tag>
+     cake|kingsrow 0.5` in an attached `wsl.exe`.
+   - Compare with the book_deep on-runs (Cake −4.5 pooled over 3 runs; KingsRow −0.0) using `pool.py`.
+   - Embed if neither is worse.
 2. **Black Widow (W) and #7 (B)** remain the worst cases. Ideas:
    - lossprobe at a longer movetime on the Black Widow losses (all 3 unclear at 30 s);
    - a book2-style pass only on #7 with more expansions;
@@ -116,7 +160,7 @@
 
 ## Files
 
-- `book2.bin`, `book_deep2.bin` (`book_deep2b.bin` added below), `avoid2.bin`, `roots2.txt`, `ballots2.txt`,
+- `book2.bin`, `book_deep2.bin`, `book2b.bin`, **`book_deep2b.bin`** (the candidate), `avoid2.bin`, `roots2.txt`, `ballots2.txt`,
   `target_openings.txt`
 - `losses_bookon.pdn`, `report2.txt`
 - `logs/`: `build_6bb8c6c.txt`, `lossprobe.log`, `calib.log`, `main.log`, `merge.log`, `finalize.log`,
