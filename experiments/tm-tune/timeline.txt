@@ -1,0 +1,17 @@
+TM old chain (9841716, T1-T4) cancelled before start: replaced by tm_chain2 on b88c02e (T1-T6) 2026-11-08T22:50:43+01:00
+TM chain2 start (b88c02e); matchlock taken: datagen-eb1037c:T datagen-635d949:T  2026-11-08T23:34:49+01:00
+TM start T1 (tm_drop=25,tm_drop_factor=200) vs default at 0.1 s/move 2026-11-08T23:34:49+01:00
+TM end T1 0.1 s rc=0 Elo (pentanomial, pairs): -0.9 [-4.4, +2.6] 95% CI, score 0.4988 +- 0.0050, LOS 31.38% 2026-11-08T23:45:44+01:00
+TM start T2 (tm_drop=50,tm_drop_factor=250) vs default at 0.1 s/move 2026-11-08T23:45:44+01:00
+TM end T2 0.1 s rc=0 Elo (pentanomial, pairs): -1.3 [-4.4, +1.8] 95% CI, score 0.4981 +- 0.0045, LOS 20.70% 2026-11-08T23:56:31+01:00
+TM start T3 (tm_soft=80) vs default at 0.1 s/move 2026-11-08T23:56:31+01:00
+TM end T3 0.1 s rc=0 Elo (pentanomial, pairs): -1.7 [-5.5, +2.1] 95% CI, score 0.4975 +- 0.0054, LOS 18.54% 2026-11-09T00:07:28+01:00
+TM start T4 (tm_soft=45) vs default at 0.1 s/move 2026-11-09T00:07:28+01:00
+TM end T4 0.1 s rc=0 Elo (pentanomial, pairs): -3.2 [-6.7, +0.3] 95% CI, score 0.4953 +- 0.0050, LOS 3.52% 2026-11-09T00:17:40+01:00
+TM start T5 (tm_open_pieces=18,tm_open_factor=175) vs default at 0.1 s/move 2026-11-09T00:17:40+01:00
+TM end T5 0.1 s rc=0 Elo (pentanomial, pairs): -3.7 [-7.2, -0.2] 95% CI, score 0.4947 +- 0.0050, LOS 2.01% 2026-11-09T00:28:24+01:00
+TM start T6 (tm_open_pieces=20,tm_open_factor=250) vs default at 0.1 s/move 2026-11-09T00:28:24+01:00
+TM end T6 0.1 s rc=0 Elo (pentanomial, pairs): +1.3 [-2.7, +5.3] 95% CI, score 0.5019 +- 0.0058, LOS 73.65% 2026-11-09T00:39:14+01:00
+TM STAGE1_DONE 2026-11-09T00:39:14+01:00
+TM STAGE2_DONE confirmed: none best:none; best tm_open variant at 0.1 s: T6 2026-11-09T00:39:14+01:00
+TM TM_ALL_DONE 2026-11-09T01:03:19+01:00

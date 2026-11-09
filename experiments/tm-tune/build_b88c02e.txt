@@ -1,0 +1,31 @@
+eval.bin 954892 embedded at 891025
+net.bin 298828 embedded at 1845921
+book.bin 0 embedded at (empty)
+egdb copy identical
+commit b88c02e9f71cb5304f76c1f464439774cbb37a20
+built 2026-11-08T22:49:53+01:00 with clang version 23.1.5 (https://github.com/llvm/llvm-project.git 392dfff97d29b59d77e5cac6d4b6ef2585fe7117)
+toolchain file: tools-src/tools/windows/mingw-clang.cmake
+egdb: full copy of ~/regicide-data/egdb (2-7 pieces) in egdb/
+-- regicide.exe bench (Windows)
+bench: 7338658 nodes 2055 ms 3571123 nps
+-- linux bench
+bench: 7338658 nodes 2196 ms 3341829 nps
+installed /mnt/c/regicide-match/engines/regicide/b88c02e-egdb8
+-- linux ctest
+100% tests passed out of 13
+
+Total Test time (real) =   4.61 sec
+-- set param through the Linux .so (cbhost)
+id name Regicide 0.2
+id protocol cbhost 1
+ready
+reply 1 8
+reply 1 tm_drop=25,tm_drop_factor=200
+reply 1 tm_open_pieces=18,tm_open_factor=175
+reply 0 ?
+-- set param through the Windows DLL (cbhost.exe)
+id name Regicide 0.2
+id protocol cbhost 1
+ready
+reply 1 8
+reply 1 tm_soft=80
