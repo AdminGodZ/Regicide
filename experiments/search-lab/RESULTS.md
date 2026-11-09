@@ -113,3 +113,17 @@ What limits the scaling:
 - **The depth-skip pattern is the best of the three tried**: without skipping, or with odd helpers one ply deeper, the
   helpers duplicate more of the main thread's work (×1.6–1.7 nodes) and time-to-depth falls to ~×1.9.
 - The result always comes from thread 0 (`smp_vote` tests this in play).
+
+## Part B: screens (new set, 300 ms × 800 pairs, 2–7 piece database)
+
+A = the switch on, B = defaults; `selfplay-lab2 --movetime 300 --threads 16 --book books/uho1600.txt --egdb …`.
+✓ = ≥ +5 Elo with the CI lower bound > 0 (goes to the 1000 ms × 400 pairs confirmation). Columns: draws, Elo [95% CI],
+pentanomial, pairs, ± scaled to 800 pairs, t, mean time / depth per move (A / B).
+
+B6 is played in `--target 300` mode (no `--movetime`), with tm_nodes set for equal average time per move. Short
+calibration runs (60 pairs each): tm_nodes 150 → A 104.8 ms vs B 138.3 ms; 170 → 130.3 vs 140.8; 190 → 154.5 vs
+138.8. Interpolated equal time at ≈ 178.
+
+| test | W / D / L | draws | Elo [95% CI] | penta | pairs | ± per 800 | t | time A / B |
+|---|---|---|---|---|---|---|---|---|
+| B1 hash_first_db=90 | 607 / 370 / 623 | 23.1% | -3.5 [-8.2, +1.3] | 0 71 674 55 0 | 800 | ±4.8 | -1.44 | 199.8 / 199.7 ms, d 15.24 / 15.27 |

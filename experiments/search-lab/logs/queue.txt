@@ -12,4 +12,5 @@ b4_nosafe1|selfplay-lab2|nosafe_ext=1|300|800||--egdb /home/admingod/regicide-da
 b5_double30|selfplay-lab2|se_double=30|300|800||--egdb /home/admingod/regicide-data/egdb --book books/uho1600.txt
 b5_neg|selfplay-lab2|se_neg=1|300|800||--egdb /home/admingod/regicide-data/egdb --book books/uho1600.txt
 b7_tteval|selfplay-lab2|tt_eval=1|300|800||--egdb /home/admingod/regicide-data/egdb --book books/uho1600.txt
+b6_tmnodes178|selfplay-lab2|tm_nodes=178|0|800||--target 300 --egdb /home/admingod/regicide-data/egdb --book books/uho1600.txt
 b8_lmr80|selfplay-lab2|lmr_base=80|300|1600||--egdb /home/admingod/regicide-data/egdb --book books/uho1600.txt
