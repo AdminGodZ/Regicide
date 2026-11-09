@@ -16,7 +16,8 @@ off −12.3, avoid −12.3, book+avoid −14.5).
 - **The existing avoid list does not cover these mistakes.** Only 2 of the 24 new blamed pairs are in avoid_v1, and
   avoid_v1 had no effect on the Cake score. Cake keeps finding new early mistakes, mostly in ballots that are hard
   for Black.
-- **Cake at 2 s/move:** see the section below (added when finished).
+- **Cake at 2 s/move: −10.0 [−16.4, −3.7]** (0/303/9) vs −12.3 at 0.5 s. The gap hardly shrinks with 4× the time,
+  unlike KingsRow.
 
 ## 1. The losses
 
@@ -90,9 +91,32 @@ lossprobe --pdn cake_losses_769ef0b.pdn --movetime 10000 --threads 6 --jobs 2 --
 stronger fix would be a deeper opening book for these ballots, analysed at much more than 1M nodes per move, or more
 search in the first 10 moves after the ballot.
 
-## 3. Cake at 2 s/move
+## 3. Cake at 2 s/move, and a 0.5 s repeat
 
-*(running)*
+Both runs use the same DLL as the 0.5 s runs: 769ef0b, 2–8 EGDB, no book or avoid list. Settings are acf156, 312
+games and `-c 8` (`off-769-2s-cake/`, `off-769b-cake/`).
+
+| Run | W / D / L | Elo [95% CI] | Pentanomial | Losses as Black |
+|---|---|---|---|---|
+| 0.5 s off (`results/book-avoid-769ef0b/off-cake`) | 0 / 301 / 11 | −12.3 [−19.2, −5.3] | [0 11 145 0 0] | 10 of 11 |
+| **0.5 s off, repeat** | 0 / 301 / 11 | **−12.3** [−19.2, −5.3] | [0 11 145 0 0] | 9 of 11 |
+| **2 s off** | 0 / 303 / 9 | **−10.0** [−16.4, −3.7] | [0 9 147 0 0] | 8 of 9 |
+
+- **The Cake gap hardly shrinks with 4× the time.** It goes from −12.3 to −10.0, both CIs well below 0. Against
+  KingsRow, the same step went from −4.5 to −1.1, and to 0.0 with the 8-piece database and avoid list.
+- This fits section 2. **The losing mistakes are early and small**, so 4× the search time does not find them. Cake's
+  edge here looks like opening knowledge, through its own book and evaluation, not search depth.
+- **8 of the 9 ballots lost at 2 s were also lost at 0.5 s:** Inferno, ACF #31, Gemini I, White Doctor, #79, #90,
+  #143, #154 as Black, and Black Widow as White. The repeat at 0.5 s lost Inferno, Edinburgh Single, Wilderness I,
+  #14, Wilderness II, Gemini I, White Doctor, #85 and Tyne as Black, and Double Cross and #129 as White.
+- **Run times:** 2 s 22:36–23:22 (46 min; many moves are instant database moves); repeat 23:22–23:34.
+- **Background:**
+  - 2 s run: gen5a datagen (50k nodes, 12 threads) until it finished at 22:40, then nothing.
+  - Repeat: nothing for its first minute, then gen5c (the same 50k-node datagen, seed 62) from 23:23. The first 0.5 s
+    run had bookgen in the background, so two different backgrounds gave the identical −12.3.
+
+**Next** (per the plan): a deep opening book targeted at exactly these ballots (`t3/book-deep`), and an
+opening-time-management test against Cake (`t3/tm-tune`).
 
 ## Files
 
