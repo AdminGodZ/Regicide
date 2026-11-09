@@ -93,6 +93,7 @@ struct SearchParams {
     int tt_eval = 0;            // B7: hash score as the eval for pruning when its bound allows
     int smp_vote = 0;           // C: take the result from the best thread (depth and score) instead of thread 0
     int smp_skip = 0;           // C: helper depth-skip pattern (0 = default, 1 = none, 2 = odd/even)
+    int tt_skip_same = 0;       // C: hash table does not rewrite unchanged entries
 
     // Sets a parameter by name; returns false for an unknown name.
     bool set(const std::string& name, int value);

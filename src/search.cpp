@@ -648,6 +648,7 @@ bool SearchParams::set(const std::string& name, int value) {
         {"se_double_cap", &SearchParams::se_double_cap},   {"se_neg", &SearchParams::se_neg},
         {"tm_nodes", &SearchParams::tm_nodes},             {"tt_eval", &SearchParams::tt_eval},
         {"smp_vote", &SearchParams::smp_vote},             {"smp_skip", &SearchParams::smp_skip},
+        {"tt_skip_same", &SearchParams::tt_skip_same},
     };
     for (const auto& e : table)
         if (name == e.name) {
@@ -752,6 +753,7 @@ std::optional<std::pair<Move, Score>> Engine::egdb_root_move(const Position& roo
 SearchResult Engine::go(const Limits& limits, InfoFn on_info) {
     init_lmr(params);
     stop_ = false;
+    tt_.skip_same = params.tt_skip_same != 0;
     tt_.new_search();
 
     TimeControl tc;

@@ -1,0 +1,8 @@
+positions 60 threads 1 params "": nodes 43431974 ms 14095 nps 3081375 mean_depth 18.65 mean_ms 234.9 tbhits 1246852
+positions 60 threads 1 params "leaf_cache=16": nodes 45302472 ms 14085 nps 3216363 mean_depth 18.78 mean_ms 234.8 tbhits 1365077
+positions 60 threads 1 params "leaf_cache=18": nodes 45798297 ms 14104 nps 3247185 mean_depth 18.85 mean_ms 235.1 tbhits 1397225
+positions 60 threads 1 params "leaf_tt=1": nodes 44351410 ms 13883 nps 3194656 mean_depth 18.80 mean_ms 231.4 tbhits 1304622
+positions 60 threads 1 params "": nodes 43255697 ms 14055 nps 3077602 mean_depth 18.63 mean_ms 234.2 tbhits 1228822
+positions 60 threads 1 params "leaf_cache=16": nodes 45403846 ms 14043 nps 3233201 mean_depth 18.80 mean_ms 234.1 tbhits 1337954
+positions 60 threads 1 params "leaf_cache=18": nodes 45547117 ms 13989 nps 3255924 mean_depth 18.83 mean_ms 233.2 tbhits 1387119
+positions 60 threads 1 params "leaf_tt=1": nodes 44200053 ms 13918 nps 3175747 mean_depth 18.78 mean_ms 232.0 tbhits 1304490

@@ -100,6 +100,9 @@ void TranspositionTable::store(Key key, int score, int eval, int depth, Bound bo
     }
     TTData d{move, std::int16_t(score), std::int16_t(eval), std::int8_t(depth), bound};
     const std::uint64_t data = pack(d, generation_);
+    if (skip_same && victim->data.load(std::memory_order_relaxed) == data &&
+        (victim->check.load(std::memory_order_relaxed) ^ data) == key)
+        return;
     victim->check.store(key ^ data, std::memory_order_relaxed);
     victim->data.store(data, std::memory_order_relaxed);
 }

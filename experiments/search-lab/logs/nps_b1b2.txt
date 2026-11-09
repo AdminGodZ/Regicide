@@ -1,0 +1,10 @@
+positions 100 threads 1 params "": nodes 70147046 ms 18833 nps 3724688 mean_depth 26.70 mean_ms 188.3 tbhits 8134189
+positions 100 threads 1 params "hash_first_db=90": nodes 70545630 ms 18920 nps 3728627 mean_depth 26.69 mean_ms 189.2 tbhits 4332810
+positions 100 threads 1 params "hash_first_db=1": nodes 70433812 ms 18927 nps 3721341 mean_depth 26.69 mean_ms 189.3 tbhits 4292470
+positions 100 threads 1 params "leaf_cache=16": nodes 75964689 ms 18732 nps 4055343 mean_depth 26.95 mean_ms 187.3 tbhits 8792792
+positions 100 threads 1 params "leaf_tt=1": nodes 75143460 ms 18633 nps 4032816 mean_depth 26.91 mean_ms 186.3 tbhits 8681309
+positions 100 threads 1 params "": nodes 70186894 ms 18915 nps 3710647 mean_depth 26.70 mean_ms 189.2 tbhits 8132706
+positions 100 threads 1 params "hash_first_db=90": nodes 70071236 ms 18975 nps 3692819 mean_depth 26.66 mean_ms 189.8 tbhits 4286230
+positions 100 threads 1 params "hash_first_db=1": nodes 70302413 ms 18942 nps 3711457 mean_depth 26.68 mean_ms 189.4 tbhits 4288047
+positions 100 threads 1 params "leaf_cache=16": nodes 75750965 ms 18641 nps 4063675 mean_depth 26.94 mean_ms 186.4 tbhits 8738790
+positions 100 threads 1 params "leaf_tt=1": nodes 75628369 ms 18709 nps 4042352 mean_depth 26.93 mean_ms 187.1 tbhits 8692510

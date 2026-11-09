@@ -21,6 +21,7 @@ int main(int argc, char** argv) {
     bool verbose = false;
     Limits limits;
     int egdb_pieces = 0;
+    int ttd = 0;  // time to depth: search without a depth limit and stop when the main thread completes this depth
     for (int i = 1; i < argc; ++i) {
         std::string k = argv[i];
         auto next = [&]() -> std::string { return i + 1 < argc ? argv[++i] : ""; };
@@ -30,6 +31,7 @@ int main(int argc, char** argv) {
         else if (k == "--hash") hash_mb = std::stoull(next());
         else if (k == "--params") params = next();
         else if (k == "--depth") limits.depth = std::stoi(next());
+        else if (k == "--ttd") ttd = std::stoi(next());
         else if (k == "--movetime") limits.movetime_ms = std::stoi(next());
         else if (k == "--nodes") limits.nodes = std::stoull(next());
         else if (k == "--egdb") {
@@ -72,7 +74,12 @@ int main(int argc, char** argv) {
         e.new_game();
         e.set_position(list[i]);
         std::uint64_t tb = 0;
-        const SearchResult r = e.go(limits, [&](const SearchInfo& info) { tb = info.tbhits; });
+        bool reached = false;
+        e.set_stop_poll([&] { return reached; });
+        const SearchResult r = e.go(limits, [&](const SearchInfo& info) {
+            tb = info.tbhits;
+            if (ttd && info.depth >= ttd) reached = true;
+        });
         nodes += r.nodes;
         ms += r.time_ms;
         tbhits += tb;

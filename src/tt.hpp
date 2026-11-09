@@ -45,6 +45,7 @@ public:
     void store(Key key, int score, int eval, int depth, Bound bound, TTMove move);
     void prefetch(Key key) const { __builtin_prefetch(&buckets_[index(key)]); }
     int hashfull() const;  // permille of entries from the current search
+    bool skip_same = false;  // don't rewrite an entry whose content would not change (less cache-line traffic)
 
 private:
     struct Entry {

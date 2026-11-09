@@ -1,0 +1,4 @@
+positions 50 threads 1 params "": nodes 71369814 ms 25392 nps 2810720 mean_depth 20.00 mean_ms 507.8 tbhits 2041194
+positions 50 threads 2 params "": nodes 71152506 ms 16395 nps 4339891 mean_depth 20.00 mean_ms 327.9 tbhits 2046828
+positions 50 threads 4 params "": nodes 92347722 ms 9788 nps 9434790 mean_depth 20.00 mean_ms 195.8 tbhits 2680197
+positions 50 threads 8 params "": nodes 99938960 ms 6210 nps 16093230 mean_depth 20.00 mean_ms 124.2 tbhits 2872215
