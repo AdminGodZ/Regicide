@@ -1,0 +1,33 @@
+book_deep2: 3 runs; Regicide losses / games per ballot and colour:
+   ACF #153 Black Widow     B    0 /  30
+   ACF #153 Black Widow     W   28 /  30
+   ACF #16 Wilderness II    B    1 /  30
+   ACF #16 Wilderness II    W    0 /  30
+   ACF #46 Double Cross     B    0 /  30
+   ACF #46 Double Cross     W   30 /  30
+   ACF #68 White Doctor     B    0 /  30
+   ACF #68 White Doctor     W    0 /  30
+   ACF #7                   B   22 /  30
+   ACF #7                   W    0 /  30
+book_deep2b: 6 runs; Regicide losses / games per ballot and colour:
+   ACF #153 Black Widow     B    0 /  60
+   ACF #153 Black Widow     W   59 /  60
+   ACF #16 Wilderness II    B    0 /  60
+   ACF #16 Wilderness II    W    0 /  60
+   ACF #46 Double Cross     B    0 /  60
+   ACF #46 Double Cross     W    0 /  60
+   ACF #68 White Doctor     B    0 /  60
+   ACF #68 White Doctor     W    0 /  60
+   ACF #7                   B   39 /  60
+   ACF #7                   W    0 /  60
+book_deep: 8 runs; Regicide losses / games per ballot and colour:
+   ACF #153 Black Widow     B    0 /  80
+   ACF #153 Black Widow     W   78 /  80
+   ACF #16 Wilderness II    B   25 /  80
+   ACF #16 Wilderness II    W    0 /  80
+   ACF #46 Double Cross     B    0 /  80
+   ACF #46 Double Cross     W   20 /  80
+   ACF #68 White Doctor     B   59 /  80
+   ACF #68 White Doctor     W    0 /  80
+   ACF #7                   B   78 /  80
+   ACF #7                   W    0 /  80

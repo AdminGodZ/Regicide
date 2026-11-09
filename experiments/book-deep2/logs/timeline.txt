@@ -1,0 +1,55 @@
+D2_BUILD_DONE 2026-11-09T12:21:11+01:00
+D2 chain start 2026-11-09T12:23:23+01:00
+D2 roots2: 5 roots; targeted openings 50 lines (10-14 22-18 12-16|11-16 23-19 16x23|9-13 22-18 10-15|9-13 23-18 11-16|9-14 23-18 14x23|) 2026-11-09T12:23:23+01:00
+D2 lossprobe start: 12 games, movetime 30000, threads 6, jobs 2, drop 50, margin 40 2026-11-09T12:23:23+01:00
+D2 lossprobe end rc=0 summary: 12 games, 12 losses analysed, 8 blamed, 4 unclear, 0 errors; /home/admingod/regicide-jobs/deep2/avoid2.bin: 6 avoid entries (0 merged from -) 2026-11-09T13:40:26+01:00
+D2 book2 calibration start: --roots roots2.txt --nodes 150000000 --expansions 80 --threads 20 2026-11-09T13:40:26+01:00
+D2 book2 calibration done in 2520 s (roots analysed after 366 s; 106 expansions in 2154 s = 0.0492108/s) -> main --expansions 673 2026-11-09T14:22:26+01:00
+D2 book2 main start: --resume book2.bin --roots roots2.txt --nodes 150000000 --expansions 673 --threads 20 2026-11-09T14:22:26+01:00
+PLAN 22:00 deadline: round-7 matches and book_deep3 cancelled before start (setups kept); deep2 full Cake/KingsRow runs will be skipped 2026-11-09T17:05:29+01:00
+D2 book2 main end rc=0 wrote /home/admingod/regicide-data/book/book2.bin with 831 positions 2026-11-09T18:36:54+01:00
+D2 merge: base: 32541 entries / 5646 positions; ext: 4950 entries / 831 positions; overlapping positions 523; merged: 34335 entries / 5954 positions (4950 entries from ext), avoid 0 2026-11-09T18:36:54+01:00
+D2 book_deep2: rc=0 avoid list: 6 entries resumed 5954 positions wrote /home/admingod/regicide-data/book/book_deep2.bin with 5954 positions  2026-11-09T18:36:54+01:00
+D2 DLL built: bench: 7712020 nodes 1960 ms 3934704 nps bench: 7712020 nodes 2351 ms 3280314 nps bench: 8089571 nodes 2059 ms 3928883 nps reply 1 8 reply 1 3 reply 1 6  2026-11-09T18:41:29+01:00
+BA start d2t1 cake movetime 0.5 openings /home/admingod/regicide-jobs/deep2/target_openings.txt dll 6bb8c6c-deep2-egdb8; bg: datagen-eb1037c:T  2026-11-09T18:41:29+01:00
+BA end d2t1 cake rc=0 Elo (pentanomial, pairs): -96.2 [-122.7, -70.8] 95% CI, score 0.3650 +- 0.0345, LOS 0.00% 2026-11-09T18:49:00+01:00
+BA start d1t1 cake movetime 0.5 openings /home/admingod/regicide-jobs/deep2/target_openings.txt dll 6bb8c6c-egdb8; bg: datagen-eb1037c:T  2026-11-09T18:49:00+01:00
+BA end d1t1 cake rc=0 Elo (pentanomial, pairs): -111.4 [-137.9, -86.1] 95% CI, score 0.3450 +- 0.0336, LOS 0.00% 2026-11-09T18:57:13+01:00
+BA start d2t2 cake movetime 0.5 openings /home/admingod/regicide-jobs/deep2/target_openings.txt dll 6bb8c6c-deep2-egdb8; bg: datagen-eb1037c:T  2026-11-09T18:57:14+01:00
+BA end d2t2 cake rc=0 Elo (pentanomial, pairs): -100.0 [-126.5, -74.5] 95% CI, score 0.3600 +- 0.0344, LOS 0.00% 2026-11-09T19:05:32+01:00
+BA start d1t2 cake movetime 0.5 openings /home/admingod/regicide-jobs/deep2/target_openings.txt dll 6bb8c6c-egdb8; bg: datagen-eb1037c:T  2026-11-09T19:05:32+01:00
+BA end d1t2 cake rc=0 Elo (pentanomial, pairs): -119.1 [-145.4, -94.1] 95% CI, score 0.3350 +- 0.0328, LOS 0.00% 2026-11-09T19:13:25+01:00
+BA start d2t3 cake movetime 0.5 openings /home/admingod/regicide-jobs/deep2/target_openings.txt dll 6bb8c6c-deep2-egdb8; bg: datagen-eb1037c:T  2026-11-09T19:13:25+01:00
+BA end d2t3 cake rc=0 Elo (pentanomial, pairs): -92.5 [-118.8, -67.1] 95% CI, score 0.3700 +- 0.0346, LOS 0.00% 2026-11-09T19:21:02+01:00
+BA start d1t3 cake movetime 0.5 openings /home/admingod/regicide-jobs/deep2/target_openings.txt dll 6bb8c6c-egdb8; bg: datagen-eb1037c:T  2026-11-09T19:21:02+01:00
+BA end d1t3 cake rc=0 Elo (pentanomial, pairs): -100.0 [-126.5, -74.5] 95% CI, score 0.3600 +- 0.0344, LOS 0.00% 2026-11-09T19:29:28+01:00
+D2 TARGETED_DONE 2026-11-09T19:29:28+01:00
+D2 d2_chain stopped after the targeted pairs (full Cake/KingsRow runs skipped for the 22:00 deadline) 2026-11-09T19:29:36+01:00
+BA start d2t4 cake movetime 0.5 openings /home/admingod/regicide-jobs/deep2/target_openings.txt dll 6bb8c6c-deep2-egdb8; bg: datagen-eb1037c:T  2026-11-09T19:29:36+01:00
+D2 interrupted run set aside: ba-d2t4-cake 2026-11-09T19:31:37+01:00
+D2 d2_extend stopped; building book_deep2b (book2 without the Double Cross root) 2026-11-09T19:31:37+01:00
+D2 book_deep2b: roots2b 4; book2b wrote /home/admingod/regicide-data/book/book2b.bin with 746 positions; merge base: 32541 entries / 5646 positions; ext: 4429 entries / 746 positions; overlapping positions 445; merged: 34296 entries / 5947 positions (4429 entries from ext), avoid 0; avoid list: 6 entries wrote /home/admingod/regicide-data/book/book_deep2b.bin with 5947 positions  2026-11-09T19:31:38+01:00
+D2 DLL deep2b built: bench: 7712020 nodes 1975 ms 3904820 nps bench: 7712020 nodes 2007 ms 3842561 nps bench: 8089571 nodes 2082 ms 3885480 nps reply 1 8 reply 1 3 reply 1 6  2026-11-09T19:35:40+01:00
+BA start d2bt1 cake movetime 0.5 openings /home/admingod/regicide-jobs/deep2/target_openings.txt dll 6bb8c6c-deep2b-egdb8; bg: datagen-eb1037c:T  2026-11-09T19:35:40+01:00
+BA end d2bt1 cake rc=0 Elo (pentanomial, pairs): -52.5 [-75.3, -30.1] 95% CI, score 0.4250 +- 0.0318, LOS 0.00% 2026-11-09T19:43:36+01:00
+BA start d1t4 cake movetime 0.5 openings /home/admingod/regicide-jobs/deep2/target_openings.txt dll 6bb8c6c-egdb8; bg: datagen-eb1037c:T  2026-11-09T19:43:36+01:00
+BA end d1t4 cake rc=0 Elo (pentanomial, pairs): -115.2 [-141.7, -90.0] 95% CI, score 0.3400 +- 0.0333, LOS 0.00% 2026-11-09T19:52:13+01:00
+BA start d2bt2 cake movetime 0.5 openings /home/admingod/regicide-jobs/deep2/target_openings.txt dll 6bb8c6c-deep2b-egdb8; bg: datagen-eb1037c:T  2026-11-09T19:52:13+01:00
+BA end d2bt2 cake rc=0 Elo (pentanomial, pairs): -59.6 [-83.4, -36.4] 95% CI, score 0.4150 +- 0.0328, LOS 0.00% 2026-11-09T20:00:18+01:00
+BA start d1t5 cake movetime 0.5 openings /home/admingod/regicide-jobs/deep2/target_openings.txt dll 6bb8c6c-egdb8; bg: datagen-eb1037c:T  2026-11-09T20:00:18+01:00
+BA end d1t5 cake rc=0 Elo (pentanomial, pairs): -127.0 [-152.8, -102.4] 95% CI, score 0.3250 +- 0.0318, LOS 0.00% 2026-11-09T20:08:59+01:00
+BA start d2bt3 cake movetime 0.5 openings /home/admingod/regicide-jobs/deep2/target_openings.txt dll 6bb8c6c-deep2b-egdb8; bg: datagen-eb1037c:T  2026-11-09T20:08:59+01:00
+BA end d2bt3 cake rc=0 Elo (pentanomial, pairs): -59.6 [-83.4, -36.4] 95% CI, score 0.4150 +- 0.0328, LOS 0.00% 2026-11-09T20:16:29+01:00
+BA start d1t6 cake movetime 0.5 openings /home/admingod/regicide-jobs/deep2/target_openings.txt dll 6bb8c6c-egdb8; bg: datagen-eb1037c:T  2026-11-09T20:16:30+01:00
+BA end d1t6 cake rc=0 Elo (pentanomial, pairs): -123.0 [-149.1, -98.2] 95% CI, score 0.3300 +- 0.0323, LOS 0.00% 2026-11-09T20:24:58+01:00
+BA start d2bt4 cake movetime 0.5 openings /home/admingod/regicide-jobs/deep2/target_openings.txt dll 6bb8c6c-deep2b-egdb8; bg: datagen-eb1037c:T  2026-11-09T20:24:58+01:00
+BA end d2bt4 cake rc=0 Elo (pentanomial, pairs): -56.1 [-79.4, -33.2] 95% CI, score 0.4200 +- 0.0323, LOS 0.00% 2026-11-09T20:32:34+01:00
+BA start d1t7 cake movetime 0.5 openings /home/admingod/regicide-jobs/deep2/target_openings.txt dll 6bb8c6c-egdb8; bg: datagen-eb1037c:T  2026-11-09T20:32:34+01:00
+BA end d1t7 cake rc=0 Elo (pentanomial, pairs): -115.2 [-141.7, -90.0] 95% CI, score 0.3400 +- 0.0333, LOS 0.00% 2026-11-09T20:41:02+01:00
+BA start d2bt5 cake movetime 0.5 openings /home/admingod/regicide-jobs/deep2/target_openings.txt dll 6bb8c6c-deep2b-egdb8; bg: datagen-eb1037c:T  2026-11-09T20:41:02+01:00
+BA end d2bt5 cake rc=0 Elo (pentanomial, pairs): -56.1 [-79.4, -33.2] 95% CI, score 0.4200 +- 0.0323, LOS 0.00% 2026-11-09T20:48:55+01:00
+BA start d1t8 cake movetime 0.5 openings /home/admingod/regicide-jobs/deep2/target_openings.txt dll 6bb8c6c-egdb8; bg: datagen-eb1037c:T  2026-11-09T20:48:55+01:00
+BA end d1t8 cake rc=0 Elo (pentanomial, pairs): -127.0 [-152.8, -102.4] 95% CI, score 0.3250 +- 0.0318, LOS 0.00% 2026-11-09T20:57:38+01:00
+BA start d2bt6 cake movetime 0.5 openings /home/admingod/regicide-jobs/deep2/target_openings.txt dll 6bb8c6c-deep2b-egdb8; bg: datagen-eb1037c:T  2026-11-09T20:57:38+01:00
+BA end d2bt6 cake rc=0 Elo (pentanomial, pairs): -59.6 [-83.4, -36.4] 95% CI, score 0.4150 +- 0.0328, LOS 0.00% 2026-11-09T21:05:23+01:00
+D2 D2B_DONE: 6 deep2b runs 2026-11-09T21:05:23+01:00
