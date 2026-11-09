@@ -19,6 +19,7 @@ engine's own rules (booklab_replay, built from tools/booklab/replay.cpp) and sto
       mover's positions in game N (see WP5a)
 """
 import argparse
+import csv
 import os
 import re
 import sqlite3
@@ -26,6 +27,30 @@ import subprocess
 import sys
 
 TOP = ("cake", "kingsrow", "guinn")
+
+
+_ACF = None
+
+
+def acf_name(moves):
+    """ACF deck name ('ACF #7', 'ACF #153 Black Widow') for a ballot move string, from tools/match/openings.cpp."""
+    global _ACF
+    if _ACF is None:
+        _ACF = {}
+        src = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "match", "openings.cpp")
+        if not os.path.exists(src):
+            src = os.path.expanduser("~/regicide-booklab/tools/match/openings.cpp")
+        for m in re.finditer(r'\{(\d+), "([^"]+)", \'(.)\', (?:"([^"]+)"|nullptr)\}', open(src).read()):
+            _ACF[m.group(2)] = f"ACF #{m.group(1)}" + (f" {m.group(4)}" if m.group(4) else "")
+    return _ACF.get(" ".join(moves.split()), moves)
+
+
+def ballot_of(opening_tag):
+    """(name, moves, nplies) of a match-runner Opening tag ('ACF #7: 9-13 22-18 10-15' or 'file:3: 9-13 ...')."""
+    if ": " not in opening_tag:
+        return opening_tag, "", 0
+    mv = opening_tag.rsplit(": ", 1)[1].strip()
+    return acf_name(mv), mv, len(mv.split())
 
 
 def family(name):
@@ -160,8 +185,7 @@ def build(args):
             b, w = tags.get("Black", "?"), tags.get("White", "?")
             res = {"1-0": "B", "0-1": "W", "1/2-1/2": "D"}.get(tags.get("Result", ""), "?")
             op = tags.get("Opening", "")
-            ballot = op.rsplit(": ", 1)[0] if ": " in op else op
-            nopen = len(op.rsplit(": ", 1)[1].split()) if ": " in op else 0
+            ballot, _, nopen = ballot_of(op)
             fen = tags.get("FEN", "")
             info = []
             bf, wf = family(b), family(w)
@@ -246,6 +270,123 @@ def alts(args):
             break
 
 
+def side_at(fen, ply):
+    first = "B" if not fen or fen.upper().startswith("B") else "W"
+    return first if ply % 2 == 0 else ("W" if first == "B" else "B")
+
+
+def pieces(fen):
+    n = 0
+    for part in fen.split(":")[1:]:
+        part = part.strip()[1:]
+        n += len([x for x in part.split(",") if x.strip()])
+    return n
+
+
+def lost_for(result, col):
+    return (result == "B" and col == "W") or (result == "W" and col == "B")
+
+
+def repair(args):
+    """WP5a: first position of a lost game where our move is not one of the opponent's own non-losing moves there,
+    then the opponent's defence from that position (all its non-lost games), as force decisions."""
+    db = sqlite3.connect(args.db)
+    gid, src, black, white, bfam, wfam, result, opening, ballot, nopen, fen, nplies, term = db.execute(
+        "SELECT * FROM games WHERE gid=?", (args.gid,)).fetchone()
+    col = "B" if bfam == args.fam else "W"
+    opp = args.opp or (wfam if col == "B" else bfam)
+    fens = {}
+
+    def fen_of(key):
+        if key not in fens:
+            fens[key] = db.execute("SELECT fen FROM positions WHERE key=?", (key,)).fetchone()[0]
+        return fens[key]
+
+    def opp_rows(key):
+        return db.execute("SELECT move, n, w, d, l FROM theory WHERE key=? AND fam=? ORDER BY n DESC",
+                          (key, opp)).fetchall()
+
+    print(f"# game {gid} {src}: {ballot} ({opening}), {args.fam} as {col}, result {result}, opponent {opp}")
+    path, dev = [], None
+    for ply, key, mv in db.execute("SELECT ply, key, move FROM plies WHERE gid=? ORDER BY ply", (gid,)).fetchall():
+        if ply < nopen or side_at(fen, ply) != col:
+            continue
+        rows = opp_rows(key)
+        ok = [r for r in rows if r[4] == 0]
+        if ok and mv not in [r[0] for r in ok]:
+            dev = (ply, key, mv, rows)
+            break
+        path.append((ply, key, mv, rows))
+        if ply - nopen > args.max_search:
+            break
+    for ply, key, mv, rows in path:
+        print(f"#   ply {ply} {mv}: {opp} " + (", ".join(f"{r[0]} {r[1]}x {r[2]}/{r[3]}/{r[4]}" for r in rows) or "-"))
+    if dev is None:
+        print(f"# no deviation from {opp}'s non-losing moves within {args.max_search} plies after the ballot")
+        return
+    ply0, key0, mv0, rows0 = dev
+    print(f"# DEVIATION ply {ply0} ({ply0 - nopen} after the ballot): {args.fam} played {mv0}; {opp}: "
+          + ", ".join(f"{r[0]} {r[1]}x w/d/l {r[2]}/{r[3]}/{r[4]}" for r in rows0))
+    print(f"#   FEN {fen_of(key0)}")
+    # The opponent's defence from the deviation position, over every game where it defended it without losing.
+    counts, first_ply, games_used = {}, {}, set()
+    for g2, p2, fen2, res2 in db.execute(
+            "SELECT p.gid, p.ply, g.fen, g.result FROM plies p JOIN games g USING(gid) WHERE p.key=? AND p.fam=?",
+            (key0, opp)).fetchall():
+        if side_at(fen2, p2) != col or lost_for(res2, col):
+            continue
+        games_used.add(g2)
+        for p3, k3, m3, f3 in db.execute(
+                "SELECT ply, key, move, fam FROM plies WHERE gid=? AND ply>=? AND ply<? ORDER BY ply",
+                (g2, p2, p2 + args.follow)).fetchall():
+            if (p3 - p2) % 2:
+                continue
+            if f3 != opp or pieces(fen_of(k3)) <= args.min_pieces:
+                break
+            counts.setdefault(k3, {}).setdefault(m3, 0)
+            counts[k3][m3] += 1
+            first_ply[k3] = min(first_ply.get(k3, 999), p3)
+    print(f"# {opp}'s defence: {len(games_used)} non-lost games from the deviation position, "
+          f"{len(counts)} positions of our side within {args.follow} plies (stop at <= {args.min_pieces} pieces)")
+    out = []
+    if args.pin_path:
+        for ply, key, mv, rows in path:
+            r = [x for x in rows if x[0] == mv]
+            if r:
+                out.append((ply, key, mv, f"{opp} played the same move {r[0][1]}x (w/d/l {r[0][2]}/{r[0][3]}/"
+                                          f"{r[0][4]}) on the path to the deviation"))
+    for k, mvs in sorted(counts.items(), key=lambda kv: first_ply[kv[0]]):
+        best = max(mvs.items(), key=lambda kv: kv[1])
+        th = {r[0]: r for r in opp_rows(k)}
+        t = th.get(best[0])
+        alts = ", ".join(f"{m} {c}x" for m, c in mvs.items() if m != best[0])
+        ev = (f"{opp} defence: {best[0]} in {best[1]} of {sum(mvs.values())} non-lost {opp} games from here"
+              + (f" (theory {t[1]}x w/d/l {t[2]}/{t[3]}/{t[4]})" if t else "") + (f"; also {alts}" if alts else ""))
+        if k == key0:
+            ev += f"; {args.fam} played {mv0} here and lost (gid {gid}, {os.path.basename(os.path.dirname(src))})"
+        out.append((first_ply[k], k, best[0], ev))
+    for ply, k, mv, ev in out:
+        print(f"{fen_of(k)} | {mv} | force | {ballot} {args.fam} {col} ply {ply}: {ev}")
+
+
+def export(args):
+    """Opening part of the theory table as CSV: positions up to --max-ply (from the start) where a top engine moved,
+    one row per (position, family, move)."""
+    db = sqlite3.connect(args.db)
+    keys = {k for (k,) in db.execute("SELECT DISTINCT key FROM plies WHERE ply <= ? AND fam IN "
+                                     "('cake','kingsrow','guinn')", (args.max_ply,))}
+    w = csv.writer(sys.stdout)
+    w.writerow(["fen", "family", "move", "n", "n_instant", "n_book", "w", "d", "l"])
+    rows = 0
+    for k in sorted(keys):
+        fen = db.execute("SELECT fen FROM positions WHERE key=?", (k,)).fetchone()[0]
+        for fam, mv, n, ni, nb, ww, dd, ll in db.execute(
+                "SELECT fam, move, n, n_instant, n_book, w, d, l FROM theory WHERE key=? ORDER BY fam, n DESC", (k,)):
+            w.writerow([fen, fam, mv, n, ni, nb, ww, dd, ll])
+            rows += 1
+    print(f"{len(keys)} positions, {rows} rows", file=sys.stderr)
+
+
 def main():
     ap = argparse.ArgumentParser()
     sub = ap.add_subparsers(dest="cmd", required=True)
@@ -259,8 +400,20 @@ def main():
     a.add_argument("--gid", type=int, required=True)
     a.add_argument("--fam", default="regicide")
     a.add_argument("--max-ply", type=int, default=60)
+    r = sub.add_parser("repair")
+    r.add_argument("--db", required=True)
+    r.add_argument("--gid", type=int, required=True)
+    r.add_argument("--fam", default="regicide")
+    r.add_argument("--opp", help="family whose defence to follow (default: the opponent in the game)")
+    r.add_argument("--max-search", type=int, default=60, help="plies after the ballot to look for the deviation")
+    r.add_argument("--follow", type=int, default=40, help="plies of the opponent's defence to force")
+    r.add_argument("--min-pieces", type=int, default=8, help="stop forcing at this many pieces (egdb)")
+    r.add_argument("--pin-path", action="store_true", help="also force our (matching) moves before the deviation")
+    e = sub.add_parser("export")
+    e.add_argument("--db", required=True)
+    e.add_argument("--max-ply", type=int, default=24)
     args = ap.parse_args()
-    {"build": build, "alts": alts}[args.cmd](args)
+    {"build": build, "alts": alts, "repair": repair, "export": export}[args.cmd](args)
 
 
 if __name__ == "__main__":
