@@ -38,8 +38,10 @@ gen5b (50k nodes, seed 71) is on the laptop, not here.
 | File | Bytes | On a branch? |
 |---|---|---|
 | book_deep.bin | 520,668 | yes: master `src/weights/book.bin` (6bb8c6c), `t3/book-deep` |
-| **book2.bin** | (growing) | pass 2: 5 roots at 150M nodes/move. Pushed to `t3/book-deep2` if finished in time |
-| **book_deep2.bin**, book_deep2_merged.bin | | book_deep + book2 + 6 avoid entries; pushed to `t3/book-deep2` if finished in time |
+| book2.bin, book2b.bin | 831 / 746 positions | pass 2 at 150M nodes/move (5 roots; 4 roots without Double Cross); `t3/book-deep2` |
+| book_deep2.bin | 5,954 positions + 6 avoid | book_deep + book2; `t3/book-deep2` (not an improvement: breaks Double Cross) |
+| **book_deep2b.bin** | 5,947 positions + 6 avoid | **install candidate**: book_deep + book2b + 6 avoid; +59.9 [+46.8, +73.0] on the targeted ballots; `t3/book-deep2` |
+| `*_merged.bin` | | intermediate merges (re-saved versions are the files above) |
 | book_n4c.bin, book_n4c_avoid.bin | 2,970,508 / 2,966,064 | yes, `t3/book-n4c` |
 | avoid_v1.bin | 1,280 | yes, `t3/avoid-v1` |
 | book_deep_acf156.bin | 230,492 | yes, `t3/book-deep-acf156` (Arch) |
@@ -96,11 +98,13 @@ gen5b (50k nodes, seed 71) is on the laptop, not here.
 All need an attached `wsl.exe` session if they play CheckerBoard engines (Windows interop):
 `Start-Process -WindowStyle Hidden wsl.exe -ArgumentList 'bash','<script>'`.
 
-1. **deep2, full runs** (skipped for the 22:00 deadline): book_deep2 vs Cake (acf156, 312 games) and vs KingsRow, same
-   settings.
-   `bash /mnt/c/regicide-match/jobs/deep2/run_ba3.sh 6bb8c6c-deep2-egdb8 deep2-full cake 0.5`, then the same with
-   `kingsrow`. Compare with the book_deep on-runs (`ba-deep-on{,2,3}-cake`, `ba-deep-on-kingsrow`) using
-   `python3 /mnt/c/regicide-match/jobs/tm/pool.py "deep2=ba-deep2-full-cake" "deep=ba-deep-on-cake,ba-deep-on2-cake,ba-deep-on3-cake"`.
+1. **book_deep2b full runs** (the install candidate; skipped for the 22:00 deadline): vs Cake (acf156, 312 games) and
+   vs KingsRow, same settings, DLL `C:\regicide-match\engines\regicide\6bb8c6c-deep2b-egdb8` (already built).
+   - Run `bash /mnt/c/regicide-match/jobs/deep2/run_ba3.sh 6bb8c6c-deep2b-egdb8 deep2b-full cake 0.5`, then the same
+     with `kingsrow`.
+   - Compare with the book_deep on-runs (`ba-deep-on{,2,3}-cake`, `ba-deep-on-kingsrow`) using
+     `python3 /mnt/c/regicide-match/jobs/tm/pool.py "deep2b=ba-deep2b-full-cake" "deep=ba-deep-on-cake,ba-deep-on2-cake,ba-deep-on3-cake"`.
+   - Embed book_deep2b if neither is worse.
 2. **Round-7 matches vs n6c** (nets trained and scored; not matched): `bash /mnt/c/regicide-match/jobs/r7/r7_match.sh`.
    - It waits for `D2 D2_ALL_DONE` and `R7 R7_SCORED` in `~/regicide-jobs/r4/status`. Append
      `D2 D2_ALL_DONE (manual)` to that file first, or remove the wait line.
