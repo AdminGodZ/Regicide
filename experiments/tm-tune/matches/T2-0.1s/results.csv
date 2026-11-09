@@ -1,0 +1,1611 @@
+game,pair,opening,black,white,result,score_a,termination,engine_plies
+5,3,"/home/admingod/regicide-gen2-work/openings4.txt:3","T2","default",1/2-1/2,0.5,"repetition",98
+6,3,"/home/admingod/regicide-gen2-work/openings4.txt:3","default","T2",1/2-1/2,0.5,"repetition",94
+3,2,"/home/admingod/regicide-gen2-work/openings4.txt:2","T2","default",1/2-1/2,0.5,"repetition",70
+4,2,"/home/admingod/regicide-gen2-work/openings4.txt:2","default","T2",1/2-1/2,0.5,"repetition",70
+1,1,"/home/admingod/regicide-gen2-work/openings4.txt:1","T2","default",1-0,1,"no legal moves",131
+10,5,"/home/admingod/regicide-gen2-work/openings4.txt:5","default","T2",1-0,0,"no legal moves",127
+2,1,"/home/admingod/regicide-gen2-work/openings4.txt:1","default","T2",1-0,0,"no legal moves",141
+7,4,"/home/admingod/regicide-gen2-work/openings4.txt:4","T2","default",1-0,1,"no legal moves",121
+8,4,"/home/admingod/regicide-gen2-work/openings4.txt:4","default","T2",1-0,0,"no legal moves",125
+9,5,"/home/admingod/regicide-gen2-work/openings4.txt:5","T2","default",1-0,1,"no legal moves",137
+13,7,"/home/admingod/regicide-gen2-work/openings4.txt:7","T2","default",1/2-1/2,0.5,"repetition",70
+14,7,"/home/admingod/regicide-gen2-work/openings4.txt:7","default","T2",1/2-1/2,0.5,"repetition",106
+11,6,"/home/admingod/regicide-gen2-work/openings4.txt:6","T2","default",1-0,1,"no legal moves",147
+15,8,"/home/admingod/regicide-gen2-work/openings4.txt:8","T2","default",1-0,1,"no legal moves",141
+16,8,"/home/admingod/regicide-gen2-work/openings4.txt:8","default","T2",1-0,0,"no legal moves",65
+17,9,"/home/admingod/regicide-gen2-work/openings4.txt:9","T2","default",1-0,1,"no legal moves",143
+20,10,"/home/admingod/regicide-gen2-work/openings4.txt:10","default","T2",1-0,0,"no legal moves",129
+18,9,"/home/admingod/regicide-gen2-work/openings4.txt:9","default","T2",1-0,0,"no legal moves",125
+19,10,"/home/admingod/regicide-gen2-work/openings4.txt:10","T2","default",1-0,1,"no legal moves",59
+23,12,"/home/admingod/regicide-gen2-work/openings4.txt:12","T2","default",1-0,1,"no legal moves",87
+21,11,"/home/admingod/regicide-gen2-work/openings4.txt:11","T2","default",1-0,1,"no legal moves",135
+24,12,"/home/admingod/regicide-gen2-work/openings4.txt:12","default","T2",1-0,0,"no legal moves",139
+22,11,"/home/admingod/regicide-gen2-work/openings4.txt:11","default","T2",1-0,0,"no legal moves",87
+25,13,"/home/admingod/regicide-gen2-work/openings4.txt:13","T2","default",1/2-1/2,0.5,"repetition",87
+28,14,"/home/admingod/regicide-gen2-work/openings4.txt:14","default","T2",1/2-1/2,0.5,"repetition",101
+26,13,"/home/admingod/regicide-gen2-work/openings4.txt:13","default","T2",1/2-1/2,0.5,"repetition",70
+35,18,"/home/admingod/regicide-gen2-work/openings4.txt:18","T2","default",1/2-1/2,0.5,"repetition",71
+12,6,"/home/admingod/regicide-gen2-work/openings4.txt:6","default","T2",1-0,0,"no legal moves",201
+29,15,"/home/admingod/regicide-gen2-work/openings4.txt:15","T2","default",0-1,0,"no legal moves",66
+36,18,"/home/admingod/regicide-gen2-work/openings4.txt:18","default","T2",1/2-1/2,0.5,"repetition",87
+30,15,"/home/admingod/regicide-gen2-work/openings4.txt:15","default","T2",0-1,1,"no legal moves",132
+33,17,"/home/admingod/regicide-gen2-work/openings4.txt:17","T2","default",1/2-1/2,0.5,"repetition",85
+31,16,"/home/admingod/regicide-gen2-work/openings4.txt:16","T2","default",1/2-1/2,0.5,"repetition",98
+27,14,"/home/admingod/regicide-gen2-work/openings4.txt:14","T2","default",1/2-1/2,0.5,"repetition",135
+32,16,"/home/admingod/regicide-gen2-work/openings4.txt:16","default","T2",0-1,1,"no legal moves",82
+39,20,"/home/admingod/regicide-gen2-work/openings4.txt:20","T2","default",1/2-1/2,0.5,"repetition",107
+34,17,"/home/admingod/regicide-gen2-work/openings4.txt:17","default","T2",1/2-1/2,0.5,"repetition",135
+41,21,"/home/admingod/regicide-gen2-work/openings4.txt:21","T2","default",1/2-1/2,0.5,"repetition",85
+42,21,"/home/admingod/regicide-gen2-work/openings4.txt:21","default","T2",1/2-1/2,0.5,"repetition",85
+43,22,"/home/admingod/regicide-gen2-work/openings4.txt:22","T2","default",1/2-1/2,0.5,"repetition",93
+44,22,"/home/admingod/regicide-gen2-work/openings4.txt:22","default","T2",1/2-1/2,0.5,"repetition",93
+40,20,"/home/admingod/regicide-gen2-work/openings4.txt:20","default","T2",1-0,0,"no legal moves",81
+38,19,"/home/admingod/regicide-gen2-work/openings4.txt:19","default","T2",1-0,0,"no legal moves",149
+46,23,"/home/admingod/regicide-gen2-work/openings4.txt:23","default","T2",1-0,0,"no legal moves",125
+37,19,"/home/admingod/regicide-gen2-work/openings4.txt:19","T2","default",1-0,1,"no legal moves",163
+50,25,"/home/admingod/regicide-gen2-work/openings4.txt:25","default","T2",1/2-1/2,0.5,"repetition",87
+45,23,"/home/admingod/regicide-gen2-work/openings4.txt:23","T2","default",1-0,1,"no legal moves",93
+49,25,"/home/admingod/regicide-gen2-work/openings4.txt:25","T2","default",1/2-1/2,0.5,"repetition",93
+47,24,"/home/admingod/regicide-gen2-work/openings4.txt:24","T2","default",1-0,1,"no legal moves",119
+55,28,"/home/admingod/regicide-gen2-work/openings4.txt:28","T2","default",1/2-1/2,0.5,"repetition",83
+48,24,"/home/admingod/regicide-gen2-work/openings4.txt:24","default","T2",1-0,0,"no legal moves",79
+57,29,"/home/admingod/regicide-gen2-work/openings4.txt:29","T2","default",1/2-1/2,0.5,"repetition",58
+53,27,"/home/admingod/regicide-gen2-work/openings4.txt:27","T2","default",1-0,1,"no legal moves",59
+54,27,"/home/admingod/regicide-gen2-work/openings4.txt:27","default","T2",1-0,0,"no legal moves",65
+61,31,"/home/admingod/regicide-gen2-work/openings4.txt:31","T2","default",1/2-1/2,0.5,"repetition",83
+52,26,"/home/admingod/regicide-gen2-work/openings4.txt:26","default","T2",1-0,0,"no legal moves",155
+62,31,"/home/admingod/regicide-gen2-work/openings4.txt:31","default","T2",1/2-1/2,0.5,"repetition",74
+51,26,"/home/admingod/regicide-gen2-work/openings4.txt:26","T2","default",1-0,1,"no legal moves",157
+56,28,"/home/admingod/regicide-gen2-work/openings4.txt:28","default","T2",1-0,0,"no legal moves",119
+58,29,"/home/admingod/regicide-gen2-work/openings4.txt:29","default","T2",1-0,0,"no legal moves",63
+63,32,"/home/admingod/regicide-gen2-work/openings4.txt:32","T2","default",1/2-1/2,0.5,"repetition",93
+64,32,"/home/admingod/regicide-gen2-work/openings4.txt:32","default","T2",1/2-1/2,0.5,"repetition",93
+59,30,"/home/admingod/regicide-gen2-work/openings4.txt:30","T2","default",1/2-1/2,0.5,"repetition",104
+69,35,"/home/admingod/regicide-gen2-work/openings4.txt:35","T2","default",1/2-1/2,0.5,"repetition",92
+60,30,"/home/admingod/regicide-gen2-work/openings4.txt:30","default","T2",1-0,0,"no legal moves",159
+71,36,"/home/admingod/regicide-gen2-work/openings4.txt:36","T2","default",1/2-1/2,0.5,"repetition",88
+72,36,"/home/admingod/regicide-gen2-work/openings4.txt:36","default","T2",1/2-1/2,0.5,"repetition",89
+70,35,"/home/admingod/regicide-gen2-work/openings4.txt:35","default","T2",1/2-1/2,0.5,"repetition",110
+66,33,"/home/admingod/regicide-gen2-work/openings4.txt:33","default","T2",1-0,0,"no legal moves",151
+65,33,"/home/admingod/regicide-gen2-work/openings4.txt:33","T2","default",1-0,1,"no legal moves",169
+73,37,"/home/admingod/regicide-gen2-work/openings4.txt:37","T2","default",1-0,1,"no legal moves",83
+67,34,"/home/admingod/regicide-gen2-work/openings4.txt:34","T2","default",1-0,1,"no legal moves",149
+75,38,"/home/admingod/regicide-gen2-work/openings4.txt:38","T2","default",1/2-1/2,0.5,"repetition",121
+76,38,"/home/admingod/regicide-gen2-work/openings4.txt:38","default","T2",1/2-1/2,0.5,"repetition",121
+74,37,"/home/admingod/regicide-gen2-work/openings4.txt:37","default","T2",1-0,0,"no legal moves",127
+68,34,"/home/admingod/regicide-gen2-work/openings4.txt:34","default","T2",1-0,0,"no legal moves",161
+81,41,"/home/admingod/regicide-gen2-work/openings4.txt:41","T2","default",1/2-1/2,0.5,"repetition",91
+82,41,"/home/admingod/regicide-gen2-work/openings4.txt:41","default","T2",1/2-1/2,0.5,"repetition",91
+84,42,"/home/admingod/regicide-gen2-work/openings4.txt:42","default","T2",1/2-1/2,0.5,"repetition",80
+85,43,"/home/admingod/regicide-gen2-work/openings4.txt:43","T2","default",1/2-1/2,0.5,"repetition",101
+83,42,"/home/admingod/regicide-gen2-work/openings4.txt:42","T2","default",1/2-1/2,0.5,"repetition",85
+86,43,"/home/admingod/regicide-gen2-work/openings4.txt:43","default","T2",1/2-1/2,0.5,"repetition",117
+77,39,"/home/admingod/regicide-gen2-work/openings4.txt:39","T2","default",1-0,1,"no legal moves",147
+88,44,"/home/admingod/regicide-gen2-work/openings4.txt:44","default","T2",1/2-1/2,0.5,"repetition",75
+78,39,"/home/admingod/regicide-gen2-work/openings4.txt:39","default","T2",1/2-1/2,0.5,"repetition",131
+79,40,"/home/admingod/regicide-gen2-work/openings4.txt:40","T2","default",1-0,1,"no legal moves",143
+87,44,"/home/admingod/regicide-gen2-work/openings4.txt:44","T2","default",1/2-1/2,0.5,"repetition",75
+89,45,"/home/admingod/regicide-gen2-work/openings4.txt:45","T2","default",1/2-1/2,0.5,"repetition",85
+90,45,"/home/admingod/regicide-gen2-work/openings4.txt:45","default","T2",1/2-1/2,0.5,"repetition",85
+91,46,"/home/admingod/regicide-gen2-work/openings4.txt:46","T2","default",1/2-1/2,0.5,"repetition",82
+80,40,"/home/admingod/regicide-gen2-work/openings4.txt:40","default","T2",1-0,0,"no legal moves",85
+98,49,"/home/admingod/regicide-gen2-work/openings4.txt:49","default","T2",1/2-1/2,0.5,"repetition",60
+92,46,"/home/admingod/regicide-gen2-work/openings4.txt:46","default","T2",1/2-1/2,0.5,"repetition",108
+93,47,"/home/admingod/regicide-gen2-work/openings4.txt:47","T2","default",1/2-1/2,0.5,"repetition",89
+100,50,"/home/admingod/regicide-gen2-work/openings4.txt:50","default","T2",1/2-1/2,0.5,"repetition",85
+96,48,"/home/admingod/regicide-gen2-work/openings4.txt:48","default","T2",1/2-1/2,0.5,"repetition",66
+95,48,"/home/admingod/regicide-gen2-work/openings4.txt:48","T2","default",1/2-1/2,0.5,"repetition",74
+97,49,"/home/admingod/regicide-gen2-work/openings4.txt:49","T2","default",1/2-1/2,0.5,"repetition",103
+104,52,"/home/admingod/regicide-gen2-work/openings4.txt:52","default","T2",1/2-1/2,0.5,"repetition",84
+99,50,"/home/admingod/regicide-gen2-work/openings4.txt:50","T2","default",1/2-1/2,0.5,"repetition",84
+106,53,"/home/admingod/regicide-gen2-work/openings4.txt:53","default","T2",1/2-1/2,0.5,"repetition",108
+94,47,"/home/admingod/regicide-gen2-work/openings4.txt:47","default","T2",0-1,1,"no legal moves",98
+105,53,"/home/admingod/regicide-gen2-work/openings4.txt:53","T2","default",1/2-1/2,0.5,"repetition",101
+109,55,"/home/admingod/regicide-gen2-work/openings4.txt:55","T2","default",1/2-1/2,0.5,"repetition",73
+110,55,"/home/admingod/regicide-gen2-work/openings4.txt:55","default","T2",1/2-1/2,0.5,"repetition",73
+111,56,"/home/admingod/regicide-gen2-work/openings4.txt:56","T2","default",1/2-1/2,0.5,"repetition",89
+112,56,"/home/admingod/regicide-gen2-work/openings4.txt:56","default","T2",1/2-1/2,0.5,"repetition",89
+107,54,"/home/admingod/regicide-gen2-work/openings4.txt:54","T2","default",1-0,1,"no legal moves",109
+113,57,"/home/admingod/regicide-gen2-work/openings4.txt:57","T2","default",1/2-1/2,0.5,"repetition",75
+103,52,"/home/admingod/regicide-gen2-work/openings4.txt:52","T2","default",1/2-1/2,0.5,"repetition",103
+108,54,"/home/admingod/regicide-gen2-work/openings4.txt:54","default","T2",1-0,0,"no legal moves",147
+114,57,"/home/admingod/regicide-gen2-work/openings4.txt:57","default","T2",1/2-1/2,0.5,"repetition",60
+115,58,"/home/admingod/regicide-gen2-work/openings4.txt:58","T2","default",1/2-1/2,0.5,"repetition",64
+116,58,"/home/admingod/regicide-gen2-work/openings4.txt:58","default","T2",1/2-1/2,0.5,"repetition",89
+118,59,"/home/admingod/regicide-gen2-work/openings4.txt:59","default","T2",1/2-1/2,0.5,"repetition",113
+117,59,"/home/admingod/regicide-gen2-work/openings4.txt:59","T2","default",1/2-1/2,0.5,"repetition",111
+119,60,"/home/admingod/regicide-gen2-work/openings4.txt:60","T2","default",0-1,0,"no legal moves",124
+123,62,"/home/admingod/regicide-gen2-work/openings4.txt:62","T2","default",1/2-1/2,0.5,"repetition",63
+120,60,"/home/admingod/regicide-gen2-work/openings4.txt:60","default","T2",0-1,1,"no legal moves",106
+125,63,"/home/admingod/regicide-gen2-work/openings4.txt:63","T2","default",1/2-1/2,0.5,"repetition",91
+124,62,"/home/admingod/regicide-gen2-work/openings4.txt:62","default","T2",1/2-1/2,0.5,"repetition",71
+121,61,"/home/admingod/regicide-gen2-work/openings4.txt:61","T2","default",0-1,0,"no legal moves",78
+127,64,"/home/admingod/regicide-gen2-work/openings4.txt:64","T2","default",1/2-1/2,0.5,"repetition",87
+126,63,"/home/admingod/regicide-gen2-work/openings4.txt:63","default","T2",1/2-1/2,0.5,"repetition",91
+128,64,"/home/admingod/regicide-gen2-work/openings4.txt:64","default","T2",1/2-1/2,0.5,"repetition",87
+132,66,"/home/admingod/regicide-gen2-work/openings4.txt:66","default","T2",1/2-1/2,0.5,"repetition",60
+122,61,"/home/admingod/regicide-gen2-work/openings4.txt:61","default","T2",1/2-1/2,0.5,"repetition",125
+131,66,"/home/admingod/regicide-gen2-work/openings4.txt:66","T2","default",1/2-1/2,0.5,"repetition",84
+134,67,"/home/admingod/regicide-gen2-work/openings4.txt:67","default","T2",1/2-1/2,0.5,"repetition",92
+137,69,"/home/admingod/regicide-gen2-work/openings4.txt:69","T2","default",1/2-1/2,0.5,"repetition",67
+136,68,"/home/admingod/regicide-gen2-work/openings4.txt:68","default","T2",1/2-1/2,0.5,"repetition",80
+133,67,"/home/admingod/regicide-gen2-work/openings4.txt:67","T2","default",1/2-1/2,0.5,"repetition",72
+139,70,"/home/admingod/regicide-gen2-work/openings4.txt:70","T2","default",1/2-1/2,0.5,"repetition",62
+101,51,"/home/admingod/regicide-gen2-work/openings4.txt:51","T2","default",1/2-1/2,0.5,"no progress",172
+138,69,"/home/admingod/regicide-gen2-work/openings4.txt:69","default","T2",1/2-1/2,0.5,"repetition",95
+129,65,"/home/admingod/regicide-gen2-work/openings4.txt:65","T2","default",0-1,0,"no legal moves",74
+140,70,"/home/admingod/regicide-gen2-work/openings4.txt:70","default","T2",1/2-1/2,0.5,"repetition",83
+102,51,"/home/admingod/regicide-gen2-work/openings4.txt:51","default","T2",1/2-1/2,0.5,"no progress",174
+130,65,"/home/admingod/regicide-gen2-work/openings4.txt:65","default","T2",0-1,1,"no legal moves",196
+142,71,"/home/admingod/regicide-gen2-work/openings4.txt:71","default","T2",1/2-1/2,0.5,"repetition",89
+135,68,"/home/admingod/regicide-gen2-work/openings4.txt:68","T2","default",0-1,0,"no legal moves",152
+145,73,"/home/admingod/regicide-gen2-work/openings4.txt:73","T2","default",1/2-1/2,0.5,"repetition",89
+146,73,"/home/admingod/regicide-gen2-work/openings4.txt:73","default","T2",1/2-1/2,0.5,"repetition",89
+148,74,"/home/admingod/regicide-gen2-work/openings4.txt:74","default","T2",1/2-1/2,0.5,"repetition",64
+141,71,"/home/admingod/regicide-gen2-work/openings4.txt:71","T2","default",1/2-1/2,0.5,"repetition",99
+143,72,"/home/admingod/regicide-gen2-work/openings4.txt:72","T2","default",1/2-1/2,0.5,"repetition",60
+144,72,"/home/admingod/regicide-gen2-work/openings4.txt:72","default","T2",1/2-1/2,0.5,"repetition",97
+149,75,"/home/admingod/regicide-gen2-work/openings4.txt:75","T2","default",1/2-1/2,0.5,"repetition",107
+150,75,"/home/admingod/regicide-gen2-work/openings4.txt:75","default","T2",1/2-1/2,0.5,"repetition",107
+147,74,"/home/admingod/regicide-gen2-work/openings4.txt:74","T2","default",1/2-1/2,0.5,"repetition",68
+151,76,"/home/admingod/regicide-gen2-work/openings4.txt:76","T2","default",1/2-1/2,0.5,"repetition",81
+152,76,"/home/admingod/regicide-gen2-work/openings4.txt:76","default","T2",1/2-1/2,0.5,"repetition",63
+156,78,"/home/admingod/regicide-gen2-work/openings4.txt:78","default","T2",1/2-1/2,0.5,"repetition",93
+155,78,"/home/admingod/regicide-gen2-work/openings4.txt:78","T2","default",1/2-1/2,0.5,"repetition",82
+154,77,"/home/admingod/regicide-gen2-work/openings4.txt:77","default","T2",1-0,0,"no legal moves",79
+153,77,"/home/admingod/regicide-gen2-work/openings4.txt:77","T2","default",1-0,1,"no legal moves",153
+160,80,"/home/admingod/regicide-gen2-work/openings4.txt:80","default","T2",1/2-1/2,0.5,"repetition",124
+161,81,"/home/admingod/regicide-gen2-work/openings4.txt:81","T2","default",1/2-1/2,0.5,"repetition",117
+158,79,"/home/admingod/regicide-gen2-work/openings4.txt:79","default","T2",0-1,1,"no legal moves",98
+164,82,"/home/admingod/regicide-gen2-work/openings4.txt:82","default","T2",0-1,1,"no legal moves",90
+163,82,"/home/admingod/regicide-gen2-work/openings4.txt:82","T2","default",0-1,0,"no legal moves",124
+167,84,"/home/admingod/regicide-gen2-work/openings4.txt:84","T2","default",1/2-1/2,0.5,"repetition",95
+159,80,"/home/admingod/regicide-gen2-work/openings4.txt:80","T2","default",1/2-1/2,0.5,"repetition",113
+157,79,"/home/admingod/regicide-gen2-work/openings4.txt:79","T2","default",0-1,0,"no legal moves",132
+166,83,"/home/admingod/regicide-gen2-work/openings4.txt:83","default","T2",1-0,0,"no legal moves",145
+168,84,"/home/admingod/regicide-gen2-work/openings4.txt:84","default","T2",1/2-1/2,0.5,"repetition",73
+172,86,"/home/admingod/regicide-gen2-work/openings4.txt:86","default","T2",1/2-1/2,0.5,"repetition",99
+171,86,"/home/admingod/regicide-gen2-work/openings4.txt:86","T2","default",1/2-1/2,0.5,"repetition",84
+173,87,"/home/admingod/regicide-gen2-work/openings4.txt:87","T2","default",1/2-1/2,0.5,"repetition",65
+165,83,"/home/admingod/regicide-gen2-work/openings4.txt:83","T2","default",1-0,1,"no legal moves",151
+174,87,"/home/admingod/regicide-gen2-work/openings4.txt:87","default","T2",1/2-1/2,0.5,"repetition",79
+175,88,"/home/admingod/regicide-gen2-work/openings4.txt:88","T2","default",1/2-1/2,0.5,"repetition",86
+179,90,"/home/admingod/regicide-gen2-work/openings4.txt:90","T2","default",1/2-1/2,0.5,"repetition",95
+176,88,"/home/admingod/regicide-gen2-work/openings4.txt:88","default","T2",1/2-1/2,0.5,"repetition",87
+180,90,"/home/admingod/regicide-gen2-work/openings4.txt:90","default","T2",1/2-1/2,0.5,"repetition",87
+170,85,"/home/admingod/regicide-gen2-work/openings4.txt:85","default","T2",1-0,0,"no legal moves",153
+183,92,"/home/admingod/regicide-gen2-work/openings4.txt:92","T2","default",1/2-1/2,0.5,"repetition",64
+184,92,"/home/admingod/regicide-gen2-work/openings4.txt:92","default","T2",1/2-1/2,0.5,"repetition",77
+177,89,"/home/admingod/regicide-gen2-work/openings4.txt:89","T2","default",1-0,1,"no legal moves",123
+185,93,"/home/admingod/regicide-gen2-work/openings4.txt:93","T2","default",1/2-1/2,0.5,"repetition",60
+178,89,"/home/admingod/regicide-gen2-work/openings4.txt:89","default","T2",1-0,0,"no legal moves",79
+181,91,"/home/admingod/regicide-gen2-work/openings4.txt:91","T2","default",1/2-1/2,0.5,"repetition",105
+169,85,"/home/admingod/regicide-gen2-work/openings4.txt:85","T2","default",1-0,1,"no legal moves",193
+162,81,"/home/admingod/regicide-gen2-work/openings4.txt:81","default","T2",1-0,0,"no legal moves",231
+191,96,"/home/admingod/regicide-gen2-work/openings4.txt:96","T2","default",1/2-1/2,0.5,"repetition",85
+192,96,"/home/admingod/regicide-gen2-work/openings4.txt:96","default","T2",1/2-1/2,0.5,"repetition",64
+189,95,"/home/admingod/regicide-gen2-work/openings4.txt:95","T2","default",0-1,0,"no legal moves",74
+193,97,"/home/admingod/regicide-gen2-work/openings4.txt:97","T2","default",1/2-1/2,0.5,"repetition",64
+188,94,"/home/admingod/regicide-gen2-work/openings4.txt:94","default","T2",0-1,1,"no legal moves",92
+187,94,"/home/admingod/regicide-gen2-work/openings4.txt:94","T2","default",0-1,0,"no legal moves",108
+194,97,"/home/admingod/regicide-gen2-work/openings4.txt:97","default","T2",1/2-1/2,0.5,"repetition",68
+182,91,"/home/admingod/regicide-gen2-work/openings4.txt:91","default","T2",1-0,0,"no legal moves",149
+196,98,"/home/admingod/regicide-gen2-work/openings4.txt:98","default","T2",1/2-1/2,0.5,"repetition",104
+201,101,"/home/admingod/regicide-gen2-work/openings4.txt:101","T2","default",1/2-1/2,0.5,"repetition",108
+198,99,"/home/admingod/regicide-gen2-work/openings4.txt:99","default","T2",1/2-1/2,0.5,"repetition",69
+197,99,"/home/admingod/regicide-gen2-work/openings4.txt:99","T2","default",1/2-1/2,0.5,"repetition",103
+202,101,"/home/admingod/regicide-gen2-work/openings4.txt:101","default","T2",1/2-1/2,0.5,"repetition",78
+190,95,"/home/admingod/regicide-gen2-work/openings4.txt:95","default","T2",0-1,1,"no legal moves",142
+195,98,"/home/admingod/regicide-gen2-work/openings4.txt:98","T2","default",0-1,0,"no legal moves",144
+200,100,"/home/admingod/regicide-gen2-work/openings4.txt:100","default","T2",1/2-1/2,0.5,"repetition",84
+203,102,"/home/admingod/regicide-gen2-work/openings4.txt:102","T2","default",1/2-1/2,0.5,"repetition",84
+199,100,"/home/admingod/regicide-gen2-work/openings4.txt:100","T2","default",1/2-1/2,0.5,"repetition",93
+206,103,"/home/admingod/regicide-gen2-work/openings4.txt:103","default","T2",1/2-1/2,0.5,"repetition",73
+205,103,"/home/admingod/regicide-gen2-work/openings4.txt:103","T2","default",1/2-1/2,0.5,"repetition",73
+186,93,"/home/admingod/regicide-gen2-work/openings4.txt:93","default","T2",0-1,1,"no legal moves",142
+212,106,"/home/admingod/regicide-gen2-work/openings4.txt:106","default","T2",1/2-1/2,0.5,"repetition",68
+211,106,"/home/admingod/regicide-gen2-work/openings4.txt:106","T2","default",1/2-1/2,0.5,"repetition",95
+214,107,"/home/admingod/regicide-gen2-work/openings4.txt:107","default","T2",1/2-1/2,0.5,"repetition",86
+213,107,"/home/admingod/regicide-gen2-work/openings4.txt:107","T2","default",1/2-1/2,0.5,"repetition",99
+209,105,"/home/admingod/regicide-gen2-work/openings4.txt:105","T2","default",1-0,1,"no legal moves",121
+207,104,"/home/admingod/regicide-gen2-work/openings4.txt:104","T2","default",1/2-1/2,0.5,"repetition",144
+218,109,"/home/admingod/regicide-gen2-work/openings4.txt:109","default","T2",1/2-1/2,0.5,"repetition",83
+215,108,"/home/admingod/regicide-gen2-work/openings4.txt:108","T2","default",1/2-1/2,0.5,"repetition",107
+217,109,"/home/admingod/regicide-gen2-work/openings4.txt:109","T2","default",1/2-1/2,0.5,"repetition",73
+216,108,"/home/admingod/regicide-gen2-work/openings4.txt:108","default","T2",1/2-1/2,0.5,"repetition",95
+223,112,"/home/admingod/regicide-gen2-work/openings4.txt:112","T2","default",1/2-1/2,0.5,"repetition",98
+224,112,"/home/admingod/regicide-gen2-work/openings4.txt:112","default","T2",1/2-1/2,0.5,"repetition",98
+225,113,"/home/admingod/regicide-gen2-work/openings4.txt:113","T2","default",1/2-1/2,0.5,"repetition",93
+226,113,"/home/admingod/regicide-gen2-work/openings4.txt:113","default","T2",1/2-1/2,0.5,"repetition",76
+222,111,"/home/admingod/regicide-gen2-work/openings4.txt:111","default","T2",1-0,0,"no legal moves",121
+221,111,"/home/admingod/regicide-gen2-work/openings4.txt:111","T2","default",1-0,1,"no legal moves",195
+220,110,"/home/admingod/regicide-gen2-work/openings4.txt:110","default","T2",1/2-1/2,0.5,"repetition",104
+227,114,"/home/admingod/regicide-gen2-work/openings4.txt:114","T2","default",0-1,0,"no legal moves",56
+228,114,"/home/admingod/regicide-gen2-work/openings4.txt:114","default","T2",0-1,1,"no legal moves",62
+233,117,"/home/admingod/regicide-gen2-work/openings4.txt:117","T2","default",1/2-1/2,0.5,"repetition",83
+229,115,"/home/admingod/regicide-gen2-work/openings4.txt:115","T2","default",0-1,0,"no legal moves",74
+232,116,"/home/admingod/regicide-gen2-work/openings4.txt:116","default","T2",1-0,0,"no legal moves",121
+231,116,"/home/admingod/regicide-gen2-work/openings4.txt:116","T2","default",1-0,1,"no legal moves",121
+210,105,"/home/admingod/regicide-gen2-work/openings4.txt:105","default","T2",1-0,0,"no legal moves",183
+230,115,"/home/admingod/regicide-gen2-work/openings4.txt:115","default","T2",0-1,1,"no legal moves",66
+204,102,"/home/admingod/regicide-gen2-work/openings4.txt:102","default","T2",0-1,1,"no legal moves",190
+219,110,"/home/admingod/regicide-gen2-work/openings4.txt:110","T2","default",1/2-1/2,0.5,"repetition",181
+237,119,"/home/admingod/regicide-gen2-work/openings4.txt:119","T2","default",1/2-1/2,0.5,"repetition",91
+235,118,"/home/admingod/regicide-gen2-work/openings4.txt:118","T2","default",1/2-1/2,0.5,"repetition",99
+234,117,"/home/admingod/regicide-gen2-work/openings4.txt:117","default","T2",1/2-1/2,0.5,"repetition",80
+239,120,"/home/admingod/regicide-gen2-work/openings4.txt:120","T2","default",1/2-1/2,0.5,"repetition",87
+240,120,"/home/admingod/regicide-gen2-work/openings4.txt:120","default","T2",1/2-1/2,0.5,"repetition",87
+238,119,"/home/admingod/regicide-gen2-work/openings4.txt:119","default","T2",1/2-1/2,0.5,"repetition",81
+236,118,"/home/admingod/regicide-gen2-work/openings4.txt:118","default","T2",1/2-1/2,0.5,"repetition",94
+244,122,"/home/admingod/regicide-gen2-work/openings4.txt:122","default","T2",1/2-1/2,0.5,"repetition",81
+247,124,"/home/admingod/regicide-gen2-work/openings4.txt:124","T2","default",1/2-1/2,0.5,"repetition",63
+243,122,"/home/admingod/regicide-gen2-work/openings4.txt:122","T2","default",1/2-1/2,0.5,"repetition",77
+245,123,"/home/admingod/regicide-gen2-work/openings4.txt:123","T2","default",1/2-1/2,0.5,"repetition",86
+246,123,"/home/admingod/regicide-gen2-work/openings4.txt:123","default","T2",1/2-1/2,0.5,"repetition",98
+241,121,"/home/admingod/regicide-gen2-work/openings4.txt:121","T2","default",1-0,1,"no legal moves",137
+249,125,"/home/admingod/regicide-gen2-work/openings4.txt:125","T2","default",1/2-1/2,0.5,"repetition",74
+248,124,"/home/admingod/regicide-gen2-work/openings4.txt:124","default","T2",1/2-1/2,0.5,"repetition",82
+252,126,"/home/admingod/regicide-gen2-work/openings4.txt:126","default","T2",1/2-1/2,0.5,"repetition",67
+250,125,"/home/admingod/regicide-gen2-work/openings4.txt:125","default","T2",1/2-1/2,0.5,"repetition",74
+242,121,"/home/admingod/regicide-gen2-work/openings4.txt:121","default","T2",1-0,0,"no legal moves",125
+257,129,"/home/admingod/regicide-gen2-work/openings4.txt:129","T2","default",1/2-1/2,0.5,"repetition",96
+258,129,"/home/admingod/regicide-gen2-work/openings4.txt:129","default","T2",1/2-1/2,0.5,"repetition",96
+251,126,"/home/admingod/regicide-gen2-work/openings4.txt:126","T2","default",1/2-1/2,0.5,"repetition",107
+253,127,"/home/admingod/regicide-gen2-work/openings4.txt:127","T2","default",1-0,1,"no legal moves",145
+255,128,"/home/admingod/regicide-gen2-work/openings4.txt:128","T2","default",1-0,1,"no legal moves",145
+256,128,"/home/admingod/regicide-gen2-work/openings4.txt:128","default","T2",1-0,0,"no legal moves",55
+260,130,"/home/admingod/regicide-gen2-work/openings4.txt:130","default","T2",1/2-1/2,0.5,"repetition",75
+263,132,"/home/admingod/regicide-gen2-work/openings4.txt:132","T2","default",1/2-1/2,0.5,"repetition",81
+254,127,"/home/admingod/regicide-gen2-work/openings4.txt:127","default","T2",1-0,0,"no legal moves",119
+261,131,"/home/admingod/regicide-gen2-work/openings4.txt:131","T2","default",1/2-1/2,0.5,"repetition",79
+208,104,"/home/admingod/regicide-gen2-work/openings4.txt:104","default","T2",1-0,0,"no legal moves",295
+262,131,"/home/admingod/regicide-gen2-work/openings4.txt:131","default","T2",1/2-1/2,0.5,"repetition",99
+264,132,"/home/admingod/regicide-gen2-work/openings4.txt:132","default","T2",1/2-1/2,0.5,"repetition",69
+265,133,"/home/admingod/regicide-gen2-work/openings4.txt:133","T2","default",1/2-1/2,0.5,"repetition",67
+266,133,"/home/admingod/regicide-gen2-work/openings4.txt:133","default","T2",1/2-1/2,0.5,"repetition",95
+271,136,"/home/admingod/regicide-gen2-work/openings4.txt:136","T2","default",1/2-1/2,0.5,"repetition",87
+272,136,"/home/admingod/regicide-gen2-work/openings4.txt:136","default","T2",1/2-1/2,0.5,"repetition",87
+267,134,"/home/admingod/regicide-gen2-work/openings4.txt:134","T2","default",1/2-1/2,0.5,"repetition",83
+259,130,"/home/admingod/regicide-gen2-work/openings4.txt:130","T2","default",1/2-1/2,0.5,"repetition",97
+268,134,"/home/admingod/regicide-gen2-work/openings4.txt:134","default","T2",1/2-1/2,0.5,"repetition",111
+275,138,"/home/admingod/regicide-gen2-work/openings4.txt:138","T2","default",1/2-1/2,0.5,"repetition",78
+273,137,"/home/admingod/regicide-gen2-work/openings4.txt:137","T2","default",1/2-1/2,0.5,"repetition",101
+276,138,"/home/admingod/regicide-gen2-work/openings4.txt:138","default","T2",1/2-1/2,0.5,"repetition",78
+278,139,"/home/admingod/regicide-gen2-work/openings4.txt:139","default","T2",1/2-1/2,0.5,"repetition",63
+274,137,"/home/admingod/regicide-gen2-work/openings4.txt:137","default","T2",1/2-1/2,0.5,"repetition",101
+277,139,"/home/admingod/regicide-gen2-work/openings4.txt:139","T2","default",1/2-1/2,0.5,"repetition",79
+269,135,"/home/admingod/regicide-gen2-work/openings4.txt:135","T2","default",1-0,1,"no legal moves",135
+279,140,"/home/admingod/regicide-gen2-work/openings4.txt:140","T2","default",1/2-1/2,0.5,"repetition",71
+280,140,"/home/admingod/regicide-gen2-work/openings4.txt:140","default","T2",1/2-1/2,0.5,"repetition",71
+281,141,"/home/admingod/regicide-gen2-work/openings4.txt:141","T2","default",1/2-1/2,0.5,"repetition",74
+283,142,"/home/admingod/regicide-gen2-work/openings4.txt:142","T2","default",1/2-1/2,0.5,"repetition",73
+282,141,"/home/admingod/regicide-gen2-work/openings4.txt:141","default","T2",1/2-1/2,0.5,"repetition",91
+286,143,"/home/admingod/regicide-gen2-work/openings4.txt:143","default","T2",1/2-1/2,0.5,"repetition",85
+284,142,"/home/admingod/regicide-gen2-work/openings4.txt:142","default","T2",1/2-1/2,0.5,"repetition",59
+288,144,"/home/admingod/regicide-gen2-work/openings4.txt:144","default","T2",1/2-1/2,0.5,"repetition",88
+285,143,"/home/admingod/regicide-gen2-work/openings4.txt:143","T2","default",1/2-1/2,0.5,"repetition",81
+287,144,"/home/admingod/regicide-gen2-work/openings4.txt:144","T2","default",1/2-1/2,0.5,"repetition",107
+270,135,"/home/admingod/regicide-gen2-work/openings4.txt:135","default","T2",1-0,0,"no legal moves",167
+293,147,"/home/admingod/regicide-gen2-work/openings4.txt:147","T2","default",0-1,0,"no legal moves",60
+291,146,"/home/admingod/regicide-gen2-work/openings4.txt:146","T2","default",0-1,0,"no legal moves",84
+290,145,"/home/admingod/regicide-gen2-work/openings4.txt:145","default","T2",0-1,1,"no legal moves",134
+294,147,"/home/admingod/regicide-gen2-work/openings4.txt:147","default","T2",0-1,1,"no legal moves",60
+289,145,"/home/admingod/regicide-gen2-work/openings4.txt:145","T2","default",0-1,0,"no legal moves",134
+292,146,"/home/admingod/regicide-gen2-work/openings4.txt:146","default","T2",0-1,1,"no legal moves",112
+295,148,"/home/admingod/regicide-gen2-work/openings4.txt:148","T2","default",1-0,1,"no legal moves",153
+296,148,"/home/admingod/regicide-gen2-work/openings4.txt:148","default","T2",1-0,0,"no legal moves",149
+298,149,"/home/admingod/regicide-gen2-work/openings4.txt:149","default","T2",1-0,0,"no legal moves",113
+299,150,"/home/admingod/regicide-gen2-work/openings4.txt:150","T2","default",1/2-1/2,0.5,"repetition",85
+300,150,"/home/admingod/regicide-gen2-work/openings4.txt:150","default","T2",1/2-1/2,0.5,"repetition",95
+303,152,"/home/admingod/regicide-gen2-work/openings4.txt:152","T2","default",1-0,1,"no legal moves",57
+307,154,"/home/admingod/regicide-gen2-work/openings4.txt:154","T2","default",1/2-1/2,0.5,"repetition",60
+308,154,"/home/admingod/regicide-gen2-work/openings4.txt:154","default","T2",1/2-1/2,0.5,"repetition",60
+301,151,"/home/admingod/regicide-gen2-work/openings4.txt:151","T2","default",1/2-1/2,0.5,"repetition",107
+302,151,"/home/admingod/regicide-gen2-work/openings4.txt:151","default","T2",1/2-1/2,0.5,"repetition",89
+304,152,"/home/admingod/regicide-gen2-work/openings4.txt:152","default","T2",1-0,0,"no legal moves",167
+297,149,"/home/admingod/regicide-gen2-work/openings4.txt:149","T2","default",1-0,1,"no legal moves",161
+309,155,"/home/admingod/regicide-gen2-work/openings4.txt:155","T2","default",1/2-1/2,0.5,"repetition",62
+305,153,"/home/admingod/regicide-gen2-work/openings4.txt:153","T2","default",1-0,1,"no legal moves",63
+310,155,"/home/admingod/regicide-gen2-work/openings4.txt:155","default","T2",1/2-1/2,0.5,"repetition",62
+306,153,"/home/admingod/regicide-gen2-work/openings4.txt:153","default","T2",1-0,0,"no legal moves",153
+311,156,"/home/admingod/regicide-gen2-work/openings4.txt:156","T2","default",1/2-1/2,0.5,"repetition",85
+317,159,"/home/admingod/regicide-gen2-work/openings4.txt:159","T2","default",1/2-1/2,0.5,"repetition",85
+318,159,"/home/admingod/regicide-gen2-work/openings4.txt:159","default","T2",1/2-1/2,0.5,"repetition",85
+319,160,"/home/admingod/regicide-gen2-work/openings4.txt:160","T2","default",1/2-1/2,0.5,"repetition",74
+312,156,"/home/admingod/regicide-gen2-work/openings4.txt:156","default","T2",1/2-1/2,0.5,"repetition",87
+320,160,"/home/admingod/regicide-gen2-work/openings4.txt:160","default","T2",1/2-1/2,0.5,"repetition",91
+314,157,"/home/admingod/regicide-gen2-work/openings4.txt:157","default","T2",1-0,0,"no legal moves",141
+321,161,"/home/admingod/regicide-gen2-work/openings4.txt:161","T2","default",1/2-1/2,0.5,"repetition",106
+316,158,"/home/admingod/regicide-gen2-work/openings4.txt:158","default","T2",1-0,0,"no legal moves",145
+322,161,"/home/admingod/regicide-gen2-work/openings4.txt:161","default","T2",1/2-1/2,0.5,"repetition",106
+313,157,"/home/admingod/regicide-gen2-work/openings4.txt:157","T2","default",1-0,1,"no legal moves",141
+323,162,"/home/admingod/regicide-gen2-work/openings4.txt:162","T2","default",1/2-1/2,0.5,"repetition",83
+329,165,"/home/admingod/regicide-gen2-work/openings4.txt:165","T2","default",1/2-1/2,0.5,"repetition",78
+330,165,"/home/admingod/regicide-gen2-work/openings4.txt:165","default","T2",1/2-1/2,0.5,"repetition",85
+324,162,"/home/admingod/regicide-gen2-work/openings4.txt:162","default","T2",1/2-1/2,0.5,"repetition",93
+315,158,"/home/admingod/regicide-gen2-work/openings4.txt:158","T2","default",1-0,1,"no legal moves",125
+332,166,"/home/admingod/regicide-gen2-work/openings4.txt:166","default","T2",1/2-1/2,0.5,"repetition",61
+335,168,"/home/admingod/regicide-gen2-work/openings4.txt:168","T2","default",1/2-1/2,0.5,"repetition",62
+333,167,"/home/admingod/regicide-gen2-work/openings4.txt:167","T2","default",1/2-1/2,0.5,"repetition",95
+327,164,"/home/admingod/regicide-gen2-work/openings4.txt:164","T2","default",1/2-1/2,0.5,"repetition",84
+334,167,"/home/admingod/regicide-gen2-work/openings4.txt:167","default","T2",1/2-1/2,0.5,"repetition",83
+331,166,"/home/admingod/regicide-gen2-work/openings4.txt:166","T2","default",1/2-1/2,0.5,"repetition",103
+336,168,"/home/admingod/regicide-gen2-work/openings4.txt:168","default","T2",1/2-1/2,0.5,"repetition",62
+325,163,"/home/admingod/regicide-gen2-work/openings4.txt:163","T2","default",0-1,0,"no legal moves",124
+340,170,"/home/admingod/regicide-gen2-work/openings4.txt:170","default","T2",1/2-1/2,0.5,"repetition",65
+341,171,"/home/admingod/regicide-gen2-work/openings4.txt:171","T2","default",1/2-1/2,0.5,"repetition",91
+342,171,"/home/admingod/regicide-gen2-work/openings4.txt:171","default","T2",1/2-1/2,0.5,"repetition",103
+339,170,"/home/admingod/regicide-gen2-work/openings4.txt:170","T2","default",1/2-1/2,0.5,"repetition",85
+326,163,"/home/admingod/regicide-gen2-work/openings4.txt:163","default","T2",1/2-1/2,0.5,"repetition",149
+343,172,"/home/admingod/regicide-gen2-work/openings4.txt:172","T2","default",0-1,0,"no legal moves",70
+349,175,"/home/admingod/regicide-gen2-work/openings4.txt:175","T2","default",1/2-1/2,0.5,"repetition",69
+344,172,"/home/admingod/regicide-gen2-work/openings4.txt:172","default","T2",0-1,1,"no legal moves",80
+338,169,"/home/admingod/regicide-gen2-work/openings4.txt:169","default","T2",1-0,0,"no legal moves",135
+345,173,"/home/admingod/regicide-gen2-work/openings4.txt:173","T2","default",0-1,0,"no legal moves",52
+328,164,"/home/admingod/regicide-gen2-work/openings4.txt:164","default","T2",1-0,0,"no legal moves",157
+346,173,"/home/admingod/regicide-gen2-work/openings4.txt:173","default","T2",0-1,1,"no legal moves",56
+352,176,"/home/admingod/regicide-gen2-work/openings4.txt:176","default","T2",1/2-1/2,0.5,"repetition",65
+351,176,"/home/admingod/regicide-gen2-work/openings4.txt:176","T2","default",1/2-1/2,0.5,"repetition",75
+350,175,"/home/admingod/regicide-gen2-work/openings4.txt:175","default","T2",1/2-1/2,0.5,"repetition",79
+353,177,"/home/admingod/regicide-gen2-work/openings4.txt:177","T2","default",1/2-1/2,0.5,"repetition",86
+354,177,"/home/admingod/regicide-gen2-work/openings4.txt:177","default","T2",1/2-1/2,0.5,"repetition",86
+347,174,"/home/admingod/regicide-gen2-work/openings4.txt:174","T2","default",0-1,0,"no legal moves",110
+348,174,"/home/admingod/regicide-gen2-work/openings4.txt:174","default","T2",0-1,1,"no legal moves",66
+357,179,"/home/admingod/regicide-gen2-work/openings4.txt:179","T2","default",1/2-1/2,0.5,"repetition",95
+359,180,"/home/admingod/regicide-gen2-work/openings4.txt:180","T2","default",1/2-1/2,0.5,"repetition",81
+358,179,"/home/admingod/regicide-gen2-work/openings4.txt:179","default","T2",1/2-1/2,0.5,"repetition",95
+355,178,"/home/admingod/regicide-gen2-work/openings4.txt:178","T2","default",1/2-1/2,0.5,"repetition",84
+356,178,"/home/admingod/regicide-gen2-work/openings4.txt:178","default","T2",1/2-1/2,0.5,"repetition",75
+363,182,"/home/admingod/regicide-gen2-work/openings4.txt:182","T2","default",1/2-1/2,0.5,"repetition",95
+365,183,"/home/admingod/regicide-gen2-work/openings4.txt:183","T2","default",1/2-1/2,0.5,"repetition",72
+337,169,"/home/admingod/regicide-gen2-work/openings4.txt:169","T2","default",1-0,1,"no legal moves",211
+366,183,"/home/admingod/regicide-gen2-work/openings4.txt:183","default","T2",1/2-1/2,0.5,"repetition",64
+364,182,"/home/admingod/regicide-gen2-work/openings4.txt:182","default","T2",1/2-1/2,0.5,"repetition",83
+360,180,"/home/admingod/regicide-gen2-work/openings4.txt:180","default","T2",1/2-1/2,0.5,"repetition",87
+367,184,"/home/admingod/regicide-gen2-work/openings4.txt:184","T2","default",1/2-1/2,0.5,"repetition",69
+368,184,"/home/admingod/regicide-gen2-work/openings4.txt:184","default","T2",1/2-1/2,0.5,"repetition",69
+370,185,"/home/admingod/regicide-gen2-work/openings4.txt:185","default","T2",1/2-1/2,0.5,"repetition",107
+371,186,"/home/admingod/regicide-gen2-work/openings4.txt:186","T2","default",1/2-1/2,0.5,"repetition",74
+372,186,"/home/admingod/regicide-gen2-work/openings4.txt:186","default","T2",1/2-1/2,0.5,"repetition",89
+362,181,"/home/admingod/regicide-gen2-work/openings4.txt:181","default","T2",1/2-1/2,0.5,"repetition",113
+369,185,"/home/admingod/regicide-gen2-work/openings4.txt:185","T2","default",1/2-1/2,0.5,"repetition",96
+361,181,"/home/admingod/regicide-gen2-work/openings4.txt:181","T2","default",1-0,1,"no legal moves",231
+373,187,"/home/admingod/regicide-gen2-work/openings4.txt:187","T2","default",1-0,1,"no legal moves",133
+374,187,"/home/admingod/regicide-gen2-work/openings4.txt:187","default","T2",1-0,0,"no legal moves",139
+379,190,"/home/admingod/regicide-gen2-work/openings4.txt:190","T2","default",1/2-1/2,0.5,"repetition",64
+377,189,"/home/admingod/regicide-gen2-work/openings4.txt:189","T2","default",1/2-1/2,0.5,"repetition",89
+378,189,"/home/admingod/regicide-gen2-work/openings4.txt:189","default","T2",1/2-1/2,0.5,"repetition",89
+383,192,"/home/admingod/regicide-gen2-work/openings4.txt:192","T2","default",1/2-1/2,0.5,"repetition",76
+381,191,"/home/admingod/regicide-gen2-work/openings4.txt:191","T2","default",1/2-1/2,0.5,"repetition",77
+382,191,"/home/admingod/regicide-gen2-work/openings4.txt:191","default","T2",1/2-1/2,0.5,"repetition",77
+387,194,"/home/admingod/regicide-gen2-work/openings4.txt:194","T2","default",1/2-1/2,0.5,"repetition",62
+388,194,"/home/admingod/regicide-gen2-work/openings4.txt:194","default","T2",1/2-1/2,0.5,"repetition",62
+375,188,"/home/admingod/regicide-gen2-work/openings4.txt:188","T2","default",1-0,1,"no legal moves",161
+389,195,"/home/admingod/regicide-gen2-work/openings4.txt:195","T2","default",1/2-1/2,0.5,"repetition",64
+385,193,"/home/admingod/regicide-gen2-work/openings4.txt:193","T2","default",1-0,1,"no legal moves",131
+386,193,"/home/admingod/regicide-gen2-work/openings4.txt:193","default","T2",1-0,0,"no legal moves",65
+384,192,"/home/admingod/regicide-gen2-work/openings4.txt:192","default","T2",0-1,1,"no legal moves",112
+391,196,"/home/admingod/regicide-gen2-work/openings4.txt:196","T2","default",1/2-1/2,0.5,"repetition",65
+392,196,"/home/admingod/regicide-gen2-work/openings4.txt:196","default","T2",1/2-1/2,0.5,"repetition",75
+394,197,"/home/admingod/regicide-gen2-work/openings4.txt:197","default","T2",1/2-1/2,0.5,"repetition",121
+376,188,"/home/admingod/regicide-gen2-work/openings4.txt:188","default","T2",1-0,0,"no legal moves",117
+396,198,"/home/admingod/regicide-gen2-work/openings4.txt:198","default","T2",1/2-1/2,0.5,"repetition",101
+395,198,"/home/admingod/regicide-gen2-work/openings4.txt:198","T2","default",1/2-1/2,0.5,"repetition",68
+399,200,"/home/admingod/regicide-gen2-work/openings4.txt:200","T2","default",1/2-1/2,0.5,"repetition",83
+400,200,"/home/admingod/regicide-gen2-work/openings4.txt:200","default","T2",1/2-1/2,0.5,"repetition",115
+393,197,"/home/admingod/regicide-gen2-work/openings4.txt:197","T2","default",1/2-1/2,0.5,"repetition",118
+402,201,"/home/admingod/regicide-gen2-work/openings4.txt:201","default","T2",0-1,1,"no legal moves",124
+380,190,"/home/admingod/regicide-gen2-work/openings4.txt:190","default","T2",1/2-1/2,0.5,"repetition",175
+403,202,"/home/admingod/regicide-gen2-work/openings4.txt:202","T2","default",0-1,0,"no legal moves",72
+401,201,"/home/admingod/regicide-gen2-work/openings4.txt:201","T2","default",0-1,0,"no legal moves",82
+405,203,"/home/admingod/regicide-gen2-work/openings4.txt:203","T2","default",0-1,0,"no legal moves",110
+404,202,"/home/admingod/regicide-gen2-work/openings4.txt:202","default","T2",0-1,1,"no legal moves",72
+406,203,"/home/admingod/regicide-gen2-work/openings4.txt:203","default","T2",0-1,1,"no legal moves",118
+397,199,"/home/admingod/regicide-gen2-work/openings4.txt:199","T2","default",1-0,1,"no legal moves",165
+398,199,"/home/admingod/regicide-gen2-work/openings4.txt:199","default","T2",1-0,0,"no legal moves",179
+408,204,"/home/admingod/regicide-gen2-work/openings4.txt:204","default","T2",1-0,0,"no legal moves",63
+410,205,"/home/admingod/regicide-gen2-work/openings4.txt:205","default","T2",1-0,0,"no legal moves",119
+411,206,"/home/admingod/regicide-gen2-work/openings4.txt:206","T2","default",1-0,1,"no legal moves",143
+407,204,"/home/admingod/regicide-gen2-work/openings4.txt:204","T2","default",1-0,1,"no legal moves",65
+412,206,"/home/admingod/regicide-gen2-work/openings4.txt:206","default","T2",1-0,0,"no legal moves",51
+409,205,"/home/admingod/regicide-gen2-work/openings4.txt:205","T2","default",1-0,1,"no legal moves",95
+414,207,"/home/admingod/regicide-gen2-work/openings4.txt:207","default","T2",1-0,0,"no legal moves",99
+415,208,"/home/admingod/regicide-gen2-work/openings4.txt:208","T2","default",1-0,1,"no legal moves",71
+416,208,"/home/admingod/regicide-gen2-work/openings4.txt:208","default","T2",1-0,0,"no legal moves",75
+420,210,"/home/admingod/regicide-gen2-work/openings4.txt:210","default","T2",1/2-1/2,0.5,"repetition",105
+419,210,"/home/admingod/regicide-gen2-work/openings4.txt:210","T2","default",1/2-1/2,0.5,"repetition",99
+413,207,"/home/admingod/regicide-gen2-work/openings4.txt:207","T2","default",1-0,1,"no legal moves",93
+417,209,"/home/admingod/regicide-gen2-work/openings4.txt:209","T2","default",1-0,1,"no legal moves",75
+390,195,"/home/admingod/regicide-gen2-work/openings4.txt:195","default","T2",1/2-1/2,0.5,"no progress",190
+418,209,"/home/admingod/regicide-gen2-work/openings4.txt:209","default","T2",1-0,0,"no legal moves",119
+421,211,"/home/admingod/regicide-gen2-work/openings4.txt:211","T2","default",1-0,1,"no legal moves",123
+422,211,"/home/admingod/regicide-gen2-work/openings4.txt:211","default","T2",1-0,0,"no legal moves",61
+425,213,"/home/admingod/regicide-gen2-work/openings4.txt:213","T2","default",1/2-1/2,0.5,"repetition",105
+426,213,"/home/admingod/regicide-gen2-work/openings4.txt:213","default","T2",1/2-1/2,0.5,"repetition",105
+427,214,"/home/admingod/regicide-gen2-work/openings4.txt:214","T2","default",1/2-1/2,0.5,"repetition",70
+424,212,"/home/admingod/regicide-gen2-work/openings4.txt:212","default","T2",1/2-1/2,0.5,"repetition",76
+430,215,"/home/admingod/regicide-gen2-work/openings4.txt:215","default","T2",1/2-1/2,0.5,"repetition",85
+428,214,"/home/admingod/regicide-gen2-work/openings4.txt:214","default","T2",1/2-1/2,0.5,"repetition",73
+432,216,"/home/admingod/regicide-gen2-work/openings4.txt:216","default","T2",1/2-1/2,0.5,"repetition",64
+429,215,"/home/admingod/regicide-gen2-work/openings4.txt:215","T2","default",1/2-1/2,0.5,"repetition",97
+434,217,"/home/admingod/regicide-gen2-work/openings4.txt:217","default","T2",1/2-1/2,0.5,"repetition",68
+431,216,"/home/admingod/regicide-gen2-work/openings4.txt:216","T2","default",1/2-1/2,0.5,"repetition",89
+437,219,"/home/admingod/regicide-gen2-work/openings4.txt:219","T2","default",1/2-1/2,0.5,"repetition",70
+433,217,"/home/admingod/regicide-gen2-work/openings4.txt:217","T2","default",1/2-1/2,0.5,"repetition",89
+436,218,"/home/admingod/regicide-gen2-work/openings4.txt:218","default","T2",1/2-1/2,0.5,"repetition",101
+441,221,"/home/admingod/regicide-gen2-work/openings4.txt:221","T2","default",1/2-1/2,0.5,"repetition",82
+440,220,"/home/admingod/regicide-gen2-work/openings4.txt:220","default","T2",1/2-1/2,0.5,"repetition",71
+438,219,"/home/admingod/regicide-gen2-work/openings4.txt:219","default","T2",1/2-1/2,0.5,"repetition",90
+442,221,"/home/admingod/regicide-gen2-work/openings4.txt:221","default","T2",1/2-1/2,0.5,"repetition",93
+439,220,"/home/admingod/regicide-gen2-work/openings4.txt:220","T2","default",1/2-1/2,0.5,"repetition",76
+445,223,"/home/admingod/regicide-gen2-work/openings4.txt:223","T2","default",1/2-1/2,0.5,"repetition",85
+444,222,"/home/admingod/regicide-gen2-work/openings4.txt:222","default","T2",1/2-1/2,0.5,"repetition",88
+446,223,"/home/admingod/regicide-gen2-work/openings4.txt:223","default","T2",1/2-1/2,0.5,"repetition",99
+423,212,"/home/admingod/regicide-gen2-work/openings4.txt:212","T2","default",0-1,0,"no legal moves",166
+443,222,"/home/admingod/regicide-gen2-work/openings4.txt:222","T2","default",1/2-1/2,0.5,"repetition",109
+435,218,"/home/admingod/regicide-gen2-work/openings4.txt:218","T2","default",1/2-1/2,0.5,"repetition",132
+450,225,"/home/admingod/regicide-gen2-work/openings4.txt:225","default","T2",1/2-1/2,0.5,"repetition",66
+453,227,"/home/admingod/regicide-gen2-work/openings4.txt:227","T2","default",1/2-1/2,0.5,"repetition",113
+449,225,"/home/admingod/regicide-gen2-work/openings4.txt:225","T2","default",1/2-1/2,0.5,"repetition",101
+454,227,"/home/admingod/regicide-gen2-work/openings4.txt:227","default","T2",1/2-1/2,0.5,"repetition",96
+455,228,"/home/admingod/regicide-gen2-work/openings4.txt:228","T2","default",1/2-1/2,0.5,"repetition",111
+451,226,"/home/admingod/regicide-gen2-work/openings4.txt:226","T2","default",1-0,1,"no legal moves",51
+447,224,"/home/admingod/regicide-gen2-work/openings4.txt:224","T2","default",1/2-1/2,0.5,"repetition",97
+452,226,"/home/admingod/regicide-gen2-work/openings4.txt:226","default","T2",1-0,0,"no legal moves",127
+460,230,"/home/admingod/regicide-gen2-work/openings4.txt:230","default","T2",1/2-1/2,0.5,"repetition",92
+458,229,"/home/admingod/regicide-gen2-work/openings4.txt:229","default","T2",1/2-1/2,0.5,"repetition",83
+459,230,"/home/admingod/regicide-gen2-work/openings4.txt:230","T2","default",1/2-1/2,0.5,"repetition",90
+462,231,"/home/admingod/regicide-gen2-work/openings4.txt:231","default","T2",1/2-1/2,0.5,"repetition",83
+457,229,"/home/admingod/regicide-gen2-work/openings4.txt:229","T2","default",1/2-1/2,0.5,"repetition",85
+456,228,"/home/admingod/regicide-gen2-work/openings4.txt:228","default","T2",1-0,0,"no legal moves",123
+448,224,"/home/admingod/regicide-gen2-work/openings4.txt:224","default","T2",1/2-1/2,0.5,"repetition",108
+465,233,"/home/admingod/regicide-gen2-work/openings4.txt:233","T2","default",1/2-1/2,0.5,"repetition",107
+464,232,"/home/admingod/regicide-gen2-work/openings4.txt:232","default","T2",1/2-1/2,0.5,"repetition",89
+466,233,"/home/admingod/regicide-gen2-work/openings4.txt:233","default","T2",1/2-1/2,0.5,"repetition",60
+469,235,"/home/admingod/regicide-gen2-work/openings4.txt:235","T2","default",1/2-1/2,0.5,"repetition",96
+470,235,"/home/admingod/regicide-gen2-work/openings4.txt:235","default","T2",1/2-1/2,0.5,"repetition",96
+471,236,"/home/admingod/regicide-gen2-work/openings4.txt:236","T2","default",1/2-1/2,0.5,"repetition",81
+473,237,"/home/admingod/regicide-gen2-work/openings4.txt:237","T2","default",1/2-1/2,0.5,"repetition",106
+463,232,"/home/admingod/regicide-gen2-work/openings4.txt:232","T2","default",1-0,1,"no legal moves",151
+472,236,"/home/admingod/regicide-gen2-work/openings4.txt:236","default","T2",1/2-1/2,0.5,"repetition",81
+474,237,"/home/admingod/regicide-gen2-work/openings4.txt:237","default","T2",1/2-1/2,0.5,"repetition",106
+476,238,"/home/admingod/regicide-gen2-work/openings4.txt:238","default","T2",1/2-1/2,0.5,"repetition",91
+475,238,"/home/admingod/regicide-gen2-work/openings4.txt:238","T2","default",1/2-1/2,0.5,"repetition",95
+483,242,"/home/admingod/regicide-gen2-work/openings4.txt:242","T2","default",1/2-1/2,0.5,"repetition",96
+461,231,"/home/admingod/regicide-gen2-work/openings4.txt:231","T2","default",1/2-1/2,0.5,"repetition",141
+482,241,"/home/admingod/regicide-gen2-work/openings4.txt:241","default","T2",1/2-1/2,0.5,"repetition",57
+467,234,"/home/admingod/regicide-gen2-work/openings4.txt:234","T2","default",1-0,1,"no legal moves",171
+479,240,"/home/admingod/regicide-gen2-work/openings4.txt:240","T2","default",0-1,0,"no legal moves",74
+484,242,"/home/admingod/regicide-gen2-work/openings4.txt:242","default","T2",1/2-1/2,0.5,"repetition",96
+468,234,"/home/admingod/regicide-gen2-work/openings4.txt:234","default","T2",1-0,0,"no legal moves",183
+480,240,"/home/admingod/regicide-gen2-work/openings4.txt:240","default","T2",0-1,1,"no legal moves",68
+487,244,"/home/admingod/regicide-gen2-work/openings4.txt:244","T2","default",1/2-1/2,0.5,"repetition",84
+485,243,"/home/admingod/regicide-gen2-work/openings4.txt:243","T2","default",1/2-1/2,0.5,"repetition",83
+486,243,"/home/admingod/regicide-gen2-work/openings4.txt:243","default","T2",1/2-1/2,0.5,"repetition",83
+478,239,"/home/admingod/regicide-gen2-work/openings4.txt:239","default","T2",1/2-1/2,0.5,"repetition",121
+488,244,"/home/admingod/regicide-gen2-work/openings4.txt:244","default","T2",1/2-1/2,0.5,"repetition",72
+490,245,"/home/admingod/regicide-gen2-work/openings4.txt:245","default","T2",1/2-1/2,0.5,"repetition",71
+489,245,"/home/admingod/regicide-gen2-work/openings4.txt:245","T2","default",1/2-1/2,0.5,"repetition",132
+481,241,"/home/admingod/regicide-gen2-work/openings4.txt:241","T2","default",1/2-1/2,0.5,"repetition",133
+492,246,"/home/admingod/regicide-gen2-work/openings4.txt:246","default","T2",0-1,1,"no legal moves",56
+495,248,"/home/admingod/regicide-gen2-work/openings4.txt:248","T2","default",1/2-1/2,0.5,"repetition",62
+477,239,"/home/admingod/regicide-gen2-work/openings4.txt:239","T2","default",1/2-1/2,0.5,"repetition",137
+494,247,"/home/admingod/regicide-gen2-work/openings4.txt:247","default","T2",1/2-1/2,0.5,"repetition",98
+491,246,"/home/admingod/regicide-gen2-work/openings4.txt:246","T2","default",1/2-1/2,0.5,"repetition",123
+499,250,"/home/admingod/regicide-gen2-work/openings4.txt:250","T2","default",1/2-1/2,0.5,"repetition",69
+496,248,"/home/admingod/regicide-gen2-work/openings4.txt:248","default","T2",1/2-1/2,0.5,"repetition",84
+493,247,"/home/admingod/regicide-gen2-work/openings4.txt:247","T2","default",1/2-1/2,0.5,"repetition",107
+501,251,"/home/admingod/regicide-gen2-work/openings4.txt:251","T2","default",1/2-1/2,0.5,"repetition",79
+500,250,"/home/admingod/regicide-gen2-work/openings4.txt:250","default","T2",1/2-1/2,0.5,"repetition",97
+503,252,"/home/admingod/regicide-gen2-work/openings4.txt:252","T2","default",1/2-1/2,0.5,"repetition",101
+502,251,"/home/admingod/regicide-gen2-work/openings4.txt:251","default","T2",1/2-1/2,0.5,"repetition",93
+504,252,"/home/admingod/regicide-gen2-work/openings4.txt:252","default","T2",1/2-1/2,0.5,"repetition",86
+505,253,"/home/admingod/regicide-gen2-work/openings4.txt:253","T2","default",1/2-1/2,0.5,"repetition",60
+506,253,"/home/admingod/regicide-gen2-work/openings4.txt:253","default","T2",1/2-1/2,0.5,"repetition",76
+498,249,"/home/admingod/regicide-gen2-work/openings4.txt:249","default","T2",1-0,0,"no legal moves",159
+497,249,"/home/admingod/regicide-gen2-work/openings4.txt:249","T2","default",1-0,1,"no legal moves",117
+508,254,"/home/admingod/regicide-gen2-work/openings4.txt:254","default","T2",1-0,0,"no legal moves",137
+513,257,"/home/admingod/regicide-gen2-work/openings4.txt:257","T2","default",1/2-1/2,0.5,"repetition",74
+507,254,"/home/admingod/regicide-gen2-work/openings4.txt:254","T2","default",1-0,1,"no legal moves",133
+514,257,"/home/admingod/regicide-gen2-work/openings4.txt:257","default","T2",1/2-1/2,0.5,"repetition",78
+509,255,"/home/admingod/regicide-gen2-work/openings4.txt:255","T2","default",1-0,1,"no legal moves",49
+516,258,"/home/admingod/regicide-gen2-work/openings4.txt:258","default","T2",1/2-1/2,0.5,"repetition",87
+515,258,"/home/admingod/regicide-gen2-work/openings4.txt:258","T2","default",1/2-1/2,0.5,"repetition",111
+517,259,"/home/admingod/regicide-gen2-work/openings4.txt:259","T2","default",1/2-1/2,0.5,"repetition",80
+519,260,"/home/admingod/regicide-gen2-work/openings4.txt:260","T2","default",1/2-1/2,0.5,"repetition",71
+520,260,"/home/admingod/regicide-gen2-work/openings4.txt:260","default","T2",1/2-1/2,0.5,"repetition",71
+510,255,"/home/admingod/regicide-gen2-work/openings4.txt:255","default","T2",1-0,0,"no legal moves",71
+511,256,"/home/admingod/regicide-gen2-work/openings4.txt:256","T2","default",1-0,1,"no legal moves",83
+518,259,"/home/admingod/regicide-gen2-work/openings4.txt:259","default","T2",1/2-1/2,0.5,"repetition",68
+512,256,"/home/admingod/regicide-gen2-work/openings4.txt:256","default","T2",1-0,0,"no legal moves",83
+522,261,"/home/admingod/regicide-gen2-work/openings4.txt:261","default","T2",0-1,1,"no legal moves",112
+524,262,"/home/admingod/regicide-gen2-work/openings4.txt:262","default","T2",1/2-1/2,0.5,"repetition",96
+525,263,"/home/admingod/regicide-gen2-work/openings4.txt:263","T2","default",1/2-1/2,0.5,"repetition",103
+523,262,"/home/admingod/regicide-gen2-work/openings4.txt:262","T2","default",1/2-1/2,0.5,"repetition",105
+527,264,"/home/admingod/regicide-gen2-work/openings4.txt:264","T2","default",1/2-1/2,0.5,"repetition",118
+526,263,"/home/admingod/regicide-gen2-work/openings4.txt:263","default","T2",1/2-1/2,0.5,"repetition",93
+521,261,"/home/admingod/regicide-gen2-work/openings4.txt:261","T2","default",1/2-1/2,0.5,"repetition",93
+528,264,"/home/admingod/regicide-gen2-work/openings4.txt:264","default","T2",1/2-1/2,0.5,"repetition",111
+534,267,"/home/admingod/regicide-gen2-work/openings4.txt:267","default","T2",1/2-1/2,0.5,"repetition",69
+535,268,"/home/admingod/regicide-gen2-work/openings4.txt:268","T2","default",1/2-1/2,0.5,"repetition",104
+536,268,"/home/admingod/regicide-gen2-work/openings4.txt:268","default","T2",1/2-1/2,0.5,"repetition",104
+529,265,"/home/admingod/regicide-gen2-work/openings4.txt:265","T2","default",1/2-1/2,0.5,"repetition",88
+530,265,"/home/admingod/regicide-gen2-work/openings4.txt:265","default","T2",0-1,1,"no legal moves",78
+537,269,"/home/admingod/regicide-gen2-work/openings4.txt:269","T2","default",1-0,1,"no legal moves",59
+538,269,"/home/admingod/regicide-gen2-work/openings4.txt:269","default","T2",1-0,0,"no legal moves",141
+531,266,"/home/admingod/regicide-gen2-work/openings4.txt:266","T2","default",1-0,1,"no legal moves",73
+532,266,"/home/admingod/regicide-gen2-work/openings4.txt:266","default","T2",1-0,0,"no legal moves",73
+542,271,"/home/admingod/regicide-gen2-work/openings4.txt:271","default","T2",1/2-1/2,0.5,"repetition",63
+541,271,"/home/admingod/regicide-gen2-work/openings4.txt:271","T2","default",1/2-1/2,0.5,"repetition",87
+543,272,"/home/admingod/regicide-gen2-work/openings4.txt:272","T2","default",1/2-1/2,0.5,"repetition",88
+544,272,"/home/admingod/regicide-gen2-work/openings4.txt:272","default","T2",1/2-1/2,0.5,"repetition",88
+545,273,"/home/admingod/regicide-gen2-work/openings4.txt:273","T2","default",1/2-1/2,0.5,"repetition",83
+546,273,"/home/admingod/regicide-gen2-work/openings4.txt:273","default","T2",1/2-1/2,0.5,"repetition",83
+540,270,"/home/admingod/regicide-gen2-work/openings4.txt:270","default","T2",1-0,0,"no legal moves",95
+539,270,"/home/admingod/regicide-gen2-work/openings4.txt:270","T2","default",1-0,1,"no legal moves",131
+533,267,"/home/admingod/regicide-gen2-work/openings4.txt:267","T2","default",1/2-1/2,0.5,"repetition",106
+547,274,"/home/admingod/regicide-gen2-work/openings4.txt:274","T2","default",1/2-1/2,0.5,"repetition",98
+548,274,"/home/admingod/regicide-gen2-work/openings4.txt:274","default","T2",1/2-1/2,0.5,"repetition",81
+553,277,"/home/admingod/regicide-gen2-work/openings4.txt:277","T2","default",1/2-1/2,0.5,"repetition",86
+549,275,"/home/admingod/regicide-gen2-work/openings4.txt:275","T2","default",1-0,1,"no legal moves",125
+555,278,"/home/admingod/regicide-gen2-work/openings4.txt:278","T2","default",1/2-1/2,0.5,"repetition",63
+556,278,"/home/admingod/regicide-gen2-work/openings4.txt:278","default","T2",1/2-1/2,0.5,"repetition",101
+558,279,"/home/admingod/regicide-gen2-work/openings4.txt:279","default","T2",1/2-1/2,0.5,"repetition",85
+557,279,"/home/admingod/regicide-gen2-work/openings4.txt:279","T2","default",1/2-1/2,0.5,"repetition",65
+551,276,"/home/admingod/regicide-gen2-work/openings4.txt:276","T2","default",1-0,1,"no legal moves",137
+559,280,"/home/admingod/regicide-gen2-work/openings4.txt:280","T2","default",1/2-1/2,0.5,"repetition",77
+552,276,"/home/admingod/regicide-gen2-work/openings4.txt:276","default","T2",1-0,0,"no legal moves",141
+560,280,"/home/admingod/regicide-gen2-work/openings4.txt:280","default","T2",1/2-1/2,0.5,"repetition",101
+550,275,"/home/admingod/regicide-gen2-work/openings4.txt:275","default","T2",1-0,0,"no legal moves",73
+561,281,"/home/admingod/regicide-gen2-work/openings4.txt:281","T2","default",1-0,1,"no legal moves",49
+554,277,"/home/admingod/regicide-gen2-work/openings4.txt:277","default","T2",1/2-1/2,0.5,"repetition",135
+566,283,"/home/admingod/regicide-gen2-work/openings4.txt:283","default","T2",1/2-1/2,0.5,"repetition",83
+563,282,"/home/admingod/regicide-gen2-work/openings4.txt:282","T2","default",1-0,1,"no legal moves",117
+562,281,"/home/admingod/regicide-gen2-work/openings4.txt:281","default","T2",1-0,0,"no legal moves",143
+569,285,"/home/admingod/regicide-gen2-work/openings4.txt:285","T2","default",1/2-1/2,0.5,"repetition",67
+564,282,"/home/admingod/regicide-gen2-work/openings4.txt:282","default","T2",1-0,0,"no legal moves",195
+570,285,"/home/admingod/regicide-gen2-work/openings4.txt:285","default","T2",1/2-1/2,0.5,"repetition",90
+571,286,"/home/admingod/regicide-gen2-work/openings4.txt:286","T2","default",1/2-1/2,0.5,"repetition",77
+572,286,"/home/admingod/regicide-gen2-work/openings4.txt:286","default","T2",1/2-1/2,0.5,"repetition",77
+574,287,"/home/admingod/regicide-gen2-work/openings4.txt:287","default","T2",1/2-1/2,0.5,"repetition",76
+568,284,"/home/admingod/regicide-gen2-work/openings4.txt:284","default","T2",1-0,0,"no legal moves",155
+567,284,"/home/admingod/regicide-gen2-work/openings4.txt:284","T2","default",1-0,1,"no legal moves",133
+573,287,"/home/admingod/regicide-gen2-work/openings4.txt:287","T2","default",1/2-1/2,0.5,"repetition",90
+581,291,"/home/admingod/regicide-gen2-work/openings4.txt:291","T2","default",1/2-1/2,0.5,"repetition",104
+579,290,"/home/admingod/regicide-gen2-work/openings4.txt:290","T2","default",1/2-1/2,0.5,"repetition",86
+565,283,"/home/admingod/regicide-gen2-work/openings4.txt:283","T2","default",1/2-1/2,0.5,"repetition",127
+575,288,"/home/admingod/regicide-gen2-work/openings4.txt:288","T2","default",1-0,1,"no legal moves",109
+582,291,"/home/admingod/regicide-gen2-work/openings4.txt:291","default","T2",1/2-1/2,0.5,"repetition",72
+580,290,"/home/admingod/regicide-gen2-work/openings4.txt:290","default","T2",1/2-1/2,0.5,"repetition",131
+576,288,"/home/admingod/regicide-gen2-work/openings4.txt:288","default","T2",1-0,0,"no legal moves",133
+577,289,"/home/admingod/regicide-gen2-work/openings4.txt:289","T2","default",1-0,1,"no legal moves",153
+583,292,"/home/admingod/regicide-gen2-work/openings4.txt:292","T2","default",1/2-1/2,0.5,"repetition",77
+584,292,"/home/admingod/regicide-gen2-work/openings4.txt:292","default","T2",1/2-1/2,0.5,"repetition",105
+587,294,"/home/admingod/regicide-gen2-work/openings4.txt:294","T2","default",1/2-1/2,0.5,"repetition",93
+588,294,"/home/admingod/regicide-gen2-work/openings4.txt:294","default","T2",1/2-1/2,0.5,"repetition",79
+589,295,"/home/admingod/regicide-gen2-work/openings4.txt:295","T2","default",1-0,1,"no legal moves",105
+586,293,"/home/admingod/regicide-gen2-work/openings4.txt:293","default","T2",0-1,1,"no legal moves",144
+592,296,"/home/admingod/regicide-gen2-work/openings4.txt:296","default","T2",1-0,0,"no legal moves",55
+590,295,"/home/admingod/regicide-gen2-work/openings4.txt:295","default","T2",1-0,0,"no legal moves",81
+591,296,"/home/admingod/regicide-gen2-work/openings4.txt:296","T2","default",1-0,1,"no legal moves",119
+594,297,"/home/admingod/regicide-gen2-work/openings4.txt:297","default","T2",1-0,0,"no legal moves",57
+578,289,"/home/admingod/regicide-gen2-work/openings4.txt:289","default","T2",1-0,0,"no legal moves",157
+593,297,"/home/admingod/regicide-gen2-work/openings4.txt:297","T2","default",1-0,1,"no legal moves",145
+585,293,"/home/admingod/regicide-gen2-work/openings4.txt:293","T2","default",0-1,0,"no legal moves",96
+598,299,"/home/admingod/regicide-gen2-work/openings4.txt:299","default","T2",1/2-1/2,0.5,"repetition",66
+597,299,"/home/admingod/regicide-gen2-work/openings4.txt:299","T2","default",1/2-1/2,0.5,"repetition",78
+595,298,"/home/admingod/regicide-gen2-work/openings4.txt:298","T2","default",1-0,1,"no legal moves",129
+607,304,"/home/admingod/regicide-gen2-work/openings4.txt:304","T2","default",1/2-1/2,0.5,"repetition",62
+601,301,"/home/admingod/regicide-gen2-work/openings4.txt:301","T2","default",1-0,1,"no legal moves",61
+596,298,"/home/admingod/regicide-gen2-work/openings4.txt:298","default","T2",1/2-1/2,0.5,"repetition",145
+602,301,"/home/admingod/regicide-gen2-work/openings4.txt:301","default","T2",1-0,0,"no legal moves",119
+603,302,"/home/admingod/regicide-gen2-work/openings4.txt:302","T2","default",1-0,1,"no legal moves",57
+599,300,"/home/admingod/regicide-gen2-work/openings4.txt:300","T2","default",1-0,1,"no legal moves",83
+608,304,"/home/admingod/regicide-gen2-work/openings4.txt:304","default","T2",1/2-1/2,0.5,"repetition",62
+600,300,"/home/admingod/regicide-gen2-work/openings4.txt:300","default","T2",1-0,0,"no legal moves",73
+604,302,"/home/admingod/regicide-gen2-work/openings4.txt:302","default","T2",1-0,0,"no legal moves",99
+606,303,"/home/admingod/regicide-gen2-work/openings4.txt:303","default","T2",1-0,0,"no legal moves",155
+615,308,"/home/admingod/regicide-gen2-work/openings4.txt:308","T2","default",1/2-1/2,0.5,"repetition",64
+605,303,"/home/admingod/regicide-gen2-work/openings4.txt:303","T2","default",1-0,1,"no legal moves",169
+616,308,"/home/admingod/regicide-gen2-work/openings4.txt:308","default","T2",1/2-1/2,0.5,"repetition",73
+613,307,"/home/admingod/regicide-gen2-work/openings4.txt:307","T2","default",1-0,1,"no legal moves",127
+611,306,"/home/admingod/regicide-gen2-work/openings4.txt:306","T2","default",1/2-1/2,0.5,"repetition",79
+620,310,"/home/admingod/regicide-gen2-work/openings4.txt:310","default","T2",1/2-1/2,0.5,"repetition",78
+619,310,"/home/admingod/regicide-gen2-work/openings4.txt:310","T2","default",1/2-1/2,0.5,"repetition",85
+617,309,"/home/admingod/regicide-gen2-work/openings4.txt:309","T2","default",1-0,1,"no legal moves",131
+618,309,"/home/admingod/regicide-gen2-work/openings4.txt:309","default","T2",1-0,0,"no legal moves",131
+614,307,"/home/admingod/regicide-gen2-work/openings4.txt:307","default","T2",1-0,0,"no legal moves",141
+625,313,"/home/admingod/regicide-gen2-work/openings4.txt:313","T2","default",1/2-1/2,0.5,"repetition",77
+626,313,"/home/admingod/regicide-gen2-work/openings4.txt:313","default","T2",1/2-1/2,0.5,"repetition",77
+621,311,"/home/admingod/regicide-gen2-work/openings4.txt:311","T2","default",1-0,1,"no legal moves",137
+612,306,"/home/admingod/regicide-gen2-work/openings4.txt:306","default","T2",1-0,0,"no legal moves",151
+623,312,"/home/admingod/regicide-gen2-work/openings4.txt:312","T2","default",1-0,1,"no legal moves",59
+622,311,"/home/admingod/regicide-gen2-work/openings4.txt:311","default","T2",1-0,0,"no legal moves",171
+624,312,"/home/admingod/regicide-gen2-work/openings4.txt:312","default","T2",1-0,0,"no legal moves",129
+629,315,"/home/admingod/regicide-gen2-work/openings4.txt:315","T2","default",1/2-1/2,0.5,"repetition",84
+609,305,"/home/admingod/regicide-gen2-work/openings4.txt:305","T2","default",0-1,0,"no legal moves",134
+630,315,"/home/admingod/regicide-gen2-work/openings4.txt:315","default","T2",1/2-1/2,0.5,"repetition",109
+610,305,"/home/admingod/regicide-gen2-work/openings4.txt:305","default","T2",0-1,1,"no legal moves",140
+631,316,"/home/admingod/regicide-gen2-work/openings4.txt:316","T2","default",0-1,0,"no legal moves",124
+627,314,"/home/admingod/regicide-gen2-work/openings4.txt:314","T2","default",1/2-1/2,0.5,"repetition",135
+632,316,"/home/admingod/regicide-gen2-work/openings4.txt:316","default","T2",0-1,1,"no legal moves",142
+628,314,"/home/admingod/regicide-gen2-work/openings4.txt:314","default","T2",1-0,0,"no legal moves",151
+635,318,"/home/admingod/regicide-gen2-work/openings4.txt:318","T2","default",0-1,0,"no legal moves",60
+636,318,"/home/admingod/regicide-gen2-work/openings4.txt:318","default","T2",0-1,1,"no legal moves",56
+638,319,"/home/admingod/regicide-gen2-work/openings4.txt:319","default","T2",1-0,0,"no legal moves",137
+633,317,"/home/admingod/regicide-gen2-work/openings4.txt:317","T2","default",0-1,0,"no legal moves",108
+634,317,"/home/admingod/regicide-gen2-work/openings4.txt:317","default","T2",0-1,1,"no legal moves",104
+643,322,"/home/admingod/regicide-gen2-work/openings4.txt:322","T2","default",1/2-1/2,0.5,"repetition",93
+644,322,"/home/admingod/regicide-gen2-work/openings4.txt:322","default","T2",1/2-1/2,0.5,"repetition",72
+637,319,"/home/admingod/regicide-gen2-work/openings4.txt:319","T2","default",1-0,1,"no legal moves",163
+639,320,"/home/admingod/regicide-gen2-work/openings4.txt:320","T2","default",1/2-1/2,0.5,"repetition",59
+647,324,"/home/admingod/regicide-gen2-work/openings4.txt:324","T2","default",1/2-1/2,0.5,"repetition",83
+641,321,"/home/admingod/regicide-gen2-work/openings4.txt:321","T2","default",1/2-1/2,0.5,"repetition",81
+640,320,"/home/admingod/regicide-gen2-work/openings4.txt:320","default","T2",1/2-1/2,0.5,"repetition",110
+645,323,"/home/admingod/regicide-gen2-work/openings4.txt:323","T2","default",1-0,1,"no legal moves",113
+646,323,"/home/admingod/regicide-gen2-work/openings4.txt:323","default","T2",1-0,0,"no legal moves",83
+648,324,"/home/admingod/regicide-gen2-work/openings4.txt:324","default","T2",1/2-1/2,0.5,"repetition",93
+652,326,"/home/admingod/regicide-gen2-work/openings4.txt:326","default","T2",1/2-1/2,0.5,"repetition",91
+651,326,"/home/admingod/regicide-gen2-work/openings4.txt:326","T2","default",1/2-1/2,0.5,"repetition",87
+659,330,"/home/admingod/regicide-gen2-work/openings4.txt:330","T2","default",1/2-1/2,0.5,"repetition",67
+653,327,"/home/admingod/regicide-gen2-work/openings4.txt:327","T2","default",1-0,1,"no legal moves",165
+655,328,"/home/admingod/regicide-gen2-work/openings4.txt:328","T2","default",1-0,1,"no legal moves",123
+658,329,"/home/admingod/regicide-gen2-work/openings4.txt:329","default","T2",1/2-1/2,0.5,"repetition",79
+657,329,"/home/admingod/regicide-gen2-work/openings4.txt:329","T2","default",1/2-1/2,0.5,"repetition",97
+654,327,"/home/admingod/regicide-gen2-work/openings4.txt:327","default","T2",1-0,0,"no legal moves",183
+650,325,"/home/admingod/regicide-gen2-work/openings4.txt:325","default","T2",1/2-1/2,0.5,"repetition",107
+662,331,"/home/admingod/regicide-gen2-work/openings4.txt:331","default","T2",1/2-1/2,0.5,"repetition",68
+660,330,"/home/admingod/regicide-gen2-work/openings4.txt:330","default","T2",1/2-1/2,0.5,"repetition",77
+656,328,"/home/admingod/regicide-gen2-work/openings4.txt:328","default","T2",1-0,0,"no legal moves",145
+661,331,"/home/admingod/regicide-gen2-work/openings4.txt:331","T2","default",1/2-1/2,0.5,"repetition",83
+664,332,"/home/admingod/regicide-gen2-work/openings4.txt:332","default","T2",1/2-1/2,0.5,"repetition",87
+665,333,"/home/admingod/regicide-gen2-work/openings4.txt:333","T2","default",1/2-1/2,0.5,"repetition",67
+666,333,"/home/admingod/regicide-gen2-work/openings4.txt:333","default","T2",1/2-1/2,0.5,"repetition",67
+667,334,"/home/admingod/regicide-gen2-work/openings4.txt:334","T2","default",1/2-1/2,0.5,"repetition",87
+668,334,"/home/admingod/regicide-gen2-work/openings4.txt:334","default","T2",1/2-1/2,0.5,"repetition",87
+671,336,"/home/admingod/regicide-gen2-work/openings4.txt:336","T2","default",1/2-1/2,0.5,"repetition",90
+649,325,"/home/admingod/regicide-gen2-work/openings4.txt:325","T2","default",1/2-1/2,0.5,"repetition",144
+672,336,"/home/admingod/regicide-gen2-work/openings4.txt:336","default","T2",1/2-1/2,0.5,"repetition",93
+674,337,"/home/admingod/regicide-gen2-work/openings4.txt:337","default","T2",1/2-1/2,0.5,"repetition",79
+673,337,"/home/admingod/regicide-gen2-work/openings4.txt:337","T2","default",1/2-1/2,0.5,"repetition",95
+670,335,"/home/admingod/regicide-gen2-work/openings4.txt:335","default","T2",1-0,0,"no legal moves",111
+669,335,"/home/admingod/regicide-gen2-work/openings4.txt:335","T2","default",1-0,1,"no legal moves",137
+642,321,"/home/admingod/regicide-gen2-work/openings4.txt:321","default","T2",1-0,0,"no legal moves",201
+663,332,"/home/admingod/regicide-gen2-work/openings4.txt:332","T2","default",1-0,1,"no legal moves",121
+680,340,"/home/admingod/regicide-gen2-work/openings4.txt:340","default","T2",1/2-1/2,0.5,"repetition",111
+679,340,"/home/admingod/regicide-gen2-work/openings4.txt:340","T2","default",1/2-1/2,0.5,"repetition",89
+676,338,"/home/admingod/regicide-gen2-work/openings4.txt:338","default","T2",1/2-1/2,0.5,"repetition",85
+675,338,"/home/admingod/regicide-gen2-work/openings4.txt:338","T2","default",1/2-1/2,0.5,"repetition",90
+683,342,"/home/admingod/regicide-gen2-work/openings4.txt:342","T2","default",1/2-1/2,0.5,"repetition",87
+677,339,"/home/admingod/regicide-gen2-work/openings4.txt:339","T2","default",1-0,1,"no legal moves",123
+678,339,"/home/admingod/regicide-gen2-work/openings4.txt:339","default","T2",1-0,0,"no legal moves",69
+681,341,"/home/admingod/regicide-gen2-work/openings4.txt:341","T2","default",1-0,1,"no legal moves",53
+682,341,"/home/admingod/regicide-gen2-work/openings4.txt:341","default","T2",1-0,0,"no legal moves",61
+692,346,"/home/admingod/regicide-gen2-work/openings4.txt:346","default","T2",1/2-1/2,0.5,"repetition",83
+689,345,"/home/admingod/regicide-gen2-work/openings4.txt:345","T2","default",1/2-1/2,0.5,"repetition",64
+691,346,"/home/admingod/regicide-gen2-work/openings4.txt:346","T2","default",1/2-1/2,0.5,"repetition",74
+690,345,"/home/admingod/regicide-gen2-work/openings4.txt:345","default","T2",1/2-1/2,0.5,"repetition",109
+694,347,"/home/admingod/regicide-gen2-work/openings4.txt:347","default","T2",1/2-1/2,0.5,"repetition",79
+684,342,"/home/admingod/regicide-gen2-work/openings4.txt:342","default","T2",1/2-1/2,0.5,"repetition",89
+686,343,"/home/admingod/regicide-gen2-work/openings4.txt:343","default","T2",0-1,1,"no legal moves",98
+695,348,"/home/admingod/regicide-gen2-work/openings4.txt:348","T2","default",0-1,0,"no legal moves",44
+687,344,"/home/admingod/regicide-gen2-work/openings4.txt:344","T2","default",1-0,1,"no legal moves",137
+688,344,"/home/admingod/regicide-gen2-work/openings4.txt:344","default","T2",1-0,0,"no legal moves",125
+685,343,"/home/admingod/regicide-gen2-work/openings4.txt:343","T2","default",0-1,0,"no legal moves",82
+693,347,"/home/admingod/regicide-gen2-work/openings4.txt:347","T2","default",1-0,1,"no legal moves",131
+698,349,"/home/admingod/regicide-gen2-work/openings4.txt:349","default","T2",1-0,0,"no legal moves",59
+703,352,"/home/admingod/regicide-gen2-work/openings4.txt:352","T2","default",1/2-1/2,0.5,"repetition",111
+700,350,"/home/admingod/regicide-gen2-work/openings4.txt:350","default","T2",1-0,0,"no legal moves",139
+699,350,"/home/admingod/regicide-gen2-work/openings4.txt:350","T2","default",1-0,1,"no legal moves",131
+701,351,"/home/admingod/regicide-gen2-work/openings4.txt:351","T2","default",1-0,1,"no legal moves",125
+696,348,"/home/admingod/regicide-gen2-work/openings4.txt:348","default","T2",0-1,1,"no legal moves",124
+702,351,"/home/admingod/regicide-gen2-work/openings4.txt:351","default","T2",1-0,0,"no legal moves",165
+704,352,"/home/admingod/regicide-gen2-work/openings4.txt:352","default","T2",1-0,0,"no legal moves",85
+706,353,"/home/admingod/regicide-gen2-work/openings4.txt:353","default","T2",1-0,0,"no legal moves",109
+697,349,"/home/admingod/regicide-gen2-work/openings4.txt:349","T2","default",1-0,1,"no legal moves",197
+705,353,"/home/admingod/regicide-gen2-work/openings4.txt:353","T2","default",1-0,1,"no legal moves",135
+709,355,"/home/admingod/regicide-gen2-work/openings4.txt:355","T2","default",1/2-1/2,0.5,"repetition",86
+708,354,"/home/admingod/regicide-gen2-work/openings4.txt:354","default","T2",1-0,0,"no legal moves",149
+707,354,"/home/admingod/regicide-gen2-work/openings4.txt:354","T2","default",1-0,1,"no legal moves",61
+710,355,"/home/admingod/regicide-gen2-work/openings4.txt:355","default","T2",1/2-1/2,0.5,"repetition",90
+715,358,"/home/admingod/regicide-gen2-work/openings4.txt:358","T2","default",1/2-1/2,0.5,"repetition",97
+717,359,"/home/admingod/regicide-gen2-work/openings4.txt:359","T2","default",1/2-1/2,0.5,"repetition",77
+716,358,"/home/admingod/regicide-gen2-work/openings4.txt:358","default","T2",1/2-1/2,0.5,"repetition",56
+718,359,"/home/admingod/regicide-gen2-work/openings4.txt:359","default","T2",1/2-1/2,0.5,"repetition",77
+714,357,"/home/admingod/regicide-gen2-work/openings4.txt:357","default","T2",1/2-1/2,0.5,"repetition",81
+720,360,"/home/admingod/regicide-gen2-work/openings4.txt:360","default","T2",1/2-1/2,0.5,"repetition",92
+721,361,"/home/admingod/regicide-gen2-work/openings4.txt:361","T2","default",1/2-1/2,0.5,"repetition",74
+713,357,"/home/admingod/regicide-gen2-work/openings4.txt:357","T2","default",1/2-1/2,0.5,"repetition",106
+722,361,"/home/admingod/regicide-gen2-work/openings4.txt:361","default","T2",1/2-1/2,0.5,"repetition",93
+725,363,"/home/admingod/regicide-gen2-work/openings4.txt:363","T2","default",1/2-1/2,0.5,"repetition",73
+726,363,"/home/admingod/regicide-gen2-work/openings4.txt:363","default","T2",1/2-1/2,0.5,"repetition",72
+711,356,"/home/admingod/regicide-gen2-work/openings4.txt:356","T2","default",1-0,1,"no legal moves",151
+724,362,"/home/admingod/regicide-gen2-work/openings4.txt:362","default","T2",1/2-1/2,0.5,"repetition",75
+712,356,"/home/admingod/regicide-gen2-work/openings4.txt:356","default","T2",1-0,0,"no legal moves",181
+719,360,"/home/admingod/regicide-gen2-work/openings4.txt:360","T2","default",1/2-1/2,0.5,"repetition",103
+727,364,"/home/admingod/regicide-gen2-work/openings4.txt:364","T2","default",1/2-1/2,0.5,"repetition",88
+731,366,"/home/admingod/regicide-gen2-work/openings4.txt:366","T2","default",1/2-1/2,0.5,"repetition",93
+728,364,"/home/admingod/regicide-gen2-work/openings4.txt:364","default","T2",1/2-1/2,0.5,"repetition",93
+732,366,"/home/admingod/regicide-gen2-work/openings4.txt:366","default","T2",1/2-1/2,0.5,"repetition",93
+730,365,"/home/admingod/regicide-gen2-work/openings4.txt:365","default","T2",0-1,1,"no legal moves",62
+737,369,"/home/admingod/regicide-gen2-work/openings4.txt:369","T2","default",1/2-1/2,0.5,"repetition",90
+738,369,"/home/admingod/regicide-gen2-work/openings4.txt:369","default","T2",1/2-1/2,0.5,"repetition",90
+739,370,"/home/admingod/regicide-gen2-work/openings4.txt:370","T2","default",1/2-1/2,0.5,"repetition",80
+733,367,"/home/admingod/regicide-gen2-work/openings4.txt:367","T2","default",1-0,1,"no legal moves",139
+735,368,"/home/admingod/regicide-gen2-work/openings4.txt:368","T2","default",1-0,1,"no legal moves",131
+740,370,"/home/admingod/regicide-gen2-work/openings4.txt:370","default","T2",1/2-1/2,0.5,"repetition",80
+734,367,"/home/admingod/regicide-gen2-work/openings4.txt:367","default","T2",1-0,0,"no legal moves",99
+729,365,"/home/admingod/regicide-gen2-work/openings4.txt:365","T2","default",0-1,0,"no legal moves",124
+723,362,"/home/admingod/regicide-gen2-work/openings4.txt:362","T2","default",0-1,0,"no legal moves",132
+742,371,"/home/admingod/regicide-gen2-work/openings4.txt:371","default","T2",1/2-1/2,0.5,"repetition",83
+736,368,"/home/admingod/regicide-gen2-work/openings4.txt:368","default","T2",1-0,0,"no legal moves",119
+745,373,"/home/admingod/regicide-gen2-work/openings4.txt:373","T2","default",1/2-1/2,0.5,"repetition",120
+741,371,"/home/admingod/regicide-gen2-work/openings4.txt:371","T2","default",1/2-1/2,0.5,"repetition",99
+746,373,"/home/admingod/regicide-gen2-work/openings4.txt:373","default","T2",1/2-1/2,0.5,"repetition",61
+747,374,"/home/admingod/regicide-gen2-work/openings4.txt:374","T2","default",1/2-1/2,0.5,"repetition",79
+750,375,"/home/admingod/regicide-gen2-work/openings4.txt:375","default","T2",1/2-1/2,0.5,"repetition",79
+749,375,"/home/admingod/regicide-gen2-work/openings4.txt:375","T2","default",1/2-1/2,0.5,"repetition",79
+748,374,"/home/admingod/regicide-gen2-work/openings4.txt:374","default","T2",1/2-1/2,0.5,"repetition",89
+744,372,"/home/admingod/regicide-gen2-work/openings4.txt:372","default","T2",0-1,1,"no legal moves",66
+743,372,"/home/admingod/regicide-gen2-work/openings4.txt:372","T2","default",0-1,0,"no legal moves",66
+755,378,"/home/admingod/regicide-gen2-work/openings4.txt:378","T2","default",1/2-1/2,0.5,"repetition",80
+757,379,"/home/admingod/regicide-gen2-work/openings4.txt:379","T2","default",1/2-1/2,0.5,"repetition",74
+754,377,"/home/admingod/regicide-gen2-work/openings4.txt:377","default","T2",1/2-1/2,0.5,"repetition",91
+756,378,"/home/admingod/regicide-gen2-work/openings4.txt:378","default","T2",1/2-1/2,0.5,"repetition",74
+751,376,"/home/admingod/regicide-gen2-work/openings4.txt:376","T2","default",1-0,1,"no legal moves",119
+759,380,"/home/admingod/regicide-gen2-work/openings4.txt:380","T2","default",1/2-1/2,0.5,"repetition",89
+762,381,"/home/admingod/regicide-gen2-work/openings4.txt:381","default","T2",1/2-1/2,0.5,"repetition",63
+758,379,"/home/admingod/regicide-gen2-work/openings4.txt:379","default","T2",1/2-1/2,0.5,"repetition",117
+752,376,"/home/admingod/regicide-gen2-work/openings4.txt:376","default","T2",1-0,0,"no legal moves",143
+761,381,"/home/admingod/regicide-gen2-work/openings4.txt:381","T2","default",1/2-1/2,0.5,"repetition",103
+765,383,"/home/admingod/regicide-gen2-work/openings4.txt:383","T2","default",1-0,1,"no legal moves",103
+763,382,"/home/admingod/regicide-gen2-work/openings4.txt:382","T2","default",1-0,1,"no legal moves",155
+766,383,"/home/admingod/regicide-gen2-work/openings4.txt:383","default","T2",1-0,0,"no legal moves",101
+764,382,"/home/admingod/regicide-gen2-work/openings4.txt:382","default","T2",1-0,0,"no legal moves",127
+769,385,"/home/admingod/regicide-gen2-work/openings4.txt:385","T2","default",1/2-1/2,0.5,"repetition",83
+767,384,"/home/admingod/regicide-gen2-work/openings4.txt:384","T2","default",1-0,1,"no legal moves",133
+760,380,"/home/admingod/regicide-gen2-work/openings4.txt:380","default","T2",1/2-1/2,0.5,"repetition",131
+753,377,"/home/admingod/regicide-gen2-work/openings4.txt:377","T2","default",1-0,1,"no legal moves",145
+768,384,"/home/admingod/regicide-gen2-work/openings4.txt:384","default","T2",1-0,0,"no legal moves",125
+771,386,"/home/admingod/regicide-gen2-work/openings4.txt:386","T2","default",1/2-1/2,0.5,"repetition",101
+773,387,"/home/admingod/regicide-gen2-work/openings4.txt:387","T2","default",1/2-1/2,0.5,"repetition",107
+774,387,"/home/admingod/regicide-gen2-work/openings4.txt:387","default","T2",1/2-1/2,0.5,"repetition",109
+775,388,"/home/admingod/regicide-gen2-work/openings4.txt:388","T2","default",1/2-1/2,0.5,"repetition",89
+777,389,"/home/admingod/regicide-gen2-work/openings4.txt:389","T2","default",0-1,0,"no legal moves",62
+782,391,"/home/admingod/regicide-gen2-work/openings4.txt:391","default","T2",1/2-1/2,0.5,"repetition",85
+770,385,"/home/admingod/regicide-gen2-work/openings4.txt:385","default","T2",0-1,1,"no legal moves",122
+778,389,"/home/admingod/regicide-gen2-work/openings4.txt:389","default","T2",0-1,1,"no legal moves",78
+781,391,"/home/admingod/regicide-gen2-work/openings4.txt:391","T2","default",1/2-1/2,0.5,"repetition",106
+772,386,"/home/admingod/regicide-gen2-work/openings4.txt:386","default","T2",0-1,1,"no legal moves",88
+783,392,"/home/admingod/regicide-gen2-work/openings4.txt:392","T2","default",1/2-1/2,0.5,"repetition",76
+784,392,"/home/admingod/regicide-gen2-work/openings4.txt:392","default","T2",1/2-1/2,0.5,"repetition",92
+789,395,"/home/admingod/regicide-gen2-work/openings4.txt:395","T2","default",1/2-1/2,0.5,"repetition",81
+776,388,"/home/admingod/regicide-gen2-work/openings4.txt:388","default","T2",0-1,1,"no legal moves",132
+786,393,"/home/admingod/regicide-gen2-work/openings4.txt:393","default","T2",1-0,0,"no legal moves",133
+785,393,"/home/admingod/regicide-gen2-work/openings4.txt:393","T2","default",1-0,1,"no legal moves",133
+790,395,"/home/admingod/regicide-gen2-work/openings4.txt:395","default","T2",1/2-1/2,0.5,"repetition",81
+791,396,"/home/admingod/regicide-gen2-work/openings4.txt:396","T2","default",1/2-1/2,0.5,"repetition",94
+792,396,"/home/admingod/regicide-gen2-work/openings4.txt:396","default","T2",1/2-1/2,0.5,"repetition",94
+794,397,"/home/admingod/regicide-gen2-work/openings4.txt:397","default","T2",1/2-1/2,0.5,"repetition",97
+795,398,"/home/admingod/regicide-gen2-work/openings4.txt:398","T2","default",1/2-1/2,0.5,"repetition",89
+793,397,"/home/admingod/regicide-gen2-work/openings4.txt:397","T2","default",1/2-1/2,0.5,"repetition",78
+797,399,"/home/admingod/regicide-gen2-work/openings4.txt:399","T2","default",1/2-1/2,0.5,"repetition",65
+798,399,"/home/admingod/regicide-gen2-work/openings4.txt:399","default","T2",1/2-1/2,0.5,"repetition",65
+779,390,"/home/admingod/regicide-gen2-work/openings4.txt:390","T2","default",1-0,1,"no legal moves",175
+788,394,"/home/admingod/regicide-gen2-work/openings4.txt:394","default","T2",1-0,0,"no legal moves",201
+796,398,"/home/admingod/regicide-gen2-work/openings4.txt:398","default","T2",1/2-1/2,0.5,"repetition",97
+787,394,"/home/admingod/regicide-gen2-work/openings4.txt:394","T2","default",1/2-1/2,0.5,"repetition",128
+801,401,"/home/admingod/regicide-gen2-work/openings4.txt:401","T2","default",1/2-1/2,0.5,"repetition",105
+780,390,"/home/admingod/regicide-gen2-work/openings4.txt:390","default","T2",1-0,0,"no legal moves",135
+802,401,"/home/admingod/regicide-gen2-work/openings4.txt:401","default","T2",1/2-1/2,0.5,"repetition",105
+806,403,"/home/admingod/regicide-gen2-work/openings4.txt:403","default","T2",1/2-1/2,0.5,"repetition",80
+807,404,"/home/admingod/regicide-gen2-work/openings4.txt:404","T2","default",1/2-1/2,0.5,"repetition",70
+805,403,"/home/admingod/regicide-gen2-work/openings4.txt:403","T2","default",1/2-1/2,0.5,"repetition",62
+808,404,"/home/admingod/regicide-gen2-work/openings4.txt:404","default","T2",1/2-1/2,0.5,"repetition",70
+803,402,"/home/admingod/regicide-gen2-work/openings4.txt:402","T2","default",1/2-1/2,0.5,"repetition",77
+804,402,"/home/admingod/regicide-gen2-work/openings4.txt:402","default","T2",1/2-1/2,0.5,"repetition",103
+800,400,"/home/admingod/regicide-gen2-work/openings4.txt:400","default","T2",1-0,0,"no legal moves",169
+812,406,"/home/admingod/regicide-gen2-work/openings4.txt:406","default","T2",1/2-1/2,0.5,"repetition",80
+811,406,"/home/admingod/regicide-gen2-work/openings4.txt:406","T2","default",1/2-1/2,0.5,"repetition",81
+810,405,"/home/admingod/regicide-gen2-work/openings4.txt:405","default","T2",0-1,1,"no legal moves",86
+813,407,"/home/admingod/regicide-gen2-work/openings4.txt:407","T2","default",0-1,0,"no legal moves",146
+814,407,"/home/admingod/regicide-gen2-work/openings4.txt:407","default","T2",0-1,1,"no legal moves",120
+816,408,"/home/admingod/regicide-gen2-work/openings4.txt:408","default","T2",1/2-1/2,0.5,"repetition",79
+815,408,"/home/admingod/regicide-gen2-work/openings4.txt:408","T2","default",1/2-1/2,0.5,"repetition",95
+809,405,"/home/admingod/regicide-gen2-work/openings4.txt:405","T2","default",0-1,0,"no legal moves",140
+818,409,"/home/admingod/regicide-gen2-work/openings4.txt:409","default","T2",1/2-1/2,0.5,"repetition",64
+823,412,"/home/admingod/regicide-gen2-work/openings4.txt:412","T2","default",1/2-1/2,0.5,"repetition",77
+824,412,"/home/admingod/regicide-gen2-work/openings4.txt:412","default","T2",1/2-1/2,0.5,"repetition",77
+799,400,"/home/admingod/regicide-gen2-work/openings4.txt:400","T2","default",1-0,1,"no legal moves",151
+821,411,"/home/admingod/regicide-gen2-work/openings4.txt:411","T2","default",1-0,1,"no legal moves",63
+817,409,"/home/admingod/regicide-gen2-work/openings4.txt:409","T2","default",1/2-1/2,0.5,"repetition",97
+822,411,"/home/admingod/regicide-gen2-work/openings4.txt:411","default","T2",1-0,0,"no legal moves",171
+829,415,"/home/admingod/regicide-gen2-work/openings4.txt:415","T2","default",1/2-1/2,0.5,"repetition",79
+830,415,"/home/admingod/regicide-gen2-work/openings4.txt:415","default","T2",1/2-1/2,0.5,"repetition",93
+819,410,"/home/admingod/regicide-gen2-work/openings4.txt:410","T2","default",1-0,1,"no legal moves",157
+820,410,"/home/admingod/regicide-gen2-work/openings4.txt:410","default","T2",1-0,0,"no legal moves",149
+831,416,"/home/admingod/regicide-gen2-work/openings4.txt:416","T2","default",1-0,1,"no legal moves",129
+827,414,"/home/admingod/regicide-gen2-work/openings4.txt:414","T2","default",1/2-1/2,0.5,"repetition",100
+833,417,"/home/admingod/regicide-gen2-work/openings4.txt:417","T2","default",1/2-1/2,0.5,"repetition",92
+832,416,"/home/admingod/regicide-gen2-work/openings4.txt:416","default","T2",1-0,0,"no legal moves",69
+828,414,"/home/admingod/regicide-gen2-work/openings4.txt:414","default","T2",1/2-1/2,0.5,"repetition",97
+837,419,"/home/admingod/regicide-gen2-work/openings4.txt:419","T2","default",1/2-1/2,0.5,"repetition",72
+834,417,"/home/admingod/regicide-gen2-work/openings4.txt:417","default","T2",1/2-1/2,0.5,"repetition",78
+838,419,"/home/admingod/regicide-gen2-work/openings4.txt:419","default","T2",1/2-1/2,0.5,"repetition",72
+835,418,"/home/admingod/regicide-gen2-work/openings4.txt:418","T2","default",1/2-1/2,0.5,"repetition",91
+836,418,"/home/admingod/regicide-gen2-work/openings4.txt:418","default","T2",1/2-1/2,0.5,"repetition",71
+841,421,"/home/admingod/regicide-gen2-work/openings4.txt:421","T2","default",0-1,0,"no legal moves",56
+825,413,"/home/admingod/regicide-gen2-work/openings4.txt:413","T2","default",0-1,0,"no legal moves",136
+840,420,"/home/admingod/regicide-gen2-work/openings4.txt:420","default","T2",0-1,1,"no legal moves",130
+842,421,"/home/admingod/regicide-gen2-work/openings4.txt:421","default","T2",0-1,1,"no legal moves",70
+845,423,"/home/admingod/regicide-gen2-work/openings4.txt:423","T2","default",1/2-1/2,0.5,"repetition",85
+839,420,"/home/admingod/regicide-gen2-work/openings4.txt:420","T2","default",0-1,0,"no legal moves",114
+846,423,"/home/admingod/regicide-gen2-work/openings4.txt:423","default","T2",1/2-1/2,0.5,"repetition",85
+844,422,"/home/admingod/regicide-gen2-work/openings4.txt:422","default","T2",0-1,1,"no legal moves",68
+843,422,"/home/admingod/regicide-gen2-work/openings4.txt:422","T2","default",0-1,0,"no legal moves",74
+853,427,"/home/admingod/regicide-gen2-work/openings4.txt:427","T2","default",1/2-1/2,0.5,"repetition",76
+854,427,"/home/admingod/regicide-gen2-work/openings4.txt:427","default","T2",1/2-1/2,0.5,"repetition",76
+851,426,"/home/admingod/regicide-gen2-work/openings4.txt:426","T2","default",1/2-1/2,0.5,"repetition",67
+848,424,"/home/admingod/regicide-gen2-work/openings4.txt:424","default","T2",1/2-1/2,0.5,"repetition",81
+852,426,"/home/admingod/regicide-gen2-work/openings4.txt:426","default","T2",1/2-1/2,0.5,"repetition",68
+826,413,"/home/admingod/regicide-gen2-work/openings4.txt:413","default","T2",1/2-1/2,0.5,"repetition",205
+850,425,"/home/admingod/regicide-gen2-work/openings4.txt:425","default","T2",1-0,0,"no legal moves",75
+855,428,"/home/admingod/regicide-gen2-work/openings4.txt:428","T2","default",1/2-1/2,0.5,"repetition",74
+849,425,"/home/admingod/regicide-gen2-work/openings4.txt:425","T2","default",1-0,1,"no legal moves",67
+856,428,"/home/admingod/regicide-gen2-work/openings4.txt:428","default","T2",1/2-1/2,0.5,"repetition",74
+861,431,"/home/admingod/regicide-gen2-work/openings4.txt:431","T2","default",1/2-1/2,0.5,"repetition",93
+863,432,"/home/admingod/regicide-gen2-work/openings4.txt:432","T2","default",1/2-1/2,0.5,"repetition",81
+862,431,"/home/admingod/regicide-gen2-work/openings4.txt:431","default","T2",1/2-1/2,0.5,"repetition",93
+864,432,"/home/admingod/regicide-gen2-work/openings4.txt:432","default","T2",1/2-1/2,0.5,"repetition",81
+860,430,"/home/admingod/regicide-gen2-work/openings4.txt:430","default","T2",1-0,0,"no legal moves",119
+859,430,"/home/admingod/regicide-gen2-work/openings4.txt:430","T2","default",1-0,1,"no legal moves",119
+858,429,"/home/admingod/regicide-gen2-work/openings4.txt:429","default","T2",1-0,0,"no legal moves",141
+865,433,"/home/admingod/regicide-gen2-work/openings4.txt:433","T2","default",1/2-1/2,0.5,"repetition",91
+857,429,"/home/admingod/regicide-gen2-work/openings4.txt:429","T2","default",1-0,1,"no legal moves",133
+869,435,"/home/admingod/regicide-gen2-work/openings4.txt:435","T2","default",1/2-1/2,0.5,"repetition",88
+871,436,"/home/admingod/regicide-gen2-work/openings4.txt:436","T2","default",1/2-1/2,0.5,"repetition",57
+870,435,"/home/admingod/regicide-gen2-work/openings4.txt:435","default","T2",1/2-1/2,0.5,"repetition",98
+872,436,"/home/admingod/regicide-gen2-work/openings4.txt:436","default","T2",1/2-1/2,0.5,"repetition",57
+874,437,"/home/admingod/regicide-gen2-work/openings4.txt:437","default","T2",1/2-1/2,0.5,"repetition",69
+866,433,"/home/admingod/regicide-gen2-work/openings4.txt:433","default","T2",1/2-1/2,0.5,"repetition",80
+873,437,"/home/admingod/regicide-gen2-work/openings4.txt:437","T2","default",1/2-1/2,0.5,"repetition",95
+868,434,"/home/admingod/regicide-gen2-work/openings4.txt:434","default","T2",1-0,0,"no legal moves",117
+878,439,"/home/admingod/regicide-gen2-work/openings4.txt:439","default","T2",1/2-1/2,0.5,"repetition",68
+867,434,"/home/admingod/regicide-gen2-work/openings4.txt:434","T2","default",1/2-1/2,0.5,"repetition",85
+875,438,"/home/admingod/regicide-gen2-work/openings4.txt:438","T2","default",1-0,1,"no legal moves",133
+877,439,"/home/admingod/regicide-gen2-work/openings4.txt:439","T2","default",1/2-1/2,0.5,"repetition",101
+847,424,"/home/admingod/regicide-gen2-work/openings4.txt:424","T2","default",0-1,0,"no legal moves",162
+883,442,"/home/admingod/regicide-gen2-work/openings4.txt:442","T2","default",1/2-1/2,0.5,"repetition",85
+876,438,"/home/admingod/regicide-gen2-work/openings4.txt:438","default","T2",1-0,0,"no legal moves",119
+884,442,"/home/admingod/regicide-gen2-work/openings4.txt:442","default","T2",1/2-1/2,0.5,"repetition",119
+880,440,"/home/admingod/regicide-gen2-work/openings4.txt:440","default","T2",0-1,1,"no legal moves",104
+885,443,"/home/admingod/regicide-gen2-work/openings4.txt:443","T2","default",1/2-1/2,0.5,"repetition",80
+886,443,"/home/admingod/regicide-gen2-work/openings4.txt:443","default","T2",1/2-1/2,0.5,"repetition",79
+887,444,"/home/admingod/regicide-gen2-work/openings4.txt:444","T2","default",0-1,0,"no legal moves",136
+879,440,"/home/admingod/regicide-gen2-work/openings4.txt:440","T2","default",0-1,0,"no legal moves",126
+889,445,"/home/admingod/regicide-gen2-work/openings4.txt:445","T2","default",0-1,0,"no legal moves",80
+888,444,"/home/admingod/regicide-gen2-work/openings4.txt:444","default","T2",0-1,1,"no legal moves",58
+890,445,"/home/admingod/regicide-gen2-work/openings4.txt:445","default","T2",0-1,1,"no legal moves",60
+892,446,"/home/admingod/regicide-gen2-work/openings4.txt:446","default","T2",1/2-1/2,0.5,"repetition",81
+891,446,"/home/admingod/regicide-gen2-work/openings4.txt:446","T2","default",1/2-1/2,0.5,"repetition",81
+893,447,"/home/admingod/regicide-gen2-work/openings4.txt:447","T2","default",1/2-1/2,0.5,"repetition",107
+894,447,"/home/admingod/regicide-gen2-work/openings4.txt:447","default","T2",1/2-1/2,0.5,"repetition",107
+895,448,"/home/admingod/regicide-gen2-work/openings4.txt:448","T2","default",1/2-1/2,0.5,"repetition",68
+897,449,"/home/admingod/regicide-gen2-work/openings4.txt:449","T2","default",1/2-1/2,0.5,"repetition",77
+898,449,"/home/admingod/regicide-gen2-work/openings4.txt:449","default","T2",1/2-1/2,0.5,"repetition",77
+896,448,"/home/admingod/regicide-gen2-work/openings4.txt:448","default","T2",1/2-1/2,0.5,"repetition",83
+881,441,"/home/admingod/regicide-gen2-work/openings4.txt:441","T2","default",1-0,1,"no legal moves",129
+903,452,"/home/admingod/regicide-gen2-work/openings4.txt:452","T2","default",1/2-1/2,0.5,"repetition",68
+904,452,"/home/admingod/regicide-gen2-work/openings4.txt:452","default","T2",1/2-1/2,0.5,"repetition",73
+905,453,"/home/admingod/regicide-gen2-work/openings4.txt:453","T2","default",1/2-1/2,0.5,"repetition",103
+907,454,"/home/admingod/regicide-gen2-work/openings4.txt:454","T2","default",1/2-1/2,0.5,"repetition",96
+908,454,"/home/admingod/regicide-gen2-work/openings4.txt:454","default","T2",1/2-1/2,0.5,"repetition",74
+882,441,"/home/admingod/regicide-gen2-work/openings4.txt:441","default","T2",1-0,0,"no legal moves",147
+909,455,"/home/admingod/regicide-gen2-work/openings4.txt:455","T2","default",1/2-1/2,0.5,"repetition",91
+910,455,"/home/admingod/regicide-gen2-work/openings4.txt:455","default","T2",1/2-1/2,0.5,"repetition",117
+899,450,"/home/admingod/regicide-gen2-work/openings4.txt:450","T2","default",1-0,1,"no legal moves",105
+900,450,"/home/admingod/regicide-gen2-work/openings4.txt:450","default","T2",1-0,0,"no legal moves",205
+911,456,"/home/admingod/regicide-gen2-work/openings4.txt:456","T2","default",1/2-1/2,0.5,"repetition",86
+901,451,"/home/admingod/regicide-gen2-work/openings4.txt:451","T2","default",1-0,1,"no legal moves",153
+912,456,"/home/admingod/regicide-gen2-work/openings4.txt:456","default","T2",1/2-1/2,0.5,"repetition",80
+914,457,"/home/admingod/regicide-gen2-work/openings4.txt:457","default","T2",1/2-1/2,0.5,"repetition",107
+902,451,"/home/admingod/regicide-gen2-work/openings4.txt:451","default","T2",1-0,0,"no legal moves",165
+919,460,"/home/admingod/regicide-gen2-work/openings4.txt:460","T2","default",1/2-1/2,0.5,"repetition",89
+920,460,"/home/admingod/regicide-gen2-work/openings4.txt:460","default","T2",1/2-1/2,0.5,"repetition",63
+921,461,"/home/admingod/regicide-gen2-work/openings4.txt:461","T2","default",1/2-1/2,0.5,"repetition",87
+916,458,"/home/admingod/regicide-gen2-work/openings4.txt:458","default","T2",1-0,0,"no legal moves",123
+917,459,"/home/admingod/regicide-gen2-work/openings4.txt:459","T2","default",1-0,1,"no legal moves",121
+918,459,"/home/admingod/regicide-gen2-work/openings4.txt:459","default","T2",1-0,0,"no legal moves",141
+925,463,"/home/admingod/regicide-gen2-work/openings4.txt:463","T2","default",1/2-1/2,0.5,"repetition",77
+922,461,"/home/admingod/regicide-gen2-work/openings4.txt:461","default","T2",1/2-1/2,0.5,"repetition",85
+926,463,"/home/admingod/regicide-gen2-work/openings4.txt:463","default","T2",1/2-1/2,0.5,"repetition",77
+915,458,"/home/admingod/regicide-gen2-work/openings4.txt:458","T2","default",1-0,1,"no legal moves",177
+929,465,"/home/admingod/regicide-gen2-work/openings4.txt:465","T2","default",1/2-1/2,0.5,"repetition",83
+906,453,"/home/admingod/regicide-gen2-work/openings4.txt:453","default","T2",1-0,0,"no legal moves",169
+932,466,"/home/admingod/regicide-gen2-work/openings4.txt:466","default","T2",1/2-1/2,0.5,"repetition",99
+930,465,"/home/admingod/regicide-gen2-work/openings4.txt:465","default","T2",1/2-1/2,0.5,"repetition",85
+931,466,"/home/admingod/regicide-gen2-work/openings4.txt:466","T2","default",1/2-1/2,0.5,"repetition",76
+927,464,"/home/admingod/regicide-gen2-work/openings4.txt:464","T2","default",0-1,0,"no legal moves",122
+934,467,"/home/admingod/regicide-gen2-work/openings4.txt:467","default","T2",1/2-1/2,0.5,"repetition",69
+933,467,"/home/admingod/regicide-gen2-work/openings4.txt:467","T2","default",1/2-1/2,0.5,"repetition",71
+935,468,"/home/admingod/regicide-gen2-work/openings4.txt:468","T2","default",1/2-1/2,0.5,"repetition",63
+924,462,"/home/admingod/regicide-gen2-work/openings4.txt:462","default","T2",1-0,0,"no legal moves",131
+936,468,"/home/admingod/regicide-gen2-work/openings4.txt:468","default","T2",1/2-1/2,0.5,"repetition",93
+937,469,"/home/admingod/regicide-gen2-work/openings4.txt:469","T2","default",1/2-1/2,0.5,"repetition",83
+938,469,"/home/admingod/regicide-gen2-work/openings4.txt:469","default","T2",1/2-1/2,0.5,"repetition",83
+941,471,"/home/admingod/regicide-gen2-work/openings4.txt:471","T2","default",1/2-1/2,0.5,"repetition",99
+928,464,"/home/admingod/regicide-gen2-work/openings4.txt:464","default","T2",0-1,1,"no legal moves",164
+942,471,"/home/admingod/regicide-gen2-work/openings4.txt:471","default","T2",1/2-1/2,0.5,"repetition",67
+923,462,"/home/admingod/regicide-gen2-work/openings4.txt:462","T2","default",1-0,1,"no legal moves",177
+943,472,"/home/admingod/regicide-gen2-work/openings4.txt:472","T2","default",1/2-1/2,0.5,"repetition",87
+944,472,"/home/admingod/regicide-gen2-work/openings4.txt:472","default","T2",1/2-1/2,0.5,"repetition",87
+945,473,"/home/admingod/regicide-gen2-work/openings4.txt:473","T2","default",1/2-1/2,0.5,"repetition",74
+947,474,"/home/admingod/regicide-gen2-work/openings4.txt:474","T2","default",1/2-1/2,0.5,"repetition",73
+948,474,"/home/admingod/regicide-gen2-work/openings4.txt:474","default","T2",1/2-1/2,0.5,"repetition",73
+946,473,"/home/admingod/regicide-gen2-work/openings4.txt:473","default","T2",1/2-1/2,0.5,"repetition",109
+940,470,"/home/admingod/regicide-gen2-work/openings4.txt:470","default","T2",1/2-1/2,0.5,"repetition",94
+951,476,"/home/admingod/regicide-gen2-work/openings4.txt:476","T2","default",1/2-1/2,0.5,"repetition",92
+952,476,"/home/admingod/regicide-gen2-work/openings4.txt:476","default","T2",1/2-1/2,0.5,"repetition",79
+939,470,"/home/admingod/regicide-gen2-work/openings4.txt:470","T2","default",1/2-1/2,0.5,"repetition",91
+949,475,"/home/admingod/regicide-gen2-work/openings4.txt:475","T2","default",1/2-1/2,0.5,"repetition",111
+953,477,"/home/admingod/regicide-gen2-work/openings4.txt:477","T2","default",1/2-1/2,0.5,"repetition",96
+954,477,"/home/admingod/regicide-gen2-work/openings4.txt:477","default","T2",1/2-1/2,0.5,"repetition",96
+913,457,"/home/admingod/regicide-gen2-work/openings4.txt:457","T2","default",1/2-1/2,0.5,"no progress",176
+959,480,"/home/admingod/regicide-gen2-work/openings4.txt:480","T2","default",1/2-1/2,0.5,"repetition",101
+957,479,"/home/admingod/regicide-gen2-work/openings4.txt:479","T2","default",1/2-1/2,0.5,"repetition",77
+958,479,"/home/admingod/regicide-gen2-work/openings4.txt:479","default","T2",1/2-1/2,0.5,"repetition",77
+950,475,"/home/admingod/regicide-gen2-work/openings4.txt:475","default","T2",1/2-1/2,0.5,"repetition",94
+960,480,"/home/admingod/regicide-gen2-work/openings4.txt:480","default","T2",1/2-1/2,0.5,"repetition",107
+961,481,"/home/admingod/regicide-gen2-work/openings4.txt:481","T2","default",1/2-1/2,0.5,"repetition",67
+956,478,"/home/admingod/regicide-gen2-work/openings4.txt:478","default","T2",0-1,1,"no legal moves",56
+962,481,"/home/admingod/regicide-gen2-work/openings4.txt:481","default","T2",1/2-1/2,0.5,"repetition",67
+963,482,"/home/admingod/regicide-gen2-work/openings4.txt:482","T2","default",1/2-1/2,0.5,"repetition",67
+966,483,"/home/admingod/regicide-gen2-work/openings4.txt:483","default","T2",1/2-1/2,0.5,"repetition",73
+965,483,"/home/admingod/regicide-gen2-work/openings4.txt:483","T2","default",1/2-1/2,0.5,"repetition",88
+964,482,"/home/admingod/regicide-gen2-work/openings4.txt:482","default","T2",1/2-1/2,0.5,"repetition",67
+955,478,"/home/admingod/regicide-gen2-work/openings4.txt:478","T2","default",0-1,0,"no legal moves",96
+967,484,"/home/admingod/regicide-gen2-work/openings4.txt:484","T2","default",0-1,0,"no legal moves",106
+969,485,"/home/admingod/regicide-gen2-work/openings4.txt:485","T2","default",1/2-1/2,0.5,"repetition",103
+973,487,"/home/admingod/regicide-gen2-work/openings4.txt:487","T2","default",1/2-1/2,0.5,"repetition",79
+968,484,"/home/admingod/regicide-gen2-work/openings4.txt:484","default","T2",0-1,1,"no legal moves",104
+970,485,"/home/admingod/regicide-gen2-work/openings4.txt:485","default","T2",1/2-1/2,0.5,"repetition",103
+974,487,"/home/admingod/regicide-gen2-work/openings4.txt:487","default","T2",1/2-1/2,0.5,"repetition",92
+977,489,"/home/admingod/regicide-gen2-work/openings4.txt:489","T2","default",1/2-1/2,0.5,"repetition",91
+975,488,"/home/admingod/regicide-gen2-work/openings4.txt:488","T2","default",1/2-1/2,0.5,"repetition",65
+979,490,"/home/admingod/regicide-gen2-work/openings4.txt:490","T2","default",1/2-1/2,0.5,"repetition",75
+981,491,"/home/admingod/regicide-gen2-work/openings4.txt:491","T2","default",1/2-1/2,0.5,"repetition",76
+978,489,"/home/admingod/regicide-gen2-work/openings4.txt:489","default","T2",1/2-1/2,0.5,"repetition",68
+982,491,"/home/admingod/regicide-gen2-work/openings4.txt:491","default","T2",1/2-1/2,0.5,"repetition",76
+980,490,"/home/admingod/regicide-gen2-work/openings4.txt:490","default","T2",1/2-1/2,0.5,"repetition",85
+984,492,"/home/admingod/regicide-gen2-work/openings4.txt:492","default","T2",1/2-1/2,0.5,"repetition",94
+976,488,"/home/admingod/regicide-gen2-work/openings4.txt:488","default","T2",1/2-1/2,0.5,"repetition",101
+983,492,"/home/admingod/regicide-gen2-work/openings4.txt:492","T2","default",1/2-1/2,0.5,"repetition",94
+985,493,"/home/admingod/regicide-gen2-work/openings4.txt:493","T2","default",1/2-1/2,0.5,"repetition",62
+971,486,"/home/admingod/regicide-gen2-work/openings4.txt:486","T2","default",1/2-1/2,0.5,"repetition",127
+972,486,"/home/admingod/regicide-gen2-work/openings4.txt:486","default","T2",1/2-1/2,0.5,"repetition",117
+988,494,"/home/admingod/regicide-gen2-work/openings4.txt:494","default","T2",1/2-1/2,0.5,"repetition",101
+986,493,"/home/admingod/regicide-gen2-work/openings4.txt:493","default","T2",1/2-1/2,0.5,"repetition",85
+989,495,"/home/admingod/regicide-gen2-work/openings4.txt:495","T2","default",1/2-1/2,0.5,"repetition",67
+987,494,"/home/admingod/regicide-gen2-work/openings4.txt:494","T2","default",1/2-1/2,0.5,"repetition",59
+991,496,"/home/admingod/regicide-gen2-work/openings4.txt:496","T2","default",1/2-1/2,0.5,"repetition",73
+990,495,"/home/admingod/regicide-gen2-work/openings4.txt:495","default","T2",1/2-1/2,0.5,"repetition",103
+993,497,"/home/admingod/regicide-gen2-work/openings4.txt:497","T2","default",1/2-1/2,0.5,"repetition",86
+992,496,"/home/admingod/regicide-gen2-work/openings4.txt:496","default","T2",1/2-1/2,0.5,"repetition",96
+997,499,"/home/admingod/regicide-gen2-work/openings4.txt:499","T2","default",1/2-1/2,0.5,"repetition",95
+998,499,"/home/admingod/regicide-gen2-work/openings4.txt:499","default","T2",1/2-1/2,0.5,"repetition",77
+995,498,"/home/admingod/regicide-gen2-work/openings4.txt:498","T2","default",1/2-1/2,0.5,"repetition",81
+996,498,"/home/admingod/regicide-gen2-work/openings4.txt:498","default","T2",1/2-1/2,0.5,"repetition",65
+999,500,"/home/admingod/regicide-gen2-work/openings4.txt:500","T2","default",1/2-1/2,0.5,"repetition",67
+1000,500,"/home/admingod/regicide-gen2-work/openings4.txt:500","default","T2",1/2-1/2,0.5,"repetition",99
+1005,503,"/home/admingod/regicide-gen2-work/openings4.txt:503","T2","default",1/2-1/2,0.5,"repetition",67
+1001,501,"/home/admingod/regicide-gen2-work/openings4.txt:501","T2","default",1/2-1/2,0.5,"repetition",66
+1002,501,"/home/admingod/regicide-gen2-work/openings4.txt:501","default","T2",1/2-1/2,0.5,"repetition",94
+994,497,"/home/admingod/regicide-gen2-work/openings4.txt:497","default","T2",1/2-1/2,0.5,"repetition",107
+1006,503,"/home/admingod/regicide-gen2-work/openings4.txt:503","default","T2",1/2-1/2,0.5,"repetition",85
+1003,502,"/home/admingod/regicide-gen2-work/openings4.txt:502","T2","default",1/2-1/2,0.5,"repetition",83
+1004,502,"/home/admingod/regicide-gen2-work/openings4.txt:502","default","T2",1/2-1/2,0.5,"repetition",77
+1007,504,"/home/admingod/regicide-gen2-work/openings4.txt:504","T2","default",1/2-1/2,0.5,"repetition",123
+1009,505,"/home/admingod/regicide-gen2-work/openings4.txt:505","T2","default",1/2-1/2,0.5,"repetition",81
+1011,506,"/home/admingod/regicide-gen2-work/openings4.txt:506","T2","default",1/2-1/2,0.5,"repetition",70
+1008,504,"/home/admingod/regicide-gen2-work/openings4.txt:504","default","T2",1/2-1/2,0.5,"repetition",63
+1012,506,"/home/admingod/regicide-gen2-work/openings4.txt:506","default","T2",1/2-1/2,0.5,"repetition",88
+1010,505,"/home/admingod/regicide-gen2-work/openings4.txt:505","default","T2",1/2-1/2,0.5,"repetition",87
+1019,510,"/home/admingod/regicide-gen2-work/openings4.txt:510","T2","default",1/2-1/2,0.5,"repetition",135
+1017,509,"/home/admingod/regicide-gen2-work/openings4.txt:509","T2","default",1/2-1/2,0.5,"repetition",113
+1018,509,"/home/admingod/regicide-gen2-work/openings4.txt:509","default","T2",1/2-1/2,0.5,"repetition",113
+1020,510,"/home/admingod/regicide-gen2-work/openings4.txt:510","default","T2",1/2-1/2,0.5,"repetition",135
+1015,508,"/home/admingod/regicide-gen2-work/openings4.txt:508","T2","default",1/2-1/2,0.5,"repetition",74
+1021,511,"/home/admingod/regicide-gen2-work/openings4.txt:511","T2","default",1/2-1/2,0.5,"repetition",74
+1016,508,"/home/admingod/regicide-gen2-work/openings4.txt:508","default","T2",1/2-1/2,0.5,"repetition",74
+1022,511,"/home/admingod/regicide-gen2-work/openings4.txt:511","default","T2",1/2-1/2,0.5,"repetition",107
+1013,507,"/home/admingod/regicide-gen2-work/openings4.txt:507","T2","default",1-0,1,"no legal moves",133
+1014,507,"/home/admingod/regicide-gen2-work/openings4.txt:507","default","T2",1-0,0,"no legal moves",151
+1028,514,"/home/admingod/regicide-gen2-work/openings4.txt:514","default","T2",1/2-1/2,0.5,"repetition",86
+1029,515,"/home/admingod/regicide-gen2-work/openings4.txt:515","T2","default",1/2-1/2,0.5,"repetition",107
+1024,512,"/home/admingod/regicide-gen2-work/openings4.txt:512","default","T2",1/2-1/2,0.5,"repetition",103
+1023,512,"/home/admingod/regicide-gen2-work/openings4.txt:512","T2","default",1/2-1/2,0.5,"repetition",103
+1030,515,"/home/admingod/regicide-gen2-work/openings4.txt:515","default","T2",1/2-1/2,0.5,"repetition",87
+1031,516,"/home/admingod/regicide-gen2-work/openings4.txt:516","T2","default",1/2-1/2,0.5,"repetition",93
+1032,516,"/home/admingod/regicide-gen2-work/openings4.txt:516","default","T2",1/2-1/2,0.5,"repetition",67
+1025,513,"/home/admingod/regicide-gen2-work/openings4.txt:513","T2","default",0-1,0,"no legal moves",62
+1026,513,"/home/admingod/regicide-gen2-work/openings4.txt:513","default","T2",0-1,1,"no legal moves",132
+1027,514,"/home/admingod/regicide-gen2-work/openings4.txt:514","T2","default",1/2-1/2,0.5,"repetition",84
+1033,517,"/home/admingod/regicide-gen2-work/openings4.txt:517","T2","default",1/2-1/2,0.5,"repetition",87
+1034,517,"/home/admingod/regicide-gen2-work/openings4.txt:517","default","T2",1/2-1/2,0.5,"repetition",101
+1035,518,"/home/admingod/regicide-gen2-work/openings4.txt:518","T2","default",1/2-1/2,0.5,"repetition",80
+1037,519,"/home/admingod/regicide-gen2-work/openings4.txt:519","T2","default",1/2-1/2,0.5,"repetition",66
+1036,518,"/home/admingod/regicide-gen2-work/openings4.txt:518","default","T2",1/2-1/2,0.5,"repetition",101
+1038,519,"/home/admingod/regicide-gen2-work/openings4.txt:519","default","T2",1/2-1/2,0.5,"repetition",91
+1040,520,"/home/admingod/regicide-gen2-work/openings4.txt:520","default","T2",1/2-1/2,0.5,"repetition",75
+1042,521,"/home/admingod/regicide-gen2-work/openings4.txt:521","default","T2",1/2-1/2,0.5,"repetition",87
+1041,521,"/home/admingod/regicide-gen2-work/openings4.txt:521","T2","default",1/2-1/2,0.5,"repetition",76
+1039,520,"/home/admingod/regicide-gen2-work/openings4.txt:520","T2","default",1/2-1/2,0.5,"repetition",104
+1045,523,"/home/admingod/regicide-gen2-work/openings4.txt:523","T2","default",1/2-1/2,0.5,"repetition",87
+1048,524,"/home/admingod/regicide-gen2-work/openings4.txt:524","default","T2",1/2-1/2,0.5,"repetition",68
+1047,524,"/home/admingod/regicide-gen2-work/openings4.txt:524","T2","default",1/2-1/2,0.5,"repetition",67
+1046,523,"/home/admingod/regicide-gen2-work/openings4.txt:523","default","T2",1/2-1/2,0.5,"repetition",112
+1051,526,"/home/admingod/regicide-gen2-work/openings4.txt:526","T2","default",1/2-1/2,0.5,"repetition",67
+1052,526,"/home/admingod/regicide-gen2-work/openings4.txt:526","default","T2",1/2-1/2,0.5,"repetition",68
+1055,528,"/home/admingod/regicide-gen2-work/openings4.txt:528","T2","default",1/2-1/2,0.5,"repetition",107
+1053,527,"/home/admingod/regicide-gen2-work/openings4.txt:527","T2","default",1/2-1/2,0.5,"repetition",76
+1054,527,"/home/admingod/regicide-gen2-work/openings4.txt:527","default","T2",1/2-1/2,0.5,"repetition",76
+1050,525,"/home/admingod/regicide-gen2-work/openings4.txt:525","default","T2",1-0,0,"no legal moves",55
+1056,528,"/home/admingod/regicide-gen2-work/openings4.txt:528","default","T2",1/2-1/2,0.5,"repetition",115
+1049,525,"/home/admingod/regicide-gen2-work/openings4.txt:525","T2","default",1-0,1,"no legal moves",67
+1043,522,"/home/admingod/regicide-gen2-work/openings4.txt:522","T2","default",1-0,1,"no legal moves",163
+1057,529,"/home/admingod/regicide-gen2-work/openings4.txt:529","T2","default",1/2-1/2,0.5,"repetition",109
+1044,522,"/home/admingod/regicide-gen2-work/openings4.txt:522","default","T2",1-0,0,"no legal moves",139
+1060,530,"/home/admingod/regicide-gen2-work/openings4.txt:530","default","T2",1/2-1/2,0.5,"repetition",91
+1061,531,"/home/admingod/regicide-gen2-work/openings4.txt:531","T2","default",1/2-1/2,0.5,"repetition",109
+1062,531,"/home/admingod/regicide-gen2-work/openings4.txt:531","default","T2",1/2-1/2,0.5,"repetition",88
+1063,532,"/home/admingod/regicide-gen2-work/openings4.txt:532","T2","default",1-0,1,"no legal moves",105
+1059,530,"/home/admingod/regicide-gen2-work/openings4.txt:530","T2","default",1/2-1/2,0.5,"repetition",90
+1064,532,"/home/admingod/regicide-gen2-work/openings4.txt:532","default","T2",1-0,0,"no legal moves",51
+1058,529,"/home/admingod/regicide-gen2-work/openings4.txt:529","default","T2",1/2-1/2,0.5,"repetition",97
+1065,533,"/home/admingod/regicide-gen2-work/openings4.txt:533","T2","default",1/2-1/2,0.5,"repetition",74
+1067,534,"/home/admingod/regicide-gen2-work/openings4.txt:534","T2","default",1/2-1/2,0.5,"repetition",101
+1068,534,"/home/admingod/regicide-gen2-work/openings4.txt:534","default","T2",1/2-1/2,0.5,"repetition",101
+1066,533,"/home/admingod/regicide-gen2-work/openings4.txt:533","default","T2",1/2-1/2,0.5,"repetition",111
+1069,535,"/home/admingod/regicide-gen2-work/openings4.txt:535","T2","default",1/2-1/2,0.5,"repetition",84
+1070,535,"/home/admingod/regicide-gen2-work/openings4.txt:535","default","T2",1/2-1/2,0.5,"repetition",99
+1072,536,"/home/admingod/regicide-gen2-work/openings4.txt:536","default","T2",1/2-1/2,0.5,"repetition",73
+1071,536,"/home/admingod/regicide-gen2-work/openings4.txt:536","T2","default",1/2-1/2,0.5,"repetition",73
+1077,539,"/home/admingod/regicide-gen2-work/openings4.txt:539","T2","default",1/2-1/2,0.5,"repetition",76
+1073,537,"/home/admingod/regicide-gen2-work/openings4.txt:537","T2","default",0-1,0,"no legal moves",58
+1080,540,"/home/admingod/regicide-gen2-work/openings4.txt:540","default","T2",1/2-1/2,0.5,"repetition",88
+1078,539,"/home/admingod/regicide-gen2-work/openings4.txt:539","default","T2",1/2-1/2,0.5,"repetition",75
+1074,537,"/home/admingod/regicide-gen2-work/openings4.txt:537","default","T2",0-1,1,"no legal moves",66
+1081,541,"/home/admingod/regicide-gen2-work/openings4.txt:541","T2","default",1/2-1/2,0.5,"repetition",95
+1075,538,"/home/admingod/regicide-gen2-work/openings4.txt:538","T2","default",1-0,1,"no legal moves",119
+1082,541,"/home/admingod/regicide-gen2-work/openings4.txt:541","default","T2",1/2-1/2,0.5,"repetition",63
+1083,542,"/home/admingod/regicide-gen2-work/openings4.txt:542","T2","default",1/2-1/2,0.5,"repetition",75
+1076,538,"/home/admingod/regicide-gen2-work/openings4.txt:538","default","T2",1-0,0,"no legal moves",119
+1084,542,"/home/admingod/regicide-gen2-work/openings4.txt:542","default","T2",1/2-1/2,0.5,"repetition",75
+1088,544,"/home/admingod/regicide-gen2-work/openings4.txt:544","default","T2",1/2-1/2,0.5,"repetition",85
+1085,543,"/home/admingod/regicide-gen2-work/openings4.txt:543","T2","default",1-0,1,"no legal moves",139
+1087,544,"/home/admingod/regicide-gen2-work/openings4.txt:544","T2","default",1/2-1/2,0.5,"repetition",67
+1093,547,"/home/admingod/regicide-gen2-work/openings4.txt:547","T2","default",1/2-1/2,0.5,"repetition",93
+1091,546,"/home/admingod/regicide-gen2-work/openings4.txt:546","T2","default",1/2-1/2,0.5,"repetition",68
+1090,545,"/home/admingod/regicide-gen2-work/openings4.txt:545","default","T2",1/2-1/2,0.5,"repetition",103
+1086,543,"/home/admingod/regicide-gen2-work/openings4.txt:543","default","T2",1-0,0,"no legal moves",93
+1089,545,"/home/admingod/regicide-gen2-work/openings4.txt:545","T2","default",1/2-1/2,0.5,"repetition",75
+1079,540,"/home/admingod/regicide-gen2-work/openings4.txt:540","T2","default",1/2-1/2,0.5,"repetition",106
+1094,547,"/home/admingod/regicide-gen2-work/openings4.txt:547","default","T2",1/2-1/2,0.5,"repetition",58
+1096,548,"/home/admingod/regicide-gen2-work/openings4.txt:548","default","T2",1/2-1/2,0.5,"repetition",85
+1092,546,"/home/admingod/regicide-gen2-work/openings4.txt:546","default","T2",1/2-1/2,0.5,"repetition",120
+1095,548,"/home/admingod/regicide-gen2-work/openings4.txt:548","T2","default",1/2-1/2,0.5,"repetition",70
+1103,552,"/home/admingod/regicide-gen2-work/openings4.txt:552","T2","default",1/2-1/2,0.5,"repetition",78
+1102,551,"/home/admingod/regicide-gen2-work/openings4.txt:551","default","T2",1/2-1/2,0.5,"repetition",82
+1104,552,"/home/admingod/regicide-gen2-work/openings4.txt:552","default","T2",1/2-1/2,0.5,"repetition",77
+1099,550,"/home/admingod/regicide-gen2-work/openings4.txt:550","T2","default",0-1,0,"no legal moves",80
+1098,549,"/home/admingod/regicide-gen2-work/openings4.txt:549","default","T2",1/2-1/2,0.5,"repetition",97
+1100,550,"/home/admingod/regicide-gen2-work/openings4.txt:550","default","T2",0-1,1,"no legal moves",80
+1105,553,"/home/admingod/regicide-gen2-work/openings4.txt:553","T2","default",1-0,1,"no legal moves",111
+1097,549,"/home/admingod/regicide-gen2-work/openings4.txt:549","T2","default",1/2-1/2,0.5,"repetition",113
+1108,554,"/home/admingod/regicide-gen2-work/openings4.txt:554","default","T2",1/2-1/2,0.5,"repetition",103
+1109,555,"/home/admingod/regicide-gen2-work/openings4.txt:555","T2","default",1/2-1/2,0.5,"repetition",79
+1106,553,"/home/admingod/regicide-gen2-work/openings4.txt:553","default","T2",1-0,0,"no legal moves",65
+1107,554,"/home/admingod/regicide-gen2-work/openings4.txt:554","T2","default",1/2-1/2,0.5,"repetition",113
+1110,555,"/home/admingod/regicide-gen2-work/openings4.txt:555","default","T2",1/2-1/2,0.5,"repetition",79
+1111,556,"/home/admingod/regicide-gen2-work/openings4.txt:556","T2","default",1/2-1/2,0.5,"repetition",93
+1112,556,"/home/admingod/regicide-gen2-work/openings4.txt:556","default","T2",1/2-1/2,0.5,"repetition",77
+1101,551,"/home/admingod/regicide-gen2-work/openings4.txt:551","T2","default",1-0,1,"no legal moves",145
+1120,560,"/home/admingod/regicide-gen2-work/openings4.txt:560","default","T2",1/2-1/2,0.5,"repetition",105
+1115,558,"/home/admingod/regicide-gen2-work/openings4.txt:558","T2","default",1/2-1/2,0.5,"repetition",75
+1119,560,"/home/admingod/regicide-gen2-work/openings4.txt:560","T2","default",1/2-1/2,0.5,"repetition",70
+1116,558,"/home/admingod/regicide-gen2-work/openings4.txt:558","default","T2",1/2-1/2,0.5,"repetition",75
+1114,557,"/home/admingod/regicide-gen2-work/openings4.txt:557","default","T2",1-0,0,"no legal moves",195
+1117,559,"/home/admingod/regicide-gen2-work/openings4.txt:559","T2","default",1/2-1/2,0.5,"repetition",105
+1113,557,"/home/admingod/regicide-gen2-work/openings4.txt:557","T2","default",1-0,1,"no legal moves",139
+1118,559,"/home/admingod/regicide-gen2-work/openings4.txt:559","default","T2",1/2-1/2,0.5,"repetition",86
+1125,563,"/home/admingod/regicide-gen2-work/openings4.txt:563","T2","default",1/2-1/2,0.5,"repetition",91
+1126,563,"/home/admingod/regicide-gen2-work/openings4.txt:563","default","T2",1/2-1/2,0.5,"repetition",85
+1121,561,"/home/admingod/regicide-gen2-work/openings4.txt:561","T2","default",0-1,0,"no legal moves",120
+1129,565,"/home/admingod/regicide-gen2-work/openings4.txt:565","T2","default",1/2-1/2,0.5,"repetition",87
+1128,564,"/home/admingod/regicide-gen2-work/openings4.txt:564","default","T2",1-0,0,"no legal moves",141
+1131,566,"/home/admingod/regicide-gen2-work/openings4.txt:566","T2","default",1/2-1/2,0.5,"repetition",98
+1130,565,"/home/admingod/regicide-gen2-work/openings4.txt:565","default","T2",1/2-1/2,0.5,"repetition",79
+1122,561,"/home/admingod/regicide-gen2-work/openings4.txt:561","default","T2",0-1,1,"no legal moves",80
+1123,562,"/home/admingod/regicide-gen2-work/openings4.txt:562","T2","default",0-1,0,"no legal moves",98
+1132,566,"/home/admingod/regicide-gen2-work/openings4.txt:566","default","T2",1/2-1/2,0.5,"repetition",90
+1127,564,"/home/admingod/regicide-gen2-work/openings4.txt:564","T2","default",1-0,1,"no legal moves",85
+1133,567,"/home/admingod/regicide-gen2-work/openings4.txt:567","T2","default",1/2-1/2,0.5,"repetition",79
+1124,562,"/home/admingod/regicide-gen2-work/openings4.txt:562","default","T2",1/2-1/2,0.5,"repetition",147
+1134,567,"/home/admingod/regicide-gen2-work/openings4.txt:567","default","T2",1/2-1/2,0.5,"repetition",101
+1135,568,"/home/admingod/regicide-gen2-work/openings4.txt:568","T2","default",1/2-1/2,0.5,"repetition",73
+1136,568,"/home/admingod/regicide-gen2-work/openings4.txt:568","default","T2",1/2-1/2,0.5,"repetition",94
+1138,569,"/home/admingod/regicide-gen2-work/openings4.txt:569","default","T2",1-0,0,"no legal moves",133
+1137,569,"/home/admingod/regicide-gen2-work/openings4.txt:569","T2","default",1-0,1,"no legal moves",141
+1139,570,"/home/admingod/regicide-gen2-work/openings4.txt:570","T2","default",1-0,1,"no legal moves",129
+1140,570,"/home/admingod/regicide-gen2-work/openings4.txt:570","default","T2",1-0,0,"no legal moves",127
+1147,574,"/home/admingod/regicide-gen2-work/openings4.txt:574","T2","default",1/2-1/2,0.5,"repetition",83
+1148,574,"/home/admingod/regicide-gen2-work/openings4.txt:574","default","T2",1/2-1/2,0.5,"repetition",83
+1144,572,"/home/admingod/regicide-gen2-work/openings4.txt:572","default","T2",1-0,0,"no legal moves",117
+1145,573,"/home/admingod/regicide-gen2-work/openings4.txt:573","T2","default",1-0,1,"no legal moves",81
+1146,573,"/home/admingod/regicide-gen2-work/openings4.txt:573","default","T2",1-0,0,"no legal moves",79
+1149,575,"/home/admingod/regicide-gen2-work/openings4.txt:575","T2","default",1/2-1/2,0.5,"repetition",95
+1143,572,"/home/admingod/regicide-gen2-work/openings4.txt:572","T2","default",1-0,1,"no legal moves",137
+1150,575,"/home/admingod/regicide-gen2-work/openings4.txt:575","default","T2",1/2-1/2,0.5,"repetition",83
+1151,576,"/home/admingod/regicide-gen2-work/openings4.txt:576","T2","default",1-0,1,"no legal moves",127
+1141,571,"/home/admingod/regicide-gen2-work/openings4.txt:571","T2","default",1-0,1,"no legal moves",141
+1152,576,"/home/admingod/regicide-gen2-work/openings4.txt:576","default","T2",1-0,0,"no legal moves",127
+1142,571,"/home/admingod/regicide-gen2-work/openings4.txt:571","default","T2",1-0,0,"no legal moves",119
+1153,577,"/home/admingod/regicide-gen2-work/openings4.txt:577","T2","default",1-0,1,"no legal moves",121
+1154,577,"/home/admingod/regicide-gen2-work/openings4.txt:577","default","T2",1-0,0,"no legal moves",53
+1158,579,"/home/admingod/regicide-gen2-work/openings4.txt:579","default","T2",1/2-1/2,0.5,"repetition",111
+1157,579,"/home/admingod/regicide-gen2-work/openings4.txt:579","T2","default",1/2-1/2,0.5,"repetition",76
+1160,580,"/home/admingod/regicide-gen2-work/openings4.txt:580","default","T2",1/2-1/2,0.5,"repetition",68
+1159,580,"/home/admingod/regicide-gen2-work/openings4.txt:580","T2","default",1/2-1/2,0.5,"repetition",137
+1161,581,"/home/admingod/regicide-gen2-work/openings4.txt:581","T2","default",1-0,1,"no legal moves",129
+1155,578,"/home/admingod/regicide-gen2-work/openings4.txt:578","T2","default",0-1,0,"no legal moves",94
+1162,581,"/home/admingod/regicide-gen2-work/openings4.txt:581","default","T2",1-0,0,"no legal moves",143
+1156,578,"/home/admingod/regicide-gen2-work/openings4.txt:578","default","T2",0-1,1,"no legal moves",94
+1165,583,"/home/admingod/regicide-gen2-work/openings4.txt:583","T2","default",1/2-1/2,0.5,"repetition",68
+1164,582,"/home/admingod/regicide-gen2-work/openings4.txt:582","default","T2",1/2-1/2,0.5,"repetition",105
+1163,582,"/home/admingod/regicide-gen2-work/openings4.txt:582","T2","default",1-0,1,"no legal moves",173
+1171,586,"/home/admingod/regicide-gen2-work/openings4.txt:586","T2","default",1/2-1/2,0.5,"repetition",94
+1167,584,"/home/admingod/regicide-gen2-work/openings4.txt:584","T2","default",0-1,0,"no legal moves",96
+1168,584,"/home/admingod/regicide-gen2-work/openings4.txt:584","default","T2",0-1,1,"no legal moves",70
+1173,587,"/home/admingod/regicide-gen2-work/openings4.txt:587","T2","default",0-1,0,"no legal moves",82
+1169,585,"/home/admingod/regicide-gen2-work/openings4.txt:585","T2","default",1/2-1/2,0.5,"repetition",92
+1172,586,"/home/admingod/regicide-gen2-work/openings4.txt:586","default","T2",1/2-1/2,0.5,"repetition",110
+1176,588,"/home/admingod/regicide-gen2-work/openings4.txt:588","default","T2",0-1,1,"no legal moves",108
+1170,585,"/home/admingod/regicide-gen2-work/openings4.txt:585","default","T2",1/2-1/2,0.5,"repetition",97
+1178,589,"/home/admingod/regicide-gen2-work/openings4.txt:589","default","T2",1/2-1/2,0.5,"repetition",99
+1174,587,"/home/admingod/regicide-gen2-work/openings4.txt:587","default","T2",0-1,1,"no legal moves",54
+1175,588,"/home/admingod/regicide-gen2-work/openings4.txt:588","T2","default",0-1,0,"no legal moves",136
+1180,590,"/home/admingod/regicide-gen2-work/openings4.txt:590","default","T2",1/2-1/2,0.5,"repetition",98
+1181,591,"/home/admingod/regicide-gen2-work/openings4.txt:591","T2","default",1/2-1/2,0.5,"repetition",76
+1184,592,"/home/admingod/regicide-gen2-work/openings4.txt:592","default","T2",1/2-1/2,0.5,"repetition",90
+1183,592,"/home/admingod/regicide-gen2-work/openings4.txt:592","T2","default",1/2-1/2,0.5,"repetition",81
+1188,594,"/home/admingod/regicide-gen2-work/openings4.txt:594","default","T2",1/2-1/2,0.5,"repetition",92
+1177,589,"/home/admingod/regicide-gen2-work/openings4.txt:589","T2","default",0-1,0,"no legal moves",148
+1189,595,"/home/admingod/regicide-gen2-work/openings4.txt:595","T2","default",1/2-1/2,0.5,"repetition",80
+1190,595,"/home/admingod/regicide-gen2-work/openings4.txt:595","default","T2",1/2-1/2,0.5,"repetition",69
+1179,590,"/home/admingod/regicide-gen2-work/openings4.txt:590","T2","default",0-1,0,"no legal moves",90
+1187,594,"/home/admingod/regicide-gen2-work/openings4.txt:594","T2","default",1/2-1/2,0.5,"repetition",78
+1191,596,"/home/admingod/regicide-gen2-work/openings4.txt:596","T2","default",1/2-1/2,0.5,"repetition",73
+1192,596,"/home/admingod/regicide-gen2-work/openings4.txt:596","default","T2",1/2-1/2,0.5,"repetition",73
+1182,591,"/home/admingod/regicide-gen2-work/openings4.txt:591","default","T2",1/2-1/2,0.5,"repetition",111
+1186,593,"/home/admingod/regicide-gen2-work/openings4.txt:593","default","T2",1-0,0,"no legal moves",187
+1195,598,"/home/admingod/regicide-gen2-work/openings4.txt:598","T2","default",1/2-1/2,0.5,"repetition",95
+1196,598,"/home/admingod/regicide-gen2-work/openings4.txt:598","default","T2",1/2-1/2,0.5,"repetition",68
+1166,583,"/home/admingod/regicide-gen2-work/openings4.txt:583","default","T2",1/2-1/2,0.5,"no progress",186
+1198,599,"/home/admingod/regicide-gen2-work/openings4.txt:599","default","T2",1-0,0,"no legal moves",67
+1185,593,"/home/admingod/regicide-gen2-work/openings4.txt:593","T2","default",1-0,1,"no legal moves",137
+1203,602,"/home/admingod/regicide-gen2-work/openings4.txt:602","T2","default",1/2-1/2,0.5,"repetition",107
+1194,597,"/home/admingod/regicide-gen2-work/openings4.txt:597","default","T2",1-0,0,"no legal moves",161
+1204,602,"/home/admingod/regicide-gen2-work/openings4.txt:602","default","T2",1/2-1/2,0.5,"repetition",67
+1201,601,"/home/admingod/regicide-gen2-work/openings4.txt:601","T2","default",1/2-1/2,0.5,"repetition",107
+1206,603,"/home/admingod/regicide-gen2-work/openings4.txt:603","default","T2",1/2-1/2,0.5,"repetition",79
+1207,604,"/home/admingod/regicide-gen2-work/openings4.txt:604","T2","default",1/2-1/2,0.5,"repetition",87
+1205,603,"/home/admingod/regicide-gen2-work/openings4.txt:603","T2","default",1/2-1/2,0.5,"repetition",110
+1193,597,"/home/admingod/regicide-gen2-work/openings4.txt:597","T2","default",1-0,1,"no legal moves",179
+1202,601,"/home/admingod/regicide-gen2-work/openings4.txt:601","default","T2",1/2-1/2,0.5,"repetition",133
+1199,600,"/home/admingod/regicide-gen2-work/openings4.txt:600","T2","default",1-0,1,"no legal moves",111
+1200,600,"/home/admingod/regicide-gen2-work/openings4.txt:600","default","T2",1-0,0,"no legal moves",125
+1208,604,"/home/admingod/regicide-gen2-work/openings4.txt:604","default","T2",1/2-1/2,0.5,"repetition",121
+1197,599,"/home/admingod/regicide-gen2-work/openings4.txt:599","T2","default",1-0,1,"no legal moves",129
+1212,606,"/home/admingod/regicide-gen2-work/openings4.txt:606","default","T2",1/2-1/2,0.5,"repetition",73
+1211,606,"/home/admingod/regicide-gen2-work/openings4.txt:606","T2","default",1/2-1/2,0.5,"repetition",109
+1209,605,"/home/admingod/regicide-gen2-work/openings4.txt:605","T2","default",0-1,0,"no legal moves",56
+1217,609,"/home/admingod/regicide-gen2-work/openings4.txt:609","T2","default",1/2-1/2,0.5,"repetition",82
+1215,608,"/home/admingod/regicide-gen2-work/openings4.txt:608","T2","default",1/2-1/2,0.5,"repetition",81
+1218,609,"/home/admingod/regicide-gen2-work/openings4.txt:609","default","T2",1/2-1/2,0.5,"repetition",82
+1219,610,"/home/admingod/regicide-gen2-work/openings4.txt:610","T2","default",1/2-1/2,0.5,"repetition",82
+1216,608,"/home/admingod/regicide-gen2-work/openings4.txt:608","default","T2",1/2-1/2,0.5,"repetition",89
+1210,605,"/home/admingod/regicide-gen2-work/openings4.txt:605","default","T2",0-1,1,"no legal moves",88
+1220,610,"/home/admingod/regicide-gen2-work/openings4.txt:610","default","T2",1/2-1/2,0.5,"repetition",82
+1221,611,"/home/admingod/regicide-gen2-work/openings4.txt:611","T2","default",1/2-1/2,0.5,"repetition",71
+1222,611,"/home/admingod/regicide-gen2-work/openings4.txt:611","default","T2",1/2-1/2,0.5,"repetition",83
+1224,612,"/home/admingod/regicide-gen2-work/openings4.txt:612","default","T2",1/2-1/2,0.5,"repetition",121
+1226,613,"/home/admingod/regicide-gen2-work/openings4.txt:613","default","T2",1/2-1/2,0.5,"repetition",73
+1229,615,"/home/admingod/regicide-gen2-work/openings4.txt:615","T2","default",1/2-1/2,0.5,"repetition",77
+1227,614,"/home/admingod/regicide-gen2-work/openings4.txt:614","T2","default",1-0,1,"no legal moves",133
+1230,615,"/home/admingod/regicide-gen2-work/openings4.txt:615","default","T2",1/2-1/2,0.5,"repetition",77
+1223,612,"/home/admingod/regicide-gen2-work/openings4.txt:612","T2","default",1/2-1/2,0.5,"repetition",84
+1214,607,"/home/admingod/regicide-gen2-work/openings4.txt:607","default","T2",1-0,0,"no legal moves",115
+1213,607,"/home/admingod/regicide-gen2-work/openings4.txt:607","T2","default",1-0,1,"no legal moves",155
+1228,614,"/home/admingod/regicide-gen2-work/openings4.txt:614","default","T2",1-0,0,"no legal moves",133
+1234,617,"/home/admingod/regicide-gen2-work/openings4.txt:617","default","T2",1/2-1/2,0.5,"repetition",71
+1236,618,"/home/admingod/regicide-gen2-work/openings4.txt:618","default","T2",1/2-1/2,0.5,"repetition",119
+1237,619,"/home/admingod/regicide-gen2-work/openings4.txt:619","T2","default",1/2-1/2,0.5,"repetition",81
+1238,619,"/home/admingod/regicide-gen2-work/openings4.txt:619","default","T2",1/2-1/2,0.5,"repetition",81
+1225,613,"/home/admingod/regicide-gen2-work/openings4.txt:613","T2","default",1/2-1/2,0.5,"repetition",137
+1233,617,"/home/admingod/regicide-gen2-work/openings4.txt:617","T2","default",1/2-1/2,0.5,"repetition",98
+1240,620,"/home/admingod/regicide-gen2-work/openings4.txt:620","default","T2",1/2-1/2,0.5,"repetition",65
+1239,620,"/home/admingod/regicide-gen2-work/openings4.txt:620","T2","default",1/2-1/2,0.5,"repetition",67
+1243,622,"/home/admingod/regicide-gen2-work/openings4.txt:622","T2","default",1/2-1/2,0.5,"repetition",116
+1232,616,"/home/admingod/regicide-gen2-work/openings4.txt:616","default","T2",1-0,0,"no legal moves",115
+1244,622,"/home/admingod/regicide-gen2-work/openings4.txt:622","default","T2",1/2-1/2,0.5,"repetition",116
+1241,621,"/home/admingod/regicide-gen2-work/openings4.txt:621","T2","default",1/2-1/2,0.5,"repetition",109
+1247,624,"/home/admingod/regicide-gen2-work/openings4.txt:624","T2","default",1/2-1/2,0.5,"repetition",84
+1235,618,"/home/admingod/regicide-gen2-work/openings4.txt:618","T2","default",1/2-1/2,0.5,"repetition",91
+1242,621,"/home/admingod/regicide-gen2-work/openings4.txt:621","default","T2",1/2-1/2,0.5,"repetition",87
+1248,624,"/home/admingod/regicide-gen2-work/openings4.txt:624","default","T2",1/2-1/2,0.5,"repetition",84
+1245,623,"/home/admingod/regicide-gen2-work/openings4.txt:623","T2","default",1-0,1,"no legal moves",155
+1253,627,"/home/admingod/regicide-gen2-work/openings4.txt:627","T2","default",1/2-1/2,0.5,"repetition",82
+1231,616,"/home/admingod/regicide-gen2-work/openings4.txt:616","T2","default",1-0,1,"no legal moves",169
+1246,623,"/home/admingod/regicide-gen2-work/openings4.txt:623","default","T2",1-0,0,"no legal moves",143
+1252,626,"/home/admingod/regicide-gen2-work/openings4.txt:626","default","T2",1-0,0,"no legal moves",57
+1250,625,"/home/admingod/regicide-gen2-work/openings4.txt:625","default","T2",1-0,0,"no legal moves",131
+1249,625,"/home/admingod/regicide-gen2-work/openings4.txt:625","T2","default",1-0,1,"no legal moves",143
+1254,627,"/home/admingod/regicide-gen2-work/openings4.txt:627","default","T2",1/2-1/2,0.5,"repetition",113
+1251,626,"/home/admingod/regicide-gen2-work/openings4.txt:626","T2","default",1-0,1,"no legal moves",135
+1255,628,"/home/admingod/regicide-gen2-work/openings4.txt:628","T2","default",0-1,0,"no legal moves",68
+1262,631,"/home/admingod/regicide-gen2-work/openings4.txt:631","default","T2",1/2-1/2,0.5,"repetition",84
+1261,631,"/home/admingod/regicide-gen2-work/openings4.txt:631","T2","default",1/2-1/2,0.5,"repetition",85
+1260,630,"/home/admingod/regicide-gen2-work/openings4.txt:630","default","T2",1/2-1/2,0.5,"repetition",83
+1256,628,"/home/admingod/regicide-gen2-work/openings4.txt:628","default","T2",0-1,1,"no legal moves",118
+1259,630,"/home/admingod/regicide-gen2-work/openings4.txt:630","T2","default",1/2-1/2,0.5,"repetition",97
+1263,632,"/home/admingod/regicide-gen2-work/openings4.txt:632","T2","default",1-0,1,"no legal moves",51
+1257,629,"/home/admingod/regicide-gen2-work/openings4.txt:629","T2","default",0-1,0,"no legal moves",60
+1258,629,"/home/admingod/regicide-gen2-work/openings4.txt:629","default","T2",0-1,1,"no legal moves",114
+1269,635,"/home/admingod/regicide-gen2-work/openings4.txt:635","T2","default",1/2-1/2,0.5,"repetition",82
+1267,634,"/home/admingod/regicide-gen2-work/openings4.txt:634","T2","default",1/2-1/2,0.5,"repetition",95
+1268,634,"/home/admingod/regicide-gen2-work/openings4.txt:634","default","T2",1/2-1/2,0.5,"repetition",95
+1265,633,"/home/admingod/regicide-gen2-work/openings4.txt:633","T2","default",1/2-1/2,0.5,"repetition",101
+1272,636,"/home/admingod/regicide-gen2-work/openings4.txt:636","default","T2",1/2-1/2,0.5,"repetition",72
+1271,636,"/home/admingod/regicide-gen2-work/openings4.txt:636","T2","default",1/2-1/2,0.5,"repetition",83
+1273,637,"/home/admingod/regicide-gen2-work/openings4.txt:637","T2","default",1/2-1/2,0.5,"repetition",102
+1275,638,"/home/admingod/regicide-gen2-work/openings4.txt:638","T2","default",1/2-1/2,0.5,"repetition",95
+1276,638,"/home/admingod/regicide-gen2-work/openings4.txt:638","default","T2",1/2-1/2,0.5,"repetition",95
+1274,637,"/home/admingod/regicide-gen2-work/openings4.txt:637","default","T2",1/2-1/2,0.5,"repetition",79
+1264,632,"/home/admingod/regicide-gen2-work/openings4.txt:632","default","T2",1-0,0,"no legal moves",165
+1277,639,"/home/admingod/regicide-gen2-work/openings4.txt:639","T2","default",1/2-1/2,0.5,"repetition",103
+1270,635,"/home/admingod/regicide-gen2-work/openings4.txt:635","default","T2",1/2-1/2,0.5,"repetition",103
+1278,639,"/home/admingod/regicide-gen2-work/openings4.txt:639","default","T2",1/2-1/2,0.5,"repetition",103
+1279,640,"/home/admingod/regicide-gen2-work/openings4.txt:640","T2","default",1/2-1/2,0.5,"repetition",75
+1280,640,"/home/admingod/regicide-gen2-work/openings4.txt:640","default","T2",1/2-1/2,0.5,"repetition",78
+1282,641,"/home/admingod/regicide-gen2-work/openings4.txt:641","default","T2",1/2-1/2,0.5,"repetition",68
+1281,641,"/home/admingod/regicide-gen2-work/openings4.txt:641","T2","default",1/2-1/2,0.5,"repetition",105
+1287,644,"/home/admingod/regicide-gen2-work/openings4.txt:644","T2","default",1/2-1/2,0.5,"repetition",70
+1289,645,"/home/admingod/regicide-gen2-work/openings4.txt:645","T2","default",1/2-1/2,0.5,"repetition",56
+1284,642,"/home/admingod/regicide-gen2-work/openings4.txt:642","default","T2",1-0,0,"no legal moves",129
+1266,633,"/home/admingod/regicide-gen2-work/openings4.txt:633","default","T2",1-0,0,"no legal moves",119
+1285,643,"/home/admingod/regicide-gen2-work/openings4.txt:643","T2","default",1-0,1,"no legal moves",123
+1290,645,"/home/admingod/regicide-gen2-work/openings4.txt:645","default","T2",1/2-1/2,0.5,"repetition",56
+1288,644,"/home/admingod/regicide-gen2-work/openings4.txt:644","default","T2",1/2-1/2,0.5,"repetition",67
+1286,643,"/home/admingod/regicide-gen2-work/openings4.txt:643","default","T2",1-0,0,"no legal moves",49
+1283,642,"/home/admingod/regicide-gen2-work/openings4.txt:642","T2","default",1-0,1,"no legal moves",127
+1292,646,"/home/admingod/regicide-gen2-work/openings4.txt:646","default","T2",1/2-1/2,0.5,"repetition",100
+1291,646,"/home/admingod/regicide-gen2-work/openings4.txt:646","T2","default",1/2-1/2,0.5,"repetition",110
+1297,649,"/home/admingod/regicide-gen2-work/openings4.txt:649","T2","default",1/2-1/2,0.5,"repetition",104
+1294,647,"/home/admingod/regicide-gen2-work/openings4.txt:647","default","T2",1/2-1/2,0.5,"repetition",66
+1298,649,"/home/admingod/regicide-gen2-work/openings4.txt:649","default","T2",1/2-1/2,0.5,"repetition",68
+1293,647,"/home/admingod/regicide-gen2-work/openings4.txt:647","T2","default",1/2-1/2,0.5,"repetition",66
+1295,648,"/home/admingod/regicide-gen2-work/openings4.txt:648","T2","default",1/2-1/2,0.5,"repetition",75
+1296,648,"/home/admingod/regicide-gen2-work/openings4.txt:648","default","T2",1/2-1/2,0.5,"repetition",76
+1300,650,"/home/admingod/regicide-gen2-work/openings4.txt:650","default","T2",1-0,0,"no legal moves",53
+1307,654,"/home/admingod/regicide-gen2-work/openings4.txt:654","T2","default",1/2-1/2,0.5,"repetition",85
+1301,651,"/home/admingod/regicide-gen2-work/openings4.txt:651","T2","default",1-0,1,"no legal moves",79
+1308,654,"/home/admingod/regicide-gen2-work/openings4.txt:654","default","T2",1/2-1/2,0.5,"repetition",85
+1309,655,"/home/admingod/regicide-gen2-work/openings4.txt:655","T2","default",1/2-1/2,0.5,"repetition",86
+1310,655,"/home/admingod/regicide-gen2-work/openings4.txt:655","default","T2",1/2-1/2,0.5,"repetition",86
+1299,650,"/home/admingod/regicide-gen2-work/openings4.txt:650","T2","default",1-0,1,"no legal moves",149
+1302,651,"/home/admingod/regicide-gen2-work/openings4.txt:651","default","T2",1-0,0,"no legal moves",173
+1306,653,"/home/admingod/regicide-gen2-work/openings4.txt:653","default","T2",1-0,0,"no legal moves",121
+1311,656,"/home/admingod/regicide-gen2-work/openings4.txt:656","T2","default",1/2-1/2,0.5,"repetition",69
+1305,653,"/home/admingod/regicide-gen2-work/openings4.txt:653","T2","default",1-0,1,"no legal moves",151
+1303,652,"/home/admingod/regicide-gen2-work/openings4.txt:652","T2","default",1-0,1,"no legal moves",185
+1304,652,"/home/admingod/regicide-gen2-work/openings4.txt:652","default","T2",1-0,0,"no legal moves",107
+1312,656,"/home/admingod/regicide-gen2-work/openings4.txt:656","default","T2",1/2-1/2,0.5,"repetition",109
+1314,657,"/home/admingod/regicide-gen2-work/openings4.txt:657","default","T2",1-0,0,"no legal moves",147
+1313,657,"/home/admingod/regicide-gen2-work/openings4.txt:657","T2","default",1-0,1,"no legal moves",177
+1317,659,"/home/admingod/regicide-gen2-work/openings4.txt:659","T2","default",1-0,1,"no legal moves",129
+1315,658,"/home/admingod/regicide-gen2-work/openings4.txt:658","T2","default",1-0,1,"no legal moves",139
+1319,660,"/home/admingod/regicide-gen2-work/openings4.txt:660","T2","default",1/2-1/2,0.5,"repetition",116
+1320,660,"/home/admingod/regicide-gen2-work/openings4.txt:660","default","T2",1/2-1/2,0.5,"repetition",88
+1323,662,"/home/admingod/regicide-gen2-work/openings4.txt:662","T2","default",1/2-1/2,0.5,"repetition",74
+1324,662,"/home/admingod/regicide-gen2-work/openings4.txt:662","default","T2",1/2-1/2,0.5,"repetition",74
+1316,658,"/home/admingod/regicide-gen2-work/openings4.txt:658","default","T2",1-0,0,"no legal moves",173
+1318,659,"/home/admingod/regicide-gen2-work/openings4.txt:659","default","T2",1-0,0,"no legal moves",165
+1321,661,"/home/admingod/regicide-gen2-work/openings4.txt:661","T2","default",1/2-1/2,0.5,"repetition",117
+1322,661,"/home/admingod/regicide-gen2-work/openings4.txt:661","default","T2",1/2-1/2,0.5,"repetition",111
+1326,663,"/home/admingod/regicide-gen2-work/openings4.txt:663","default","T2",1-0,0,"no legal moves",59
+1328,664,"/home/admingod/regicide-gen2-work/openings4.txt:664","default","T2",1-0,0,"no legal moves",171
+1333,667,"/home/admingod/regicide-gen2-work/openings4.txt:667","T2","default",1/2-1/2,0.5,"repetition",86
+1331,666,"/home/admingod/regicide-gen2-work/openings4.txt:666","T2","default",1-0,1,"no legal moves",71
+1334,667,"/home/admingod/regicide-gen2-work/openings4.txt:667","default","T2",1/2-1/2,0.5,"repetition",86
+1329,665,"/home/admingod/regicide-gen2-work/openings4.txt:665","T2","default",1-0,1,"no legal moves",141
+1327,664,"/home/admingod/regicide-gen2-work/openings4.txt:664","T2","default",1-0,1,"no legal moves",155
+1335,668,"/home/admingod/regicide-gen2-work/openings4.txt:668","T2","default",1/2-1/2,0.5,"repetition",94
+1336,668,"/home/admingod/regicide-gen2-work/openings4.txt:668","default","T2",1/2-1/2,0.5,"repetition",94
+1339,670,"/home/admingod/regicide-gen2-work/openings4.txt:670","T2","default",1/2-1/2,0.5,"repetition",71
+1330,665,"/home/admingod/regicide-gen2-work/openings4.txt:665","default","T2",1-0,0,"no legal moves",147
+1340,670,"/home/admingod/regicide-gen2-work/openings4.txt:670","default","T2",1/2-1/2,0.5,"repetition",104
+1332,666,"/home/admingod/regicide-gen2-work/openings4.txt:666","default","T2",1-0,0,"no legal moves",151
+1343,672,"/home/admingod/regicide-gen2-work/openings4.txt:672","T2","default",1/2-1/2,0.5,"repetition",106
+1325,663,"/home/admingod/regicide-gen2-work/openings4.txt:663","T2","default",1-0,1,"no legal moves",175
+1337,669,"/home/admingod/regicide-gen2-work/openings4.txt:669","T2","default",1/2-1/2,0.5,"repetition",113
+1344,672,"/home/admingod/regicide-gen2-work/openings4.txt:672","default","T2",1/2-1/2,0.5,"repetition",85
+1338,669,"/home/admingod/regicide-gen2-work/openings4.txt:669","default","T2",1/2-1/2,0.5,"repetition",113
+1342,671,"/home/admingod/regicide-gen2-work/openings4.txt:671","default","T2",1/2-1/2,0.5,"repetition",81
+1347,674,"/home/admingod/regicide-gen2-work/openings4.txt:674","T2","default",1/2-1/2,0.5,"repetition",85
+1345,673,"/home/admingod/regicide-gen2-work/openings4.txt:673","T2","default",1/2-1/2,0.5,"repetition",83
+1351,676,"/home/admingod/regicide-gen2-work/openings4.txt:676","T2","default",1/2-1/2,0.5,"repetition",87
+1348,674,"/home/admingod/regicide-gen2-work/openings4.txt:674","default","T2",1/2-1/2,0.5,"repetition",108
+1352,676,"/home/admingod/regicide-gen2-work/openings4.txt:676","default","T2",1/2-1/2,0.5,"repetition",69
+1346,673,"/home/admingod/regicide-gen2-work/openings4.txt:673","default","T2",1/2-1/2,0.5,"repetition",99
+1350,675,"/home/admingod/regicide-gen2-work/openings4.txt:675","default","T2",1/2-1/2,0.5,"repetition",110
+1353,677,"/home/admingod/regicide-gen2-work/openings4.txt:677","T2","default",1/2-1/2,0.5,"repetition",83
+1354,677,"/home/admingod/regicide-gen2-work/openings4.txt:677","default","T2",1/2-1/2,0.5,"repetition",83
+1357,679,"/home/admingod/regicide-gen2-work/openings4.txt:679","T2","default",1/2-1/2,0.5,"repetition",86
+1358,679,"/home/admingod/regicide-gen2-work/openings4.txt:679","default","T2",1/2-1/2,0.5,"repetition",86
+1341,671,"/home/admingod/regicide-gen2-work/openings4.txt:671","T2","default",1-0,1,"no legal moves",91
+1356,678,"/home/admingod/regicide-gen2-work/openings4.txt:678","default","T2",1/2-1/2,0.5,"repetition",91
+1349,675,"/home/admingod/regicide-gen2-work/openings4.txt:675","T2","default",1/2-1/2,0.5,"repetition",104
+1361,681,"/home/admingod/regicide-gen2-work/openings4.txt:681","T2","default",1/2-1/2,0.5,"repetition",91
+1362,681,"/home/admingod/regicide-gen2-work/openings4.txt:681","default","T2",1/2-1/2,0.5,"repetition",91
+1364,682,"/home/admingod/regicide-gen2-work/openings4.txt:682","default","T2",1/2-1/2,0.5,"repetition",75
+1359,680,"/home/admingod/regicide-gen2-work/openings4.txt:680","T2","default",1/2-1/2,0.5,"repetition",91
+1360,680,"/home/admingod/regicide-gen2-work/openings4.txt:680","default","T2",1/2-1/2,0.5,"repetition",90
+1363,682,"/home/admingod/regicide-gen2-work/openings4.txt:682","T2","default",1/2-1/2,0.5,"repetition",64
+1365,683,"/home/admingod/regicide-gen2-work/openings4.txt:683","T2","default",1/2-1/2,0.5,"repetition",68
+1366,683,"/home/admingod/regicide-gen2-work/openings4.txt:683","default","T2",1/2-1/2,0.5,"repetition",101
+1372,686,"/home/admingod/regicide-gen2-work/openings4.txt:686","default","T2",1/2-1/2,0.5,"repetition",107
+1370,685,"/home/admingod/regicide-gen2-work/openings4.txt:685","default","T2",1/2-1/2,0.5,"repetition",86
+1367,684,"/home/admingod/regicide-gen2-work/openings4.txt:684","T2","default",1/2-1/2,0.5,"repetition",94
+1368,684,"/home/admingod/regicide-gen2-work/openings4.txt:684","default","T2",1/2-1/2,0.5,"repetition",66
+1355,678,"/home/admingod/regicide-gen2-work/openings4.txt:678","T2","default",1-0,1,"no legal moves",123
+1369,685,"/home/admingod/regicide-gen2-work/openings4.txt:685","T2","default",1/2-1/2,0.5,"repetition",86
+1371,686,"/home/admingod/regicide-gen2-work/openings4.txt:686","T2","default",1/2-1/2,0.5,"repetition",85
+1375,688,"/home/admingod/regicide-gen2-work/openings4.txt:688","T2","default",1/2-1/2,0.5,"repetition",78
+1377,689,"/home/admingod/regicide-gen2-work/openings4.txt:689","T2","default",1/2-1/2,0.5,"repetition",97
+1378,689,"/home/admingod/regicide-gen2-work/openings4.txt:689","default","T2",1/2-1/2,0.5,"repetition",97
+1376,688,"/home/admingod/regicide-gen2-work/openings4.txt:688","default","T2",1/2-1/2,0.5,"repetition",74
+1374,687,"/home/admingod/regicide-gen2-work/openings4.txt:687","default","T2",1/2-1/2,0.5,"repetition",92
+1373,687,"/home/admingod/regicide-gen2-work/openings4.txt:687","T2","default",1/2-1/2,0.5,"repetition",131
+1381,691,"/home/admingod/regicide-gen2-work/openings4.txt:691","T2","default",1/2-1/2,0.5,"repetition",117
+1382,691,"/home/admingod/regicide-gen2-work/openings4.txt:691","default","T2",1/2-1/2,0.5,"repetition",117
+1385,693,"/home/admingod/regicide-gen2-work/openings4.txt:693","T2","default",1/2-1/2,0.5,"repetition",97
+1386,693,"/home/admingod/regicide-gen2-work/openings4.txt:693","default","T2",1/2-1/2,0.5,"repetition",89
+1387,694,"/home/admingod/regicide-gen2-work/openings4.txt:694","T2","default",1/2-1/2,0.5,"repetition",95
+1384,692,"/home/admingod/regicide-gen2-work/openings4.txt:692","default","T2",1/2-1/2,0.5,"repetition",101
+1388,694,"/home/admingod/regicide-gen2-work/openings4.txt:694","default","T2",1/2-1/2,0.5,"repetition",81
+1389,695,"/home/admingod/regicide-gen2-work/openings4.txt:695","T2","default",1/2-1/2,0.5,"repetition",85
+1390,695,"/home/admingod/regicide-gen2-work/openings4.txt:695","default","T2",1/2-1/2,0.5,"repetition",88
+1380,690,"/home/admingod/regicide-gen2-work/openings4.txt:690","default","T2",1-0,0,"no legal moves",135
+1391,696,"/home/admingod/regicide-gen2-work/openings4.txt:696","T2","default",1-0,1,"no legal moves",49
+1395,698,"/home/admingod/regicide-gen2-work/openings4.txt:698","T2","default",1/2-1/2,0.5,"repetition",83
+1383,692,"/home/admingod/regicide-gen2-work/openings4.txt:692","T2","default",0-1,0,"no legal moves",136
+1397,699,"/home/admingod/regicide-gen2-work/openings4.txt:699","T2","default",1/2-1/2,0.5,"repetition",73
+1396,698,"/home/admingod/regicide-gen2-work/openings4.txt:698","default","T2",1/2-1/2,0.5,"repetition",94
+1398,699,"/home/admingod/regicide-gen2-work/openings4.txt:699","default","T2",1/2-1/2,0.5,"repetition",57
+1392,696,"/home/admingod/regicide-gen2-work/openings4.txt:696","default","T2",1-0,0,"no legal moves",109
+1379,690,"/home/admingod/regicide-gen2-work/openings4.txt:690","T2","default",1-0,1,"no legal moves",123
+1394,697,"/home/admingod/regicide-gen2-work/openings4.txt:697","default","T2",1-0,0,"no legal moves",119
+1401,701,"/home/admingod/regicide-gen2-work/openings4.txt:701","T2","default",1/2-1/2,0.5,"repetition",111
+1393,697,"/home/admingod/regicide-gen2-work/openings4.txt:697","T2","default",1-0,1,"no legal moves",139
+1403,702,"/home/admingod/regicide-gen2-work/openings4.txt:702","T2","default",1/2-1/2,0.5,"repetition",79
+1404,702,"/home/admingod/regicide-gen2-work/openings4.txt:702","default","T2",1/2-1/2,0.5,"repetition",63
+1405,703,"/home/admingod/regicide-gen2-work/openings4.txt:703","T2","default",1/2-1/2,0.5,"repetition",79
+1402,701,"/home/admingod/regicide-gen2-work/openings4.txt:701","default","T2",1/2-1/2,0.5,"repetition",72
+1408,704,"/home/admingod/regicide-gen2-work/openings4.txt:704","default","T2",1/2-1/2,0.5,"repetition",79
+1406,703,"/home/admingod/regicide-gen2-work/openings4.txt:703","default","T2",1/2-1/2,0.5,"repetition",103
+1407,704,"/home/admingod/regicide-gen2-work/openings4.txt:704","T2","default",1/2-1/2,0.5,"repetition",103
+1400,700,"/home/admingod/regicide-gen2-work/openings4.txt:700","default","T2",1/2-1/2,0.5,"repetition",89
+1412,706,"/home/admingod/regicide-gen2-work/openings4.txt:706","default","T2",1/2-1/2,0.5,"repetition",93
+1409,705,"/home/admingod/regicide-gen2-work/openings4.txt:705","T2","default",1/2-1/2,0.5,"repetition",105
+1411,706,"/home/admingod/regicide-gen2-work/openings4.txt:706","T2","default",1/2-1/2,0.5,"repetition",84
+1399,700,"/home/admingod/regicide-gen2-work/openings4.txt:700","T2","default",1/2-1/2,0.5,"repetition",133
+1413,707,"/home/admingod/regicide-gen2-work/openings4.txt:707","T2","default",1/2-1/2,0.5,"repetition",99
+1417,709,"/home/admingod/regicide-gen2-work/openings4.txt:709","T2","default",1/2-1/2,0.5,"repetition",86
+1410,705,"/home/admingod/regicide-gen2-work/openings4.txt:705","default","T2",1/2-1/2,0.5,"repetition",93
+1418,709,"/home/admingod/regicide-gen2-work/openings4.txt:709","default","T2",1/2-1/2,0.5,"repetition",86
+1414,707,"/home/admingod/regicide-gen2-work/openings4.txt:707","default","T2",1/2-1/2,0.5,"repetition",82
+1420,710,"/home/admingod/regicide-gen2-work/openings4.txt:710","default","T2",1-0,0,"no legal moves",127
+1416,708,"/home/admingod/regicide-gen2-work/openings4.txt:708","default","T2",1/2-1/2,0.5,"repetition",76
+1421,711,"/home/admingod/regicide-gen2-work/openings4.txt:711","T2","default",1/2-1/2,0.5,"repetition",85
+1422,711,"/home/admingod/regicide-gen2-work/openings4.txt:711","default","T2",1/2-1/2,0.5,"repetition",85
+1415,708,"/home/admingod/regicide-gen2-work/openings4.txt:708","T2","default",1/2-1/2,0.5,"repetition",83
+1425,713,"/home/admingod/regicide-gen2-work/openings4.txt:713","T2","default",1/2-1/2,0.5,"repetition",84
+1424,712,"/home/admingod/regicide-gen2-work/openings4.txt:712","default","T2",1/2-1/2,0.5,"repetition",80
+1426,713,"/home/admingod/regicide-gen2-work/openings4.txt:713","default","T2",1/2-1/2,0.5,"repetition",86
+1423,712,"/home/admingod/regicide-gen2-work/openings4.txt:712","T2","default",1/2-1/2,0.5,"repetition",80
+1419,710,"/home/admingod/regicide-gen2-work/openings4.txt:710","T2","default",1-0,1,"no legal moves",143
+1427,714,"/home/admingod/regicide-gen2-work/openings4.txt:714","T2","default",1/2-1/2,0.5,"repetition",92
+1429,715,"/home/admingod/regicide-gen2-work/openings4.txt:715","T2","default",1/2-1/2,0.5,"repetition",63
+1431,716,"/home/admingod/regicide-gen2-work/openings4.txt:716","T2","default",1/2-1/2,0.5,"repetition",89
+1428,714,"/home/admingod/regicide-gen2-work/openings4.txt:714","default","T2",1/2-1/2,0.5,"repetition",112
+1432,716,"/home/admingod/regicide-gen2-work/openings4.txt:716","default","T2",1/2-1/2,0.5,"repetition",127
+1436,718,"/home/admingod/regicide-gen2-work/openings4.txt:718","default","T2",1/2-1/2,0.5,"repetition",103
+1430,715,"/home/admingod/regicide-gen2-work/openings4.txt:715","default","T2",1/2-1/2,0.5,"repetition",95
+1435,718,"/home/admingod/regicide-gen2-work/openings4.txt:718","T2","default",1/2-1/2,0.5,"repetition",77
+1440,720,"/home/admingod/regicide-gen2-work/openings4.txt:720","default","T2",1/2-1/2,0.5,"repetition",121
+1443,722,"/home/admingod/regicide-gen2-work/openings4.txt:722","T2","default",1/2-1/2,0.5,"repetition",97
+1433,717,"/home/admingod/regicide-gen2-work/openings4.txt:717","T2","default",1-0,1,"no legal moves",137
+1437,719,"/home/admingod/regicide-gen2-work/openings4.txt:719","T2","default",1/2-1/2,0.5,"repetition",79
+1434,717,"/home/admingod/regicide-gen2-work/openings4.txt:717","default","T2",1-0,0,"no legal moves",153
+1438,719,"/home/admingod/regicide-gen2-work/openings4.txt:719","default","T2",1/2-1/2,0.5,"repetition",88
+1444,722,"/home/admingod/regicide-gen2-work/openings4.txt:722","default","T2",1/2-1/2,0.5,"repetition",97
+1441,721,"/home/admingod/regicide-gen2-work/openings4.txt:721","T2","default",1-0,1,"no legal moves",85
+1442,721,"/home/admingod/regicide-gen2-work/openings4.txt:721","default","T2",1-0,0,"no legal moves",121
+1439,720,"/home/admingod/regicide-gen2-work/openings4.txt:720","T2","default",1/2-1/2,0.5,"repetition",100
+1447,724,"/home/admingod/regicide-gen2-work/openings4.txt:724","T2","default",1/2-1/2,0.5,"repetition",87
+1446,723,"/home/admingod/regicide-gen2-work/openings4.txt:723","default","T2",1/2-1/2,0.5,"repetition",75
+1451,726,"/home/admingod/regicide-gen2-work/openings4.txt:726","T2","default",1/2-1/2,0.5,"repetition",67
+1445,723,"/home/admingod/regicide-gen2-work/openings4.txt:723","T2","default",1/2-1/2,0.5,"repetition",97
+1448,724,"/home/admingod/regicide-gen2-work/openings4.txt:724","default","T2",1/2-1/2,0.5,"repetition",76
+1453,727,"/home/admingod/regicide-gen2-work/openings4.txt:727","T2","default",1/2-1/2,0.5,"repetition",91
+1454,727,"/home/admingod/regicide-gen2-work/openings4.txt:727","default","T2",1/2-1/2,0.5,"repetition",85
+1457,729,"/home/admingod/regicide-gen2-work/openings4.txt:729","T2","default",1/2-1/2,0.5,"repetition",82
+1452,726,"/home/admingod/regicide-gen2-work/openings4.txt:726","default","T2",1/2-1/2,0.5,"repetition",121
+1458,729,"/home/admingod/regicide-gen2-work/openings4.txt:729","default","T2",1/2-1/2,0.5,"repetition",105
+1463,732,"/home/admingod/regicide-gen2-work/openings4.txt:732","T2","default",1/2-1/2,0.5,"repetition",70
+1456,728,"/home/admingod/regicide-gen2-work/openings4.txt:728","default","T2",1-0,0,"no legal moves",139
+1450,725,"/home/admingod/regicide-gen2-work/openings4.txt:725","default","T2",1-0,0,"no legal moves",133
+1455,728,"/home/admingod/regicide-gen2-work/openings4.txt:728","T2","default",1-0,1,"no legal moves",167
+1465,733,"/home/admingod/regicide-gen2-work/openings4.txt:733","T2","default",1/2-1/2,0.5,"repetition",67
+1464,732,"/home/admingod/regicide-gen2-work/openings4.txt:732","default","T2",1/2-1/2,0.5,"repetition",81
+1466,733,"/home/admingod/regicide-gen2-work/openings4.txt:733","default","T2",1/2-1/2,0.5,"repetition",67
+1462,731,"/home/admingod/regicide-gen2-work/openings4.txt:731","default","T2",1-0,0,"no legal moves",133
+1461,731,"/home/admingod/regicide-gen2-work/openings4.txt:731","T2","default",1-0,1,"no legal moves",167
+1468,734,"/home/admingod/regicide-gen2-work/openings4.txt:734","default","T2",1-0,0,"no legal moves",53
+1459,730,"/home/admingod/regicide-gen2-work/openings4.txt:730","T2","default",1-0,1,"no legal moves",181
+1472,736,"/home/admingod/regicide-gen2-work/openings4.txt:736","default","T2",1/2-1/2,0.5,"repetition",83
+1460,730,"/home/admingod/regicide-gen2-work/openings4.txt:730","default","T2",1-0,0,"no legal moves",147
+1471,736,"/home/admingod/regicide-gen2-work/openings4.txt:736","T2","default",1/2-1/2,0.5,"repetition",84
+1467,734,"/home/admingod/regicide-gen2-work/openings4.txt:734","T2","default",1-0,1,"no legal moves",133
+1475,738,"/home/admingod/regicide-gen2-work/openings4.txt:738","T2","default",1-0,1,"no legal moves",51
+1476,738,"/home/admingod/regicide-gen2-work/openings4.txt:738","default","T2",1-0,0,"no legal moves",51
+1469,735,"/home/admingod/regicide-gen2-work/openings4.txt:735","T2","default",1-0,1,"no legal moves",73
+1470,735,"/home/admingod/regicide-gen2-work/openings4.txt:735","default","T2",1-0,0,"no legal moves",91
+1473,737,"/home/admingod/regicide-gen2-work/openings4.txt:737","T2","default",0-1,0,"no legal moves",98
+1449,725,"/home/admingod/regicide-gen2-work/openings4.txt:725","T2","default",1-0,1,"no legal moves",237
+1474,737,"/home/admingod/regicide-gen2-work/openings4.txt:737","default","T2",0-1,1,"no legal moves",98
+1477,739,"/home/admingod/regicide-gen2-work/openings4.txt:739","T2","default",1/2-1/2,0.5,"repetition",89
+1481,741,"/home/admingod/regicide-gen2-work/openings4.txt:741","T2","default",1/2-1/2,0.5,"repetition",94
+1482,741,"/home/admingod/regicide-gen2-work/openings4.txt:741","default","T2",1/2-1/2,0.5,"repetition",99
+1484,742,"/home/admingod/regicide-gen2-work/openings4.txt:742","default","T2",1/2-1/2,0.5,"repetition",67
+1483,742,"/home/admingod/regicide-gen2-work/openings4.txt:742","T2","default",1/2-1/2,0.5,"repetition",68
+1486,743,"/home/admingod/regicide-gen2-work/openings4.txt:743","default","T2",1/2-1/2,0.5,"repetition",93
+1485,743,"/home/admingod/regicide-gen2-work/openings4.txt:743","T2","default",1/2-1/2,0.5,"repetition",77
+1478,739,"/home/admingod/regicide-gen2-work/openings4.txt:739","default","T2",1/2-1/2,0.5,"repetition",130
+1480,740,"/home/admingod/regicide-gen2-work/openings4.txt:740","default","T2",1-0,0,"no legal moves",129
+1479,740,"/home/admingod/regicide-gen2-work/openings4.txt:740","T2","default",1-0,1,"no legal moves",153
+1492,746,"/home/admingod/regicide-gen2-work/openings4.txt:746","default","T2",1/2-1/2,0.5,"repetition",64
+1487,744,"/home/admingod/regicide-gen2-work/openings4.txt:744","T2","default",1/2-1/2,0.5,"repetition",115
+1491,746,"/home/admingod/regicide-gen2-work/openings4.txt:746","T2","default",1/2-1/2,0.5,"repetition",91
+1488,744,"/home/admingod/regicide-gen2-work/openings4.txt:744","default","T2",1/2-1/2,0.5,"repetition",88
+1489,745,"/home/admingod/regicide-gen2-work/openings4.txt:745","T2","default",1/2-1/2,0.5,"repetition",111
+1490,745,"/home/admingod/regicide-gen2-work/openings4.txt:745","default","T2",1/2-1/2,0.5,"repetition",82
+1495,748,"/home/admingod/regicide-gen2-work/openings4.txt:748","T2","default",1/2-1/2,0.5,"repetition",81
+1496,748,"/home/admingod/regicide-gen2-work/openings4.txt:748","default","T2",1/2-1/2,0.5,"repetition",81
+1493,747,"/home/admingod/regicide-gen2-work/openings4.txt:747","T2","default",1/2-1/2,0.5,"repetition",81
+1494,747,"/home/admingod/regicide-gen2-work/openings4.txt:747","default","T2",1/2-1/2,0.5,"repetition",96
+1501,751,"/home/admingod/regicide-gen2-work/openings4.txt:751","T2","default",1-0,1,"no legal moves",125
+1503,752,"/home/admingod/regicide-gen2-work/openings4.txt:752","T2","default",1/2-1/2,0.5,"repetition",62
+1500,750,"/home/admingod/regicide-gen2-work/openings4.txt:750","default","T2",1-0,0,"no legal moves",61
+1504,752,"/home/admingod/regicide-gen2-work/openings4.txt:752","default","T2",1/2-1/2,0.5,"repetition",62
+1502,751,"/home/admingod/regicide-gen2-work/openings4.txt:751","default","T2",1-0,0,"no legal moves",145
+1499,750,"/home/admingod/regicide-gen2-work/openings4.txt:750","T2","default",1-0,1,"no legal moves",163
+1507,754,"/home/admingod/regicide-gen2-work/openings4.txt:754","T2","default",1/2-1/2,0.5,"repetition",86
+1498,749,"/home/admingod/regicide-gen2-work/openings4.txt:749","default","T2",1-0,0,"no legal moves",163
+1497,749,"/home/admingod/regicide-gen2-work/openings4.txt:749","T2","default",1-0,1,"no legal moves",93
+1509,755,"/home/admingod/regicide-gen2-work/openings4.txt:755","T2","default",1/2-1/2,0.5,"repetition",89
+1512,756,"/home/admingod/regicide-gen2-work/openings4.txt:756","default","T2",1/2-1/2,0.5,"repetition",79
+1510,755,"/home/admingod/regicide-gen2-work/openings4.txt:755","default","T2",1/2-1/2,0.5,"repetition",101
+1511,756,"/home/admingod/regicide-gen2-work/openings4.txt:756","T2","default",1/2-1/2,0.5,"repetition",93
+1508,754,"/home/admingod/regicide-gen2-work/openings4.txt:754","default","T2",1/2-1/2,0.5,"repetition",89
+1513,757,"/home/admingod/regicide-gen2-work/openings4.txt:757","T2","default",1/2-1/2,0.5,"repetition",84
+1506,753,"/home/admingod/regicide-gen2-work/openings4.txt:753","default","T2",0-1,1,"no legal moves",112
+1514,757,"/home/admingod/regicide-gen2-work/openings4.txt:757","default","T2",1/2-1/2,0.5,"repetition",88
+1505,753,"/home/admingod/regicide-gen2-work/openings4.txt:753","T2","default",0-1,0,"no legal moves",86
+1521,761,"/home/admingod/regicide-gen2-work/openings4.txt:761","T2","default",1-0,1,"no legal moves",137
+1519,760,"/home/admingod/regicide-gen2-work/openings4.txt:760","T2","default",1-0,1,"no legal moves",129
+1516,758,"/home/admingod/regicide-gen2-work/openings4.txt:758","default","T2",1-0,0,"no legal moves",149
+1520,760,"/home/admingod/regicide-gen2-work/openings4.txt:760","default","T2",1-0,0,"no legal moves",73
+1517,759,"/home/admingod/regicide-gen2-work/openings4.txt:759","T2","default",1/2-1/2,0.5,"repetition",94
+1524,762,"/home/admingod/regicide-gen2-work/openings4.txt:762","default","T2",1/2-1/2,0.5,"repetition",81
+1515,758,"/home/admingod/regicide-gen2-work/openings4.txt:758","T2","default",1-0,1,"no legal moves",163
+1523,762,"/home/admingod/regicide-gen2-work/openings4.txt:762","T2","default",1/2-1/2,0.5,"repetition",110
+1518,759,"/home/admingod/regicide-gen2-work/openings4.txt:759","default","T2",1-0,0,"no legal moves",77
+1529,765,"/home/admingod/regicide-gen2-work/openings4.txt:765","T2","default",1/2-1/2,0.5,"repetition",81
+1531,766,"/home/admingod/regicide-gen2-work/openings4.txt:766","T2","default",1/2-1/2,0.5,"repetition",85
+1530,765,"/home/admingod/regicide-gen2-work/openings4.txt:765","default","T2",1/2-1/2,0.5,"repetition",85
+1533,767,"/home/admingod/regicide-gen2-work/openings4.txt:767","T2","default",1/2-1/2,0.5,"repetition",88
+1528,764,"/home/admingod/regicide-gen2-work/openings4.txt:764","default","T2",0-1,1,"no legal moves",80
+1527,764,"/home/admingod/regicide-gen2-work/openings4.txt:764","T2","default",0-1,0,"no legal moves",78
+1534,767,"/home/admingod/regicide-gen2-work/openings4.txt:767","default","T2",1/2-1/2,0.5,"repetition",107
+1535,768,"/home/admingod/regicide-gen2-work/openings4.txt:768","T2","default",1/2-1/2,0.5,"repetition",79
+1536,768,"/home/admingod/regicide-gen2-work/openings4.txt:768","default","T2",1/2-1/2,0.5,"repetition",81
+1537,769,"/home/admingod/regicide-gen2-work/openings4.txt:769","T2","default",1/2-1/2,0.5,"repetition",61
+1538,769,"/home/admingod/regicide-gen2-work/openings4.txt:769","default","T2",1/2-1/2,0.5,"repetition",61
+1525,763,"/home/admingod/regicide-gen2-work/openings4.txt:763","T2","default",1-0,1,"no legal moves",93
+1539,770,"/home/admingod/regicide-gen2-work/openings4.txt:770","T2","default",1/2-1/2,0.5,"repetition",124
+1522,761,"/home/admingod/regicide-gen2-work/openings4.txt:761","default","T2",1-0,0,"no legal moves",127
+1526,763,"/home/admingod/regicide-gen2-work/openings4.txt:763","default","T2",1-0,0,"no legal moves",179
+1540,770,"/home/admingod/regicide-gen2-work/openings4.txt:770","default","T2",1/2-1/2,0.5,"repetition",74
+1532,766,"/home/admingod/regicide-gen2-work/openings4.txt:766","default","T2",1/2-1/2,0.5,"repetition",123
+1543,772,"/home/admingod/regicide-gen2-work/openings4.txt:772","T2","default",1/2-1/2,0.5,"repetition",85
+1548,774,"/home/admingod/regicide-gen2-work/openings4.txt:774","default","T2",1/2-1/2,0.5,"repetition",91
+1544,772,"/home/admingod/regicide-gen2-work/openings4.txt:772","default","T2",1/2-1/2,0.5,"repetition",93
+1541,771,"/home/admingod/regicide-gen2-work/openings4.txt:771","T2","default",1-0,1,"no legal moves",109
+1542,771,"/home/admingod/regicide-gen2-work/openings4.txt:771","default","T2",1-0,0,"no legal moves",145
+1549,775,"/home/admingod/regicide-gen2-work/openings4.txt:775","T2","default",0-1,0,"no legal moves",50
+1547,774,"/home/admingod/regicide-gen2-work/openings4.txt:774","T2","default",1/2-1/2,0.5,"repetition",103
+1551,776,"/home/admingod/regicide-gen2-work/openings4.txt:776","T2","default",1/2-1/2,0.5,"repetition",95
+1550,775,"/home/admingod/regicide-gen2-work/openings4.txt:775","default","T2",0-1,1,"no legal moves",68
+1552,776,"/home/admingod/regicide-gen2-work/openings4.txt:776","default","T2",1/2-1/2,0.5,"repetition",95
+1553,777,"/home/admingod/regicide-gen2-work/openings4.txt:777","T2","default",0-1,0,"no legal moves",62
+1557,779,"/home/admingod/regicide-gen2-work/openings4.txt:779","T2","default",1/2-1/2,0.5,"repetition",95
+1558,779,"/home/admingod/regicide-gen2-work/openings4.txt:779","default","T2",1/2-1/2,0.5,"repetition",66
+1554,777,"/home/admingod/regicide-gen2-work/openings4.txt:777","default","T2",0-1,1,"no legal moves",96
+1556,778,"/home/admingod/regicide-gen2-work/openings4.txt:778","default","T2",1/2-1/2,0.5,"repetition",84
+1555,778,"/home/admingod/regicide-gen2-work/openings4.txt:778","T2","default",1/2-1/2,0.5,"repetition",103
+1562,781,"/home/admingod/regicide-gen2-work/openings4.txt:781","default","T2",1/2-1/2,0.5,"repetition",63
+1561,781,"/home/admingod/regicide-gen2-work/openings4.txt:781","T2","default",1/2-1/2,0.5,"repetition",66
+1546,773,"/home/admingod/regicide-gen2-work/openings4.txt:773","default","T2",1-0,0,"no legal moves",185
+1565,783,"/home/admingod/regicide-gen2-work/openings4.txt:783","T2","default",1/2-1/2,0.5,"repetition",109
+1545,773,"/home/admingod/regicide-gen2-work/openings4.txt:773","T2","default",1-0,1,"no legal moves",157
+1560,780,"/home/admingod/regicide-gen2-work/openings4.txt:780","default","T2",1-0,0,"no legal moves",123
+1559,780,"/home/admingod/regicide-gen2-work/openings4.txt:780","T2","default",1-0,1,"no legal moves",157
+1563,782,"/home/admingod/regicide-gen2-work/openings4.txt:782","T2","default",1/2-1/2,0.5,"repetition",93
+1566,783,"/home/admingod/regicide-gen2-work/openings4.txt:783","default","T2",1/2-1/2,0.5,"repetition",109
+1567,784,"/home/admingod/regicide-gen2-work/openings4.txt:784","T2","default",1/2-1/2,0.5,"repetition",69
+1564,782,"/home/admingod/regicide-gen2-work/openings4.txt:782","default","T2",1/2-1/2,0.5,"repetition",101
+1572,786,"/home/admingod/regicide-gen2-work/openings4.txt:786","default","T2",1/2-1/2,0.5,"repetition",69
+1571,786,"/home/admingod/regicide-gen2-work/openings4.txt:786","T2","default",1/2-1/2,0.5,"repetition",105
+1568,784,"/home/admingod/regicide-gen2-work/openings4.txt:784","default","T2",1/2-1/2,0.5,"repetition",91
+1570,785,"/home/admingod/regicide-gen2-work/openings4.txt:785","default","T2",1/2-1/2,0.5,"repetition",72
+1573,787,"/home/admingod/regicide-gen2-work/openings4.txt:787","T2","default",1-0,1,"no legal moves",125
+1569,785,"/home/admingod/regicide-gen2-work/openings4.txt:785","T2","default",1/2-1/2,0.5,"repetition",91
+1580,790,"/home/admingod/regicide-gen2-work/openings4.txt:790","default","T2",1/2-1/2,0.5,"repetition",67
+1579,790,"/home/admingod/regicide-gen2-work/openings4.txt:790","T2","default",1/2-1/2,0.5,"repetition",64
+1581,791,"/home/admingod/regicide-gen2-work/openings4.txt:791","T2","default",1/2-1/2,0.5,"repetition",79
+1582,791,"/home/admingod/regicide-gen2-work/openings4.txt:791","default","T2",1/2-1/2,0.5,"repetition",87
+1578,789,"/home/admingod/regicide-gen2-work/openings4.txt:789","default","T2",1-0,0,"no legal moves",101
+1576,788,"/home/admingod/regicide-gen2-work/openings4.txt:788","default","T2",0-1,1,"no legal moves",122
+1574,787,"/home/admingod/regicide-gen2-work/openings4.txt:787","default","T2",1-0,0,"no legal moves",85
+1575,788,"/home/admingod/regicide-gen2-work/openings4.txt:788","T2","default",0-1,0,"no legal moves",132
+1577,789,"/home/admingod/regicide-gen2-work/openings4.txt:789","T2","default",1-0,1,"no legal moves",109
+1587,794,"/home/admingod/regicide-gen2-work/openings4.txt:794","T2","default",1/2-1/2,0.5,"repetition",71
+1588,794,"/home/admingod/regicide-gen2-work/openings4.txt:794","default","T2",1/2-1/2,0.5,"repetition",71
+1583,792,"/home/admingod/regicide-gen2-work/openings4.txt:792","T2","default",1-0,1,"no legal moves",125
+1590,795,"/home/admingod/regicide-gen2-work/openings4.txt:795","default","T2",1-0,0,"no legal moves",57
+1589,795,"/home/admingod/regicide-gen2-work/openings4.txt:795","T2","default",1-0,1,"no legal moves",157
+1584,792,"/home/admingod/regicide-gen2-work/openings4.txt:792","default","T2",1-0,0,"no legal moves",77
+1585,793,"/home/admingod/regicide-gen2-work/openings4.txt:793","T2","default",1/2-1/2,0.5,"repetition",116
+1591,796,"/home/admingod/regicide-gen2-work/openings4.txt:796","T2","default",1-0,1,"no legal moves",77
+1586,793,"/home/admingod/regicide-gen2-work/openings4.txt:793","default","T2",1/2-1/2,0.5,"repetition",148
+1592,796,"/home/admingod/regicide-gen2-work/openings4.txt:796","default","T2",1/2-1/2,0.5,"repetition",122
+1595,798,"/home/admingod/regicide-gen2-work/openings4.txt:798","T2","default",1/2-1/2,0.5,"repetition",111
+1596,798,"/home/admingod/regicide-gen2-work/openings4.txt:798","default","T2",1/2-1/2,0.5,"repetition",70
+1597,799,"/home/admingod/regicide-gen2-work/openings4.txt:799","T2","default",0-1,0,"no legal moves",120
+1593,797,"/home/admingod/regicide-gen2-work/openings4.txt:797","T2","default",1-0,1,"no legal moves",85
+1598,799,"/home/admingod/regicide-gen2-work/openings4.txt:799","default","T2",0-1,1,"no legal moves",90
+1600,800,"/home/admingod/regicide-gen2-work/openings4.txt:800","default","T2",0-1,1,"no legal moves",134
+1607,804,"/home/admingod/regicide-gen2-work/openings4.txt:804","T2","default",1/2-1/2,0.5,"repetition",65
+1608,804,"/home/admingod/regicide-gen2-work/openings4.txt:804","default","T2",1/2-1/2,0.5,"repetition",79
+1602,801,"/home/admingod/regicide-gen2-work/openings4.txt:801","default","T2",1-0,0,"no legal moves",95
+1606,803,"/home/admingod/regicide-gen2-work/openings4.txt:803","default","T2",1-0,0,"no legal moves",155
+1603,802,"/home/admingod/regicide-gen2-work/openings4.txt:802","T2","default",1-0,1,"no legal moves",175
+1599,800,"/home/admingod/regicide-gen2-work/openings4.txt:800","T2","default",0-1,0,"no legal moves",168
+1604,802,"/home/admingod/regicide-gen2-work/openings4.txt:802","default","T2",1-0,0,"no legal moves",137
+1605,803,"/home/admingod/regicide-gen2-work/openings4.txt:803","T2","default",1-0,1,"no legal moves",155
+1601,801,"/home/admingod/regicide-gen2-work/openings4.txt:801","T2","default",1-0,1,"no legal moves",163
+1609,805,"/home/admingod/regicide-gen2-work/openings4.txt:805","T2","default",0-1,0,"no legal moves",96
+1610,805,"/home/admingod/regicide-gen2-work/openings4.txt:805","default","T2",0-1,1,"no legal moves",90
+1594,797,"/home/admingod/regicide-gen2-work/openings4.txt:797","default","T2",1/2-1/2,0.5,"no progress",266
