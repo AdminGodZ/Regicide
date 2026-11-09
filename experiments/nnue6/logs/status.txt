@@ -1,0 +1,66 @@
+R6N r6_train start pid 924872 2026-11-08T23:43:52+01:00
+n4c checkpoint epoch 40 K 111.82835425896505
+R6N start n6a: --data /home/admingod/regicide-data/train/gen5a_n50k.bin --resume /home/admingod/regicide-nnue6-work/runs/n6a_init.pt --epochs 15 --epoch-size 50000000 --lr 2e-4 --lr-final 1e-5 --lambda 0.7 2026-11-08T23:43:54+01:00
+R6N end n6a rc=0 2026-11-08T23:47:13+01:00
+R6N start n6b: --data /home/admingod/regicide-data/train/gen1_n10k.bin --data /home/admingod/regicide-data/train/gen1b_n10k.bin --data /home/admingod/regicide-data/train/gen1c_n10k.bin --data /home/admingod/regicide-data/train/gen2a_n10k.bin --data /home/admingod/regicide-data/train/gen2b_n10k.bin --data /home/admingod/regicide-data/train/gen3a_n10k.bin --data /home/admingod/regicide-data/train/gen3b_n10k.bin --data /home/admingod/regicide-data/train/gen3c_n10k.bin --data /home/admingod/regicide-data/train/gen3d_n10k.bin --data /home/admingod/regicide-data/train/gen4a_n10k.bin --data /home/admingod/regicide-data/train/gen5a_n50k.bin --data /home/admingod/regicide-data/train/gen5a_n50k.bin --data /home/admingod/regicide-data/train/gen5a_n50k.bin --epochs 40 --epoch-size 100000000 --lr 1e-3 --lr-final 1e-5 --lambda 0.7 2026-11-08T23:47:13+01:00
+R6N end n6b rc=0 2026-11-09T00:02:20+01:00
+R6N start n6c: --data /home/admingod/regicide-data/train/gen1_n10k.bin --data /home/admingod/regicide-data/train/gen1b_n10k.bin --data /home/admingod/regicide-data/train/gen1c_n10k.bin --data /home/admingod/regicide-data/train/gen2a_n10k.bin --data /home/admingod/regicide-data/train/gen2b_n10k.bin --data /home/admingod/regicide-data/train/gen3a_n10k.bin --data /home/admingod/regicide-data/train/gen3b_n10k.bin --data /home/admingod/regicide-data/train/gen3c_n10k.bin --data /home/admingod/regicide-data/train/gen3d_n10k.bin --data /home/admingod/regicide-data/train/gen4a_n10k.bin --data /home/admingod/regicide-data/train/gen5a_n50k.bin --data /home/admingod/regicide-data/train/gen5a_n50k.bin --data /home/admingod/regicide-data/train/gen5a_n50k.bin --epochs 40 --epoch-size 100000000 --lr 1e-3 --lr-final 1e-5 --lambda 0.5 2026-11-09T00:02:20+01:00
+R6N end n6c rc=0 2026-11-09T00:17:30+01:00
+R6N R6N_TRAIN_DONE 2026-11-09T00:17:30+01:00
+-- shared validation set, target lambda 0.7
+valid positions 1000000  K 106.65  lambda 0.70  engine /home/admingod/regicide-match/builds/b88c02e-egdb8/build-linux/regicide
+n4c                          0.506345
+v2e                          0.505680
+l5a                          0.506489
+n6a                          0.537897
+n6b                          0.506051
+n6c                          0.506910
+-- shared validation set, target lambda 1.0
+valid positions 1000000  K 106.65  lambda 1.00  engine /home/admingod/regicide-match/builds/b88c02e-egdb8/build-linux/regicide
+n4c                          0.494304
+v2e                          0.493044
+l5a                          0.497462
+n6a                          0.531483
+n6b                          0.493529
+n6c                          0.497767
+-- shared validation set, target lambda 0.0
+valid positions 1000000  K 106.65  lambda 0.00  engine /home/admingod/regicide-match/builds/b88c02e-egdb8/build-linux/regicide
+n4c                          0.534441
+v2e                          0.535165
+l5a                          0.527553
+n6a                          0.552865
+n6b                          0.535268
+n6c                          0.528244
+-- gen5a validation set, target lambda 0.7
+valid positions 208702  K 106.65  lambda 0.70  engine /home/admingod/regicide-match/builds/b88c02e-egdb8/build-linux/regicide
+n4c                          0.459453
+v2e                          0.453514
+l5a                          0.455667
+n6a                          0.439345
+n6b                          0.446967
+n6c                          0.447642
+-- gen5a validation set, target lambda 1.0
+valid positions 208702  K 106.65  lambda 1.00  engine /home/admingod/regicide-match/builds/b88c02e-egdb8/build-linux/regicide
+n4c                          0.440861
+v2e                          0.433069
+l5a                          0.436511
+n6a                          0.413276
+n6b                          0.424130
+n6c                          0.425801
+-- gen5a validation set, target lambda 0.0
+valid positions 208702  K 106.65  lambda 0.00  engine /home/admingod/regicide-match/builds/b88c02e-egdb8/build-linux/regicide
+n4c                          0.502834
+v2e                          0.501218
+l5a                          0.500364
+n6a                          0.500174
+n6b                          0.500255
+n6c                          0.498605
+R6N R6N_SCORED 2026-11-09T00:18:57+01:00
+R6N matchlock taken: datagen-eb1037c:T datagen-635d949:T  2026-11-09T01:03:28+01:00
+R6N start match n6a vs n4c (rb88c02e.so: A set evalfile n6a.nnue, B built-in n4c) 2026-11-09T01:03:28+01:00
+R6N end match n6a rc=0 Elo (pentanomial, pairs): -3.5 [-7.4, +0.5] 95% CI, score 0.4950 +- 0.0057, LOS 4.38% 2026-11-09T01:14:18+01:00
+R6N start match n6b vs n4c (rb88c02e.so: A set evalfile n6b.nnue, B built-in n4c) 2026-11-09T01:14:18+01:00
+R6N end match n6b rc=0 Elo (pentanomial, pairs): -3.5 [-7.3, +0.4] 95% CI, score 0.4950 +- 0.0055, LOS 3.83% 2026-11-09T01:25:05+01:00
+R6N start match n6c vs n4c (rb88c02e.so: A set evalfile n6c.nnue, B built-in n4c) 2026-11-09T01:25:05+01:00
+R6N end match n6c rc=0 Elo (pentanomial, pairs): +4.3 [+0.3, +8.4] 95% CI, score 0.5062 +- 0.0058, LOS 98.17% 2026-11-09T01:35:55+01:00
+R6N R6N_DONE 2026-11-09T01:35:55+01:00
