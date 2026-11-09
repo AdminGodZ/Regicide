@@ -27,7 +27,36 @@ move with 20% probability); kept if ≥ 9 pieces, no capture for the side to mov
 100k-node prefilter) scores it 50–130 for one side. 24,146 candidates tried. Pieces: 10–24 (median 18); |score|
 quartiles 67 / 88 / 110; side to move B 814 / W 786; favoured side W 1,028 / B 572.
 
-(calibration matches pending)
+### Calibration: two known differences, old set vs new set
+
+`selfplay --movetime 300 --threads 16 --pairs 800 --egdb <2-7 piece db>` (1 search thread per engine), binary
+`selfplay-lab2` (all switches off). Old set = the default 3-ply set (216 positions); new = `--book books/uho1600.txt`
+(800 of the 1,600 positions, shuffled, each with both colours). n4c = `experiments/nnue4/n4c.nnue` as `--evalb`.
+"± per 800 pairs" is the half-width of the 95% interval; t = Elo / standard error.
+
+| test | set | W / D / L (A) | draws | Elo [95% CI] | penta [LL LD DD+WL WD WW] | ± per 800 pairs | t | wall time |
+|---|---|---|---|---|---|---|---|---|
+| se_margin 30 vs 20 | **new** | 604 / 348 / 648 | 21.8% | **−9.6 [−15.3, −3.8]** | 0 114 616 70 0 | ±5.8 | **−3.27** | 21 min |
+| se_margin 30 vs 20 | old | 248 / 1093 / 259 | 68.3% | −2.4 [−6.8, +2.0] | 0 59 693 48 0 | ±4.4 | −1.07 | 18 min |
+| n6c vs n4c | **new** | 635 / 370 / 595 | 23.1% | **+8.7 [+2.9, +14.5]** | 0 73 614 113 0 | ±5.8 | **+2.94** | 21 min |
+| n6c vs n4c | old | 287 / 1056 / 257 | 66.0% | +6.5 [+1.6, +11.5] | 0 53 664 83 0 | ±5.0 | +2.57 | 18 min |
+
+References without the database: tune2 measured se_margin 30 at −6.5 [−11.5, −1.5] (old set, 300 ms, t ≈ −2.6), and
+nnue6 measured n6c vs n4c at +4.3 [+0.3, +8.4] (CheckerBoard harness, 100 ms, 1,610 games).
+
+- **Draws fall from ~67% to ~22%.** The error bar per 800 pairs gets a little wider (±5.8 vs ±4.4–5.0), because almost
+  every pair is now one win each (WL), and only LD/WD pairs move the score. But the measured differences grow more:
+  ×4 for se_margin (−9.6 vs −2.4) and ×1.3 for the net.
+- **Games needed for the same confidence scale with 1/t².** se_margin: (3.27/1.07)² ≈ 9× fewer games on the new set;
+  the net: (2.94/2.57)² ≈ 1.3×. Pooled over both (Σt² 19.3 vs 7.7), **~2.5× fewer games**, ~2.1× less wall time (the
+  new set's games last a little longer). With one run per cell the t values themselves are uncertain (±1 each), so the
+  factor could be anywhere from ~1.3× to ~9×. In both tests, though, the new set gives the larger t, and the old set
+  with the database does not resolve se_margin 30 at all.
+- In every test both LL and WW are 0 (or nearly): neither engine wins a pair outright.
+- **Decision: Part B uses the new set** (`--book books/uho1600.txt`), at 300 ms × 800 pairs with the database.
+  Elo values on this set are inflated compared with the old set, so they are not directly comparable with tune1/tune2
+  numbers. The screening bar (≥ +5 and lower bound > 0) is kept as briefed. Since the set amplifies differences, it is
+  if anything easier to pass on this set.
 
 ## nps measurements (B1, B2)
 

@@ -1,0 +1,10 @@
+RUNNER START 2026-11-09T22:58:27+01:00
+BEGIN cal_se30_uho bin=selfplay-lab2 a="se_margin=30" b="" mt=300 pairs=800 extra="--egdb /home/admingod/regicide-data/egdb --book books/uho1600.txt" 2026-11-09T22:58:27+01:00
+DONE cal_se30_uho rc=0 secs=1289 2026-11-09T23:19:56+01:00 :: final games 1600  A: +604 =348 -648  score 0.4863  draws 21.8%  elo -9.6 [-15.3, -3.8]  penta [0 114 616 70 0]
+BEGIN cal_se30_old bin=selfplay-lab2 a="se_margin=30" b="" mt=300 pairs=800 extra="--egdb /home/admingod/regicide-data/egdb" 2026-11-09T23:19:56+01:00
+DONE cal_se30_old rc=0 secs=1094 2026-11-09T23:38:10+01:00 :: final games 1600  A: +248 =1093 -259  score 0.4966  draws 68.3%  elo -2.4 [-6.8, +2.0]  penta [0 59 693 48 0]
+BEGIN cal_n6c_uho bin=selfplay-lab2 a="" b="" mt=300 pairs=800 extra="--evalb n4c.nnue --egdb /home/admingod/regicide-data/egdb --book books/uho1600.txt" 2026-11-09T23:38:10+01:00
+DONE cal_n6c_uho rc=0 secs=1248 2026-11-09T23:58:58+01:00 :: final games 1600  A: +635 =370 -595  score 0.5125  draws 23.1%  elo +8.7 [+2.9, +14.5]  penta [0 73 614 113 0]
+BEGIN cal_n6c_old bin=selfplay-lab2 a="" b="" mt=300 pairs=800 extra="--evalb n4c.nnue --egdb /home/admingod/regicide-data/egdb" 2026-11-09T23:58:58+01:00
+DONE cal_n6c_old rc=0 secs=1141 2026-11-10T00:17:59+01:00 :: final games 1600  A: +287 =1056 -257  score 0.5094  draws 66.0%  elo +6.5 [+1.6, +11.5]  penta [0 53 664 83 0]
+BEGIN tmcal_150 bin=selfplay-lab2 a="tm_nodes=150" b="" mt=0 pairs=60 extra="--target 300 --egdb /home/admingod/regicide-data/egdb --book books/uho1600.txt" 2026-11-10T00:17:59+01:00
