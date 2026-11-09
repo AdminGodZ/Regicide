@@ -116,6 +116,12 @@ target_link_libraries(bookgen PRIVATE regicide_core)
 add_executable(lossprobe tools/lossprobe.cpp)
 target_link_libraries(lossprobe PRIVATE regicide_core)
 
+# booklab (tools/booklab): theory-table replay and decisions-to-book builder.
+add_executable(booklab_replay tools/booklab/replay.cpp)
+target_link_libraries(booklab_replay PRIVATE regicide_core)
+add_executable(booklab_apply tools/booklab/bookapply.cpp)
+target_link_libraries(booklab_apply PRIVATE regicide_core)
+
 # Endgame database: library, generator and tests (self-contained; depends only on types.hpp).
 add_library(regicide_egdb STATIC
   src/egdb/store.cpp
