@@ -4,6 +4,7 @@
 //
 // --threads is the number of games played in parallel; --tha/--thb are search threads per engine.
 // --avoida/--avoidb <file|builtin> give an engine the avoid list of a book file (default: none).
+// --book <file> replaces the 3-ply set with the positions of a text file (first token of each line: a FEN).
 //
 // Every distinct position after 3 plies from the start is an opening; each is played twice with colours
 // reversed. Reports W/D/L for A, and Elo with a 95% interval from the pentanomial distribution of game pairs.
@@ -42,6 +43,7 @@ struct Config {
     int draw_reversible = 80;
     int max_plies = 400;
     int opening_plies = 3;
+    std::string book;  // opening positions file (FEN per line); empty = every position after opening_plies
     int egdb_pieces = 0;  // engines probe the database and games end on a database result
     int threads_a = 1, threads_b = 1;  // search threads per engine (Lazy SMP)
     bool verbose = false;
@@ -67,8 +69,15 @@ std::vector<Position> openings_at(int plies) {
     return out;
 }
 
+// Time and depth per engine side (A / B).
+struct SideStats {
+    std::atomic<long long> ms{0}, moves{0}, depth{0};
+};
+SideStats stats_a, stats_b;
+
 // Plays one game; returns black's score (1, 0.5, 0).
-double play_game(const Position& start, Engine& black, Engine& white, const Config& cfg) {
+double play_game(const Position& start, Engine& black, Engine& white, const Config& cfg, SideStats& sb,
+                 SideStats& sw) {
     Position pos = start;
     std::vector<Position> history;
     black.new_game();
@@ -92,6 +101,10 @@ double play_game(const Position& start, Engine& black, Engine& white, const Conf
         Engine& e = pos.side_to_move() == BLACK ? black : white;
         e.set_position(pos, history);
         SearchResult r = e.go(cfg.limits);
+        SideStats& st = pos.side_to_move() == BLACK ? sb : sw;
+        st.ms += r.time_ms;
+        st.moves += 1;
+        st.depth += r.depth;
 
         // Adjudicate when both sides agree the game is decided for several plies.
         const int black_view = pos.side_to_move() == BLACK ? r.score : -r.score;
@@ -149,6 +162,7 @@ int main(int argc, char** argv) {
         else if (k == "--pairs") cfg.pairs = std::stoi(next());
         else if (k == "--hash") cfg.hash_mb = std::stoull(next());
         else if (k == "--plies") cfg.opening_plies = std::stoi(next());
+        else if (k == "--book") cfg.book = next();
         else if (k == "--tha") cfg.threads_a = std::stoi(next());
         else if (k == "--thb") cfg.threads_b = std::stoi(next());
         else if (k == "--egdb") {
@@ -166,7 +180,30 @@ int main(int argc, char** argv) {
         }
     }
 
-    std::vector<Position> openings = openings_at(cfg.opening_plies);
+    std::vector<Position> openings;
+    if (cfg.book.empty()) {
+        openings = openings_at(cfg.opening_plies);
+    } else {
+        std::FILE* f = std::fopen(cfg.book.c_str(), "r");
+        if (!f) {
+            std::cerr << "cannot open " << cfg.book << '\n';
+            return 1;
+        }
+        char line[512];
+        while (std::fgets(line, sizeof line, f)) {
+            std::string fen = line;
+            fen = fen.substr(0, fen.find_first_of(" \t\r\n"));
+            if (fen.empty() || fen[0] == '#') continue;
+            Position p;
+            if (!p.set_fen(fen)) {
+                std::cerr << "bad FEN " << fen << '\n';
+                return 1;
+            }
+            openings.push_back(p);
+        }
+        std::fclose(f);
+        if (openings.empty()) return 1;
+    }
     // Spread a partial run across the whole opening set.
     std::uint64_t shuffle_state = 0x9E3779B97F4A7C15ull;
     for (std::size_t i = openings.size(); i > 1; --i) {
@@ -224,8 +261,8 @@ int main(int argc, char** argv) {
         }
         for (int i; (i = next_pair++) < pairs;) {
             const Position& open = openings[i % openings.size()];
-            const double g1 = play_game(open, ea, eb, cfg);        // A is black
-            const double g2 = 1.0 - play_game(open, eb, ea, cfg);  // A is white
+            const double g1 = play_game(open, ea, eb, cfg, stats_a, stats_b);        // A is black
+            const double g2 = 1.0 - play_game(open, eb, ea, cfg, stats_b, stats_a);  // A is white
             std::lock_guard lock(mu);
             for (double g : {g1, g2}) (g == 1.0 ? w : g == 0.0 ? l : d)++;
             penta[int(std::lround((g1 + g2) * 2))]++;
@@ -235,5 +272,12 @@ int main(int argc, char** argv) {
     std::vector<std::thread> pool;
     for (int t = 0; t < cfg.threads; ++t) pool.emplace_back(worker);
     for (auto& t : pool) t.join();
+    auto side = [](const char* tag, const SideStats& s) {
+        const double n = std::max(1LL, s.moves.load());
+        std::printf("%s: moves %lld  mean ms %.1f  mean depth %.2f\n", tag, s.moves.load(), s.ms.load() / n,
+                    s.depth.load() / n);
+    };
+    side("time A", stats_a);
+    side("time B", stats_b);
     return 0;
 }

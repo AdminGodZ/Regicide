@@ -80,6 +80,19 @@ struct SearchParams {
     int tm_drop_factor = 200;   // soft-limit multiplier in % while the score is dropping
     int tm_open_pieces = 0;     // with at least this many pieces on the board ... (0 = off)
     int tm_open_factor = 150;   // ... CheckerBoard soft/hard limits are scaled by this % (spend the bank early)
+    // search-lab switches (all off by default)
+    int hash_first_db = 0;      // B1: probe the hash table before the database; store database results at this depth
+    int leaf_cache = 0;         // B2: per-thread static-eval cache of 2^n entries (0 = off)
+    int leaf_tt = 0;            // B2: store horizon evals in the hash table (no bound)
+    int corr_hist = 0;          // B3: static-eval correction history, weight in % (0 = off)
+    int nosafe_ext = 0;         // B4: horizon extension when at most one move avoids giving a capture (budget per line)
+    int se_double = 0;          // B5: double extension when the alternatives fail this far below the singular bound
+    int se_double_cap = 3;      // B5: ... at most this many double extensions per line
+    int se_neg = 0;             // B5: hash move one ply less when it is not singular and its score is >= beta
+    int tm_nodes = 0;           // B6: soft-limit factor (tm_nodes - 100 * best-move node share) / 100 (0 = off)
+    int tt_eval = 0;            // B7: hash score as the eval for pruning when its bound allows
+    int smp_vote = 0;           // C: take the result from the best thread (depth and score) instead of thread 0
+    int smp_skip = 0;           // C: helper depth-skip pattern (0 = default, 1 = none, 2 = odd/even)
 
     // Sets a parameter by name; returns false for an unknown name.
     bool set(const std::string& name, int value);

@@ -104,6 +104,12 @@ add_test(NAME cb_api COMMAND cb_api_test $<TARGET_FILE:regicide_cb>)
 add_executable(selfplay tools/selfplay.cpp)
 target_link_libraries(selfplay PRIVATE regicide_core)
 
+add_executable(unbalanced tools/unbalanced.cpp)
+target_link_libraries(unbalanced PRIVATE regicide_core)
+
+add_executable(posbench tools/posbench.cpp)
+target_link_libraries(posbench PRIVATE regicide_core)
+
 add_executable(datagen tools/datagen.cpp)
 target_link_libraries(datagen PRIVATE regicide_core)
 

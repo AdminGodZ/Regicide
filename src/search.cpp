@@ -55,7 +55,15 @@ struct RootMove {
     Score score = -SCORE_INF;
     Score prev_score = -SCORE_INF;
     std::vector<Move> pv;
+    std::uint64_t nodes = 0;  // nodes spent on this move in the current iteration
 };
+
+// B3: correction history tables (per worker).
+constexpr int CORR_BITS = 14;
+constexpr int CORR_SIZE = 1 << CORR_BITS;
+constexpr int CORR_GRAIN = 256;
+constexpr int CORR_LIMIT = 64 * CORR_GRAIN;  // at most 64 cp per table
+inline std::size_t corr_index(std::uint64_t v) { return std::size_t((v * 0x9E3779B97F4A7C15ull) >> (64 - CORR_BITS)); }
 
 struct TimeControl {
     Clock::time_point start;
@@ -73,6 +81,47 @@ struct Worker {
         std::memset(history, 0, sizeof(history));
         std::memset(cont, 0, sizeof(cont));
         std::memset(killers, 0, sizeof(killers));
+        std::memset(corr, 0, sizeof(corr));
+        std::fill(ecache.begin(), ecache.end(), 0);
+    }
+
+    // B2: static eval through a small per-thread cache (key's upper 48 bits | eval 16 bits).
+    Score cached_eval(const Position& pos, int ply) {
+        if (ecache.empty()) return evaluate(pos, ply);
+        std::uint64_t& e = ecache[pos.key() & (ecache.size() - 1)];
+        if (e && (e >> 16) == (pos.key() >> 16)) return Score(std::int16_t(e & 0xFFFF));
+        const Score v = evaluate(pos, ply);
+        e = (pos.key() & ~0xFFFFull) | std::uint16_t(std::int16_t(v));
+        return v;
+    }
+
+    // B3: indices of the three correction tables for a position.
+    void corr_slots(const Position& pos, std::size_t idx[3]) const {
+        const Color us = pos.side_to_move();
+        const Bitboard own = pos.men(us), opp = pos.men(~us);
+        const Bitboard ok = pos.kings() & pos.pieces(us), ek = pos.kings() & pos.pieces(~us);
+        idx[0] = corr_index(own);
+        idx[1] = corr_index(opp ^ 0x5555555555555555ull);
+        idx[2] = corr_index((std::uint64_t(ok) << 32 | ek) ^ (std::uint64_t(popcount(own)) << 5 | popcount(opp)) * 0xD6E8FEB86659FD93ull);
+    }
+    int correction(const Position& pos) const {
+        std::size_t idx[3];
+        corr_slots(pos, idx);
+        const Color us = pos.side_to_move();
+        const int sum = corr[0][us][idx[0]] + corr[1][us][idx[1]] + corr[2][us][idx[2]];
+        return sum * P.corr_hist / (300 * CORR_GRAIN);
+    }
+    // Each table moves toward diff = search result - raw eval (exponential average, weight grows with depth).
+    void update_correction(const Position& pos, int diff, int depth) {
+        std::size_t idx[3];
+        corr_slots(pos, idx);
+        const Color us = pos.side_to_move();
+        const int w = std::min(depth + 1, 16);
+        for (int t = 0; t < 3; ++t) {
+            std::int16_t& c = corr[t][us][idx[t]];
+            const int v = (c * (256 - w) + diff * CORR_GRAIN * w) / 256;
+            c = std::int16_t(std::clamp(v, -CORR_LIMIT, CORR_LIMIT));
+        }
     }
 
     void setup(const Position& root, const std::vector<Key>& game_keys, const std::vector<Move>& root_moves);
@@ -106,6 +155,9 @@ struct Worker {
     std::int16_t cont[33][32][32];  // [destination of the opponent's last move (32 = none)][from][to]
     Move killers[MAX_PLY + 8][2];
     int prev_to[MAX_PLY + 8];  // destination of the move that led to each ply (32 at the root)
+    std::int16_t corr[3][2][CORR_SIZE];  // B3: [own men, opponent men, kings/material][side to move][hash]
+    std::vector<std::uint64_t> ecache;   // B2
+    int dext[MAX_PLY + 8] = {};          // B5: double extensions on the path to each ply
     Move excluded[MAX_PLY + 8];  // move skipped by a singular-extension verification search at this ply
     bool has_excluded[MAX_PLY + 8] = {};
     Move pv[MAX_PLY + 8][MAX_PLY + 8];
@@ -117,6 +169,10 @@ struct Worker {
     int seldepth = 0;
     int root_depth = 0;
     int completed_depth = 0;
+    // Result of the last completed iteration (Lazy SMP thread selection).
+    Move done_move;
+    Score done_score = -SCORE_INF;
+    std::vector<Move> done_pv;
 };
 
 namespace {
@@ -143,7 +199,11 @@ void Worker::setup(const Position& r, const std::vector<Key>& game_keys, const s
     egdb_pieces = eng.egdb_pieces_;
     seldepth = 0;
     completed_depth = 0;
+    done_score = -SCORE_INF;
+    done_pv.clear();
     P = eng.params;
+    const std::size_t ec = P.leaf_cache > 0 ? std::size_t(1) << std::min(P.leaf_cache, 24) : 0;
+    if (ecache.size() != ec) ecache.assign(ec, 0);
     evaluator = eng.eval_.get();
     net = evaluator->network();
     if (net) nn.reset(*net, root);
@@ -203,7 +263,7 @@ Score Worker::search(Position& pos, Score alpha, Score beta, int depth, int ply,
         if (ply >= MAX_PLY - 2) return evaluate(pos, ply);
 
         // Endgame database: exact result. Wins prefer the shortest path into the database.
-        if (pos.piece_count() <= egdb_pieces) {
+        if (pos.piece_count() <= egdb_pieces && !P.hash_first_db) {
             const egdb::Wld r = egdb::probe(pos.pieces(BLACK), pos.pieces(WHITE), pos.kings(), pos.side_to_move());
             if (r != egdb::Wld::Unknown) {
                 tbhits.store(tbhits.load(std::memory_order_relaxed) + 1, std::memory_order_relaxed);
@@ -218,6 +278,20 @@ Score Worker::search(Position& pos, Score alpha, Score beta, int depth, int ply,
     TTData tte;
     const bool tt_hit = !excluding && tt.probe(pos.key(), tte);
     const Score tt_score = tt_hit ? score_from_tt(tte.score, ply) : 0;
+
+    // B1: the hash table first; database results are stored in it as exact scores at depth hash_first_db.
+    if (P.hash_first_db && !is_root && pos.piece_count() <= egdb_pieces) {
+        if (tt_hit && tte.bound == BOUND_EXACT && tte.depth >= P.hash_first_db) return tt_score;
+        const egdb::Wld r = egdb::probe(pos.pieces(BLACK), pos.pieces(WHITE), pos.kings(), pos.side_to_move());
+        if (r != egdb::Wld::Unknown) {
+            tbhits.store(tbhits.load(std::memory_order_relaxed) + 1, std::memory_order_relaxed);
+            const Score v = r == egdb::Wld::Draw ? SCORE_DRAW
+                            : r == egdb::Wld::Win ? SCORE_DB_WIN - ply
+                                                  : -SCORE_DB_WIN + ply;
+            if (!excluding) tt.store(pos.key(), score_to_tt(v, ply), 0, P.hash_first_db, BOUND_EXACT, TTMove{});
+            return v;
+        }
+    }
     if (!pv_node && tt_hit && tte.depth >= depth &&
         (tte.bound & (tt_score >= beta ? BOUND_LOWER : BOUND_UPPER)))
         return tt_score;
@@ -234,22 +308,47 @@ Score Worker::search(Position& pos, Score alpha, Score beta, int depth, int ply,
 
     // With a capture forced, nothing below uses the static eval (no pruning applies), so skip computing it.
     const bool forced_capture = !moves.empty() && moves[0].is_capture();
-    const Score eval = tt_hit ? Score(tte.eval) : forced_capture ? 0 : evaluate(pos, ply);
+    const Score raw_eval = tt_hit ? Score(tte.eval) : forced_capture ? 0 : cached_eval(pos, ply);
+    // B3: corrected static eval (the hash table keeps the raw one).
+    const Score eval = P.corr_hist && !forced_capture
+                           ? std::clamp(raw_eval + correction(pos), -SCORE_KNOWN_WIN + 1, SCORE_KNOWN_WIN - 1)
+                           : raw_eval;
 
     if (depth <= 0 && !forced_capture) {
         // Horizon. If the opponent threatens a capture the static eval can't be trusted: look one ply further.
-        if (qext > 0 && has_capture(pos, ~us)) {
+        // qext holds two budgets: threat extensions in the low byte, B4 no-safe-move extensions above it.
+        if ((qext & 0xFF) > 0 && has_capture(pos, ~us)) {
             --qext;
             depth = 1;
             generate_moves(pos, moves);
+        } else if ((qext >> 8) > 0 && !has_capture(pos, ~us) && [&] {
+                       // B4: every move but at most one hands the opponent a capture.
+                       generate_moves(pos, moves);
+                       int safe = 0;
+                       for (const Move& m : moves) {
+                           Position c = pos;
+                           c.make_move(m);
+                           if (!has_capture(c, c.side_to_move()) && ++safe > 1) return false;
+                       }
+                       return true;
+                   }()) {
+            qext -= 0x100;
+            depth = 1;
         } else {
+            if (P.leaf_tt && !tt_hit && !excluding) tt.store(pos.key(), 0, raw_eval, -8, BOUND_NONE, TTMove{});
             return eval;
         }
     }
 
+    // B7: a hash score is a better estimate than the static eval when its bound points the right way.
+    Score peval = eval;
+    if (P.tt_eval && tt_hit && !forced_capture && !is_decisive(tt_score) &&
+        (tte.bound & (tt_score > eval ? BOUND_LOWER : BOUND_UPPER)))
+        peval = tt_score;
+
     // Razoring: far below alpha at low depth, check whether the horizon search agrees.
     if (!pv_node && !excluding && !forced_capture && depth > 0 && depth <= P.razor_depth &&
-        eval + P.razor_margin * depth < alpha && !is_decisive(alpha)) {
+        peval + P.razor_margin * depth < alpha && !is_decisive(alpha)) {
         const Score s = search(pos, alpha - 1, alpha, 0, ply, cut_node, qext);
         if (stopped()) return 0;
         if (s < alpha) return s;
@@ -258,8 +357,8 @@ Score Worker::search(Position& pos, Score alpha, Score beta, int depth, int ply,
 
     // Reverse futility pruning: far above beta at low depth, assume a quiet move holds it.
     if (!pv_node && !excluding && !forced_capture && depth > 0 && depth <= P.rfp_max_depth && !is_decisive(beta) &&
-        eval - P.rfp_margin * depth >= beta && !has_capture(pos, ~us))
-        return eval;
+        peval - P.rfp_margin * depth >= beta && !has_capture(pos, ~us))
+        return peval;
 
     // Internal iterative reduction: no hash move at high depth means this node is probably unimportant.
     if (depth >= 6 && !(tt_hit && tte.move.valid())) --depth;
@@ -299,8 +398,14 @@ Score Worker::search(Position& pos, Score alpha, Score beta, int depth, int ply,
             has_excluded[ply] = false;
             if (stopped()) return 0;
             pv_len[ply] = ply;
-            if (s < sb) tt_move_ext = 1;
-            else if (sb >= beta) return sb;
+            if (s < sb) {
+                tt_move_ext = 1;
+                if (P.se_double && !pv_node && s < sb - P.se_double && dext[ply] < P.se_double_cap) tt_move_ext = 2;
+            } else if (sb >= beta) {
+                return sb;
+            } else if (P.se_neg && tt_score >= beta) {
+                tt_move_ext = -1;
+            }
         }
     }
 
@@ -345,15 +450,18 @@ Score Worker::search(Position& pos, Score alpha, Score beta, int depth, int ply,
         // Shallow pruning of late quiet moves.
         if (!pv_node && quiet && n > 0 && best > -SCORE_KNOWN_WIN) {
             if (depth <= P.lmp_depth && int(quiets.size()) >= P.lmp_base + depth * depth) continue;
-            if (depth <= P.fut_depth && eval + P.fut_margin * depth <= alpha) continue;
+            if (depth <= P.fut_depth && peval + P.fut_margin * depth <= alpha) continue;
         }
 
         Position child = pos;
         child.make_move(m);
         tt.prefetch(child.key());
         if (net) nn.push(ply + 1, pos, m);
-        const int new_depth = depth - 1 + ext + (order[n] == (1 << 30) ? tt_move_ext : 0);
+        const int move_ext = order[n] == (1 << 30) ? tt_move_ext : 0;
+        const int new_depth = depth - 1 + ext + move_ext;
         prev_to[ply + 1] = m.to;
+        dext[ply + 1] = dext[ply] + (move_ext >= 2);
+        const std::uint64_t nodes_before = is_root ? nodes.load(std::memory_order_relaxed) : 0;
 
         Score s;
         if (n == 0) {
@@ -375,6 +483,7 @@ Score Worker::search(Position& pos, Score alpha, Score beta, int depth, int ply,
 
         if (is_root) {
             RootMove& rm = *std::find_if(roots.begin(), roots.end(), [&](const RootMove& r) { return r.move == m; });
+            rm.nodes += nodes.load(std::memory_order_relaxed) - nodes_before;
             if (n == 0 || s > alpha) {
                 rm.score = s;
                 rm.pv.assign(1, m);
@@ -403,8 +512,12 @@ Score Worker::search(Position& pos, Score alpha, Score beta, int depth, int ply,
 
     if (excluding) return best == -SCORE_INF ? alpha : best;  // verification search: don't store
     const Bound bound = best >= beta ? BOUND_LOWER : best_idx >= 0 ? BOUND_EXACT : BOUND_UPPER;
+    if (P.corr_hist && !forced_capture && depth >= 1 && !is_decisive(best) &&
+        (best_idx < 0 || !moves[std::size_t(best_idx)].is_capture()) &&
+        !(bound == BOUND_LOWER && best <= eval) && !(bound == BOUND_UPPER && best >= eval))
+        update_correction(pos, best - raw_eval, depth);
     // The moves array was permuted by the selection sort, so encode against the same array.
-    tt.store(pos.key(), score_to_tt(best, ply), eval, std::max(depth, -8), bound,
+    tt.store(pos.key(), score_to_tt(best, ply), raw_eval, std::max(depth, -8), bound,
              best_idx >= 0 ? encode_move(moves, std::size_t(best_idx)) : TTMove{});
     return best;
 }
@@ -432,12 +545,16 @@ void Worker::iterate(const Limits& limits, TimeControl& t, const Engine::InfoFn*
     Score last_score = SCORE_INF;  // score of the previous completed iteration (main thread)
 
     prev_to[0] = 32;
+    dext[0] = 0;
     for (root_depth = 1; root_depth <= limits.depth; ++root_depth) {
-        if (!main && id < 20 && ((root_depth + SKIP_PHASE[id]) / SKIP_SIZE[id]) % 2) continue;
+        if (!main && P.smp_skip == 0 && id < 20 && ((root_depth + SKIP_PHASE[id]) / SKIP_SIZE[id]) % 2) continue;
+        // smp_skip 2: odd helpers search one ply deeper than the iteration number.
+        const int search_depth = std::min(root_depth + (!main && P.smp_skip == 2 ? (id & 1) : 0), MAX_PLY - 1);
 
         for (RootMove& rm : roots) {
             rm.prev_score = rm.score;
             rm.score = -SCORE_INF;
+            rm.nodes = 0;
         }
         seldepth = 0;
 
@@ -451,7 +568,7 @@ void Worker::iterate(const Limits& limits, TimeControl& t, const Engine::InfoFn*
 
         Score score;
         while (true) {
-            score = search(root, alpha, beta, root_depth, 0, false, P.threat_qext);
+            score = search(root, alpha, beta, search_depth, 0, false, P.threat_qext + (P.nosafe_ext << 8));
             std::stable_sort(roots.begin(), roots.end(),
                              [](const RootMove& a, const RootMove& b) { return a.score > b.score; });
             if (stopped()) break;
@@ -466,7 +583,10 @@ void Worker::iterate(const Limits& limits, TimeControl& t, const Engine::InfoFn*
             delta += delta / 2 + 5;
         }
         if (stopped()) break;
-        completed_depth = root_depth;
+        completed_depth = search_depth;
+        done_move = roots[0].move;
+        done_score = score;
+        done_pv = roots[0].pv;
 
         if (!main) continue;
         if (on_info && *on_info) (*on_info)(make_info(root_depth, score));
@@ -486,6 +606,15 @@ void Worker::iterate(const Limits& limits, TimeControl& t, const Engine::InfoFn*
             // A stable best move lets us stop early; a fresh change of mind buys extra time.
             double factor = stability >= 6 ? 0.5 : stability >= 3 ? 0.8 : stability == 0 ? 1.6 : 1.0;
             if (dropping) factor = std::max(factor, 1.0) * P.tm_drop_factor / 100.0;  // a falling score: think longer
+            if (P.tm_nodes && !limits.movetime_ms) {
+                // B6: a best move that took most of the last iteration's nodes is clear; one that took few is not.
+                std::uint64_t total = 0;
+                for (const RootMove& rm : roots) total += rm.nodes;
+                if (total > 0) {
+                    const double share = double(roots[0].nodes) / double(total);
+                    factor *= std::clamp((P.tm_nodes - 100.0 * share) / 100.0, 0.4, 2.0);
+                }
+            }
             if (elapsed_ms(t.start) > std::int64_t(t.soft_ms * factor)) break;
         }
         if (is_decisive(score) && SCORE_WIN - std::abs(score) < root_depth && std::abs(score) > SCORE_MATE_BOUND)
@@ -513,6 +642,12 @@ bool SearchParams::set(const std::string& name, int value) {
         {"tm_hard", &SearchParams::tm_hard},               {"tm_drop", &SearchParams::tm_drop},
         {"tm_drop_factor", &SearchParams::tm_drop_factor}, {"tm_open_pieces", &SearchParams::tm_open_pieces},
         {"tm_open_factor", &SearchParams::tm_open_factor},
+        {"hash_first_db", &SearchParams::hash_first_db},   {"leaf_cache", &SearchParams::leaf_cache},
+        {"leaf_tt", &SearchParams::leaf_tt},               {"corr_hist", &SearchParams::corr_hist},
+        {"nosafe_ext", &SearchParams::nosafe_ext},         {"se_double", &SearchParams::se_double},
+        {"se_double_cap", &SearchParams::se_double_cap},   {"se_neg", &SearchParams::se_neg},
+        {"tm_nodes", &SearchParams::tm_nodes},             {"tt_eval", &SearchParams::tt_eval},
+        {"smp_vote", &SearchParams::smp_vote},             {"smp_skip", &SearchParams::smp_skip},
     };
     for (const auto& e : table)
         if (name == e.name) {
@@ -705,6 +840,43 @@ SearchResult Engine::go(const Limits& limits, InfoFn on_info) {
     result.score = main.roots[0].score == -SCORE_INF ? main.roots[0].prev_score : main.roots[0].score;
     result.depth = main.completed_depth;
     result.pv = main.roots[0].pv;
+    // Lazy SMP thread selection: 1 = deepest completed iteration (then best score); 2 = votes weighted by depth
+    // and score, as in Stockfish. A helper's result replaces the main thread's only when it wins.
+    if (params.smp_vote && workers_.size() > 1) {
+        const Worker* best = &main;
+        if (params.smp_vote == 1) {
+            for (const auto& w : workers_)
+                if (w->completed_depth > best->completed_depth ||
+                    (w->completed_depth == best->completed_depth && w->done_score > best->done_score))
+                    best = w.get();
+        } else {
+            Score min_score = SCORE_INF;
+            for (const auto& w : workers_)
+                if (w->completed_depth > 0) min_score = std::min(min_score, w->done_score);
+            auto votes = [&](const Move& m) {
+                std::int64_t v = 0;
+                for (const auto& w : workers_)
+                    if (w->completed_depth > 0 && w->done_move == m)
+                        v += std::int64_t(w->done_score - min_score + 14) * w->completed_depth;
+                return v;
+            };
+            std::int64_t best_votes = main.completed_depth > 0 ? votes(main.done_move) : 0;
+            for (const auto& w : workers_) {
+                if (w->completed_depth <= 0) continue;
+                const std::int64_t v = votes(w->done_move);
+                if (v > best_votes || (v == best_votes && w->completed_depth > best->completed_depth)) {
+                    best_votes = v;
+                    best = w.get();
+                }
+            }
+        }
+        if (best != &main && best->completed_depth > 0 && !is_decisive(main.done_score)) {
+            result.best = best->done_move;
+            result.score = best->done_score;
+            result.depth = best->completed_depth;
+            result.pv = best->done_pv;
+        }
+    }
     for (const auto& w : workers_) result.nodes += w->nodes.load();
     result.time_ms = elapsed_ms(tc.start);
     return result;
