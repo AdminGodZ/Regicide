@@ -1,3 +1,3 @@
-written 11461376 / 28083233 (40.81%)  searched 1445203  proven 476750  sign flips 8277  402 searched/s
-rescore /home/admingod/regicide-data/truth/gen4a_n10k_e2.bin -> /home/admingod/regicide-data/truth/gen4a_n10k_e3.bin.part: 28083233 records, resuming at 11532288, 6 threads, egdb 8 pieces, pieces 9..16 searched
-written 11532288 / 28083233 (41.06%)  searched 107  proven 33  sign flips 0  untrusted 0  415 searched/s
+written 14426368 / 28083233 (51.37%)  searched 422789  proven 138179  sign flips 2271  untrusted 0  partial losses 1445  474 searched/s
+written 14627072 / 28083233 (52.08%)  searched 484089  proven 158551  sign flips 2606  untrusted 0  partial losses 1653  476 searched/s
+written 14827520 / 28083233 (52.80%)  searched 543150  proven 177244  sign flips 2963  untrusted 0  partial losses 1841  477 searched/s

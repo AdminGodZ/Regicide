@@ -1,11 +1,13 @@
 // Re-searches the records of a DataRecord file with the current engine and the endgame database.
 //
 //   rescore --egdb DIR --in IN.bin --out OUT.bin [--threads 8] [--nodes 9:50000,13:20000,17:10000]
-//           [--min-pieces 9] [--keep-above 24] [--evalfile net.nnue] [--hash 32]
+//           [--min-pieces 9] [--keep-above 24] [--evalfile net.nnue] [--hash 32] [--recheck-losses]
 //
 // OUT gets one record for every record of IN, in the same order. Records with min-pieces..keep-above pieces get a new
 // score from a search with the node budget of their piece count (--nodes: "from pieces:nodes" steps); a decisive
-// (proven) score is clamped to +-DataRecord::PROVEN_SCORE and flagged (stm bit 7). Other records are copied unchanged.
+// score that label.hpp accepts as proven (a win; a loss only from a complete iteration) is clamped to
+// +-DataRecord::PROVEN_SCORE and flagged (stm bit 7). Other records are copied unchanged. --recheck-losses re-searches
+// only the records already flagged as proven losses (for files rescored before that rule).
 // Game results are never changed (relabel them first with `truth relabel`).
 //
 // Resumable: OUT holds a whole-record prefix of the result. Run the same command again and it continues after the
@@ -27,6 +29,7 @@
 
 #include "datafile.hpp"
 #include "egdb/egdb.hpp"
+#include "label.hpp"
 #include "search.hpp"
 
 using namespace regicide;
@@ -45,6 +48,7 @@ long file_records(const std::string& path) {
 int main(int argc, char** argv) {
     std::string egdb_dir, in, out, evalfile;
     int threads = 8, min_pieces = 9, keep_above = 24;
+    bool recheck_losses = false;  // re-search only the proven-loss records (rule change of 2026-11-10, label.hpp)
     std::size_t hash_mb = 32;
     std::vector<std::pair<int, std::uint64_t>> steps{{9, 50000}, {13, 20000}, {17, 10000}};
     for (int i = 1; i < argc; ++i) {
@@ -58,6 +62,7 @@ int main(int argc, char** argv) {
         else if (k == "--keep-above") keep_above = std::stoi(next());
         else if (k == "--evalfile") evalfile = next();
         else if (k == "--hash") hash_mb = std::stoul(next());
+        else if (k == "--recheck-losses") recheck_losses = true;
         else if (k == "--nodes") {
             steps.clear();
             const std::string s = next();
@@ -118,7 +123,7 @@ int main(int argc, char** argv) {
     long next_chunk = 0, written_chunks = 0;
     std::map<long, std::vector<DataRecord>> done;  // finished chunks waiting for their turn
     const long nchunks = (total - start + CHUNK - 1) / CHUNK;
-    std::atomic<long> searched{0}, proven{0}, flipped{0}, untrusted{0};
+    std::atomic<long> searched{0}, proven{0}, flipped{0}, untrusted{0}, partial_losses{0};
     const auto t0 = std::chrono::steady_clock::now();
     long last_report = 0;
 
@@ -147,24 +152,26 @@ int main(int argc, char** argv) {
             engine.new_game();
             for (DataRecord& r : buf) {
                 const int pieces = r.pieces();
-                if (pieces < min_pieces || pieces > keep_above || r.proven()) continue;
+                if (recheck_losses ? !(r.proven() && r.score < 0) : (pieces < min_pieces || pieces > keep_above || r.proven()))
+                    continue;
                 Limits l;
                 l.nodes = budget(pieces);
                 l.use_book = false;
                 const Position pos = r.position();
                 engine.set_position(pos);
-                const SearchResult sr = engine.go(l);
-                const Score s = sr.score;
-                // A search that stopped before completing an iteration returns a sentinel (-SCORE_INF) that
-                // is_decisive() would take for a proven loss: such a record keeps its old score, unproven.
-                if (sr.depth < 1 || std::abs(s) > SCORE_WIN) {
+                // label_of (label.hpp): wins are proofs, losses only from a complete iteration; a search that
+                // completed nothing leaves the record as it was.
+                const auto lab = label_of(engine.go(l));
+                if (!lab) {
                     untrusted++;
                     continue;
                 }
+                if (lab->partial_loss && !lab->proven) partial_losses++;
+                const int s = lab->score;
                 const std::int8_t result = r.result;
                 const std::uint8_t start_flag = r.stm & DataRecord::GAME_START;
                 const int old = r.score;
-                r = is_decisive(s) ? DataRecord::make_proven(pos, s) : DataRecord::make(pos, s);
+                r = lab->proven ? DataRecord::make_proven(pos, s) : DataRecord::make(pos, s);
                 r.result = result;
                 r.stm |= start_flag;
                 searched++;
@@ -187,8 +194,8 @@ int main(int argc, char** argv) {
                 last_report = w;
                 const double sec =
                     std::chrono::duration<double>(std::chrono::steady_clock::now() - t0).count();
-                std::printf("written %ld / %ld (%.2f%%)  searched %ld  proven %ld  sign flips %ld  untrusted %ld  %.0f searched/s\n",
-                            w, total, 100.0 * w / total, searched.load(), proven.load(), flipped.load(), untrusted.load(),
+                std::printf("written %ld / %ld (%.2f%%)  searched %ld  proven %ld  sign flips %ld  untrusted %ld  partial losses %ld  %.0f searched/s\n",
+                            w, total, 100.0 * w / total, searched.load(), proven.load(), flipped.load(), untrusted.load(), partial_losses.load(),
                             searched / std::max(1e-9, sec));
                 std::fflush(stdout);
             }

@@ -26,6 +26,7 @@
 #include "egdb/egdb.hpp"
 #include "movegen.hpp"
 #include "position.hpp"
+#include "label.hpp"
 #include "search.hpp"
 
 using namespace regicide;
@@ -111,7 +112,7 @@ int main(int argc, char** argv) {
         return 1;
     }
 
-    std::atomic<long> next_game{0}, positions{0}, incomplete{0};
+    std::atomic<long> next_game{0}, positions{0}, incomplete{0}, partial_losses{0};
     std::atomic<long> ends[4] = {0, 0, 0, 0};  // no legal moves, draw rule (repetition/length), database, adjudicated
     std::atomic<long> results[3] = {0, 0, 0};  // black loss, draw, black win
     std::mutex mu;
@@ -183,18 +184,20 @@ int main(int argc, char** argv) {
 
                 engine.set_position(pos, history);
                 const SearchResult r = engine.go(limits);
-                // A search that stopped before completing an iteration returns a sentinel (-SCORE_INF), which
-                // is_decisive() would take for a proven loss: only completed searches with real scores are written.
-                const bool searched = r.depth >= 1 && std::abs(r.score) <= SCORE_WIN;
-                if (!searched) incomplete++;
-                if (!list[0].is_capture() && searched) {
-                    if (!is_decisive(r.score)) game.push_back(DataRecord::make(pos, r.score));
-                    else if (cfg.egdb_pieces > 0) game.push_back(DataRecord::make_proven(pos, r.score));
+                // label_of (label.hpp): a win is proven, a loss only from a complete iteration (a partial loss is
+                // written unproven with the last complete iteration's score); a search without a result is skipped.
+                const auto lab = label_of(r);
+                if (!lab) incomplete++;
+                else if (lab->partial_loss && !lab->proven) partial_losses++;
+                if (!list[0].is_capture() && lab) {
+                    if (!lab->proven) game.push_back(DataRecord::make(pos, lab->score));
+                    else if (cfg.egdb_pieces > 0) game.push_back(DataRecord::make_proven(pos, lab->score));
                 }
 
-                const int black_view = pos.side_to_move() == BLACK ? r.score : -r.score;
+                const int score = lab ? lab->score : 0;
+                const int black_view = pos.side_to_move() == BLACK ? score : -score;
                 // With the database, only proven scores adjudicate, so every decisive result is exact.
-                const bool counts = searched && (cfg.egdb_pieces == 0 || is_decisive(r.score));
+                const bool counts = lab && (cfg.egdb_pieces == 0 || lab->proven);
                 const int sign = !counts                           ? 0
                                  : black_view >= cfg.adjudicate_score ? 1
                                  : black_view <= -cfg.adjudicate_score ? -1
@@ -222,7 +225,7 @@ int main(int argc, char** argv) {
                 std::printf("games %ld  positions %ld  black +%ld =%ld -%ld  ends: no-moves %ld draw-rule %ld "
                             "database %ld adjudicated %ld  incomplete searches %ld\n",
                             g, positions.load(), results[2].load(), results[1].load(), results[0].load(),
-                            ends[0].load(), ends[1].load(), ends[2].load(), ends[3].load(), incomplete.load());
+                            ends[0].load(), ends[1].load(), ends[2].load(), ends[3].load(), incomplete.load(), partial_losses.load());
                 std::fflush(stdout);
             }
         }

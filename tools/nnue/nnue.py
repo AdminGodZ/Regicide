@@ -141,9 +141,14 @@ def kept_indices(m, min_pieces, chunk=1 << 22):
 class Data:
     """Several DataRecord files, memory-mapped. The last `valid_frac` of each file is held out for validation
     (files are written game by game, so this keeps validation games apart from training games).
-    min_pieces > 0 leaves out every record with fewer pieces (training and validation)."""
+    min_pieces > 0 leaves out every record with fewer pieces (training and validation).
 
-    def __init__(self, files, valid_frac=0.02, min_pieces=0):
+    groups (piece-count lower bounds, e.g. [9, 13, 17]; the first must equal min_pieces) with weights: phase-balanced
+    sampling. Every batch of n records holds exactly round(n * w_g / sum w) records of group g (the largest-remainder
+    split of n), each drawn uniformly (with replacement) from all training records of that group, over all files
+    (a file given k times counts k times, as in the plain sampler). Validation is unchanged (all records)."""
+
+    def __init__(self, files, valid_frac=0.02, min_pieces=0, groups=None, weights=None):
         self.maps, self.train_sizes, self.valid_parts, self.keep = [], [], [], []
         cache = {}
         for f in files:
@@ -166,6 +171,32 @@ class Data:
         self.train_ends = np.cumsum(self.train_sizes)
         self.n_train = int(self.train_ends[-1]) if files else 0
         self.n_valid = sum(len(v) for v in self.valid_parts)
+        self.groups = None
+        if groups:
+            if min_pieces != groups[0] or any(k is None for k in self.keep):
+                raise ValueError("groups need min_pieces equal to the first group bound")
+            bounds = list(groups) + [25]
+            w = np.asarray(weights if weights else [1.0] * len(groups), dtype=np.float64)
+            self.group_weights = w / w.sum()
+            split = {}
+            for fi, f in enumerate(files):
+                if f not in split:
+                    k = self.keep[fi]
+                    pc = np.concatenate([piece_counts(self.maps[fi][k[s:s + (1 << 22)].astype(np.int64)])
+                                         for s in range(0, len(k), 1 << 22)]) if len(k) else np.empty(0, int)
+                    split[f] = [k[(pc >= bounds[g]) & (pc < bounds[g + 1])] for g in range(len(groups))]
+            self.groups = [[split[f][g] for f in files] for g in range(len(groups))]  # [group][file] -> indices
+            self.group_ends = [np.cumsum([len(a) for a in self.groups[g]]) for g in range(len(groups))]
+            self.group_sizes = [int(e[-1]) for e in self.group_ends]
+            self.group_bounds = bounds
+
+    def batch_split(self, n):
+        """Records per group in a batch of n: the largest-remainder split of n by the group weights (exact)."""
+        q = n * self.group_weights
+        k = np.floor(q).astype(np.int64)
+        for g in np.argsort(-(q - k), kind="stable")[: n - int(k.sum())]:
+            k[g] += 1
+        return k
 
     def gather(self, idx):
         """Training records at global indices `idx` (sorted for locality)."""
@@ -179,9 +210,24 @@ class Data:
             out[sel] = self.maps[f][local if self.keep[f] is None else self.keep[f][local]]
         return out
 
+    def gather_group(self, g, idx):
+        """Training records of group g at group-global indices idx."""
+        idx = np.sort(idx)
+        ends = self.group_ends[g]
+        which = np.searchsorted(ends, idx, side="right")
+        starts = np.concatenate([[0], ends[:-1]])
+        out = np.empty(len(idx), dtype=RECORD)
+        for f in np.unique(which):
+            sel = which == f
+            out[sel] = self.maps[f][self.groups[g][f][idx[sel] - starts[f]]]
+        return out
+
     def sample(self, rng, n):
-        """Uniform random training records (with replacement)."""
-        return self.gather(rng.integers(0, self.n_train, n))
+        """Uniform random training records (with replacement); with groups, exactly batch_split(n) per group."""
+        if self.groups is None:
+            return self.gather(rng.integers(0, self.n_train, n))
+        return np.concatenate([self.gather_group(g, rng.integers(0, self.group_sizes[g], k))
+                               for g, k in enumerate(self.batch_split(n)) if k > 0])
 
     def validation(self, limit, rng):
         v = np.concatenate([np.asarray(p) for p in self.valid_parts]) if self.valid_parts else np.empty(0, RECORD)

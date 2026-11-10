@@ -11,9 +11,9 @@
 results from the database; E3 n8c = E2 with re-searched scores (proven ones exact). Every net is matched against n6c
 with the standard setup.
 
-**Status (2026-11-10 05:05):** E0 done. E1 and E2 matched. **n8bn (E2: database-relabelled game results, ≥ 9-piece
-records, n6c's K) beats n6c: +4.5 [+0.5, +8.6] at 0.1 s/move and +4.5 [+1.6, +7.4] at 0.5 s/move (805 pairs each).**
-E3: gen5a is rescored, gen4a is being rescored; n8c follows.
+**Status (2026-11-10 08:30):** Phase 1 done: **n8bn (E2: database-relabelled game results, ≥ 9-piece records, n6c's K)
+beats n6c by +4.5 [+0.5, +8.6] at 0.1 s/move and +4.5 [+1.6, +7.4] at 0.5 s/move.** Phase 2: P1 done (n8bn vs Cake
+and KingsRow with the book off: no visible difference from n6c); P2/P3/P4 running (see Phase 2).
 
 ## E0: census (no training)
 
@@ -237,6 +237,70 @@ proven positions 96357 (wins 49906, losses 46451); by pieces: 9: 51785, 10: 2564
 | n8b | 99.82% | 99.96% | 99.70% | 99.69% | 99.34% | 385 (0.83%) | 650 (1.30%) | 221 / -223 | 110.7 |
 | n8bk | 99.82% | 99.96% | 99.72% | 99.71% | 99.27% | 269 (0.58%) | 463 (0.93%) | 294 / -303 | 145.7 |
 | n8bn | 99.83% | 99.97% | 99.72% | 99.72% | 99.27% | 222 (0.48%) | 358 (0.72%) | 339 / -337 | 166.7 |
+
+## Phase 2
+
+**Builds.** All self-play net matches of both phases use one `libregicide_cb.so` of this branch at **fcf6acb** (master
+fcf6acb, bench 7,712,020) for both sides (`rtruth.so`). P1 uses the ponder agent's DLL `ponder-df7780a` for every run
+(n6c and n8bn alike). On 2026-11-10 the branch merged master 6002841 (bench **7,677,736**, ctest 16/16); from then on
+rescore and datagen use the merged code. Self-play comparisons were not moved to the new build, so no comparison mixes
+builds.
+
+### P1: n8bn against the real opponents (config A, book off)
+
+The ponder agent's config A (`jobs/ponder/run_p.sh`): DLL `ponder-df7780a`, threads 1, ponder 0, hash 128, `-c 8`, book
+off, ACF 156 deck × 2 colours = 312 games, 0.5 s/move. Cake and KingsRow with their books and the KingsRow 2–8 WLD
+database. n8bn through `set evalfile` (checked by hand: `reply 1 nnue`). Background as in the reference runs: my
+extra threads stopped during these runs (load 9–10). The n6c Cake runs are the ponder agent's `pt-s2-a1-cake` and
+`pt-s2-a2-cake`. No config-A n6c run against KingsRow existed, so I played one (`tr-n6c-kingsrow`).
+
+| Run | W / D / L | Elo [95% CI] |
+|---|---|---|
+| n8bn vs Cake, run 1 | 0 / 307 / 5 | −5.6 [−10.4, −0.8] |
+| n8bn vs Cake, run 2 | 0 / 307 / 5 | −5.6 [−10.4, −0.8] |
+| n6c vs Cake (ponder agent, 2 runs) | 0 / 307 / 5 each | −5.6 [−10.4, −0.8] each |
+| n8bn vs KingsRow | 1 / 311 / 0 | +1.1 [−1.1, +3.3] |
+| n6c vs KingsRow (reference) | 1 / 309 / 2 | −1.1 [−4.9, +2.7] |
+
+**Cake, ballots lost** (each run plays every ballot once with each colour):
+- **n8bn:** #34 Twilight Zone (black, both runs), #6 Inferno (black, both), #74 (black, both), #153 Black Widow (white, both),
+  #96 Skull-Cracker (black, run 1), #112 (white, run 2).
+- **n6c:** #7 (black, both), #62 Gemini I (black, both), #153 Black Widow (white, both), #5 Dreaded Edinburgh, #89 (black,
+  run 1), #64 (black), #129 (white, run 2).
+- Only #153 is lost by both nets. n8bn no longer loses #7 and #62 (n6c's repeated losses), but loses #34, #6 and #74
+  in both runs.
+
+**KingsRow:**
+- n8bn won #50 (white).
+- n6c won #122 (black) and lost #16 Wilderness II and #68 White Doctor (black).
+
+**Reading.** The self-play gain does not show against Cake with the book off: the same 5 losses per 312 games, on
+other ballots. Against KingsRow n8bn is +2 games better than n6c, within noise.
+
+### Review fixes (before any E5 data)
+
+- **Incomplete searches.**
+  - rescore, datagen and the pilot no longer take a search that completed no iteration as a result.
+  - On top of that, the proven rule of master 5ea3189 (`tools/label.hpp`): a win is proven even from a partial
+    iteration; a loss only from a complete one. A partial loss is stored unproven with `completed_score`, and counted
+    (`partial losses` in the rescore and datagen logs).
+- **Checks on the already rescored files.** A sentinel would map to −3000 + PROVEN, exactly like a real proven loss.
+  - Guarded rescore of 300k gen4a records at the production budgets: **0 untrusted searches in 89,420**.
+  - Proven losses whose previous score was above +100: **0** in every rescored file (gen5a 549,270 proven losses, gen4a's
+    first 13.0M records 612,340, the tails 46,451). The symmetric control, proven wins with a previous score below −100,
+    gives 1.
+- **No recheck of old proven losses (lead's decision).** 1,208,061 proven losses were rescored before the partial
+  rule. A cold re-search of a 200k-record sample demoted 906 of 10,569, of which only 135 were partial losses: re-search
+  without the original hash state drops real proofs. gen4a from record 13,020,160 on uses the new rule.
+- **Game boundaries.**
+  - datagen now marks the first record of every game (stm bit 6, `GAME_START`); truth census and relabel split there
+    when a file has the flags.
+  - Test: two seeded K-vs-K games, 5 games written. The flags give 5; the old heuristic counted 1.
+  - All E5 data has the flags (gen6b was restarted twice, discarding what the older binaries had written).
+
+<!-- P3 -->
+
+<!-- P4 -->
 
 ## What holds and what does not
 

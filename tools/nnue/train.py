@@ -48,6 +48,9 @@ def parse_args(argv=None):
     p.add_argument("--valid-frac", type=float, default=0.02, help="tail of each file held out")
     p.add_argument("--min-pieces", type=int, default=0,
                    help="leave out records with fewer pieces (9: what the 8-piece database never lets the net see)")
+    p.add_argument("--groups", help="phase-balanced sampling: piece-count group lower bounds, e.g. 9,13,17 (the first "
+                   "must equal --min-pieces); every batch draws exactly its share from each group")
+    p.add_argument("--group-weights", help="share of each group in a batch, e.g. 1,1,1 (default equal) or 1,1,2")
     p.add_argument("--valid-max", type=int, default=1_000_000, help="validation positions used")
     p.add_argument("--qat-epochs", type=int, default=2,
                    help="final epochs trained through the simulated integer forward pass")
@@ -100,7 +103,13 @@ def main(argv=None):
     torch.manual_seed(args.seed)
     rng = np.random.default_rng(args.seed)
 
-    data = nnue.Data(args.data, args.valid_frac, args.min_pieces)
+    groups = [int(x) for x in args.groups.split(",")] if args.groups else None
+    weights = [float(x) for x in args.group_weights.split(",")] if args.group_weights else None
+    data = nnue.Data(args.data, args.valid_frac, args.min_pieces, groups, weights)
+    if data.groups is not None:
+        print("groups %s: training records %s, batch split %s" % (
+            ", ".join("%d-%d" % (data.group_bounds[g], data.group_bounds[g + 1] - 1) for g in range(len(groups))),
+            data.group_sizes, data.batch_split(args.batch).tolist()), flush=True)
     if data.n_train == 0:
         sys.exit("no training data")
     valid = data.validation(args.valid_max, rng)
