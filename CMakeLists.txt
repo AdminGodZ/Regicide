@@ -72,6 +72,10 @@ add_executable(perft_test tests/perft_test.cpp)
 target_link_libraries(perft_test PRIVATE regicide_core)
 add_test(NAME perft COMMAND perft_test)
 
+add_executable(search_test tests/search_test.cpp)
+target_link_libraries(search_test PRIVATE regicide_core)
+add_test(NAME search COMMAND search_test)
+
 add_executable(fen_test tests/fen_test.cpp)
 target_link_libraries(fen_test PRIVATE regicide_core)
 add_test(NAME fen COMMAND fen_test)
