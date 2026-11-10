@@ -9,7 +9,7 @@ ALL=""; for f in gen1 gen1b gen1c gen2a gen2b gen3a gen3b gen3c gen3d; do ALL="$
 ALL="$ALL --data $O/gen4a_n10k_e3.bin"
 G5="--data $O/gen5a_n50k_e3.bin"
 K=$(python3 -c "import json; print(json.load(open('$HOME/regicide-nnue6-work/runs/n6c/config.json'))['K'])")
-bash /mnt/c/regicide-match/jobs/truth/train.sh n8c $ALL $G5 $G5 $G5 --lambda 0.5 --min-pieces 9 --k $K
+bash /mnt/c/regicide-match/jobs/truth/train.sh n8c $ALL $G5 $G5 $G5 --lambda 0.5 --min-pieces 9 --k $K || { st "CHAIN3 stopped: n8c export check missing"; exit 1; }
 bash /mnt/c/regicide-match/jobs/truth/match.sh n8c 0.1
 e=$(grep -o '^Elo (pentanomial, pairs): [-+0-9.]*' $W/matches/n8c-vs-n6c/summary.txt | awk '{print $4}')
 st "n8c vs n6c Elo $e (n8bn +4.5)"

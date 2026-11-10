@@ -36,3 +36,8 @@ epoch  33  lr 8.31e-05  train 0.459908  valid 0.443192  valid(int) 0.443760  304
 epoch  34  lr 6.40e-05  train 0.459862  valid 0.443165  valid(int) 0.443772  3033941 pos/s
 epoch  35  lr 4.77e-05  train 0.459853  valid 0.443146  valid(int) 0.443882  3137329 pos/s
 epoch  36  lr 3.43e-05  train 0.459789  valid 0.443127  valid(int) 0.443870  2808510 pos/s
+epoch  37  lr 2.37e-05  train 0.459785  valid 0.443110  valid(int) 0.443976  2511036 pos/s
+epoch  38  lr 1.61e-05  train 0.459750  valid 0.443100  valid(int) 0.443861  2639177 pos/s
+epoch  39  lr 1.15e-05  train 0.460077  valid 0.443585  valid(int) 0.443431  [qat]  2497877 pos/s
+epoch  40  lr 1.00e-05  train 0.460100  valid 0.443585  valid(int) 0.443341  [qat]  2450291 pos/s
+wrote /home/admingod/regicide-truth-work/runs/n8p/net_e040.nnue

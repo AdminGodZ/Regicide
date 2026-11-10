@@ -10,6 +10,9 @@
 // of being dropped. With --seeds (one FEN per line), a share --seed-frac of the games (default 1) starts from a random
 // seed position followed by --seed-plies random plies (default 2-4); the others start as usual (the start position
 // plus --random-min..--random-max random plies).
+// The first record of every game carries DataRecord::GAME_START. Write a new file per run (the normal case); --out
+// appends only to a file whose records carry those flags, never to a file written by an older datagen. Proven
+// labels follow tools/label.hpp; with --egdb, score adjudication counts only proven scores.
 #include <atomic>
 #include <cstdint>
 #include <cstdio>
@@ -106,6 +109,17 @@ int main(int argc, char** argv) {
         return 1;
     }
 
+    // Every game's first record is flagged (DataRecord::GAME_START). Appending is only safe to a file written that way:
+    // a legacy file (no flag on its first record) would mix guessed and marked game boundaries.
+    if (std::FILE* old = std::fopen(cfg.out.c_str(), "rb")) {
+        DataRecord first;
+        const bool has = std::fread(&first, sizeof first, 1, old) == 1;
+        std::fclose(old);
+        if (has && !first.game_start()) {
+            std::cerr << cfg.out << " exists and was written without game-start flags: use a new file\n";
+            return 1;
+        }
+    }
     std::FILE* out = std::fopen(cfg.out.c_str(), "ab");
     if (!out) {
         std::cerr << "cannot open " << cfg.out << '\n';
@@ -223,9 +237,10 @@ int main(int argc, char** argv) {
             const long g = results[0] + results[1] + results[2];
             if (g % 1000 == 0) {
                 std::printf("games %ld  positions %ld  black +%ld =%ld -%ld  ends: no-moves %ld draw-rule %ld "
-                            "database %ld adjudicated %ld  incomplete searches %ld\n",
+                            "database %ld adjudicated %ld  incomplete searches %ld  partial losses %ld\n",
                             g, positions.load(), results[2].load(), results[1].load(), results[0].load(),
-                            ends[0].load(), ends[1].load(), ends[2].load(), ends[3].load(), incomplete.load(), partial_losses.load());
+                            ends[0].load(), ends[1].load(), ends[2].load(), ends[3].load(), incomplete.load(),
+                            partial_losses.load());
                 std::fflush(stdout);
             }
         }

@@ -53,7 +53,9 @@ def main():
     p.add_argument("--l2", type=int)
     p.add_argument("--buckets", type=int)
     p.add_argument("--n", type=int, default=1000)
-    p.add_argument("--tolerance", type=int, default=0)
+    p.add_argument("--tolerance", type=int, default=0, help="python int vs engine (centi-men)")
+    p.add_argument("--sim-tolerance", type=float, default=2.0,
+                   help="simulated int (the training forward pass) vs engine (centi-men); fails above it")
     p.add_argument("--seed", type=int, default=3)
     args = p.parse_args()
 
@@ -91,11 +93,20 @@ def main():
     print("python int vs engine: max |diff| %d, %d positions differ" % (diff.max(), np.count_nonzero(diff)))
     print("float model vs engine: mean |diff| %.2f, max %.2f centi-men" %
           (np.abs(fl - engine).mean(), np.abs(fl - engine).max()))
-    print("simulated int (training) vs engine: max |diff| %.2f" % np.abs(sim - engine).max())
+    sim_diff = np.abs(sim - engine)
+    print("simulated int (training) vs engine: max |diff| %.2f" % sim_diff.max())
+    fail = False
     if diff.max() > args.tolerance:
-        bad = np.flatnonzero(diff > args.tolerance)[:5]
-        for i in bad:
+        for i in np.flatnonzero(diff > args.tolerance)[:5]:
             print("  record %d: engine %d python %d" % (i, engine[i], python[i]))
+        fail = True
+    # The training forward pass (quant=True) must be the net that gets exported, up to the output rounding (< 1).
+    if sim_diff.max() > args.sim_tolerance:
+        for i in np.flatnonzero(sim_diff > args.sim_tolerance)[:5]:
+            print("  record %d: engine %d simulated %.2f" % (i, engine[i], sim[i]))
+        print("simulated int differs from the engine by more than %.1f centi-men" % args.sim_tolerance)
+        fail = True
+    if fail:
         sys.exit("FAIL")
     print("OK")
 

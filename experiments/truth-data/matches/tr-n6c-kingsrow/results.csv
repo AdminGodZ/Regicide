@@ -1,0 +1,313 @@
+game,pair,opening,black,white,result,score_a,termination,engine_plies
+7,4,"ACF #5 Dreaded Edinburgh","Regicide-n6c-kingsrow","Kingsrow(x64)[4] 1.20",1/2-1/2,0.5,"repetition",110
+6,3,"ACF #4","Kingsrow(x64)[7] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",84
+8,4,"ACF #5 Dreaded Edinburgh","Kingsrow(x64)[3] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"no progress",149
+2,1,"ACF #1","Kingsrow(x64)[2] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"no progress",183
+4,2,"ACF #2","Kingsrow(x64) 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"no progress",243
+10,5,"ACF #6 Inferno","Kingsrow(x64)[7] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",86
+1,1,"ACF #1","Regicide-n6c-kingsrow","Kingsrow(x64)[1] 1.20",1/2-1/2,0.5,"no progress",163
+9,5,"ACF #6 Inferno","Regicide-n6c-kingsrow","Kingsrow(x64)[4] 1.20",1/2-1/2,0.5,"repetition",155
+5,3,"ACF #4","Regicide-n6c-kingsrow","Kingsrow(x64)[6] 1.20",1/2-1/2,0.5,"no progress",239
+3,2,"ACF #2","Regicide-n6c-kingsrow","Kingsrow(x64)[5] 1.20",1/2-1/2,0.5,"repetition",80
+12,6,"ACF #7","Kingsrow(x64)[2] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"no progress",167
+13,7,"ACF #8 Edinburgh Single","Regicide-n6c-kingsrow","Kingsrow(x64) 1.20",1/2-1/2,0.5,"repetition",126
+17,9,"ACF #10","Regicide-n6c-kingsrow","Kingsrow(x64)[6] 1.20",1/2-1/2,0.5,"no progress",143
+15,8,"ACF #9 Wilderness I","Regicide-n6c-kingsrow","Kingsrow(x64)[1] 1.20",1/2-1/2,0.5,"repetition",126
+14,7,"ACF #8 Edinburgh Single","Kingsrow(x64)[7] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"no progress",145
+18,9,"ACF #10","Kingsrow(x64)[5] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"no progress",161
+20,10,"ACF #11","Kingsrow(x64) 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"no progress",212
+22,11,"ACF #12","Kingsrow(x64)[1] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"no progress",155
+21,11,"ACF #12","Regicide-n6c-kingsrow","Kingsrow(x64)[6] 1.20",1/2-1/2,0.5,"no progress",175
+11,6,"ACF #7","Regicide-n6c-kingsrow","Kingsrow(x64)[3] 1.20",1/2-1/2,0.5,"no progress",196
+16,8,"ACF #9 Wilderness I","Kingsrow(x64)[4] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",118
+23,12,"ACF #14","Regicide-n6c-kingsrow","Kingsrow(x64)[7] 1.20",1/2-1/2,0.5,"no progress",249
+19,10,"ACF #11","Regicide-n6c-kingsrow","Kingsrow(x64)[2] 1.20",1/2-1/2,0.5,"no progress",230
+26,13,"ACF #15","Kingsrow(x64)[1] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"no progress",157
+28,14,"ACF #16 Wilderness II","Kingsrow(x64)[3] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"no progress",174
+24,12,"ACF #14","Kingsrow(x64)[5] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",112
+30,15,"ACF #17","Kingsrow(x64)[7] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"no progress",181
+29,15,"ACF #17","Regicide-n6c-kingsrow","Kingsrow(x64)[4] 1.20",1/2-1/2,0.5,"no progress",169
+31,16,"ACF #18","Regicide-n6c-kingsrow","Kingsrow(x64)[2] 1.20",1/2-1/2,0.5,"repetition",88
+32,16,"ACF #18","Kingsrow(x64)[1] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"no progress",311
+33,17,"ACF #19","Regicide-n6c-kingsrow","Kingsrow(x64)[3] 1.20",1/2-1/2,0.5,"repetition",89
+27,14,"ACF #16 Wilderness II","Regicide-n6c-kingsrow","Kingsrow(x64)[6] 1.20",0-1,0,"no legal moves",85
+36,18,"ACF #20","Kingsrow(x64)[4] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"no progress",158
+35,18,"ACF #20","Regicide-n6c-kingsrow","Kingsrow(x64)[7] 1.20",1/2-1/2,0.5,"no progress",182
+37,19,"ACF #21","Regicide-n6c-kingsrow","Kingsrow(x64)[2] 1.20",1/2-1/2,0.5,"repetition",95
+38,19,"ACF #21","Kingsrow(x64)[1] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"no progress",153
+39,20,"ACF #22","Regicide-n6c-kingsrow","Kingsrow(x64)[3] 1.20",1/2-1/2,0.5,"no progress",383
+34,17,"ACF #19","Kingsrow(x64)[5] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",229
+25,13,"ACF #15","Regicide-n6c-kingsrow","Kingsrow(x64) 1.20",1/2-1/2,0.5,"repetition",209
+43,22,"ACF #24","Regicide-n6c-kingsrow","Kingsrow(x64)[2] 1.20",1/2-1/2,0.5,"repetition",102
+45,23,"ACF #25","Regicide-n6c-kingsrow","Kingsrow(x64)[3] 1.20",1/2-1/2,0.5,"no progress",171
+40,20,"ACF #22","Kingsrow(x64)[6] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"no progress",151
+46,23,"ACF #25","Kingsrow(x64)[5] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",136
+44,22,"ACF #24","Kingsrow(x64)[1] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"no progress",169
+42,21,"ACF #23","Kingsrow(x64)[7] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"no progress",154
+41,21,"ACF #23","Regicide-n6c-kingsrow","Kingsrow(x64)[4] 1.20",1/2-1/2,0.5,"no progress",174
+53,27,"ACF #30","Regicide-n6c-kingsrow","Kingsrow(x64)[7] 1.20",1/2-1/2,0.5,"repetition",98
+48,24,"ACF #27","Kingsrow(x64)[2] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",82
+52,26,"ACF #29","Kingsrow(x64)[1] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",59
+47,24,"ACF #27","Regicide-n6c-kingsrow","Kingsrow(x64) 1.20",1/2-1/2,0.5,"repetition",139
+49,25,"ACF #28","Regicide-n6c-kingsrow","Kingsrow(x64)[3] 1.20",1/2-1/2,0.5,"repetition",93
+51,26,"ACF #29","Regicide-n6c-kingsrow","Kingsrow(x64)[5] 1.20",1/2-1/2,0.5,"no progress",159
+54,27,"ACF #30","Kingsrow(x64)[4] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"no progress",179
+58,29,"ACF #32","Kingsrow(x64) 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",76
+57,29,"ACF #32","Regicide-n6c-kingsrow","Kingsrow(x64)[1] 1.20",1/2-1/2,0.5,"no progress",155
+56,28,"ACF #31","Kingsrow(x64)[2] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"no progress",176
+60,30,"ACF #33","Kingsrow(x64)[5] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"no progress",185
+55,28,"ACF #31","Regicide-n6c-kingsrow","Kingsrow(x64)[7] 1.20",1/2-1/2,0.5,"no progress",189
+61,31,"ACF #34 Twilight Zone","Regicide-n6c-kingsrow","Kingsrow(x64)[4] 1.20",1/2-1/2,0.5,"repetition",140
+59,30,"ACF #33","Regicide-n6c-kingsrow","Kingsrow(x64)[3] 1.20",1/2-1/2,0.5,"no progress",217
+62,31,"ACF #34 Twilight Zone","Kingsrow(x64) 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"no progress",222
+64,32,"ACF #36","Kingsrow(x64)[2] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"no progress",157
+66,33,"ACF #37","Kingsrow(x64)[7] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",61
+63,32,"ACF #36","Regicide-n6c-kingsrow","Kingsrow(x64)[1] 1.20",1/2-1/2,0.5,"repetition",82
+65,33,"ACF #37","Regicide-n6c-kingsrow","Kingsrow(x64)[5] 1.20",1/2-1/2,0.5,"no progress",178
+67,34,"ACF #38","Regicide-n6c-kingsrow","Kingsrow(x64)[4] 1.20",1/2-1/2,0.5,"no progress",171
+71,36,"ACF #40","Regicide-n6c-kingsrow","Kingsrow(x64)[7] 1.20",1/2-1/2,0.5,"repetition",104
+68,34,"ACF #38","Kingsrow(x64)[3] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"no progress",173
+69,35,"ACF #39","Regicide-n6c-kingsrow","Kingsrow(x64) 1.20",1/2-1/2,0.5,"repetition",53
+72,36,"ACF #40","Kingsrow(x64)[1] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",104
+73,37,"ACF #41","Regicide-n6c-kingsrow","Kingsrow(x64)[5] 1.20",1/2-1/2,0.5,"no progress",171
+74,37,"ACF #41","Kingsrow(x64)[4] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",174
+75,38,"ACF #42","Regicide-n6c-kingsrow","Kingsrow(x64)[7] 1.20",1/2-1/2,0.5,"repetition",160
+70,35,"ACF #39","Kingsrow(x64)[2] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",66
+50,25,"ACF #28","Kingsrow(x64)[6] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",228
+78,39,"ACF #43","Kingsrow(x64)[1] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",70
+76,38,"ACF #42","Kingsrow(x64)[3] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",80
+80,40,"ACF #46 Double Cross","Kingsrow(x64)[4] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"no progress",170
+79,40,"ACF #46 Double Cross","Regicide-n6c-kingsrow","Kingsrow(x64)[5] 1.20",1/2-1/2,0.5,"repetition",97
+82,41,"ACF #47","Kingsrow(x64)[2] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",80
+77,39,"ACF #43","Regicide-n6c-kingsrow","Kingsrow(x64) 1.20",1/2-1/2,0.5,"repetition",118
+81,41,"ACF #47","Regicide-n6c-kingsrow","Kingsrow(x64)[7] 1.20",1/2-1/2,0.5,"repetition",163
+83,42,"ACF #49","Regicide-n6c-kingsrow","Kingsrow(x64)[6] 1.20",1/2-1/2,0.5,"repetition",201
+85,43,"ACF #50","Regicide-n6c-kingsrow","Kingsrow(x64)[3] 1.20",1/2-1/2,0.5,"repetition",105
+86,43,"ACF #50","Kingsrow(x64)[4] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",86
+84,42,"ACF #49","Kingsrow(x64)[1] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",168
+88,44,"ACF #51","Kingsrow(x64)[2] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",82
+91,46,"ACF #54","Regicide-n6c-kingsrow","Kingsrow(x64)[6] 1.20",1/2-1/2,0.5,"repetition",99
+89,45,"ACF #53","Regicide-n6c-kingsrow","Kingsrow(x64) 1.20",1/2-1/2,0.5,"no progress",168
+87,44,"ACF #51","Regicide-n6c-kingsrow","Kingsrow(x64)[5] 1.20",1/2-1/2,0.5,"no progress",207
+94,47,"ACF #55","Kingsrow(x64)[1] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",125
+95,48,"ACF #56","Regicide-n6c-kingsrow","Kingsrow(x64)[2] 1.20",1/2-1/2,0.5,"no progress",209
+93,47,"ACF #55","Regicide-n6c-kingsrow","Kingsrow(x64)[4] 1.20",1/2-1/2,0.5,"no progress",169
+96,48,"ACF #56","Kingsrow(x64)[6] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",97
+97,49,"ACF #57","Regicide-n6c-kingsrow","Kingsrow(x64) 1.20",1/2-1/2,0.5,"no progress",176
+98,49,"ACF #57","Kingsrow(x64)[5] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",150
+99,50,"ACF #58","Regicide-n6c-kingsrow","Kingsrow(x64)[1] 1.20",1/2-1/2,0.5,"no progress",183
+102,51,"ACF #59","Kingsrow(x64)[6] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",80
+103,52,"ACF #60 Black Hole","Regicide-n6c-kingsrow","Kingsrow(x64) 1.20",1/2-1/2,0.5,"repetition",79
+92,46,"ACF #54","Kingsrow(x64)[3] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",144
+101,51,"ACF #59","Regicide-n6c-kingsrow","Kingsrow(x64)[4] 1.20",1/2-1/2,0.5,"repetition",119
+90,45,"ACF #53","Kingsrow(x64)[7] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"no progress",253
+105,53,"ACF #61","Regicide-n6c-kingsrow","Kingsrow(x64)[1] 1.20",1/2-1/2,0.5,"no progress",168
+104,52,"ACF #60 Black Hole","Kingsrow(x64)[5] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"no progress",292
+106,53,"ACF #61","Kingsrow(x64)[6] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"no progress",155
+107,54,"ACF #62 Gemini I","Regicide-n6c-kingsrow","Kingsrow(x64) 1.20",1/2-1/2,0.5,"no progress",166
+109,55,"ACF #63","Regicide-n6c-kingsrow","Kingsrow(x64)[4] 1.20",1/2-1/2,0.5,"repetition",155
+111,56,"ACF #64","Regicide-n6c-kingsrow","Kingsrow(x64)[1] 1.20",1/2-1/2,0.5,"no progress",241
+108,54,"ACF #62 Gemini I","Kingsrow(x64)[3] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"no progress",179
+113,57,"ACF #65 Fraser's Inferno","Regicide-n6c-kingsrow","Kingsrow(x64)[6] 1.20",1/2-1/2,0.5,"no progress",153
+110,55,"ACF #63","Kingsrow(x64)[7] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"no progress",185
+100,50,"ACF #58","Kingsrow(x64)[2] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",132
+117,59,"ACF #67","Regicide-n6c-kingsrow","Kingsrow(x64)[3] 1.20",1/2-1/2,0.5,"repetition",143
+112,56,"ACF #64","Kingsrow(x64)[5] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",100
+116,58,"ACF #66","Kingsrow(x64)[1] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",183
+114,57,"ACF #65 Fraser's Inferno","Kingsrow(x64) 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",78
+120,60,"ACF #68 White Doctor","Kingsrow(x64)[2] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"no progress",183
+118,59,"ACF #67","Kingsrow(x64)[6] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",88
+122,61,"ACF #69","Kingsrow(x64)[5] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",92
+115,58,"ACF #66","Regicide-n6c-kingsrow","Kingsrow(x64)[4] 1.20",1/2-1/2,0.5,"no progress",193
+124,62,"ACF #70","Kingsrow(x64) 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",183
+123,62,"ACF #70","Regicide-n6c-kingsrow","Kingsrow(x64)[1] 1.20",1/2-1/2,0.5,"no progress",245
+121,61,"ACF #69","Regicide-n6c-kingsrow","Kingsrow(x64)[3] 1.20",1/2-1/2,0.5,"no progress",226
+126,63,"ACF #71 Diabolical Denny","Kingsrow(x64)[6] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",144
+127,64,"ACF #72","Regicide-n6c-kingsrow","Kingsrow(x64)[5] 1.20",1/2-1/2,0.5,"repetition",152
+128,64,"ACF #72","Kingsrow(x64)[4] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",102
+130,65,"ACF #73","Kingsrow(x64)[1] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"no progress",165
+125,63,"ACF #71 Diabolical Denny","Regicide-n6c-kingsrow","Kingsrow(x64)[2] 1.20",1/2-1/2,0.5,"repetition",157
+129,65,"ACF #73","Regicide-n6c-kingsrow","Kingsrow(x64) 1.20",1/2-1/2,0.5,"repetition",108
+131,66,"ACF #74","Regicide-n6c-kingsrow","Kingsrow(x64)[3] 1.20",1/2-1/2,0.5,"repetition",165
+133,67,"ACF #75","Regicide-n6c-kingsrow","Kingsrow(x64)[5] 1.20",1/2-1/2,0.5,"repetition",129
+134,67,"ACF #75","Kingsrow(x64)[4] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",126
+135,68,"ACF #76","Regicide-n6c-kingsrow","Kingsrow(x64)[1] 1.20",1/2-1/2,0.5,"no progress",279
+136,68,"ACF #76","Kingsrow(x64)[2] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",186
+132,66,"ACF #74","Kingsrow(x64)[6] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",123
+137,69,"ACF #78","Regicide-n6c-kingsrow","Kingsrow(x64) 1.20",1/2-1/2,0.5,"repetition",157
+119,60,"ACF #68 White Doctor","Regicide-n6c-kingsrow","Kingsrow(x64)[7] 1.20",0-1,0,"no legal moves",165
+138,69,"ACF #78","Kingsrow(x64)[3] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",98
+140,70,"ACF #79","Kingsrow(x64)[4] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"no progress",181
+145,73,"ACF #82","Regicide-n6c-kingsrow","Kingsrow(x64)[7] 1.20",1/2-1/2,0.5,"repetition",163
+143,72,"ACF #81","Regicide-n6c-kingsrow","Kingsrow(x64)[6] 1.20",1/2-1/2,0.5,"repetition",157
+144,72,"ACF #81","Kingsrow(x64) 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"no progress",157
+139,70,"ACF #79","Regicide-n6c-kingsrow","Kingsrow(x64)[5] 1.20",1/2-1/2,0.5,"repetition",95
+141,71,"ACF #80","Regicide-n6c-kingsrow","Kingsrow(x64)[1] 1.20",1/2-1/2,0.5,"repetition",107
+146,73,"ACF #82","Kingsrow(x64)[3] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",98
+142,71,"ACF #80","Kingsrow(x64)[2] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"no progress",152
+147,74,"ACF #83","Regicide-n6c-kingsrow","Kingsrow(x64)[4] 1.20",1/2-1/2,0.5,"repetition",70
+149,75,"ACF #84","Regicide-n6c-kingsrow","Kingsrow(x64)[6] 1.20",1/2-1/2,0.5,"no progress",161
+148,74,"ACF #83","Kingsrow(x64)[7] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",129
+150,75,"ACF #84","Kingsrow(x64) 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",96
+152,76,"ACF #85","Kingsrow(x64)[1] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"no progress",203
+151,76,"ACF #85","Regicide-n6c-kingsrow","Kingsrow(x64)[5] 1.20",1/2-1/2,0.5,"repetition",98
+154,77,"ACF #86 Octopus","Kingsrow(x64)[2] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",111
+155,78,"ACF #87 Tyne","Regicide-n6c-kingsrow","Kingsrow(x64)[4] 1.20",1/2-1/2,0.5,"no progress",184
+157,79,"ACF #89","Regicide-n6c-kingsrow","Kingsrow(x64)[7] 1.20",1/2-1/2,0.5,"repetition",115
+156,78,"ACF #87 Tyne","Kingsrow(x64)[6] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"no progress",209
+158,79,"ACF #89","Kingsrow(x64) 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"no progress",244
+159,80,"ACF #90","Regicide-n6c-kingsrow","Kingsrow(x64)[1] 1.20",1/2-1/2,0.5,"no progress",184
+153,77,"ACF #86 Octopus","Regicide-n6c-kingsrow","Kingsrow(x64)[3] 1.20",1/2-1/2,0.5,"repetition",125
+160,80,"ACF #90","Kingsrow(x64)[5] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",110
+163,82,"ACF #92","Regicide-n6c-kingsrow","Kingsrow(x64)[7] 1.20",1/2-1/2,0.5,"repetition",90
+161,81,"ACF #91","Regicide-n6c-kingsrow","Kingsrow(x64)[2] 1.20",1/2-1/2,0.5,"no progress",192
+164,82,"ACF #92","Kingsrow(x64)[6] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"no progress",161
+167,84,"ACF #95","Regicide-n6c-kingsrow","Kingsrow(x64)[3] 1.20",1/2-1/2,0.5,"no progress",265
+168,84,"ACF #95","Kingsrow(x64)[5] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",90
+166,83,"ACF #93","Kingsrow(x64)[1] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"no progress",270
+165,83,"ACF #93","Regicide-n6c-kingsrow","Kingsrow(x64) 1.20",1/2-1/2,0.5,"repetition",62
+171,86,"ACF #97","Regicide-n6c-kingsrow","Kingsrow(x64)[6] 1.20",1/2-1/2,0.5,"repetition",186
+170,85,"ACF #96 Skull-Cracker","Kingsrow(x64)[2] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",158
+162,81,"ACF #91","Kingsrow(x64)[4] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"no progress",185
+169,85,"ACF #96 Skull-Cracker","Regicide-n6c-kingsrow","Kingsrow(x64)[7] 1.20",1/2-1/2,0.5,"no progress",194
+173,87,"ACF #98","Regicide-n6c-kingsrow","Kingsrow(x64)[5] 1.20",1/2-1/2,0.5,"no progress",195
+175,88,"ACF #99","Regicide-n6c-kingsrow","Kingsrow(x64) 1.20",1/2-1/2,0.5,"no progress",191
+172,86,"ACF #97","Kingsrow(x64)[3] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",171
+176,88,"ACF #99","Kingsrow(x64)[6] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"no progress",160
+179,90,"ACF #101","Regicide-n6c-kingsrow","Kingsrow(x64)[7] 1.20",1/2-1/2,0.5,"repetition",127
+174,87,"ACF #98","Kingsrow(x64)[1] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",89
+177,89,"ACF #100","Regicide-n6c-kingsrow","Kingsrow(x64)[2] 1.20",1/2-1/2,0.5,"repetition",120
+181,91,"ACF #102","Regicide-n6c-kingsrow","Kingsrow(x64) 1.20",1/2-1/2,0.5,"repetition",114
+184,92,"ACF #103","Kingsrow(x64)[7] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"no progress",181
+178,89,"ACF #100","Kingsrow(x64)[4] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",86
+185,93,"ACF #104","Regicide-n6c-kingsrow","Kingsrow(x64)[1] 1.20",1/2-1/2,0.5,"no progress",185
+182,91,"ACF #102","Kingsrow(x64)[3] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",158
+187,94,"ACF #105 Gemini II","Regicide-n6c-kingsrow","Kingsrow(x64) 1.20",1/2-1/2,0.5,"repetition",127
+183,92,"ACF #103","Regicide-n6c-kingsrow","Kingsrow(x64)[6] 1.20",1/2-1/2,0.5,"repetition",72
+180,90,"ACF #101","Kingsrow(x64)[5] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"no progress",169
+189,95,"ACF #106","Regicide-n6c-kingsrow","Kingsrow(x64)[4] 1.20",1/2-1/2,0.5,"no progress",260
+190,95,"ACF #106","Kingsrow(x64)[1] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",192
+186,93,"ACF #104","Kingsrow(x64)[2] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"no progress",175
+191,96,"ACF #107","Regicide-n6c-kingsrow","Kingsrow(x64)[3] 1.20",1/2-1/2,0.5,"no progress",153
+188,94,"ACF #105 Gemini II","Kingsrow(x64)[7] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"no progress",173
+194,97,"ACF #108","Kingsrow(x64)[5] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"no progress",171
+195,98,"ACF #110","Regicide-n6c-kingsrow","Kingsrow(x64)[4] 1.20",1/2-1/2,0.5,"no progress",182
+197,99,"ACF #111","Regicide-n6c-kingsrow","Kingsrow(x64)[2] 1.20",1/2-1/2,0.5,"repetition",203
+192,96,"ACF #107","Kingsrow(x64) 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",84
+201,101,"ACF #113","Regicide-n6c-kingsrow","Kingsrow(x64)[4] 1.20",1/2-1/2,0.5,"repetition",94
+202,101,"ACF #113","Kingsrow(x64)[2] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",116
+196,98,"ACF #110","Kingsrow(x64)[1] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",64
+199,100,"ACF #112","Regicide-n6c-kingsrow","Kingsrow(x64)[7] 1.20",1/2-1/2,0.5,"no progress",157
+193,97,"ACF #108","Regicide-n6c-kingsrow","Kingsrow(x64)[6] 1.20",1/2-1/2,0.5,"repetition",311
+198,99,"ACF #111","Kingsrow(x64)[3] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"no progress",170
+200,100,"ACF #112","Kingsrow(x64)[5] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"no progress",195
+207,104,"ACF #117","Regicide-n6c-kingsrow","Kingsrow(x64)[7] 1.20",1/2-1/2,0.5,"no progress",193
+205,103,"ACF #116","Regicide-n6c-kingsrow","Kingsrow(x64)[2] 1.20",1/2-1/2,0.5,"repetition",70
+206,103,"ACF #116","Kingsrow(x64)[1] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"no progress",217
+210,105,"ACF #118","Kingsrow(x64)[5] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"no progress",149
+204,102,"ACF #115","Kingsrow(x64)[4] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"no progress",210
+209,105,"ACF #118","Regicide-n6c-kingsrow","Kingsrow(x64)[3] 1.20",1/2-1/2,0.5,"no progress",169
+203,102,"ACF #115","Regicide-n6c-kingsrow","Kingsrow(x64) 1.20",1/2-1/2,0.5,"repetition",117
+212,106,"ACF #119","Kingsrow(x64)[2] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",84
+211,106,"ACF #119","Regicide-n6c-kingsrow","Kingsrow(x64)[7] 1.20",1/2-1/2,0.5,"repetition",122
+213,107,"ACF #120","Regicide-n6c-kingsrow","Kingsrow(x64)[1] 1.20",1/2-1/2,0.5,"no progress",166
+214,107,"ACF #120","Kingsrow(x64)[5] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"no progress",177
+216,108,"ACF #121","Kingsrow(x64)[3] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",123
+215,108,"ACF #121","Regicide-n6c-kingsrow","Kingsrow(x64)[4] 1.20",1/2-1/2,0.5,"no progress",170
+221,111,"ACF #124","Regicide-n6c-kingsrow","Kingsrow(x64)[5] 1.20",1/2-1/2,0.5,"no progress",157
+218,109,"ACF #122","Kingsrow(x64)[2] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"no progress",167
+208,104,"ACF #117","Kingsrow(x64)[6] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",106
+219,110,"ACF #123","Regicide-n6c-kingsrow","Kingsrow(x64)[7] 1.20",1/2-1/2,0.5,"repetition",167
+222,111,"ACF #124","Kingsrow(x64)[3] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",80
+223,112,"ACF #125","Regicide-n6c-kingsrow","Kingsrow(x64)[4] 1.20",1/2-1/2,0.5,"no progress",170
+225,113,"ACF #126","Regicide-n6c-kingsrow","Kingsrow(x64)[2] 1.20",1/2-1/2,0.5,"no progress",231
+228,114,"ACF #127","Kingsrow(x64)[3] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"no progress",171
+220,110,"ACF #123","Kingsrow(x64)[1] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"no progress",176
+230,115,"ACF #128","Kingsrow(x64)[2] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"no progress",207
+227,114,"ACF #127","Regicide-n6c-kingsrow","Kingsrow(x64)[7] 1.20",1/2-1/2,0.5,"no progress",240
+229,115,"ACF #128","Regicide-n6c-kingsrow","Kingsrow(x64)[4] 1.20",1/2-1/2,0.5,"repetition",103
+217,109,"ACF #122","Regicide-n6c-kingsrow","Kingsrow(x64) 1.20",1-0,1,"no legal moves",180
+231,116,"ACF #129","Regicide-n6c-kingsrow","Kingsrow(x64)[3] 1.20",1/2-1/2,0.5,"repetition",142
+226,113,"ACF #126","Kingsrow(x64)[6] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",126
+233,117,"ACF #130","Regicide-n6c-kingsrow","Kingsrow(x64)[2] 1.20",1/2-1/2,0.5,"repetition",70
+234,117,"ACF #130","Kingsrow(x64)[7] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"no progress",152
+237,119,"ACF #132","Regicide-n6c-kingsrow","Kingsrow(x64)[3] 1.20",1/2-1/2,0.5,"no progress",173
+224,112,"ACF #125","Kingsrow(x64)[5] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",128
+239,120,"ACF #133 Octopus","Regicide-n6c-kingsrow","Kingsrow(x64)[2] 1.20",1/2-1/2,0.5,"repetition",113
+236,118,"ACF #131","Kingsrow(x64) 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"no progress",167
+235,118,"ACF #131","Regicide-n6c-kingsrow","Kingsrow(x64)[4] 1.20",1/2-1/2,0.5,"no progress",220
+232,116,"ACF #129","Kingsrow(x64)[1] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",74
+238,119,"ACF #132","Kingsrow(x64)[6] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",152
+241,121,"ACF #134","Regicide-n6c-kingsrow","Kingsrow(x64)[3] 1.20",1/2-1/2,0.5,"repetition",151
+242,121,"ACF #134","Kingsrow(x64)[5] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",150
+243,122,"ACF #135","Regicide-n6c-kingsrow","Kingsrow(x64)[2] 1.20",1/2-1/2,0.5,"no progress",149
+245,123,"ACF #136","Regicide-n6c-kingsrow","Kingsrow(x64)[4] 1.20",1/2-1/2,0.5,"no progress",177
+247,124,"ACF #138","Regicide-n6c-kingsrow","Kingsrow(x64)[6] 1.20",1/2-1/2,0.5,"no progress",170
+246,123,"ACF #136","Kingsrow(x64)[1] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"no progress",159
+244,122,"ACF #135","Kingsrow(x64) 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",96
+249,125,"ACF #139","Regicide-n6c-kingsrow","Kingsrow(x64)[5] 1.20",1/2-1/2,0.5,"repetition",127
+251,126,"ACF #140","Regicide-n6c-kingsrow","Kingsrow(x64)[4] 1.20",1/2-1/2,0.5,"repetition",102
+250,125,"ACF #139","Kingsrow(x64)[2] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"no progress",237
+248,124,"ACF #138","Kingsrow(x64)[3] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",112
+252,126,"ACF #140","Kingsrow(x64)[6] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",100
+253,127,"ACF #141","Regicide-n6c-kingsrow","Kingsrow(x64)[1] 1.20",1/2-1/2,0.5,"no progress",211
+255,128,"ACF #142","Regicide-n6c-kingsrow","Kingsrow(x64)[5] 1.20",1/2-1/2,0.5,"no progress",227
+256,128,"ACF #142","Kingsrow(x64)[4] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"no progress",216
+254,127,"ACF #141","Kingsrow(x64) 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",102
+259,130,"ACF #144","Regicide-n6c-kingsrow","Kingsrow(x64)[6] 1.20",1/2-1/2,0.5,"repetition",89
+258,129,"ACF #143","Kingsrow(x64)[3] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"no progress",160
+240,120,"ACF #133 Octopus","Kingsrow(x64)[7] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",170
+261,131,"ACF #146","Regicide-n6c-kingsrow","Kingsrow(x64)[5] 1.20",1/2-1/2,0.5,"repetition",199
+257,129,"ACF #143","Regicide-n6c-kingsrow","Kingsrow(x64)[2] 1.20",1/2-1/2,0.5,"repetition",208
+260,130,"ACF #144","Kingsrow(x64)[1] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",88
+262,131,"ACF #146","Kingsrow(x64)[4] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"no progress",204
+265,133,"ACF #148","Regicide-n6c-kingsrow","Kingsrow(x64)[3] 1.20",1/2-1/2,0.5,"no progress",156
+264,132,"ACF #147","Kingsrow(x64)[6] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",80
+269,135,"ACF #150","Regicide-n6c-kingsrow","Kingsrow(x64)[1] 1.20",1/2-1/2,0.5,"repetition",162
+263,132,"ACF #147","Regicide-n6c-kingsrow","Kingsrow(x64) 1.20",1/2-1/2,0.5,"repetition",225
+270,135,"ACF #150","Kingsrow(x64)[4] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",108
+267,134,"ACF #149","Regicide-n6c-kingsrow","Kingsrow(x64)[5] 1.20",1/2-1/2,0.5,"no progress",185
+268,134,"ACF #149","Kingsrow(x64)[2] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",100
+274,137,"ACF #152","Kingsrow(x64) 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",76
+273,137,"ACF #152","Regicide-n6c-kingsrow","Kingsrow(x64)[1] 1.20",1/2-1/2,0.5,"no progress",142
+272,136,"ACF #151","Kingsrow(x64)[6] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",74
+271,136,"ACF #151","Regicide-n6c-kingsrow","Kingsrow(x64)[3] 1.20",1/2-1/2,0.5,"no progress",162
+266,133,"ACF #148","Kingsrow(x64)[7] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",205
+277,139,"ACF #154","Regicide-n6c-kingsrow","Kingsrow(x64)[2] 1.20",1/2-1/2,0.5,"no progress",167
+280,140,"ACF #155","Kingsrow(x64)[6] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",100
+279,140,"ACF #155","Regicide-n6c-kingsrow","Kingsrow(x64)[1] 1.20",1/2-1/2,0.5,"no progress",156
+275,138,"ACF #153 Black Widow","Regicide-n6c-kingsrow","Kingsrow(x64)[4] 1.20",1/2-1/2,0.5,"repetition",61
+282,141,"ACF #157","Kingsrow(x64)[7] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",80
+276,138,"ACF #153 Black Widow","Kingsrow(x64)[5] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",66
+281,141,"ACF #157","Regicide-n6c-kingsrow","Kingsrow(x64)[3] 1.20",1/2-1/2,0.5,"no progress",174
+278,139,"ACF #154","Kingsrow(x64) 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",86
+286,143,"ACF #159","Kingsrow(x64)[4] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"no progress",312
+285,143,"ACF #159","Regicide-n6c-kingsrow","Kingsrow(x64)[1] 1.20",1/2-1/2,0.5,"no progress",143
+287,144,"ACF #160","Regicide-n6c-kingsrow","Kingsrow(x64)[7] 1.20",1/2-1/2,0.5,"no progress",173
+284,142,"ACF #158","Kingsrow(x64)[6] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"no progress",167
+288,144,"ACF #160","Kingsrow(x64)[5] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",110
+283,142,"ACF #158","Regicide-n6c-kingsrow","Kingsrow(x64)[2] 1.20",1/2-1/2,0.5,"no progress",178
+289,145,"ACF #161","Regicide-n6c-kingsrow","Kingsrow(x64)[3] 1.20",1/2-1/2,0.5,"no progress",169
+295,148,"ACF #164","Regicide-n6c-kingsrow","Kingsrow(x64)[5] 1.20",1/2-1/2,0.5,"no progress",190
+292,146,"ACF #162","Kingsrow(x64)[1] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"no progress",162
+290,145,"ACF #161","Kingsrow(x64) 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"no progress",175
+291,146,"ACF #162","Regicide-n6c-kingsrow","Kingsrow(x64)[4] 1.20",1/2-1/2,0.5,"repetition",101
+296,148,"ACF #164","Kingsrow(x64)[2] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"no progress",187
+293,147,"ACF #163","Regicide-n6c-kingsrow","Kingsrow(x64)[7] 1.20",1/2-1/2,0.5,"no progress",185
+300,150,"ACF #166","Kingsrow(x64) 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",76
+299,150,"ACF #166","Regicide-n6c-kingsrow","Kingsrow(x64)[1] 1.20",1/2-1/2,0.5,"repetition",151
+301,151,"ACF #167","Regicide-n6c-kingsrow","Kingsrow(x64)[4] 1.20",1/2-1/2,0.5,"repetition",163
+298,149,"ACF #165","Kingsrow(x64)[5] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",84
+303,152,"ACF #169","Regicide-n6c-kingsrow","Kingsrow(x64)[7] 1.20",1/2-1/2,0.5,"repetition",148
+304,152,"ACF #169","Kingsrow(x64) 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",76
+305,153,"ACF #170","Regicide-n6c-kingsrow","Kingsrow(x64)[1] 1.20",1/2-1/2,0.5,"repetition",66
+297,149,"ACF #165","Regicide-n6c-kingsrow","Kingsrow(x64)[3] 1.20",1/2-1/2,0.5,"repetition",76
+308,154,"ACF #172","Kingsrow(x64)[7] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",174
+306,153,"ACF #170","Kingsrow(x64)[4] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",136
+309,155,"ACF #173","Regicide-n6c-kingsrow","Kingsrow(x64) 1.20",1/2-1/2,0.5,"no progress",191
+310,155,"ACF #173","Kingsrow(x64)[1] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",131
+307,154,"ACF #172","Regicide-n6c-kingsrow","Kingsrow(x64)[5] 1.20",1/2-1/2,0.5,"no progress",208
+311,156,"ACF #174 Skunk","Regicide-n6c-kingsrow","Kingsrow(x64)[3] 1.20",1/2-1/2,0.5,"repetition",97
+294,147,"ACF #163","Kingsrow(x64)[6] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"no progress",211
+312,156,"ACF #174 Skunk","Kingsrow(x64)[7] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",137
+302,151,"ACF #167","Kingsrow(x64)[2] 1.20","Regicide-n6c-kingsrow",1/2-1/2,0.5,"repetition",223

@@ -14,12 +14,12 @@ h2h() {  # h2h A B: A vs B, both with set evalfile
   st "match $1-vs-$2 end: $(grep '^Elo (pent' $W/matches/$1-vs-$2/summary.txt)"
 }
 elo() { grep -o '^Elo (pentanomial, pairs): [-+0-9.]*' $1 | awk '{print $4}'; }
-bash $T/train.sh n8p $ALL $G5 $G5 $G5 --lambda 0.5 --min-pieces 9 --k $K --groups 9,13,17 --group-weights 1,1,1
+bash $T/train.sh n8p $ALL $G5 $G5 $G5 --lambda 0.5 --min-pieces 9 --k $K --groups 9,13,17 --group-weights 1,1,1 || exit 1
 bash $T/match.sh n8p 0.1
 h2h n8p n8bn
 a=$(elo $W/matches/n8p-vs-n6c/summary.txt); b=$(elo $W/matches/n8p-vs-n8bn/summary.txt)
 if python3 -c "import sys; sys.exit(0 if float('$b') > 0 or float('$a') > 4.5 else 1)"; then
-  bash $T/train.sh n8p2 $ALL $G5 $G5 $G5 --lambda 0.5 --min-pieces 9 --k $K --groups 9,13,17 --group-weights 1,1,2
+  bash $T/train.sh n8p2 $ALL $G5 $G5 $G5 --lambda 0.5 --min-pieces 9 --k $K --groups 9,13,17 --group-weights 1,1,2 || exit 1
   bash $T/match.sh n8p2 0.1
   h2h n8p2 n8bn
 fi

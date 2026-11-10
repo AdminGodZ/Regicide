@@ -38,3 +38,8 @@ python int vs engine: max |diff| 0, 0 positions differ
 float model vs engine: mean |diff| 9.65, max 83.99 centi-men
 simulated int (training) vs engine: max |diff| 1.00
 OK
+== n8p export check (100k positions of the shared validation set), final net_e040.nnue
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 6.77, max 78.26 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK

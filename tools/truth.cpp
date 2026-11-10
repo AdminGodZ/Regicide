@@ -84,9 +84,10 @@ struct Reader {
     }
 };
 
-// Calls on_game(records) for every game of the file. Files whose first record carries DataRecord::GAME_START
-// (datagen since 2026-11-10) are split at the flags; older files by the same_game() heuristic. `flagged`, if given,
-// tells which.
+// Calls on_game(records) for every game of the file. Records flagged DataRecord::GAME_START (datagen since
+// 2026-11-10) start a game. Up to the first flagged record (a legacy file, or a legacy prefix that flagged games were
+// appended to) games are split by the same_game() heuristic; from the first flag on, by the flags only. `flagged`, if
+// given, is set when the file has any flag.
 template <class F>
 long for_each_game(const std::string& path, F on_game, bool* flagged = nullptr) {
     Reader in(path);
@@ -97,14 +98,15 @@ long for_each_game(const std::string& path, F on_game, bool* flagged = nullptr) 
     std::vector<DataRecord> game;
     DataRecord r;
     long games = 0;
-    bool first = true, flags = false;
+    bool seen_flag = false;
+    if (flagged) *flagged = false;
     while (in.next(r)) {
-        if (first) {
-            flags = r.game_start();
-            if (flagged) *flagged = flags;
-            first = false;
+        if (r.game_start() && !seen_flag) {
+            seen_flag = true;
+            if (flagged) *flagged = true;
         }
-        if (!game.empty() && (flags ? r.game_start() : !same_game(game.back(), r))) {
+        const bool boundary = r.game_start() || (!seen_flag && !game.empty() && !same_game(game.back(), r));
+        if (!game.empty() && boundary) {
             on_game(game);
             ++games;
             game.clear();

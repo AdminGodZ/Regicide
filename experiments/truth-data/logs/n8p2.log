@@ -1,0 +1,5 @@
+groups 9-12, 13-16, 17-24: training records [65550403, 28726343, 29753782], batch split [4096, 4096, 8192]
+net v1 1024 -> 32 -> 32 -> 1, 8 buckets  train 124030528  valid 1000000  K 102.4  lambda 0.50  min pieces 9  device cuda  6103 steps/epoch
+epoch   1  lr 9.99e-04  train 0.486868  valid 0.451604  valid(int) 0.452100  1700428 pos/s
+epoch   2  lr 9.94e-04  train 0.478939  valid 0.449482  valid(int) 0.449830  2017760 pos/s
+epoch   3  lr 9.87e-04  train 0.476797  valid 0.448037  valid(int) 0.448581  2300342 pos/s

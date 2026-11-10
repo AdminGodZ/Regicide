@@ -390,18 +390,21 @@ class Net(nn.Module):
 
         act = transform(x) if xo is None else torch.cat([transform(x), transform(xo)], 1)
 
+        # The integer affine sums (activations 0..127 times int8 weights, plus int32 biases) are formed in float64:
+        # float32 is exact only below 2^24, which FT 2048 x 127 x 127 (33M) or a large bias can exceed, and then the
+        # simulated net would differ from the exported one.
         def hidden(layer, inp, n):
             w = ste(layer.weight * QB, torch.round(layer.weight * QB))
             b = ste(layer.bias * QH * QB, torch.round(layer.bias * QH * QB))
-            s = select(F.linear(inp, w, b), bucket, n) / QB
-            return ste(s, torch.floor(s)).clamp(0, QH)
+            s = select(F.linear(inp.double(), w.double(), b.double()), bucket, n) / QB
+            return ste(s, torch.floor(s)).clamp(0, QH).float()
 
         h1 = hidden(self.l1, act, a.l1)
         h2 = hidden(self.l2, h1, a.l2)
         w = ste(self.out.weight * QB, torch.round(self.out.weight * QB))
         b = ste(self.out.bias * QH * QB, torch.round(self.out.bias * QH * QB))
-        y = F.linear(h2, w, b).gather(1, bucket.view(-1, 1)).squeeze(1)
-        return y * self.out_scale / (QH * QB)
+        y = F.linear(h2.double(), w.double(), b.double()).gather(1, bucket.view(-1, 1)).squeeze(1)
+        return (y * self.out_scale / (QH * QB)).float()
 
     @torch.no_grad()
     def clip_(self):

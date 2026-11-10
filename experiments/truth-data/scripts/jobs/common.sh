@@ -58,6 +58,10 @@ selfplay_match() {
   local na=$1 neta=$2 out=$3 so=$4 mt=$5 nb=${6:-n6c} netb=${7:-} op=${8:-$HOME/regicide-gen2-work/openings4.txt}
   local W6=~/regicide-nnue6-work
   local optb=(); [ -n "$netb" ] && optb=(--option-b "set evalfile $netb")
+  # nets of mine (~/regicide-truth-work) must have passed the export check (train.sh writes NAME.ok)
+  local x; for x in $neta $netb; do
+    case $x in */regicide-truth-work/*.nnue) [ -s "${x%.nnue}.ok" ] || { st "match refused: $x has no passed export check"; return 1; } ;; esac
+  done
   grep -q '^Elo (pent' $out/summary.txt 2>/dev/null && return 0
   rm -rf $out
   $W6/bin/match-ff0a3d2 --cbhost $W6/bin/cbhost -a $so -b $so --name-a $na --name-b $nb \
