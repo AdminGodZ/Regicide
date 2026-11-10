@@ -1,0 +1,197 @@
+== a1: pt-s2-a1-cake
+   games 312: W/D/L 0/307/5; pairs 156, pentanomial [LL LD DD/WL WD WW] = [0, 5, 151, 0, 0]
+   score 0.4920; Elo (pentanomial) -5.6 [-10.4, -0.8] 95% CI
+   losses by colour: black 4, white 1
+   losses by ballot: ACF #153 Black Widow (white); ACF #5 Dreaded Edinburgh (black); ACF #62 Gemini I (black); ACF #7 (black); ACF #89 (black)
+   searched  moves   4878: median depth 20, kN/s 2142, nodes 1079714, time 0.47s; mean depth 22.57
+== a2: pt-s2-a2-cake
+   games 312: W/D/L 0/307/5; pairs 156, pentanomial [LL LD DD/WL WD WW] = [0, 5, 151, 0, 0]
+   score 0.4920; Elo (pentanomial) -5.6 [-10.4, -0.8] 95% CI
+   losses by colour: black 3, white 2
+   losses by ballot: ACF #129 (white); ACF #153 Black Widow (white); ACF #62 Gemini I (black); ACF #64 (black); ACF #7 (black)
+   searched  moves   4634: median depth 21, kN/s 3024, nodes 1520349, time 0.46s; mean depth 23.34
+== b1: pt-s2-b1-cake
+   games 312: W/D/L 0/307/5; pairs 156, pentanomial [LL LD DD/WL WD WW] = [0, 5, 151, 0, 0]
+   score 0.4920; Elo (pentanomial) -5.6 [-10.4, -0.8] 95% CI
+   losses by colour: black 3, white 2
+   losses by ballot: ACF #129 (white); ACF #153 Black Widow (white); ACF #154 (black); ACF #16 Wilderness II (black); ACF #62 Gemini I (black)
+   ponder: 4384 hits, 5987 misses, hit rate 42.3%; where the opponent took >= 50 ms: 1727/2431 = 71.0%
+   searched  moves   4642: median depth 22, kN/s 3150, nodes 2079907, time 0.41s; mean depth 24.46
+== b2: pt-s2-b2-cake
+   games 312: W/D/L 0/305/7; pairs 156, pentanomial [LL LD DD/WL WD WW] = [0, 7, 149, 0, 0]
+   score 0.4888; Elo (pentanomial) -7.8 [-13.5, -2.1] 95% CI
+   losses by colour: black 4, white 3
+   losses by ballot: ACF #112 (white); ACF #129 (white); ACF #153 Black Widow (white); ACF #6 Inferno (black); ACF #62 Gemini I (black); ACF #64 (black); ACF #7 (black)
+   ponder: 4506 hits, 5922 misses, hit rate 43.2%; where the opponent took >= 50 ms: 1801/2562 = 70.3%
+   searched  moves   4848: median depth 23, kN/s 3219, nodes 2132232, time 0.43s; mean depth 24.65
+== c1: pt-s2-c1-cake
+   games 312: W/D/L 0/308/4; pairs 156, pentanomial [LL LD DD/WL WD WW] = [0, 4, 152, 0, 0]
+   score 0.4936; Elo (pentanomial) -4.5 [-8.8, -0.1] 95% CI
+   losses by colour: black 3, white 1
+   losses by ballot: ACF #10 (black); ACF #153 Black Widow (white); ACF #5 Dreaded Edinburgh (black); ACF #62 Gemini I (black)
+   ponder: 4315 hits, 6365 misses, hit rate 40.4%; where the opponent took >= 50 ms: 1675/2536 = 66.0%
+   searched  moves   4807: median depth 25, kN/s 11183, nodes 7145105, time 0.42s; mean depth 26.83
+== c2: pt-s2-c2-cake
+   games 312: W/D/L 0/307/5; pairs 156, pentanomial [LL LD DD/WL WD WW] = [0, 5, 151, 0, 0]
+   score 0.4920; Elo (pentanomial) -5.6 [-10.4, -0.8] 95% CI
+   losses by colour: black 3, white 2
+   losses by ballot: ACF #14 (black); ACF #153 Black Widow (white); ACF #34 Twilight Zone (black); ACF #53 (white); ACF #6 Inferno (black)
+   ponder: 4372 hits, 6137 misses, hit rate 41.6%; where the opponent took >= 50 ms: 1711/2526 = 67.7%
+   searched  moves   4805: median depth 25, kN/s 11494, nodes 7403661, time 0.40s; mean depth 26.91
+== con-cake: pt-s2-con-cake
+   games 312: W/D/L 0/309/3; pairs 156, pentanomial [LL LD DD/WL WD WW] = [0, 3, 153, 0, 0]
+   score 0.4952; Elo (pentanomial) -3.3 [-7.1, +0.4] 95% CI
+   losses by colour: black 2, white 1
+   losses by ballot: ACF #153 Black Widow (white); ACF #62 Gemini I (black); ACF #87 Tyne (black)
+   ponder: 4471 hits, 6126 misses, hit rate 42.2%; where the opponent took >= 50 ms: 1697/2491 = 68.1%
+   searched  moves   4369: median depth 25, kN/s 11550, nodes 8091791, time 0.45s; mean depth 27.59
+     hits    moves   3046: median depth 26, kN/s 11470, nodes 8949556, time 0.41s; mean depth 28.28
+     no hit  moves   1323: median depth 23, kN/s 11732, nodes 6549861, time 0.52s; mean depth 26.01
+     hits    moves   2980: median depth 26, kN/s 11455, nodes 8879658, time 0.41s; mean depth 28.29
+     no hit  moves   1215: median depth 23, kN/s 11655, nodes 6584594, time 0.52s; mean depth 25.98
+== con-kingsrow: pt-s2-con-kingsrow
+   games 312: W/D/L 0/311/1; pairs 156, pentanomial [LL LD DD/WL WD WW] = [0, 1, 155, 0, 0]
+   score 0.4984; Elo (pentanomial) -1.1 [-3.3, +1.1] 95% CI
+   losses by colour: black 0, white 1
+   losses by ballot: ACF #153 Black Widow (white)
+   ponder: 7689 hits, 11850 misses, hit rate 39.4%; where the opponent took >= 50 ms: 1882/2620 = 71.8%
+   searched  moves   5105: median depth 25, kN/s 11518, nodes 8036571, time 0.46s; mean depth 26.90
+     hits    moves   3554: median depth 26, kN/s 11499, nodes 9139250, time 0.43s; mean depth 27.71
+     no hit  moves   1551: median depth 22, kN/s 11585, nodes 6391603, time 0.50s; mean depth 25.06
+     hits    moves   3453: median depth 26, kN/s 11473, nodes 9123932, time 0.43s; mean depth 27.75
+     no hit  moves   1410: median depth 22, kN/s 11462, nodes 6355624, time 0.50s; mean depth 24.92
+== con-guinn: pt-s2-con-guinn
+   games 312: W/D/L 1/310/1; pairs 156, pentanomial [LL LD DD/WL WD WW] = [0, 1, 154, 1, 0]
+   score 0.5000; Elo (pentanomial) -0.0 [-3.1, +3.1] 95% CI
+   losses by colour: black 1, white 0
+   losses by ballot: ACF #157 (black)
+   ponder: 4320 hits, 5733 misses, hit rate 43.0%; where the opponent took >= 50 ms: 1916/2875 = 66.6%
+   searched  moves   4708: median depth 25, kN/s 11614, nodes 7597966, time 0.50s; mean depth 27.60
+     hits    moves   3121: median depth 26, kN/s 11536, nodes 8451269, time 0.46s; mean depth 28.36
+     no hit  moves   1587: median depth 24, kN/s 11814, nodes 6435132, time 0.53s; mean depth 26.10
+     hits    moves   3036: median depth 26, kN/s 11500, nodes 8434696, time 0.46s; mean depth 28.41
+     no hit  moves   1346: median depth 23, kN/s 11596, nodes 6360565, time 0.53s; mean depth 26.12
+======== pooled
+== A: pt-s2-a1-cake, pt-s2-a2-cake
+   games 624: W/D/L 0/614/10; pairs 312, pentanomial [LL LD DD/WL WD WW] = [0, 10, 302, 0, 0]
+   score 0.4920; Elo (pentanomial) -5.6 [-9.0, -2.2] 95% CI
+   losses by colour: black 7, white 3
+   losses by ballot: ACF #129 (white); ACF #153 Black Widow (white) x2; ACF #5 Dreaded Edinburgh (black); ACF #62 Gemini I (black) x2; ACF #64 (black); ACF #7 (black) x2; ACF #89 (black)
+   searched  moves   9512: median depth 21, kN/s 2512, nodes 1255886, time 0.47s; mean depth 22.94
+     no hit  moves   9512: median depth 21, kN/s 2512, nodes 1255886, time 0.47s; mean depth 22.94
+     no hit  moves   9218: median depth 21, kN/s 2508, nodes 1253299, time 0.47s; mean depth 22.91
+== B: pt-s2-b1-cake, pt-s2-b2-cake
+   games 624: W/D/L 0/612/12; pairs 312, pentanomial [LL LD DD/WL WD WW] = [0, 12, 300, 0, 0]
+   score 0.4904; Elo (pentanomial) -6.7 [-10.4, -3.0] 95% CI
+   losses by colour: black 7, white 5
+   losses by ballot: ACF #112 (white); ACF #129 (white) x2; ACF #153 Black Widow (white) x2; ACF #154 (black); ACF #16 Wilderness II (black); ACF #6 Inferno (black); ACF #62 Gemini I (black) x2; ACF #64 (black); ACF #7 (black)
+   ponder: 8890 hits, 11909 misses, hit rate 42.7%; where the opponent took >= 50 ms: 3528/4993 = 70.7%
+   searched  moves   9490: median depth 22, kN/s 3183, nodes 2104422, time 0.42s; mean depth 24.55
+     hits    moves   6561: median depth 23, kN/s 3162, nodes 2341560, time 0.36s; mean depth 25.22
+     no hit  moves   2929: median depth 21, kN/s 3248, nodes 1672433, time 0.48s; mean depth 23.07
+     hits    moves   6471: median depth 23, kN/s 3159, nodes 2335918, time 0.36s; mean depth 25.19
+     no hit  moves   2686: median depth 20, kN/s 3225, nodes 1615888, time 0.47s; mean depth 22.65
+== C: pt-s2-c1-cake, pt-s2-c2-cake
+   games 624: W/D/L 0/615/9; pairs 312, pentanomial [LL LD DD/WL WD WW] = [0, 9, 303, 0, 0]
+   score 0.4928; Elo (pentanomial) -5.0 [-8.2, -1.8] 95% CI
+   losses by colour: black 6, white 3
+   losses by ballot: ACF #10 (black); ACF #14 (black); ACF #153 Black Widow (white) x2; ACF #34 Twilight Zone (black); ACF #5 Dreaded Edinburgh (black); ACF #53 (white); ACF #6 Inferno (black); ACF #62 Gemini I (black)
+   ponder: 8687 hits, 12502 misses, hit rate 41.0%; where the opponent took >= 50 ms: 3386/5062 = 66.9%
+   searched  moves   9612: median depth 25, kN/s 11340, nodes 7251717, time 0.41s; mean depth 26.87
+     hits    moves   6476: median depth 25, kN/s 11278, nodes 8131058, time 0.36s; mean depth 27.68
+     no hit  moves   3136: median depth 22, kN/s 11488, nodes 5957933, time 0.47s; mean depth 25.20
+     hits    moves   6378: median depth 25, kN/s 11269, nodes 8108858, time 0.36s; mean depth 27.69
+     no hit  moves   2795: median depth 22, kN/s 11362, nodes 5789074, time 0.47s; mean depth 25.00
+B - A: -1.1 Elo [-6.2, +3.9] 95% CI, LOS 33.2%
+C - A: +0.6 Elo [-4.1, +5.2] 95% CI, LOS 59.2%
+======== summaries
+-- pt-s2-a1-cake
+A as black: +0 =152 -4   A as white: +0 =155 -1
+Terminations: no legal moves 5; repetition 307;
+A Regicide-A: 12947 moves, avg 0.182s/move, max 4.758s
+B Cake 1.89f: 12924 moves, avg 0.225s/move, max 4.040s
+-- pt-s2-a2-cake
+A as black: +0 =153 -3   A as white: +0 =154 -2
+Terminations: no legal moves 5; repetition 307;
+A Regicide-A: 12913 moves, avg 0.171s/move, max 3.555s
+B Cake 1.89f: 12887 moves, avg 0.216s/move, max 4.025s
+-- pt-s2-b1-cake
+A as black: +0 =153 -3   A as white: +0 =154 -2
+Terminations: no legal moves 5; repetition 307;
+A Regicide-B: 12697 moves, avg 0.156s/move, max 5.405s
+  ponder: 4384 hits, 5987 misses (hit rate 42.3%), 373 ms pondered per hit
+B Cake 1.89f: 12676 moves, avg 0.220s/move, max 5.570s
+-- pt-s2-b2-cake
+A as black: +0 =152 -4   A as white: +0 =153 -3
+Terminations: no legal moves 7; repetition 305;
+A Regicide-B: 12771 moves, avg 0.163s/move, max 5.779s
+  ponder: 4506 hits, 5922 misses (hit rate 43.2%), 378 ms pondered per hit
+B Cake 1.89f: 12751 moves, avg 0.226s/move, max 4.578s
+-- pt-s2-c1-cake
+A as black: +0 =153 -3   A as white: +0 =155 -1
+Terminations: no legal moves 4; repetition 308;
+A Regicide-C: 12969 moves, avg 0.164s/move, max 4.750s
+  ponder: 4315 hits, 6365 misses (hit rate 40.4%), 371 ms pondered per hit
+B Cake 1.89f: 12942 moves, avg 0.221s/move, max 4.253s
+-- pt-s2-c2-cake
+A as black: +0 =153 -3   A as white: +0 =154 -2
+Terminations: no legal moves 5; repetition 307;
+A Regicide-C: 12816 moves, avg 0.164s/move, max 5.464s
+  ponder: 4372 hits, 6137 misses (hit rate 41.6%), 381 ms pondered per hit
+B Cake 1.89f: 12792 moves, avg 0.222s/move, max 3.858s
+-- pt-s2-con-cake
+A as black: +0 =154 -2   A as white: +0 =155 -1
+Terminations: no legal moves 3; repetition 309;
+A Regicide-C: 12865 moves, avg 0.160s/move, max 5.554s
+  ponder: 4471 hits, 6126 misses (hit rate 42.2%), 365 ms pondered per hit
+B Cake 1.89f: 12845 moves, avg 0.219s/move, max 5.388s
+-- pt-s2-con-guinn
+A as black: +0 =155 -1   A as white: +1 =155 -0
+Terminations: no legal moves 2; repetition 310;
+A Regicide-C: 12798 moves, avg 0.185s/move, max 5.823s
+  ponder: 4320 hits, 5733 misses (hit rate 43.0%), 371 ms pondered per hit
+B GuiNN Checkers 2.06 avx2: 12733 moves, avg 0.256s/move, max 3.450s
+-- pt-s2-con-kingsrow
+A as black: +0 =156 -0   A as white: +0 =155 -1
+Terminations: no legal moves 1; no progress 126; repetition 185;
+A Regicide-C: 22349 moves, avg 0.112s/move, max 4.888s
+  ponder: 7689 hits, 11850 misses (hit rate 39.4%), 278 ms pondered per hit
+B Kingsrow(x64)[1] 1.20: 22370 moves, avg 0.156s/move, max 6.883s
+-- pt-smoke-c
+A as black: +0 =19 -1   A as white: +0 =20 -0
+Terminations: no legal moves 1; repetition 39;
+A Regicide-C: 1647 moves, avg 0.183s/move, max 4.193s
+  ponder: 598 hits, 771 misses (hit rate 43.7%), 387 ms pondered per hit
+B Cake 1.89f: 1644 moves, avg 0.237s/move, max 2.427s
+======== status
+PT start smoke-c cake cfg C book 0; matchlock 1; load 7.00; bg: datagen-eb1037c:T truth-tr1:T python:S  2026-11-09T22:53:09+01:00
+PT matchlock removed (smoke-c) 2026-11-09T22:56:31+01:00
+PT end smoke-c rc=0 A: +0 =39 -1   score 19.5/40 = 48.75%   draw rate 97.5% | Elo (pentanomial, pairs): -8.7 [-25.3, +7.9] 95% CI, score 0.4875 +- 0.0239, LOS 15.25% |   ponder: 598 hits, 771 misses (
+PT start s2-a1-cake cake cfg A book 0; matchlock 0; load 8.33; bg: datagen-eb1037c:T python:R rescore-tr1:S  2026-11-09T23:30:35+01:00
+PT end s2-a1-cake rc=0 A: +0 =307 -5   score 153.5/312 = 49.20%   draw rate 98.4% | Elo (pentanomial, pairs): -5.6 [-10.4, -0.8] 95% CI, score 0.4920 +- 0.0069, LOS 1.15% |  2026-11-09T23:42:35+01:00
+PT start s2-b1-cake cake cfg B book 0; matchlock 1; load 7.25; bg: datagen-eb1037c:T rescore-tr1:T  2026-11-10T00:27:51+01:00
+PT matchlock removed (s2-b1-cake) 2026-11-10T00:38:49+01:00
+PT end s2-b1-cake rc=0 A: +0 =307 -5   score 153.5/312 = 49.20%   draw rate 98.4% | Elo (pentanomial, pairs): -5.6 [-10.4, -0.8] 95% CI, score 0.4920 +- 0.0069, LOS 1.15% |   ponder: 4384 hits, 5987 m
+PT start s2-c1-cake cake cfg C book 0; matchlock 1; load 7.49; bg: datagen-eb1037c:T rescore-tr1:T python:R  2026-11-10T01:07:22+01:00
+PT matchlock removed (s2-c1-cake) 2026-11-10T01:29:53+01:00
+PT end s2-c1-cake rc=0 A: +0 =308 -4   score 154.0/312 = 49.36%   draw rate 98.7% | Elo (pentanomial, pairs): -4.5 [-8.8, -0.1] 95% CI, score 0.4936 +- 0.0062, LOS 2.14% |   ponder: 4315 hits, 6365 mi
+PT start s2-a2-cake cake cfg A book 0; matchlock 0; load 8.98; bg: datagen-eb1037c:T rescore-tr1:T  2026-11-10T01:59:05+01:00
+PT end s2-a2-cake rc=0 A: +0 =307 -5   score 153.5/312 = 49.20%   draw rate 98.4% | Elo (pentanomial, pairs): -5.6 [-10.4, -0.8] 95% CI, score 0.4920 +- 0.0069, LOS 1.15% |  2026-11-10T02:10:28+01:00
+PT start s2-b2-cake cake cfg B book 0; matchlock 1; load 7.66; bg: datagen-eb1037c:T rescore-tr1:T  2026-11-10T02:40:11+01:00
+PT matchlock removed (s2-b2-cake) 2026-11-10T02:51:33+01:00
+PT end s2-b2-cake rc=0 A: +0 =305 -7   score 152.5/312 = 48.88%   draw rate 97.8% | Elo (pentanomial, pairs): -7.8 [-13.4, -2.2] 95% CI, score 0.4888 +- 0.0081, LOS 0.34% |   ponder: 4506 hits, 5922 m
+PT start s2-c2-cake cake cfg C book 0; matchlock 1; load 5.35; bg: datagen-eb1037c:T rescore-tr1:T  2026-11-10T03:21:01+01:00
+PT matchlock removed (s2-c2-cake) 2026-11-10T03:43:29+01:00
+PT end s2-c2-cake rc=0 A: +0 =307 -5   score 153.5/312 = 49.20%   draw rate 98.4% | Elo (pentanomial, pairs): -5.6 [-10.4, -0.8] 95% CI, score 0.4920 +- 0.0069, LOS 1.15% |   ponder: 4372 hits, 6137 m
+PT start s2-con-cake cake cfg C book 1; matchlock 1; load 7.04; bg: datagen-eb1037c:T rescore-tr1:T  2026-11-10T04:12:34+01:00
+PT matchlock removed (s2-con-cake) 2026-11-10T04:34:46+01:00
+PT end s2-con-cake rc=0 A: +0 =309 -3   score 154.5/312 = 49.52%   draw rate 99.0% | Elo (pentanomial, pairs): -3.3 [-7.1, +0.4] 95% CI, score 0.4952 +- 0.0054, LOS 4.01% |   ponder: 4471 hits, 6126 m
+PT start s2-con-kingsrow kingsrow cfg C book 1; matchlock 1; load 4.58; bg: datagen-eb1037c:T rescore-tr1:T  2026-11-10T05:04:00+01:00
+PT matchlock removed (s2-con-kingsrow) 2026-11-10T05:30:53+01:00
+PT end s2-con-kingsrow rc=0 A: +0 =311 -1   score 155.5/312 = 49.84%   draw rate 99.7% | Elo (pentanomial, pairs): -1.1 [-3.3, +1.1] 95% CI, score 0.4984 +- 0.0031, LOS 15.79% |   ponder: 7689 hits, 1
+PT start s2-con-guinn guinn cfg C book 1; matchlock 1; load 7.39; bg: datagen-eb1037c:T rescore-tr1:T  2026-11-10T05:45:34+01:00
+PT matchlock removed (s2-con-guinn) 2026-11-10T06:09:33+01:00
+PT end s2-con-guinn rc=0 A: +1 =310 -1   score 156.0/312 = 50.00%   draw rate 99.4% | Elo (pentanomial, pairs): -0.0 [-3.1, +3.1] 95% CI, score 0.5000 +- 0.0044, LOS 50.00% |   ponder: 4320 hits, 5733
+1757637 bash -c bash /mnt/c/regicide-match/jobs/ponder/final.sh > ~/regicide-jobs/ponder/final.txt 2>&1
+1757638 bash /mnt/c/regicide-match/jobs/ponder/final.sh
+ls: cannot access '/home/admingod/regicide-jobs/r4/matchlock': No such file or directory
