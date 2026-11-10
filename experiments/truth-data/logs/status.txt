@@ -51,3 +51,29 @@ TR matchlock removed, timing lock released (rc=0) 2026-11-10T00:04:46+01:00
 TR match n8bk-vs-n6c end: Elo (pentanomial, pairs): +3.5 [-0.8, +7.7] 95% CI, score 0.5050 +- 0.0061, LOS 94.55% 2026-11-10T00:04:46+01:00
 TR CHAIN2_DONE 2026-11-10T00:04:46+01:00
 TR timing lock + matchlock taken; bg: datagen-eb1037c:T rescore-tr1:T  2026-11-10T00:04:54+01:00
+TR matchlock removed, timing lock released (rc=0) 2026-11-10T00:16:05+01:00
+TR r7 end n6d: Elo (pentanomial, pairs): -2.2 [-5.8, +1.5] 95% CI, score 0.4969 +- 0.0052, LOS 12.23% 2026-11-10T00:16:05+01:00
+TR R7_DONE (truth agent) 2026-11-10T00:16:05+01:00
+TR timing lock + matchlock taken; bg: datagen-eb1037c:T rescore-tr1:T  2026-11-10T00:16:13+01:00
+TR confirm n8bk-vs-n6c-0.5-a queued 2026-11-10T00:16:17+01:00
+TR matchlock removed, timing lock released (rc=0) 2026-11-10T00:27:02+01:00
+TR match n8b-vs-n6c end: Elo (pentanomial, pairs): +1.1 [-2.6, +4.8] 95% CI, score 0.5016 +- 0.0053, LOS 71.56% 2026-11-10T00:27:02+01:00
+TR CHAIN1_DONE 2026-11-10T00:27:02+01:00
+TR timing lock + matchlock taken; bg: datagen-eb1037c:T rescore-tr1:T  2026-11-10T00:38:57+01:00
+TR matchlock removed, timing lock released (rc=0) 2026-11-10T00:50:03+01:00
+TR match n8ak-vs-n6c end: Elo (pentanomial, pairs): +0.9 [-2.7, +4.4] 95% CI, score 0.5012 +- 0.0051, LOS 68.37% 2026-11-10T00:50:03+01:00
+TR CHAIN4_DONE 2026-11-10T00:50:03+01:00
+TR train n8bn start: --data /home/admingod/regicide-data/truth/gen1_n10k_e2.bin --data /home/admingod/regicide-data/truth/gen1b_n10k_e2.bin --data /home/admingod/regicide-data/truth/gen1c_n10k_e2.bin --data /home/admingod/regicide-data/truth/gen2a_n10k_e2.bin --data /home/admingod/regicide-data/truth/gen2b_n10k_e2.bin --data /home/admingod/regicide-data/truth/gen3a_n10k_e2.bin --data /home/admingod/regicide-data/truth/gen3b_n10k_e2.bin --data /home/admingod/regicide-data/truth/gen3c_n10k_e2.bin --data /home/admingod/regicide-data/truth/gen3d_n10k_e2.bin --data /home/admingod/regicide-data/truth/gen4a_n10k_e2.bin --data /home/admingod/regicide-data/truth/gen5a_n50k_e2.bin --data /home/admingod/regicide-data/truth/gen5a_n50k_e2.bin --data /home/admingod/regicide-data/truth/gen5a_n50k_e2.bin --lambda 0.5 --min-pieces 9 --k 102.39766405914318 2026-11-10T00:50:45+01:00
+TR confirm n8bk 0.5 postponed until n8c is matched (rescore needs the CPU) 2026-11-10T00:51:09+01:00
+TR train n8bn end rc=0 2026-11-10T01:07:50+01:00
+TR train n8bn exported /home/admingod/regicide-truth-work/n8bn.nnue: OK 2026-11-10T01:08:08+01:00
+TR match n8bn-vs-n6c queued 2026-11-10T01:08:08+01:00
+TR rescore_chain restarting with 8 threads 2026-11-10T01:08:33+01:00
+TR rescore_chain start pid 1561917 threads 8 nodes 9:50000,13:20000 keep-above 16 2026-11-10T01:08:33+01:00
+TR PROVEN_SET_DONE 2026-11-10T01:08:33+01:00
+TR rescore gen5a_n50k start 2026-11-10T01:08:33+01:00
+TR timing lock + matchlock taken; bg: datagen-eb1037c:T rescore-tr1:T  2026-11-10T01:47:53+01:00
+TR matchlock removed, timing lock released (rc=0) 2026-11-10T01:59:05+01:00
+TR match n8bn-vs-n6c end: Elo (pentanomial, pairs): +4.5 [+0.5, +8.6] 95% CI, score 0.5065 +- 0.0059, LOS 98.55% 2026-11-10T01:59:05+01:00
+TR CHAIN5_DONE 2026-11-10T01:59:05+01:00
+TR confirm n8bn-vs-n6c-0.5-a queued 2026-11-10T01:59:30+01:00

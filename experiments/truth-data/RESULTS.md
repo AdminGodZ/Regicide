@@ -11,8 +11,8 @@
 results from the database; E3 n8c = E2 with re-searched scores (proven ones exact). Every net is matched against n6c
 with the standard setup.
 
-**Status (2026-11-10 00:15):** E0 done (census, pilot, round-7 matches but n6d's). E1 n8a and E2 n8bk matched; n8b,
-n8ak and n6d queued. Rescoring for E3 running (gen5a, then gen4a).
+**Status (2026-11-10 02:00):** E0 done. E1 and E2 matched: **n8bn (E2 with n6c's K) +4.5 [+0.5, +8.6] vs n6c**, the
+first net with a CI above 0; its 0.5 s/move confirmation is queued. E3's rescoring is running (gen5a, then gen4a).
 
 ## E0: census (no training)
 
@@ -160,7 +160,7 @@ openings4 805 × 2, 0.1 s/move, `-c 10`, hash 128, book off, 2–8 EGDB, my back
 |---|---|---|---|---|
 | n7b (+gen5c prefix ×3, 60 ep) vs n6c | 263 / 1072 / 275 | [0 50 717 38 0] | −2.6 [−6.6, +1.4] | 10.0% |
 | n7a (λ 0.4) vs n6c | 269 / 1071 / 270 | [0 45 716 44 0] | −0.2 [−4.2, +3.8] | 45.8% |
-<!-- R7N6D -->
+| n6d (λ 0.3, round 6b) vs n6c | 267 / 1066 / 277 | [0 42 731 32 0] | −2.2 [−5.8, +1.5] | 12.2% |
 
 n7b does not win, so **n6c stays the reference**.
 - n7a's match overlapped by about 4 minutes with the end of my n8bk training run (2 of 24 cores and the GPU; the
@@ -187,13 +187,19 @@ moves every pruning margin of the search. So each step was also trained at a fix
 | n8ak (E1, K fixed) | n6c's files | 9 | 102.4 (n6c's) | 124.0M | 0.484012 |
 | n8b (E2) | relabelled (`*_e2.bin`) | 9 | 43.4 (refit) | 124.0M | 0.350709 |
 | n8bk (E2, K fixed) | relabelled | 9 | 77.4 (n8a's) | 124.0M | 0.409797 |
+| n8bn (E2, K fixed) | relabelled | 9 | 102.4 (n6c's) | 124.0M | 0.443396 |
+<!-- E3NETS -->
 
 ¹ On each net's own validation targets (different K and labels), so not comparable between nets.
 
 | Match (0.1 s/move, 805 pairs) | W / D / L | Pentanomial [LL LD DD/WL WD WW] | Elo [95% CI] | LOS |
 |---|---|---|---|---|
-| n8a (E1) vs n6c | 264 / 1067 / 279 | [0 52 716 37 0] | −3.2 [−7.2, +0.7] | 5.6% |
+| n8a (E1, K 77.4 refit) vs n6c | 264 / 1067 / 279 | [0 52 716 37 0] | −3.2 [−7.2, +0.7] | 5.6% |
+| n8ak (E1, K 102.4) vs n6c | 268 / 1078 / 264 | [0 33 735 37 0] | +0.9 [−2.7, +4.4] | 68.4% |
+| n8b (E2, K 43.4 refit) vs n6c | 273 / 1069 / 268 | [0 36 728 41 0] | +1.1 [−2.6, +4.8] | 71.6% |
 | n8bk (E2, K 77.4) vs n6c | 283 / 1060 / 267 | [0 42 705 58 0] | +3.5 [−0.8, +7.7] | 94.5% |
+| **n8bn (E2, K 102.4) vs n6c** | 276 / 1079 / 255 | [0 36 712 57 0] | **+4.5 [+0.5, +8.6]** | **98.6%** |
+<!-- E3MATCHES -->
 
 ### Database-truth metric
 
@@ -213,6 +219,7 @@ proven positions 96357 (wins 49906, losses 46451); by pieces: 9: 51785, 10: 2564
 | n8ak | 99.78% | 99.96% | 99.60% | 99.68% | 99.21% | 288 (0.62%) | 481 (0.96%) | 299 / -328 | 147.2 |
 | n8b | 99.82% | 99.96% | 99.70% | 99.69% | 99.34% | 385 (0.83%) | 650 (1.30%) | 221 / -223 | 110.7 |
 | n8bk | 99.82% | 99.96% | 99.72% | 99.71% | 99.27% | 269 (0.58%) | 463 (0.93%) | 294 / -303 | 145.7 |
+| n8bn | 99.83% | 99.97% | 99.72% | 99.72% | 99.27% | 222 (0.48%) | 358 (0.72%) | 339 / -337 | 166.7 |
 
 ## Files
 

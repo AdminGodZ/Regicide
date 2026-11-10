@@ -14,11 +14,18 @@ others_waiting() {
 }
 # turn_wait: after one of my runs, let one run of another agent go first: wait while others are waiting until the
 # lock is seen held by someone else (their turn started), or 90 s pass with the lock free.
+# lock_holder_other: the timing lock is held by a process that is not one of my truth jobs
+lock_holder_other() {  # (lslocks does not list these flock locks on this WSL kernel: probe instead)
+  flock -n $LOCKS/timing.lock true && return 1      # free
+  pgrep -f "[m]atch-ff0a3d2" > /dev/null && return 1 # one of my matches holds it
+  return 0
+}
 turn_wait() {
   [ -e $J/my_last_release ] || return 0
-  local t0=$(date +%s)
+  local t0=$(cat $J/my_last_release)
+  while [ $(( $(date +%s) - t0 )) -lt 5 ]; do sleep 1; done  # my releasing subshell has exited
   while others_waiting; do
-    flock -n $LOCKS/timing.lock true || return 0
+    lock_holder_other && return 0
     [ $(( $(date +%s) - t0 )) -gt 90 ] && return 0
     sleep 3
   done
