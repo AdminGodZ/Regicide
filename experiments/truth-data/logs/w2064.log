@@ -39,3 +39,12 @@ epoch  35  lr 4.77e-05  train 0.438839  valid 0.439735  valid(int) 0.440498  353
 epoch  36  lr 3.43e-05  train 0.438874  valid 0.439717  valid(int) 0.440446  4007711 pos/s
 epoch  37  lr 2.37e-05  train 0.438789  valid 0.439686  valid(int) 0.440348  3614124 pos/s
 epoch  38  lr 1.61e-05  train 0.438814  valid 0.439683  valid(int) 0.440362  2841114 pos/s
+epoch  39  lr 1.15e-05  train 0.439185  valid 0.440141  valid(int) 0.440016  [qat]  515488 pos/s
+epoch  40  lr 1.00e-05  train 0.439297  valid 0.440137  valid(int) 0.440113  [qat]  510972 pos/s
+wrote /home/admingod/regicide-truth-work/runs/w2064/net_e040.nnue
+== w2064 export check (100k positions of the shared validation set), final net_e040.nnue, rc=0
+positions 100000  distinct engine scores 1402  range [-716, 738]
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 8.86, max 95.55 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK

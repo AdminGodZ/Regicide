@@ -67,3 +67,9 @@ python int vs engine: max |diff| 0, 0 positions differ
 float model vs engine: mean |diff| 6.09, max 64.02 centi-men
 simulated int (training) vs engine: max |diff| 1.00
 OK
+== w2064 export check (100k positions of the shared validation set), final net_e040.nnue, rc=0
+positions 100000  distinct engine scores 1402  range [-716, 738]
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 8.86, max 95.55 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK

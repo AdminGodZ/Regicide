@@ -225,3 +225,10 @@ TR cb wait-lock n6c-cake-c0dde2e cake net builtin 2026-11-10T12:55:04+01:00
 TR cb start n6c-cake-c0dde2e cake net builtin dll truth-c0dde2e cfg A book 0 c 8 mt 0.5; load 12.99 2026-11-10T12:58:06+01:00
 TR cb end n6c-cake-c0dde2e A: +0 =305 -7   score 152.5/312 = 48.88%   draw rate 97.8% | Elo (pentanomial, pairs): -7.8 [-13.4, -2.2] 95% CI, score 0.4888 +- 0.0081, LOS 0.34% 2026-11-10T13:11:14+01:00
 TR P1C_DONE 2026-11-10T13:11:14+01:00
+TR train w2064 end rc=0 2026-11-10T13:18:24+01:00
+TR train w2064 exported /home/admingod/regicide-truth-work/w2064.nnue: simulated int (training) vs engine: max |diff| 1.00 OK 2026-11-10T13:19:13+01:00
+TR timing lock + matchlock taken; bg: datagen-eb1037c:T bash:T datagen-tr5:T bash:T datagen-tr6:T  2026-11-10T13:22:05+01:00
+TR matchlock removed, timing lock released (rc=0) 2026-11-10T13:22:55+01:00
+TR P5 speed: n8bn nps 3173210;n8bn nps 3254220;n8bn nps 3228194;w2032 nps 2185469;w2032 nps 2156858;w2032 nps 2169969;w1064 nps 2512461;w1064 nps 2430242;w1064 nps 2492847;w2064 nps 1827033;w2064 nps 1812615;w2064 nps 1826125; 2026-11-10T13:22:55+01:00
+TR match w2032-vs-n8bn queued 2026-11-10T13:22:55+01:00
+TR timing lock + matchlock taken; bg: datagen-eb1037c:T bash:T datagen-tr5:T bash:T datagen-tr6:T  2026-11-10T13:32:06+01:00
