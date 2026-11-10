@@ -6,13 +6,14 @@
 # 7,712,020 / 8,089,571 unless the book changes a bench position).
 set -euo pipefail
 export PATH=$(echo "$PATH" | tr ":" "\n" | grep -v "^/mnt/c" | paste -sd:):/mnt/c/Windows/System32
-NAME=$1; BOOK=$(readlink -f $2); JOBS=${3:-6}
+NAME=$1; BOOK=$(readlink -f $2); JOBS=${3:-6}; REF=${4:-HEAD}   # REF: engine source (default the booklab HEAD)
 RM=~/regicide-match; W=~/regicide-booklab
 B=$RM/builds/bl-$NAME
 if [ -d $B/src ]; then git -C $W worktree remove --force $B/src || rm -rf $B/src; fi
 git -C $W worktree prune
 mkdir -p $B; rm -rf $B/build $B/build-linux
-git -C $W worktree add --quiet --detach $B/src HEAD
+git -C $W fetch -q origin
+git -C $W worktree add --quiet --detach $B/src $REF
 cp $BOOK $B/src/src/weights/book.bin
 TC=$RM/tools-src/tools/windows/mingw-clang.cmake
 export LLVM_MINGW=$(ls -d $RM/toolchain/llvm-mingw-*-ucrt-* | sort | tail -1)
@@ -33,7 +34,7 @@ if [ ! -e $D/egdb ]; then
   cmd.exe /c mklink /J "C:\\regicide-match\\engines\\regicide\\bl-$NAME\\egdb" "C:\\regicide-match\\engines\\regicide\\6bb8c6c-deep2b-egdb8\\egdb" > /dev/null
 fi
 ls $D/egdb | wc -l
-{ echo "booklab $(git -C $W rev-parse --short HEAD); book.bin = $(basename $BOOK) sha256 $(sha256sum $BOOK | cut -c1-16)"
+{ echo "booklab: engine $(git -C $B/src rev-parse --short HEAD) ($REF); book.bin = $(basename $BOOK) sha256 $(sha256sum $BOOK | cut -c1-16)"
   echo "built $(date -Is) with $($LLVM_MINGW/bin/x86_64-w64-mingw32-clang++ --version | head -1)"
   echo "egdb: junction to ..\\6bb8c6c-deep2b-egdb8\\egdb (2-8 pieces)"; } > $D/BUILD.txt
 cat $D/BUILD.txt

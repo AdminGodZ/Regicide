@@ -139,12 +139,15 @@ def main():
                 book[(family(nm), bmoves, col)].append(lb[col])
         full = [sum(v) for v in pairs.values() if len(v) == 2]
         unpaired = sum(len(v) for v in pairs.values() if len(v) != 2)
-        e, lo, hi = pent_elo(full) if full else (0.0, 0.0, 0.0)
+        elo_txt = "n/a (no complete pair)"
+        if full:
+            e, lo, hi = pent_elo(full)
+            elo_txt = f"{e:+.1f} [{lo:+.1f}, {hi:+.1f}]"
         if unpaired:
             print(f"{name}: {unpaired} game(s) without their pair game, left out of the pentanomial Elo",
                   file=sys.stderr)
         md.append(f"| {name} | {w + d + l}{f' ({unpaired} unpaired)' if unpaired else ''} | {w} / {d} / {l} | "
-                  f"{e:+.1f} [{lo:+.1f}, {hi:+.1f}] | "
+                  f"{elo_txt} | "
                   f"{'; '.join(dec) if dec else '-'} |")
     md.append("")
     # Instant leading moves (book depth) per engine.

@@ -31,11 +31,22 @@ def main():
     ap.add_argument("--egdb", required=True)
     ap.add_argument("--out", required=True)
     ap.add_argument("--jobs", type=int, default=4)
+    ap.add_argument("--exclude", default="bl-wp9",
+                    help="comma-separated run-name prefixes to leave out (default: the WP9 conversion tests, which "
+                         "start from database-won positions)")
+    ap.add_argument("--until", help="only runs whose games.pdn was last modified before this time (YYYY-MM-DDTHH:MM)")
     a = ap.parse_args()
     os.makedirs(a.out, exist_ok=True)
-    games, seen, dups = [], set(), 0
+    games, seen, dups, unfinished = [], set(), 0, []
+    excl = tuple(x for x in a.exclude.split(",") if x)
+    until = None
+    if a.until:
+        import datetime
+        until = datetime.datetime.fromisoformat(a.until).timestamp()
     for f in sorted(glob.glob(os.path.join(a.results, "*", "games.pdn"))):
         run = os.path.basename(os.path.dirname(f))
+        if (excl and run.startswith(excl)) or (until and os.path.getmtime(f) >= until):
+            continue
         for tags, moves in parse_pdn(open(f, errors="replace").read()):
             bf, wf = family(tags.get("Black", "")), family(tags.get("White", ""))
             if not ((bf in TOP and wf in TOP) or (bf == "regicide" and wf in TOP) or (wf == "regicide" and bf in TOP)):
@@ -46,10 +57,14 @@ def main():
                 dups += 1
                 continue
             seen.add(k)
-            res = {"1-0": "B", "0-1": "W"}.get(tags.get("Result", ""), "D")
+            res = {"1-0": "B", "0-1": "W", "1/2-1/2": "D"}.get(tags.get("Result", "").strip())
+            if res is None:  # "*" or missing: interrupted or unfinished game, no final result
+                unfinished.append((run, tags.get("Round", ""), tags.get("Result", "")))
+                continue
             games.append(dict(run=run, round=tags.get("Round", ""), ballot=ballot_of(tags.get("Opening", ""))[0],
                               bf=bf, wf=wf, res=res, term=tags.get("Termination", ""), fen=tags.get("FEN", ""), mv=mv))
-    print(f"{len(games)} games ({dups} duplicates removed)", file=sys.stderr)
+    print(f"{len(games)} games ({dups} duplicates removed, {len(unfinished)} games without a final result skipped)",
+          file=sys.stderr)
     # scan in parallel chunks
     chunks = [games[i::a.jobs] for i in range(a.jobs)]
     procs = []
@@ -65,7 +80,8 @@ def main():
             f = line.rstrip("\n").split("\t")
             g = by_id[int(f[0])]
             g.update(first=int(f[1]), winner=f[2], pieces=int(f[3]), wfen=f[4], throw=int(f[5]), tmove=f[6],
-                     tfen=f[7], throws=int(f[8]), final=f[9], fpieces=int(f[10]), plies=int(f[11]))
+                     tfen=f[7], throws=int(f[8]), final=f[9], fpieces=int(f[10]), plies=int(f[11]),
+                     max_quiet=int(f[12]))
         p.wait()
     for j in range(a.jobs):
         os.remove(os.path.join(a.out, f"scan_in_{j}.tsv"))
@@ -102,7 +118,8 @@ def main():
         tot[(kind, "missed_" + ("regicide" if wfam == "regicide" else "opp"))] += 1
     md = ["# WP8: missed database wins", "",
           f"Games: every games.pdn under `{a.results}` (Regicide vs Cake/KingsRow/GuiNN, all engine versions, plus the "
-          f"games among the three opponents), {dups} duplicate games removed. Database: Regicide's 2–8-piece WLD.",
+          f"games among the three opponents), {dups} duplicate games removed, {len(unfinished)} games without a final "
+          f"result (\"*\" or none: interrupted or unfinished) skipped. Database: Regicide's 2–8-piece WLD.",
           "A game *reached a database win* when some position with <= 8 pieces is a database win for one side.", ""]
     md.append("| Games | Scanned | Reached a database win | Winning side won | Not won |")
     md.append("|---|---|---|---|---|")
@@ -145,7 +162,7 @@ def main():
             fo.write(f"{g['wfen']} | {g['pieces']} | {g['run']} {g['round']} {g['ballot']} | {g['term']}; {how(g)}\n")
     with open(os.path.join(a.out, "dbscan_games.tsv"), "w") as fo:
         keys = ["run", "round", "ballot", "bf", "wf", "res", "term", "first", "winner", "pieces", "throw", "throws",
-                "final", "fpieces", "plies", "wfen"]
+                "final", "fpieces", "plies", "max_quiet", "wfen"]
         fo.write("\t".join(keys) + "\n")
         for g in games:
             fo.write("\t".join(str(g[k]) for k in keys) + "\n")

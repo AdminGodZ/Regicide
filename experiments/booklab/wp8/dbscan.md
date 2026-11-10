@@ -1,16 +1,16 @@
 # WP8: missed database wins
 
-Games: every games.pdn under `/home/admingod/regicide-match/results` (Regicide vs Cake/KingsRow/GuiNN, all engine versions, plus the games among the three opponents), 2964 duplicate games removed. Database: Regicide's 2–8-piece WLD.
+Games: every games.pdn under `/home/admingod/regicide-match/results` (Regicide vs Cake/KingsRow/GuiNN, all engine versions, plus the games among the three opponents), 2998 duplicate games removed, 0 games without a final result ("*" or none: interrupted or unfinished) skipped. Database: Regicide's 2–8-piece WLD.
 A game *reached a database win* when some position with <= 8 pieces is a database win for one side.
 
 | Games | Scanned | Reached a database win | Winning side won | Not won |
 |---|---|---|---|---|
-| Regicide vs Cake/KingsRow/GuiNN | 21013 | 1925 | 1554 | 371 |
-| Opponent vs opponent | 2564 | 73 | 63 | 10 |
+| Regicide vs Cake/KingsRow/GuiNN | 21291 | 1937 | 1555 | 382 |
+| Opponent vs opponent | 3068 | 90 | 66 | 24 |
 
-Conversion by the side that had the database win: Regicide 37/399; Cake 1011/1017; KingsRow 223/231; GuiNN 346/351
+Conversion by the side that had the database win: Regicide 37/410; Cake 1011/1017; KingsRow 226/248; GuiNN 347/352
 
-## 1. Regicide had a database win and did not win (362)
+## 1. Regicide had a database win and did not win (373)
 
 | Run | Round | Ballot | Winner side | Against | First won ply | Pieces | Result | Termination | How it was lost | FEN of the first won position |
 |---|---|---|---|---|---|---|---|---|---|---|
@@ -342,6 +342,11 @@ Conversion by the side that had the database win: Regicide 37/399; Cake 1011/101
 | bl-v2-guinn-a-h1 | 6.2 | ACF #7 | Regicide as White | GuiNN | 77 | 8 | D | threefold repetition | still won at the end (final db value W, 7 pieces): ran out the rules | `W:W21,K24,28,32:BK14,17,19,K30` |
 | bl-v2-guinn-a-h1 | 63.2 | ACF #71 Diabolical Denny | Regicide as White | GuiNN | 87 | 8 | D | threefold repetition | still won at the end (final db value W, 7 pieces): ran out the rules | `W:WK10,12,21,K22:B14,K23,K31,K32` |
 | bl-v2-guinn-a-h1 | 70.2 | ACF #79 | Regicide as White | GuiNN | 69 | 8 | D | threefold repetition | still won at the end (final db value W, 7 pieces): ran out the rules | `W:W10,13,K19,32:B1,K25,27,K31` |
+| bl-v2-guinn-a-h2 | 22.1 | ACF #112 | Regicide as Black | GuiNN | 68 | 8 | D | threefold repetition | winner moved into a non-won position at ply 110 (9-5, 1 such move); final db value D | `B:W7,K11,17,20:B5,9,12,K18` |
+| bl-v2-guinn-a-h2 | 43.2 | ACF #134 | Regicide as White | GuiNN | 69 | 8 | D | threefold repetition | still won at the end (final db value W, 7 pieces): ran out the rules | `W:WK11,18,21,32:B9,16,K25,27` |
+| bl-v2-guinn-a-h2 | 60.1 | ACF #153 Black Widow | Regicide as Black | GuiNN | 54 | 8 | D | threefold repetition | winner moved into a non-won position at ply 118 (31-26, 1 such move); final db value D | `B:W7,9,19,20:B3,18,22,23` |
+| bl-v2-guinn-a-h2 | 73.1 | ACF #167 | Regicide as Black | GuiNN | 64 | 8 | D | threefold repetition | still won at the end (final db value B, 7 pieces): ran out the rules | `B:W10,12,K14,26:B3,4,19,K30` |
+| bl-v2-guinn-a-h2 | 78.2 | ACF #174 Skunk | Regicide as White | GuiNN | 49 | 8 | D | threefold repetition | still won at the end (final db value W, 7 pieces): ran out the rules | `W:W6,12,21,25:B3,17,23,24` |
 | bl-v2-kingsrow-a-h1 | 14.2 | ACF #16 Wilderness II | Regicide as White | KingsRow | 95 | 8 | D | threefold repetition | winner moved into a non-won position at ply 113 (7-2, 1 such move); final db value D | `W:WK11,K22,28,30:B13,21,K27,K32` |
 | bl-v2-kingsrow-a-h1 | 37.2 | ACF #41 | Regicide as White | KingsRow | 67 | 8 | D | 40-move rule (no capture or man move) | winner moved into a non-won position at ply 91 (26-22, 1 such move); final db value D | `W:WK10,11,31,32:B13,19,K21,22` |
 | bl-v2-kingsrow-a-h1 | 52.2 | ACF #60 Black Hole | Regicide as White | KingsRow | 62 | 8 | D | 40-move rule (no capture or man move) | winner moved into a non-won position at ply 75 (15-10, 1 such move); final db value D | `B:WK3,K6,15,28:B8,12,13,22` |
@@ -350,6 +355,12 @@ Conversion by the side that had the database win: Regicide 37/399; Cake 1011/101
 | bl-v2-kingsrow-a-h2 | 47.2 | ACF #139 | Regicide as White | KingsRow | 70 | 8 | D | threefold repetition | still won at the end (final db value W, 7 pieces): ran out the rules | `B:WK10,11,K14,15,30:B12,21,K31` |
 | bl-v2-kingsrow-a-h2 | 54.1 | ACF #147 | Regicide as Black | KingsRow | 94 | 8 | D | threefold repetition | winner moved into a non-won position at ply 114 (22-17, 1 such move); final db value D | `B:WK7,K15,21,32:BK14,K22,23,K31` |
 | bl-v2-kingsrow-a-h2 | 64.2 | ACF #158 | Regicide as White | KingsRow | 123 | 8 | D | threefold repetition | still won at the end (final db value W, 7 pieces): ran out the rules | `W:W10,K13,19,28:BK9,K30,K31,K32` |
+| bl-v2-kingsrow-b-h1 | 23.2 | ACF #25 | Regicide as White | KingsRow | 93 | 8 | D | threefold repetition | still won at the end (final db value W, 7 pieces): ran out the rules | `W:WK6,12,K16,K19:B9,K13,K23,K25` |
+| bl-v2-kingsrow-b-h1 | 51.2 | ACF #59 | Regicide as White | KingsRow | 91 | 8 | D | threefold repetition | still won at the end (final db value W, 7 pieces): ran out the rules | `W:WK19,23,30,K31:BK6,21,K25,27` |
+| bl-v2-kingsrow-b-h1 | 52.2 | ACF #60 Black Hole | Regicide as White | KingsRow | 67 | 8 | D | threefold repetition | still won at the end (final db value W, 7 pieces): ran out the rules | `W:WK7,K11,27,32:B13,19,22,K26` |
+| bl-v2-kingsrow-b-h1 | 63.1 | ACF #71 Diabolical Denny | Regicide as Black | KingsRow | 107 | 8 | D | threefold repetition | winner moved into a non-won position at ply 122 (27-23, 1 such move); final db value D | `W:WK3,K12,21,28:BK9,13,K23,K27` |
+| bl-v2-kingsrow-b-h1 | 74.2 | ACF #83 | Regicide as White | KingsRow | 99 | 8 | D | threefold repetition | still won at the end (final db value W, 7 pieces): ran out the rules | `W:W7,K10,K15,28:BK6,21,K25,K27` |
+| bl-v2-kingsrow-b-h1 | 78.2 | ACF #87 Tyne | Regicide as White | KingsRow | 57 | 8 | D | threefold repetition | still won at the end (final db value W, 7 pieces): ran out the rules | `W:WK6,7,20,32:B11,16,17,K26` |
 | pt-s2-b1-cake | 8.2 | ACF #9 Wilderness I | Regicide as White | Cake | 83 | 8 | D | threefold repetition | still won at the end (final db value W, 7 pieces): ran out the rules | `W:WK13,17,24,27:BK2,12,16,20` |
 | pt-s2-c1-cake | 127.2 | ACF #141 | Regicide as White | Cake | 100 | 8 | D | threefold repetition | winner moved into a non-won position at ply 111 (18-14, 1 such move); final db value D | `B:WK14,18,23,K24:BK8,12,13,16` |
 | pt-s2-con-guinn | 100.1 | ACF #112 | Regicide as Black | GuiNN | 56 | 8 | D | threefold repetition | winner moved into a non-won position at ply 130 (12-16, 1 such move); final db value D | `B:W11,14,15:B5,12,18,23,26` |
@@ -391,7 +402,7 @@ Conversion by the side that had the database win: Regicide 37/399; Cake 1011/101
 | baseline-b71dfa9-guinn | 41.1 | ACF #47 | GuiNN as White | Regicide | 45 | 8 | D | threefold repetition | still won at the end (final db value W, 8 pieces): ran out the rules | `W:WK19,23,27,32:B1,K9,12,20` |
 | baseline-b71dfa9-guinn | 59.2 | ACF #67 | GuiNN as Black | Regicide | 51 | 8 | D | 40-move rule (no capture or man move) | still won at the end (final db value B, 8 pieces): ran out the rules | `W:W12,16,21,28:B3,23,25,K31` |
 
-## 3. Opponent vs opponent: database win not converted (10)
+## 3. Opponent vs opponent: database win not converted (24)
 
 | Run | Round | Ballot | Winner side | Against | First won ply | Pieces | Result | Termination | How it was lost | FEN of the first won position |
 |---|---|---|---|---|---|---|---|---|---|---|
@@ -399,10 +410,24 @@ Conversion by the side that had the database win: Regicide 37/399; Cake 1011/101
 | bl-c-kingsrow-guinn-h1 | 20.2 | ACF #22 | KingsRow as White | GuiNN | 189 | 6 | D | 40-move rule (no capture or man move) | still won at the end (final db value W, 6 pieces): ran out the rules | `W:WK18,K19,K22:B13,K28,K32` |
 | bl-c-kingsrow-guinn-h1 | 29.2 | ACF #32 | KingsRow as White | GuiNN | 159 | 6 | D | 40-move rule (no capture or man move) | still won at the end (final db value W, 6 pieces): ran out the rules | `W:WK19,K20,K21:B13,K28,K32` |
 | bl-c-kingsrow-guinn-h1 | 65.1 | ACF #73 | KingsRow as Black | GuiNN | 192 | 8 | D | 40-move rule (no capture or man move) | still won at the end (final db value B, 8 pieces): ran out the rules | `B:WK6,K11,12,K15:BK3,K5,K14,K20` |
+| tr-n6c-kingsrow | 104.2 | ACF #117 | KingsRow as White | KingsRow | 68 | 8 | D | threefold repetition | still won at the end (final db value W, 7 pieces): ran out the rules | `B:WK8,10,11,14,19,23:B5,21` |
+| tr-n6c-kingsrow | 112.2 | ACF #125 | KingsRow as White | KingsRow | 104 | 8 | D | threefold repetition | still won at the end (final db value W, 7 pieces): ran out the rules | `B:W6,7,K10,K20,K22:B5,K26,K31` |
+| tr-n6c-kingsrow | 120.2 | ACF #133 Octopus | KingsRow as White | KingsRow | 97 | 8 | D | threefold repetition | still won at the end (final db value W, 7 pieces): ran out the rules | `W:WK19,20,K24,32:BK15,28,K30,K31` |
+| tr-n6c-kingsrow | 13.1 | ACF #15 | KingsRow as Black | KingsRow | 77 | 8 | D | threefold repetition | winner moved into a non-won position at ply 182 (6-2, 1 such move); final db value D | `W:WK11,13,20:B5,K9,12,17,K19` |
+| tr-n6c-kingsrow | 136.1 | ACF #151 | KingsRow as Black | KingsRow | 54 | 8 | D | 40-move rule (no capture or man move) | winner moved into a non-won position at ply 84 (13-9, 1 such move); final db value D | `B:WK1,K2,10,14:B3,12,K18,27` |
+| tr-n6c-kingsrow | 25.2 | ACF #28 | KingsRow as White | KingsRow | 133 | 8 | D | threefold repetition | still won at the end (final db value W, 7 pieces): ran out the rules | `W:W8,K26,K28,30:BK10,21,K23,K25` |
+| tr-n6c-kingsrow | 3.1 | ACF #4 | KingsRow as Black | KingsRow | 69 | 8 | D | 40-move rule (no capture or man move) | winner moved into a non-won position at ply 74 (32-27, 1 such move); final db value D | `W:W7,11,15,K16:B2,5,K18,K27` |
+| tr-n6c-kingsrow | 46.2 | ACF #54 | KingsRow as White | KingsRow | 73 | 8 | D | threefold repetition | still won at the end (final db value W, 7 pieces): ran out the rules | `W:WK7,11,17,21:B4,12,K14,K27` |
 | tr-n8bn-cake1 | 126.1 | ACF #140 | Cake as Black | Cake | 112 | 8 | D | threefold repetition | winner moved into a non-won position at ply 134 (10-6, 1 such move); final db value D | `B:WK3,K9,K25,K31:B8,12,K13,K23` |
 | tr-n8bn-cake2 | 126.1 | ACF #140 | Cake as Black | Cake | 101 | 8 | D | threefold repetition | winner moved into a non-won position at ply 144 (27-23, 1 such move); final db value D | `W:W7,K9,K13:B12,16,K24,K26,28` |
+| tr-n8bn-kingsrow | 117.1 | ACF #130 | KingsRow as Black | KingsRow | 62 | 8 | D | threefold repetition | winner moved into a non-won position at ply 80 (16-11, 1 such move); final db value D | `B:W6,K11,17,21:B10,12,K22,K32` |
+| tr-n8bn-kingsrow | 141.2 | ACF #157 | KingsRow as White | KingsRow | 82 | 8 | D | threefold repetition | still won at the end (final db value W, 7 pieces): ran out the rules | `B:WK4,13,14,21,23,28:B12,K30` |
+| tr-n8bn-kingsrow | 148.1 | ACF #164 | KingsRow as Black | KingsRow | 86 | 8 | D | 40-move rule (no capture or man move) | still won at the end (final db value B, 7 pieces): ran out the rules | `B:WK7,K9,17,19:B1,K23,26,K27` |
 | tr-n8bn-kingsrow | 25.2 | ACF #28 | KingsRow as White | KingsRow | 131 | 8 | D | threefold repetition | still won at the end (final db value W, 7 pieces): ran out the rules | `W:WK8,K26,30,K31:BK6,21,K22,28` |
 | tr-n8bn-kingsrow | 3.2 | ACF #4 | KingsRow as White | KingsRow | 68 | 8 | D | threefold repetition | still won at the end (final db value W, 7 pieces): ran out the rules | `B:WK27,28,30,31:B7,19,21,K25` |
 | tr-n8bn-kingsrow | 35.2 | ACF #39 | KingsRow as White | KingsRow | 55 | 8 | D | threefold repetition | still won at the end (final db value W, 7 pieces): ran out the rules | `W:W13,17,19,23:B4,12,K18,27` |
 | tr-n8bn-kingsrow | 51.2 | ACF #59 | KingsRow as White | KingsRow | 80 | 8 | D | threefold repetition | winner moved into a non-won position at ply 103 (14-9, 1 such move); final db value D | `B:W11,18,K23,30:B9,12,21,K32` |
+| tr-n8bn-kingsrow | 84.2 | ACF #95 | KingsRow as White | KingsRow | 111 | 8 | D | threefold repetition | still won at the end (final db value W, 7 pieces): ran out the rules | `W:W6,K10,K14,20:B12,K16,K24,K30` |
+| tr-n8bn-kingsrow | 89.2 | ACF #100 | KingsRow as White | KingsRow | 56 | 8 | D | threefold repetition | winner moved into a non-won position at ply 69 (31-26, 1 such move); final db value D | `B:WK15,28,30,31:B8,21,22,27` |
+| tr-n8bn-kingsrow | 94.1 | ACF #105 Gemini II | KingsRow as Black | KingsRow | 61 | 8 | D | threefold repetition | still won at the end (final db value B, 8 pieces): ran out the rules | `W:WK5,6,19:B9,12,14,22,K25` |
 

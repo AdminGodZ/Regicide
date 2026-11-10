@@ -80,7 +80,8 @@ def report(a):
     for line in out.splitlines():
         f = line.split("\t")
         g = games[int(f[0])]
-        g.update(first=int(f[1]), winner=f[2], throw=int(f[5]), tmove=f[6], throws=int(f[8]), final=f[9])
+        g.update(first=int(f[1]), winner=f[2], throw=int(f[5]), tmove=f[6], throws=int(f[8]), final=f[9],
+                 quiet=int(f[12]) if len(f) > 12 else -1)
     md = [f"# WP9 conversion test: {len(games)} games from {len(pos)} positions", ""]
     conv = [g for g in games if g["won"]]
     md.append(f"**Converted: {len(conv)} of {len(games)} ({100 * len(conv) / max(1, len(games)):.1f}%).**")
@@ -101,6 +102,10 @@ def report(a):
         q = statistics.quantiles(pl, n=4) if len(pl) > 1 else [pl[0]] * 3
         md.append(f"Plies to the win (converted games): median {statistics.median(pl):.0f}, quartiles {q[0]:.0f}–"
                   f"{q[2]:.0f}, max {max(pl)}.")
+        qu = [g["quiet"] for g in conv]
+        md.append(f"Highest no-progress count before the win (plies without a capture or man move; the 40-move rule "
+                  f"draws at 79): median {statistics.median(qu):.0f}, max {max(qu)}; converted games that reached "
+                  f">= 40: {sum(x >= 40 for x in qu)}, >= 60: {sum(x >= 60 for x in qu)}, >= 70: {sum(x >= 70 for x in qu)}.")
         md.append("")
     left = [g for g in games if g.get("throw", -1) >= 0 and g.get("winner") == g["col"]]
     md.append(f"**Games where Regicide moved from a database-won position into a non-won one: {len(left)}.**")
@@ -110,12 +115,21 @@ def report(a):
     md.append("")
     md.append("## Not converted")
     md.append("")
-    md.append("| Id | Opponent | Regicide as | Pieces | Result | Termination | FEN | Last 20 moves |")
-    md.append("|---|---|---|---|---|---|---|---|")
+    md.append("| Id | Opponent | Regicide as | Pieces | Result | Termination | Max no-progress plies | FEN | Last 20 moves |")
+    md.append("|---|---|---|---|---|---|---|---|---|")
     for g in games:
         if not g["won"]:
             md.append(f"| {g['p']['id']} | {NAMES[g['p']['opp']]} | {g['col']} | {g['p']['pieces']} | {g['res']} | "
-                      f"{g['term']} | `{g['p']['fen']}` | {' '.join(g['moves'][-20:])} |")
+                      f"{g['term']} | {g['quiet']} | `{g['p']['fen']}` | {' '.join(g['moves'][-20:])} |")
+    md.append("")
+    md.append("## Every game")
+    md.append("")
+    md.append("| Id | Opponent | Regicide as | Pieces | Result | Plies | Max no-progress plies | Left the won region |")
+    md.append("|---|---|---|---|---|---|---|---|")
+    for g in sorted(games, key=lambda g: int(g["p"]["id"][1:])):
+        md.append(f"| {g['p']['id']} | {NAMES[g['p']['opp']]} | {g['col']} | {g['p']['pieces']} | "
+                  f"{'won' if g['won'] else g['res']} | {len(g['moves'])} | {g['quiet']} | "
+                  f"{'ply ' + str(g['throw']) if g.get('throw', -1) >= 0 and g.get('winner') == g['col'] else '-'} |")
     open(a.out, "w").write("\n".join(md) + "\n")
     print("\n".join(md[:20]))
 

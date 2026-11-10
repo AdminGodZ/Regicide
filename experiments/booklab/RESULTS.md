@@ -125,6 +125,17 @@ GuiNN 346 of 351.**
   conversion fix (t3/wld-conversion) is worth far more than any book change; `missed_wins.txt` (362 FENs, first
   won position per game, Regicide to move or just moved) is its regression set.
 
+**WP8 correction check (2026-11-10 09:30, review point: results other than 1-0/0-1 were counted as draws).**
+`dbscan.py` now skips games without a final result ("*" or none) and reports how many it skipped; it also leaves out
+the WP9 test runs (`bl-wp9*`, they start from won positions) and can restrict the corpus by time (`--until`).
+- Result: **0 games without a final result** in the corpus (the match runner never writes aborted games to the PDN), so
+  the bug had no effect. Re-scanning the same corpus as of 07:50 reproduces exactly the same table and the same 362
+  missed wins (**0 of the 362 drop out**). (The 362 rows hold 349 distinct FENs: some first-won positions recur.)
+- On the corpus as of 09:30 (more games since, WP9 tests excluded): Regicide converted 37 of 410 database wins
+  (373 missed: the 362 plus 11 from this morning's validation-2 runs with bl-r5, 6 vs KingsRow and 5 vs GuiNN); Cake
+  1,011 of 1,017; KingsRow 226 of 248; GuiNN 347 of 352. Opponent vs opponent: 90 reached, 66 converted (the new games
+  are other agents' runs). The scan now also records the longest no-progress run per game.
+
 ## WP9: conversion test harness
 
 - **tools/match change (20 lines, `scripts/patch_match_colour.py`):** an openings-file line may carry a third field,
@@ -150,6 +161,11 @@ GuiNN 346 of 351.**
    affected.
 2. **census.py pairs.** Only complete pairs (both games) enter the pentanomial Elo; unpaired games are counted and
    printed. **Effect:** none; every census pair was complete, the tables are unchanged.
+4. **Second round (after fc5018d).** (a) Move identity in `movetext.hpp` is now start square, end square and the set
+   of captured pieces, computed from the written path in PDN geometry: both 9x18x11x2x9 and 9x2x11x18x9 in
+   `B:W6,7,14,15,32:BK9` are accepted as the same move (before: "matches 0 legal moves"); `2x18` in
+   `B:W6,7,14,15,32:B2` is still rejected as ambiguous; books r6 and w1 rebuild byte-identical. (b) `census.py` prints
+   "n/a (no complete pair)" instead of +0.0 when no pair is complete.
 3. **Regicide book marks.** `is_book()` now matches `depth\s+0/0\s+score\s+-?\d+\s+nodes\s+0\s`. The PDNs written by
    the match runner on this machine contain single spaces (0 double-space occurrences), so the old pattern already
    matched here. **Effect:** the regenerated book-depth column is identical.

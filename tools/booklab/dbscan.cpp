@@ -4,12 +4,14 @@
 // stdin, one game per line: GID <TAB> FEN (empty = start) <TAB> moves (PDN notation)
 // stdout, one line per game:
 //   GID <TAB> first_win_ply <TAB> winner (B/W) <TAB> pieces <TAB> fen <TAB> throw_ply <TAB> throw_move <TAB> throw_fen
-//       <TAB> throws <TAB> final_value <TAB> final_pieces <TAB> plies
+//       <TAB> throws <TAB> final_value <TAB> final_pieces <TAB> plies <TAB> max_quiet
 // first_win_ply: first position (ply index, 0 = the game's first position) with at most max_pieces() pieces where the
 // database says the side to move wins or loses (then the side that just moved wins); -1 if none. winner: that side.
 // throw_ply: first later ply where the winner, to move in a won position, played a move after which the position is
 // no longer lost for the opponent (-1 if never); throws: how many such moves. final_value: database value of the last
 // position from Black's view (B = Black wins, W = White wins, D = draw, - = more than max_pieces pieces).
+// max_quiet: the longest run of plies without a capture or man move (the 40-move rule draws at 79).
+#include <algorithm>
 #include <cstdio>
 #include <iostream>
 #include <sstream>
@@ -63,7 +65,7 @@ int main(int argc, char** argv) {
             std::istringstream in(line.substr(t2 + 1));
             for (std::string t; in >> t;) toks.push_back(t);
         }
-        int ply = 0, first = -1, pieces = 0, throw_ply = -1, throws = 0;
+        int ply = 0, first = -1, pieces = 0, throw_ply = -1, throws = 0, quiet = 0, max_quiet = 0;
         char winner = 0;
         std::string first_fen, throw_move, throw_fen;
         char v = value(pos);
@@ -76,6 +78,9 @@ int main(int argc, char** argv) {
             if (!parse_move(pos, toks[i], m)) break;
             const bool winner_to_move = winner && v == winner &&
                                         ((winner == 'B') == (pos.side_to_move() == BLACK));
+            // no-progress count: plies since the last capture or man move (the 40-move rule draws at 79 plies)
+            if (m.is_capture() || !(pos.kings() & bit(m.from))) quiet = 0;
+            else max_quiet = std::max(max_quiet, ++quiet);
             Position next = pos;
             next.make_move(m);
             const char nv = value(next);
@@ -90,7 +95,7 @@ int main(int argc, char** argv) {
         std::cout << gid << '\t' << first << '\t' << (winner ? std::string(1, winner) : "-") << '\t' << pieces << '\t'
                   << (first_fen.empty() ? "-" : first_fen) << '\t' << throw_ply << '\t'
                   << (throw_move.empty() ? "-" : throw_move) << '\t' << (throw_fen.empty() ? "-" : throw_fen) << '\t'
-                  << throws << '\t' << v << '\t' << pos.piece_count() << '\t' << ply << '\n';
+                  << throws << '\t' << v << '\t' << pos.piece_count() << '\t' << ply << '\t' << max_quiet << '\n';
     }
     return 0;
 }
