@@ -17,7 +17,9 @@
 namespace regicide {
 
 // A game is drawn after this many plies in a row without a capture or a man move: CheckerBoard's rule, 40 moves
-// by one side and 39 by the other. The match runner applies the same count.
+// by one side and 39 by the other. The match runner applies the same count with its own code (tools/match/main.cpp,
+// --no-progress 40). tools/selfplay.cpp (80 plies) and tools/datagen.cpp (60 plies) end their games by limits of
+// their own, which predate this constant; see the comments there.
 constexpr int NO_PROGRESS_PLIES = 79;
 
 struct Limits {
@@ -31,7 +33,9 @@ struct Limits {
     bool infinite = false;
     bool use_book = true;  // play a book move without searching when the engine has a book
     // Analysis: search only these root moves (legal ones; empty = all). Skips the book and the avoid list, and
-    // searches a single move to the full limits instead of returning it at once.
+    // searches a single move to the full limits instead of returning it at once. Exception: a root the database
+    // decides with MTC (Engine::egdb_root_move) is answered from the database among these moves, without a search,
+    // unless `infinite` is set.
     std::vector<Move> searchmoves;
 };
 

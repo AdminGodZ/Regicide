@@ -39,12 +39,14 @@ struct Config {
     std::size_t hash_mb = 16;
     int adjudicate_score = 600;
     int adjudicate_plies = 8;
+    // Draw after this many plies without a capture or man move. One ply later than the 79-ply rule the search and
+    // the match runner apply (NO_PROGRESS_PLIES in src/search.hpp, --no-progress in tools/match/main.cpp): the value
+    // predates that rule and was not changed with it. tools/datagen.cpp uses 60. The match runner's ply cap is 1000.
     int draw_reversible = 80;
     int max_plies = 400;
     int opening_plies = 3;
     int egdb_pieces = 0;  // engines probe the database and games end on a database result
     int threads_a = 1, threads_b = 1;  // search threads per engine (Lazy SMP)
-    bool verbose = false;
 };
 
 std::vector<Position> openings_at(int plies) {
@@ -107,6 +109,9 @@ double play_game(const Position& start, Engine& black, Engine& white, const Conf
     return 0.5;
 }
 
+// The same estimate as the match runner's (tools/match/stats.cpp: pentanomial mean, population variance of the pair
+// scores, interval endpoints mapped through the Elo formula), written separately because selfplay links only
+// regicide_core. The pool.py scripts under experiments/ use the n - 1 variance and a delta-method interval instead.
 void report(const char* tag, const std::vector<int>& penta, int w, int d, int l) {
     const int n = w + d + l, pairs = penta[0] + penta[1] + penta[2] + penta[3] + penta[4];
     if (!n || !pairs) return;
@@ -160,7 +165,6 @@ int main(int argc, char** argv) {
             cfg.egdb_pieces = egdb::max_pieces();
         }
         else if (k == "--adjudicate") cfg.adjudicate_score = std::stoi(next());
-        else if (k == "-v") cfg.verbose = true;
         else {
             std::cerr << "unknown option " << k << '\n';
             return 2;
