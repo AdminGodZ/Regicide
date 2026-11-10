@@ -289,6 +289,39 @@ one game per opening and colour, current runner, configurations alternating per 
 Estimate for the rest (Blocks 3–6): about 6,500 games ≈ 5.5–6 h of lock time, 6–8 h of wall time with the other
 agents' 15-minute holds; under the 10-hour limit, so I continue.
 
+## Book mode: KingsRow played in mode 1 (review A, 2026-11-10)
+
+No script sent `set book` before 2026-11-10 20:00. Every engine therefore played in its default book mode:
+**KingsRow 1** ("all kinds of book moves"), Cake, GuiNN and Regicide 3 ("best moves"). All KingsRow numbers before
+that time (census, final validation `bl-f1-kingsrow-*`, Step 4, Block 2, the KingsRow parts of Block 3 and the
+first parts of Block 4) are **against KingsRow in book mode 1** and are labelled so.
+
+Probe (`scripts/book_probe.sh`, raw dialogue `data/book_probe.log`): five fresh KingsRow processes per mode, five
+positions (start; after 9-13 21-17 5-9; 11-15 23-19 8-11; 10-15 21-17 15-18; 11-15 23-19 8-11 22-17), each searched
+twice per process (newgame in between), 0.5 s:
+
+| | read-back | same move in all 5 processes and both searches? | moves (start / 9-13 21-17 5-9 / 11-15 23-19 8-11 / 10-15 21-17 15-18 / … 22-17) |
+|---|---|---|---|
+| KingsRow, default | `reply 1 1` | **no**: the two searches in a process differ in 4 of 5 positions; processes 1–4 repeat the same sequence, process 5 a different one | 10-15 then 11-16 (12-16, 10-15 in process 5) / 22-18, 23-18, 25-21 / 26-23, 27-23, 22-18, 21-17 / 23x14, 22x15 / 3-8, 9-13, 9-14, 4-8 |
+| KingsRow, `set book 3` | `reply 1 3` | **yes** | 11-15 / 25-21 / 27-23 / 22x15 / 9-14 |
+| Cake, `set book 3` | `reply 1 3` | yes (2 processes; unchanged from its default 3) | 11-15 / 25-21 / 22-17 / 22x15 / 3-8 |
+| GuiNN, `set book 3` | `reply 1 3` | no: process 1 and 2 differ in two positions (22x15 / 23x14; 9-14, 4-8 / 3-8) | 11-15 / 25-21 / 22-17 / … |
+| Regicide r10, `set book 3` | `reply 1 3` | (no book before the ballots end) | — |
+
+So mode 1 is why KingsRow never repeated a game; mode 3 makes its book deterministic and it chooses different
+moves (e.g. 11-15 at the start and 27-23 against 11-15 23-19 8-11, which mode 1 never chose in 10 searches).
+GuiNN keeps some variation in mode 3
+(its book loads lazily at the first search of a process, and it may choose among equal book moves).
+
+**Since 2026-11-10 20:16** every run goes through `scripts/bl_run_w.sh` (`bl_run.sh` and `bl_run_x.sh` call it):
+every engine gets `set book 3` as its last option, and before the match a pre-flight check starts each engine
+through the same cbhost with exactly the same option list and requires `get book` to answer `reply 1 3`; otherwise
+the run is refused and nothing is played (the runners themselves do not read replies back). The read-back result is
+in each run's start line in `timeline.txt`. A run counts as finished only if the runner exited 0 (`exit_status` in the
+result directory) and the summary says `Games: N of N scheduled`; the wrapper exits with the runner's status.
+Planned: KingsRow in mode 3 on the production deck (master + r10 + n6c, two runs, runner match-747ab51; the number
+quoted for KingsRow from then on) and EB against KingsRow in mode 3 on H1, H2, H3 (Block 7, 386 games).
+
 ## Opponent configuration (evidence: `data/engine_probe.log`, raw cbhost dialogue)
 
 `scripts/engine_probe.sh` loads each engine through cbhost (b71dfa9, the one all matches use), sends **exactly the

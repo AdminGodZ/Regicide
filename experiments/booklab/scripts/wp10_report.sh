@@ -9,7 +9,9 @@ RUNS=$(cd $R && for r in bl-w10-* bl-f4-* bl-f1-* bl-v11-*; do
 done 2>/dev/null)
 python3 $W/tools/booklab/wp10_report.py --results $R --runs $RUNS --changed $L/changed_entries.txt --pinwalk $W/build-linux/booklab_pinwalk --book $L/book_r10.bin \
   --manifest $W/experiments/holdout/manifest.json --replay $W/build-linux/booklab_replay --scan $L/bin/blk-dbscan \
-  --egdb ~/regicide-data/egdb --out-md $E/report.md --out-tsv $E/games.tsv --pair EB:O --pair EB:E --pair EBN:EB --pair "EBN:EB(final,r8)" --pair "EB11(n6c):EB(final,r8)" --pair "EB11(n8q):EBN" "$@"
+  --egdb ~/regicide-data/egdb --out-md $E/report.md.new --out-tsv $E/games.tsv.new --pair EB:O --pair EB:E --pair EBN:EB --pair "EBN:EB(final,r8)" --pair "EB11(n6c):EB(final,r8)" --pair "EB11(n8q):EBN" "$@" \
+  || { echo "wp10_report.py failed: report.md, games.tsv and the exported records left unchanged" >&2; rm -f $E/report.md.new $E/games.tsv.new; exit 1; }
+mv $E/report.md.new $E/report.md; mv $E/games.tsv.new $E/games.tsv
 for r in $RUNS; do
   [ -f $R/$r/summary.txt ] || continue
   mkdir -p $E/runs/$r; cp $R/$r/summary.txt $R/$r/results.csv $E/runs/$r/
