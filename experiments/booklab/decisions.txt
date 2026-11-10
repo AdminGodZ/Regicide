@@ -1,6 +1,6 @@
 # booklab decisions: FEN | move | force|avoid | evidence
 # Built by assemble.sh from repair outputs (theory.py repair: the opponent's own non-losing defence from the first
-# position where Regicide's move left it). First decision per position wins. 2026-11-10T08:12:54+01:00
+# position where Regicide's move left it). First decision per position wins. 2026-11-10T10:15:02+01:00
 
 # === repairs_r1/ACF_153_Black_Widow_W_cake
 # game 33473 regicide-match/results/ba-deep2b-full-cake/games.pdn: ACF #153 Black Widow (ACF #153 Black Widow: 11-16 23-19 16x23), regicide as W, result B, opponent cake
@@ -990,3 +990,158 @@ B:WK2,K5,K9,24,32:BK10,11,12,15,18 | 18-23 | force | ACF #96 Skull-Cracker regic
 B:WK6,K10,20,21,31:B8,12,19,K22,K32 | 32-28 | force | ACF #96 Skull-Cracker regicide B ply 60: cake defence: 32-28 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
 B:WK2,K10,13,19,20:B3,12,22,K25,K27 | 27-23 | force | ACF #96 Skull-Cracker regicide B ply 60: cake defence: 27-23 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
 B:WK2,5,K10,20,28:B3,12,K18,23,26 | 26-31 | force | ACF #96 Skull-Cracker regicide B ply 60: cake defence: 26-31 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+
+# === repairs_pin/ACF_153_Black_Widow_W_cake
+# game 33473 regicide-match/results/ba-deep2b-full-cake/games.pdn: ACF #153 Black Widow (ACF #153 Black Widow: 11-16 23-19 16x23), regicide as W, result B, opponent cake
+#   ply 3 27x18: cake 26x19 221x 0/219/2
+#   ply 5 32-27: cake -
+#   ply 7 26-23: cake -
+#   ply 9 30-26: cake -
+#   ply 11 24-19: cake -
+#   ply 13 22-17: cake -
+#   ply 15 17x10: cake -
+#   ply 17 18-15: cake -
+#   ply 19 26-22: cake -
+#   ply 21 22x15: cake -
+#   ply 23 25-22: cake -
+#   ply 25 23x14: cake -
+#   ply 27 29x22: cake -
+#   ply 29 22-18: cake -
+#   ply 31 27-23: cake -
+#   ply 33 31-26: cake -
+#   ply 35 18-14: cake -
+#   ply 37 26-22: cake -
+#   ply 39 14-10: cake -
+#   ply 41 23-18: cake -
+#   ply 43 28x19: cake -
+#   ply 45 10-6: cake -
+#   ply 47 15-10: cake -
+#   ply 49 6-2: cake -
+#   ply 51 18x9: cake -
+#   ply 53 22-17: cake -
+#   ply 55 2-6: cake -
+#   ply 57 6-9: cake -
+#   ply 59 19-15: cake -
+#   ply 61 10-6: cake -
+#   ply 63 15-10: cake -
+#   ply 65 10-7: cake -
+# no deviation from cake's non-losing moves within 60 plies after the ballot
+
+# === repairs_pin/ACF_59_B_guinn
+# game 46245 regicide-match/results/bl-c-reg-guinn-h1/games.pdn: ACF #59 (/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:51: 10-14 22-17 7-10), regicide as B, result W, opponent guinn
+# DEVIATION ply 4 (1 after the ballot): regicide played 2-7; guinn: 3-7 28x w/d/l 0/28/0
+#   FEN B:W13,21,23,24,25,26,27,28,29,30,31,32:B1,2,3,4,5,6,8,9,10,11,12,14
+# guinn's defence: 28 non-lost games from the deviation position, 167 positions of our side within 40 plies (stop at <= 8 pieces)
+
+# === repairs_pin/ACF_62_Gemini_I_B_cake
+# game 33297 regicide-match/results/ba-deep2b-full-cake/games.pdn: ACF #62 Gemini I (ACF #62 Gemini I: 10-14 22-17 11-16), regicide as B, result W, opponent cake
+#   ply 4 6x15: cake 6x15 54x 0/54/0
+#   ply 6 15x22: cake 15x22 79x 0/79/0
+# DEVIATION ply 8 (5 after the ballot): regicide played 16-20; cake: 7-10 78x w/d/l 0/78/0
+#   FEN B:W18,21,24,26,27,28,29,30,31,32:B1,2,3,4,5,7,8,9,12,16
+# cake's defence: 78 non-lost games from the deviation position, 442 positions of our side within 40 plies (stop at <= 8 pieces)
+B:W10,21,23,24,25,26,27,28,29,30,31,32:B1,2,3,4,5,6,7,8,9,12,16 | 6x15 | force | ACF #62 Gemini I regicide B ply 4: cake played the same move 54x (w/d/l 0/54/0) on the path to the deviation
+B:W18,21,24,25,26,27,28,29,30,31,32:B1,2,3,4,5,7,8,9,12,15,16 | 15x22 | force | ACF #62 Gemini I regicide B ply 6: cake played the same move 79x (w/d/l 0/79/0) on the path to the deviation
+
+# === repairs_pin/ACF_63_B_guinn
+# game 46281 regicide-match/results/bl-c-reg-guinn-h1/games.pdn: ACF #63 (/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:55: 10-14 22-17 14-18), regicide as B, result W, opponent guinn
+#   ply 4 9x18: guinn 9x18 31x 0/31/0
+#   ply 6 6-9: guinn 6-9 25x 0/25/0
+#   ply 8 9x18: guinn 9x18 25x 0/25/0
+#   ply 10 5-9: guinn 5-9 23x 0/23/0
+# DEVIATION ply 12 (9 after the ballot): regicide played 1-5; guinn: 9-13 22x w/d/l 0/22/0
+#   FEN B:W14,21,24,25,26,27,28,29,31,32:B1,2,3,4,7,8,9,11,12,18
+# guinn's defence: 22 non-lost games from the deviation position, 128 positions of our side within 40 plies (stop at <= 8 pieces)
+B:W14,17,21,24,25,26,27,28,29,30,31,32:B1,2,3,4,5,6,7,8,9,11,12 | 9x18 | force | ACF #63 regicide B ply 4: guinn played the same move 31x (w/d/l 0/31/0) on the path to the deviation
+B:W17,21,23,24,25,27,28,29,30,31,32:B1,2,3,4,5,6,7,8,11,12,18 | 6-9 | force | ACF #63 regicide B ply 6: guinn played the same move 25x (w/d/l 0/25/0) on the path to the deviation
+B:W14,17,21,24,25,27,28,29,30,31,32:B1,2,3,4,5,7,8,9,11,12 | 9x18 | force | ACF #63 regicide B ply 8: guinn played the same move 25x (w/d/l 0/25/0) on the path to the deviation
+B:W17,21,24,25,26,27,28,29,31,32:B1,2,3,4,5,7,8,11,12,18 | 5-9 | force | ACF #63 regicide B ply 10: guinn played the same move 23x (w/d/l 0/23/0) on the path to the deviation
+
+# === repairs_pin/ACF_79_B_cake
+# game 33333 regicide-match/results/ba-deep2b-full-cake/games.pdn: ACF #79 (ACF #79: 10-14 24-19 14-18), regicide as B, result W, opponent cake
+#   ply 4 11x18: cake 11x18 50x 1/49/0
+#   ply 6 9x18: cake 9x18 50x 1/49/0
+#   ply 8 8-11: cake 8-11 88x 0/88/0, 6-9 4x 0/4/0
+#   ply 10 7-10: cake 7-10 88x 0/88/0
+#   ply 12 3-7: cake 3-7 11x 0/11/0
+#   ply 14 6-9: cake 6-9 11x 0/11/0
+#   ply 16 2x9: cake 2x9 11x 0/11/0
+#   ply 18 9x18: cake 9x18 11x 0/11/0
+#   ply 20 10-14: cake 10-14 9x 0/9/0
+# DEVIATION ply 22 (19 after the ballot): regicide played 5-9; cake: 1-6 3x w/d/l 0/3/0, 11-16 1x w/d/l 0/1/0
+#   FEN B:W19,21,24,25,28,30,31,32:B1,4,5,7,11,12,14,18
+# cake's defence: 4 non-lost games from the deviation position, 47 positions of our side within 40 plies (stop at <= 8 pieces)
+B:W15,19,21,23,25,26,27,28,29,30,31,32:B1,2,3,4,5,6,7,8,9,11,12 | 11x18 | force | ACF #79 regicide B ply 4: cake played the same move 50x (w/d/l 1/49/0) on the path to the deviation
+B:W14,19,21,25,26,27,28,29,30,31,32:B1,2,3,4,5,6,7,8,9,12 | 9x18 | force | ACF #79 regicide B ply 6: cake played the same move 50x (w/d/l 1/49/0) on the path to the deviation
+B:W17,19,25,26,27,28,29,30,31,32:B1,2,3,4,5,6,7,8,12,18 | 8-11 | force | ACF #79 regicide B ply 8: cake played the same move 88x (w/d/l 0/88/0) on the path to the deviation
+B:W13,19,25,26,27,28,29,30,31,32:B1,2,3,4,5,6,7,11,12,18 | 7-10 | force | ACF #79 regicide B ply 10: cake played the same move 88x (w/d/l 0/88/0) on the path to the deviation
+B:W13,19,21,26,27,28,29,30,31,32:B1,2,3,4,5,6,10,11,12,18 | 3-7 | force | ACF #79 regicide B ply 12: cake played the same move 11x (w/d/l 0/11/0) on the path to the deviation
+B:W13,19,21,23,27,28,29,30,31,32:B1,2,4,5,6,7,10,11,12,18 | 6-9 | force | ACF #79 regicide B ply 14: cake played the same move 11x (w/d/l 0/11/0) on the path to the deviation
+B:W6,19,21,23,27,28,29,30,31,32:B1,2,4,5,7,10,11,12,18 | 2x9 | force | ACF #79 regicide B ply 16: cake played the same move 11x (w/d/l 0/11/0) on the path to the deviation
+B:W14,19,21,27,28,29,30,31,32:B1,4,5,7,9,10,11,12 | 9x18 | force | ACF #79 regicide B ply 18: cake played the same move 11x (w/d/l 0/11/0) on the path to the deviation
+B:W19,21,24,28,29,30,31,32:B1,4,5,7,10,11,12,18 | 10-14 | force | ACF #79 regicide B ply 20: cake played the same move 9x (w/d/l 0/9/0) on the path to the deviation
+
+# === repairs_pin/ACF_7_B_cake
+# game 33215 regicide-match/results/ba-deep2b-full-cake/games.pdn: ACF #7 (ACF #7: 9-13 22-18 10-15), regicide as B, result W, opponent cake
+#   ply 4 6-10: cake 6-10 220x 0/220/0
+#   ply 6 11-16: cake 11-16 134x 0/134/0
+#   ply 8 16x23: cake 16x23 134x 0/134/0
+#   ply 10 8x15: cake 8x15 134x 0/134/0
+#   ply 12 7x16: cake 7x16 134x 0/134/0
+#   ply 14 4-8: cake 4-8 131x 0/131/0
+#   ply 16 10x19: cake 10x19 121x 0/121/0
+#   ply 18 5-9: cake 5-9 121x 0/121/0
+#   ply 20 16-19: cake 16-19 88x 0/88/0
+# DEVIATION ply 22 (19 after the ballot): regicide played 2-7; cake: 3-7 80x w/d/l 0/80/0, 1-6 1x w/d/l 0/1/0
+#   FEN B:W15,21,24,26,28,29,30,31:B1,2,3,8,9,12,13,19
+# cake's defence: 81 non-lost games from the deviation position, 108 positions of our side within 40 plies (stop at <= 8 pieces)
+B:W18,21,22,23,24,26,27,28,29,30,31,32:B1,2,3,4,5,6,7,8,11,12,13,15 | 6-10 | force | ACF #7 regicide B ply 4: cake played the same move 220x (w/d/l 0/220/0) on the path to the deviation
+B:W18,19,21,22,24,26,27,28,29,30,31,32:B1,2,3,4,5,7,8,10,11,12,13,15 | 11-16 | force | ACF #7 regicide B ply 6: cake played the same move 134x (w/d/l 0/134/0) on the path to the deviation
+B:W11,19,21,22,24,26,27,28,29,30,31,32:B1,2,3,4,5,7,8,10,12,13,16 | 16x23 | force | ACF #7 regicide B ply 8: cake played the same move 134x (w/d/l 0/134/0) on the path to the deviation
+B:W11,18,21,22,24,26,28,29,30,31,32:B1,2,3,4,5,7,8,10,12,13 | 8x15 | force | ACF #7 regicide B ply 10: cake played the same move 134x (w/d/l 0/134/0) on the path to the deviation
+B:W11,21,22,24,26,28,29,30,31,32:B1,2,3,4,5,7,10,12,13 | 7x16 | force | ACF #7 regicide B ply 12: cake played the same move 134x (w/d/l 0/134/0) on the path to the deviation
+B:W18,21,24,26,28,29,30,31,32:B1,2,3,4,5,10,12,13,16 | 4-8 | force | ACF #7 regicide B ply 14: cake played the same move 131x (w/d/l 0/131/0) on the path to the deviation
+B:W15,21,24,26,28,29,30,31,32:B1,2,3,5,8,10,12,13,16 | 10x19 | force | ACF #7 regicide B ply 16: cake played the same move 121x (w/d/l 0/121/0) on the path to the deviation
+B:W15,21,26,28,29,30,31,32:B1,2,3,5,8,12,13,16 | 5-9 | force | ACF #7 regicide B ply 18: cake played the same move 121x (w/d/l 0/121/0) on the path to the deviation
+B:W15,21,24,26,29,30,31,32:B1,2,3,8,9,12,13,16 | 16-19 | force | ACF #7 regicide B ply 20: cake played the same move 88x (w/d/l 0/88/0) on the path to the deviation
+
+# === repairs_pin/ACF_90_B_cake
+# game 33350 regicide-match/results/ba-deep2b-full-cake/games.pdn: ACF #90 (ACF #90: 10-15 21-17 15-18), regicide as B, result W, opponent cake
+#   ply 4 11x18: cake 11x18 47x 0/47/0
+#   ply 6 9x18: cake 9x18 47x 0/47/0
+#   ply 8 8-11: cake 8-11 88x 0/88/0, 6-9 4x 0/4/0
+#   ply 10 7-10: cake 7-10 88x 0/88/0
+#   ply 12 3-7: cake 3-7 11x 0/11/0
+#   ply 14 6-9: cake 6-9 11x 0/11/0
+#   ply 16 2x9: cake 2x9 11x 0/11/0
+#   ply 18 9x18: cake 9x18 11x 0/11/0
+#   ply 20 10-14: cake 10-14 9x 0/9/0
+# DEVIATION ply 22 (19 after the ballot): regicide played 5-9; cake: 1-6 3x w/d/l 0/3/0, 11-16 1x w/d/l 0/1/0
+#   FEN B:W19,21,24,25,28,30,31,32:B1,4,5,7,11,12,14,18
+# cake's defence: 4 non-lost games from the deviation position, 47 positions of our side within 40 plies (stop at <= 8 pieces)
+B:W15,17,23,24,25,26,27,28,29,30,31,32:B1,2,3,4,5,6,7,8,9,11,12 | 11x18 | force | ACF #90 regicide B ply 4: cake played the same move 47x (w/d/l 0/47/0) on the path to the deviation
+B:W14,17,24,25,26,27,28,29,30,31,32:B1,2,3,4,5,6,7,8,9,12 | 9x18 | force | ACF #90 regicide B ply 6: cake played the same move 47x (w/d/l 0/47/0) on the path to the deviation
+
+# === repairs_pin/ACF_96_Skull_Cracker_B_guinn
+# game 48476 regicide-match/results/bl-v2-guinn-a-h2/games.pdn: ACF #96 Skull-Cracker (/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:7: 10-15 22-17 15-19), regicide as B, result W, opponent cake
+#   ply 4 11x18: cake 11x18 37x 0/36/1
+#   ply 6 9x18: cake 9x18 37x 0/36/1
+#   ply 8 6-9: cake 6-9 34x 0/33/1
+#   ply 10 9x18: cake 9x18 34x 0/33/1
+#   ply 12 5-9: cake 5-9 27x 0/26/1
+#   ply 14 1-5: cake 1-5 24x 0/24/0, 9-13 2x 0/1/1
+#   ply 16 9-13: cake 9-13 21x 0/21/0
+#   ply 18 13x22: cake 13x22 21x 0/21/0
+#   ply 20 2-6: cake 2-6 21x 0/21/0
+# DEVIATION ply 22 (19 after the ballot): regicide played 7-11; cake: 12-16 21x w/d/l 0/21/0
+#   FEN B:W14,17,21,25,27,28,31,32:B3,4,5,6,7,8,12,18
+# cake's defence: 21 non-lost games from the deviation position, 124 positions of our side within 40 plies (stop at <= 8 pieces)
+B:W15,17,21,23,25,26,27,28,29,30,31,32:B1,2,3,4,5,6,7,8,9,11,12 | 11x18 | force | ACF #96 Skull-Cracker regicide B ply 4: cake played the same move 37x (w/d/l 0/36/1) on the path to the deviation
+B:W14,17,21,25,26,27,28,29,30,31,32:B1,2,3,4,5,6,7,8,9,12 | 9x18 | force | ACF #96 Skull-Cracker regicide B ply 6: cake played the same move 37x (w/d/l 0/36/1) on the path to the deviation
+B:W17,21,23,25,27,28,29,30,31,32:B1,2,3,4,5,6,7,8,12,18 | 6-9 | force | ACF #96 Skull-Cracker regicide B ply 8: cake played the same move 34x (w/d/l 0/33/1) on the path to the deviation
+B:W14,17,21,25,27,28,29,30,31,32:B1,2,3,4,5,7,8,9,12 | 9x18 | force | ACF #96 Skull-Cracker regicide B ply 10: cake played the same move 34x (w/d/l 0/33/1) on the path to the deviation
+B:W17,21,25,26,27,28,29,31,32:B1,2,3,4,5,7,8,12,18 | 5-9 | force | ACF #96 Skull-Cracker regicide B ply 12: cake played the same move 27x (w/d/l 0/26/1) on the path to the deviation
+B:W14,21,25,26,27,28,29,31,32:B1,2,3,4,7,8,9,12,18 | 1-5 | force | ACF #96 Skull-Cracker regicide B ply 14: cake played the same move 24x (w/d/l 0/24/0) on the path to the deviation
+B:W14,17,25,26,27,28,29,31,32:B2,3,4,5,7,8,9,12,18 | 9-13 | force | ACF #96 Skull-Cracker regicide B ply 16: cake played the same move 21x (w/d/l 0/21/0) on the path to the deviation
+B:W14,17,21,26,27,28,29,31,32:B2,3,4,5,7,8,12,13,18 | 13x22 | force | ACF #96 Skull-Cracker regicide B ply 18: cake played the same move 21x (w/d/l 0/21/0) on the path to the deviation
+B:W14,17,21,27,28,29,31,32:B2,3,4,5,7,8,12,18 | 2-6 | force | ACF #96 Skull-Cracker regicide B ply 20: cake played the same move 21x (w/d/l 0/21/0) on the path to the deviation

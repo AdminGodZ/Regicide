@@ -1,0 +1,8 @@
+# game 33297 regicide-match/results/ba-deep2b-full-cake/games.pdn: ACF #62 Gemini I (ACF #62 Gemini I: 10-14 22-17 11-16), regicide as B, result W, opponent cake
+#   ply 4 6x15: cake 6x15 54x 0/54/0
+#   ply 6 15x22: cake 15x22 79x 0/79/0
+# DEVIATION ply 8 (5 after the ballot): regicide played 16-20; cake: 7-10 78x w/d/l 0/78/0
+#   FEN B:W18,21,24,26,27,28,29,30,31,32:B1,2,3,4,5,7,8,9,12,16
+# cake's defence: 78 non-lost games from the deviation position, 442 positions of our side within 40 plies (stop at <= 8 pieces)
+B:W10,21,23,24,25,26,27,28,29,30,31,32:B1,2,3,4,5,6,7,8,9,12,16 | 6x15 | force | ACF #62 Gemini I regicide B ply 4: cake played the same move 54x (w/d/l 0/54/0) on the path to the deviation
+B:W18,21,24,25,26,27,28,29,30,31,32:B1,2,3,4,5,7,8,9,12,15,16 | 15x22 | force | ACF #62 Gemini I regicide B ply 6: cake played the same move 79x (w/d/l 0/79/0) on the path to the deviation

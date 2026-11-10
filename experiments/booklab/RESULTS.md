@@ -136,6 +136,20 @@ the WP9 test runs (`bl-wp9*`, they start from won positions) and can restrict th
   1,011 of 1,017; KingsRow 226 of 248; GuiNN 347 of 352. Opponent vs opponent: 90 reached, 66 converted (the new games
   are other agents' runs). The scan now also records the longest no-progress run per game.
 
+## WP9 step 4 (running) and round 7
+
+Full acf156 runs with **bl-conv3** (engine 2156359 + round-6 book) and **bl-m11e** (its master base 11e19b4 + the same
+book, no conversion fix), interleaved by half (`scripts/chain_wp9.sh`). (bl-conv2 was built, ctest 17/17, but no run
+was started with it, per the lead's switch to bl-conv3.)
+
+- s4-conv3-cake-h1: 0 / 155 / 1. The loss: **ACF #7 as Black**. With the new engine Regicide's own search played
+  16-20 at ply 20 instead of 16-19 (the move Cake plays there, 88 draws in 88, and the move the old engine played), one
+  ply before the r1 repair's forced line starts. Engine changes can shift unforced moves on the path to a repair.
+- **Round 7 (`decisions.txt`, 920 force lines):** r6 + the pinned path of every repair (`repair_all.py --pin-only`:
+  each move before the deviation that the opponent also played there without losing; 42 lines: #7 9, #79 9, #90 9,
+  #96 9, #63 4, Gemini I 2). DLL `bl-r7c` = engine 2156359 + round-7 book (bench 7,677,736). Per the instruction, only
+  the affected ballot is re-tested (#7, both colours, 4 games vs Cake); step 4 continues with bl-conv3.
+
 ## WP9 step 3: the 362 missed wins against the original opponents (`wp9/report-wp9conv1.md`)
 
 Every position of `missed_wins.txt` played once from that position, Regicide (engine A) with the side that has the

@@ -203,3 +203,7 @@ WP9 wp9conv3 done **Converted: 100 of 100 (100.0%).** 2026-11-10T10:07:55+01:00
 WP9 step4 start 2026-11-10T10:07:58+01:00
 BL wait-lock s4-conv3-cake-h1 regicide:bl-conv3 vs cake deck /mnt/c/regicide-match/jobs/booklab/acf156_h1.txt mt 0.5 c 8 2026-11-10T10:07:58+01:00
 BL start s4-conv3-cake-h1 regicide:bl-conv3 vs cake; bg: datagen-eb1037c:T bash:S datagen-tr5:S  2026-11-10T10:07:58+01:00
+BL end s4-conv3-cake-h1 rc=0 A: +0 =155 -1   score 77.5/156 = 49.68%   draw rate 99.4% Elo (pentanomial, pairs): -2.2 [-6.6, +2.1] 95% CI, score 0.4968 +- 0.0062, LOS 15.71% 2026-11-10T10:14:04+01:00
+BL wait-lock s4-m11e-cake-h1 regicide:bl-m11e vs cake deck /mnt/c/regicide-match/jobs/booklab/acf156_h1.txt mt 0.5 c 8 2026-11-10T10:14:04+01:00
+BL start s4-m11e-cake-h1 regicide:bl-m11e vs cake; bg: datagen-eb1037c:T bash:S datagen-tr5:S  2026-11-10T10:14:04+01:00
+BL wait-lock t7-r7c-cake regicide:bl-r7c vs cake deck /home/admingod/regicide-jobs/booklab/decks/t7-r7c-cake.txt mt 0.5 c 8 2026-11-10T10:15:27+01:00
