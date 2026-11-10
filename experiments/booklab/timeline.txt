@@ -414,3 +414,12 @@ WP10 block 3 done 2026-11-10T19:46:57+01:00
 WP10 block 4 start (E EB) 2026-11-10T19:46:57+01:00
 BL wait-lock w10-b4-E-cake-H2x_0 regicide:bl-456e9b2-deep2b vs cake deck /home/admingod/regicide-jobs/booklab/wp10/parts/H2x_0.txt mt 0.5 c 8 2026-11-10T19:46:57+01:00
 BL start w10-b4-E-cake-H2x_0 regicide:bl-456e9b2-deep2b vs cake; bg: datagen-eb1037c:T bash:T datagen-tr5:T bash:S datagen-tr6:S  2026-11-10T19:46:58+01:00
+BL end w10-b4-E-cake-H2x_0 rc=0 A: +14 =120 -22   score 74.0/156 = 47.44%   draw rate 76.9% Elo (pentanomial, pairs): -17.8 [-29.6, -6.1] 95% CI, score 0.4744 +- 0.0168, LOS 0.14% 2026-11-10T19:55:28+01:00
+BL wait-lock w10-b4-EB-cake-H2x_0 regicide:bl-456e9b2-r10 vs cake deck /home/admingod/regicide-jobs/booklab/wp10/parts/H2x_0.txt mt 0.5 c 8 2026-11-10T19:55:28+01:00
+BL start w10-b4-EB-cake-H2x_0 regicide:bl-456e9b2-r10 vs cake; bg: datagen-eb1037c:T bash:T datagen-tr5:T bash:S datagen-tr6:S  2026-11-10T19:55:28+01:00
+CHAIN PAUSED (lead: KingsRow book mode 3 first) 2026-11-10T19:58:46+01:00
+BL start book-probe 2026-11-10T19:59:58+01:00
+BL end book-probe 2026-11-10T20:00:16+01:00
+CHAIN2 start 2026-11-10T20:16:24+01:00
+BL wait-lock k3-kingsrow-a-h1 regicide:bl-456e9b2-r10 vs kingsrow deck /mnt/c/regicide-match/jobs/booklab/acf156_h1.txt mt 0.5 c 8 2026-11-10T20:16:26+01:00
+BL start k3-kingsrow-a-h1 regicide:bl-456e9b2-r10 vs kingsrow; A: book read-back: 'reply 1 3' (ok) B: book read-back: 'reply 1 3' (ok); bg: datagen-eb1037c:T bash:T datagen-tr5:T bash:S datagen-tr6:S  2026-11-10T20:16:26+01:00

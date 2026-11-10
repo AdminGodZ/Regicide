@@ -15,7 +15,7 @@ mkdir -p $B; rm -rf $B/build $B/build-linux
 git -C $W fetch -q origin
 git -C $W worktree add --quiet --detach $B/src $REF
 cp $BOOK $B/src/src/weights/book.bin
-TC=$RM/tools-src/tools/windows/mingw-clang.cmake
+TC=$W/tools/windows/mingw-clang.cmake   # committed on t3/booklab (tools/windows/README.md)
 export LLVM_MINGW=$(ls -d $RM/toolchain/llvm-mingw-*-ucrt-* | sort | tail -1)
 cmake -S $B/src -B $B/build -G Ninja -DCMAKE_BUILD_TYPE=Release -DCMAKE_TOOLCHAIN_FILE=$TC > $B/cmake.log 2>&1
 nice cmake --build $B/build -j $JOBS --target regicide_cb >> $B/cmake.log 2>&1 || { tail -30 $B/cmake.log; exit 1; }

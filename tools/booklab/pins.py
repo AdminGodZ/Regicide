@@ -69,7 +69,7 @@ def main():
         gi, ply, fen, mv, el, bmv = int(f[0]), int(f[1]), f[2], f[3], f[4] == "1", f[5]
         rows[fen].append((gi, ply, mv, el, bmv))
         per_game[gi].append((ply, fen, mv, el, bmv))
-    pins, conflicts, book_differs, ineligible, in_book, ties = {}, [], [], 0, 0, []
+    pins, conflicts, book_differs, ineligible, in_book, ties, only_lost = {}, [], [], 0, 0, [], 0
     for fen, rs in rows.items():
         bmv = rs[0][4]
         if bmv != "-":
@@ -81,6 +81,10 @@ def main():
         el = [r for r in rs if r[3]]
         if not el:
             ineligible += 1
+            continue
+        # a pin needs at least one won or drawn occurrence: moves met only in lost games are not pinned
+        if all(games[r[0]]["res"] == "L" for r in el):
+            only_lost += 1
             continue
         by = collections.defaultdict(list)
         for r in el:
@@ -111,6 +115,7 @@ def main():
           f"- positions with Regicide to move (ballot end to 8 pieces): {len(rows)} distinct",
           f"- already in book r10 (decision or old-book move): {in_book} (the played move differs in {len(book_differs)})",
           f"- never consulted (inside a run of king moves / database-decided): {ineligible}, left out",
+          f"- met only in lost games: {only_lost}, left out (a pin needs a won or drawn occurrence)",
           f"- **pins: {len(pins)}**; positions with different moves across games: {len(conflicts)}; of these, "
           f"{len(ties)} still tie after worst result, frequency and run a, and the first move met in the frozen input "
           f"order (runs sorted by name, games in file order) wins",
