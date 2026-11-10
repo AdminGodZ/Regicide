@@ -72,6 +72,10 @@ add_executable(perft_test tests/perft_test.cpp)
 target_link_libraries(perft_test PRIVATE regicide_core)
 add_test(NAME perft COMMAND perft_test)
 
+add_executable(ttmove_test tests/ttmove_test.cpp)
+target_link_libraries(ttmove_test PRIVATE regicide_core)
+add_test(NAME ttmove COMMAND ttmove_test)
+
 add_executable(eval_test tests/eval_test.cpp)
 target_link_libraries(eval_test PRIVATE regicide_core)
 add_test(NAME eval_builtin COMMAND eval_test)

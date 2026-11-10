@@ -127,6 +127,9 @@ private:
     std::optional<std::pair<Move, Score>> egdb_root_move(const Position& root, const std::vector<Move>& list) const;
 
     TranspositionTable tt_;
+    // Late-move reductions by depth and move number, filled from `params` by go(). Per engine: engines with
+    // different parameters search at the same time in one process (selfplay).
+    int lmr_[64][64] = {};
     std::vector<std::unique_ptr<struct Worker>> workers_;
     Position root_;
     std::vector<Key> history_;

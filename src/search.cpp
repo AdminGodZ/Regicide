@@ -25,21 +25,6 @@ std::int64_t elapsed_ms(Clock::time_point start) {
 Score score_to_tt(Score s, int ply) { return s >= SCORE_KNOWN_WIN ? s + ply : s <= -SCORE_KNOWN_WIN ? s - ply : s; }
 Score score_from_tt(Score s, int ply) { return s >= SCORE_KNOWN_WIN ? s - ply : s <= -SCORE_KNOWN_WIN ? s + ply : s; }
 
-TTMove encode_move(const MoveList& list, std::size_t idx) {
-    const Move& m = list[idx];
-    int disc = 0;
-    for (std::size_t i = 0; i < idx; ++i) disc += list[i].from == m.from && list[i].to == m.to;
-    return TTMove::make(m.from, m.to, std::min(disc, 3));
-}
-
-int find_move(const MoveList& list, TTMove tm) {
-    if (!tm.valid()) return -1;
-    int disc = tm.disc();
-    for (std::size_t i = 0; i < list.size(); ++i)
-        if (list[i].from == tm.from() && list[i].to == tm.to() && disc-- == 0) return int(i);
-    return -1;
-}
-
 bool is_promotion(const Position& pos, const Move& m) {
     return !(pos.kings() & bit(m.from)) && (bit(m.to) & promo_row(pos.side_to_move()));
 }
@@ -118,18 +103,6 @@ struct Worker {
     int root_depth = 0;
     int completed_depth = 0;
 };
-
-namespace {
-
-int LMR[64][64];
-
-void init_lmr(const SearchParams& P) {
-    for (int d = 1; d < 64; ++d)
-        for (int i = 1; i < 64; ++i)
-            LMR[d][i] = int((P.lmr_base + std::log(double(d)) * std::log(double(i)) * P.lmr_mult) / 100.0);
-}
-
-}  // namespace
 
 void Worker::setup(const Position& r, const std::vector<Key>& game_keys, const std::vector<Move>& root_moves) {
     root = r;
@@ -361,7 +334,7 @@ Score Worker::search(Position& pos, Score alpha, Score beta, int depth, int ply,
         } else {
             int r = 0;
             if (depth >= P.lmr_min_depth && quiet) {
-                r = LMR[std::min(depth, 63)][std::min<int>(int(n), 63)];
+                r = eng.lmr_[std::min(depth, 63)][std::min<int>(int(n), 63)];
                 r += cut_node;
                 r -= pv_node;
                 r -= quiet_score(us, m, ply) / 6000;
@@ -403,7 +376,6 @@ Score Worker::search(Position& pos, Score alpha, Score beta, int depth, int ply,
 
     if (excluding) return best == -SCORE_INF ? alpha : best;  // verification search: don't store
     const Bound bound = best >= beta ? BOUND_LOWER : best_idx >= 0 ? BOUND_EXACT : BOUND_UPPER;
-    // The moves array was permuted by the selection sort, so encode against the same array.
     tt.store(pos.key(), score_to_tt(best, ply), eval, std::max(depth, -8), bound,
              best_idx >= 0 ? encode_move(moves, std::size_t(best_idx)) : TTMove{});
     return best;
@@ -615,7 +587,9 @@ std::optional<std::pair<Move, Score>> Engine::egdb_root_move(const Position& roo
 }
 
 SearchResult Engine::go(const Limits& limits, InfoFn on_info) {
-    init_lmr(params);
+    for (int d = 1; d < 64; ++d)
+        for (int i = 1; i < 64; ++i)
+            lmr_[d][i] = int((params.lmr_base + std::log(double(d)) * std::log(double(i)) * params.lmr_mult) / 100.0);
     stop_ = false;
     tt_.new_search();
 
