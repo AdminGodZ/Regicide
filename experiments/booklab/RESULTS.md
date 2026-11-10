@@ -136,6 +136,24 @@ the WP9 test runs (`bl-wp9*`, they start from won positions) and can restrict th
   1,011 of 1,017; KingsRow 226 of 248; GuiNN 347 of 352. Opponent vs opponent: 90 reached, 66 converted (the new games
   are other agents' runs). The scan now also records the longest no-progress run per game.
 
+## MERGE CANDIDATE: round 10 (`decisions.txt`, `book_booklab.bin`)
+
+**book_r10.bin, sha256 `cb4e2bb2aea4d6de6bc789513baa8b49ae70b06d5d37b064adbf1a6018197a1e`, 987 decisions** = the
+validated r8 (991 decisions, sha256 `63e7fd19481b470abd0e7cca5608d41c9b6927d8457daf24ea074cabf783e022`) minus only:
+- the 3 decisions proved unreachable (r8 lines 633 #59, 846 #62, 1160 #10; exhaustive search with the engine's book
+  eligibility, also at 20M nodes);
+- #34 line 853 (its only line runs through 7x16 at ply 4, which the book no longer plays since r5).
+Record: `removed_decisions.txt` (the withdrawn round-9 list of 173 is kept as `removed_decisions_r9_withdrawn.txt`).
+
+Checks:
+- Reachability under book_r10 (engine's eligibility, witnesses + exhaustive search): 822 proved reachable, **0
+  unreachable**, 165 unknown (kept, per the lead's rule). The 20M-node search on the 170 earlier unknowns proved 8
+  reachable and none unreachable beyond the 3.
+- **Same play as r8:** every position with Regicide to move in the 3,046 games played with the r6/r7/r8 books (WP9
+  steps 3–4, the re-tests, the final validation so far) probed in both books: **110,157 positions, 0 differ**; none of
+  the 4 removed positions occurred. (`book_equiv_r10.md`; re-run when the final validation ends.)
+- r8 reproduces byte-identically from the repair files with the current assemble.sh.
+
 ## Pre-merge review fixes (branch merged with master 456e9b2: ctest 27/27, bench 7,677,736)
 
 - **B1** `movetext.hpp`: two squares one jump apart name that single jump when it is legal (the exact reading wins,
