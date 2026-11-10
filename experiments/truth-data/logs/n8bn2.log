@@ -1,0 +1,48 @@
+net v1 1024 -> 32 -> 32 -> 1, 8 buckets  train 124030528  valid 1000000  K 102.4  lambda 0.50  min pieces 9  device cuda  6103 steps/epoch
+epoch   1  lr 9.99e-04  train 0.456991  valid 0.449840  valid(int) 0.450197  3350493 pos/s
+epoch   2  lr 9.94e-04  train 0.449019  valid 0.448802  valid(int) 0.448293  3574547 pos/s
+epoch   3  lr 9.87e-04  train 0.447301  valid 0.446451  valid(int) 0.447596  3244836 pos/s
+epoch   4  lr 9.76e-04  train 0.446265  valid 0.445841  valid(int) 0.446323  3308364 pos/s
+epoch   5  lr 9.63e-04  train 0.445660  valid 0.445422  valid(int) 0.445872  3316119 pos/s
+epoch   6  lr 9.47e-04  train 0.445229  valid 0.444923  valid(int) 0.445714  3146185 pos/s
+epoch   7  lr 9.28e-04  train 0.444870  valid 0.444839  valid(int) 0.445041  3243994 pos/s
+epoch   8  lr 9.06e-04  train 0.444613  valid 0.444560  valid(int) 0.444939  3556365 pos/s
+epoch   9  lr 8.82e-04  train 0.444451  valid 0.444453  valid(int) 0.444687  3318603 pos/s
+epoch  10  lr 8.56e-04  train 0.444273  valid 0.444263  valid(int) 0.444915  3347771 pos/s
+epoch  11  lr 8.27e-04  train 0.444102  valid 0.444110  valid(int) 0.444620  3291648 pos/s
+epoch  12  lr 7.97e-04  train 0.444020  valid 0.443911  valid(int) 0.444499  3292727 pos/s
+epoch  13  lr 7.64e-04  train 0.443887  valid 0.443889  valid(int) 0.444339  3237058 pos/s
+epoch  14  lr 7.30e-04  train 0.443782  valid 0.443841  valid(int) 0.444163  3323904 pos/s
+epoch  15  lr 6.95e-04  train 0.443727  valid 0.443743  valid(int) 0.444119  3315660 pos/s
+epoch  16  lr 6.59e-04  train 0.443625  valid 0.443656  valid(int) 0.444177  3861069 pos/s
+epoch  17  lr 6.21e-04  train 0.443548  valid 0.443787  valid(int) 0.444909  3359113 pos/s
+epoch  18  lr 5.83e-04  train 0.443400  valid 0.443473  valid(int) 0.443898  3519516 pos/s
+epoch  19  lr 5.45e-04  train 0.443382  valid 0.443427  valid(int) 0.444378  3488196 pos/s
+epoch  20  lr 5.06e-04  train 0.443304  valid 0.443294  valid(int) 0.443929  3501732 pos/s
+epoch  21  lr 4.67e-04  train 0.443236  valid 0.443439  valid(int) 0.444187  3799223 pos/s
+epoch  22  lr 4.28e-04  train 0.443183  valid 0.443315  valid(int) 0.443971  3477492 pos/s
+epoch  23  lr 3.90e-04  train 0.443119  valid 0.443139  valid(int) 0.443963  3448216 pos/s
+epoch  24  lr 3.53e-04  train 0.443068  valid 0.443113  valid(int) 0.443721  3458669 pos/s
+epoch  25  lr 3.16e-04  train 0.442958  valid 0.443029  valid(int) 0.443530  3510292 pos/s
+epoch  26  lr 2.81e-04  train 0.442933  valid 0.443007  valid(int) 0.443556  3899866 pos/s
+epoch  27  lr 2.47e-04  train 0.442877  valid 0.442953  valid(int) 0.443346  3350511 pos/s
+epoch  28  lr 2.14e-04  train 0.442857  valid 0.442931  valid(int) 0.443434  3442032 pos/s
+epoch  29  lr 1.84e-04  train 0.442806  valid 0.442886  valid(int) 0.443712  3522931 pos/s
+epoch  30  lr 1.55e-04  train 0.442738  valid 0.442831  valid(int) 0.443666  3451412 pos/s
+epoch  31  lr 1.29e-04  train 0.442668  valid 0.442804  valid(int) 0.443630  3998865 pos/s
+epoch  32  lr 1.05e-04  train 0.442691  valid 0.442771  valid(int) 0.443597  3717984 pos/s
+epoch  33  lr 8.31e-05  train 0.442692  valid 0.442742  valid(int) 0.443462  3892635 pos/s
+epoch  34  lr 6.40e-05  train 0.442588  valid 0.442708  valid(int) 0.443309  3322826 pos/s
+epoch  35  lr 4.77e-05  train 0.442559  valid 0.442681  valid(int) 0.443452  3401331 pos/s
+epoch  36  lr 3.43e-05  train 0.442500  valid 0.442666  valid(int) 0.443339  3794259 pos/s
+epoch  37  lr 2.37e-05  train 0.442527  valid 0.442655  valid(int) 0.443288  3257060 pos/s
+epoch  38  lr 1.61e-05  train 0.442560  valid 0.442648  valid(int) 0.443290  3389345 pos/s
+epoch  39  lr 1.15e-05  train 0.442758  valid 0.443233  valid(int) 0.443571  [qat]  912376 pos/s
+epoch  40  lr 1.00e-05  train 0.442816  valid 0.443230  valid(int) 0.443296  [qat]  914383 pos/s
+wrote /home/admingod/regicide-truth-work/runs/n8bn2/net_e040.nnue
+== n8bn2 export check (100k positions of the shared validation set), final net_e040.nnue, rc=0
+positions 100000  distinct engine scores 1416  range [-736, 726]
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 8.84, max 73.61 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK

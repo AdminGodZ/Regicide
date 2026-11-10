@@ -1,0 +1,1 @@
+Copied from ~/regicide-match/results/pt-s2-a2-cake: a run by the ponder agent (jobs/ponder/run_p.sh, config A: DLL ponder-df7780a, built-in n6c, threads 1, ponder 0, book 0, acf156 x 2, 0.5 s/move). Used here as n6c's reference vs Cake.

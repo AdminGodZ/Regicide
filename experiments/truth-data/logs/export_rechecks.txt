@@ -1,0 +1,45 @@
+== n8a rc=0 matched-file-is-checkpoint-export=yes
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 5.31, max 47.92 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK
+== n8ak rc=0 matched-file-is-checkpoint-export=yes
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 6.93, max 53.79 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK
+== n8b rc=0 matched-file-is-checkpoint-export=yes
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 4.68, max 57.44 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK
+== n8bk rc=0 matched-file-is-checkpoint-export=yes
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 4.72, max 60.53 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK
+== n8bn rc=0 matched-file-is-checkpoint-export=yes
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 13.11, max 96.84 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK
+== n8bk130 rc=0 matched-file-is-checkpoint-export=yes
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 6.98, max 69.54 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK
+== n8bl6 rc=0 matched-file-is-checkpoint-export=yes
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 7.29, max 70.75 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK
+== n8bl7 rc=0 matched-file-is-checkpoint-export=yes
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 9.65, max 83.99 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK
+== n8p rc=0 matched-file-is-checkpoint-export=yes
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 6.77, max 78.26 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK

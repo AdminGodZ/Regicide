@@ -240,3 +240,27 @@ TR matchlock removed, timing lock released (rc=0) 2026-11-10T14:06:48+01:00
 TR match w1064-vs-n8bn end: Elo (pentanomial, pairs): -0.9 [-4.6, +2.9] 95% CI, score 0.4988 +- 0.0054, LOS 32.73% 2026-11-10T14:06:48+01:00
 TR match w2064-vs-n8bn queued 2026-11-10T14:06:48+01:00
 TR train n8q start: --data /home/admingod/regicide-data/truth/gen1_n10k_e2.bin --data /home/admingod/regicide-data/truth/gen1b_n10k_e2.bin --data /home/admingod/regicide-data/truth/gen1c_n10k_e2.bin --data /home/admingod/regicide-data/truth/gen2a_n10k_e2.bin --data /home/admingod/regicide-data/truth/gen2b_n10k_e2.bin --data /home/admingod/regicide-data/truth/gen3a_n10k_e2.bin --data /home/admingod/regicide-data/truth/gen3b_n10k_e2.bin --data /home/admingod/regicide-data/truth/gen3c_n10k_e2.bin --data /home/admingod/regicide-data/truth/gen3d_n10k_e2.bin --data /home/admingod/regicide-data/truth/gen4a_n10k_e2.bin --data /home/admingod/regicide-data/truth/gen5a_n50k_e2.bin --data /home/admingod/regicide-data/truth/gen5a_n50k_e2.bin --data /home/admingod/regicide-data/truth/gen5a_n50k_e2.bin --lambda 0.5 --min-pieces 2 --k 102.39766405914318 --groups 2,9 --group-weights 1,9 2026-11-10T14:07:06+01:00
+TR train n8q end rc=0 2026-11-10T14:32:11+01:00
+TR train n8q exported /home/admingod/regicide-truth-work/n8q.nnue: simulated int (training) vs engine: max |diff| 1.00 OK 2026-11-10T14:32:28+01:00
+TR sanity n8q: | `B:WK20:BK6,K9,K11` (3 kings vs 1) | win | 517 | 0 | 519 | 2026-11-10T14:32:29+01:00
+TR match n8q-vs-n8bn queued 2026-11-10T14:32:29+01:00
+TR embed test n8q (build rc=0): 100% tests passed out of 27  bench: 7833556 nodes 3507 ms 2233691 nps 2026-11-10T14:33:46+01:00
+TR embed test n8bn (build rc=0): 96% tests passed, 1 tests failed out of 27 The following tests FAILED: 	  2 - search (Failed) Errors while running CTest  bench: 9359450 nodes 3931 ms 2380933 nps 2026-11-10T14:33:48+01:00
+TR timing lock + matchlock taken; bg: datagen-eb1037c:T bash:T datagen-tr5:T bash:T datagen-tr6:T  2026-11-10T14:35:29+01:00
+TR pilot2 start (gen6b stopped) 2026-11-10T14:44:28+01:00
+TR matchlock removed, timing lock released (rc=0) 2026-11-10T14:49:39+01:00
+TR match w2064-vs-n8bn end: Elo (pentanomial, pairs): -6.3 [-10.2, -2.3] 95% CI, score 0.4910 +- 0.0056, LOS 0.09% 2026-11-10T14:49:39+01:00
+TR timing lock + matchlock taken; bg: datagen-eb1037c:T bash:T datagen-tr5:Z bash:T datagen-tr6:T  2026-11-10T14:49:47+01:00
+TR matchlock removed, timing lock released (rc=0) 2026-11-10T15:00:39+01:00
+TR match n8q-vs-n8bn end: Elo (pentanomial, pairs): +1.5 [-2.1, +5.1] 95% CI, score 0.5022 +- 0.0051, LOS 79.70% 2026-11-10T15:00:39+01:00
+TR match n8q-vs-n6c-nodb queued 2026-11-10T15:00:39+01:00
+TR train n8bn2 start: --data /home/admingod/regicide-data/truth/gen1_n10k_e2.bin --data /home/admingod/regicide-data/truth/gen1b_n10k_e2.bin --data /home/admingod/regicide-data/truth/gen1c_n10k_e2.bin --data /home/admingod/regicide-data/truth/gen2a_n10k_e2.bin --data /home/admingod/regicide-data/truth/gen2b_n10k_e2.bin --data /home/admingod/regicide-data/truth/gen3a_n10k_e2.bin --data /home/admingod/regicide-data/truth/gen3b_n10k_e2.bin --data /home/admingod/regicide-data/truth/gen3c_n10k_e2.bin --data /home/admingod/regicide-data/truth/gen3d_n10k_e2.bin --data /home/admingod/regicide-data/truth/gen4a_n10k_e2.bin --data /home/admingod/regicide-data/truth/gen5a_n50k_e2.bin --data /home/admingod/regicide-data/truth/gen5a_n50k_e2.bin --data /home/admingod/regicide-data/truth/gen5a_n50k_e2.bin --lambda 0.5 --min-pieces 9 --k 102.39766405914318 --seed 2 2026-11-10T15:00:50+01:00
+TR train n8bn2 end rc=0 2026-11-10T15:22:54+01:00
+TR train n8bn2 exported /home/admingod/regicide-truth-work/n8bn2.nnue: simulated int (training) vs engine: max |diff| 1.00 OK 2026-11-10T15:23:14+01:00
+TR match n8bn2-vs-n6c queued 2026-11-10T15:23:14+01:00
+TR timing lock + matchlock taken; bg: datagen-eb1037c:T bash:T datagen-tr6:T  2026-11-10T15:31:01+01:00
+TR queue change (lead): n8bn no-db, n8c vs n8bn and P5's 0.5 s chunks move to the Arch laptop (t3/search-lab); kept: n8q vs n6c no-db (running), n8bn2 vs n6c (queued) 2026-11-10T15:43:55+01:00
+TR matchlock removed, timing lock released (rc=0) 2026-11-10T16:03:41+01:00
+TR timing lock + matchlock taken; bg: datagen-eb1037c:T bash:T datagen-tr6:T  2026-11-10T16:03:52+01:00
+TR matchlock removed, timing lock released (rc=0) 2026-11-10T16:14:59+01:00
+TR match n8bn2-vs-n6c end: Elo (pentanomial, pairs): +3.0 [-0.9, +7.0] 95% CI, score 0.5043 +- 0.0057, LOS 93.25% 2026-11-10T16:14:59+01:00

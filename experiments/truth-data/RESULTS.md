@@ -11,12 +11,78 @@
 results from the database; E3 n8c = E2 with re-searched scores (proven ones exact). Every net is matched against n6c
 with the standard setup.
 
-**Status (2026-11-10 10:05):** Phase 1: **n8bn (E2: database-relabelled game results, ≥ 9-piece records, n6c's K)
-beats n6c by +4.5 [+0.5, +8.6] at 0.1 s/move and +4.5 [+1.6, +7.4] at 0.5 s/move.** Phase 2:
-- P1 done: against Cake and KingsRow with the book off, no visible difference from n6c.
-- P3 done on the E2 data: no sweep beats n8bn.
-- P2 (n8c): waiting for gen4a's rescore.
-- P4 (E5 datagen) running.
+**Status (2026-11-10 16:30):**
+- **Phase 1:** n8bn (E2: database-relabelled game results, ≥ 9-piece records, n6c's K) beats n6c by +4.5 [+0.5, +8.6]
+  at 0.1 s/move and +4.5 [+1.6, +7.4] at 0.5 s/move. One seed, best of the recipes tried; see "Reading the evidence".
+  Its seed-2 replicate n8bn2 scores +3.0 [−0.9, +7.0].
+- **Phase 2:**
+  - P1: against Cake and KingsRow with the book off, no difference from n6c shown.
+  - P2: E3 (n8c) shows no gain over E2.
+  - P3: no sweep beats n8bn.
+  - T4: **n8q** (n8bn plus 10% ≤ 8-piece records) keeps the endings sane without the database and passes both match
+    conditions. It is the built-in-net candidate (commit bd1c5c0, not merged until the Book Lab games are in).
+  - P5: the wide nets are slower and lose or tie at 0.1 s; their 0.5 s matches moved to the Arch laptop.
+  - P4 (E5 datagen) running.
+
+## Reading the evidence (audit, 2026-11-10)
+
+### What the n8bn result rests on
+
+- **One seed, best of many.** n8bn's +4.5 [+0.5, +8.6] at 0.1 s is the best of **five recipes** that existed when it
+  was played (n8a, n8ak, n8b, n8bk, n8bn) and of **eleven** by now (+ n8bk130, n8bl6, n8bl7, n8p, n8p2, n8c). It comes
+  from **one training seed**.
+- **The 0.1 s result alone does not survive the selection:** SE ≈ 2.07 Elo, z = 2.18, one-sided p = 0.015; ×11
+  (Bonferroni) gives 0.16.
+- **The 0.5 s confirmation** is a second measurement at another time control, **on the same 805 openings, not a new
+  opening sample.** Its games are new (searches are not deterministic), and it was taken after n8bn had been chosen.
+  - Result: +4.5 [+1.6, +7.4]: SE ≈ 1.48, z = 3.04, p = 0.0012.
+  - It stays significant after allowing for eleven candidates (p ≈ 0.013).
+- **Training seed replicate (audit):** n8bn2 = n8bn's exact recipe with training seed 2 (n8bn: seed 1), at 0.1 s
+  against n6c on the same engine and openings.
+
+| Net | Seed | vs n6c at 0.1 s | Pentanomial |
+|---|---|---|---|
+| n8bn | 1 | +4.5 [+0.5, +8.6] | [0 36 712 57 0] |
+| n8bn2 | 2 | +3.0 [−0.9, +7.0] | [0 37 717 51 0] |
+| both seeds pooled (1,610 pairs) | | +3.8 [+0.9, +6.6], LOS 99.5% | [0 73 1429 108 0] |
+
+- **Reading:** the second seed also lands above zero (LOS 93%). The two seeds differ by 1.5 Elo, which is inside the
+  noise. The recipe's gain is real but probably nearer +3 to +4 than n8bn's single estimate.
+- **What the evidence does not cover:** other openings.
+
+### Resolution of the tests
+
+Differences smaller than the following are not resolved. A result inside them reads "no difference shown at this
+resolution", not "equal".
+- One self-play test of 805 pairs at 0.1 s has a 95% CI of about ±4 Elo, so it detects a true difference of about
+  **5–6 Elo** (80% power).
+- Comparing two nets through their separate results against n6c combines two such errors: about **8 Elo**.
+- The 312-game runs against Cake, KingsRow and GuiNN have CIs of ±2 to ±10 Elo, depending on the number of decisive
+  games: about **6–17 Elo**.
+
+| Claim | Evidence | Resolution |
+|---|---|---|
+| n8bn beats n6c | +4.5 (0.1 s), +4.5 (0.5 s); replicate +3.0 | shown (above) |
+| K 102.4 best | K 43.4 +1.1, 77.4 +3.5, 102.4 +4.5, 130 +3.2 (each vs n6c) | no difference shown between 77, 102 and 130 at ~8 Elo |
+| λ 0.5 best | λ 0.6 −0.2, 0.7 +3.0 vs n6c | no difference shown at ~8 Elo |
+| E3 adds nothing to E2 | n8c +0.4 vs n6c (n8bn +4.5) | no difference shown at ~8 Elo; the direct n8c–n8bn match moved to the Arch laptop (see P2) |
+| phase-balanced = n8bn | n8p vs n8bn +0.4 [−3.6, +4.5], n8p2 −0.4 [−4.2, +3.3] | no difference shown at ~5–6 Elo |
+| removing ≤ 8 pieces is neutral | n8ak +0.9 [−2.7, +4.4] | no difference shown at ~5–6 Elo |
+| n8q = n8bn with the database | n8q vs n8bn +1.5 [−2.1, +5.1] | no difference shown at ~5–6 Elo |
+| nets do not differ vs GuiNN/Cake | 16–19 wins vs GuiNN, 5–7 losses vs Cake | no difference shown at ~6–17 Elo |
+
+**Measurements and forecasts are kept apart.** Numbers in tables are measurements. The E5 finishing time is a forecast
+and is marked as one.
+
+### Data for re-deriving the tables (`data/`)
+
+- `pilot_2026-11-09.csv.gz`: the E0 pilot's per-record output (old label rule).
+- `pilot2_label_rule.csv.gz`: the same 200k records with the label.hpp rule.
+- `heldout_proven_*_9_12.bin.gz`: the held-out proven set (DataRecords); `db_truth_per_record.csv.gz`: every net's
+  eval on every record of it.
+- `e5_census.txt`, `e5_seed_provenance.txt` and `seeds_real_6_30.txt.gz`: the E5 production data and where its seeds
+  come from.
+- `matches/ref-ponder-*`: the ponder agent's two n6c reference runs against Cake, each with a `NOTE.txt` on its origin.
 
 ## E0: census (no training)
 
@@ -155,8 +221,8 @@ records 200000 (14092 from 50k-node files)  budgets 10000, 50000, 200000
 - **The stored search scores were not wrong in sign:** 17 of 88k proven positions had a stored score of the wrong
   sign. Their size is moderate: median +236 in the proven winner's direction, 41% below +200. Under n6c's target
   (λ 0.5, K 102) the average target of a proven win was 0.90 (0.93 with the E2 result); E3 makes it 1.0.
-- **The stored game result was the wrong label:** it disagrees with the proof in 17.5% of proven 9–14-piece positions
-  of the 10k files (22% at 9 pieces) and 3.4% of gen5. The E2 relabel removes most of it (3.9% and 1.3% remain: games
+- **The stored game result was the wrong label:** it disagrees with the proof in 18.5% of proven 9–14-piece positions
+  of the 10k files (17.5% over all files) (22% at 9 pieces) and 3.4% of gen5. The E2 relabel removes most of it (3.9% and 1.3% remain: games
   in which the self-play lost a proven win between the position and its first ≤ 8-piece record).
 - **Proofs are reliable:** of 60,954 positions proven at 10k nodes, 1 has the opposite sign at 200k; of 76,028 proven
   at 50k, none.
@@ -201,7 +267,6 @@ moves every pruning margin of the search. So each step was also trained at a fix
 | n8b (E2) | relabelled (`*_e2.bin`) | 9 | 43.4 (refit) | 124.0M | 0.350709 |
 | n8bk (E2, K fixed) | relabelled | 9 | 77.4 (n8a's) | 124.0M | 0.409797 |
 | n8bn (E2, K fixed) | relabelled | 9 | 102.4 (n6c's) | 124.0M | 0.443396 |
-<!-- E3NETS -->
 
 ¹ On each net's own validation targets (different K and labels), so not comparable between nets.
 
@@ -212,7 +277,6 @@ moves every pruning margin of the search. So each step was also trained at a fix
 | n8b (E2, K 43.4 refit) vs n6c | 273 / 1069 / 268 | [0 36 728 41 0] | +1.1 [−2.6, +4.8] | 71.6% |
 | n8bk (E2, K 77.4) vs n6c | 283 / 1060 / 267 | [0 42 705 58 0] | +3.5 [−0.8, +7.7] | 94.5% |
 | **n8bn (E2, K 102.4) vs n6c** | 276 / 1079 / 255 | [0 36 712 57 0] | **+4.5 [+0.5, +8.6]** | **98.6%** |
-<!-- E3MATCHES -->
 
 ### Confirmation at 0.5 s/move: n8bn
 
@@ -227,7 +291,7 @@ other agents' runs in between; my background jobs stopped during each chunk). Po
 | d | 196 | 68 / 261 / 63 | [0 3 185 8 0] | +4.4 [−1.3, +10.2] |
 | **pooled** | **805** | **267 / 1097 / 246** | **[0 13 758 34 0]** | **+4.5 [+1.6, +7.4]**, LOS 99.9% |
 
-**n8bn is confirmed: +4.5 [+1.6, +7.4] at 0.5 s/move**, the same size as at 0.1 s (+4.5 [+0.5, +8.6]). The longer
+**n8bn is confirmed: +4.5 [+1.6, +7.4] at 0.5 s/move**, the same size as at 0.1 s (+4.5 [+0.5, +8.6]). This is a second measurement at another time control on the **same 805 openings**, not a new opening sample (see "Reading the evidence"). The longer
 time control has fewer decisive pairs (47 of 805 against 93), and 34 of them are n8bn's.
 
 ### Database-truth metric
@@ -334,8 +398,9 @@ gen4a rescored**:
 | n8c (E3) vs n6c | 263 / 1086 / 261 | [0 38 727 40 0] | +0.4 [−3.3, +4.2] | 59.0% |
 | n8bn (E2) vs n6c, for comparison | 276 / 1079 / 255 | [0 36 712 57 0] | +4.5 [+0.5, +8.6] | 98.6% |
 
-**E3 does not add to E2.** n8c scores +0.4, below n8bn's +4.5, so the n8c–n8bn match was not played (rule: only if
-n8c's point estimate beat +4.5).
+**No gain from E3 over E2 shown.** n8c scores +0.4 against n8bn's +4.5 vs n6c; through n6c this comparison
+resolves only about 8 Elo. The direct match n8c vs n8bn (805 pairs) was not played here; the lead moved it to the
+Arch laptop (origin/t3/search-lab, "Net matches (for truth-data)").
 - n8c has the best database-truth numbers of all nets: sign agreement 99.84%, proven wins below +30 0.58%.
 - Its per-group loss on the E2 targets equals n8bn's (0.46488 against 0.46465).
 - The sharper targets on proven positions are learnt, but they do not make the net play better than the relabelled
@@ -362,8 +427,8 @@ WLD database).
 | n6c (built-in) vs GuiNN, reference | 19 / 290 / 3 | +17.8 [+7.5, +28.2] |
 
 **Reading:**
-- **GuiNN:** with the conversion search all three nets beat GuiNN by +16 to +18 Elo, and the nets do not differ (16–19
-  wins, 2–3 losses). The gain comes from the conversion search, not from the truth-data nets.
+- **GuiNN:** with the conversion search all three nets beat GuiNN by +16 to +18 Elo, and no difference between the nets is shown
+  (16–19 wins, 2–3 losses; these 312-game runs resolve about 6–17 Elo). The gain comes from the conversion search, not from the truth-data nets.
 - **Cake:** still no wins. n8bn and n8c lose 5 games, n6c 7, which is within noise.
 - **The 0/307/5 streak:** six config-A Cake runs in a row (n6c ×2 on the ponder DLL, n8bn ×3, n8c) ended 0/307/5 on
   partly different ballots. The n6c reference on the new DLL (0/305/7) breaks it, so it was chance, not a harness
@@ -395,9 +460,11 @@ one change each. They are matched at 0.1 s/move, 805 pairs, on `rtruth.so` (fcf6
 Earlier steps of the same family, at λ 0.5: K 43.4 +1.1, K 77.4 +3.5, K 102.4 +4.5, K 130 +3.2.
 
 **No sweep beats n8bn.**
-- K: the trend upwards stops at 102.4 (K 130 +3.2).
-- λ: 0.6 and 0.7 do not improve; 0.6 is the weakest of all, so λ around 0.5 stays, with no clear trend.
-- Phase-balanced sampling: equal to n8bn head to head in both splits.
+- K: no gain beyond 102.4 shown (K 130 +3.2).
+- λ: 0.6 and 0.7 show no gain over 0.5 (0.6 has the lowest point estimate, −0.2, inside the others' intervals).
+- Phase-balanced sampling: no difference from n8bn shown head to head, in either split.
+- **Resolution:** an 805-pair test detects about 5–6 Elo, and a comparison through two results against n6c about
+  8 Elo. None of these differences reaches that, so all read "no difference shown at this resolution".
 - The differences between these nets (±2–4 Elo) are inside the CIs of single 805-pair runs.
 
 **How phase-balanced sampling works** (`nnue.Data(groups=…, weights=…)`, trainer `--groups 9,13,17 --group-weights …`):
@@ -478,57 +545,205 @@ positions per CPU-hour** as gen5a's settings.
 processes running, **ETA about 14 h of running, i.e. 2026-11-11 around 03:00–06:00** depending on match pauses.
 Then n9a (n8bn's recipe + this data ×3) against n8bn.
 
-<!-- P5 -->
+### T4: a built-in net that stays sane without the database (n8q)
+
+**Problem (lead, 2026-11-10).** A net trained only on ≥ 9-piece records has never seen an ending. n8bn evaluates three
+kings against one at 0, and with n8bn as the built-in net the engine's `search` test fails (reproduced: ctest 26/27). With
+the 8-piece database loaded that never matters. Without it (the command-line engine without the 11 GB database, the
+Mac builds, the engine downloaded alone) every ending would be played blind.
+
+**n8q.** n8bn's recipe and data (E2 relabelled, K 102.4, λ 0.5, seed 1, 40 × 100M), plus the relabelled ≤ 8-piece
+records as their own sampling group:
+- `--min-pieces 2 --groups 2,9 --group-weights 1,9`: exactly 1,638 of every 16,384 records (10%) come from the
+  174.8M records with 2–8 pieces;
+- the other 14,746 come from the 124.0M records with ≥ 9 pieces in their natural proportions, so within ≥ 9 pieces n8q
+  samples exactly as n8bn;
+- the ≤ 8-piece results are database-true by construction (E2 relabels each game from its first ≤ 8-piece record);
+- export exact (simulated vs engine 1.00); sha256 `681549690f165eed94edafd958b06f2f76cf44ab5fba6654c82eab183efe9a24`.
+
+**(a) With the database, against n8bn** (0.1 s, 805 pairs, `rtruth.so` fcf6acb):
+n8q vs n8bn +1.5 [−2.1, +5.1] (+265 =1087 −258, [0 32 734 39 0]). No difference shown:
+the 10% share costs nothing measurable, so n8q5 (5%) was not needed.
+
+**(b) Without the database, against n6c** (the same `.so` in a directory without an `egdb` folder: `get dbpieces`
+answers 0; same openings and settings): n8q vs n6c **+2.8 [−1.2, +6.8]** (+289 =1045 −276, [0 39 714 52 0]). It does
+not lose. The n8bn-vs-n6c no-database match was moved to the Arch laptop (lead), so how much the blind net loses
+there is measured on t3/search-lab.
+
+**(c) Static evals on endings** (no database involved; `scripts/jobs/sanity.sh`): three kings against one, and 400
+random 4–6-piece records of gen5a with their database values (side to move):
+
+| position | database (stm) | n6c | n8bn | n8q |
+|---|---|---|---|---|
+| `B:WK20:BK6,K9,K11` (3 kings vs 1) | win | 517 | 0 | 519 |
+| `W:WK20:BK6,K9,K11` (3 kings vs 1) | loss | -392 | -12 | -467 |
+| 62 random 4-6-piece database wins | win | mean +236, 98% > +100 | mean +2, 0% > +100 | mean +247, 97% > +100 |
+| 277 random 4-6-piece database draws | draw | mean +1, 100% within ±50 | mean -2, 100% within ±50 | mean +1, 99% within ±50 |
+| 61 random 4-6-piece database losses | loss | mean -213, 84% < -100 | mean -7, 0% < -100 | mean -238, 92% < -100 |
+| `B:WK18,30:B3,12,K19,21` | win | 438 | 2 | 385 |
+| `B:WK5,K15:BK7,12,17,K25` | win | 472 | 2 | 376 |
+| `W:WK16,K18,20,22:BK10,K32` | win | 405 | 5 | 480 |
+| `B:WK6,K8:B15,K18,23,26` | win | 405 | 5 | 355 |
+| `B:WK6,K11:B12,K22,23,25` | win | 339 | 3 | 377 |
+| `W:W8,K16,K17,32:BK18,K26` | win | 497 | 4 | 433 |
+| `B:WK6,K7,16:BK14,19,22` | draw | 3 | -1 | 3 |
+| `B:WK1,K6,K7:BK17,K18,K27` | draw | 1 | -3 | 1 |
+| `B:WK1,K17:BK23,K32` | draw | 2 | 0 | 2 |
+| `B:WK2,13,16:B19,24,K25` | draw | 4 | -2 | 4 |
+| `B:WK5,6,K14:BK15,24,K30` | draw | 1 | -1 | 2 |
+| `B:WK9,K15,31:BK17,K21,K23` | draw | 7 | -1 | 17 |
+
+n8q is as sane as n6c here and sharper on database losses (92% scored below −100 against 84%). n8bn is blind (≈ 0
+everywhere).
+
+**Embedded** (`src/weights/net.bin` = n8q, commit bd1c5c0, not merged until the Book Lab games with the new book are
+in):
+- ctest **27/27**;
+- bench **7,833,556** (default, book on; 8,241,422 with the book off); with n6c it was 7,677,736;
+- with n8bn embedded the `search` test fails (26/27).
+
+### P5: wide nets (on n8bn's recipe and E2 data)
+
+- **Nets:** n8bn's recipe (E2, ≥ 9 pieces, K 102.4, λ 0.5, 40 × 100M) with a wider net:
+  - w2032 = FT 2048, L1 32;
+  - w1064 = FT 1024, L1 64;
+  - w2064 = FT 2048, L1 64.
+- **Training and export:** after the trainer fix for wide nets (QAT sums in float64; check_export fails above 2
+  centi-men simulated-vs-engine). All three exports are exact; simulated vs engine 1.00.
+- **Build:** one `rft2048.so` (`REGICIDE_NNUE_MAX_FT=2048`, c0dde2e; engine sources 9b4cfed = master 2efe11a merged)
+  for both sides; n8bn through `set evalfile` on the same build.
+
+**Speed:** `bench` with each net through `set evalfile`, 3 runs each under the timing lock + matchlock, median.
+
+| Net | nodes/s | vs n8bn | 0.1 s vs n8bn (805 pairs): W / D / L | Pentanomial | Elo [95% CI] |
+|---|---|---|---|---|---|
+| n8bn (v1 1024/32) | 3,228,194 | — | | | |
+| w1064 (1024/64) | 2,492,847 | −22.8% | 268 / 1070 / 272 | [0 42 725 38 0] | −0.9 [−4.6, +2.9] |
+| w2032 (2048/32) | 2,169,969 | −32.8% | 265 / 1073 / 272 | [0 51 710 44 0] | −1.5 [−5.6, +2.6] |
+| w2064 (2048/64) | 1,826,125 | −43.4% | 255 / 1071 / 284 | [0 58 718 29 0] | **−6.3 [−10.2, −2.3]** |
+
+**At 0.1 s:**
+- w1064 and w2032 show no difference from n8bn (~5–6 Elo resolution).
+- w2064 loses: it is 43% slower.
+- None pays for its speed at this time control.
+- The 0.5 s matches decide, as agreed. They moved to the Arch laptop (lead, 2026-11-10): see
+  `experiments/search-lab/RESULTS.md`, "Net matches (for truth-data)", on origin/t3/search-lab, when they exist.
 
 ## What holds and what does not
 
-- **Wrong targets: yes, for the game result.** 15% of all games (18–24% of gen1–gen3a) end with a result the database
-  contradicts, almost always a database win that the self-play drew. On proven 9–14-piece positions the stored result
-  is wrong 17.5% of the time (10k files). Replacing it with the database value (E2) is the step that gains:
-  n8bn +4.5 [+0.5, +8.6] at 0.1 s and +4.5 [+1.6, +7.4] at 0.5 s/move.
-- **Wrong positions: not by themselves.** Dropping the ≤ 8-piece records (58.5% of the data) is neutral at n6c's K
-  (n8ak +0.9 [−2.7, +4.4]) and costs about 4 Elo if K is refitted (n8a −3.2). The net does not seem to be hurt by
-  spending capacity on positions it never sees in search. Dropping them still halves the data and makes E2/E3 cleaner,
-  and every gain here was measured with them dropped.
-- **The stored search scores were not wrong in sign.** On positions the database search proves, the stored score had
-  the wrong sign 17 times in 88k; its size was moderate (median +236). E3 can only sharpen these targets (0.93 → 1.0
-  for a proven win under n6c's λ and K) and correct the 1–2% of non-proven scores whose sign changes.
-- **K is a hidden variable.** The trainer refits K to the data. Database-true results correlate so well with the scores
-  that the refit K drops to 43 (from 102), which shrinks the eval and lost about 3 Elo against the same data at a
-  larger K (n8b +1.1 vs n8bk +3.5 vs n8bn +4.5). Any truth-labelled net should keep n6c's K (or K should be tuned
-  separately).
-- **The database-truth metric hardly separates nets.** Every net agrees in sign with 99.7–99.8% of the held-out proven
-  9–12-piece positions; proven positions are mostly lopsided. The E2 nets at a large K do best on the tails (n8bn:
-  0.48% of proven losses above −30 against n6c's 0.88%), in line with the matches, but the metric would not have
-  predicted the match results on its own.
+Each claim is read at the resolution of its test (see "Reading the evidence").
+
+- **Wrong targets: yes, for the game result.**
+  - 405,095 games end with a result the database contradicts: 14.0% of all 2,894,895 inferred games, or 15.2% of the
+    2,666,528 that reach ≤ 8 pieces (18–24% of those in gen1–gen3a).
+  - Almost always the database says win and the self-play drew.
+  - On proven 9–14-piece positions the stored result is wrong 18.5% of the time in the 10k-node files (17.5% over all
+    files).
+  - Replacing it with the database value (E2) is the step that gains: n8bn +4.5 [+0.5, +8.6] at 0.1 s and
+    +4.5 [+1.6, +7.4] at 0.5 s/move (one seed, the best of 11 recipes). The seed-2 replicate n8bn2 gives
+    +3.0 [−0.9, +7.0]; both seeds pooled +3.8 [+0.9, +6.6].
+- **Wrong positions: no effect shown by themselves.**
+  - Dropping the ≤ 8-piece records (58.5% of the data) shows no difference at n6c's K (n8ak +0.9 [−2.7, +4.4]).
+  - **But a net trained without them is blind there:** n8bn evaluates three kings against one at 0, and with n8bn as
+    the built-in net the engine's search test fails.
+  - Engines run without the database need those positions, so the built-in candidate n8q keeps them as 10% of every
+    batch. That shows no cost with the database (+1.5 [−2.1, +5.1] vs n8bn) and keeps the endings right (T4).
+- **The stored search scores were not wrong in sign.**
+  - On positions the database search proves, the stored score had the wrong sign 17 times in 88k; its size was
+    moderate (median +236).
+  - E3 (re-searched, proven-exact scores) shows no gain over E2: n8c +0.4 against n8bn's +4.5 vs n6c. That comparison
+    resolves only ~8 Elo; the direct match is on the Arch laptop's list.
+- **K matters for the eval scale.**
+  - Database-true results correlate so well with the scores that the refit K drops to 43 (from 102). That shrinks the
+    eval: n8b scores +1.1 against n8bn's +4.5 at K 102.4.
+  - Between K 77, 102 and 130 no difference is shown (~8 Elo). Truth-labelled nets should keep n6c's K or tune it
+    separately.
+- **The database-truth metric hardly separates nets.**
+  - Every net agrees in sign with 99.7–99.8% of the held-out proven 9–12-piece positions; proven positions are mostly
+    lopsided.
+  - The E2/E3 nets at a large K do best on the tails, in line with the matches, but the metric would not have
+    predicted the match results on its own.
+  - Per-group validation loss does not rank nets of one family either.
+- **Against the opponents**, with the book off, no net difference is shown at ~6–17 Elo:
+  - the conversion search (master 2efe11a) is what turned GuiNN games into wins (+16 to +18 for n6c, n8bn and n8c);
+  - Cake still wins 5–7 of 312 games against each net.
+
+## All matches
+
+Every match of this experiment, with the engine build both sides used (self-play) or Regicide used (against an
+opponent), and the commit that build was made from. Generated from the match directories (`scripts/all_matches.py`).
+Each comparison uses a single build.
+
+| match | engine (both sides, or Regicide vs an opponent) | built from | time | games | A: W / D / L | pentanomial | Elo [95% CI] |
+|---|---|---|---|---|---|---|---|
+| n6d-vs-n6c | rff0a3d2.so | ff0a3d2 | 0.1s | 1610 | +267 =1066 -277 | [0 42 731 32 0] | -2.2 [-5.8, +1.5] |
+| n7a-vs-n6c | rff0a3d2.so | ff0a3d2 | 0.1s | 1610 | +269 =1071 -270 | [0 45 716 44 0] | -0.2 [-4.2, +3.8] |
+| n7b-vs-n6c | rff0a3d2.so | ff0a3d2 | 0.1s | 1610 | +263 =1072 -275 | [0 50 717 38 0] | -2.6 [-6.6, +1.4] |
+| n8a-vs-n6c | rtruth.so | fcf6acb | 0.1s | 1610 | +264 =1067 -279 | [0 52 716 37 0] | -3.2 [-7.2, +0.7] |
+| n8ak-vs-n6c | rtruth.so | fcf6acb | 0.1s | 1610 | +268 =1078 -264 | [0 33 735 37 0] | +0.9 [-2.7, +4.4] |
+| n8b-vs-n6c | rtruth.so | fcf6acb | 0.1s | 1610 | +273 =1069 -268 | [0 36 728 41 0] | +1.1 [-2.6, +4.8] |
+| n8bk-vs-n6c | rtruth.so | fcf6acb | 0.1s | 1610 | +283 =1060 -267 | [0 42 705 58 0] | +3.5 [-0.8, +7.7] |
+| n8bk130-vs-n6c | rtruth.so | fcf6acb | 0.1s | 1610 | +273 =1079 -258 | [0 34 722 49 0] | +3.2 [-0.6, +7.1] |
+| n8bl6-vs-n6c | rtruth.so | fcf6acb | 0.1s | 1610 | +268 =1073 -269 | [0 43 720 42 0] | -0.2 [-4.1, +3.7] |
+| n8bl7-vs-n6c | rtruth.so | fcf6acb | 0.1s | 1610 | +278 =1068 -264 | [0 35 721 49 0] | +3.0 [-0.8, +6.9] |
+| n8bn-vs-n6c | rtruth.so | fcf6acb | 0.1s | 1610 | +276 =1079 -255 | [0 36 712 57 0] | +4.5 [+0.5, +8.6] |
+| n8bn-vs-n6c-0.5-a | rtruth.so | fcf6acb | 0.5s | 414 | +65 =290 -59 | [0 1 199 7 0] | +5.0 [+0.4, +9.6] |
+| n8bn-vs-n6c-0.5-b | rtruth.so | fcf6acb | 0.5s | 410 | +82 =252 -76 | [0 5 189 11 0] | +5.1 [-1.5, +11.7] |
+| n8bn-vs-n6c-0.5-c | rtruth.so | fcf6acb | 0.5s | 394 | +52 =294 -48 | [0 4 185 8 0] | +3.5 [-2.4, +9.5] |
+| n8bn-vs-n6c-0.5-d | rtruth.so | fcf6acb | 0.5s | 392 | +68 =261 -63 | [0 3 185 8 0] | +4.4 [-1.3, +10.2] |
+| n8bn2-vs-n6c | rtruth.so | fcf6acb | 0.1s | 1610 | +280 =1064 -266 | [0 37 717 51 0] | +3.0 [-0.9, +7.0] |
+| n8c-vs-n6c | rtruth.so | fcf6acb | 0.1s | 1610 | +263 =1086 -261 | [0 38 727 40 0] | +0.4 [-3.3, +4.2] |
+| n8p-vs-n6c | rtruth.so | fcf6acb | 0.1s | 1610 | +266 =1075 -269 | [0 39 730 36 0] | -0.6 [-4.3, +3.0] |
+| n8p-vs-n8bn | rtruth.so | fcf6acb | 0.1s | 1610 | +264 =1084 -262 | [0 45 713 47 0] | +0.4 [-3.6, +4.5] |
+| n8p2-vs-n6c | rtruth.so | fcf6acb | 0.1s | 1610 | +278 =1072 -260 | [0 32 723 50 0] | +3.9 [+0.1, +7.7] |
+| n8p2-vs-n8bn | rtruth.so | fcf6acb | 0.1s | 1610 | +264 =1080 -266 | [0 40 727 38 0] | -0.4 [-4.2, +3.3] |
+| n8q-vs-n6c-nodb | rtruth.so without an egdb folder | fcf6acb | 0.1s | 1610 | +289 =1045 -276 | [0 39 714 52 0] | +2.8 [-1.2, +6.8] |
+| n8q-vs-n8bn | rtruth.so | fcf6acb | 0.1s | 1610 | +265 =1087 -258 | [0 32 734 39 0] | +1.5 [-2.1, +5.1] |
+| ref-ponder-pt-s2-a1-cake | DLL ponder-df7780a | df7780a (ponder agent's build and run) | 0.5s | 312 | +0 =307 -5 | [0 5 151 0 0] | -5.6 [-10.4, -0.8] |
+| ref-ponder-pt-s2-a2-cake | DLL ponder-df7780a | df7780a (ponder agent's build and run) | 0.5s | 312 | +0 =307 -5 | [0 5 151 0 0] | -5.6 [-10.4, -0.8] |
+| tr-n6c-cake-c0dde2e | DLL truth-c0dde2e | c0dde2e (engine sources 9b4cfed: master 2efe11a merged) | 0.5s | 312 | +0 =305 -7 | [0 7 149 0 0] | -7.8 [-13.4, -2.2] |
+| tr-n6c-guinn-c0dde2e | DLL truth-c0dde2e | c0dde2e (engine sources 9b4cfed: master 2efe11a merged) | 0.5s | 312 | +19 =290 -3 | [0 3 135 17 1] | +17.8 [+7.5, +28.2] |
+| tr-n6c-kingsrow | DLL ponder-df7780a | df7780a (ponder agent's build) | 0.5s | 312 | +1 =309 -2 | [0 2 153 1 0] | -1.1 [-4.9, +2.7] |
+| tr-n8bn-cake-c0dde2e | DLL truth-c0dde2e | c0dde2e (engine sources 9b4cfed: master 2efe11a merged) | 0.5s | 312 | +0 =307 -5 | [0 5 151 0 0] | -5.6 [-10.4, -0.8] |
+| tr-n8bn-cake1 | DLL ponder-df7780a | df7780a (ponder agent's build) | 0.5s | 312 | +0 =307 -5 | [0 5 151 0 0] | -5.6 [-10.4, -0.8] |
+| tr-n8bn-cake2 | DLL ponder-df7780a | df7780a (ponder agent's build) | 0.5s | 312 | +0 =307 -5 | [0 5 151 0 0] | -5.6 [-10.4, -0.8] |
+| tr-n8bn-guinn-c0dde2e | DLL truth-c0dde2e | c0dde2e (engine sources 9b4cfed: master 2efe11a merged) | 0.5s | 312 | +16 =294 -2 | [0 2 138 16 0] | +15.6 [+6.7, +24.6] |
+| tr-n8bn-kingsrow | DLL ponder-df7780a | df7780a (ponder agent's build) | 0.5s | 312 | +1 =311 -0 | [0 0 155 1 0] | +1.1 [-1.1, +3.3] |
+| tr-n8c-cake-c0dde2e | DLL truth-c0dde2e | c0dde2e (engine sources 9b4cfed: master 2efe11a merged) | 0.5s | 312 | +0 =307 -5 | [0 5 151 0 0] | -5.6 [-10.4, -0.8] |
+| tr-n8c-guinn-c0dde2e | DLL truth-c0dde2e | c0dde2e (engine sources 9b4cfed: master 2efe11a merged) | 0.5s | 312 | +17 =293 -2 | [0 2 137 17 0] | +16.7 [+7.6, +25.9] |
+| w1064-vs-n8bn | rft2048.so (REGICIDE_NNUE_MAX_FT=2048) | c0dde2e (engine sources 9b4cfed) | 0.1s | 1610 | +268 =1070 -272 | [0 42 725 38 0] | -0.9 [-4.6, +2.9] |
+| w2032-vs-n8bn | rft2048.so (REGICIDE_NNUE_MAX_FT=2048) | c0dde2e (engine sources 9b4cfed) | 0.1s | 1610 | +265 =1073 -272 | [0 51 710 44 0] | -1.5 [-5.6, +2.6] |
+| w2064-vs-n8bn | rft2048.so (REGICIDE_NNUE_MAX_FT=2048) | c0dde2e (engine sources 9b4cfed) | 0.1s | 1610 | +255 =1071 -284 | [0 58 718 29 0] | -6.3 [-10.2, -2.3] |
 
 ## Running in the background, and how to resume
 
-All job scripts are in `C:\regicide-match\jobs\truth` (copies in `scripts/jobs/`). Status lines go to
-`~/regicide-jobs/truth/status` and `~/regicide-jobs/r4/status` (prefix `TR`). `launch.sh SCRIPT ARGS` starts a script
-detached. Scripts that play CheckerBoard DLLs (run_cb.sh, p1*.sh) need an attached session:
+**Where things are.** All job scripts are in `C:\regicide-match\jobs\truth`, with copies in `scripts/jobs/`. Status
+lines go to `~/regicide-jobs/truth/status` and `~/regicide-jobs/r4/status` (prefix `TR`). `launch.sh SCRIPT ARGS`
+starts a script detached. Scripts that play CheckerBoard DLLs (`run_cb.sh`, `p1*.sh`) need an attached session:
 `Start-Process -WindowStyle Hidden wsl.exe -ArgumentList 'bash','/mnt/c/regicide-match/jobs/truth/<script>'`.
 
-- **E5 datagen** (P4): two processes append to their own new files.
+**Lock rule (lead, 2026-11-10):** every hold of `~/regicide-jobs/locks/timing.lock` stays under 15 minutes. Longer
+matches are split into chunks (as `confirm.sh` does).
+
+- **E5 datagen (P4):** two processes, each appending to its own file.
   - `gen6a_n50k_egdb.bin`: `datagen-tr6`, 6 base-budget threads, seed 611.
-  - `gen6b_n50k_egdb.bin`: `datagen-tr5`, 6 extra threads that yield, seed 612.
-  - Goal 30M positions together; ETA about 2026-11-11 03:00–06:00.
+  - `gen6b_n50k_egdb.bin`: `datagen-tr5`, 6 extra threads that yield. Seed 612, then 613 after the pilot re-run (a new
+    seed avoids repeating games).
+  - Goal: 30M positions together. The finishing time is a forecast, given in P4.
   - Stop: `pkill -x datagen-tr5; pkill -x datagen-tr6` (each file keeps every finished game).
-  - Restart: `launch.sh e5_gen.sh gen6a_n50k_egdb datagen-tr6 611 6` (and the tr5/612 line); a new seed or a new
-    file name avoids repeating games. datagen appends only to files that carry game-start flags.
-  - Progress: `scratchpad/e5stat.sh`-style count with `nnue.piece_counts`, or the `games … positions …` lines in
-    `~/regicide-jobs/truth/e5_gen6*.log`.
-- **P5** (`p5.sh n8bn e2`): the 0.1 s and 0.5 s matches of w2032, w1064 and w2064 against n8bn on
-  `rft2048.so` (c0dde2e).
-  - Results: `TR match w…-vs-n8bn…` and `TR P5 … 0.5 pooled` lines.
-  - Rerun: the same command. Trained nets and finished match directories are skipped.
-- **Rescore of the remaining files**: parked after gen4a (gen5c, gen3d … gen1 to go, about 29 h of 8 threads).
+  - Restart: `launch.sh e5_gen.sh NAME BIN SEED THREADS` with a new seed. datagen appends only to files that carry
+    game-start flags.
+- **Pilot re-run:** `pilot2.sh` (6 threads from gen6b, which it restarts when done) → `~/regicide-jobs/truth/pilot2.csv`.
+- **Rescore of the remaining files:** parked after gen4a (gen5c, gen3d … gen1 remain, about 29 h of 8 threads).
   - Resume: `bash rs_threads.sh 6`; `rescore_chain.sh` continues every file where it stopped.
-  - Rescores from now on use the partial-loss rule (`rescore-tr4`).
-- **Keepers**:
-  - `pausekeeper_truth.sh` runs while `~/regicide-jobs/locks/pk_hold` exists. It stops `^truth-tr`, `^rescore-tr` and
-    `^datagen-tr` (`locks/bg_patterns`) under `r4/matchlock`. It also stops the yield group (`locks/bg_patterns_yield`,
-    `^datagen-tr5`) under `locks/yield_truth` (my CheckerBoard runs) or while a `bookgen-*`/`lossprobe*` process runs.
+  - It uses the partial-loss rule (`rescore-tr4`).
+- **Moved to the Arch laptop (lead, 2026-11-10):** P5's 0.5 s matches, n8bn vs n6c without the database, and n8c vs
+  n8bn. Results go to origin/t3/search-lab, `experiments/search-lab/RESULTS.md`, "Net matches (for truth-data)".
+- **Keepers:**
+  - `pausekeeper_truth.sh` runs while `~/regicide-jobs/locks/pk_hold` exists. Under `r4/matchlock` it stops
+    `^truth-tr`, `^rescore-tr` and `^datagen-tr` (`locks/bg_patterns`).
+  - The yield group (`locks/bg_patterns_yield`: `^datagen-tr5`) also stops under `locks/yield_truth` (my CheckerBoard
+    runs) or while a `bookgen-*`/`lossprobe*` process runs.
   - Book Lab's `pausekeeper5.sh` is unchanged.
 - **Nothing of mine holds** `timing.lock` or `matchlock` between runs.
 

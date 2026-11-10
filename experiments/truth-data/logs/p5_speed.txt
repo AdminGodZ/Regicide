@@ -1,0 +1,12 @@
+n8bn run 1: bench: 9687813 nodes 3053 ms 3173210 nps
+n8bn run 2: bench: 9687813 nodes 2977 ms 3254220 nps
+n8bn run 3: bench: 9687813 nodes 3001 ms 3228194 nps
+w2032 run 1: bench: 8567041 nodes 3920 ms 2185469 nps
+w2032 run 2: bench: 8567041 nodes 3972 ms 2156858 nps
+w2032 run 3: bench: 8567041 nodes 3948 ms 2169969 nps
+w1064 run 1: bench: 9580014 nodes 3813 ms 2512461 nps
+w1064 run 2: bench: 9580014 nodes 3942 ms 2430242 nps
+w1064 run 3: bench: 9580014 nodes 3843 ms 2492847 nps
+w2064 run 1: bench: 7350157 nodes 4023 ms 1827033 nps
+w2064 run 2: bench: 7350157 nodes 4055 ms 1812615 nps
+w2064 run 3: bench: 7350157 nodes 4025 ms 1826125 nps

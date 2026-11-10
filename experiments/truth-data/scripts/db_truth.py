@@ -23,9 +23,15 @@ def main():
     p.add_argument("--chunk", type=int, default=50000)
     p.add_argument("--general", help="DataRecord file: also report mean |eval| on its >= 9-piece records (eval scale)")
     p.add_argument("--general-n", type=int, default=200000)
+    p.add_argument("--dump", help="write the per-record evals (gzip CSV: set, index in set, pieces, proven sign, eval per net)")
     a = p.parse_args()
-    rec = np.concatenate([np.fromfile(f, nnue.RECORD) for f in a.set])
-    rec = rec[nnue.proven_of(rec)]
+    parts = [np.fromfile(f, nnue.RECORD) for f in a.set]
+    src = np.concatenate([np.full(len(x), i) for i, x in enumerate(parts)])
+    idx = np.concatenate([np.arange(len(x)) for x in parts])
+    rec = np.concatenate(parts)
+    keep = nnue.proven_of(rec)
+    rec, src, idx = rec[keep], src[keep], idx[keep]
+    dump = {}
     pieces = nnue.piece_counts(rec)
     sign = np.sign(rec["score"].astype(np.int64))
     print("proven positions %d (wins %d, losses %d); by pieces: %s" % (
@@ -43,6 +49,7 @@ def main():
         name, path = spec.split("=", 1)
         qw = nnue.read_rgnn(path)
         ev = np.concatenate([nnue.forward_int(qw, rec[i:i + a.chunk]) for i in range(0, len(rec), a.chunk)])
+        dump[name] = ev
         agree = np.sign(ev) == sign
         by = " | ".join("%.2f%%" % (100 * agree[pieces == k].mean()) if (pieces == k).any() else "-"
                         for k in range(9, 13))
@@ -53,6 +60,14 @@ def main():
             100 * wi.sum() / max(1, (sign > 0).sum()), ev[sign > 0].mean(), ev[sign < 0].mean())
             + ("" if gen is None else " %.1f |" % np.abs(np.concatenate(
                 [nnue.forward_int(qw, gen[i:i + a.chunk]) for i in range(0, len(gen), a.chunk)])).mean()))
+
+    if a.dump:
+        import gzip
+        with gzip.open(a.dump, "wt") as f:
+            f.write("set,index,pieces,proven_sign," + ",".join(dump) + "\n")
+            for i in range(len(rec)):
+                f.write("%s,%d,%d,%d,%s\n" % (os.path.basename(a.set[src[i]]), idx[i], pieces[i], sign[i],
+                                              ",".join(str(int(dump[n][i])) for n in dump)))
 
 
 if __name__ == "__main__":

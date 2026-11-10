@@ -1,0 +1,1 @@
+for d in n8q-vs-n8bn w2032-vs-n8bn w1064-vs-n8bn w2064-vs-n8bn; do echo "$d: $(grep -h '^A:' ~/regicide-truth-work/matches/$d/summary.txt | awk '{print $2,$3,$4}') $(grep -ho 'pentanomial \[.*\] = \[[^]]*\]' ~/regicide-truth-work/matches/$d/summary.txt | sed 's/.*= //') $(grep -h '^Elo (pent' ~/regicide-truth-work/matches/$d/summary.txt | cut -c28-60)"; done
