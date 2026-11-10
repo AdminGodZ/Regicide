@@ -1,0 +1,23 @@
+openings 1600, pairs 400, A="smp_skip=2,smp_vote=2" B=""
+      games 40  A: +17 =4 -19  score 0.4750  draws 10.0%  elo -17.4 [-40.4, +5.5]  penta [0 2 18 0 0]
+      games 80  A: +34 =8 -38  score 0.4750  draws 10.0%  elo -17.4 [-33.6, -1.2]  penta [0 4 36 0 0]
+      games 120  A: +48 =20 -52  score 0.4833  draws 16.7%  elo -11.6 [-27.4, +4.2]  penta [0 6 52 2 0]
+      games 160  A: +63 =31 -66  score 0.4906  draws 19.4%  elo -6.5 [-21.8, +8.8]  penta [0 8 67 5 0]
+      games 200  A: +79 =39 -82  score 0.4925  draws 19.5%  elo -5.2 [-19.2, +8.8]  penta [0 10 83 7 0]
+      games 240  A: +95 =48 -97  score 0.4958  draws 20.0%  elo -2.9 [-14.9, +9.1]  penta [0 10 102 8 0]
+      games 280  A: +109 =60 -111  score 0.4964  draws 21.4%  elo -2.5 [-14.9, +9.9]  penta [0 14 114 12 0]
+      games 320  A: +125 =66 -129  score 0.4938  draws 20.6%  elo -4.3 [-15.6, +6.9]  penta [0 16 132 12 0]
+      games 360  A: +141 =77 -142  score 0.4986  draws 21.4%  elo -1.0 [-11.5, +9.6]  penta [0 16 149 15 0]
+      games 400  A: +157 =83 -160  score 0.4963  draws 20.8%  elo -2.6 [-12.4, +7.2]  penta [0 18 167 15 0]
+      games 440  A: +174 =88 -178  score 0.4955  draws 20.0%  elo -3.2 [-12.2, +5.9]  penta [0 19 186 15 0]
+      games 480  A: +191 =94 -195  score 0.4958  draws 19.6%  elo -2.9 [-11.6, +5.8]  penta [0 21 202 17 0]
+      games 520  A: +205 =105 -210  score 0.4952  draws 20.2%  elo -3.3 [-11.9, +5.2]  penta [0 24 217 19 0]
+      games 560  A: +217 =119 -224  score 0.4938  draws 21.2%  elo -4.3 [-12.8, +4.2]  penta [0 28 231 21 0]
+      games 600  A: +234 =125 -241  score 0.4942  draws 20.8%  elo -4.1 [-12.2, +4.0]  penta [0 29 249 22 0]
+      games 640  A: +250 =133 -257  score 0.4945  draws 20.8%  elo -3.8 [-11.4, +3.8]  penta [0 29 269 22 0]
+      games 680  A: +267 =140 -273  score 0.4956  draws 20.6%  elo -3.1 [-10.4, +4.3]  penta [0 30 286 24 0]
+      games 720  A: +280 =150 -290  score 0.4931  draws 20.8%  elo -4.8 [-12.1, +2.5]  penta [0 35 300 25 0]
+      games 760  A: +297 =156 -307  score 0.4934  draws 20.5%  elo -4.6 [-11.6, +2.5]  penta [0 36 318 26 0]
+final games 800  A: +313 =162 -325  score 0.4925  draws 20.2%  elo -5.2 [-12.0, +1.6]  penta [0 38 336 26 0]
+time A: moves 24491  mean ms 200.1  mean depth 17.60
+time B: moves 24533  mean ms 205.2  mean depth 17.23

@@ -1,0 +1,23 @@
+openings 1600, pairs 400, A="tm_nodes=179" B=""
+      games 40  A: +18 =6 -16  score 0.5250  draws 15.0%  elo +17.4 [-5.5, +40.4]  penta [0 0 18 2 0]
+      games 80  A: +34 =11 -35  score 0.4938  draws 13.8%  elo -4.3 [-26.9, +18.2]  penta [0 4 33 3 0]
+      games 120  A: +48 =23 -49  score 0.4958  draws 19.2%  elo -2.9 [-19.9, +14.1]  penta [0 5 51 4 0]
+      games 160  A: +64 =29 -67  score 0.4906  draws 18.1%  elo -6.5 [-20.6, +7.5]  penta [0 7 69 4 0]
+      games 200  A: +78 =40 -82  score 0.4900  draws 20.0%  elo -6.9 [-18.7, +4.8]  penta [0 8 88 4 0]
+      games 240  A: +93 =53 -94  score 0.4979  draws 22.1%  elo -1.4 [-12.4, +9.5]  penta [0 8 105 7 0]
+      games 280  A: +108 =64 -108  score 0.5000  draws 22.9%  elo -0.0 [-10.3, +10.3]  penta [0 9 122 9 0]
+      games 320  A: +123 =75 -122  score 0.5016  draws 23.4%  elo +1.1 [-8.7, +10.8]  penta [0 10 139 11 0]
+      games 360  A: +139 =84 -137  score 0.5028  draws 23.3%  elo +1.9 [-7.3, +11.2]  penta [0 11 156 13 0]
+      games 400  A: +155 =94 -151  score 0.5050  draws 23.5%  elo +3.5 [-5.2, +12.1]  penta [0 11 174 15 0]
+      games 440  A: +173 =100 -167  score 0.5068  draws 22.7%  elo +4.7 [-3.4, +12.9]  penta [0 11 192 17 0]
+      games 480  A: +189 =107 -184  score 0.5052  draws 22.3%  elo +3.6 [-4.3, +11.5]  penta [0 13 209 18 0]
+      games 520  A: +201 =122 -197  score 0.5038  draws 23.5%  elo +2.7 [-5.0, +10.3]  penta [0 15 226 19 0]
+      games 560  A: +216 =132 -212  score 0.5036  draws 23.6%  elo +2.5 [-4.6, +9.6]  penta [0 15 246 19 0]
+      games 600  A: +236 =133 -231  score 0.5042  draws 22.2%  elo +2.9 [-3.8, +9.6]  penta [0 15 265 20 0]
+      games 640  A: +252 =140 -248  score 0.5031  draws 21.9%  elo +2.2 [-4.4, +8.7]  penta [0 17 282 21 0]
+      games 680  A: +270 =146 -264  score 0.5044  draws 21.5%  elo +3.1 [-3.3, +9.4]  penta [0 17 300 23 0]
+      games 720  A: +286 =152 -282  score 0.5028  draws 21.1%  elo +1.9 [-4.3, +8.2]  penta [0 20 316 24 0]
+      games 760  A: +302 =161 -297  score 0.5033  draws 21.2%  elo +2.3 [-3.9, +8.4]  penta [0 21 333 26 0]
+final games 800  A: +319 =169 -312  score 0.5044  draws 21.1%  elo +3.0 [-2.9, +9.0]  penta [0 21 351 28 0]
+time A: moves 25232  mean ms 460.2  mean depth 17.04
+time B: moves 25204  mean ms 451.8  mean depth 17.04

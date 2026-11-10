@@ -134,10 +134,30 @@ calibration runs (60 pairs each): tm_nodes 150 → A 104.8 ms vs B 138.3 ms; 170
 | B5 se_neg=1 | 623 / 356 / 621 | 22.2% | +0.4 [-5.3, +6.2] | 1 87 621 91 0 | 800 | ±5.8 | +0.14 | 198.9 / 199.6 ms, d 15.98 / 15.28 |
 | B7 tt_eval=1 | 605 / 381 / 614 | 23.8% | -2.0 [-7.9, +4.0] | 0 101 607 92 0 | 800 | ±6.0 | -0.66 | 199.2 / 198.6 ms, d 15.29 / 15.26 |
 | B6 tm_nodes=178 (--target 300) ✓ | 639 / 345 / 616 | 21.6% | +5.0 [+0.4, +9.5] | 0 46 685 69 0 | 800 | ±4.5 | +2.15 | 142.4 / 139.6 ms, d 14.51 / 14.52 |
-| B8 lmr_base=80 (1,600 pairs) | 1231 / 740 / 1229 | 23.1% | +0.2 [-3.9, +4.4] | 0 188 1223 188 1 | 1600 | ±5.9 | +0.09 | 199.5 / 198.8 ms, d 15.45 / 15.40 |
+| B8 lmr_base=80 (1,600 pairs) — **void**, see below | 1231 / 740 / 1229 | 23.1% | +0.2 [-3.9, +4.4] | 0 188 1223 188 1 | 1600 | ±5.9 | +0.09 | 199.5 / 198.8 ms, d 15.45 / 15.40 |
+
+- **B8 is void:** until master PR #31 the LMR table was one process-wide global, refilled by every `Engine::go()`, so in
+  an in-process A/B test both sides used whichever lmr_base was set last. The same applies to every earlier
+  lmr_base / lmr_mult self-play result (tune1, tune2). Redone in the LMR sweep below.
+- The "300 ms" runs above averaged ~200 ms per move: before master PR #37, `--movetime` still stopped early on a stable
+  best move. They are internally fair (both sides used the same rule) but not time-comparable with later runs.
 
 B6 time check at `--target 1000` (60 pairs each): tm_nodes 176 → A 446.7 ms vs B 453.2 ms (0.986); 168 → 423.8 vs
 445.0 (0.952). Equal time at ≈ 179, used for the confirmation.
+
+### B6 confirmation (`--target 1000`, 400 pairs, tm_nodes=179)
+
+| test | W / D / L | draws | Elo [95% CI] | penta | pairs | ± per 800 | t | time A / B |
+|---|---|---|---|---|---|---|---|---|
+| B6 tm_nodes=179 (--target 1000) | 319 / 169 / 312 | 21.1% | +3.0 [-2.9, +9.0] | 0 21 351 28 0 | 400 | ±4.2 | +0.99 | 460.2 / 451.8 ms, d 17.04 / 17.04 |
+
+**B6 not confirmed** (lower bound below 0), and A still used 1.9% more time than B. Closed; defaults stay.
+
+### Part B outcome
+
+No idea passed both stages. B1, B2, B3, B4, B5 (double and negative), B7 are neutral (all within ±3.5 Elo); B6 passed
+the screen at +5.0 [+0.4, +9.5] (with +2% time) but not the 1000 ms confirmation; B8 is void. With no winner there is
+nothing to combine, so no combined test was run. All switches stay in the code, off by default.
 
 ## Part C matches: 4 threads vs 4 threads of master
 
@@ -147,3 +167,12 @@ defaults (= master's Lazy SMP: depth skipping, result from thread 0).
 | test | W / D / L | draws | Elo [95% CI] | penta | pairs | ± per 800 | t | time A / B |
 |---|---|---|---|---|---|---|---|---|
 | C1 smp_vote=1 (deepest thread) | 651 / 308 / 641 | 19.2% | +2.2 [-2.9, +7.2] | 0 65 660 75 0 | 800 | ±5.0 | +0.85 | 205.1 / 205.7 ms, d 17.73 / 17.23 |
+| C2 smp_vote=2 (Stockfish-style vote) | 640 / 309 / 651 | 19.3% | -2.4 [-7.3, +2.6] | 0 73 665 62 0 | 800 | ±5.0 | -0.95 | 205.7 / 205.7 ms, d 17.74 / 17.19 |
+| C3 smp_skip=2,smp_vote=2 | 313 / 162 / 325 | 20.2% | -5.2 [-12.0, +1.6] | 0 38 336 26 0 | 400 | ±4.8 | -1.50 | 200.1 / 205.2 ms, d 17.60 / 17.23 |
+
+(The "d" column for A counts the selected thread's depth, so it is higher than B's by construction.)
+
+**Part C outcome:** picking the result from another thread (deepest: +2.2; voted: −2.4) or letting odd helpers search a
+ply deeper (−5.2) does not beat master's Lazy SMP at 4 threads. The scaling limit is search overhead (≈ +40% nodes to
+the same depth at 4 threads) and, on this hybrid CPU, threads landing on E-cores. Closed for now by the lead (on
+Windows, 4 threads plus pondering gave no gain against Cake in 1,248 games); nothing new started.
