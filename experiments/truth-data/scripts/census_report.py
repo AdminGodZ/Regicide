@@ -7,7 +7,7 @@ def main(path):
     files = {}
     for line in open(path):
         w = line.split()
-        if not w or w[0].startswith("#"):
+        if not w or w[0].startswith("#") or w[0] == "boundaries":
             continue
         name = w[1].replace(".bin", "")
         d = files.setdefault(name, {})

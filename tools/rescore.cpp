@@ -118,7 +118,7 @@ int main(int argc, char** argv) {
     long next_chunk = 0, written_chunks = 0;
     std::map<long, std::vector<DataRecord>> done;  // finished chunks waiting for their turn
     const long nchunks = (total - start + CHUNK - 1) / CHUNK;
-    std::atomic<long> searched{0}, proven{0}, flipped{0};
+    std::atomic<long> searched{0}, proven{0}, flipped{0}, untrusted{0};
     const auto t0 = std::chrono::steady_clock::now();
     long last_report = 0;
 
@@ -153,11 +153,20 @@ int main(int argc, char** argv) {
                 l.use_book = false;
                 const Position pos = r.position();
                 engine.set_position(pos);
-                const Score s = engine.go(l).score;
+                const SearchResult sr = engine.go(l);
+                const Score s = sr.score;
+                // A search that stopped before completing an iteration returns a sentinel (-SCORE_INF) that
+                // is_decisive() would take for a proven loss: such a record keeps its old score, unproven.
+                if (sr.depth < 1 || std::abs(s) > SCORE_WIN) {
+                    untrusted++;
+                    continue;
+                }
                 const std::int8_t result = r.result;
+                const std::uint8_t start_flag = r.stm & DataRecord::GAME_START;
                 const int old = r.score;
                 r = is_decisive(s) ? DataRecord::make_proven(pos, s) : DataRecord::make(pos, s);
                 r.result = result;
+                r.stm |= start_flag;
                 searched++;
                 if (r.proven()) proven++;
                 if ((old > 0 && r.score < 0) || (old < 0 && r.score > 0)) flipped++;
@@ -178,8 +187,8 @@ int main(int argc, char** argv) {
                 last_report = w;
                 const double sec =
                     std::chrono::duration<double>(std::chrono::steady_clock::now() - t0).count();
-                std::printf("written %ld / %ld (%.2f%%)  searched %ld  proven %ld  sign flips %ld  %.0f searched/s\n",
-                            w, total, 100.0 * w / total, searched.load(), proven.load(), flipped.load(),
+                std::printf("written %ld / %ld (%.2f%%)  searched %ld  proven %ld  sign flips %ld  untrusted %ld  %.0f searched/s\n",
+                            w, total, 100.0 * w / total, searched.load(), proven.load(), flipped.load(), untrusted.load(),
                             searched / std::max(1e-9, sec));
                 std::fflush(stdout);
             }

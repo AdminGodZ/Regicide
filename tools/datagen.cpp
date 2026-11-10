@@ -1,14 +1,15 @@
 // Self-play data generation for training the evaluation.
 //
 //   datagen --games 100000 --nodes 5000 --threads 12 --out data/run1.bin [--evalfile w.bin] [--egdb DIR]
-//           [--seeds seeds.txt]
+//           [--seeds seeds.txt [--seed-frac 0.5] [--seed-plies 2-4]]
 //
 // Each game starts with a few uniformly random plies, then both sides play with a fixed node budget.
 // Every quiet position (side to move has no capture) is written with its search score and the game result.
 // With --egdb, a game ends (and takes its result from the database) at the first position the database knows, and
 // positions whose search score is proven (decisive) are kept, clamped and flagged (DataRecord::make_proven), instead
-// of being dropped. With --seeds (one FEN per line), each game starts from a random seed position followed by
-// --random-min..--random-max random plies (default 0..2 with seeds).
+// of being dropped. With --seeds (one FEN per line), a share --seed-frac of the games (default 1) starts from a random
+// seed position followed by --seed-plies random plies (default 2-4); the others start as usual (the start position
+// plus --random-min..--random-max random plies).
 #include <atomic>
 #include <cstdint>
 #include <cstdio>
@@ -45,7 +46,8 @@ struct Config {
     std::string evalfile;
     int egdb_pieces = 0;
     std::vector<Position> seeds;
-    bool random_set = false;
+    double seed_frac = 1.0;
+    int seed_rmin = 2, seed_rmax = 4;
 };
 
 }  // namespace
@@ -58,8 +60,15 @@ int main(int argc, char** argv) {
         if (k == "--games") cfg.games = std::stol(next());
         else if (k == "--threads") cfg.threads = std::stoi(next());
         else if (k == "--nodes") cfg.nodes = std::stoull(next());
-        else if (k == "--random-min") cfg.random_min = std::stoi(next()), cfg.random_set = true;
-        else if (k == "--random-max") cfg.random_max = std::stoi(next()), cfg.random_set = true;
+        else if (k == "--random-min") cfg.random_min = std::stoi(next());
+        else if (k == "--random-max") cfg.random_max = std::stoi(next());
+        else if (k == "--seed-frac") cfg.seed_frac = std::stod(next());
+        else if (k == "--seed-plies") {
+            const std::string s = next();
+            const std::size_t d = s.find('-');
+            cfg.seed_rmin = std::stoi(s.substr(0, d));
+            cfg.seed_rmax = d == std::string::npos ? cfg.seed_rmin : std::stoi(s.substr(d + 1));
+        }
         else if (k == "--seeds") {
             std::ifstream in(next());
             for (std::string line; std::getline(in, line);) {
@@ -90,7 +99,6 @@ int main(int argc, char** argv) {
         }
     }
 
-    if (!cfg.seeds.empty() && !cfg.random_set) cfg.random_min = 0, cfg.random_max = 2;
     std::shared_ptr<const Evaluator> ev = Evaluator::builtin();
     if (!cfg.evalfile.empty() && !(ev = Evaluator::from_file(cfg.evalfile))) {
         std::cerr << "cannot load " << cfg.evalfile << '\n';
@@ -103,7 +111,8 @@ int main(int argc, char** argv) {
         return 1;
     }
 
-    std::atomic<long> next_game{0}, positions{0};
+    std::atomic<long> next_game{0}, positions{0}, incomplete{0};
+    std::atomic<long> ends[4] = {0, 0, 0, 0};  // no legal moves, draw rule (repetition/length), database, adjudicated
     std::atomic<long> results[3] = {0, 0, 0};  // black loss, draw, black win
     std::mutex mu;
 
@@ -118,10 +127,13 @@ int main(int argc, char** argv) {
         std::vector<DataRecord> game;
 
         while (next_game++ < cfg.games) {
-            Position pos = cfg.seeds.empty() ? Position() : cfg.seeds[rng() % cfg.seeds.size()];
+            const bool from_seed =
+                !cfg.seeds.empty() && double(rng() % 1000000) < cfg.seed_frac * 1000000.0;
+            Position pos = from_seed ? cfg.seeds[rng() % cfg.seeds.size()] : Position();
             std::vector<Position> history;
             bool ok = true;
-            const int nrandom = cfg.random_min + int(rng() % (cfg.random_max - cfg.random_min + 1));
+            const int rmin = from_seed ? cfg.seed_rmin : cfg.random_min, rmax = from_seed ? cfg.seed_rmax : cfg.random_max;
+            const int nrandom = rmin + int(rng() % (rmax - rmin + 1));
             for (int i = 0; i < nrandom && ok; ++i) {
                 MoveList list;
                 generate_moves(pos, list);
@@ -148,11 +160,15 @@ int main(int argc, char** argv) {
                 generate_moves(pos, list);
                 if (list.empty()) {
                     result = pos.side_to_move() == BLACK ? -1 : 1;
+                    ends[0]++;
                     break;
                 }
                 int reps = 0;
                 for (const Position& h : history) reps += h == pos;
-                if (reps >= 2 || pos.reversible_plies() >= cfg.draw_reversible || ply >= cfg.max_plies) break;
+                if (reps >= 2 || pos.reversible_plies() >= cfg.draw_reversible || ply >= cfg.max_plies) {
+                    ends[1]++;
+                    break;
+                }
                 // The database knows the exact result: label the game with it and stop.
                 if (pos.piece_count() <= cfg.egdb_pieces) {
                     const egdb::Wld r =
@@ -160,29 +176,41 @@ int main(int argc, char** argv) {
                     if (r != egdb::Wld::Unknown) {
                         const int stm_result = r == egdb::Wld::Win ? 1 : r == egdb::Wld::Loss ? -1 : 0;
                         result = pos.side_to_move() == BLACK ? stm_result : -stm_result;
+                        ends[2]++;
                         break;
                     }
                 }
 
                 engine.set_position(pos, history);
                 const SearchResult r = engine.go(limits);
-                if (!list[0].is_capture()) {
+                // A search that stopped before completing an iteration returns a sentinel (-SCORE_INF), which
+                // is_decisive() would take for a proven loss: only completed searches with real scores are written.
+                const bool searched = r.depth >= 1 && std::abs(r.score) <= SCORE_WIN;
+                if (!searched) incomplete++;
+                if (!list[0].is_capture() && searched) {
                     if (!is_decisive(r.score)) game.push_back(DataRecord::make(pos, r.score));
                     else if (cfg.egdb_pieces > 0) game.push_back(DataRecord::make_proven(pos, r.score));
                 }
 
                 const int black_view = pos.side_to_move() == BLACK ? r.score : -r.score;
-                const int sign = black_view >= cfg.adjudicate_score ? 1 : black_view <= -cfg.adjudicate_score ? -1 : 0;
+                // With the database, only proven scores adjudicate, so every decisive result is exact.
+                const bool counts = searched && (cfg.egdb_pieces == 0 || is_decisive(r.score));
+                const int sign = !counts                           ? 0
+                                 : black_view >= cfg.adjudicate_score ? 1
+                                 : black_view <= -cfg.adjudicate_score ? -1
+                                                                       : 0;
                 run = sign != 0 && sign == last_sign ? run + 1 : sign != 0;
                 last_sign = sign;
                 if (run >= cfg.adjudicate_plies) {
                     result = sign;
+                    ends[3]++;
                     break;
                 }
                 history.push_back(pos);
                 pos.make_move(r.best);
             }
             for (DataRecord& rec : game) rec.result = std::int8_t(result);
+            if (!game.empty()) game[0].stm |= DataRecord::GAME_START;  // game boundaries are marked, not guessed
             results[result + 1]++;
             positions += long(game.size());
             {
@@ -191,8 +219,10 @@ int main(int argc, char** argv) {
             }
             const long g = results[0] + results[1] + results[2];
             if (g % 1000 == 0) {
-                std::printf("games %ld  positions %ld  black +%ld =%ld -%ld\n", g, positions.load(),
-                            results[2].load(), results[1].load(), results[0].load());
+                std::printf("games %ld  positions %ld  black +%ld =%ld -%ld  ends: no-moves %ld draw-rule %ld "
+                            "database %ld adjudicated %ld  incomplete searches %ld\n",
+                            g, positions.load(), results[2].load(), results[1].load(), results[0].load(),
+                            ends[0].load(), ends[1].load(), ends[2].load(), ends[3].load(), incomplete.load());
                 std::fflush(stdout);
             }
         }

@@ -95,8 +95,10 @@ OUT_WEIGHT_MAX = 500.0
 RECORD = np.dtype([("black", "<u4"), ("white", "<u4"), ("kings", "<u4"), ("score", "<i2"), ("stm", "u1"),
                    ("result", "i1")])
 BLACK, WHITE = 0, 1
-# stm bit 7: the score is proven (src/datafile.hpp); its sign is the exact result. Bit 0 is the side to move.
+# stm byte (src/datafile.hpp): bit 0 the side to move; bit 7 (PROVEN) the score is proven, its sign is the exact
+# result; bit 6 (GAME_START) the first record of a game. Always read the side to move through stm_of().
 PROVEN = 0x80
+GAME_START = 0x40
 
 
 def bucket_of(pieces, buckets):

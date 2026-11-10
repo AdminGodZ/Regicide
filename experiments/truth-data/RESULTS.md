@@ -238,6 +238,30 @@ proven positions 96357 (wins 49906, losses 46451); by pieces: 9: 51785, 10: 2564
 | n8bk | 99.82% | 99.96% | 99.72% | 99.71% | 99.27% | 269 (0.58%) | 463 (0.93%) | 294 / -303 | 145.7 |
 | n8bn | 99.83% | 99.97% | 99.72% | 99.72% | 99.27% | 222 (0.48%) | 358 (0.72%) | 339 / -337 | 166.7 |
 
+## What holds and what does not
+
+- **Wrong targets: yes, for the game result.** 15% of all games (18–24% of gen1–gen3a) end with a result the database
+  contradicts, almost always a database win that the self-play drew. On proven 9–14-piece positions the stored result
+  is wrong 17.5% of the time (10k files). Replacing it with the database value (E2) is the step that gains:
+  n8bn +4.5 [+0.5, +8.6] at 0.1 s and +4.5 [+1.6, +7.4] at 0.5 s/move.
+- **Wrong positions: not by themselves.** Dropping the ≤ 8-piece records (58.5% of the data) is neutral at n6c's K
+  (n8ak +0.9 [−2.7, +4.4]) and costs about 4 Elo if K is refitted (n8a −3.2). The net does not seem to be hurt by
+  spending capacity on positions it never sees in search. Dropping them still halves the data and makes E2/E3 cleaner,
+  and every gain here was measured with them dropped.
+- **The stored search scores were not wrong in sign.** On positions the database search proves, the stored score had
+  the wrong sign 17 times in 88k; its size was moderate (median +236). E3 can only sharpen these targets (0.93 → 1.0
+  for a proven win under n6c's λ and K) and correct the 1–2% of non-proven scores whose sign changes.
+- **K is a hidden variable.** The trainer refits K to the data. Database-true results correlate so well with the scores
+  that the refit K drops to 43 (from 102), which shrinks the eval and lost about 3 Elo against the same data at a
+  larger K (n8b +1.1 vs n8bk +3.5 vs n8bn +4.5). Any truth-labelled net should keep n6c's K (or K should be tuned
+  separately).
+- **The database-truth metric hardly separates nets.** Every net agrees in sign with 99.7–99.8% of the held-out proven
+  9–12-piece positions; proven positions are mostly lopsided. The E2 nets at a large K do best on the tails (n8bn:
+  0.48% of proven losses above −30 against n6c's 0.88%), in line with the matches, but the metric would not have
+  predicted the match results on its own.
+
+<!-- BACKGROUND -->
+
 ## Files
 
 - `scripts/`: `census_report.py`, `pilot_report.py`, `db_truth.py`; `jobs/` (the shell jobs as run).

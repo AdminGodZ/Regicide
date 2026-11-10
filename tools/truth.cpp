@@ -11,7 +11,8 @@
 //   truth seeds   --min 6 --max 40 --opponents cake,kingsrow,guinn --out seeds.txt PDN...
 //                                                    positions after plies min..max of real games (datagen --seeds)
 //
-// Game boundaries. datagen appends whole games, one at a time, in play order, so a file is a sequence of games. Two
+// Game boundaries. Files written by datagen since 2026-11-10 mark the first record of every game
+// (DataRecord::GAME_START) and are split there. For older files: datagen appends whole games, one at a time, in play order, so a file is a sequence of games. Two
 // consecutive records belong to the same game unless the second could not follow the first: a different game result,
 // more pieces of either colour, or a man that moved backwards (for every row r, the number of black men on rows >= r
 // never grows, and the number of white men on rows <= r never grows: men only move forward or disappear).
@@ -83,9 +84,11 @@ struct Reader {
     }
 };
 
-// Calls on_game(records) for every game of the file.
+// Calls on_game(records) for every game of the file. Files whose first record carries DataRecord::GAME_START
+// (datagen since 2026-11-10) are split at the flags; older files by the same_game() heuristic. `flagged`, if given,
+// tells which.
 template <class F>
-long for_each_game(const std::string& path, F on_game) {
+long for_each_game(const std::string& path, F on_game, bool* flagged = nullptr) {
     Reader in(path);
     if (!in.f) {
         std::cerr << "cannot open " << path << '\n';
@@ -94,8 +97,14 @@ long for_each_game(const std::string& path, F on_game) {
     std::vector<DataRecord> game;
     DataRecord r;
     long games = 0;
+    bool first = true, flags = false;
     while (in.next(r)) {
-        if (!game.empty() && !same_game(game.back(), r)) {
+        if (first) {
+            flags = r.game_start();
+            if (flagged) *flagged = flags;
+            first = false;
+        }
+        if (!game.empty() && (flags ? r.game_start() : !same_game(game.back(), r))) {
             on_game(game);
             ++games;
             game.clear();
@@ -122,6 +131,7 @@ int census(const std::vector<std::string>& files) {
         long records = 0, games = 0, reach = 0, reach_records_9 = 0, changed_records_9 = 0, unknown = 0;
         long m[3][3] = {};  // [database +1][stored result +1], black's view
         long len_sum = 0;
+        bool flagged = false;
         for_each_game(file, [&](const std::vector<DataRecord>& g) {
             ++games;
             len_sum += long(g.size());
@@ -139,11 +149,12 @@ int census(const std::vector<std::string>& files) {
             const long n9 = std::count_if(g.begin(), g.end(), [&](const DataRecord& r) { return r.pieces() > db; });
             reach_records_9 += n9;
             if (v != g[0].result) changed_records_9 += n9;
-        });
+        }, &flagged);
         long low = 0;
         for (int p = 0; p <= db; ++p) low += hist[p];
         std::printf("file %s records %ld games %ld avg_len %.1f le%d %ld (%.2f%%)\n", base(file).c_str(), records,
                     games, double(len_sum) / std::max(1L, games), db, low, 100.0 * low / std::max(1L, records));
+        std::printf("boundaries %s %s\n", base(file).c_str(), flagged ? "flags" : "heuristic");
         std::printf("hist %s", base(file).c_str());
         for (int p = 1; p <= 24; ++p) std::printf(" %ld", hist[p]);
         std::printf("\n");
@@ -169,6 +180,7 @@ int relabel(const std::string& in, const std::string& out) {
         return 1;
     }
     long games = 0, changed = 0, records = 0;
+    bool flagged = false;
     for_each_game(in, [&](std::vector<DataRecord>& g) {
         const auto it = std::find_if(g.begin(), g.end(), [&](const DataRecord& r) { return r.pieces() <= db; });
         if (it != g.end()) {
@@ -181,10 +193,10 @@ int relabel(const std::string& in, const std::string& out) {
         ++games;
         records += long(g.size());
         std::fwrite(g.data(), sizeof(DataRecord), g.size(), o);
-    });
+    }, &flagged);
     std::fclose(o);
-    std::printf("relabel %s -> %s: records %ld games %ld relabelled %ld\n", base(in).c_str(), base(out).c_str(), records,
-                games, changed);
+    std::printf("relabel %s -> %s: records %ld games %ld (boundaries: %s) relabelled %ld\n", base(in).c_str(),
+                base(out).c_str(), records, games, flagged ? "flags" : "heuristic", changed);
     return 0;
 }
 
@@ -239,7 +251,9 @@ int pilot(const std::vector<std::string>& files, long n, int lo, int hi, const s
                 Limits l;
                 l.nodes = budgets[b];
                 l.use_book = false;
-                scores[i][b] = engine.go(l).score;
+                const SearchResult sr = engine.go(l);
+                // an incomplete search (sentinel score) counts as unknown (0), never as a proof
+                scores[i][b] = sr.depth >= 1 && std::abs(sr.score) <= SCORE_WIN ? sr.score : 0;
             }
             const long d = ++done;
             if (d % 10000 == 0) {

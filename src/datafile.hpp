@@ -11,13 +11,15 @@ namespace regicide {
 struct DataRecord {
     Bitboard black = 0, white = 0, kings = 0;
     std::int16_t score = 0;  // search score from the side to move's point of view
-    std::uint8_t stm = 0;    // side to move in bit 0; bit 7 (PROVEN) marks a proven score (see below)
+    std::uint8_t stm = 0;    // side to move in bit 0; flags in bits 6 (GAME_START) and 7 (PROVEN), see below
     std::int8_t result = 0;  // game result from black's point of view: 1 win, 0 draw, -1 loss
 
     // A proven record's score is a search score that the search proved (a forced win/loss, through the endgame
     // database or by running the loser out of moves), clamped to +-PROVEN_SCORE. Its sign is the exact result.
-    // Readers written before the flag existed must mask stm with 1; files without proven records are unchanged.
+    // GAME_START marks the first record of every game (datagen since 2026-11-10), so game boundaries need not be
+    // guessed. Readers written before the flags existed must mask stm with 1; files without flags are unchanged.
     static constexpr std::uint8_t PROVEN = 0x80;
+    static constexpr std::uint8_t GAME_START = 0x40;
     static constexpr int PROVEN_SCORE = 3000;
 
     static DataRecord make(const Position& p, int score) {
@@ -38,6 +40,7 @@ struct DataRecord {
 
     Color color() const { return Color(stm & 1); }
     bool proven() const { return (stm & PROVEN) != 0; }
+    bool game_start() const { return (stm & GAME_START) != 0; }
     int pieces() const { return popcount(black | white); }
 
     Position position() const {
