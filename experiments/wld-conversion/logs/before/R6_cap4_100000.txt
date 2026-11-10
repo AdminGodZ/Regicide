@@ -1,0 +1,66 @@
+ok   load /Users/timheld/regicide-data/egdb
+database: 7 pieces, MTC 6
+  W:WK1,5,K7,22:B8,19          optimal  21  engine  70  repetition
+  B:WK12,18,20,K27:BK6,26      optimal  58  engine  59  repetition
+  B:WK7,K8,29,32:BK1,13        optimal  26  engine  38  gave away the win
+  B:WK2,29,31:BK3,K13,28       optimal  33  engine  48  repetition
+  W:W5,11:B9,K12,21,26         optimal  64  engine  36  gave away the win
+  W:WK1,K2,K16,19:BK8,22       optimal  49  engine  26  repetition
+  W:W5,K23,K25,K29:B8,K14      optimal  27  engine  44  repetition
+  W:W6,7,20,K26:BK15,19        optimal  21  engine  54  repetition
+  W:WK4,5,16,K22:BK20,23       optimal   9  engine  36  repetition
+  B:WK2,K10,K12,28:B1,K24      optimal  38  engine  34  gave away the win
+  B:WK7,10,K11,13,21:B28       optimal  10  engine 103  no progress
+  W:WK11,15,29,31:B3,K24       optimal 101  engine  52  repetition
+  B:WK11,K14,18,27:BK2,9       optimal  52  engine  30  gave away the win
+  B:W7,23,24,31:B26,27         optimal  54  engine  59  repetition
+  B:W7,K13,K16,K17:B21,K23     optimal  26  engine  89  no progress
+  B:WK14,18,19,K21:BK1,24      optimal  12  engine  51  repetition
+  W:WK1,6,K10,K29:B16,18       optimal  53  engine 102  no progress
+  W:WK11,K13,16,27:B12,22      optimal  35  engine  25  gave away the win
+  W:W5,9,10,14:B15,K24         optimal  45  engine  48  repetition
+  W:WK4,6,17,20:B1,K13         optimal  65  engine  89  no progress
+  W:WK5,K9,15,K17:BK2,16       optimal  57  engine  30  repetition
+  W:W6,12,15,K31:B23,K24       optimal   9  engine  38  repetition
+  B:W17,21,K31:B1,K12,K28      optimal  65  engine  40  repetition
+  W:W10,K12,K27,K31:B4,K13     optimal  29  engine  46  repetition
+  B:WK2,29:B12,16,23,25        optimal  63  engine  91  gave away the win
+  B:W18,22,K29:B2,K3,K9        optimal  55  engine  21  gave away the win
+  W:W8,9:B12,15,16,K23         optimal  92  engine  97  repetition
+  B:W12,25,27:BK10,K14,17      optimal  39  engine  52  repetition
+  W:W16,24,31:B13,K15,K18      optimal  42  engine  95  repetition
+  B:W8,21,25:BK14,23,28        optimal  43  engine  50  repetition
+  B:WK4,7,11,28:B16,K29        optimal  48  engine  75  repetition
+  W:W6,K25,K31:B3,4,K16        optimal  57  engine  19  gave away the win
+  W:WK1,K31,32:B4,19,K20       optimal  47  engine  54  repetition
+  B:W19,K24:B4,K6,15,K22       optimal  27  engine  23  gave away the win
+  W:W5,13,22,32:B15,23         optimal  31  engine  50  repetition
+  W:W5,K7,K22:B6,12,K24        optimal  67  engine  85  gave away the win
+  W:W7,K11,19,23:B2,24         optimal  33  engine  62  repetition
+  B:WK11,20,K29,K31:B12,26     optimal  38  engine  32  gave away the win
+  B:WK6,K14,18,K19:B13,17      optimal  68  engine  58  gave away the win
+  W:W7,K14,K25:B6,K12,K20      optimal  59  engine  66  repetition
+  B:WK1,K6,9,13:BK18,27        optimal  42  engine  60  gave away the win
+  W:W16,K24,K29,31:B4,K6       optimal  39  engine  64  repetition
+  B:WK11,13,16,18:B20,28       optimal  36  engine  31  repetition
+  W:WK5,6,8,9,23:B26           optimal  29  engine 104  no progress
+  W:W5,K10,K19:B13,20,K30      optimal  19  engine  21  gave away the win
+  W:WK7,16,K19,K31:B1,11       optimal  53  engine  52  repetition
+  B:W6,11,K15,K19:B21,23       optimal  60  engine  97  no progress
+  W:W5,10,K12,K25:B13,K17      optimal  15  engine  88  no progress
+  B:WK6,K9,21,32:B13,K28       optimal  12  engine  44  gave away the win
+  B:W9,K13:BK4,K11,21,K22      optimal  49  engine  33  gave away the win
+  W:W13,16,K20:BK2,4,15        optimal  19  engine  19  gave away the win
+  B:WK4,20,28:BK3,K18,27       optimal  61  engine  19  gave away the win
+  B:WK2,7,9,K15,28:B13         optimal  26  engine 107  no progress
+  B:WK9,11,K22,32:BK4,27       optimal  58  engine  27  repetition
+  B:WK3,K16,31,K32:BK18,24     optimal  38  engine  25  repetition
+convert 6 pieces, 400 positions, 100000 nodes/move, MTC cap 4: won 345, repetition 29, no progress 8, gave away the win 18, mean plies: engine 30.3, reference 34.5
+  won by kind: kings only 0/0 men on one side 0/0 men on both sides 345/400
+  optimal length median 32 p90 67 max 104; engine minus optimal: median 0 p90 14 max 88; engine/optimal %: median 100 p90 172; at most optimal 255; 0.5 s
+FAIL converted 345 of 400 6-piece wins
+defend 6 pieces, 400 positions, 100000 nodes/move, MTC cap 4: won 400, mean plies: engine 30.4, reference 34.5
+  won by kind: kings only 0/0 men on one side 0/0 men on both sides 400/400
+  optimal length median 32 p90 67 max 104; engine minus optimal: median 0 p90 2 max 44; engine/optimal %: median 100 p90 104; at most optimal 354; 0.4 s
+ok   the defender loses every game, as it must
+FAILED

@@ -1,0 +1,12 @@
+ok   load /Users/timheld/regicide-data/egdb
+database: 7 pieces, MTC 6
+  W:WK6,14,K24:BK2,11,13,K16   optimal  92  engine 105  no progress
+convert 7 pieces, 200 positions, 100000 nodes/move, MTC cap 32: won 199, no progress 1, reference game not won 1, mean plies: engine 57.5, reference 58.3
+  won by kind: kings only 0/0 men on one side 0/0 men on both sides 199/200
+  optimal length median 53 p90 121 max 217; engine minus optimal: median 0 p90 10 max 116; engine/optimal %: median 100 p90 116; at most optimal 173; 106.7 s
+FAIL converted 199 of 200 7-piece wins
+defend 7 pieces, 200 positions, 100000 nodes/move, MTC cap 32: won 199, no progress 1, reference game not won 1, mean plies: engine 57.5, reference 58.3
+  won by kind: kings only 0/0 men on one side 0/0 men on both sides 199/200
+  optimal length median 53 p90 121 max 217; engine minus optimal: median 0 p90 12 max 116; engine/optimal %: median 100 p90 116; at most optimal 173; 101.4 s
+FAIL the defender loses every game, as it must
+FAILED

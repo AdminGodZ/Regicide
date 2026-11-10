@@ -55,6 +55,19 @@ int main() {
         engine.set_position(root, history);
         const Score late = engine.go(to_depth(10)).score;
         check(late == SCORE_DRAW, "the 79th ply without progress is a draw (score " + std::to_string(late) + ")");
+
+        // Close to the limit, with no capture in reach, every line runs into the draw, also on a hash table
+        // warmed up by a search of the same position with a fresh count.
+        const Position quiet = fen("B:WK24:BK8,K11,K22");
+        history.resize(75);
+        engine.new_game();
+        engine.set_position(quiet);
+        const Score early = engine.go(to_depth(10)).score;
+        engine.set_position(quiet, history);
+        const Score warm = engine.go(to_depth(6)).score;
+        check(early > 100 && warm == SCORE_DRAW,
+              "four plies before the limit a quiet position is a draw on a warm table (fresh count " +
+                  std::to_string(early) + ", near the limit " + std::to_string(warm) + ")");
     }
 
     // A search of some root moves must not leave an exact score or an upper bound for the position in the hash

@@ -164,7 +164,7 @@ Node analyse(Engine& engine, const Position& pos, int ply, const Config& cfg) {
         SearchResult r = engine.go(limits);
         MoveList cl;
         generate_moves(c, cl);
-        const int score = cl.empty() ? SCORE_WIN - 1 : -r.score;
+        const int score = cl.empty() ? SCORE_WIN - 1 : -r.sound_score();
         n.moves.push_back({m, score, r.depth + 1});
     }
     std::sort(n.moves.begin(), n.moves.end(), [](const MoveInfo& a, const MoveInfo& b) { return a.score > b.score; });

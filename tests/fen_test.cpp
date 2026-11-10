@@ -51,5 +51,9 @@ int main() {
     Move left, right;
     check(parse_move(diamond, "2x9x18", left) && parse_move(diamond, "2x11x18", right) && left != right,
           "a full path picks its capture route");
+    Position twice;
+    check(twice.set_fen("B:W6,14,32:BK2"), "set_fen");
+    check(parse_move(twice, "2x9x18", m) && !parse_move(twice, "2x9x2x9x18", m),
+          "a path that jumps the same piece twice is rejected");
     return failures == 0 ? 0 : 1;
 }

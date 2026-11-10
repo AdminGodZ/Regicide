@@ -1,0 +1,8 @@
+ok   load /Users/timheld/regicide-data/egdb
+database: 7 pieces, MTC 6
+convert 7 pieces, 8 positions, 20000 nodes/move, MTC cap 32: won 8, mean plies: engine 29.8, reference 31.0
+  won by kind: kings only 0/0 men on one side 0/0 men on both sides 8/8
+  optimal length median 35 p90 64 max 64; engine minus optimal: median 0 p90 0 max 0; engine/optimal %: median 100 p90 100; at most optimal 8; 1.6 s
+ok   converted 8 of 8 7-piece wins
+all conversion tests passed
+./build-tsan/conversion_test --dir ~/regicide-data/egdb --threads 2 --pieces   2.09s user 0.24s system 111% cpu 2.095 total

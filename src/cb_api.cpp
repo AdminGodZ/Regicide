@@ -211,7 +211,8 @@ CB_EXPORT int WINAPI getmove(Board8x8 board, int color, double maxtime, char str
         limits.target_ms = std::max(1, int(maxtime * 1000));
     }
 
-    s.engine->set_stop_poll([playnow] { return playnow && *playnow; });
+    // The host sets *playnow from another thread without any synchronisation (the interface is a plain int).
+    s.engine->set_stop_poll([playnow] { return playnow && *static_cast<volatile int*>(playnow); });
     s.engine->set_position(pos, s.history);
     SearchResult r = s.engine->go(limits, [str](const SearchInfo& i) {
         if (!str) return;
@@ -229,8 +230,9 @@ CB_EXPORT int WINAPI getmove(Board8x8 board, int color, double maxtime, char str
     s.after_our_move.make_move(r.best);
     s.have_after = true;
 
+    // A losing score from an iteration that was cut short covers only the root moves searched so far: no claim.
     if (r.score >= SCORE_KNOWN_WIN) return CB_WIN;
-    if (r.score <= -SCORE_KNOWN_WIN) return CB_LOSS;
+    if (r.score <= -SCORE_KNOWN_WIN && !r.partial) return CB_LOSS;
     return CB_UNKNOWN;
 }
 
