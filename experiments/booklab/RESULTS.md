@@ -165,7 +165,10 @@ slow the search down here; it is faster than in the middlegame.
   `booklab_dbscan`: converted / not converted per opponent and piece count, plies to the win, every non-converted
   position with its ending and last 20 moves, and every game where Regicide moved from a won position into a
   non-won one. Runner: `scripts/wp9_run.sh DLL TAG POSDIR` (0.5 s/move, baseline settings, timing lock per deck).
-- Baseline (before the fix): 60 random positions (seed 9: GuiNN 35, KingsRow 24, Cake 1), `bl-r6`; running.
+- **Baseline (before the fix), `bl-r6` (engine fcf6acb + round-6 book), 60 random positions (seed 9), 0.5 s/move:
+  converted 1 of 60** (Cake 0/1, GuiNN 0/35, KingsRow 1/24; 7 pieces 0/3, 8 pieces 1/57). In 26 of the 60 games
+  Regicide moved from a database-won position into a non-won one; the rest ended still won by repetition or the
+  40-move rule. Report: `wp9/report-wp9base.md`.
 
 ## Review fixes (2026-11-10, after 8535bca)
 
