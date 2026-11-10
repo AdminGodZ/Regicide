@@ -136,6 +136,14 @@ the WP9 test runs (`bl-wp9*`, they start from won positions) and can restrict th
   1,011 of 1,017; KingsRow 226 of 248; GuiNN 347 of 352. Opponent vs opponent: 90 reached, 66 converted (the new games
   are other agents' runs). The scan now also records the longest no-progress run per game.
 
+## FINAL VALIDATION: bl-final1 = master 2efe11a + round-8 book
+
+(a) The same 100 missed-win positions as bl-conv3: **converted 100 of 100** (Cake 3/3, GuiNN 59/59, KingsRow 38/38;
+`wp9/report-wp9final1.md`); plies to the win median 112, quartiles 93–130, max 180; highest no-progress count median 26,
+max 53 (2 games ≥ 40, none ≥ 60); no game left the won region.
+
+(b) Two full acf156 runs against each opponent: running (`scripts/chain_final.sh`).
+
 ## Book hand-over checks (round 9)
 
 - **Reachability check in the build** (`tools/booklab/reach.cpp` → `booklab_reach`, `reach_check.py`, run by
