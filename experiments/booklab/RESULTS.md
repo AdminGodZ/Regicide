@@ -82,7 +82,7 @@ in r5 (sweep dropped; 11-15 forced at ply 44, harmless if not reached).
 | 1 | bl-r4 | KingsRow | 1 / 311 / 0 (win #147 B) | stopped |
 | 1 | bl-r4 | GuiNN | 3 / 309 / 0 (wins #9 W, #111 B, #141 W) | stopped |
 | 2 | bl-r5 | Cake | **0 / 312 / 0** | queued |
-| 2 | bl-r5 | KingsRow | h1 0 / 156 / 0, h2 queued | queued |
+| 2 | bl-r5 | KingsRow | **0 / 312 / 0** | queued |
 | 2 | bl-r5 | GuiNN | h1 0 / 156 / 0, h2 queued | queued |
 
 ## Regicide wins seen (for win mining)

@@ -124,3 +124,6 @@ CENSUS done 2026-11-10T06:59:41+01:00
 BL start v2-cake-a-h2 regicide:bl-r5 vs cake; bg: datagen-eb1037c:T datagen-tr5:T datagen-tr5:T  2026-11-10T06:59:41+01:00
 BL end v2-cake-a-h2 rc=0 A: +0 =156 -0   score 78.0/156 = 50.00%   draw rate 100.0% Elo (pentanomial, pairs): -0.0 [-0.0, -0.0] 95% CI, score 0.5000 +- 0.0000, LOS 50.00% 2026-11-10T07:05:41+01:00
 BL wait-lock v2-kingsrow-a-h2 regicide:bl-r5 vs kingsrow deck /mnt/c/regicide-match/jobs/booklab/acf156_h2.txt mt 0.5 c 8 2026-11-10T07:05:41+01:00
+BL start v2-kingsrow-a-h2 regicide:bl-r5 vs kingsrow; bg: datagen-eb1037c:T bash:T datagen-tr5:T  2026-11-10T07:29:04+01:00
+BL end v2-kingsrow-a-h2 rc=0 A: +0 =156 -0   score 78.0/156 = 50.00%   draw rate 100.0% Elo (pentanomial, pairs): -0.0 [-0.0, -0.0] 95% CI, score 0.5000 +- 0.0000, LOS 50.00% 2026-11-10T07:36:57+01:00
+BL wait-lock v2-guinn-a-h2 regicide:bl-r5 vs guinn deck /mnt/c/regicide-match/jobs/booklab/acf156_h2.txt mt 0.5 c 8 2026-11-10T07:36:57+01:00
