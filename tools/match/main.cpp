@@ -632,7 +632,8 @@ Engines (A is the engine under test; results are reported from A's point of view
   --name-a, --name-b NAME  display name (default: the engine's own name)
   --option-a, --option-b TEXT
                            enginecommand to send after startup, e.g. "set hashsize 64"
-                           (repeatable)
+                           (repeatable). The match does not start if an engine rejects one.
+  --allow-rejected-options warn about rejected commands instead
   --cbhost PATH            cbhost executable (default: next to this program)
 
 Openings:
@@ -692,6 +693,7 @@ bool parse_args(int argc, char** argv, Config& cfg) {
         else if (a == "--name-b") cfg.spec[1].name = need("a name");
         else if (a == "--option-a") cfg.spec[0].cmds.push_back(need("a command"));
         else if (a == "--option-b") cfg.spec[1].cmds.push_back(need("a command"));
+        else if (a == "--allow-rejected-options") cfg.spec[0].allow_rejected = cfg.spec[1].allow_rejected = true;
         else if (a == "--cbhost") cfg.cbhost = need("a path");
         else if (a == "--openings") cfg.deck = need("a deck");
         else if (a == "--rounds") cfg.rounds = std::atoi(need("N").c_str());
