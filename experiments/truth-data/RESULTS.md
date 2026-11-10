@@ -643,6 +643,42 @@ in):
 - The 0.5 s matches decide, as agreed. They moved to the Arch laptop (lead, 2026-11-10): see
   `experiments/search-lab/RESULTS.md`, "Net matches (for truth-data)", on origin/t3/search-lab, when they exist.
 
+## Phase 3 (2026-11-10 evening)
+
+**E5 forecast** (a forecast, not a measurement; 16:51: 6.61M positions):
+- Book Lab's holdout runs take the timing lock but do not create `matchlock`, so under the agreed rules my generators
+  keep running during them; only gen6b (the yield group) stops while Book Lab computes (`bookgen`/`lossprobe`).
+- With both generators running (~1.9M/h): 15M around 21:30 tonight, 30M around 05:30 on 2026-11-11.
+- If gen6b had to yield all night: about 01:30 and 17:30.
+
+**n9h / n9a recipe:** n8q's recipe (E2 files + gen5a ×3, K 102.4, λ 0.5, groups 2–8 and 9–24 with weights 1 : 9) plus
+the E5 files gen6a and gen6b, **each given three times** (×3, as gen5a). E5 has no ≤ 8-piece records, so all of its
+records fall into the 90% group and are weighted ×3 against the old ≥ 9-piece records there.
+
+### 4a: database-truth on the pilot records (9–12 pieces)
+
+`tools/pilot_truth.py` on the re-run pilot (`data/pilot2_label_rule.csv.gz`): the pilot's records proven at 200k nodes
+with the database. These are training records of every net (the held-out version is the database-truth table above).
+
+Pilot records proven at 200k nodes (label.hpp rule): 87370 (wins 45492, losses 41878). Share of proven records whose static eval has the sign of the proven result (eval 0 counts as wrong); in brackets: proven losses scored above -30 + proven wins scored below +30.
+
+| pieces | proven records | n6c | n8bn | n8bn2 | n8c | n8q |
+|---|---|---|---|---|---|---|
+| 9 | 42654 | 99.93% (83) | 99.94% (65) | 99.94% (56) | 99.95% (57) | 99.94% (65) |
+| 10 | 20814 | 99.48% (576) | 99.61% (369) | 99.65% (386) | 99.56% (428) | 99.62% (408) |
+| 11 | 13084 | 99.67% (77) | 99.76% (63) | 99.79% (59) | 99.75% (63) | 99.72% (58) |
+| 12 | 5839 | 99.31% (211) | 99.38% (129) | 99.42% (124) | 99.35% (132) | 99.40% (138) |
+| 9-12 | 82391 | 99.73% (947) | 99.79% (626) | 99.80% (625) | 99.78% (680) | 99.79% (669) |
+| 13-14 | 4979 | 99.02% (101) | 99.32% (66) | 99.18% (70) | 99.20% (68) | 99.26% (71) |
+
+**Reading:**
+- All nets agree in sign with 99.3–99.95% of the proven positions; 10 and 12 pieces are the weakest counts.
+- The truth-data nets (n8bn, n8bn2, n8c, n8q) have about a third fewer weakly scored proofs than n6c (9–12 pieces:
+  625–680 against 947), which matches what the E2 labels teach.
+- n8q, with its 10% ≤ 8-piece share, is level with n8bn here.
+
+<!-- PHASE3MORE -->
+
 ## What holds and what does not
 
 Each claim is read at the resolution of its test (see "Reading the evidence").

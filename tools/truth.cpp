@@ -9,6 +9,8 @@
 //   truth split   --in IN --out OUT --min 9 --max 12 --proven [--from F]   copies matching records (F: first
 //                                                    record index considered)
 //   truth probe   --egdb DIR FEN...                  database value (side to move) of each position
+//   truth losswalk --egdb DIR --nodes 20000000 --threads 6 [--opponents NAME] --out lost.tsv PDN...
+//                                                    where each game NAME (default regicide) lost was decided
 //   truth seeds   --min 6 --max 40 --opponents cake,kingsrow,guinn --out seeds.txt PDN...
 //                                                    positions after plies min..max of real games (datagen --seeds)
 //
@@ -296,6 +298,7 @@ bool is_result(const std::string& t) {
 struct PdnGame {
     std::map<std::string, std::string> tags;
     std::vector<std::string> moves;
+    std::vector<std::string> comments;  // comments[i]: the {comment} text after moves[i] ("" if none)
 };
 
 // Tag pairs and movetext with {comments} and (variations) removed (as tools/lossprobe.cpp).
@@ -328,15 +331,22 @@ std::vector<PdnGame> read_pdn(const std::string& path) {
                 token = token.substr(i);
             }
             if (!token.empty()) {
-                if (!is_result(token)) g.moves.push_back(token);
+                if (!is_result(token)) {
+                    g.moves.push_back(token);
+                    g.comments.emplace_back();
+                }
                 in_moves = true;
             }
             token.clear();
         };
+        if (comment && !g.comments.empty()) g.comments.back() += ' ';  // a comment continued from the previous line
         for (char c : line) {
             if (c == '{') ++comment;
             else if (c == '}') comment = std::max(0, comment - 1);
-            else if (comment) continue;
+            else if (comment) {
+                if (!g.comments.empty()) g.comments.back() += c;
+                continue;
+            }
             else if (c == '(') ++variation;
             else if (c == ')') variation = std::max(0, variation - 1);
             else if (variation) continue;
@@ -405,6 +415,124 @@ int seeds(const std::vector<std::string>& files, int lo, int hi, const std::stri
     return 0;
 }
 
+// ---- losswalk: where were the games Regicide lost decided?
+//
+// For every game a player whose name contains `name` lost, the positions after each of its moves are searched (from
+// the last move backwards) with `nodes` nodes and the database; positions with <= database pieces take the database
+// value. The losing move is the first move of the final run of moves after which the position is proven won for the
+// opponent (label.hpp: a win is a proof). One TSV row per game.
+int losswalk(const std::vector<std::string>& files, const std::string& name, std::uint64_t nodes, int threads,
+             const std::string& out) {
+    struct Job {
+        std::string file;
+        PdnGame g;
+        Color us;
+    };
+    std::vector<Job> jobs;
+    for (const auto& f : files)
+        for (auto& g : read_pdn(f)) {
+            const auto tag = [&](const char* k) {
+                const auto it = g.tags.find(k);
+                return it == g.tags.end() ? std::string() : it->second;
+            };
+            const bool black = lower(tag("Black")).find(lower(name)) != std::string::npos;
+            const bool white = lower(tag("White")).find(lower(name)) != std::string::npos;
+            if (black == white || tag("Result") != (black ? "0-1" : "1-0")) continue;
+            jobs.push_back({f, g, black ? BLACK : WHITE});
+        }
+    std::vector<std::string> rows(jobs.size());
+    std::atomic<std::size_t> next{0};
+    auto worker = [&] {
+        Engine engine;
+        engine.set_hash_mb(256);
+        engine.set_egdb_pieces(egdb::max_pieces());
+        for (std::size_t j; (j = next++) < jobs.size();) {
+            const Job& job = jobs[j];
+            const PdnGame& g = job.g;
+            const auto tag = [&](const char* k) {
+                const auto it = g.tags.find(k);
+                return it == g.tags.end() ? std::string() : it->second;
+            };
+            Position pos;
+            if (g.tags.count("FEN")) pos.set_fen(g.tags.at("FEN"));
+            std::vector<Position> before, after;
+            std::vector<std::size_t> ply;
+            bool ok = true;
+            for (std::size_t i = 0; i < g.moves.size(); ++i) {
+                Move m;
+                if (!parse_move(pos, g.moves[i], m)) {
+                    ok = false;
+                    break;
+                }
+                const bool ours = pos.side_to_move() == job.us;
+                const Position b = pos;
+                pos.make_move(m);
+                if (ours) {
+                    before.push_back(b);
+                    after.push_back(pos);
+                    ply.push_back(i);
+                }
+            }
+            // Value of a position for its side to move: (proven, score); <= database pieces: the database.
+            auto value = [&](const Position& p, std::string* best) -> std::pair<bool, int> {
+                if (p.piece_count() <= egdb::max_pieces()) {
+                    const egdb::Wld w = egdb::probe(p.pieces(BLACK), p.pieces(WHITE), p.kings(), p.side_to_move());
+                    if (w != egdb::Wld::Unknown)
+                        return {w != egdb::Wld::Draw, w == egdb::Wld::Win ? SCORE_DB_WIN : w == egdb::Wld::Loss ? -SCORE_DB_WIN : 0};
+                }
+                engine.new_game();
+                engine.set_position(p);
+                Limits l;
+                l.nodes = nodes;
+                l.use_book = false;
+                const SearchResult sr = engine.go(l);
+                if (best) *best = move_to_string(sr.best);
+                const auto lab = label_of(sr);
+                return lab ? std::pair{lab->proven, lab->score} : std::pair{false, 0};
+            };
+            std::string row = base(job.file) + "\t" + tag("Round") + "\t" + tag("Opening") + "\t" +
+                              (job.us == BLACK ? "black" : "white") + "\t" + tag("Termination");
+            if (!ok || after.empty()) {
+                rows[j] = row + "\tPARSE-ERROR";
+                continue;
+            }
+            int k = int(after.size()) - 1, scanned = 0;
+            std::vector<int> opp_score(after.size(), 0);
+            for (; k >= 0; --k) {
+                const auto [proven, s] = value(after[std::size_t(k)], nullptr);
+                ++scanned;
+                opp_score[std::size_t(k)] = s;
+                if (!(proven && s > 0)) break;
+            }
+            if (k == int(after.size()) - 1) {
+                rows[j] = row + "\tEND-NOT-PROVEN\t" + std::to_string(opp_score[std::size_t(k)]);
+                continue;
+            }
+            const std::size_t b = std::size_t(k + 1);
+            std::string best;
+            const auto [bproven, bscore] = value(before[b], &best);
+            char buf[256];
+            std::snprintf(buf, sizeof buf, "\t%zu\t%zu\t%d\t%d\t%s\t%d\t%d\t%s", ply[b], ply[b] / 2 + 1,
+                          before[b].piece_count(), after[b].piece_count(), best.c_str(), bscore, -opp_score[b],
+                          bproven ? "before-proven" : "before-open");
+            std::string comment = g.comments[ply[b]];
+            for (char& c : comment)
+                if (c == '\t' || c == '\n') c = ' ';
+            rows[j] = row + buf + "\t" + g.moves[ply[b]] + "\t" + before[b].fen() + "\t" + after[b].fen() + "\t" +
+                      std::to_string(scanned) + "\t" + comment;
+        }
+    };
+    std::vector<std::thread> pool;
+    for (int t = 0; t < threads; ++t) pool.emplace_back(worker);
+    for (auto& t : pool) t.join();
+    std::ofstream o(out);
+    o << "file\tround\topening\tregicide\ttermination\tply\tmove_no\tpieces_before\tpieces_after\tdeep_best\t"
+         "deep_score_before\tdeep_score_after\tbefore_status\tplayed\tfen_before\tfen_after\tsearched\tingame_comment\n";
+    for (const auto& r : rows) o << r << '\n';
+    std::printf("losswalk: %zu lost games -> %s\n", jobs.size(), out.c_str());
+    return 0;
+}
+
 int split(const std::string& in, const std::string& out, int lo, int hi, bool proven_only, long from) {
     Reader r(in);
     std::FILE* o = std::fopen(out.c_str(), "wb");
@@ -465,6 +593,7 @@ int main(int argc, char** argv) {
     if (cmd == "census") return census(files);
     if (cmd == "relabel") return relabel(in, out);
     if (cmd == "pilot") return pilot(files, n, lo, hi, budgets, threads, seed, out);
+    if (cmd == "losswalk") return losswalk(files, opponents.empty() ? "regicide" : opponents, budgets[0], threads, out);
     if (cmd == "fens") {  // --in F --min A --max B --n K --seed S: random records as "FEN database-value(stm)"
         std::FILE* f = std::fopen(in.c_str(), "rb");
         if (!f) return std::cerr << "cannot open " << in << '\n', 1;
