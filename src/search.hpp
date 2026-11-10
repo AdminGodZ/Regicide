@@ -16,6 +16,10 @@
 
 namespace regicide {
 
+// A game is drawn after this many plies in a row without a capture or a man move: CheckerBoard's rule, 40 moves
+// by one side and 39 by the other. The match runner applies the same count.
+constexpr int NO_PROGRESS_PLIES = 79;
+
 struct Limits {
     int depth = MAX_PLY - 1;
     std::uint64_t nodes = 0;  // 0 = unlimited
@@ -44,8 +48,13 @@ struct SearchInfo {
 
 struct SearchResult {
     Move best;
+    // The best score known when the search ended. If the last iteration was cut short (`partial`), this comes from
+    // that iteration: it can be an aspiration bound instead of a score, and it covers only the root moves searched
+    // so far, so a losing score then says that those moves lose, not that the position is lost.
     Score score = 0;
-    int depth = 0;
+    int depth = 0;  // last completed iteration
+    Score completed_score = -SCORE_INF;  // its score; -SCORE_INF if no iteration was completed
+    bool partial = false;
     std::uint64_t nodes = 0;
     std::int64_t time_ms = 0;
     std::vector<Move> pv;
@@ -118,6 +127,7 @@ public:
     void set_avoid(std::shared_ptr<const Book> a) { avoid_ = std::move(a); }
     const Book* avoid() const { return avoid_.get(); }
     const Evaluator& evaluator() const { return *eval_; }
+    const TranspositionTable& hash() const { return tt_; }  // for tests and diagnostics
 
     SearchParams params;
 

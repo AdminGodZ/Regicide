@@ -102,6 +102,9 @@ struct Worker {
     int seldepth = 0;
     int root_depth = 0;
     int completed_depth = 0;
+    Score completed_score = -SCORE_INF;  // score of the last completed iteration
+    bool partial = false;                // the search stopped inside an iteration that had scored a root move
+    bool root_restricted = false;        // the root list leaves out legal moves (searchmoves, avoid list)
 };
 
 void Worker::setup(const Position& r, const std::vector<Key>& game_keys, const std::vector<Move>& root_moves) {
@@ -111,6 +114,11 @@ void Worker::setup(const Position& r, const std::vector<Key>& game_keys, const s
     std::copy(game_keys.begin(), game_keys.end(), keys.begin());
     roots.clear();
     for (const Move& m : root_moves) roots.push_back({m, -SCORE_INF, -SCORE_INF, {m}});
+    MoveList all;
+    generate_moves(r, all);
+    root_restricted = roots.size() != all.size();
+    completed_score = -SCORE_INF;
+    partial = false;
     nodes = 0;
     tbhits = 0;
     egdb_pieces = eng.egdb_pieces_;
@@ -168,7 +176,7 @@ Score Worker::search(Position& pos, Score alpha, Score beta, int depth, int ply,
     keys[hist_len + ply] = pos.key();
 
     if (!is_root) {
-        if (is_repetition(pos, ply)) return SCORE_DRAW;
+        if (is_repetition(pos, ply) || pos.reversible_plies() >= NO_PROGRESS_PLIES) return SCORE_DRAW;
         // Mate distance pruning.
         alpha = std::max(alpha, -SCORE_WIN + ply);
         beta = std::min(beta, SCORE_WIN - ply - 1);
@@ -375,9 +383,18 @@ Score Worker::search(Position& pos, Score alpha, Score beta, int depth, int ply,
     }
 
     if (excluding) return best == -SCORE_INF ? alpha : best;  // verification search: don't store
-    const Bound bound = best >= beta ? BOUND_LOWER : best_idx >= 0 ? BOUND_EXACT : BOUND_UPPER;
-    tt.store(pos.key(), score_to_tt(best, ply), eval, std::max(depth, -8), bound,
-             best_idx >= 0 ? encode_move(moves, std::size_t(best_idx)) : TTMove{});
+    Bound bound = best >= beta ? BOUND_LOWER : best_idx >= 0 ? BOUND_EXACT : BOUND_UPPER;
+    TTMove tt_move = best_idx >= 0 ? encode_move(moves, std::size_t(best_idx)) : TTMove{};
+    if (is_root && root_restricted) {
+        // Only some of the legal moves were searched: their best score is a lower bound for the position and
+        // nothing more, and the move reference has to be counted among all legal moves.
+        if (best_idx < 0) return best;
+        bound = BOUND_LOWER;
+        MoveList all;
+        generate_moves(pos, all);
+        tt_move = encode_move(all, std::size_t(std::find(all.begin(), all.end(), moves[best_idx]) - all.begin()));
+    }
+    tt.store(pos.key(), score_to_tt(best, ply), eval, std::max(depth, -8), bound, tt_move);
     return best;
 }
 
@@ -437,8 +454,12 @@ void Worker::iterate(const Limits& limits, TimeControl& t, const Engine::InfoFn*
             }
             delta += delta / 2 + 5;
         }
-        if (stopped()) break;
+        if (stopped()) {
+            partial = roots[0].score != -SCORE_INF;  // the result uses a score from this unfinished iteration
+            break;
+        }
         completed_depth = root_depth;
+        completed_score = score;
 
         if (!main) continue;
         if (on_info && *on_info) (*on_info)(make_info(root_depth, score));
@@ -678,6 +699,8 @@ SearchResult Engine::go(const Limits& limits, InfoFn on_info) {
     result.best = main.roots[0].move;
     result.score = main.roots[0].score == -SCORE_INF ? main.roots[0].prev_score : main.roots[0].score;
     result.depth = main.completed_depth;
+    result.completed_score = main.completed_score;
+    result.partial = main.partial;
     result.pv = main.roots[0].pv;
     for (const auto& w : workers_) result.nodes += w->nodes.load();
     result.time_ms = elapsed_ms(tc.start);

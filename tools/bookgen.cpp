@@ -112,20 +112,23 @@ struct Leaf {
     bool operator<(const Leaf& o) const { return priority > o.priority; }  // min-heap
 };
 
-// Collects unanalysed children reachable from the roots with their priorities.
+// Collects unanalysed children reachable from the roots with their priorities. Regret adds up along a path and a
+// position counts with the smallest regret of any path to it, so the nodes are visited in order of regret
+// (Dijkstra; a first-come depth-first walk gave transpositions the regret of whichever path reached them first).
 std::vector<Leaf> frontier(const std::vector<Position>& roots, const Config& cfg) {
-    std::vector<Leaf> out;
-    std::set<Key> seen;
     struct Item {
-        Key key;
         long regret;
+        Key key;
+        bool operator>(const Item& o) const { return regret != o.regret ? regret > o.regret : key > o.key; }
     };
-    std::vector<Item> stack;
-    for (const Position& r : roots) stack.push_back({r.key(), 0});
-    while (!stack.empty()) {
-        const Item it = stack.back();
-        stack.pop_back();
-        if (!seen.insert(it.key).second) continue;
+    std::priority_queue<Item, std::vector<Item>, std::greater<Item>> queue;
+    for (const Position& r : roots) queue.push({0, r.key()});
+    std::set<Key> done;
+    std::map<Key, Leaf> leaves;  // the cheapest occurrence of each leaf
+    while (!queue.empty()) {
+        const Item it = queue.top();
+        queue.pop();
+        if (!done.insert(it.key).second) continue;
         const Node& n = tree.at(it.key);
         if (n.moves.empty() || n.ply >= cfg.max_ply) continue;
         for (const MoveInfo& mi : n.moves) {
@@ -134,19 +137,18 @@ std::vector<Leaf> frontier(const std::vector<Position>& roots, const Config& cfg
             c.make_move(mi.move);
             auto ct = tree.find(c.key());
             if (ct != tree.end() && !ct->second.moves.empty()) {
-                stack.push_back({c.key(), regret});
+                if (!done.contains(c.key())) queue.push({regret, c.key()});
             } else if (!is_decisive(mi.score)) {
-                out.push_back({regret + long(cfg.drop) * (n.ply + 1), c, n.ply + 1});
+                const Leaf leaf{regret + long(cfg.drop) * (n.ply + 1), c, n.ply + 1};
+                const auto [at, fresh] = leaves.try_emplace(c.key(), leaf);
+                if (!fresh && leaf.priority < at->second.priority) at->second = leaf;
             }
         }
     }
-    std::sort(out.begin(), out.end(), [](const Leaf& a, const Leaf& b) { return a.priority < b.priority; });
-    // A position can be reached by several paths: keep its cheapest occurrence.
-    std::set<Key> unique;
-    std::vector<Leaf> dedup;
-    for (const Leaf& l : out)
-        if (unique.insert(l.pos.key()).second) dedup.push_back(l);
-    return dedup;
+    std::vector<Leaf> out;
+    for (const auto& [key, leaf] : leaves) out.push_back(leaf);
+    std::stable_sort(out.begin(), out.end(), [](const Leaf& a, const Leaf& b) { return a.priority < b.priority; });
+    return out;
 }
 
 Node analyse(Engine& engine, const Position& pos, int ply, const Config& cfg) {
