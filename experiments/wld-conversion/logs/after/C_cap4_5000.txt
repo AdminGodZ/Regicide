@@ -1,0 +1,27 @@
+ok   load /private/tmp/claude-501/-Users-timheld--t3-worktrees-Regicide-t3-1fb0d56b/353c3a4f-f094-49e4-9063-64d86206a9c9/scratchpad/egdb5
+database: 5 pieces, MTC 5
+  W:WK2,K7:B3,K8,28            optimal  58  engine 197  no progress
+  B:WK1,6:BK3,11,K24           optimal  65  engine 208  no progress
+  W:WK8,K32:BK14,K20,K21       optimal  28  engine  79  no progress
+  B:WK10,K22:B4,21,26          optimal  61  engine 206  no progress
+  B:WK21,22:B10,15,27          optimal  61  engine 176  no progress
+  W:WK15,K22:BK2,K3,K21        optimal  40  engine  79  no progress
+  W:WK5,14:BK8,16,27           optimal  48  engine 205  no progress
+  W:WK5,6:BK14,K17,K25         optimal  24  engine  80  no progress
+  W:WK5,9:BK20,K25,K27         optimal  46  engine  81  repetition
+  B:W21,27,K32:BK14,K26        optimal  24  engine 131  no progress
+  B:W6,K20,K24:BK14,K31        optimal  60  engine  89  no progress
+  B:WK1,K6,K24:BK3,K7          optimal  40  engine  79  no progress
+  B:WK2,10:B15,21,26           optimal  55  engine 146  no progress
+  B:WK10,K15:BK4,K21,K24       optimal  43  engine  79  no progress
+  W:WK7,K22,K29:BK19,K27       optimal  63  engine  79  no progress
+  B:WK8,K10,K22:BK23,27        optimal  52  engine  80  no progress
+convert 5 pieces, 400 positions, 5000 nodes/move, MTC cap 4: won 384, repetition 1, no progress 15, mean plies: engine 32.2, reference 30.7
+  won by kind: kings only 8/13 men on one side 120/127 men on both sides 256/260
+  optimal length median 30 p90 60 max 83; engine minus optimal: median 0 p90 28 max 104; engine/optimal %: median 100 p90 316; at most optimal 269; 1.4 s
+FAIL converted 384 of 400 5-piece wins
+defend 5 pieces, 400 positions, 5000 nodes/move, MTC cap 4: won 400, mean plies: engine 47.0, reference 30.7
+  won by kind: kings only 13/13 men on one side 127/127 men on both sides 260/260
+  optimal length median 30 p90 60 max 83; engine minus optimal: median 8 p90 54 max 84; engine/optimal %: median 125 p90 733; at most optimal 171; 2.9 s
+ok   the defender loses every game, as it must
+FAILED

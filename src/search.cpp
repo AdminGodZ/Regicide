@@ -25,23 +25,32 @@ std::int64_t elapsed_ms(Clock::time_point start) {
 Score score_to_tt(Score s, int ply) { return s >= SCORE_KNOWN_WIN ? s + ply : s <= -SCORE_KNOWN_WIN ? s - ply : s; }
 Score score_from_tt(Score s, int ply) { return s >= SCORE_KNOWN_WIN ? s - ply : s <= -SCORE_KNOWN_WIN ? s + ply : s; }
 
-TTMove encode_move(const MoveList& list, std::size_t idx) {
-    const Move& m = list[idx];
-    int disc = 0;
-    for (std::size_t i = 0; i < idx; ++i) disc += list[i].from == m.from && list[i].to == m.to;
-    return TTMove::make(m.from, m.to, std::min(disc, 3));
-}
-
-int find_move(const MoveList& list, TTMove tm) {
-    if (!tm.valid()) return -1;
-    int disc = tm.disc();
-    for (std::size_t i = 0; i < list.size(); ++i)
-        if (list[i].from == tm.from() && list[i].to == tm.to() && disc-- == 0) return int(i);
-    return -1;
-}
-
 bool is_promotion(const Position& pos, const Move& m) {
     return !(pos.kings() & bit(m.from)) && (bit(m.to) & promo_row(pos.side_to_move()));
+}
+
+// Conversion search (see Engine::go). Database wins without distance information are searched with a static value
+// of +-(CONV_BASE + progress): above any normal evaluation, so the winner never trades the win for anything, and
+// below SCORE_KNOWN_WIN, so they stay ordinary heuristic scores for the hash table and the pruning code.
+constexpr Score CONV_BASE = 10000;
+constexpr Score CONV_PROGRESS = 4000;  // bound on the progress term
+constexpr int MTC_SCORE_CAP = 4000;    // keeps SCORE_DB_WIN - ply - mtc above SCORE_KNOWN_WIN
+// A won position that occurred once before: still won (only the third occurrence is a draw), but worth less than
+// any line that makes progress (CONV_BASE - CONV_PROGRESS) and more than any real draw.
+constexpr Score CONV_REPEAT = 2000;
+
+// Once the no-progress draw is within reach, what a position is worth depends on how many plies have passed without
+// a capture or man move, so from this count on it is part of the hash-table key: an entry made at one count is not
+// used at another. Below it the count is left out, so that transpositions through king moves still meet (a very
+// deep search of a simple ending can reach the limit from there; that is accepted). The conversion search's eval
+// falls with every such ply, so there the count is keyed in steps of sixteen from the start.
+constexpr int REV_KEYED = 48;
+constexpr Key rev_key(int reversible, bool conversion) {
+    if (reversible < REV_KEYED) reversible = conversion ? reversible / 16 : 0;
+    if (reversible == 0) return 0;
+    Key z = Key(reversible) * 0x9E3779B97F4A7C15ull;
+    z = (z ^ (z >> 32)) * 0xD6E8FEB86659FD93ull;
+    return z ^ (z >> 32);
 }
 
 // Lazy SMP: helper threads skip some depths so they search different parts of the tree.
@@ -76,6 +85,7 @@ struct Worker {
     Worker(Engine& e, int id) : eng(e), tt(e.tt_), id(id) { clear(); }
 
     Score evaluate(const Position& pos, int ply) { return net ? nn.evaluate(*net, pos, ply) : evaluator->linear(pos); }
+    Score conversion_eval(const Position& pos, bool winning) const;
 
     void clear() {
         std::memset(history, 0, sizeof(history));
@@ -131,6 +141,8 @@ struct Worker {
     bool stopped() const { return eng.stop_.load(std::memory_order_relaxed); }
     void check_limits();
     bool is_repetition(const Position& pos, int ply) const;
+    int occurrences(const Position& pos, int ply) const;
+    bool repeats(Key key, int ply, int reversible) const;
     void update_quiet_stats(Color us, const Move& best, const Move* tried, int ntried, int depth, int ply);
     int quiet_score(Color us, const Move& m, int ply) const {
         return history[us][m.from][m.to] + (P.cont_hist ? cont[prev_to[ply]][m.from][m.to] : 0);
@@ -166,6 +178,8 @@ struct Worker {
     std::atomic<std::uint64_t> nodes{0};
     std::atomic<std::uint64_t> tbhits{0};
     int egdb_pieces = 0;
+    int conversion = 0;  // Engine::conversion_
+    int mtc_pieces = 0;  // conversion search: database distances are used up to this many pieces
     int seldepth = 0;
     int root_depth = 0;
     int completed_depth = 0;
@@ -173,19 +187,10 @@ struct Worker {
     Move done_move;
     Score done_score = -SCORE_INF;
     std::vector<Move> done_pv;
+    Score completed_score = -SCORE_INF;  // score of the last completed iteration
+    bool partial = false;                // the search stopped inside an iteration that had scored a root move
+    bool root_restricted = false;        // the root list leaves out legal moves (searchmoves, avoid list)
 };
-
-namespace {
-
-int LMR[64][64];
-
-void init_lmr(const SearchParams& P) {
-    for (int d = 1; d < 64; ++d)
-        for (int i = 1; i < 64; ++i)
-            LMR[d][i] = int((P.lmr_base + std::log(double(d)) * std::log(double(i)) * P.lmr_mult) / 100.0);
-}
-
-}  // namespace
 
 void Worker::setup(const Position& r, const std::vector<Key>& game_keys, const std::vector<Move>& root_moves) {
     root = r;
@@ -194,9 +199,16 @@ void Worker::setup(const Position& r, const std::vector<Key>& game_keys, const s
     std::copy(game_keys.begin(), game_keys.end(), keys.begin());
     roots.clear();
     for (const Move& m : root_moves) roots.push_back({m, -SCORE_INF, -SCORE_INF, {m}});
+    MoveList all;
+    generate_moves(r, all);
+    root_restricted = roots.size() != all.size();
+    completed_score = -SCORE_INF;
+    partial = false;
     nodes = 0;
     tbhits = 0;
     egdb_pieces = eng.egdb_pieces_;
+    conversion = eng.conversion_;
+    mtc_pieces = std::min({eng.egdb_pieces_, egdb::max_mtc_pieces(), eng.egdb_mtc_pieces_});
     seldepth = 0;
     completed_depth = 0;
     done_score = -SCORE_INF;
@@ -209,11 +221,56 @@ void Worker::setup(const Position& r, const std::vector<Key>& game_keys, const s
     if (net) nn.reset(*net, root);
 }
 
+// The winner's progress: material, men advanced towards the king row, fewer pieces on the board, the winner's kings
+// close to the loser's pieces, the loser short of moves, and plies left before the no-progress draw (a capture or
+// man move resets them), counted ever more steeply as the limit nears.
+Score Worker::conversion_eval(const Position& pos, bool winning) const {
+    const Color w = winning ? pos.side_to_move() : ~pos.side_to_move();
+    auto side = [&](Color c) {
+        int v = 300 * popcount(pos.men(c)) + 400 * popcount(pos.kings(c));
+        for (Bitboard m = pos.men(c); m;) v += 15 * advance_of(c, pop_lsb(m));
+        return v;
+    };
+    // King moves between two squares: the larger of the row and the column distance.
+    auto col = [](int sq) { return 2 * (sq & 3) + (row_of(sq) & 1); };
+    int distance = 0;  // from each of the winner's kings to the nearest piece of the loser
+    for (Bitboard k = pos.kings(w); k;) {
+        const int a = pop_lsb(k);
+        int nearest = 7;
+        for (Bitboard o = pos.pieces(~w); o;) {
+            const int b = pop_lsb(o);
+            nearest = std::min(nearest, std::max(std::abs(row_of(a) - row_of(b)), std::abs(col(a) - col(b))));
+        }
+        distance += nearest;
+    }
+    const int r = pos.reversible_plies();
+    const int late = std::max(0, r - 50);
+    const Score progress = std::clamp(side(w) - side(~w) - 50 * pos.piece_count() - 40 * distance -
+                                          10 * quiet_move_count(pos, ~w) - 4 * r - 3 * late * late,
+                                      -CONV_PROGRESS, CONV_PROGRESS);
+    return winning ? CONV_BASE + progress : -CONV_BASE - progress;
+}
+
 bool Worker::is_repetition(const Position& pos, int ply) const {
+    return repeats(pos.key(), ply, pos.reversible_plies());
+}
+
+// How often the position already occurred in the game or on the current search path.
+int Worker::occurrences(const Position& pos, int ply) const {
     const long idx = long(hist_len) + ply;
     const long stop = std::max(0L, idx - pos.reversible_plies());
+    int n = 0;
+    for (long i = idx - 2; i >= stop; i -= 2) n += keys[i] == pos.key();
+    return n;
+}
+
+// True if the position with this key, reached at `ply` after `reversible` plies without a capture or man move,
+// already occurred in the game or on the current search path.
+bool Worker::repeats(Key key, int ply, int reversible) const {
+    const long idx = long(hist_len) + ply;
+    const long stop = std::max(0L, idx - reversible);
     for (long i = idx - 2; i >= stop; i -= 2)
-        if (keys[i] == pos.key()) return true;
+        if (keys[i] == key) return true;
     return false;
 }
 
@@ -244,6 +301,7 @@ Score Worker::search(Position& pos, Score alpha, Score beta, int depth, int ply,
     const bool pv_node = beta - alpha > 1;
     const bool is_root = ply == 0;
     const Color us = pos.side_to_move();
+    int conv = is_root ? conversion : 0;  // conversion search: this node is a database win (+1) or loss (-1)
 
     // Each counter has a single writer (its worker), so a plain increment is enough; others only read it.
     const std::uint64_t n = nodes.load(std::memory_order_relaxed);
@@ -255,32 +313,56 @@ Score Worker::search(Position& pos, Score alpha, Score beta, int depth, int ply,
     keys[hist_len + ply] = pos.key();
 
     if (!is_root) {
-        if (is_repetition(pos, ply)) return SCORE_DRAW;
+        // The no-progress limit ends the game as a draw, unless the side to move has no move left: then the
+        // move that got here won (the referee looks for that first).
+        const bool limit = pos.reversible_plies() >= NO_PROGRESS_PLIES && (has_capture(pos, us) || quiet_targets(pos, us));
+        if (!conversion) {
+            if (limit || is_repetition(pos, ply)) return SCORE_DRAW;
+        } else if (const int seen = limit ? 2 : occurrences(pos, ply)) {
+            // Conversion search: as for the referee, only the third occurrence of a position is a draw. A won
+            // position seen once before scores CONV_REPEAT, so that when every winning move repeats a position they
+            // still rank above the moves that give the win away.
+            if (seen >= 2) return SCORE_DRAW;
+            const egdb::Wld r = egdb::probe(pos.pieces(BLACK), pos.pieces(WHITE), pos.kings(), pos.side_to_move());
+            return r == egdb::Wld::Win ? CONV_REPEAT : r == egdb::Wld::Loss ? -CONV_REPEAT : SCORE_DRAW;
+        }
         // Mate distance pruning.
         alpha = std::max(alpha, -SCORE_WIN + ply);
         beta = std::min(beta, SCORE_WIN - ply - 1);
         if (alpha >= beta) return alpha;
-        if (ply >= MAX_PLY - 2) return evaluate(pos, ply);
+        if (ply >= MAX_PLY - 2 && !conversion) return evaluate(pos, ply);
 
         // Endgame database: exact result. Wins prefer the shortest path into the database.
         if (pos.piece_count() <= egdb_pieces && !P.hash_first_db) {
             const egdb::Wld r = egdb::probe(pos.pieces(BLACK), pos.pieces(WHITE), pos.kings(), pos.side_to_move());
             if (r != egdb::Wld::Unknown) {
                 tbhits.store(tbhits.load(std::memory_order_relaxed) + 1, std::memory_order_relaxed);
-                return r == egdb::Wld::Draw ? SCORE_DRAW
-                       : r == egdb::Wld::Win ? SCORE_DB_WIN - ply
-                                             : -SCORE_DB_WIN + ply;
+                if (!conversion || r == egdb::Wld::Draw)
+                    return r == egdb::Wld::Draw ? SCORE_DRAW
+                           : r == egdb::Wld::Win ? SCORE_DB_WIN - ply
+                                                 : -SCORE_DB_WIN + ply;
+                // Conversion search: with a distance the winner takes the fastest conversion and the loser the
+                // slowest; without one the position is searched on with the conversion eval.
+                if (pos.piece_count() <= mtc_pieces) {
+                    const int mtc = std::min(
+                        egdb::probe_mtc(pos.pieces(BLACK), pos.pieces(WHITE), pos.kings(), pos.side_to_move()),
+                        MTC_SCORE_CAP);
+                    if (mtc >= 0) return r == egdb::Wld::Win ? SCORE_DB_WIN - ply - mtc : -SCORE_DB_WIN + ply + mtc;
+                }
+                conv = r == egdb::Wld::Win ? 1 : -1;
             }
         }
+        if (ply >= MAX_PLY - 2) return conv ? conversion_eval(pos, conv > 0) : evaluate(pos, ply);
     }
 
     const bool excluding = has_excluded[ply];
     TTData tte;
-    const bool tt_hit = !excluding && tt.probe(pos.key(), tte);
+    const Key tt_key = pos.key() ^ rev_key(pos.reversible_plies(), conversion);
+    const bool tt_hit = !excluding && tt.probe(tt_key, tte);
     const Score tt_score = tt_hit ? score_from_tt(tte.score, ply) : 0;
 
     // B1: the hash table first; database results are stored in it as exact scores at depth hash_first_db.
-    if (P.hash_first_db && !is_root && pos.piece_count() <= egdb_pieces) {
+    if (P.hash_first_db && !conversion && !is_root && pos.piece_count() <= egdb_pieces) {
         if (tt_hit && tte.bound == BOUND_EXACT && tte.depth >= P.hash_first_db) return tt_score;
         const egdb::Wld r = egdb::probe(pos.pieces(BLACK), pos.pieces(WHITE), pos.kings(), pos.side_to_move());
         if (r != egdb::Wld::Unknown) {
@@ -288,7 +370,7 @@ Score Worker::search(Position& pos, Score alpha, Score beta, int depth, int ply,
             const Score v = r == egdb::Wld::Draw ? SCORE_DRAW
                             : r == egdb::Wld::Win ? SCORE_DB_WIN - ply
                                                   : -SCORE_DB_WIN + ply;
-            if (!excluding) tt.store(pos.key(), score_to_tt(v, ply), 0, P.hash_first_db, BOUND_EXACT, TTMove{});
+            if (!excluding) tt.store(tt_key, score_to_tt(v, ply), 0, P.hash_first_db, BOUND_EXACT, TTMove{});
             return v;
         }
     }
@@ -308,9 +390,12 @@ Score Worker::search(Position& pos, Score alpha, Score beta, int depth, int ply,
 
     // With a capture forced, nothing below uses the static eval (no pruning applies), so skip computing it.
     const bool forced_capture = !moves.empty() && moves[0].is_capture();
-    const Score raw_eval = tt_hit ? Score(tte.eval) : forced_capture ? 0 : cached_eval(pos, ply);
+    const Score raw_eval = tt_hit           ? Score(tte.eval)
+                           : forced_capture ? 0
+                           : conv           ? conversion_eval(pos, conv > 0)
+                                            : cached_eval(pos, ply);
     // B3: corrected static eval (the hash table keeps the raw one).
-    const Score eval = P.corr_hist && !forced_capture
+    const Score eval = P.corr_hist && !forced_capture && !conv
                            ? std::clamp(raw_eval + correction(pos), -SCORE_KNOWN_WIN + 1, SCORE_KNOWN_WIN - 1)
                            : raw_eval;
 
@@ -335,7 +420,7 @@ Score Worker::search(Position& pos, Score alpha, Score beta, int depth, int ply,
             qext -= 0x100;
             depth = 1;
         } else {
-            if (P.leaf_tt && !tt_hit && !excluding) tt.store(pos.key(), 0, raw_eval, -8, BOUND_NONE, TTMove{});
+            if (P.leaf_tt && !tt_hit && !excluding) tt.store(tt_key, 0, raw_eval, -8, BOUND_NONE, TTMove{});
             return eval;
         }
     }
@@ -346,8 +431,14 @@ Score Worker::search(Position& pos, Score alpha, Score beta, int depth, int ply,
         (tte.bound & (tt_score > eval ? BOUND_LOWER : BOUND_UPPER)))
         peval = tt_score;
 
+    // With the no-progress draw inside the remaining search the static eval says little about the outcome, so the
+    // pruning rules that rely on it, and the shortcuts that rely on a shallower search (ProbCut, the singular
+    // verification), stand down. Extensions can add a ply at every node below, hence twice the depth.
+    const bool limit_near = pos.reversible_plies() + 2 * std::max(depth, 1) + 2 >= NO_PROGRESS_PLIES;
+
     // Razoring: far below alpha at low depth, check whether the horizon search agrees.
-    if (!pv_node && !excluding && !forced_capture && depth > 0 && depth <= P.razor_depth &&
+    if (!pv_node && !excluding && !forced_capture && !conversion && !limit_near && depth > 0 &&
+        depth <= P.razor_depth &&
         peval + P.razor_margin * depth < alpha && !is_decisive(alpha)) {
         const Score s = search(pos, alpha - 1, alpha, 0, ply, cut_node, qext);
         if (stopped()) return 0;
@@ -356,7 +447,8 @@ Score Worker::search(Position& pos, Score alpha, Score beta, int depth, int ply,
     }
 
     // Reverse futility pruning: far above beta at low depth, assume a quiet move holds it.
-    if (!pv_node && !excluding && !forced_capture && depth > 0 && depth <= P.rfp_max_depth && !is_decisive(beta) &&
+    if (!pv_node && !excluding && !forced_capture && !conversion && !limit_near && depth > 0 &&
+        depth <= P.rfp_max_depth && !is_decisive(beta) &&
         peval - P.rfp_margin * depth >= beta && !has_capture(pos, ~us))
         return peval;
 
@@ -367,14 +459,23 @@ Score Worker::search(Position& pos, Score alpha, Score beta, int depth, int ply,
     if (!is_root && !excluding && depth >= P.etc_min_depth) {
         for (const Move& m : moves) {
             TTData ce;
-            if (!tt.probe(pos.key_after(m), ce) || ce.depth < depth - 1 || !(ce.bound & BOUND_UPPER)) continue;
+            const Key ck = pos.key_after(m);
+            const int reversible = (pos.kings() & bit(m.from)) && !m.is_capture() ? pos.reversible_plies() + 1 : 0;
+            if (!tt.probe(ck ^ rev_key(reversible, conversion), ce) || ce.depth < depth - 1 ||
+                !(ce.bound & BOUND_UPPER))
+                continue;
             const Score cs = -score_from_tt(ce.score, ply + 1);
-            if (cs >= beta && !is_decisive(cs)) return cs;
+            if (cs < beta || is_decisive(cs)) continue;
+            // The child's own search would call a repetition or the no-progress limit a draw before it looked at
+            // the hash table, so its entry says nothing about this line.
+            if (reversible && (reversible >= NO_PROGRESS_PLIES || repeats(ck, ply + 1, reversible))) continue;
+            return cs;
         }
     }
 
     // ProbCut: if a shallower search clears beta by a margin, the full-depth search very likely clears beta.
-    if (!pv_node && !excluding && !forced_capture && depth >= P.probcut_depth && !is_decisive(beta)) {
+    if (!pv_node && !excluding && !forced_capture && !conversion && !limit_near && depth >= P.probcut_depth &&
+        !is_decisive(beta)) {
         const Score pb = beta + P.probcut_margin;
         const Score s = search(pos, pb - 1, pb, depth - P.probcut_reduction, ply, cut_node, qext);
         if (stopped()) return 0;
@@ -387,8 +488,9 @@ Score Worker::search(Position& pos, Score alpha, Score beta, int depth, int ply,
     // Singular extension: if every alternative to the hash move fails well below its score, the hash move is
     // forced in all but name and gets one extra ply. If an alternative also beats beta, cut (multi-cut).
     int tt_move_ext = 0;
-    if (!is_root && !excluding && depth >= P.se_depth && tt_hit && tte.move.valid() && (tte.bound & BOUND_LOWER) &&
-        tte.depth >= depth - 3 && !is_decisive(tt_score) && moves.size() > 1) {
+    // Not with the no-progress draw inside the remaining search: the reduced verification search stops short of it.
+    if (!is_root && !excluding && !limit_near && depth >= P.se_depth && tt_hit && tte.move.valid() &&
+        (tte.bound & BOUND_LOWER) && tte.depth >= depth - 3 && !is_decisive(tt_score) && moves.size() > 1) {
         const int tt_i = find_move(moves, tte.move);
         if (tt_i >= 0) {
             const Score sb = tt_score - P.se_margin * depth / 8;
@@ -449,13 +551,14 @@ Score Worker::search(Position& pos, Score alpha, Score beta, int depth, int ply,
 
         // Shallow pruning of late quiet moves.
         if (!pv_node && quiet && n > 0 && best > -SCORE_KNOWN_WIN) {
-            if (depth <= P.lmp_depth && int(quiets.size()) >= P.lmp_base + depth * depth) continue;
-            if (depth <= P.fut_depth && peval + P.fut_margin * depth <= alpha) continue;
+            // Not in the conversion search: the one move that keeps a win can come late in the list.
+            if (depth <= P.lmp_depth && !conversion && int(quiets.size()) >= P.lmp_base + depth * depth) continue;
+            if (depth <= P.fut_depth && !conversion && !limit_near && peval + P.fut_margin * depth <= alpha) continue;
         }
 
         Position child = pos;
         child.make_move(m);
-        tt.prefetch(child.key());
+        tt.prefetch(child.key() ^ rev_key(child.reversible_plies(), conversion));
         if (net) nn.push(ply + 1, pos, m);
         const int move_ext = order[n] == (1 << 30) ? tt_move_ext : 0;
         const int new_depth = depth - 1 + ext + move_ext;
@@ -469,7 +572,7 @@ Score Worker::search(Position& pos, Score alpha, Score beta, int depth, int ply,
         } else {
             int r = 0;
             if (depth >= P.lmr_min_depth && quiet) {
-                r = LMR[std::min(depth, 63)][std::min<int>(int(n), 63)];
+                r = eng.lmr_[std::min(depth, 63)][std::min<int>(int(n), 63)];
                 r += cut_node;
                 r -= pv_node;
                 r -= quiet_score(us, m, ply) / 6000;
@@ -511,14 +614,22 @@ Score Worker::search(Position& pos, Score alpha, Score beta, int depth, int ply,
     }
 
     if (excluding) return best == -SCORE_INF ? alpha : best;  // verification search: don't store
-    const Bound bound = best >= beta ? BOUND_LOWER : best_idx >= 0 ? BOUND_EXACT : BOUND_UPPER;
-    if (P.corr_hist && !forced_capture && depth >= 1 && !is_decisive(best) &&
+    Bound bound = best >= beta ? BOUND_LOWER : best_idx >= 0 ? BOUND_EXACT : BOUND_UPPER;
+    TTMove tt_move = best_idx >= 0 ? encode_move(moves, std::size_t(best_idx)) : TTMove{};
+    if (is_root && root_restricted) {
+        // Only some of the legal moves were searched: their best score is a lower bound for the position and
+        // nothing more, and the move reference has to be counted among all legal moves.
+        if (best_idx < 0) return best;
+        bound = BOUND_LOWER;
+        MoveList all;
+        generate_moves(pos, all);
+        tt_move = encode_move(all, std::size_t(std::find(all.begin(), all.end(), moves[best_idx]) - all.begin()));
+    }
+    if (P.corr_hist && !forced_capture && !conv && depth >= 1 && !is_decisive(best) &&
         (best_idx < 0 || !moves[std::size_t(best_idx)].is_capture()) &&
         !(bound == BOUND_LOWER && best <= eval) && !(bound == BOUND_UPPER && best >= eval))
         update_correction(pos, best - raw_eval, depth);
-    // The moves array was permuted by the selection sort, so encode against the same array.
-    tt.store(pos.key(), score_to_tt(best, ply), raw_eval, std::max(depth, -8), bound,
-             best_idx >= 0 ? encode_move(moves, std::size_t(best_idx)) : TTMove{});
+    tt.store(tt_key, score_to_tt(best, ply), raw_eval, std::max(depth, -8), bound, tt_move);
     return best;
 }
 
@@ -582,8 +693,12 @@ void Worker::iterate(const Limits& limits, TimeControl& t, const Engine::InfoFn*
             }
             delta += delta / 2 + 5;
         }
-        if (stopped()) break;
+        if (stopped()) {
+            partial = roots[0].score != -SCORE_INF;  // the result uses a score from this unfinished iteration
+            break;
+        }
         completed_depth = search_depth;
+        completed_score = score;
         done_move = roots[0].move;
         done_score = score;
         done_pv = roots[0].pv;
@@ -615,6 +730,7 @@ void Worker::iterate(const Limits& limits, TimeControl& t, const Engine::InfoFn*
                     factor *= std::clamp((P.tm_nodes - 100.0 * share) / 100.0, 0.4, 2.0);
                 }
             }
+            if (limits.movetime_ms) factor = 1.0;  // a fixed time per move: nothing is saved by stopping early
             if (elapsed_ms(t.start) > std::int64_t(t.soft_ms * factor)) break;
         }
         if (is_decisive(score) && SCORE_WIN - std::abs(score) < root_depth && std::abs(score) > SCORE_MATE_BOUND)
@@ -709,11 +825,17 @@ void Engine::set_position(const Position& root, const std::vector<Position>& his
     root_.set_reversible_plies(rev);
 }
 
-// Perfect play from the database when the root is in it and decided: the winner follows moves-to-conversion
-// downhill (so the win is always realised), the loser maximises it. Draws are left to the search.
+// Database play when the root is in the MTC tables and decided. The winner keeps the WLD win: at MTC 0 it plays a
+// winning capture or man move, otherwise it prefers any winning capture or man move and else steps to the winning
+// king move with the smallest child MTC. The loser plays to the child with the largest MTC. Every man move counts
+// as progress here (the tables count only advances of the leading man), so this is not MTC-optimal play: it
+// always realises the win, because each move either makes progress with a man or lowers MTC, but not by the
+// shortest route, and the loser does not always make the longest defence. Kept on purpose after the November 2026
+// review; see the note at the end of experiments/wld-conversion/RESULTS.md. Draws are left to the search.
 std::optional<std::pair<Move, Score>> Engine::egdb_root_move(const Position& root,
                                                              const std::vector<Move>& list) const {
-    if (!egdb_pieces_ || root.piece_count() > std::min(egdb_pieces_, egdb::max_mtc_pieces())) return std::nullopt;
+    if (!egdb_pieces_ || root.piece_count() > std::min({egdb_pieces_, egdb::max_mtc_pieces(), egdb_mtc_pieces_}))
+        return std::nullopt;
     auto probe = [](const Position& p) {
         return egdb::probe(p.pieces(BLACK), p.pieces(WHITE), p.kings(), p.side_to_move());
     };
@@ -751,7 +873,9 @@ std::optional<std::pair<Move, Score>> Engine::egdb_root_move(const Position& roo
 }
 
 SearchResult Engine::go(const Limits& limits, InfoFn on_info) {
-    init_lmr(params);
+    for (int d = 1; d < 64; ++d)
+        for (int i = 1; i < 64; ++i)
+            lmr_[d][i] = int((params.lmr_base + std::log(double(d)) * std::log(double(i)) * params.lmr_mult) / 100.0);
     stop_ = false;
     tt_.skip_same = params.tt_skip_same != 0;
     tt_.new_search();
@@ -790,6 +914,15 @@ SearchResult Engine::go(const Limits& limits, InfoFn on_info) {
         if (!chosen.empty()) root_moves = std::move(chosen);
     }
 
+    // Conversion search: the root is a database win or loss that egdb_root_move does not play from distances (none
+    // for this piece count, or not asked for). Distances are used where there are some, and the other won and lost
+    // positions are searched on with a conversion eval (Worker::search) instead of being cut off as equal wins.
+    conversion_ = 0;
+    if (egdb_pieces_ && root_.piece_count() <= egdb_pieces_) {
+        const egdb::Wld r = egdb::probe(root_.pieces(BLACK), root_.pieces(WHITE), root_.kings(), root_.side_to_move());
+        conversion_ = r == egdb::Wld::Win ? 1 : r == egdb::Wld::Loss ? -1 : 0;
+    }
+
     if (const auto db = egdb_root_move(root_, root_moves); db.has_value() && !limits.infinite) {
         result.best = db->first;
         result.score = db->second;
@@ -803,16 +936,37 @@ SearchResult Engine::go(const Limits& limits, InfoFn on_info) {
         }
         return result;
     }
+    // A won root keeps the win. The search already ranks winning moves first (Worker::search), but when every line
+    // ends in a real draw (a third occurrence, the no-progress limit), a move into a database draw would tie with
+    // them; the referee may still let the game go on, and the opponent may still go wrong.
+    if (conversion_ > 0 && !analysis) {
+        std::vector<Move> winning;
+        for (const Move& m : root_moves) {
+            Position c = root_;
+            c.make_move(m);
+            MoveList replies;
+            generate_moves(c, replies);
+            if (replies.empty() || egdb::probe(c.pieces(BLACK), c.pieces(WHITE), c.kings(), c.side_to_move()) ==
+                                       egdb::Wld::Loss)
+                winning.push_back(m);
+        }
+        if (!winning.empty()) root_moves = std::move(winning);
+    }
 
-    // Avoid list: drop excluded root moves, unless that would leave none.
-    if (avoid_ && avoid_->avoid_size() && !analysis) {
+    // Avoid list: drop excluded root moves, unless that would leave none. Not from a root the database has decided:
+    // there it could leave only a winning move that repeats the position for the third time.
+    if (avoid_ && avoid_->avoid_size() && !analysis && !conversion_) {
         std::vector<Move> kept;
         for (const Move& m : root_moves)
             if (!avoid_->avoids(root_, m)) kept.push_back(m);
         if (!kept.empty()) root_moves = std::move(kept);
     }
 
-    if (book_ && limits.use_book && !limits.infinite && !analysis && !book_->empty()) {
+    // No book move in the middle of a run of king moves: book scores are backed up without regard to repetition,
+    // so following them there can walk in a circle.
+    // Nor from a root the database has decided: the conversion search plays those.
+    if (book_ && limits.use_book && !limits.infinite && !analysis && !book_->empty() &&
+        root_.reversible_plies() == 0 && !conversion_) {
         book_seed_ = book_seed_ * 6364136223846793005ull + 1442695040888963407ull;
         if (auto m = book_->probe(root_, book_margin_, book_seed_ >> 33, avoid_.get())) {
             for (const Book::Entry& e : book_->lookup(root_))
@@ -840,7 +994,11 @@ SearchResult Engine::go(const Limits& limits, InfoFn on_info) {
     const Worker& main = *workers_[0];
     result.best = main.roots[0].move;
     result.score = main.roots[0].score == -SCORE_INF ? main.roots[0].prev_score : main.roots[0].score;
+    // Stopped before any root move was scored: nothing is known about the position, which is not a loss.
+    if (result.score == -SCORE_INF) result.score = SCORE_DRAW;
     result.depth = main.completed_depth;
+    result.completed_score = main.completed_score;
+    result.partial = main.partial;
     result.pv = main.roots[0].pv;
     // Lazy SMP thread selection: 1 = deepest completed iteration (then best score); 2 = votes weighted by depth
     // and score, as in Stockfish. A helper's result replaces the main thread's only when it wins.

@@ -66,7 +66,10 @@ struct Config {
     double grace = 0.25;
     double kill_after = 2.0;   // then kill (loss) this long after `stop`
 
-    int no_progress = 40;  // moves per side without a capture or man move; 0 = off
+    // Moves per side without a capture or man move (draw after 2N - 1 plies); 0 = off. The default is the rule the
+    // engine's search assumes (NO_PROGRESS_PLIES = 79 in src/search.hpp), implemented here independently;
+    // tools/selfplay.cpp (80 plies) and tools/datagen.cpp (60) use limits of their own.
+    int no_progress = 40;
     int max_plies = 1000;
     bool accept_draw_claims = false;
 
@@ -279,6 +282,8 @@ void play_game(const Config& cfg, Engine* eng[2], GameRecord& g) {
         } else {
             ++nonconv;
             window.push_back(b);
+            // A move that leaves the opponent without a move wins (next turn of the loop), whatever the counters say.
+            if (b.legal_moves().empty()) continue;
             if (std::count(window.begin(), window.end(), b) >= 3) {
                 g.winner = Winner::Draw;
                 g.termination = "threefold repetition";
@@ -632,7 +637,8 @@ Engines (A is the engine under test; results are reported from A's point of view
   --name-a, --name-b NAME  display name (default: the engine's own name)
   --option-a, --option-b TEXT
                            enginecommand to send after startup, e.g. "set hashsize 64"
-                           (repeatable)
+                           (repeatable). The match does not start if an engine rejects one.
+  --allow-rejected-options warn about rejected commands instead
   --cbhost PATH            cbhost executable (default: next to this program)
 
 Openings:
@@ -664,7 +670,10 @@ Adjudication:
 Running:
   -c, --concurrency N      games in parallel (default 6; 2 processes each)
   --sprt ELO0,ELO1[,ALPHA,BETA]
-                           stop early when the GSPRT is decided (default alpha=beta=0.05)
+                           stop early when the GSPRT is decided (default alpha=beta=0.05).
+                           With very few decisive pairs its error rates are not guaranteed:
+                           a long run of drawn pairs can accept ELO0 too easily. Prefer a
+                           fixed number of pairs for decisions.
   --sprt-min-pairs N       never stop before N complete pairs (default 20)
   -o, --out DIR            output directory (default matches/<timestamp>)
   --pdn-comments           add per-move time and engine output to the PDN
@@ -692,6 +701,7 @@ bool parse_args(int argc, char** argv, Config& cfg) {
         else if (a == "--name-b") cfg.spec[1].name = need("a name");
         else if (a == "--option-a") cfg.spec[0].cmds.push_back(need("a command"));
         else if (a == "--option-b") cfg.spec[1].cmds.push_back(need("a command"));
+        else if (a == "--allow-rejected-options") cfg.spec[0].allow_rejected = cfg.spec[1].allow_rejected = true;
         else if (a == "--cbhost") cfg.cbhost = need("a path");
         else if (a == "--openings") cfg.deck = need("a deck");
         else if (a == "--rounds") cfg.rounds = std::atoi(need("N").c_str());

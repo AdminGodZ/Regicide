@@ -95,9 +95,18 @@ bool parse_move(const Position& pos, const std::string& text, Move& out) {
             int over = NEIGHBOR[path[i]][d];
             if (over >= 0 && NEIGHBOR[over][d] == path[i + 1]) mid = over;
         }
-        if (mid < 0) full_path = false;
-        else jumped |= bit(mid);
+        // A path with more than two squares has to be a chain of jumps, each over another piece.
+        if (mid < 0 || (jumped & bit(mid))) return false;
+        jumped |= bit(mid);
     }
+
+    // Two squares one jump apart can be that single jump or the ends of a longer capture.
+    Bitboard single = 0;
+    if (path.size() == 2)
+        for (int d = 0; d < 4; ++d) {
+            int over = NEIGHBOR[path[0]][d];
+            if (over >= 0 && NEIGHBOR[over][d] == path[1]) single = bit(over);
+        }
 
     MoveList list;
     generate_moves(pos, list);
@@ -105,7 +114,7 @@ bool parse_move(const Position& pos, const std::string& text, Move& out) {
     for (const Move& m : list) {
         if (m.from != path.front() || m.to != path.back()) continue;
         if (full_path && m.captures != jumped) continue;
-        if (!match) match = &m;
+        if (!match || (single && m.captures == single)) match = &m;  // the exact reading wins
     }
     if (!match) return false;
     out = *match;
@@ -131,6 +140,13 @@ bool find_path(const Position& pos, const Move& m, int cur, Bitboard left, bool 
 }
 
 }  // namespace
+
+std::string move_text(const Position& pos, const Move& m) {
+    if (!m.is_capture()) return std::to_string(to_pdn(m.from)) + "-" + std::to_string(to_pdn(m.to));
+    std::string s;
+    for (int sq : move_path(pos, m)) s += (s.empty() ? "" : "x") + std::to_string(to_pdn(sq));
+    return s;
+}
 
 std::vector<int> move_path(const Position& pos, const Move& m) {
     std::vector<int> path{m.from};

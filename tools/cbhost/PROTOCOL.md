@@ -3,8 +3,9 @@
 `cbhost` loads one CheckerBoard-API engine (a `.dylib`/`.so` exporting `getmove` and,
 optionally, `enginecommand`) and drives it over stdin/stdout. CheckerBoard engines keep global
 state and are not reentrant, so every engine instance runs in its own `cbhost` process. The
-match runner only speaks this protocol, so any program that implements it (for example the
-Regicide CLI, natively) can be used as an engine.
+match runner only speaks this protocol, so any program that implements it can be used as an
+engine. The Regicide CLI (`regicide`) does not implement it; Regicide plays matches as the
+CheckerBoard library `regicide_cb` loaded by `cbhost`.
 
 ```
 cbhost [--cwd DIR] [--no-gamehist] ENGINE.dylib

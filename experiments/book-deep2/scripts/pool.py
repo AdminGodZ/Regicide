@@ -2,6 +2,8 @@
 # and an Elo estimate with a 95% CI (pentanomial: per-pair mean score and its standard error; normal approximation,
 # Elo = -400 log10(1/s - 1), CI by the delta method). Also the difference between two pooled groups with a 95% CI
 # (independent samples: se = sqrt(se1^2 + se2^2), in Elo via the slope at each group's score).
+# Not the match runner's estimate (tools/match/stats.cpp, also tools/selfplay.cpp): those use the population variance
+# and map the score interval's endpoints through the Elo formula; this script uses n - 1 and the delta method.
 #   pool.py "NAME=run1,run2" "NAME=run3,run4,run5"      (run = results dir name under ~/regicide-match/results)
 import csv, math, os, sys, collections
 R = os.path.expanduser('~/regicide-match/results')

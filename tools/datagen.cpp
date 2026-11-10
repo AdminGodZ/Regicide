@@ -3,7 +3,11 @@
 //   datagen --games 100000 --nodes 5000 --threads 12 --out data/run1.bin [--evalfile w.bin]
 //
 // Each game starts with a few uniformly random plies, then both sides play with a fixed node budget.
-// Every quiet position (side to move has no capture) is written with its search score and the game result.
+// Every quiet position (side to move has no capture) whose search score is not decisive (a proven win or loss) is
+// written with that score and the game result. The result is a loss for the side without a move; a draw on a third
+// occurrence, after 60 plies without a capture or man move, or after 300 plies; the database value once the piece
+// count is within the database (--egdb); or a win for one side once the score has been 900 or more in its favour
+// for 6 plies in a row.
 #include <atomic>
 #include <cstdint>
 #include <cstdio>
@@ -32,6 +36,9 @@ struct Config {
     int random_min = 4, random_max = 12;
     int max_opening_score = 300;
     int adjudicate_score = 900, adjudicate_plies = 6;
+    // Stop and label the game a draw after this many plies without a capture or man move: earlier than the 79-ply
+    // rule of the search and the match runner (NO_PROGRESS_PLIES in src/search.hpp) and than selfplay's 80, so long
+    // king endings stop sooner. The value predates the search's rule and was not changed with it.
     int draw_reversible = 60;
     int max_plies = 300;
     std::uint64_t seed = 1;
@@ -114,7 +121,7 @@ int main(int argc, char** argv) {
                 Limits quick;
                 quick.nodes = 2000;
                 engine.set_position(pos, history);
-                if (std::abs(engine.go(quick).score) > cfg.max_opening_score) continue;
+                if (std::abs(engine.go(quick).sound_score()) > cfg.max_opening_score) continue;
             }
 
             game.clear();
@@ -143,9 +150,10 @@ int main(int argc, char** argv) {
 
                 engine.set_position(pos, history);
                 const SearchResult r = engine.go(limits);
-                if (!list[0].is_capture() && !is_decisive(r.score)) game.push_back(DataRecord::make(pos, r.score));
+                const Score score = r.sound_score();
+                if (!list[0].is_capture() && !is_decisive(score)) game.push_back(DataRecord::make(pos, score));
 
-                const int black_view = pos.side_to_move() == BLACK ? r.score : -r.score;
+                const int black_view = pos.side_to_move() == BLACK ? score : -score;
                 const int sign = black_view >= cfg.adjudicate_score ? 1 : black_view <= -cfg.adjudicate_score ? -1 : 0;
                 run = sign != 0 && sign == last_sign ? run + 1 : sign != 0;
                 last_sign = sign;

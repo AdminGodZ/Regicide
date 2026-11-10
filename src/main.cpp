@@ -179,7 +179,7 @@ int main(int argc, char** argv) {
         } else if (cmd == "moves") {
             MoveList list;
             generate_moves(pos, list);
-            for (std::size_t i = 0; i < list.size(); ++i) std::cout << i << ": " << move_to_string(list[i]) << '\n';
+            for (std::size_t i = 0; i < list.size(); ++i) std::cout << i << ": " << move_text(pos, list[i]) << '\n';
             std::cout << std::flush;
         } else if (cmd == "play") {
             std::string tok;
@@ -234,7 +234,7 @@ int main(int argc, char** argv) {
             if (r.best.is_null() && !r.best.is_capture())
                 std::cout << "bestmove (none)" << std::endl;
             else
-                std::cout << "bestmove " << move_to_string(r.best) << std::endl;
+                std::cout << "bestmove " << move_text(pos, r.best) << std::endl;
         } else if (cmd == "set") {
             std::string name;
             long long value = 0;
