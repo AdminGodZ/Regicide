@@ -59,8 +59,7 @@ inline int matching_moves(const regicide::Position& pos, const std::string& text
     if (sq.size() > 2)
         for (std::size_t i = 0; i + 1 < sq.size(); ++i) {
             const int j = detail::jumped(sq[i], sq[i + 1]);
-            if (!j) return 0;
-            caps.insert(j);
+            if (!j || !caps.insert(j).second) return 0;  // not a jump, or the same piece jumped twice
         }
     regicide::MoveList list;
     regicide::generate_moves(pos, list);

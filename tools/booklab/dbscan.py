@@ -37,7 +37,7 @@ def main():
     ap.add_argument("--until", help="only runs whose games.pdn was last modified before this time (YYYY-MM-DDTHH:MM)")
     a = ap.parse_args()
     os.makedirs(a.out, exist_ok=True)
-    games, seen, dups, unfinished = [], set(), 0, []
+    games, seen, dups, unfinished, conflicts = [], {}, 0, [], []
     excl = tuple(x for x in a.exclude.split(",") if x)
     until = None
     if a.until:
@@ -60,8 +60,11 @@ def main():
             k = (bf, wf, tags.get("FEN", ""), mv)
             if k in seen:
                 dups += 1
+                first_rec = seen[k]
+                if (first_rec[0], first_rec[1]) != (res, tags.get("Termination", "")):  # same moves, other outcome
+                    conflicts.append((first_rec, (res, tags.get("Termination", ""), run, tags.get("Round", ""))))
                 continue
-            seen.add(k)
+            seen[k] = (res, tags.get("Termination", ""), run, tags.get("Round", ""))
             games.append(dict(run=run, round=tags.get("Round", ""), ballot=ballot_of(tags.get("Opening", ""))[0],
                               bf=bf, wf=wf, res=res, term=tags.get("Termination", ""), fen=tags.get("FEN", ""), mv=mv))
     print(f"{len(games)} games ({dups} duplicates removed, {len(unfinished)} games without a final result skipped)",
@@ -76,17 +79,28 @@ def main():
                 fo.write(f"{games.index(g) if False else id(g)}\t{g['fen']}\t{g['mv']}\n")
         procs.append(subprocess.Popen([a.scan, a.egdb, "1024"], stdin=open(inp), stdout=subprocess.PIPE, text=True))
     by_id = {id(g): g for g in games}
+    rows, rejected = 0, []
     for p in procs:
         for line in p.stdout:
             f = line.rstrip("\n").split("\t")
             g = by_id[int(f[0])]
+            rows += 1
+            if f[1] == "ERR":  # a move that does not parse to exactly one legal move: reject the whole game
+                g["rejected"] = f"ply {f[2]} token {f[3]}"
+                rejected.append(g)
+                continue
             g.update(first=int(f[1]), winner=f[2], pieces=int(f[3]), wfen=f[4], throw=int(f[5]), tmove=f[6],
                      tfen=f[7], throws=int(f[8]), final=f[9], fpieces=int(f[10]), plies=int(f[11]),
                      max_quiet=int(f[12]))
-        p.wait()
+        if p.wait() != 0:
+            sys.exit(f"scanner exited with status {p.returncode}")
+    if rows != len(games):
+        sys.exit(f"scanner returned {rows} rows for {len(games)} games")
     for j in range(a.jobs):
         os.remove(os.path.join(a.out, f"scan_in_{j}.tsv"))
     games = [g for g in games if "first" in g]
+    print(f"{len(rejected)} games rejected (unparsable or ambiguous move); {len(conflicts)} duplicate records with the "
+          f"same moves but another result or termination", file=sys.stderr)
 
     def side_fam(g, col):
         return g["bf"] if col == "B" else g["wf"]
@@ -120,7 +134,9 @@ def main():
     md = ["# WP8: missed database wins", "",
           f"Games: every games.pdn under `{a.results}` (Regicide vs Cake/KingsRow/GuiNN, all engine versions, plus the "
           f"games among the three opponents), {dups} duplicate games removed, {len(unfinished)} games without a final "
-          f"result (\"*\" or none: interrupted or unfinished) skipped. Database: Regicide's 2–8-piece WLD.",
+          f"result (\"*\" or none: interrupted or unfinished) skipped, {len(rejected)} games rejected (a move that does "
+          f"not parse to exactly one legal move), {len(conflicts)} duplicate records with the same moves but another "
+          f"result or termination (the first record is kept; listed at the end). Database: Regicide's 2–8-piece WLD.",
           "A game *reached a database win* when some position with <= 8 pieces is a database win for one side.", ""]
     md.append("| Games | Scanned | Reached a database win | Winning side won | Not won |")
     md.append("|---|---|---|---|---|")
@@ -155,6 +171,15 @@ def main():
     table("1. Regicide had a database win and did not win", cats["regicide"])
     table("2. An opponent had a database win against Regicide and did not win", cats["opponent"])
     table("3. Opponent vs opponent: database win not converted", cats["census"])
+    if rejected or conflicts:
+        md.append("## Rejected games and duplicate conflicts")
+        md.append("")
+        for g in rejected:
+            md.append(f"- rejected: {g['run']} {g['round']} ({g['rejected']})")
+        for kept, other in conflicts:
+            md.append(f"- same moves, other outcome: kept {kept[2]} {kept[3]} ({kept[0]}, {kept[1]}); "
+                      f"dropped {other[2]} {other[3]} ({other[0]}, {other[1]})")
+        md.append("")
     open(os.path.join(a.out, "dbscan.md"), "w").write("\n".join(md) + "\n")
     with open(os.path.join(a.out, "missed_wins.txt"), "w") as fo:
         fo.write("# WP8 regression set: first database-won position (Regicide to move or just moved, <= 8 pieces) of every\n"

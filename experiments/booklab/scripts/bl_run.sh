@@ -40,10 +40,15 @@ spec a "$A"; SA=$SPEC; OA=("${OPTS[@]}")
 spec b "$B"; SB=$SPEC; OB=("${OPTS[@]}")
 NAMES=()
 [ "${A%2}" = "${B%2}" ] && NAMES=(--name-a "${A%2}-A" --name-b "${B%2}-B")
-if [ -f "$OUT/summary.txt" ] && grep -q "^Elo (pent" "$OUT/summary.txt"; then st "BL skip $TAG"; exit 0; fi
+# A run is done when its summary has the A: line and was not interrupted or stopped (fixed-colour WP9 decks print no
+# pentanomial Elo, so that line is not the test). Checked before and again after taking the lock, so a second
+# waiter for a run that is in progress skips it instead of deleting and replaying it.
+done_run() { [ -f "$OUT/summary.txt" ] && grep -q "^A:" "$OUT/summary.txt" && ! grep -q "interrupted\|stopped:" "$OUT/summary.txt"; }
+if done_run; then st "BL skip $TAG"; exit 0; fi
 st "BL wait-lock $TAG $A vs $B deck $DECK mt $MT c $CONC"
 exec 9>$LOCK
 flock 9
+if done_run; then flock -u 9; st "BL skip $TAG (finished while waiting)"; exit 0; fi
 rm -rf "$OUT"
 st "BL start $TAG $A vs $B; bg: $(for p in $(pgrep -f '[d]atagen-|[b]ookgen-|[l]ossprobe'); do echo -n "$(ps -o comm= -p $p):$(awk '/^State/{print $2}' /proc/$p/status) "; done)"
 "$MATCH" -a "$SA" -b "$SB" "${NAMES[@]}" "${OA[@]}" "${OB[@]}" \

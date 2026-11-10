@@ -80,6 +80,8 @@ def report(a):
     for line in out.splitlines():
         f = line.split("\t")
         g = games[int(f[0])]
+        if f[1] == "ERR":
+            sys.exit(f"game {g['p']['id']} ({g['run']}): move {f[3]} at ply {f[2]} does not parse to one legal move")
         g.update(first=int(f[1]), winner=f[2], throw=int(f[5]), tmove=f[6], throws=int(f[8]), final=f[9],
                  quiet=int(f[12]) if len(f) > 12 else -1)
     md = [f"# WP9 conversion test: {len(games)} games from {len(pos)} positions", ""]

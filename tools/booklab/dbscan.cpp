@@ -11,6 +11,8 @@
 // no longer lost for the opponent (-1 if never); throws: how many such moves. final_value: database value of the last
 // position from Black's view (B = Black wins, W = White wins, D = draw, - = more than max_pieces pieces).
 // max_quiet: the longest run of plies without a capture or man move (the 40-move rule draws at 79).
+// A game with a move that does not parse to exactly one legal move gets the row "GID <TAB> ERR <TAB> ply <TAB> token"
+// instead (rejected, never scanned as a prefix).
 #include <algorithm>
 #include <cstdio>
 #include <iostream>
@@ -67,7 +69,7 @@ int main(int argc, char** argv) {
         }
         int ply = 0, first = -1, pieces = 0, throw_ply = -1, throws = 0, quiet = 0, max_quiet = 0;
         char winner = 0;
-        std::string first_fen, throw_move, throw_fen;
+        std::string first_fen, throw_move, throw_fen, bad;
         char v = value(pos);
         for (std::size_t i = 0;; ++i) {
             if (first < 0 && (v == 'B' || v == 'W')) {
@@ -75,7 +77,10 @@ int main(int argc, char** argv) {
             }
             if (i >= toks.size()) break;
             Move m;
-            if (!parse_move(pos, toks[i], m)) break;
+            if (!parse_move(pos, toks[i], m) || booklab::matching_moves(pos, toks[i]) != 1) {
+                bad = toks[i];  // unparsable, illegal or ambiguous: the game is rejected, not scanned as a prefix
+                break;
+            }
             const bool winner_to_move = winner && v == winner &&
                                         ((winner == 'B') == (pos.side_to_move() == BLACK));
             // no-progress count: plies since the last capture or man move (the 40-move rule draws at 79 plies)
@@ -91,6 +96,10 @@ int main(int argc, char** argv) {
             pos = next;
             v = nv;
             ++ply;
+        }
+        if (!bad.empty()) {
+            std::cout << gid << "\tERR\t" << ply << '\t' << bad << '\n';
+            continue;
         }
         std::cout << gid << '\t' << first << '\t' << (winner ? std::string(1, winner) : "-") << '\t' << pieces << '\t'
                   << (first_fen.empty() ? "-" : first_fen) << '\t' << throw_ply << '\t'

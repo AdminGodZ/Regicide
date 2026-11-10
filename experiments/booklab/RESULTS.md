@@ -221,6 +221,13 @@ slow the search down here; it is faster than in the middlegame.
    `B:W6,7,14,15,32:BK9` are accepted as the same move (before: "matches 0 legal moves"); `2x18` in
    `B:W6,7,14,15,32:B2` is still rejected as ambiguous; books r6 and w1 rebuild byte-identical. (b) `census.py` prints
    "n/a (no complete pair)" instead of +0.0 when no pair is complete.
+5. **Third round (scanner and runner).** `booklab_dbscan` rejects a game whose move does not parse to exactly one
+   legal move (row `GID ERR ply token`) instead of scanning its prefix; `dbscan.py` checks every worker's exit status
+   and that rows == games, deduplicates only after the result check, and lists duplicate records with the same moves
+   but another result or termination; `movetext.hpp` rejects a path that jumps the same piece twice (9x18x9);
+   `bl_run.sh` treats a run as done when its summary has the `A:` line (fixed-colour decks print no pentanomial Elo)
+   and re-checks after taking the lock. **Effect:** on the 07:50 corpus 0 games rejected, 0 conflicts; WP8 numbers
+   unchanged (Regicide 37 / 399, 362 missed); books r8 and w1 rebuild byte-identical.
 3. **Regicide book marks.** `is_book()` now matches `depth\s+0/0\s+score\s+-?\d+\s+nodes\s+0\s`. The PDNs written by
    the match runner on this machine contain single spaces (0 double-space occurrences), so the old pattern already
    matched here. **Effect:** the regenerated book-depth column is identical.
