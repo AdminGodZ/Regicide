@@ -83,7 +83,13 @@ in r5 (sweep dropped; 11-15 forced at ply 44, harmless if not reached).
 | 1 | bl-r4 | GuiNN | 3 / 309 / 0 (wins #9 W, #111 B, #141 W) | stopped |
 | 2 | bl-r5 | Cake | **0 / 312 / 0** | queued |
 | 2 | bl-r5 | KingsRow | **0 / 312 / 0** | queued |
-| 2 | bl-r5 | GuiNN | h1 0 / 156 / 0, h2 queued | queued |
+| 2 | bl-r5 | GuiNN | 0 / 311 / 1 (#96 Skull-Cracker B, new) | queued |
+
+**Skull-Cracker (#96, B) vs GuiNN, validation 2:** Regicide followed Cake's and KingsRow's moves through ply 20 and
+left them at ply 22 with 7-11 (Cake there: 12-16, 21 draws in 21). The repair keyed on GuiNN's own moves is weak here
+(GuiNN's 1-5 at ply 14 has a loss), so the repair follows Cake's defence (`theory.py repair --opp cake`): 12-16 + Cake's
+defence tree, 124 positions (`repairs/repairs_v2`). r6 = r5 + this repair (`bl-r6`); per the lead's instruction only
+this ballot is re-tested (both colours, 4 games vs GuiNN) and validation 2 continues with bl-r5.
 
 ## WP8: missed database wins (`wp8/dbscan.md`, regression set `missed_wins.txt`)
 

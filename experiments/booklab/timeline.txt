@@ -129,3 +129,6 @@ BL end v2-kingsrow-a-h2 rc=0 A: +0 =156 -0   score 78.0/156 = 50.00%   draw rate
 BL wait-lock v2-guinn-a-h2 regicide:bl-r5 vs guinn deck /mnt/c/regicide-match/jobs/booklab/acf156_h2.txt mt 0.5 c 8 2026-11-10T07:36:57+01:00
 WP8 dbscan done rc=0 2026-11-10T07:53:17+01:00
 BL start v2-guinn-a-h2 regicide:bl-r5 vs guinn; bg: datagen-eb1037c:T bash:T datagen-tr5:T  2026-11-10T08:02:27+01:00
+BL end v2-guinn-a-h2 rc=0 A: +0 =155 -1   score 77.5/156 = 49.68%   draw rate 99.4% Elo (pentanomial, pairs): -2.2 [-6.6, +2.1] 95% CI, score 0.4968 +- 0.0062, LOS 15.71% 2026-11-10T08:09:35+01:00
+BL wait-lock v2-cake-b-h1 regicide:bl-r5 vs cake deck /mnt/c/regicide-match/jobs/booklab/acf156_h1.txt mt 0.5 c 8 2026-11-10T08:09:35+01:00
+BL wait-lock t6-r6-guinn regicide:bl-r6 vs guinn deck /home/admingod/regicide-jobs/booklab/decks/t6-r6-guinn.txt mt 0.5 c 8 2026-11-10T08:13:14+01:00
