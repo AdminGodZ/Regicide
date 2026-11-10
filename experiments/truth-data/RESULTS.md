@@ -11,9 +11,12 @@
 results from the database; E3 n8c = E2 with re-searched scores (proven ones exact). Every net is matched against n6c
 with the standard setup.
 
-**Status (2026-11-10 08:30):** Phase 1 done: **n8bn (E2: database-relabelled game results, ≥ 9-piece records, n6c's K)
-beats n6c by +4.5 [+0.5, +8.6] at 0.1 s/move and +4.5 [+1.6, +7.4] at 0.5 s/move.** Phase 2: P1 done (n8bn vs Cake
-and KingsRow with the book off: no visible difference from n6c); P2/P3/P4 running (see Phase 2).
+**Status (2026-11-10 10:05):** Phase 1: **n8bn (E2: database-relabelled game results, ≥ 9-piece records, n6c's K)
+beats n6c by +4.5 [+0.5, +8.6] at 0.1 s/move and +4.5 [+1.6, +7.4] at 0.5 s/move.** Phase 2:
+- P1 done: against Cake and KingsRow with the book off, no visible difference from n6c.
+- P3 done on the E2 data: no sweep beats n8bn.
+- P2 (n8c): waiting for gen4a's rescore.
+- P4 (E5 datagen) running.
 
 ## E0: census (no training)
 
@@ -298,7 +301,67 @@ other ballots. Against KingsRow n8bn is +2 games better than n6c, within noise.
   - Test: two seeded K-vs-K games, 5 games written. The flags give 5; the old heuristic counted 1.
   - All E5 data has the flags (gen6b was restarted twice, discarding what the older binaries had written).
 
-<!-- P3 -->
+### P3: sweeps on the E2 data
+
+All nets are n8bn's recipe (E2 data: database-relabelled results; ≥ 9 pieces; v1 1024; 40 × 100M; lr 1e-3 → 1e-5) with
+one change each. They are matched at 0.1 s/move, 805 pairs, on `rtruth.so` (fcf6acb) for both sides.
+
+| Net | Change from n8bn | vs n6c: W / D / L | Pentanomial | Elo vs n6c [95% CI] | vs n8bn |
+|---|---|---|---|---|---|
+| n8bn | (K 102.4, λ 0.5) | 276 / 1079 / 255 | [0 36 712 57 0] | **+4.5 [+0.5, +8.6]** | — |
+| n8bk130 | K 130 | 273 / 1079 / 258 | [0 34 722 49 0] | +3.2 [−0.6, +7.1] | |
+| n8bl6 | λ 0.6 | 268 / 1073 / 269 | [0 43 720 42 0] | −0.2 [−4.1, +3.7] | |
+| n8bl7 | λ 0.7 | 278 / 1068 / 264 | [0 35 721 49 0] | +3.0 [−0.8, +6.9] | |
+| n8p | phase-balanced 1/3 : 1/3 : 1/3 | 266 / 1075 / 269 | [0 39 730 36 0] | −0.6 [−4.3, +3.0] | +0.4 [−3.6, +4.5] |
+| n8p2 | phase-balanced 1/4 : 1/4 : 1/2 | 278 / 1072 / 260 | [0 32 723 50 0] | +3.9 [+0.1, +7.7] | −0.4 [−4.2, +3.3] |
+
+Earlier steps of the same family, at λ 0.5: K 43.4 +1.1, K 77.4 +3.5, K 102.4 +4.5, K 130 +3.2.
+
+**No sweep beats n8bn.**
+- K: the trend upwards stops at 102.4 (K 130 +3.2).
+- λ: 0.6 and 0.7 do not improve; 0.6 is the weakest of all, so λ around 0.5 stays, with no clear trend.
+- Phase-balanced sampling: equal to n8bn head to head in both splits.
+- The differences between these nets (±2–4 Elo) are inside the CIs of single 805-pair runs.
+
+**How phase-balanced sampling works** (`nnue.Data(groups=…, weights=…)`, trainer `--groups 9,13,17 --group-weights …`):
+- For every file the kept training indices (≥ 9 pieces, outside the 2% validation tail) are split by piece count into
+  9–12, 13–16 and 17–24.
+- Every batch of n records takes exactly the largest-remainder split of n by the weights from each group: 16,384 →
+  5,462 / 5,461 / 5,461 for 1:1:1, and 4,096 / 4,096 / 8,192 for 1:1:2.
+- Within a group, records are drawn uniformly (with replacement) over all files; a file given three times counts three
+  times, as in the plain sampler.
+- Exact, not approximate: checked on real batches (the counts per group equal the split).
+- The natural shares of the E2 training set are 53% / 23.5% / 23.6%.
+
+**Per-group validation loss.** Set: the 2% validation tails of the E2 files, ≥ 9 pieces (2.34M records), 100k sampled per
+group, the same records for every net. Loss: BCE against n8bn's target (λ 0.5, K 102.4, database-relabelled results);
+also against the result alone and the search score alone. Eval: the engine's integer eval.
+
+validation tails of 11 files, >= 9 pieces: 2343232 records; sampled per group [100000, 100000, 100000]; K 102.4, lambda 0.50
+
+| net | 9-12 λ0.5 | 9-12 result | 9-12 score | 13-16 λ0.5 | 13-16 result | 13-16 score | 17-24 λ0.5 | 17-24 result | 17-24 score | all λ0.5 (equal weight) |
+|---|---|---|---|---|---|---|---|---|---|---|
+| n6c | 0.41311 | 0.34149 | 0.48474 | 0.48667 | 0.41799 | 0.55535 | 0.51270 | 0.44068 | 0.58473 | 0.47083 |
+| n8bn | 0.40374 | 0.31004 | 0.49745 | 0.48081 | 0.39594 | 0.56567 | 0.50939 | 0.42561 | 0.59317 | 0.46465 |
+| n8a | 0.41986 | 0.35754 | 0.48218 | 0.49001 | 0.42970 | 0.55032 | 0.51616 | 0.45321 | 0.57911 | 0.47534 |
+| n8ak | 0.41182 | 0.33768 | 0.48597 | 0.48459 | 0.41169 | 0.55748 | 0.51118 | 0.43558 | 0.58677 | 0.46919 |
+| n8b | 0.42005 | 0.35642 | 0.48368 | 0.49581 | 0.44164 | 0.54997 | 0.52358 | 0.46928 | 0.57789 | 0.47981 |
+| n8bk | 0.40517 | 0.32379 | 0.48655 | 0.48168 | 0.40882 | 0.55454 | 0.51058 | 0.43799 | 0.58317 | 0.46581 |
+| n8bk130 | 0.40634 | 0.29986 | 0.51282 | 0.48332 | 0.38565 | 0.58100 | 0.51197 | 0.41517 | 0.60878 | 0.46721 |
+| n8bl6 | 0.40551 | 0.30046 | 0.51056 | 0.48199 | 0.38850 | 0.57549 | 0.51016 | 0.41751 | 0.60281 | 0.46589 |
+| n8bl7 | 0.41038 | 0.29486 | 0.52590 | 0.48628 | 0.38315 | 0.58941 | 0.51370 | 0.41210 | 0.61529 | 0.47012 |
+| n8p | 0.40509 | 0.31518 | 0.49499 | 0.47912 | 0.39410 | 0.56414 | 0.50780 | 0.42299 | 0.59261 | 0.46400 |
+| n8p2 | 0.40618 | 0.31491 | 0.49746 | 0.48112 | 0.39646 | 0.56579 | 0.50689 | 0.41939 | 0.59439 | 0.46473 |
+
+**Does per-group loss predict the matches?** Only roughly.
+- The best match net (n8bn) has the lowest loss in 9–12 and among the lowest overall.
+- n8p has the lowest overall loss (0.46400, better than n8bn on 13–16 and 17–24) but scores −0.6 vs n6c against
+  n8bn's +4.5, and equal head to head.
+- n8bl6 is third-lowest overall (0.46589) and the weakest of the sweeps in play.
+- Nets trained at a different K (n8a, n8b) look worse here partly because this loss uses K 102.4.
+
+So differences of 0.001 in this loss do not rank nets of the same family. Larger gaps (n6c 0.47083 against the E2 nets
+0.464–0.466) do go with the match results.
 
 <!-- P4 -->
 
