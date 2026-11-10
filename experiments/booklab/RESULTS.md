@@ -182,8 +182,43 @@ stops the match with 0 games (`n8q_verify.txt`); the games themselves use the sa
 (`scripts/bl_run_x.sh` = bl_run.sh + the extra option). Runner: `scripts/wp10_run.sh` (panels in parts of ≤ 78
 openings), `scripts/f4_run.sh` (configuration 4 on acf156).
 
-- Configuration 4 on acf156 (one run vs each opponent): running.
-- Panels: waiting for the opening files.
+Holdout files (master 40e1f59, `experiments/holdout/`; sha256 prefixes 08e43c58, a0a44ecd, a02e80d9, cd31146d as
+stated). Loader counts with the current runner: **H1 18 openings (36 games), H2 19 (38), H2x 156 (312), H3 156 (312)**.
+Blocks 3–6 use the current runner (master 40e1f59 tools/match + the A=B/A=W field, `bin/match-cur`) with
+`--allow-rejected-options`, so the opponents receive the same option list as in the final validation. Block 2 used the
+old runner (match-747ab51) like the final runs it is compared with game by game. E/EB/EBN are one engine build:
+master 456e9b2 (engine identical through 40e1f59). Changed positions for "exposure": **958** (of the 987 r10 decisions,
+29 force the move the old book already plays there; `wp10/changed_positions.tsv`). Per-game data:
+`wp10/games.tsv`, game records `wp10/games/*.pdn.gz`, summaries `wp10/runs/`, report `wp10/report.md`.
+
+**Block 2: EBN (master + r10 book + net n8q) on acf156, one 312-game run per opponent, compared with the final
+validation (same engine and book in play, net n6c, two runs):**
+
+| Opponent | EBN W / D / L | EB (n6c) run a + b | EBN games exposed to a changed position |
+|---|---|---|---|
+| Cake | **0 / 307 / 5** | 0 / 624 / 0 | 9 (all drawn) |
+| KingsRow | 12 / 300 / 0 | 23 / 601 / 0 | 3 (all drawn) |
+| GuiNN | 18 / 294 / 0 | 38 / 586 / 0 | 8 (1 won, 7 drawn) |
+
+Database wins in play were all converted (EBN: Regicide 29 of 29; Cake 5 of 5, the five losses). No forfeits.
+**Finding: all 5 EBN losses are unexposed** (no changed book position on our side) and all as follows: with n8q,
+Regicide itself leaves the line that n6c played (and drew in both final runs) 2–11 plies after the ballot, in
+positions where the book has no entry; its own score is ≤ −100 by ply 20–49 (`wp10/block2_losses.txt`):
+
+| Ballot | Regicide as | n8q / n6c at the first difference | Game |
+|---|---|---|---|
+| ACF #37 (9-14 22-17 6-9) | B | ply 14: 4-8 / 14-18 | `bl-f4-cake-h1/games/00065.pdn` |
+| ACF #75 (10-14 24-19 6-10) | B | ply 14: 4-8 / 14-18 (transposes into #37's line) | `bl-f4-cake-h1/games/00133.pdn` |
+| ACF #87 Tyne (10-15 21-17 9-13) | B | ply 12: 1-6 / 8-11 | `bl-f4-cake-h1/games/00155.pdn` |
+| ACF #124 (11-15 23-18 12-16) | B | ply 10: 15-19 / 8-12 | `bl-f4-cake-h2/games/00065.pdn` |
+| ACF #131 (11-15 24-20 12-16) | W | ply 5: 21-17 / 28-24 | `bl-f4-cake-h2/games/00080.pdn` |
+
+So the zero-loss result against Cake depends on n6c's choices where the book ends; with n8q the old Cake weakness
+(about 5 losses per run, all early) is back. Pinning the validated n6c moves on those lines would make the book
+independent of the net there; not done (your call).
+
+Estimate for the rest (Blocks 3–6): about 6,500 games ≈ 5.5–6 h of lock time, 6–8 h of wall time with the other
+agents' 15-minute holds; under the 10-hour limit, so I continue.
 
 ## Data behind the numbers (`data/`)
 
