@@ -178,3 +178,7 @@ TR timing lock + matchlock taken; bg: datagen-eb1037c:T rescore-tr4:T bash:T dat
 TR matchlock removed, timing lock released (rc=0) 2026-11-10T09:59:42+01:00
 TR match n8p2-vs-n8bn end: Elo (pentanomial, pairs): -0.4 [-4.2, +3.3] 95% CI, score 0.4994 +- 0.0054, LOS 41.04% 2026-11-10T09:59:42+01:00
 TR P3B_DONE 2026-11-10T09:59:42+01:00
+TR rescore_chain restarting with 8 threads 2026-11-10T10:01:25+01:00
+TR rescore_chain start pid 2029318 threads 8 nodes 9:50000,13:20000 keep-above 16 2026-11-10T10:01:25+01:00
+TR PROVEN_SET_DONE 2026-11-10T10:01:25+01:00
+TR rescore gen4a_n10k start 2026-11-10T10:01:25+01:00

@@ -189,6 +189,10 @@ class Data:
             self.group_ends = [np.cumsum([len(a) for a in self.groups[g]]) for g in range(len(groups))]
             self.group_sizes = [int(e[-1]) for e in self.group_ends]
             self.group_bounds = bounds
+            empty = [g for g in range(len(groups)) if self.group_weights[g] > 0 and self.group_sizes[g] == 0]
+            if empty:
+                raise ValueError("phase groups %s have a share of every batch but no training records" %
+                                 ", ".join("%d-%d" % (bounds[g], bounds[g + 1] - 1) for g in empty))
 
     def batch_split(self, n):
         """Records per group in a batch of n: the largest-remainder split of n by the group weights (exact)."""
@@ -250,11 +254,17 @@ class Prefetcher:
             self.threads.append(t)
 
     def _run(self, data, batch, rng):
-        while not self.stop:
-            self.q.put(data.sample(rng, batch))
+        try:
+            while not self.stop:
+                self.q.put(data.sample(rng, batch))
+        except BaseException as e:  # hand it to next(): a dead worker must not leave the trainer waiting forever
+            self.q.put(e)
 
     def next(self):
-        return self.q.get()
+        item = self.q.get()
+        if isinstance(item, BaseException):
+            raise RuntimeError("data loader worker failed") from item
+        return item
 
     def close(self):
         self.stop = True
