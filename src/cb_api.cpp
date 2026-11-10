@@ -234,7 +234,9 @@ CB_EXPORT int WINAPI getmove(Board8x8 board, int color, double maxtime, char str
     return CB_UNKNOWN;
 }
 
-CB_EXPORT int WINAPI enginecommand(const char* command, char reply[1024]) {
+// A malformed command ("set evalfile" without a path, a parameter value that is not a number) is answered as
+// not handled; an exception must never reach the program that loaded the library.
+CB_EXPORT int WINAPI enginecommand(const char* command, char reply[1024]) try {
     State& s = state();
     std::istringstream in(command ? command : "");
     std::string cmd, p1, p2;
@@ -349,4 +351,7 @@ CB_EXPORT int WINAPI enginecommand(const char* command, char reply[1024]) {
         }
     }
     return answer("?", 0);
+} catch (const std::exception& e) {
+    std::snprintf(reply, 1024, "error: %s", e.what());
+    return 0;
 }

@@ -95,8 +95,8 @@ bool parse_move(const Position& pos, const std::string& text, Move& out) {
             int over = NEIGHBOR[path[i]][d];
             if (over >= 0 && NEIGHBOR[over][d] == path[i + 1]) mid = over;
         }
-        if (mid < 0) full_path = false;
-        else jumped |= bit(mid);
+        if (mid < 0) return false;  // a path with more than two squares has to be a chain of jumps
+        jumped |= bit(mid);
     }
 
     MoveList list;
