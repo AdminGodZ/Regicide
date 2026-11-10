@@ -23,3 +23,7 @@
 | Regicide | Black | 468 | 1.4 | 1 | 230 | 221 | 17 | 0 | 0 | 1.1 / 0 |
 | Regicide | White | 468 | 1.3 | 0 | 273 | 169 | 26 | 0 | 0 | 1.1 / 0 |
 
+**Determinism, Cake-Cake** (bl-c-cake-cake-h1 vs bl-c-cake-cake-rep-h1, 156 games with the same ballot and colours): 54 identical (35%); the others first differ at a median of 31 plies after the ballot (quartiles 21.0–44.0; min 10).
+
+**Determinism, Regicide-GuiNN** (bl-c-reg-guinn-h1 vs bl-c-reg-guinn-rep-h1, 156 games with the same ballot and colours): 6 identical (4%); the others first differ at a median of 7 plies after the ballot (quartiles 2.0–15.0; min 0).
+

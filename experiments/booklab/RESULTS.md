@@ -44,8 +44,14 @@ comment marks as book), mean / median over all census games:**
 Regicide leaves its book (or never had one) after about one move in half of all ballots; the three opponents play
 7–9 book moves. Per ballot: `census/instant_by_ballot.csv`.
 
-Determinism (same pairing twice, game by game): pending (Cake–Cake repeat and Regicide–GuiNN repeat are the last
-census runs in the queue). From the 2026-11-09 targeted runs: Regicide vs Cake, same 100 games twice: 12% identical
+Determinism (first half of acf156 played twice, game by game, same ballot and colours):
+- **Cake–Cake:** 54 of 156 games identical (35%); the others first differ at a median of 31 plies after the ballot
+  (quartiles 21–44, min 10). Results identical (156 draws both times).
+- **Regicide master–GuiNN:** 6 of 156 identical (4%); first difference at a median of 7 plies after the ballot
+  (quartiles 2–15, min 0): GuiNN varies its book. Yet the results repeat exactly: the repeat lost the same two
+  ballot-colours (#59 B, #63 B) and nothing else (0 / 154 / 2 both times).
+
+From the 2026-11-09 targeted runs: Regicide vs Cake, same 100 games twice: 12% identical
 games, the rest first differ at a median of 34 plies after the ballot (quartiles 24–43, min 11); the losing lines
 repeat almost exactly (Black Widow: all 60 lost games share the first 20 plies after the ballot).
 
@@ -75,9 +81,9 @@ in r5 (sweep dropped; 11-15 forced at ply 44, harmless if not reached).
 | 1 | bl-r4 | Cake | 0 / 311 / 1 (#34 B, the rejected sweep) | stopped (r4 superseded) |
 | 1 | bl-r4 | KingsRow | 1 / 311 / 0 (win #147 B) | stopped |
 | 1 | bl-r4 | GuiNN | 3 / 309 / 0 (wins #9 W, #111 B, #141 W) | stopped |
-| 2 | bl-r5 | Cake | h1 0 / 156 / 0, h2 running | queued |
+| 2 | bl-r5 | Cake | **0 / 312 / 0** | queued |
 | 2 | bl-r5 | KingsRow | h1 0 / 156 / 0, h2 queued | queued |
-| 2 | bl-r5 | GuiNN | queued | queued |
+| 2 | bl-r5 | GuiNN | h1 0 / 156 / 0, h2 queued | queued |
 
 ## Regicide wins seen (for win mining)
 

@@ -1,0 +1,53 @@
+id	ballot	colour	winner	loser	win_ply	last_ply	decisions	status	replaces_regicide_drawing_moves
+w1	ACF #23	B	cake	kingsrow	74	82	40	ok	ply 4: replaces regicide 11-16 1x; ply 10: replaces regicide 10-15 1x; ply 18: replaces regicide 9-14 1x; ply 50: replaces regicide 27-31 1x
+w2	ACF #36	W	cake	kingsrow	51	59	29	ok	ply 3: replaces regicide 25-22 3x; ply 5: replaces regicide 24-19 83x; ply 11: replaces regicide 22-17 1x,23-18 3x,24-19 1x
+w3	ACF #28	B	cake	kingsrow	62	70	34	ok	ply 8: replaces regicide 5-9 2x
+w4	ACF #59	W	cake	kingsrow	77	85	42	ok	ply 3: replaces regicide 25-22 3x
+w5	ACF #86 Octopus	W	cake	kingsrow	35	43	21	ok	ply 3: replaces regicide 17-13 3x; ply 7: replaces regicide 24-20 2x; ply 13: replaces regicide 25-21 5x,25-22 173x; ply 17: replaces regicide 32-27 7x; ply 21: replaces regicide 23-18 1x; ply 27: replaces regicide 30-26 1x (+1 more)
+w6	ACF #84	W	cake	kingsrow	65	73	36	ok	ply 7: replaces regicide 25-22 3x; ply 9: replaces regicide 26-22 4x,28-24 26x; ply 17: replaces regicide 30-26 6x; ply 37: replaces regicide 7-3 1x
+w7	ACF #99	W	cake	kingsrow	39	47	23	ok	ply 3: replaces regicide 26-23 4x; ply 13: replaces regicide 22-18 2x,24-19 5x,25-21 1x; ply 17: replaces regicide 25-22 5x
+w8	ACF #128	W	cake	kingsrow	67	75	37	ok	ply 3: replaces regicide 27-23 41x
+w9	ACF #139	B	cake	kingsrow	74	82	40	ok	ply 6: replaces regicide 16-19 7x; ply 8: replaces regicide 16-19 1x
+w10	ACF #151	B	cake	kingsrow	30	38	18	ok	ply 6: replaces regicide 9-14 1x; ply 14: replaces regicide 3-7 3x
+w11	ACF #154	W	cake	kingsrow	81	89	44	ok	ply 5: replaces regicide 25-22 101x; ply 9: replaces regicide 29-25 15x; ply 35: replaces regicide 9-5 1x
+w12	ACF #155	B	cake	kingsrow	82	90	44	ok	ply 4: replaces regicide 4-8 88x; ply 10: replaces regicide 9-13 1x; ply 12: replaces regicide 9-13 3x; ply 36: replaces regicide 16-19 2x; ply 86: replaces regicide 18-14 1x
+w13	ACF #166	W	cake	kingsrow	43	51	25	ok	ply 9: replaces regicide 22-17 3x
+w14	ACF #9 Wilderness I	W	cake	guinn	29	37	18	ok	ply 3: replaces regicide 24-19 3x,25-22 3x; ply 7: replaces regicide 25-21 1x; ply 11: replaces regicide 25-21 1x
+w15	ACF #6 Inferno	W	cake	guinn	25	33	16	ok	ply 5: replaces regicide 24-19 26x; ply 7: replaces regicide 22-18 9x; ply 9: replaces regicide 22-17 1x; ply 13: replaces regicide 27-24 6x; ply 15: replaces regicide 25-22 1x; ply 23: replaces regicide 32-28 4x
+w16	ACF #16 Wilderness II	W	cake	guinn	51	59	29	ok	ply 7: replaces regicide 24-20 89x,26-23 54x; ply 9: replaces regicide 25-21 8x; ply 11: replaces regicide 24-19 7x; ply 13: replaces regicide 24-19 1x
+w17	ACF #34 Twilight Zone	W	cake	guinn	37	45	22	ok	ply 5: replaces regicide 27-24 1x; ply 9: replaces regicide 22-17 47x,22-18 2x; ply 13: replaces regicide 27-23 1x; ply 33: replaces regicide 11-8 1x
+w18	ACF #41	W	cake	guinn	29	37	18	ok	ply 7: replaces regicide 22-17 1x,24-20 22x,30-25 4x; ply 11: replaces regicide 17-13 2x,24-20 3x,25-22 2x
+w19	ACF #40	W	cake	guinn	29	37	18	ok	ply 3: replaces regicide 24-19 8x,25-22 34x,26-22 3x; ply 5: replaces regicide 27-24 3x; ply 7: replaces regicide 25x18 2x
+w20	ACF #60 Black Hole	W	cake	guinn	93	101	50	ok	ply 5: replaces regicide 24-19 46x,25-22 88x,26-22 1x; ply 9: replaces regicide 25-21 8x
+w21	ACF #87 Tyne	W	cake	guinn	25	33	16	ok	ply 15: replaces regicide 25-22 13x; ply 19: replaces regicide 23-18 2x; ply 21: replaces regicide 23-18 1x
+w22	ACF #92	W	cake	guinn	49	57	28	ok	ply 3: replaces regicide 24-20 3x,25-22 15x; ply 9: replaces regicide 25-21 1x
+w23	ACF #96 Skull-Cracker	W	cake	guinn	39	47	23	ok	ply 7: replaces regicide 17-13 22x,25-22 1x,28-24 5x; ply 11: replaces regicide 17-13 5x,25-22 2x,28-24 5x; ply 13: replaces regicide 26-22 1x,26-23 11x,28-24 2x; ply 33: replaces regicide 24-20 2x
+w24	ACF #112	B	cake	guinn	32	40	19	ok	ply 4: replaces regicide 6-9 4x; ply 6: replaces regicide 12-16 5x; ply 18: replaces regicide 7-10 1x; ply 34: replaces regicide 12-16 1x
+w25	ACF #108	B	cake	guinn	74	82	40	ok	ply 18: replaces regicide 6-9 1x; ply 40: replaces regicide 30-26 2x; ply 50: replaces regicide 27-31 1x
+w26	ACF #120	B	cake	guinn	34	42	20	ok	ply 4: replaces regicide 10-15 1x; ply 6: replaces regicide 10-14 21x,16-20 19x,8-11 15x; ply 12: replaces regicide 7-10 1x
+w27	ACF #134	W	cake	guinn	39	47	23	ok	ply 3: replaces regicide 17-13 7x; ply 7: replaces regicide 24-20 1x; ply 9: replaces regicide 24-19 4x; ply 13: replaces regicide 24-19 5x,29-25 2x
+w28	ACF #141	W	cake	guinn	59	67	15	ok	ply 3: replaces regicide 25-22 3x; ply 7: replaces regicide 25-21 50x,26-22 36x; ply 9: replaces regicide 25-21 8x; ply 11: replaces regicide 24-19 7x; ply 13: replaces regicide 24-19 1x
+w29	ACF #153 Black Widow	B	cake	guinn	40	48	23	ok	ply 4: replaces regicide 7-11 1x,9-13 4x,9-14 3x; ply 6: replaces regicide 10-14 1x,4-8 250x; ply 10: replaces regicide 4-8 7x,9-14 1x; ply 12: replaces regicide 4-8 1x; ply 16: replaces regicide 12-16 29x
+w30	ACF #163	B	guinn	cake	54	62	30	ok	ply 4: replaces regicide 9-14 2x; ply 6: replaces regicide 9-13 13x; ply 14: replaces regicide 4-8 2x
+w31	ACF #165	B	guinn	cake	40	48	7	ok	ply 4: replaces regicide 9-14 2x; ply 6: replaces regicide 9-13 13x; ply 14: replaces regicide 4-8 2x
+w32	ACF #104	B	guinn	kingsrow	38	46	22	ok	ply 4: replaces regicide 9-14 1x
+w33	ACF #98	W	kingsrow	guinn	81	89	44	ok	ply 3: replaces regicide 26-23 3x,27-23 3x
+w34	ACF #99	B	guinn	kingsrow	34	42	20	ok	ply 4: replaces regicide 10-14 87x; ply 24: replaces regicide 17-21 1x
+w35	ACF #105 Gemini II	B	guinn	kingsrow	36	44	21	ok	
+w36	ACF #139	W	guinn	kingsrow	27	35	17	ok	ply 3: replaces regicide 24-19 13x,24-20 6x,25-22 5x
+w37	ACF #138	W	guinn	kingsrow	23	31	15	ok	ply 5: replaces regicide 23-18 32x,23-19 7x; ply 9: replaces regicide 22-18 30x,25-21 1x; ply 19: replaces regicide 22-17 3x; ply 27: replaces regicide 32-27 1x
+w38	ACF #142	W	guinn	kingsrow	23	31	6	conflict with recipe w37 at ply 27 (32-28 vs 32-27)	ply 3: replaces regicide 17-14 49x,24-19 1x; ply 5: replaces regicide 26-22 4x; ply 7: replaces regicide 23-18 1x; ply 19: replaces regicide 22-17 3x
+w39	ACF #169	W	kingsrow	guinn	21	29	14	ok	ply 5: replaces regicide 21-17 124x
+w40	ACF #172	B	guinn	kingsrow	100	108	53	ok	ply 4: replaces regicide 9-14 2x; ply 12: replaces regicide 20-24 6x; ply 20: replaces regicide 15-19 1x
+w41	ACF #165	B	cake	cake	104	112	39	ok	ply 4: replaces regicide 9-14 2x; ply 6: replaces regicide 9-13 13x; ply 14: replaces regicide 4-8 2x
+w42	ACF #165	B	cake	cake	92	100	32	ok	ply 4: replaces regicide 9-14 2x; ply 6: replaces regicide 9-13 13x; ply 14: replaces regicide 4-8 2x
+w43	ACF #9 Wilderness I	W	kingsrow	kingsrow	85	93	0	conflict with recipe w14 at ply 3 (18-14 vs 24-20)	
+w44	ACF #134	B	kingsrow	kingsrow	32	40	19	ok	
+w45	ACF #6 Inferno	W	guinn	guinn	29	37	16	ok	ply 5: replaces regicide 24-19 26x; ply 7: replaces regicide 24-19 5x; ply 9: replaces regicide 25-22 1x
+w46	ACF #16 Wilderness II	B	guinn	guinn	32	40	19	ok	ply 6: replaces regicide 16-19 7x,5-9 25x; ply 10: replaces regicide 6-10 3x; ply 16: replaces regicide 7-10 2x
+w47	ACF #16 Wilderness II	B	guinn	guinn	32	40	0	conflict with recipe w46 at ply 38 (1-5 vs 16-20)	ply 6: replaces regicide 16-19 7x,5-9 25x; ply 10: replaces regicide 6-10 3x; ply 16: replaces regicide 7-10 2x
+w48	ACF #28	B	guinn	guinn	32	40	19	ok	ply 4: replaces regicide 10-14 22x; ply 12: replaces regicide 4-8 2x; ply 32: replaces regicide 8-11 2x
+w49	ACF #28	B	guinn	guinn	32	40	0	ok	ply 4: replaces regicide 10-14 22x; ply 12: replaces regicide 4-8 2x; ply 32: replaces regicide 8-11 2x
+w50	ACF #87 Tyne	W	guinn	guinn	33	41	0	conflict with recipe w21 at ply 7 (26-22 vs 24-19)	
+w51	ACF #101	W	guinn	guinn	33	41	20	ok	ply 5: replaces regicide 21-17 15x,24-20 5x; ply 7: replaces regicide 22-18 14x
+w52	ACF #149	B	guinn	guinn	32	40	19	ok	ply 10: replaces regicide 10-14 1x
