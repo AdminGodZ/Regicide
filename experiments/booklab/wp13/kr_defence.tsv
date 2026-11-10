@@ -1,0 +1,62 @@
+# set book 3: reply 1 opening book set to best
+game	ply	regicide	engine	same	info
+bl-k3-kingsrow-a-h1 r52.1 ACF #60 Black Hole	5	6x15	6x15	1	info 6x15(-1/28)*  7x14(-126/9)?
+bl-k3-kingsrow-a-h1 r52.1 ACF #60 Black Hole	7	15-19	15-19	1	info 15-19(-1/26)*  5-9(-120/8)?  7-10(-122/2)?  1-6(-128/8)?  11-16(-128/5)?  2-6(-136/2)?
+bl-k3-kingsrow-a-h1 r52.1 ACF #60 Black Hole	9	11x18x25	11x18x25	1	info 11x25(-1/24)*
+bl-k3-kingsrow-a-h1 r52.1 ACF #60 Black Hole	11	7-11	8-11	0	info 8-11(-1/22)*  7-10(-1/29)?  5-9(-1/29)?  12-16(-1/28)?  1-6(-1/22)?  7-11(-104/2)?  2-6(-226/4)?
+bl-k3-kingsrow-a-h1 r52.1 ACF #60 Black Hole	13	2-6	11-16	0	info 11-16(-104/0)*  3-7(-146/2)?  1-6(-186/2)?  5-9(-246/4)?  2-6(-258/5)?  11-15(-354/2)?
+bl-k3-kingsrow-a-h1 r52.1 ACF #60 Black Hole	15	6-10	11-16	0	info 11-16(-258/3)*  5-9(-296/5)?  6-9(-304/3)?  6-10(-344/4)?  3-7(-564/3)?  11-15(-624/4)?
+bl-k3-kingsrow-a-h1 r52.1 ACF #60 Black Hole	17	11-16	11-16	1	info 11-16(-344/2)*  5-9(-522/2)?  11-15(-564/2)?  1-6(-678/6)?
+bl-k3-kingsrow-a-h1 r52.1 ACF #60 Black Hole	19	16-20	5-9	0	info 5-9(-344/0)*  16-20(-396/2)?
+bl-k3-kingsrow-a-h1 r52.1 ACF #60 Black Hole	21	5-9	5-9	1	info 5-9(-396/0)*  1-6(-598/2)?  3-7(-760/8)?
+bl-k3-kingsrow-a-h1 r52.1 ACF #60 Black Hole	23	1-6	1-6	1	info value=-122,  depth 28/22.6/44,  2.3s,  9655 kN/s,  pv 1-6 19-15 10x19 24x15 3-7 23-19 7-10 26-23 10-14 28-24 8-11
+bl-k3-kingsrow-a-h1 r52.1 ACF #60 Black Hole	25	10x19	10x19	1	info value=-48,  depth 5/6.8/10,  0.0s,  180 kN/s,  pv 10x19 24x15 3-7 28-24 7-10 24-19 8-11
+bl-k3-kingsrow-a-h1 r52.1 ACF #60 Black Hole	27	3-7	12-16	0	info value=-136,  depth 30/24.2/46,  2.4s,  8395 kN/s,  pv 12-16 26-22 8-11 15x8 3x12 18-15 9-14 15-11 6-10 22-18 13-17
+bl-k3-kingsrow-a-h1 r52.1 ACF #60 Black Hole	29	7-10	7-10	1	info value=-132,  depth 32/30.2/50,  1.9s,  7681 kN/s,  pv 7-10 26-23 10-14 28-24 8-11 15x8 4x11 19-15 11-16 24-19 13-17
+bl-k3-kingsrow-a-h1 r52.1 ACF #60 Black Hole	31	10-14	10-14	1	info value=-138,  depth 33/35.9/52,  3.2s,  7518 kN/s,  pv 10-14 28-24 8-11 15x8 4x11 19-15 11-16 24-19 13-17 30-26 6-10
+bl-k3-kingsrow-a-h1 r52.1 ACF #60 Black Hole	33	8-11	8-11	1	info value=-136,  depth 31/32.0/51,  1.6s,  7598 kN/s,  pv 8-11 15x8 4x11 19-15 11-16 24-19 13-17 30-26 6-10 15x6 9-13
+bl-k3-kingsrow-a-h1 r63.1 ACF #71 Diabolical Denny	5	10x19	10x19	1	info 10x19(-1/15)*  11x18(-1/15)?
+bl-k3-kingsrow-a-h1 r63.1 ACF #71 Diabolical Denny	7	11x18	11x18	1	info 11x18(-1/13)*
+bl-k3-kingsrow-a-h1 r63.1 ACF #71 Diabolical Denny	9	14-18	2-7	0	info 2-7(-1/11)*  8-11(-1/16)?  14-18(-1/16)?  9-13(-1/11)?  3-7(-1/10)?  12-16(-30/4)?  6-10(-48/7)?  14-17(-48/4)?
+bl-k3-kingsrow-a-h1 r63.1 ACF #71 Diabolical Denny	11	9-14	9-14	1	info 9-14(-1/14)*  2-7(-1/20)?  9-13(-1/15)?  3-7(-1/9)?  12-16(-34/20)?  8-11(-128/4)?
+bl-k3-kingsrow-a-h1 r63.1 ACF #71 Diabolical Denny	13	2-7	3-7	0	info 3-7(-1/12)*
+bl-k3-kingsrow-a-h1 r63.1 ACF #71 Diabolical Denny	15	7-10	5-9	0	info 5-9(-140/0)*
+bl-k3-kingsrow-a-h1 r63.1 ACF #71 Diabolical Denny	17	8-11	8-11	1	info value=-92,  depth 27/24.1/46,  1.5s,  8609 kN/s,  pv 8-11 15x8 4x11 19-15 10x19 23x7 3x10 26-23 10-15 21-17 14x21
+bl-k3-kingsrow-a-h1 r63.1 ACF #71 Diabolical Denny	19	4x11	4x11	1	info value=-88,  depth 5/6.6/10,  0.0s,  321 kN/s,  pv 4x11 19-15 10x19 23x7 3x10 26-23 10-15
+bl-k3-kingsrow-a-h1 r63.1 ACF #71 Diabolical Denny	21	10x19	10x19	1	info value=-92,  depth 5/6.8/12,  0.0s,  164 kN/s,  pv 10x19 23x7 3x10 26-23 10-15 30-26 6-9
+bl-k3-kingsrow-a-h1 r63.1 ACF #71 Diabolical Denny	23	3x10	3x10	1	info value=-92,  depth 5/4.8/11,  0.0s,  621 kN/s,  pv 3x10 26-23 10-15 21-17 14x21 23x14 15-19
+bl-k3-kingsrow-a-h1 r63.1 ACF #71 Diabolical Denny	25	10-15	10-15	1	info value=-116,  depth 30/25.2/46,  1.5s,  7379 kN/s,  pv 10-15 21-17 14x21 23x14 15-19 25-22 12-16 22-17 16-20 32-28 6-9
+bl-k3-kingsrow-a-h1 r63.1 ACF #71 Diabolical Denny	27	14x21	14x21	1	info value=-54,  depth 5/7.5/13,  0.0s,  916 kN/s,  pv 14x21 23x14 15-19 25-22 12-16 29-25 6-9
+bl-k3-kingsrow-a-h1 r63.1 ACF #71 Diabolical Denny	29	12-16	15-19	0	info value=-127,  depth 30/24.0/44,  1.6s,  7315 kN/s,  pv 15-19 25-22 12-16 22-17 16-20 32-28 6-9 14-10 9-14 17-13 14-18
+bl-k3-kingsrow-a-h1 r63.1 ACF #71 Diabolical Denny	31	15-19	15-19	1	info value=-114,  depth 30/23.9/45,  1.6s,  7239 kN/s,  pv 15-19 22-17 16-20 32-28 6-9 14-10 9-14 17-13 14-18 30-26 19-23
+bl-k3-kingsrow-a-h1 r63.1 ACF #71 Diabolical Denny	33	6-9	16-20	0	info value=-120,  depth 31/27.0/46,  1.7s,  6967 kN/s,  pv 16-20 32-28 6-9 14-10 9-14 17-13 14-18 30-26 19-23 26x19 18-22
+bl-k3-kingsrow-b-h1 r31.1 ACF #34 Twilight Zone	5	8x15	7x16	0	info 7x16(-1/33)*  8x15(-1/18)?
+bl-k3-kingsrow-b-h1 r31.1 ACF #34 Twilight Zone	7	6-9	6-9	1	info 6-9(-1/16)*  7-11(-1/22)?  3-8(-3/42)?  5-9(-116/6)?  15-19(-124/4)?  10-14(-138/4)?  12-16(-162/9)?
+bl-k3-kingsrow-b-h1 r31.1 ACF #34 Twilight Zone	9	7x16	7x16	1	info 7x16(-1/14)*
+bl-k3-kingsrow-b-h1 r31.1 ACF #34 Twilight Zone	11	4-8	4-8	1	info 4-8(-1/12)*  16-20(-1/27)?  9-14(-1/27)?  3-7(-152/5)?  2-7(-154/3)?  1-6(-166/2)?  3-8(-224/4)?
+bl-k3-kingsrow-b-h1 r31.1 ACF #34 Twilight Zone	13	16-19	16-19	1	info 16-19(-1/10)*  8-11(-1/15)?
+bl-k3-kingsrow-b-h1 r31.1 ACF #34 Twilight Zone	15	9-14	9-14	1	info 9-14(-1/8)*  3-7(-142/2)?
+bl-k3-kingsrow-b-h1 r31.1 ACF #34 Twilight Zone	17	5x14	5x14	1	info 5x14(-1/6)*
+bl-k3-kingsrow-b-h1 r31.1 ACF #34 Twilight Zone	19	1-5	1-6	0	info 1-6(-1/4)*  1-5(-338/6)?  3-7(-366/1)?  8-11(-436/12)?
+bl-k3-kingsrow-b-h1 r31.1 ACF #34 Twilight Zone	21	13x22	13x22	1	info 13x22(-338/4)*
+bl-k3-kingsrow-b-h1 r31.1 ACF #34 Twilight Zone	23	5x14	5x14	1	info 5x14(-338/2)*
+bl-k3-kingsrow-b-h1 r31.1 ACF #34 Twilight Zone	25	8-11	19-24	0	info 19-24(-338/0)*  8-11(-436/6)?  10-15(-442/2)?  2-7(-780/4)?
+bl-k3-kingsrow-b-h1 r31.1 ACF #34 Twilight Zone	27	11-15	11-15	1	info 11-15(-436/4)*  10-15(-2048/8)?
+bl-k3-kingsrow-b-h1 r31.1 ACF #34 Twilight Zone	29	3-7	3-7	1	info 3-7(-436/2)*  14-18(-564/4)?
+bl-k3-kingsrow-b-h1 r31.1 ACF #34 Twilight Zone	31	14-18	19-24	0	info 19-24(-436/0)*  14-18(-564/2)?
+bl-k3-kingsrow-b-h1 r31.1 ACF #34 Twilight Zone	33	2-6	10-14	0	info 10-14(-564/0)*  2-6(-2048/5)?
+bl-k3-kingsrow-b-h1 r8.1 ACF #9 Wilderness I	5	10x17	10x17	1	info 10x17(-1/41)*
+bl-k3-kingsrow-b-h1 r8.1 ACF #9 Wilderness I	7	16-20	6-9	0	info 6-9(-1/39)*  16-20(-3/39)?  6-10(-92/4)?  8-11(-130/6)?  13-17(-130/2)?  7-11(-134/8)?  16-19(-138/2)?  7-10(-188/5)?
+bl-k3-kingsrow-b-h1 r8.1 ACF #9 Wilderness I	9	6-10	6-10	1	info 6-10(-3/37)*  6-9(-132/3)?  7-11(-134/6)?  8-11(-134/2)?  13-17(-178/2)?  7-10(-208/2)?
+bl-k3-kingsrow-b-h1 r8.1 ACF #9 Wilderness I	11	10x17	10x17	1	info 10x17(-3/35)*
+bl-k3-kingsrow-b-h1 r8.1 ACF #9 Wilderness I	13	2-6	1-6	0	info 1-6(-3/33)*  2-6(-3/33)?  8-11(-168/4)?  13-17(-182/5)?
+bl-k3-kingsrow-b-h1 r8.1 ACF #9 Wilderness I	15	6-10	6-10	1	info 6-10(-3/31)*  8-11(-146/2)?
+bl-k3-kingsrow-b-h1 r8.1 ACF #9 Wilderness I	17	10x17	10x17	1	info 10x17(-3/29)*
+bl-k3-kingsrow-b-h1 r8.1 ACF #9 Wilderness I	19	1-6	1-6	1	info 1-6(-3/27)*
+bl-k3-kingsrow-b-h1 r8.1 ACF #9 Wilderness I	21	6-10	6-10	1	info 6-10(-3/25)*
+bl-k3-kingsrow-b-h1 r8.1 ACF #9 Wilderness I	23	5x14	5x14	1	info 5x14(-3/23)*
+bl-k3-kingsrow-b-h1 r8.1 ACF #9 Wilderness I	25	14-17	14-17	1	info 14-17(-3/21)*
+bl-k3-kingsrow-b-h1 r8.1 ACF #9 Wilderness I	27	10-14	10-14	1	info 10-14(-3/19)*
+bl-k3-kingsrow-b-h1 r8.1 ACF #9 Wilderness I	29	17-22	8-11	0	info 8-11(-3/17)*  17-22(-3/17)?  7-11(-3/17)?  17-21(-64/11)?
+bl-k3-kingsrow-b-h1 r8.1 ACF #9 Wilderness I	31	14-17	7-11	0	info 7-11(-3/15)*  8-11(-3/15)?  14-17(-40/7)?  7-10(-148/1)?
+bl-k3-kingsrow-b-h1 r8.1 ACF #9 Wilderness I	33	7-11	17-21	0	info 17-21(-40/5)*  8-11(-70/11)?  7-11(-80/5)?  22-26(-80/5)?

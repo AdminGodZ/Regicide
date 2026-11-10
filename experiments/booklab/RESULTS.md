@@ -35,19 +35,19 @@ match-747ab51, everything else as the final validation. Tables `k3/k3_compare.md
   Windows free commit first (≥ 14 GB, otherwise the WSL page cache is dropped) and a run with any crash, time-out
   or engine that did not start is not counted as finished. No earlier run of this work has a crash termination.
 
-## WP1 census (`census/census.md`, `census/decisive.csv`, `census/instant_by_ballot.csv`)
+## WP1 census (`census/census.md`, `census/decisive.csv`, `census/instant_by_ballot.csv`); every KingsRow game here is KingsRow in book mode 1
 
 | Pairing (A vs B) | Games | A: W / D / L | Elo of A [95% CI] |
 |---|---|---|---|
-| Cake vs KingsRow | 312 | 13 / 299 / 0 | +14.5 [+6.9, +22.1] |
+| Cake vs KingsRow (KingsRow book mode 1) | 312 | 13 / 299 / 0 | +14.5 [+6.9, +22.1] |
 | Cake vs GuiNN | 312 | 16 / 294 / 2 | +15.6 [+6.6, +24.6] |
-| KingsRow vs GuiNN | 312 | 2 / 303 / 7 | −5.6 [−12.1, +0.9] |
+| KingsRow (mode 1) vs GuiNN | 312 | 2 / 303 / 7 | −5.6 [−12.1, +0.9] |
 | Cake vs Cake | 312 | 1 / 310 / 1 | 0 |
-| KingsRow vs KingsRow | 312 | 2 / 310 / 0 | +2.2 [−0.8, +5.3] |
+| KingsRow vs KingsRow (both mode 1) | 312 | 2 / 310 / 0 | +2.2 [−0.8, +5.3] |
 | GuiNN vs GuiNN | 312 | 3 / 304 / 5 | −2.2 [−6.6, +2.1] |
 | Regicide master (6bb8c6c-deep2b DLL = fcf6acb) vs GuiNN | 312 | 1 / 309 / 2 | −1.1 [−4.9, +2.7] |
 | (reference, same DLL, 2026-11-09) Regicide master vs Cake | 312 | 0 / 307 / 5 | −5.6 [−10.4, −0.8] |
-| (reference, same DLL, 2026-11-09) Regicide master vs KingsRow | 312 | 0 / 312 / 0 | 0 |
+| (reference, same DLL, 2026-11-09) Regicide master vs KingsRow (mode 1) | 312 | 0 / 312 / 0 | 0 |
 
 Decisive games (ballot, winner as colour):
 - **Cake beats KingsRow (13):** #23 B, #36 W, #28 B, #59 W, #86 Octopus W, #84 W, #99 W, #128 W, #139 B, #151 B, #154 W,
@@ -444,10 +444,10 @@ bench 7,712,020 (8,089,571 book off).
 | Opponent | bl-final1 run a | bl-final1 run b | before (fcf6acb engine+book) | before: run |
 |---|---|---|---|---|
 | Cake | **0 / 312 / 0** | **0 / 312 / 0** | 0 / 307 / 5 | ba-deep2b-full-cake (2026-11-09) |
-| KingsRow | **12 / 300 / 0** | **11 / 301 / 0** | 0 / 312 / 0 | ba-deep2b-full-kingsrow (2026-11-09) |
+| KingsRow (book mode 1) | **12 / 300 / 0** | **11 / 301 / 0** | 0 / 312 / 0 | ba-deep2b-full-kingsrow (2026-11-09) |
 | GuiNN | **17 / 295 / 0** | **21 / 291 / 0** | 1 / 309 / 2 | census c-reg-guinn (2026-11-09/10) |
 
-**Totals over both runs (1,872 games, 0 losses): Cake 0 / 624 / 0 (before 0 / 307 / 5 per run); KingsRow 23 / 601 / 0 (before 0 / 312 / 0); GuiNN 38 / 586 / 0 (before 1 / 309 / 2).** Repairs during the final validation: none (no loss).
+**Totals over both runs (1,872 games, 0 losses): Cake 0 / 624 / 0 (before 0 / 307 / 5 per run); KingsRow (book mode 1) 23 / 601 / 0 (before 0 / 312 / 0); GuiNN 38 / 586 / 0 (before 1 / 309 / 2).** Repairs during the final validation: none (no loss).
 
 ## Book hand-over checks (round 9)
 

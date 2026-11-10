@@ -1,0 +1,13 @@
+Match: A = Kingsrow(x64)[6] 1.20, B = Cake 1.89f
+Openings: /home/admingod/regicide-jobs/booklab/wp13/evidence_deck.txt (40 openings x 1 rounds, each played with both colours)
+Time control: 0.5s/move (CheckerBoard match rules); no-progress rule: 40 moves
+Games: 40 of 80 scheduled
+
+A: +0 =40 -0   score 20.0/40 = 50.00%   draw rate 100.0%
+A as black: +0 =0 -0   A as white: +0 =40 -0
+By colour: black won 0, white won 0, drawn 40
+Pairs: 0   pentanomial [LL LD DD/WL WD WW] = [0 0 0 0 0]
+Elo (trinomial, games):   -0.0 [-0.0, -0.0] 95% CI, LOS 50.00%
+Terminations: no progress 16; repetition 24;
+A Kingsrow(x64)[6] 1.20: 2856 moves, avg 0.237s/move, max 8.623s
+B Cake 1.89f: 2830 moves, avg 0.228s/move, max 11.021s
