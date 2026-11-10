@@ -1,0 +1,4 @@
+openings 1600, pairs 20, A="lmr_base=20" B="lmr_base=120"
+final games 40  A: +17 =7 -16  score 0.5125  draws 17.5%  elo +8.7 [-29.3, +46.8]  penta [0 2 15 3 0]
+time A: moves 2740  mean ms 69.2  mean depth 13.03
+time B: moves 2740  mean ms 71.4  mean depth 13.30

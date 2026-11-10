@@ -176,3 +176,36 @@ defaults (= master's Lazy SMP: depth skipping, result from thread 0).
 ply deeper (−5.2) does not beat master's Lazy SMP at 4 threads. The scaling limit is search overhead (≈ +40% nodes to
 the same depth at 4 threads) and, on this hybrid CPU, threads landing on E-cores. Closed for now by the lead (on
 Windows, 4 threads plus pondering gave no gain against Cake in 1,248 games); nothing new started.
+
+# Phase 2 (2026-11-10, after merging master 456e9b2)
+
+- Merged origin/master 456e9b2: with every lab switch at its default, `regicide bench` = **7,677,736** and ctest 27/27.
+- Review fixes (01b02b0): `posbench --ttd` takes time and nodes from the completed iteration (the stop was noticed
+  up to 1,024 nodes late); `set_evaluator` clears the leaf eval cache (and the correction-history tables, which also
+  depend on the evaluator); `smp_vote` no longer vetoes a helper when the main thread has no completed iteration, and
+  returns the completed snapshot also when the main thread is chosen.
+
+## Net matches (for truth-data)
+
+**Recipe (as `experiments/truth-data/scripts/jobs/common.sh`, `selfplay_match`):** `tools/match` + `cbhost`, both
+sides one `libregicide_cb.so` built from **master 456e9b2** (clang 23.1.4 Release, bench 7,677,736), A and B with
+`set threads 1`, `set hashsize 128`, `set book 0`, nets via `set evalfile` (B without evalfile = built-in n6c),
+`--openings experiments/eval-gen1/openings4.txt` (805 × 2), CheckerBoard time mode (`--movetime 0.5`, banked),
+`--pdn-comments`. Pooled with truth-data's `pool_dirs.py`; per-side time and depth from the PDN comments
+(`netm/stats.py`). Scripts in `netm/`.
+
+**Differences from the Windows runs:**
+- **Database: 2–7 pieces** (theirs 2–8). The engine finds it through an `egdb` link next to the library (`get
+  dbpieces` → 7). The "database off" engine is the same library in a directory without one (`get dbpieces` → 0).
+- **Concurrency:** openings4 split into 6 chunks (139/139/134/131/132/130 openings); each chunk is one `tools/match`
+  with **`-c 1`**, pinned with `taskset` to one physical P-core (logical CPUs 2k, 2k+1). That makes 6 games at once,
+  each alone on its own P-core with both of its engines on that core. E-cores and hyper-thread doubling are not used
+  for net games. Nothing else runs on the P-cores.
+- Linux laptop (i9-13900H, P-cores up to 5.2/5.4 GHz) instead of the Windows box: absolute depths differ.
+
+Depth columns: mean over the first 20 searched moves (depth ≥ 2) of each side per game. Database endgames reach
+very high depths, so the mean over all moves is also given in each match's `stats.txt`.
+
+LMR self-check (step 3 preparation; `selfplay` of this branch, 100 ms, 20 pairs, UHO set): lmr_base=20 vs
+lmr_base=120 → mean depth **13.66 vs 14.70** with the per-engine table. With the old `selfplay-lab2` (shared global
+table) the same match gave 13.03 vs 13.30. The tool now gives each side its own table.
