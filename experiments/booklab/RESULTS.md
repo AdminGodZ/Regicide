@@ -233,9 +233,9 @@ bench 7,712,020 (8,089,571 book off).
 |---|---|---|---|---|
 | Cake | **0 / 312 / 0** | **0 / 312 / 0** | 0 / 307 / 5 | ba-deep2b-full-cake (2026-11-09) |
 | KingsRow | **12 / 300 / 0** | **11 / 301 / 0** | 0 / 312 / 0 | ba-deep2b-full-kingsrow (2026-11-09) |
-| GuiNN | **17 / 295 / 0** | queued | 1 / 309 / 2 | census c-reg-guinn (2026-11-09/10) |
+| GuiNN | **17 / 295 / 0** | **21 / 291 / 0** | 1 / 309 / 2 | census c-reg-guinn (2026-11-09/10) |
 
-Repairs during the final validation: none so far.
+**Totals over both runs (1,872 games, 0 losses): Cake 0 / 624 / 0 (before 0 / 307 / 5 per run); KingsRow 23 / 601 / 0 (before 0 / 312 / 0); GuiNN 38 / 586 / 0 (before 1 / 309 / 2).** Repairs during the final validation: none (no loss).
 
 ## Book hand-over checks (round 9)
 

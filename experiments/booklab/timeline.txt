@@ -303,3 +303,16 @@ BL wait-lock f1-kingsrow-b-h2 regicide:bl-final1 vs kingsrow deck /mnt/c/regicid
 BL start f1-kingsrow-b-h2 regicide:bl-final1 vs kingsrow; bg: datagen-eb1037c:T bash:S datagen-tr6:S  2026-11-10T15:22:40+01:00
 BL end f1-kingsrow-b-h2 rc=0 A: +3 =153 -0   score 79.5/156 = 50.96%   draw rate 98.1% Elo (pentanomial, pairs): +6.7 [-0.7, +14.1] 95% CI, score 0.5096 +- 0.0107, LOS 96.13% 2026-11-10T15:30:53+01:00
 BL wait-lock f1-guinn-b-h2 regicide:bl-final1 vs guinn deck /mnt/c/regicide-match/jobs/booklab/acf156_h2.txt mt 0.5 c 8 2026-11-10T15:30:53+01:00
+BL start f1-guinn-b-h2 regicide:bl-final1 vs guinn; bg: datagen-eb1037c:T bash:T datagen-tr6:T  2026-11-10T16:14:59+01:00
+BL wait-lock n8q-smoke regicide:bl-456e9b2-r10 vs guinn deck /home/admingod/regicide-jobs/booklab/decks/n8q_smoke.txt mt 0.1 c 2 2026-11-10T16:18:01+01:00
+BL wait-lock f1-guinn-b-h2 regicide:bl-final1 vs guinn deck /mnt/c/regicide-match/jobs/booklab/acf156_h2.txt mt 0.5 c 8 2026-11-10T16:18:28+01:00
+BL wait-lock n8q-smoke regicide:bl-456e9b2-r10 vs guinn deck /home/admingod/regicide-jobs/booklab/decks/n8q_smoke.txt mt 0.1 c 2 2026-11-10T16:19:33+01:00
+BL end f1-guinn-b-h2 rc=0 A: +10 =146 -0   score 83.0/156 = 53.21%   draw rate 93.6% Elo (pentanomial, pairs): +22.3 [+9.4, +35.3] 95% CI, score 0.5321 +- 0.0185, LOS 99.96% 2026-11-10T16:22:56+01:00
+FINAL1 done 2026-11-10T16:22:56+01:00
+BL start n8q-smoke regicide:bl-456e9b2-r10 vs guinn; bg: datagen-eb1037c:T bash:S datagen-tr6:S  2026-11-10T16:22:56+01:00
+BL end n8q-smoke rc=0 A: +0 =2 -0   score 1.0/2 = 50.00%   draw rate 100.0% Elo (pentanomial, pairs): -0.0 [-0.0, -0.0] 95% CI, score 0.5000 +- 0.0000, LOS 50.00% 2026-11-10T16:23:01+01:00
+BL wait-lock n8q-verify-good regicide:bl-456e9b2-r10 vs guinn deck /home/admingod/regicide-jobs/booklab/decks/n8q_smoke.txt mt 0.1 c 2 2026-11-10T16:23:45+01:00
+BL start n8q-verify-good regicide:bl-456e9b2-r10 vs guinn; bg: datagen-eb1037c:T bash:S datagen-tr6:S  2026-11-10T16:23:45+01:00
+BL end n8q-verify-good rc=0 A: +0 =2 -0   score 1.0/2 = 50.00%   draw rate 100.0% Elo (pentanomial, pairs): -0.0 [-0.0, -0.0] 95% CI, score 0.5000 +- 0.0000, LOS 50.00% 2026-11-10T16:23:54+01:00
+BL wait-lock n8q-verify-bad regicide:bl-456e9b2-r10 vs guinn deck /home/admingod/regicide-jobs/booklab/decks/n8q_smoke.txt mt 0.1 c 2 2026-11-10T16:23:54+01:00
+BL start n8q-verify-bad regicide:bl-456e9b2-r10 vs guinn; bg: datagen-eb1037c:T bash:S datagen-tr6:S  2026-11-10T16:23:54+01:00
