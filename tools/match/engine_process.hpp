@@ -50,7 +50,13 @@ struct GoResult {
     std::string claim;      // engine's own result claim: unknown/win/loss/draw
     std::string info;       // engine status string
     std::string detail;     // error description
-    double elapsed = 0;     // wall time measured by the runner
+    double elapsed = 0;     // wall time measured by the runner, from sending `go` to reading the move
+    double engine_time = -1;  // time inside the engine's getmove as the host reports it ("time S"); -1 = not reported
+
+    // What a CheckerBoard time bank is charged: the engine's own thinking time, as CheckerBoard measures it around
+    // getmove. The runner's wall time also holds the host's preparation (sending the game history) and the pipe, which
+    // differ from engine to engine; it is the fallback for engines that report no time, and an upper bound.
+    double charged() const { return engine_time >= 0 && engine_time < elapsed ? engine_time : elapsed; }
 };
 
 class Engine {

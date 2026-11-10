@@ -8,6 +8,7 @@
 #include <unistd.h>
 
 #include <cerrno>
+#include <cstdlib>
 #include <cstring>
 #include <sstream>
 
@@ -263,8 +264,14 @@ GoResult Engine::go(const std::string& position, const std::string& go_cmd, Cloc
             std::istringstream in(line.substr(9));
             in >> r.move;
             std::string key, val;
-            while (in >> key >> val)
+            while (in >> key >> val) {
                 if (key == "result") r.claim = val;
+                else if (key == "time") {
+                    char* end = nullptr;
+                    const double t = std::strtod(val.c_str(), &end);
+                    if (end != val.c_str() && *end == 0 && t >= 0) r.engine_time = t;
+                }
+            }
             r.status = (r.move == "none") ? GoResult::Status::Illegal : GoResult::Status::Ok;
             if (r.move == "none") r.detail = "engine returned no move";
             return r;

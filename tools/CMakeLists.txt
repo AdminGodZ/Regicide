@@ -46,6 +46,16 @@ if(NOT WIN32)
   add_test(NAME match_rejected_options COMMAND engine_process_test rejected)
   add_test(NAME match_deadline COMMAND engine_process_test deadline)
 
+  # cbhost with a scripted CheckerBoard engine: a stop during the host's preparation, and what the bank is charged.
+  add_library(cbhost_mock_engine MODULE cbhost/mock_engine.cpp)
+  target_link_libraries(cbhost_mock_engine PRIVATE cbt_common)
+  add_executable(cbhost_test cbhost/cbhost_test.cpp match/engine_process.cpp)
+  target_include_directories(cbhost_test PRIVATE match)
+  target_link_libraries(cbhost_test PRIVATE cbt_common Threads::Threads)
+  add_dependencies(cbhost_test cbhost cbhost_mock_engine)
+  add_test(NAME cbhost_stop_pending COMMAND cbhost_test stop $<TARGET_FILE:cbhost> $<TARGET_FILE:cbhost_mock_engine>)
+  add_test(NAME match_charged_time COMMAND cbhost_test charged $<TARGET_FILE:cbhost> $<TARGET_FILE:cbhost_mock_engine>)
+
   # The runner's adjudication, through the match executable with two scripted engines.
   add_executable(terminal_before_draw_test match/terminal_before_draw_test.cpp match/engine_process.cpp)
   target_include_directories(terminal_before_draw_test PRIVATE match)
