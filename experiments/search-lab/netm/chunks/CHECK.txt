@@ -1,0 +1,7 @@
+openings4 805 lines (805 distinct, duplicates 0); chunks 805 lines; partition (in order, each line exactly once): yes
+a 2a1acaca862ab1822f5e484e0190a6e1ad95dda2cc82ecc169f3de0d4039bfea
+b 0bceaf2bb126d5be636dd6a020a084add2e60442f7b3fc541955e6fcec7a3ad0
+c 602ca197709aa3fbb17d68cde747abc124584d80ce895f649aa36a94605d8964
+d 53026dbff9fa5b0895af4e9589504c57aae3503fa0b616bcaa6b90e89a7161ad
+e 45c1b102c5f3df20919a63686e52497a0c9d2436d6ee97a42da23dbb25577aae
+f 53a0829ac8cdcf1f419331f2fcb2cf3d5c6c814e842c9da41b9a42da9a483a49

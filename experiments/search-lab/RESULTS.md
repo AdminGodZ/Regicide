@@ -203,6 +203,19 @@ sides one `libregicide_cb.so` built from **master 456e9b2** (clang 23.1.4 Releas
   for net games. Nothing else runs on the P-cores.
 - Linux laptop (i9-13900H, P-cores up to 5.2/5.4 GHz) instead of the Windows box: absolute depths differ.
 
+**Chunks and completeness (after review):** `netm/chunks/op4_a..f` are `split -n l/6` of openings4;
+`netm/check_chunks.py` verifies that they are a partition (concatenated they equal openings4 line for line, 805
+distinct openings, each exactly once; sha256 sums in `netm/chunks/CHECK.txt`). Runner v2 (`netm/runner2.sh`) counts a
+match as done only if `netm/validate.py --pooled` passes: every chunk's summary says "Games: N of N" without
+"(interrupted)", N = 2 × its openings, results.csv has N games, every worker and the pooling step exited 0, and the
+pool has exactly 805 pairs. Incomplete chunks are deleted and re-run. The first runner (M5) did not record exit
+statuses; its chunks carry an explicit `unrecorded` marker, written only for chunks whose summary shows every game
+played, and the validator prints that.
+
+**Intervals:** Elo and its 95% interval in the net-match table come from truth-data's `pool_dirs.py` (pairs, n−1
+variance, symmetric interval in Elo via the delta method). `tools/match`'s own summaries (population variance,
+transformed endpoints) differ slightly.
+
 Depth columns: mean over the first 20 searched moves (depth ≥ 2) of each side per game. Database endgames reach
 very high depths, so the mean over all moves is also given in each match's `stats.txt`.
 
