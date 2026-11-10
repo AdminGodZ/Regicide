@@ -279,6 +279,8 @@ void play_game(const Config& cfg, Engine* eng[2], GameRecord& g) {
         } else {
             ++nonconv;
             window.push_back(b);
+            // A move that leaves the opponent without a move wins (next turn of the loop), whatever the counters say.
+            if (b.legal_moves().empty()) continue;
             if (std::count(window.begin(), window.end(), b) >= 3) {
                 g.winner = Winner::Draw;
                 g.termination = "threefold repetition";
@@ -665,7 +667,10 @@ Adjudication:
 Running:
   -c, --concurrency N      games in parallel (default 6; 2 processes each)
   --sprt ELO0,ELO1[,ALPHA,BETA]
-                           stop early when the GSPRT is decided (default alpha=beta=0.05)
+                           stop early when the GSPRT is decided (default alpha=beta=0.05).
+                           With very few decisive pairs its error rates are not guaranteed:
+                           a long run of drawn pairs can accept ELO0 too easily. Prefer a
+                           fixed number of pairs for decisions.
   --sprt-min-pairs N       never stop before N complete pairs (default 20)
   -o, --out DIR            output directory (default matches/<timestamp>)
   --pdn-comments           add per-move time and engine output to the PDN

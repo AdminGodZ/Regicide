@@ -164,7 +164,7 @@ int main(int argc, char** argv) {
                 Limits quick;
                 quick.nodes = 2000;
                 engine.set_position(pos, history);
-                if (std::abs(engine.go(quick).score) > cfg.max_opening_score) continue;
+                if (std::abs(engine.go(quick).sound_score()) > cfg.max_opening_score) continue;
             }
 
             game.clear();

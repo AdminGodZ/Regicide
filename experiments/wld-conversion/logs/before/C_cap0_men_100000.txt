@@ -1,0 +1,303 @@
+ok   load /private/tmp/claude-501/-Users-timheld--t3-worktrees-Regicide-t3-1fb0d56b/353c3a4f-f094-49e4-9063-64d86206a9c9/scratchpad/egdb5
+database: 5 pieces, MTC 5
+  W:W7:BK17,23,28              optimal  44  engine  90  gave away the win
+  B:W23:B4,15,16               optimal  57  engine 103  gave away the win
+  W:W22:B15,K23,K31            optimal  48  engine  94  gave away the win
+  W:W20:BK4,26,28              optimal  46  engine  77  repetition
+  B:W25:BK9,17,K31             optimal  39  engine  49  gave away the win
+  W:WK3,12,K29:B27             optimal  45  engine  41  gave away the win
+  W:W6,18,25:B21               optimal  21  engine  60  repetition
+  B:W24,25:BK13,23             optimal  53  engine  49  gave away the win
+  W:W20,23:B15,17              optimal  46  engine 112  gave away the win
+  B:WK8,K13,20:B11             optimal  44  engine  47  repetition
+  W:W30:B17,K20,23             optimal  36  engine  78  gave away the win
+  B:W20,27:BK14,25             optimal  21  engine  47  gave away the win
+  B:W30:B23,26,K31             optimal  37  engine 110  no progress
+  B:WK7,K8,12:B25              optimal  16  engine  51  repetition
+  B:W12,32:B5,K11              optimal  41  engine 107  gave away the win
+  W:W6:B10,26,K31              optimal  56  engine  59  repetition
+  W:WK13,19:B11,20             optimal  29  engine  67  gave away the win
+  W:W25:B11,17,24              optimal  44  engine 107  no progress
+  B:WK22,29:BK16,25            optimal  55  engine  73  gave away the win
+  W:WK3,K27,31:B2              optimal  21  engine  37  gave away the win
+  W:WK14,25:B8,12              optimal  33  engine  31  gave away the win
+  W:W7:B10,K13,K29             optimal  42  engine  69  repetition
+  B:W26:B12,16,21              optimal  61  engine  69  gave away the win
+  B:WK11,19,K22:B6             optimal   6  engine  49  repetition
+  W:W23:B7,K24,K26             optimal   4  engine  22  gave away the win
+  W:W17:B7,16,K24              optimal  62  engine  48  gave away the win
+  B:W9,K27,K32:B1              optimal  16  engine  69  repetition
+  W:W6,K12,K24:B15             optimal  15  engine  31  gave away the win
+  B:W11,K20,28:B10             optimal  28  engine  55  repetition
+  B:WK11,18,K31:B28            optimal   4  engine  18  gave away the win
+  W:W6:B4,16,17                optimal  72  engine 118  gave away the win
+  B:WK5,8,11:B20               optimal  48  engine  39  repetition
+  W:W5,K27:B8,21               optimal  23  engine  70  repetition
+  B:W9,11,26:B14               optimal  40  engine  19  repetition
+  B:W9,12,K32:B27              optimal  46  engine  61  repetition
+  W:WK7,15,K31:B13             optimal  11  engine  46  repetition
+  B:W6,K11:B12,K30             optimal  20  engine  24  gave away the win
+  B:W13:B17,22,26              optimal  51  engine  41  gave away the win
+  B:WK6,10,K15:B9              optimal  16  engine  93  no progress
+  W:W16,K23,31:B7              optimal  17  engine  64  repetition
+  B:W23:B3,17,28               optimal  65  engine 130  no progress
+  B:WK17,19,30:B6              optimal  26  engine  22  gave away the win
+  W:W10,11,K25:B28             optimal  49  engine  84  repetition
+  W:W23:B22,K25,K27            optimal  44  engine 105  no progress
+  B:W6:B12,15,K19              optimal  57  engine 114  no progress
+  W:W7,15,28:B25               optimal  55  engine 100  no progress
+  B:W16,21:BK15,28             optimal  19  engine  51  repetition
+  W:W10:B17,K19,K20            optimal  44  engine 103  no progress
+  W:W6,20,K31:B15              optimal  15  engine  56  repetition
+  W:W17:BK3,K19,27             optimal  22  engine  60  gave away the win
+  W:W25,27:BK2,11              optimal  52  engine 107  no progress
+  W:W29,30:B12,27              optimal  52  engine  94  gave away the win
+  B:W17:B9,20,K28              optimal  37  engine  96  no progress
+  W:WK4,11,25:B21              optimal  33  engine  35  gave away the win
+  B:W16,21:B10,K18             optimal  19  engine  98  no progress
+  B:W28:B16,K21,23             optimal   5  engine  64  repetition
+  B:W6:B17,K18,K20             optimal  41  engine 102  no progress
+  B:W14:B12,15,K30             optimal  61  engine 107  gave away the win
+  W:WK20,24,25:B21             optimal  21  engine  60  repetition
+  W:W8,17,K25:B3               optimal  41  engine  66  repetition
+  W:W13:BK7,18,23              optimal  48  engine  46  gave away the win
+  B:W21:BK4,15,K20             optimal  49  engine  76  repetition
+  B:W12,23:B15,25              optimal  37  engine 100  no progress
+  W:W5:BK8,15,23               optimal  50  engine  94  gave away the win
+  W:W12:B7,11,K27              optimal  42  engine  92  gave away the win
+  W:W7,17,28:B6                optimal  47  engine  40  repetition
+  W:WK6,19,27:B26              optimal  17  engine 102  no progress
+  B:WK7,21,K25:B4              optimal   4  engine 105  no progress
+  W:WK11,17:B4,K30             optimal  61  engine  26  repetition
+  B:W21:B4,7,18                optimal  71  engine 146  no progress
+  W:WK5,11,K26:B17             optimal  39  engine  34  repetition
+  W:WK13,K26,32:B7             optimal   7  engine  68  repetition
+  B:WK2,28,32:B5               optimal  38  engine 107  no progress
+  B:W27:B3,4,11                optimal  61  engine 124  no progress
+  W:W5:B10,K17,K27             optimal  46  engine  22  gave away the win
+  W:W7,10,29:B19               optimal  19  engine  54  repetition
+  B:W10,14,K24:B25             optimal  12  engine  61  repetition
+  B:W23,26:BK13,25             optimal  29  engine  91  gave away the win
+  B:WK3,12,16:B17              optimal  50  engine  89  no progress
+  W:W8,23:B4,13                optimal  25  engine  68  repetition
+  B:W23,31:B6,K24              optimal  51  engine 121  gave away the win
+  W:WK12,13,26:B14             optimal  19  engine  31  gave away the win
+  B:WK2,K12,18:B23             optimal  48  engine  91  no progress
+  B:W18:B4,K8,K16              optimal  55  engine  65  gave away the win
+  B:W11:B6,10,12               optimal  49  engine 112  no progress
+  W:W21:BK2,K12,27             optimal  36  engine  59  repetition
+  B:W8:B9,20,K24               optimal  57  engine 114  no progress
+  B:WK2,K5,26:B8               optimal  22  engine  73  repetition
+  W:W22,27:BK11,14             optimal  24  engine  23  repetition
+  W:W8,10,K19:B21              optimal  41  engine  90  no progress
+  W:WK4,K8,9:B14               optimal  45  engine  87  no progress
+  W:W12:B1,6,19                optimal  10  engine 112  gave away the win
+  W:WK2,18,32:B4               optimal  43  engine  52  repetition
+  W:WK7,11,14:B15              optimal  19  engine  42  repetition
+  W:W7:BK12,16,19              optimal  56  engine  70  gave away the win
+  W:W5,K22:BK2,21              optimal  13  engine  11  gave away the win
+  B:W6,K19:B8,27               optimal  38  engine  79  repetition
+  B:W26:BK7,24,25              optimal  41  engine  85  gave away the win
+  B:W24,K29:BK1,22             optimal  23  engine  17  gave away the win
+  W:W7,K18:B5,K16              optimal  49  engine  62  repetition
+  W:W6,K8,20:B7                optimal  55  engine  46  repetition
+  B:W19:B11,K18,K27            optimal  27  engine  68  repetition
+  W:WK3,17,K25:B13             optimal  37  engine  31  gave away the win
+  B:W22,23:B8,K9               optimal   9  engine 104  no progress
+  B:W29:B16,20,K31             optimal  57  engine 110  no progress
+  W:WK8,14,K29:B20             optimal  23  engine  33  gave away the win
+  B:W6,10,21:B18               optimal  28  engine  97  no progress
+  W:W17,K27:B3,21              optimal  27  engine  64  repetition
+  W:W5,K20:B8,21               optimal  25  engine  58  repetition
+  B:W7,K11:B2,21               optimal  26  engine  32  gave away the win
+  W:WK3,K14,19:B24             optimal  41  engine  90  no progress
+  W:W9:B16,18,K24              optimal  52  engine 115  no progress
+  W:WK11,14,K17:B20            optimal  45  engine  98  no progress
+  B:W13:B8,9,12                optimal  51  engine 114  no progress
+  W:WK3,17,K26:B24             optimal  37  engine  86  repetition
+  B:WK4,K15,28:B9              optimal  46  engine  97  no progress
+  W:WK17,18:B9,13              optimal  43  engine  48  repetition
+  B:W15:B13,14,K26             optimal  57  engine 130  no progress
+  W:WK23,24:B1,10              optimal  21  engine  27  gave away the win
+  B:W14,K24:B16,21             optimal  22  engine  26  gave away the win
+  W:W9:B2,K3,K18               optimal  50  engine  65  repetition
+  B:W28,31:B18,25              optimal  27  engine  26  repetition
+  B:W14,18:BK21,26             optimal  37  engine  92  no progress
+  W:W19,22:BK2,14              optimal  20  engine  19  repetition
+  B:WK5,19:B2,12               optimal  26  engine  30  gave away the win
+  B:W5,K17,27:B1               optimal  26  engine  69  repetition
+  W:W22:B2,K3,K24              optimal  28  engine  71  repetition
+  B:WK3,7,21:B24               optimal  52  engine  91  no progress
+  W:W14:B19,22,K24             optimal  52  engine 109  no progress
+  B:W5,K7,K15:B1               optimal  50  engine  41  repetition
+  W:W19,21:B11,24              optimal  42  engine 105  no progress
+  W:W8:BK7,K15,28              optimal  32  engine  50  gave away the win
+  B:W7,10,K11:B17              optimal  24  engine  85  no progress
+  W:W10:BK14,K21,28            optimal  16  engine  40  gave away the win
+  B:W13,15,29:B2               optimal  34  engine  69  repetition
+  W:W9,29:B19,K21              optimal  42  engine  88  gave away the win
+convert 4 pieces, 400 positions, 100000 nodes/move, MTC cap 0: won 264, repetition 49, no progress 38, gave away the win 49, mean plies: engine 30.8, reference 24.1
+  won by kind: kings only 0/0 men on one side 0/0 men on both sides 264/400
+  optimal length median 19 p90 51 max 72; engine minus optimal: median 0 p90 4 max 22; engine/optimal %: median 100 p90 146; at most optimal 224; 0.4 s
+FAIL converted 264 of 400 4-piece wins
+  W:W12,16,19:B4,24            optimal  29  engine  25  gave away the win
+  W:WK8,14:BK12,K13,20         optimal  40  engine  63  repetition
+  W:W15,K27:BK12,16,17         optimal  54  engine  70  gave away the win
+  B:W8,11,K13:B5,23            optimal  16  engine  85  no progress
+  B:WK19,23,K24:BK5,14         optimal  32  engine  78  gave away the win
+  B:W5,17,K19,K22:B7           optimal   6  engine 101  no progress
+  B:W13,24:B15,23,K29          optimal  49  engine 112  no progress
+  W:W7,25:B4,K6,21             optimal  46  engine 109  no progress
+  B:WK11,19,K30:B5,K6          optimal  28  engine  93  no progress
+  W:W6,K21,29:B16,K32          optimal  25  engine 100  no progress
+  B:W14,K16,K19:B20,27         optimal  26  engine 115  no progress
+  B:W16,26:BK21,25,28          optimal  41  engine  67  repetition
+  W:WK7,9:BK13,22,K31          optimal  40  engine  86  gave away the win
+  B:W8,26,K30:B12,18           optimal  10  engine  93  repetition
+  B:W19,28:BK7,K18,21          optimal   9  engine  64  repetition
+  B:W26,K27:B2,K7,K12          optimal  13  engine  51  gave away the win
+  W:WK13,16,28:B8,K10          optimal  51  engine  60  repetition
+  B:WK7,8,25:B19,K31           optimal  18  engine  45  repetition
+  W:W29,K30:BK4,13,23          optimal  40  engine 114  gave away the win
+  B:W5,K9:B1,K15,K27           optimal  47  engine  33  gave away the win
+  B:W8,K20,K21:B7,K14          optimal  44  engine  65  repetition
+  W:WK6,K10,12:B20,22          optimal  35  engine  64  repetition
+  W:WK1,16:BK19,24,K29         optimal  50  engine  60  gave away the win
+  W:W9,10,29:B5,17             optimal  45  engine  54  repetition
+  W:WK11,K14,19:B3,21          optimal  43  engine  92  no progress
+  B:W18,29:B16,19,22           optimal  55  engine 126  no progress
+  B:W13,31,32:BK15,18          optimal  54  engine  56  gave away the win
+  B:W6,10:B15,17,K21           optimal  71  engine  66  repetition
+  B:WK7,K9,13:B17,21           optimal  48  engine  21  repetition
+  W:W13,20,30:B15,K29          optimal  33  engine  27  gave away the win
+  B:WK2,K7,8,K31:B25           optimal   8  engine  85  no progress
+  B:W19,K21,29:BK6,22          optimal  16  engine  76  gave away the win
+  W:W24,28,K32:BK4,17          optimal  81  engine  56  repetition
+  W:W26,K27:B13,K16,25         optimal  50  engine  48  gave away the win
+  W:W9,K12,K16,K31:B14         optimal  25  engine  48  repetition
+  W:W7,11,15:B5,13             optimal  23  engine  27  gave away the win
+  W:WK6,10,11,29:B12           optimal  21  engine  70  repetition
+  W:W14,K18:BK1,K20,26         optimal  42  engine  36  gave away the win
+  W:W6,K21,26:B16,27           optimal  27  engine  98  no progress
+  B:WK7,24:BK4,15,27           optimal  51  engine  82  repetition
+  W:W12,K21,K27:B10,K11        optimal  29  engine  45  gave away the win
+  W:W11,K29:B13,K20,K28        optimal  54  engine  52  gave away the win
+  W:WK2,23:B7,11,22            optimal  70  engine  88  repetition
+  B:WK15,19,31,K32:B21         optimal  14  engine  38  gave away the win
+  B:W18,K27,29:BK2,9           optimal  40  engine  29  repetition
+  B:WK4,7,29:B14,23            optimal  58  engine  46  gave away the win
+  B:WK1,K13,21:B25,K26         optimal  34  engine  47  repetition
+  W:W7,12,K32:B17,K30          optimal  63  engine  56  repetition
+  B:W11,K12,21:B13,K26         optimal  52  engine  95  no progress
+  W:W10,K30:BK4,17,K18         optimal  52  engine  34  gave away the win
+  B:W6,K24:B22,26,K29          optimal  47  engine 112  no progress
+  W:W11,21,K24:B20,K26         optimal   7  engine 102  no progress
+  W:WK5,23:B11,21,K29          optimal  68  engine 104  gave away the win
+  B:W11,K29:BK1,K6,27          optimal  17  engine  62  repetition
+  B:W7,K18,K19:B6,21           optimal  12  engine  39  repetition
+  B:WK8,14:B18,21,24           optimal  55  engine  88  repetition
+  B:WK3,11,K16:BK1,24          optimal  36  engine  47  repetition
+  W:WK15,24:B23,K25,K32        optimal  50  engine  92  gave away the win
+  W:WK14,15:BK6,8,K11          optimal  16  engine  74  gave away the win
+  W:WK4,16,22:B19,20           optimal  43  engine  74  repetition
+  W:W6,K11,K27:B9,K30          optimal  25  engine  87  no progress
+  B:WK3,K4,K8,9:B24            optimal  24  engine  37  repetition
+  B:WK28,31:BK8,22,K32         optimal  55  engine  39  gave away the win
+  W:W18,K30,32:BK22,24         optimal  43  engine  48  repetition
+  B:W5,K22,K25:B4,K32          optimal  24  engine  34  gave away the win
+  W:W7,28,K32:BK6,21           optimal  51  engine  52  repetition
+  W:W11,K21:B9,K24,K26         optimal  46  engine  57  repetition
+  B:WK2,13,K26:BK8,19          optimal   6  engine  63  repetition
+  W:W5,10,K23:B20,25           optimal  23  engine 118  no progress
+  W:WK21,24,28:B3,K5           optimal  41  engine  51  gave away the win
+  B:WK4,10,29:B21,K25          optimal  74  engine  36  gave away the win
+  W:W7,8,11:BK5,26             optimal  41  engine  41  gave away the win
+  W:W13,19,28:B1,12            optimal  29  engine  47  gave away the win
+  W:WK10,20:BK3,17,26          optimal  48  engine  93  repetition
+  B:W15,K28:B19,K25,K31        optimal  49  engine  69  gave away the win
+  W:W6,9,K22,23:B5             optimal  35  engine  64  repetition
+  W:W25,K30:BK1,K13,20         optimal  46  engine  33  repetition
+  W:WK20,31:BK10,23,K25        optimal  34  engine  81  no progress
+  W:WK4,13,K21:B3,12           optimal  57  engine  32  repetition
+  W:WK5,K18,23:B1,17           optimal  19  engine  53  gave away the win
+  W:W29,K30:B1,K7,K20          optimal  48  engine  65  repetition
+  B:W13:BK2,K3,K12,26          optimal  17  engine  51  gave away the win
+  B:WK5,K9,13:B12,27           optimal  80  engine  23  repetition
+  W:WK11,17,20:B9,18           optimal  21  engine  48  repetition
+  W:WK1,25:B7,21,K32           optimal  40  engine  56  gave away the win
+  W:W7,14,K21:B5,K11           optimal  11  engine  50  repetition
+  B:W6,K7,8:BK15,28            optimal  14  engine  89  no progress
+  W:W7,K10,29:B8,20            optimal  59  engine  45  gave away the win
+  W:WK5,11:BK14,K18,22         optimal  42  engine 101  no progress
+  W:W5,28,32:BK14,22           optimal  93  engine  86  repetition
+  B:WK7,K10,31:BK4,19          optimal   6  engine  22  gave away the win
+  B:WK5,27:BK8,10,14           optimal  55  engine  97  gave away the win
+  B:W7,K18,K29:BK17,24         optimal  54  engine  29  repetition
+  W:WK8,25,31:B9,K24           optimal  83  engine 130  repetition
+  B:WK23,30:B10,16,22          optimal  63  engine 109  gave away the win
+  W:WK15,19:BK3,K20,25         optimal  40  engine  70  repetition
+  W:W7,K8,K27:B16,19           optimal  43  engine  39  gave away the win
+  W:W11,K23:B20,24,K28         optimal  70  engine  65  repetition
+  W:W8,K21:B1,13,K30           optimal  60  engine  26  gave away the win
+  B:WK3,20:B2,K23,27           optimal  65  engine  56  repetition
+  W:W7,21,K23:B6,K24           optimal  33  engine  97  no progress
+  B:W17,21:B2,4,27             optimal  83  engine 129  gave away the win
+  B:WK1,13,19:B2,22            optimal  40  engine  19  repetition
+  W:WK11,14,27:B5,K26          optimal  25  engine  81  gave away the win
+  B:WK3,K4,30:BK5,25           optimal  42  engine  63  repetition
+  W:WK8,K12,29:B3,21           optimal   5  engine  49  gave away the win
+  W:WK2,14:B3,18,K25           optimal  60  engine 117  repetition
+  W:WK2,10,32:BK3,26           optimal  31  engine  70  repetition
+  W:WK6,24,31:BK3,14           optimal  55  engine  64  repetition
+  W:W11,28,K30:BK2,27          optimal  21  engine 102  no progress
+  W:W6,9:B1,4,22               optimal  74  engine 139  no progress
+  B:W7:B17,K20,K27,28          optimal  57  engine  43  gave away the win
+  B:W6,K14:BK13,18,K32         optimal  39  engine 100  no progress
+  W:W30,K32:BK13,23,26         optimal  38  engine  99  no progress
+  B:WK2,23:B5,K7,9             optimal  61  engine  53  gave away the win
+  B:WK9,21:BK15,20,23          optimal  55  engine 101  gave away the win
+  B:W10,29:B3,12,26            optimal  63  engine 134  no progress
+  B:W6,13:B3,15,K28            optimal  77  engine 138  no progress
+  W:W6:B9,12,15,17             optimal  52  engine  98  gave away the win
+  W:WK15,21:BK3,14,27          optimal  48  engine  72  gave away the win
+  B:W12,20:B3,K6,22            optimal  17  engine  25  gave away the win
+  B:W26,32:BK11,K21,25         optimal  53  engine 104  no progress
+  B:W6,K28:B18,K24,K31         optimal  51  engine 112  no progress
+  B:W14,29:BK3,11,19           optimal  55  engine  77  gave away the win
+  B:W6:BK8,9,K15,K29           optimal  53  engine  63  repetition
+  B:W6,10,31:B8,22             optimal  36  engine  59  repetition
+  W:WK4,6,15:B9,K31            optimal  27  engine  87  no progress
+  B:WK1,K6,31:B13,25           optimal  50  engine  47  repetition
+  W:W12,18:BK16,K25,28         optimal  40  engine  63  repetition
+  W:WK3,K5,19:B12,K24          optimal  53  engine  52  repetition
+  B:WK10,21:BK3,15,22          optimal  33  engine  73  gave away the win
+  B:WK8,15:BK23,24,K30         optimal  43  engine  90  repetition
+  B:WK10,13,K21:BK5,23         optimal  46  engine  16  gave away the win
+  W:W6,15:B4,K10,K20           optimal  54  engine  92  repetition
+  B:WK2,22,27:B5,19            optimal  42  engine  51  repetition
+  B:WK7,12,16:B17,K22          optimal  60  engine  16  gave away the win
+  W:W10,K24:BK4,K9,20          optimal  16  engine  18  gave away the win
+  B:W10,K15,31:B20,K32         optimal  34  engine  59  repetition
+  B:W9,K31:B19,K21,23          optimal  43  engine  95  gave away the win
+  B:W25,K28:BK4,K15,24         optimal  43  engine  60  repetition
+  B:W7,K15:B23,26,K31          optimal  47  engine  67  gave away the win
+  B:W7,19,K25:B4,K27           optimal  50  engine  71  repetition
+  B:W13,K19:BK10,11,K25        optimal  51  engine 108  no progress
+  B:WK3,6,21:B15,K27           optimal  50  engine  92  no progress
+  W:WK9,25:B4,8,K10            optimal  64  engine 125  no progress
+  W:WK6,31:BK4,13,16           optimal  58  engine  89  repetition
+  B:W6,10:B3,13,22             optimal  79  engine 136  no progress
+  B:WK1,10,K29:B19,27          optimal  44  engine  91  repetition
+  B:W7,20:B8,15,19             optimal  67  engine 113  gave away the win
+  B:W24:BK12,K17,K25,26        optimal  47  engine  75  repetition
+  B:WK11,14,16:B5,22           optimal  24  engine  61  repetition
+  B:WK4,9:B7,19,K28            optimal  79  engine  68  repetition
+  B:WK8,9,K15:B13,K16          optimal  28  engine  14  gave away the win
+  B:W7,K14,27:B26,28           optimal  22  engine  49  repetition
+  B:WK12,K19,27:BK3,6          optimal  50  engine  41  repetition
+  B:WK4,K10,14:BK5,25          optimal  48  engine  47  repetition
+convert 5 pieces, 400 positions, 100000 nodes/move, MTC cap 0: won 244, repetition 67, no progress 33, gave away the win 56, mean plies: engine 36.8, reference 32.7
+  won by kind: kings only 0/0 men on one side 0/0 men on both sides 244/400
+  optimal length median 33 p90 63 max 93; engine minus optimal: median 0 p90 4 max 42; engine/optimal %: median 100 p90 150; at most optimal 199; 0.5 s
+FAIL converted 244 of 400 5-piece wins
+FAILED

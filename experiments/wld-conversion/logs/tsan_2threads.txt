@@ -1,0 +1,20 @@
+ok   build 2..4 pieces in /var/folders/07/swrcpq9d7pj9q4cfqq7h14840000gn/T/regicide-conversion-test-1835243310
+database: 4 pieces, MTC 4
+convert 3 pieces, 40 positions, 5000 nodes/move, MTC cap 0: won 40, mean plies: engine 26.4, reference 27.1
+  won by kind: kings only 6/6 men on one side 19/19 men on both sides 15/15
+  optimal length median 29 p90 46 max 57; engine minus optimal: median 0 p90 20 max 50; engine/optimal %: median 100 p90 168; at most optimal 26; 1.5 s
+ok   converted 40 of 40 3-piece wins
+convert 4 pieces, 40 positions, 5000 nodes/move, MTC cap 0: won 40, mean plies: engine 13.6, reference 25.4
+  won by kind: kings only 4/4 men on one side 20/20 men on both sides 16/16
+  optimal length median 19 p90 55 max 59; engine minus optimal: median -4 p90 2 max 24; engine/optimal %: median 60 p90 113; at most optimal 36; 0.6 s
+ok   converted 40 of 40 4-piece wins
+defend 3 pieces, 40 positions, 5000 nodes/move, MTC cap 0: won 40, mean plies: engine 33.5, reference 27.1
+  won by kind: kings only 6/6 men on one side 19/19 men on both sides 15/15
+  optimal length median 29 p90 46 max 57; engine minus optimal: median 2 p90 24 max 44; engine/optimal %: median 105 p90 226; at most optimal 8; 1.9 s
+ok   the defender loses every game, as it must
+defend 4 pieces, 40 positions, 5000 nodes/move, MTC cap 0: won 40, mean plies: engine 37.8, reference 25.4
+  won by kind: kings only 4/4 men on one side 20/20 men on both sides 16/16
+  optimal length median 19 p90 55 max 59; engine minus optimal: median 2 p90 38 max 62; engine/optimal %: median 106 p90 642; at most optimal 10; 2.1 s
+ok   the defender loses every game, as it must
+all conversion tests passed
+./build-tsan/conversion_test --threads 2 --sample 40 --nodes 5000 --role both  21.00s user 0.81s system 195% cpu 11.159 total

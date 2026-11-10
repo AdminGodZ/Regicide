@@ -55,6 +55,12 @@ struct SearchResult {
     int depth = 0;  // last completed iteration
     Score completed_score = -SCORE_INF;  // its score; -SCORE_INF if no iteration was completed
     bool partial = false;
+    // The score as a statement about the position: a losing score from a partial iteration only says that the
+    // moves searched so far lose, so the last completed score stands in for it (0 if no iteration was completed).
+    Score sound_score() const {
+        if (!partial || score > -SCORE_KNOWN_WIN) return score;
+        return completed_score != -SCORE_INF ? completed_score : SCORE_DRAW;
+    }
     std::uint64_t nodes = 0;
     std::int64_t time_ms = 0;
     std::vector<Move> pv;
@@ -119,8 +125,18 @@ public:
         tt_.clear();
     }
     // Probe the (process-wide, already initialised) endgame database in positions with at most n pieces; 0 = off.
-    void set_egdb_pieces(int n) { egdb_pieces_ = n; }
+    // A change clears the hash table: scores and evals of database positions depend on it.
+    void set_egdb_pieces(int n) {
+        if (n != egdb_pieces_) tt_.clear();
+        egdb_pieces_ = n;
+    }
     int egdb_pieces() const { return egdb_pieces_; }
+    // Use moves-to-conversion only in positions with at most n pieces (default: wherever the database has it).
+    // Lets tests stand in small generated tables for the real database's WLD-only range.
+    void set_egdb_mtc_pieces(int n) {
+        if (n != egdb_mtc_pieces_) tt_.clear();
+        egdb_mtc_pieces_ = n;
+    }
     // nullptr disables the book. `margin` > 0 picks randomly among book moves within margin of the best.
     void set_book(std::shared_ptr<const Book> b, int margin = 0) {
         book_ = std::move(b);
@@ -153,6 +169,8 @@ private:
     std::shared_ptr<const Book> book_;
     std::shared_ptr<const Book> avoid_;
     int egdb_pieces_ = 0;
+    int egdb_mtc_pieces_ = 32;
+    int conversion_ = 0;  // this search converts a database win (+1) or defends a database loss (-1); see go()
     int book_margin_ = 0;
     std::uint64_t book_seed_ = 0x1234567;
     int threads_ = 1;

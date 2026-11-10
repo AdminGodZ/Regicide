@@ -163,6 +163,11 @@ add_test(NAME egdb_data COMMAND egdb_test --data)
 set_target_properties(regicide_egdb PROPERTIES POSITION_INDEPENDENT_CODE ON)
 target_link_libraries(regicide_core PUBLIC regicide_egdb)
 
+# Conversion of database wins without distance information, on a small generated database.
+add_executable(conversion_test tests/conversion_test.cpp)
+target_link_libraries(conversion_test PRIVATE regicide_core)
+add_test(NAME conversion COMMAND conversion_test)
+
 option(REGICIDE_TOOLS "Build the match tools (cbhost, match runner)" ON)
 if(REGICIDE_TOOLS)
   add_subdirectory(tools)
