@@ -1,0 +1,5 @@
+game,pair,opening,black,white,result,score_a,termination,engine_plies
+2,1,"/home/admingod/regicide-jobs/booklab/decks/t7-r7c-cake.txt:1","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",85
+4,2,"/home/admingod/regicide-jobs/booklab/decks/t7-r7c-cake.txt:2","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",85
+1,1,"/home/admingod/regicide-jobs/booklab/decks/t7-r7c-cake.txt:1","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",123
+3,2,"/home/admingod/regicide-jobs/booklab/decks/t7-r7c-cake.txt:2","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",92

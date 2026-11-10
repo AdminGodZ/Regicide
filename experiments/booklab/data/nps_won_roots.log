@@ -1,0 +1,10 @@
+# nps measurement, 2026-11-10T14:46:58+01:00, engine bl-conv3 tree (2156359), CLI 'go nodes 3000000' with the 2-8-piece db
+# load at measurement:  14:46:58 up 2 days, 12:08,  1 user,  load average: 10.13, 10.40, 11.87
+== B:WK1,5,K7,20,22,32:B8,19
+info depth 29 seldepth 29 score -19993 nodes 2274034 nps 6064090 time 375 hashfull 105 tbhits 2270074 pv 8-12 32-27 19-24 1-6 24x31 20-16 12x19
+== W:W5,10,14,20,24:B26,K27,28
+info depth 21 seldepth 28 score 10107 nodes 2793668 nps 5212067 time 536 hashfull 166 tbhits 2790965 pv 24-19 26-30 10-7 28-32 7-2 30-25 2-7 27-31 20-16 31-26 16-12 25-22 19-16 22-18 14-9 18-22 9-6 22-25 7-10 32-28 10-14 28-24 14-18
+== B:W8,K16,21,23:B5,K9,K13,K25
+info depth 127 seldepth 3 score 19996 nodes 508 nps 508000 time 0 hashfull 0 tbhits 381 pv 13-17 21x14 9x27
+== W:W21-32:B1-12
+info depth 20 seldepth 36 score 14 nodes 2572324 nps 3026263 time 850 hashfull 329 tbhits 692 pv 22-18 11-16 25-22 16-19 23x16 12x19 24x15 10x19 21-17 9-14 17x10 7x23 27x18 6-10 32-27 1-6 27-24 3-7 24x15 10x19 29-25 8-11 31-27 4-8 22-17 11-16 25-21

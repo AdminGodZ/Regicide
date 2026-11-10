@@ -1,0 +1,4 @@
+# game 46245 regicide-match/results/bl-c-reg-guinn-h1/games.pdn: ACF #59 (/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:51: 10-14 22-17 7-10), regicide as B, result W, opponent guinn
+# DEVIATION ply 4 (1 after the ballot): regicide played 2-7; guinn: 3-7 28x w/d/l 0/28/0
+#   FEN B:W13,21,23,24,25,26,27,28,29,30,31,32:B1,2,3,4,5,6,8,9,10,11,12,14
+# guinn's defence: 28 non-lost games from the deviation position, 167 positions of our side within 40 plies (stop at <= 8 pieces)

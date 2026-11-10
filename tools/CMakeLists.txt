@@ -45,4 +45,28 @@ if(NOT WIN32)
   target_link_libraries(engine_process_test PRIVATE cbt_common Threads::Threads)
   add_test(NAME match_rejected_options COMMAND engine_process_test rejected)
   add_test(NAME match_deadline COMMAND engine_process_test deadline)
+
+  # The runner's adjudication, through the match executable with two scripted engines.
+  add_executable(terminal_before_draw_test match/terminal_before_draw_test.cpp match/engine_process.cpp)
+  target_include_directories(terminal_before_draw_test PRIVATE match)
+  target_link_libraries(terminal_before_draw_test PRIVATE Threads::Threads)
+  add_test(NAME match_terminal_before_draw COMMAND terminal_before_draw_test $<TARGET_FILE:match>)
+
+  # bookgen, run as a process on a prepared book (needs the engine library: not in the standalone tools build).
+  if(TARGET regicide_core AND TARGET bookgen)
+    foreach(name bookgen_frontier bookgen_sound_score)
+      add_executable(${name}_test ${CMAKE_SOURCE_DIR}/tests/${name}_test.cpp match/engine_process.cpp)
+      target_include_directories(${name}_test PRIVATE match ${CMAKE_SOURCE_DIR}/tests)
+      target_link_libraries(${name}_test PRIVATE regicide_core Threads::Threads)
+      add_test(NAME ${name} COMMAND ${name}_test $<TARGET_FILE:bookgen>)
+    endforeach()
+  endif()
+  # datagen, run as a process for one seeded game.
+  if(TARGET regicide_core AND TARGET datagen)
+    add_executable(datagen_partial_loss_test ${CMAKE_SOURCE_DIR}/tests/datagen_partial_loss_test.cpp
+                   match/engine_process.cpp)
+    target_include_directories(datagen_partial_loss_test PRIVATE match ${CMAKE_SOURCE_DIR}/tests)
+    target_link_libraries(datagen_partial_loss_test PRIVATE regicide_core Threads::Threads)
+    add_test(NAME datagen_partial_loss COMMAND datagen_partial_loss_test $<TARGET_FILE:datagen>)
+  endif()
 endif()

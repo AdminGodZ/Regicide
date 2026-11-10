@@ -1,0 +1,3 @@
+game,pair,opening,black,white,result,score_a,termination,engine_plies
+1,1,"/home/admingod/regicide-jobs/booklab/decks/n8q_smoke.txt:1","Regicide 0.2","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",106
+2,1,"/home/admingod/regicide-jobs/booklab/decks/n8q_smoke.txt:1","GuiNN Checkers 2.06 avx2","Regicide 0.2",1/2-1/2,0.5,"repetition",69

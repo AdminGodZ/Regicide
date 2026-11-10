@@ -1,0 +1,41 @@
+# Regicide holdout panel: h1_barred.txt
+# Actual openings: 18; each is played with both colours.
+# master=456e9b224a380771c50a1b0da9360757c16aa62e
+# booklab=3978ecd94f6f0f29a255b90d06a09eab9fb21c42
+# seed=20261110; no static-evaluation filtering.
+# ACF 3 kind B
+9-13 21-17 10-14
+# ACF 13 kind B
+9-13 23-18 10-14
+# ACF 26 kind B
+9-13 24-19 10-15
+# ACF 35 kind B
+9-13 24-20 12-16
+# ACF 44 kind B
+9-14 22-18 12-16
+# ACF 45 kind B
+9-14 22-18 14-17
+# ACF 48 kind B
+9-14 23-19 10-15
+# ACF 52 kind B
+9-14 24-19 10-15
+# ACF 77 kind B
+10-14 24-19 11-15
+# ACF 88 kind B
+10-15 21-17 9-14
+# ACF 94 kind B
+10-15 22-17 9-14
+# ACF 109 kind B
+10-15 24-20 11-16
+# ACF 114 kind B
+11-15 21-17 10-14
+# ACF 137 kind B
+11-16 21-17 10-14
+# ACF 145 kind B
+11-16 22-18 10-15
+# ACF 156 kind B
+11-16 24-19 10-15
+# ACF 168 kind B
+12-16 23-18 9-14
+# ACF 171 kind B
+12-16 23-19 16x23

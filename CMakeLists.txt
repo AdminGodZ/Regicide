@@ -128,6 +128,20 @@ target_link_libraries(bookgen PRIVATE regicide_core)
 add_executable(lossprobe tools/lossprobe.cpp)
 target_link_libraries(lossprobe PRIVATE regicide_core)
 
+# booklab (tools/booklab): theory-table replay and decisions-to-book builder.
+add_executable(booklab_replay tools/booklab/replay.cpp)
+target_link_libraries(booklab_replay PRIVATE regicide_core)
+add_executable(booklab_apply tools/booklab/bookapply.cpp)
+target_link_libraries(booklab_apply PRIVATE regicide_core)
+add_executable(booklab_show tools/booklab/bookshow.cpp)
+target_link_libraries(booklab_show PRIVATE regicide_core)
+add_executable(booklab_dbscan tools/booklab/dbscan.cpp)
+target_link_libraries(booklab_dbscan PRIVATE regicide_core)
+add_executable(booklab_reach tools/booklab/reach.cpp)
+target_link_libraries(booklab_reach PRIVATE regicide_core)
+add_executable(booklab_bookcmp tools/booklab/bookcmp.cpp)
+target_link_libraries(booklab_bookcmp PRIVATE regicide_core)
+
 add_executable(truth tools/truth.cpp)
 target_link_libraries(truth PRIVATE regicide_core)
 
@@ -169,7 +183,9 @@ target_link_libraries(conversion_test PRIVATE regicide_core)
 add_test(NAME conversion COMMAND conversion_test)
 
 # Regressions for review fixes: one executable each, two of them with one ctest entry per protected behaviour.
-foreach(name lmr_isolation hash_clear book_king_run egdb_root nnue_bounds sound_score fixed_movetime)
+# The ones that need an endgame database build a small one in a temporary directory (tests/test_egdb.hpp).
+foreach(name lmr_isolation hash_clear book_king_run egdb_root nnue_bounds sound_score fixed_movetime
+             illegal_book_entry count_key_boundaries etc_repetition conversion_lmp_disabled near_limit_pruning)
   add_executable(${name}_test tests/${name}_test.cpp)
   target_link_libraries(${name}_test PRIVATE regicide_core)
 endforeach()
@@ -181,6 +197,13 @@ add_test(NAME egdb_root COMMAND egdb_root_test)
 add_test(NAME nnue_bounds COMMAND nnue_bounds_test)
 add_test(NAME sound_score COMMAND sound_score_test)
 add_test(NAME fixed_movetime COMMAND fixed_movetime_test)
+add_test(NAME illegal_book_entry COMMAND illegal_book_entry_test)
+add_test(NAME count_key_boundaries COMMAND count_key_boundaries_test)
+add_test(NAME etc_repetition COMMAND etc_repetition_test)
+add_test(NAME conversion_lmp_disabled COMMAND conversion_lmp_disabled_test)
+add_test(NAME limit_rfp COMMAND near_limit_pruning_test rfp)
+add_test(NAME limit_probcut COMMAND near_limit_pruning_test probcut)
+add_test(NAME limit_singular COMMAND near_limit_pruning_test singular)
 
 option(REGICIDE_TOOLS "Build the match tools (cbhost, match runner)" ON)
 if(REGICIDE_TOOLS)

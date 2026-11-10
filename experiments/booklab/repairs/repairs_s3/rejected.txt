@@ -1,0 +1,5 @@
+# rejected sweep forces:
+# ACF #12 (B) 11-15: test t3-r3-cake, Cake won 4 of 4 as White.
+# ACF #34 Twilight Zone (B) 7x16: test t3-r3-guinn lost 1 of 4 vs GuiNN; validation v1-cake-a-h1 lost 1 vs Cake.
+# REJECTED B:W18,21,22,23,24,25,27,28,29,30,31,32:B1,2,3,4,5,7,8,9,10,11,12,13 | 11-15 | force | sweep ACF #12 regicide B ply 4: regicide played 11-16 24x w/d/l 1/17/6 (all versions; current version in gid 33209); top engines: cake 11-15 6x w/d/l 0/6/0; guinn 1-6 2x w/d/l 0/2/0; kingsrow 1-6 2x w/d/l 0/2/0; kingsrow 10-14 1x w/d/l 0/1/0; kingsrow 11-15 1x w/d/l 0/1/0
+# REJECTED B:W11,21,22,23,25,26,27,28,29,30,31,32:B1,2,3,4,5,6,7,8,10,12,13 | 7x16 | force | sweep ACF #34 Twilight Zone regicide B ply 4: regicide played 8x15 117x w/d/l 1/81/35 (all versions; current version in gid 33243); top engines: cake 7x16 23x w/d/l 1/22/0; guinn 8x15 13x w/d/l 0/12/1; kingsrow 7x16 9x w/d/l 0/9/0; kingsrow 8x15 11x w/d/l 1/10/0

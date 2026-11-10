@@ -693,8 +693,8 @@ void Engine::set_position(const Position& root, const std::vector<Position>& his
 // winning capture or man move, otherwise it prefers any winning capture or man move and else steps to the winning
 // king move with the smallest child MTC. The loser plays to the child with the largest MTC. Every man move counts
 // as progress here (the tables count only advances of the leading man), so this is not MTC-optimal play: it
-// always realises the win, because each move either makes progress with a man or lowers MTC, but not by the
-// shortest route, and the loser does not always make the longest defence. Kept on purpose after the November 2026
+// always realises the win, because each move either captures (less material; MTC may then rise), makes progress
+// with a man, or lowers MTC, but not by the shortest route, and the loser does not always make the longest defence. Kept on purpose after the November 2026
 // review; see the note at the end of experiments/wld-conversion/RESULTS.md. Draws are left to the search.
 std::optional<std::pair<Move, Score>> Engine::egdb_root_move(const Position& root,
                                                              const std::vector<Move>& list) const {
