@@ -255,7 +255,7 @@ void play_game(const Config& cfg, Engine* eng[2], GameRecord& g) {
         }
 
         if (cfg.time_mode == TimeMode::CbMatch) {
-            c.remaining -= r.elapsed;
+            c.remaining -= r.charged();
         } else if (cfg.time_mode == TimeMode::Incremental) {
             double before = c.remaining;
             c.remaining += cfg.tc_increment - r.elapsed;
@@ -657,7 +657,9 @@ Openings:
 
 Time control (CheckerBoard semantics, passed through getmove's maxtime/info/moreinfo):
   --movetime S             fixed time per move (default 0.1). Unused time is banked and
-                           maxtime computed as in CheckerBoard engine matches.
+                           maxtime computed as in CheckerBoard engine matches. The bank is
+                           charged the time the engine reports for its search (cbhost: the
+                           getmove call), or the runner's wall time if it reports none.
   --movetime-mode cb|plain|exact
                            cb (default, as above); plain: maxtime = S every move;
                            exact: maxtime = S with CB_EXACT_TIME

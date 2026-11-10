@@ -80,6 +80,10 @@ struct Engine {
 
 volatile int g_playnow = 0;
 std::atomic<bool> g_searching{false};
+// A `stop` belongs to the `go` read last. It can arrive before that go reaches the engine (the command is still
+// queued, or the game history is being sent), so it is remembered by the go's number and honoured on entry.
+std::atomic<long> g_go_read{0};   // `go` lines read so far
+std::atomic<long> g_stop_for{0};  // number of the go the last `stop` was meant for
 
 std::mutex g_queue_mutex;
 std::condition_variable g_queue_cv;
@@ -90,10 +94,14 @@ void reader_thread() {
     while (std::getline(std::cin, line)) {
         while (!line.empty() && (line.back() == '\r' || line.back() == ' ')) line.pop_back();
         if (line == "stop") {
+            g_stop_for = g_go_read.load();
             if (g_searching) g_playnow = 1;
             continue;
         }
         if (line == "quit" && g_searching) g_playnow = 1;
+        std::istringstream words(line);
+        std::string first;
+        if (words >> first && first == "go") ++g_go_read;
         std::lock_guard lock(g_queue_mutex);
         g_queue.push_back(line);
         g_queue_cv.notify_one();
@@ -171,6 +179,7 @@ std::optional<Move> identify_move(const Board& before, const int board8[8][8], c
 int run(Engine& eng, bool send_hist) {
     Game game;
     bool reset_pending = true;
+    long gos_handled = 0;  // counts `go` commands as the reader does (g_go_read)
 
     for (;;) {
         std::string line = next_command();
@@ -230,6 +239,7 @@ int run(Engine& eng, bool send_hist) {
                 send("error " + err);
             }
         } else if (cmd == "go") {
+            const long go_number = ++gos_handled;
             double maxtime = 1.0, inc = -1, remaining = -1;
             int info = 0, moreinfo = 0;
             bool raw_info = false;
@@ -262,6 +272,7 @@ int run(Engine& eng, bool send_hist) {
             char str[4096] = {0};  // CB promises 1024; extra slack for sloppy engines
             g_playnow = 0;
             g_searching = true;
+            if (g_stop_for == go_number) g_playnow = 1;  // stopped while this go was queued or being prepared
             auto t0 = std::chrono::steady_clock::now();
             int r = eng.getmove(board8, before.stm == Color::Black ? CB_BLACK : CB_WHITE, maxtime, str,
                                 const_cast<int*>(&g_playnow), info, moreinfo, &cbm);
