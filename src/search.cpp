@@ -601,6 +601,7 @@ void Worker::iterate(const Limits& limits, TimeControl& t, const Engine::InfoFn*
             // A stable best move lets us stop early; a fresh change of mind buys extra time.
             double factor = stability >= 6 ? 0.5 : stability >= 3 ? 0.8 : stability == 0 ? 1.6 : 1.0;
             if (dropping) factor = std::max(factor, 1.0) * P.tm_drop_factor / 100.0;  // a falling score: think longer
+            if (limits.movetime_ms) factor = 1.0;  // a fixed time per move: nothing is saved by stopping early
             if (elapsed_ms(t.start) > std::int64_t(t.soft_ms * factor)) break;
         }
         if (is_decisive(score) && SCORE_WIN - std::abs(score) < root_depth && std::abs(score) > SCORE_MATE_BOUND)
