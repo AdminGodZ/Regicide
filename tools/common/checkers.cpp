@@ -303,16 +303,30 @@ std::optional<Move> parse_move(const Board& b, std::string_view text, std::strin
         if (err) *err = "bad move text '" + std::string(text) + "'";
         return std::nullopt;
     }
+    // The pieces a written path jumps: 0 unless every step is a jump and no piece is jumped twice. A path names a
+    // move by what it captures, so the routes around a circle that take the same pieces are the same move.
+    std::uint32_t jumped = 0;
+    bool is_path = true;
+    for (std::size_t k = 0; is_path && k + 1 < sq.size(); ++k) {
+        int over = -1;
+        for (int d = 0; d < 4; ++d)
+            if (tables().jump[sq[k]][d] == sq[k + 1]) over = tables().step[sq[k]][d];
+        is_path = over >= 0 && !(jumped & bit(over));
+        if (is_path) jumped |= bit(over);
+    }
+    if (!is_path) jumped = 0;
+
     std::vector<Move> cands;
     for (const Move& m : b.legal_moves()) {
         if (m.from != sq.front() || m.to != sq.back()) continue;
-        if (sq.size() > 2) {
-            if (!m.is_capture() || m.njumps != sq.size() - 1) continue;
-            if (!std::equal(sq.begin() + 1, sq.end(), m.path.begin())) continue;
-        }
+        if (sq.size() > 2 && (!m.is_capture() || m.captures != jumped)) continue;
         if (captures && m.captures != captures) continue;
         cands.push_back(m);
     }
+    // Two squares can be a single jump written out in full or the ends of a longer capture: the exact reading wins.
+    if (cands.size() > 1 && sq.size() == 2 && jumped)
+        for (const Move& m : cands)
+            if (m.captures == jumped) return m;
     if (cands.size() == 1) return cands.front();
     if (err) {
         if (cands.empty()) *err = "illegal move '" + std::string(text) + "' in " + b.fen();
