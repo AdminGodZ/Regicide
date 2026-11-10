@@ -230,7 +230,7 @@ dealt prefix, the position's book entry list differs between old book and r10 (*
 would consult its book there (reversible-ply count 0, reconstructed from the whole record including the dealt moves;
 root not a database win or loss). Implemented with `booklab_pinwalk`; first exposure ply one-based including the
 prefix. **Cross-check with the independent checker (`classify_exposure.py`, `--played-book new` for EB/EBN, `old`
-for E) over every current-engine game so far: 2,880 agree, 0 differ** (`wp10/exposure_xcheck.tsv`). O is not
+for E) over every current-engine game so far (Blocks 2 and 3): 3,966 agree, 0 differ** (`wp10/exposure_xcheck.tsv`). O is not
 cross-checked (the checker models the current book policy).
 
 **Block 2: EBN (master + r10 book + net n8q) on acf156, one 312-game run per opponent, compared with the final
@@ -258,6 +258,33 @@ positions where the book has no entry; its own score is ≤ −100 by ply 20–4
 So the zero-loss result against Cake depends on n6c's choices where the book ends; with n8q the old Cake weakness
 (about 5 losses per run, all early) is back. Pinning the validated n6c moves on those lines would make the book
 independent of the net there; not done (your call).
+
+**Block 3: O (old master `bl-fcf6acb-deep2b` + old book) and EB (master + r10, net n6c) on the three holdout panels,
+one game per opening and colour, current runner, configurations alternating per part and opponent (finished
+2026-11-10 19:46, 24 runs, all rc 0, no forfeits):**
+
+| Opponent | Panel | O W / D / L | EB W / D / L | EB games exposed | pairs EB − O: better / same / worse | score EB − O |
+|---|---|---|---|---|---|---|
+| Cake | H1 (36) | 0 / 21 / 15 | 11 / 10 / 15 | 0 | 11 / 25 / 0 | +5.5 |
+| Cake | H2 (38) | 2 / 32 / 4 | 4 / 29 / 5 | 0 | 2 / 35 / 1 | +0.5 |
+| Cake | H3 (312) | 14 / 240 / 58 | 57 / 197 / 58 | 0 | 44 / 267 / 1 | +21.5 |
+| KingsRow | H1 (36) | 3 / 15 / 18 | 15 / 3 / 18 | 0 | 12 / 24 / 0 | +6.0 |
+| KingsRow | H2 (38) | 2 / 32 / 4 | 7 / 27 / 4 | 0 | 5 / 33 / 0 | +2.5 |
+| KingsRow | H3 (312) | 14 / 245 / 53 | 58 / 199 / 55 | 0 | 44 / 266 / 2 | +21.0 |
+| GuiNN | H1 (36) | 2 / 26 / 8 | 14 / 15 / 7 | 0 | 13 / 23 / 0 | +6.5 |
+| GuiNN | H2 (38) | 0 / 32 / 6 | 5 / 27 / 6 | 0 | 6 / 31 / 1 | +2.5 |
+| GuiNN | H3 (312) | 17 / 243 / 52 | 65 / 197 / 50 | 0 | 54 / 254 / 4 | +25.0 |
+
+- **No EB game on any panel reached a changed book position** (0 of 1,158), so Block 3 says nothing about the book;
+  it compares the engines. The EB gain is wins; losses are equal or within two (Cake 15/15, 4/5, 58/58). The wins are
+  database wins converted: EB converted every database win it reached (H3: Cake 53 of 53, KingsRow 58 of 58, GuiNN
+  64 of 64); O converted 14 of 57, 13 of 57 and 16 of 63 (column "Regicide db wins in play" of `wp10/report.md`).
+  That is the WP9 conversion fix, now on openings neither book was built for.
+- 9 of 1,158 pairs are worse for EB, all unexposed: engine differences, not the book.
+- H1 (barred ballots) by colour pair, every loss with its game file, and the opponents' database wins (all converted)
+  are in `wp10/report.md`; records of every counted game in `wp10/games/bl-w10-b3-*.pdn.gz`.
+- **Block 6 rule:** EB's H3 games exposed: 0 of 936 (0 %), not above 10 %, so E would be played only on the exposed
+  H3 openings. There are none, so **Block 6 has no games**; the zero exposure is the descriptive answer.
 
 Estimate for the rest (Blocks 3–6): about 6,500 games ≈ 5.5–6 h of lock time, 6–8 h of wall time with the other
 agents' 15-minute holds; under the 10-hour limit, so I continue.

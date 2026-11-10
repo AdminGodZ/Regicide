@@ -397,3 +397,20 @@ BL start w10-b3-O-cake-H3_1 regicide:bl-fcf6acb-deep2b vs cake; bg: datagen-eb10
 BL end w10-b3-O-cake-H3_1 rc=0 A: +8 =122 -26   score 69.0/156 = 44.23%   draw rate 78.2% Elo (pentanomial, pairs): -40.3 [-56.8, -23.9] 95% CI, score 0.4423 +- 0.0234, LOS 0.00% 2026-11-10T19:00:14+01:00
 BL wait-lock w10-b3-EB-cake-H3_1 regicide:bl-456e9b2-r10 vs cake deck /home/admingod/regicide-jobs/booklab/wp10/parts/H3_1.txt mt 0.5 c 8 2026-11-10T19:00:14+01:00
 BL start w10-b3-EB-cake-H3_1 regicide:bl-456e9b2-r10 vs cake; bg: datagen-eb1037c:T bash:S datagen-tr5:S bash:S datagen-tr6:S  2026-11-10T19:00:14+01:00
+BL end w10-b3-EB-cake-H3_1 rc=0 A: +25 =105 -26   score 77.5/156 = 49.68%   draw rate 67.3% Elo (pentanomial, pairs): -2.2 [-9.8, +5.3] 95% CI, score 0.4968 +- 0.0109, LOS 28.14% 2026-11-10T19:09:09+01:00
+BL wait-lock w10-b3-O-kingsrow-H3_1 regicide:bl-fcf6acb-deep2b vs kingsrow deck /home/admingod/regicide-jobs/booklab/wp10/parts/H3_1.txt mt 0.5 c 8 2026-11-10T19:09:09+01:00
+BL start w10-b3-O-kingsrow-H3_1 regicide:bl-fcf6acb-deep2b vs kingsrow; bg: datagen-eb1037c:T bash:S datagen-tr5:S bash:S datagen-tr6:S  2026-11-10T19:09:09+01:00
+BL end w10-b3-O-kingsrow-H3_1 rc=0 A: +5 =130 -21   score 70.0/156 = 44.87%   draw rate 83.3% Elo (pentanomial, pairs): -35.8 [-51.6, -20.1] 95% CI, score 0.4487 +- 0.0224, LOS 0.00% 2026-11-10T19:18:25+01:00
+BL wait-lock w10-b3-EB-kingsrow-H3_1 regicide:bl-456e9b2-r10 vs kingsrow deck /home/admingod/regicide-jobs/booklab/wp10/parts/H3_1.txt mt 0.5 c 8 2026-11-10T19:18:25+01:00
+BL start w10-b3-EB-kingsrow-H3_1 regicide:bl-456e9b2-r10 vs kingsrow; bg: datagen-eb1037c:T bash:S datagen-tr5:S bash:S datagen-tr6:S  2026-11-10T19:18:25+01:00
+BL end w10-b3-EB-kingsrow-H3_1 rc=0 A: +24 =109 -23   score 78.5/156 = 50.32%   draw rate 69.9% Elo (pentanomial, pairs): +2.2 [-5.3, +9.8] 95% CI, score 0.5032 +- 0.0109, LOS 71.86% 2026-11-10T19:28:40+01:00
+BL wait-lock w10-b3-O-guinn-H3_1 regicide:bl-fcf6acb-deep2b vs guinn deck /home/admingod/regicide-jobs/booklab/wp10/parts/H3_1.txt mt 0.5 c 8 2026-11-10T19:28:40+01:00
+BL start w10-b3-O-guinn-H3_1 regicide:bl-fcf6acb-deep2b vs guinn; bg: datagen-eb1037c:T bash:S datagen-tr5:S bash:S datagen-tr6:S  2026-11-10T19:28:40+01:00
+BL end w10-b3-O-guinn-H3_1 rc=0 A: +9 =125 -22   score 71.5/156 = 45.83%   draw rate 80.1% Elo (pentanomial, pairs): -29.0 [-46.0, -12.1] 95% CI, score 0.4583 +- 0.0242, LOS 0.04% 2026-11-10T19:37:09+01:00
+BL wait-lock w10-b3-EB-guinn-H3_1 regicide:bl-456e9b2-r10 vs guinn deck /home/admingod/regicide-jobs/booklab/wp10/parts/H3_1.txt mt 0.5 c 8 2026-11-10T19:37:09+01:00
+BL start w10-b3-EB-guinn-H3_1 regicide:bl-456e9b2-r10 vs guinn; bg: datagen-eb1037c:T bash:T datagen-tr5:T bash:S datagen-tr6:S  2026-11-10T19:37:09+01:00
+BL end w10-b3-EB-guinn-H3_1 rc=0 A: +27 =108 -21   score 81.0/156 = 51.92%   draw rate 69.2% Elo (pentanomial, pairs): +13.4 [+1.4, +25.4] 95% CI, score 0.5192 +- 0.0172, LOS 98.56% 2026-11-10T19:46:57+01:00
+WP10 block 3 done 2026-11-10T19:46:57+01:00
+WP10 block 4 start (E EB) 2026-11-10T19:46:57+01:00
+BL wait-lock w10-b4-E-cake-H2x_0 regicide:bl-456e9b2-deep2b vs cake deck /home/admingod/regicide-jobs/booklab/wp10/parts/H2x_0.txt mt 0.5 c 8 2026-11-10T19:46:57+01:00
+BL start w10-b4-E-cake-H2x_0 regicide:bl-456e9b2-deep2b vs cake; bg: datagen-eb1037c:T bash:T datagen-tr5:T bash:S datagen-tr6:S  2026-11-10T19:46:58+01:00
