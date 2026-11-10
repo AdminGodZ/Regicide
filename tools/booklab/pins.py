@@ -70,6 +70,7 @@ def main():
         rows[fen].append((gi, ply, mv, el, bmv))
         per_game[gi].append((ply, fen, mv, el, bmv))
     pins, conflicts, book_differs, ineligible, in_book, ties, only_lost = {}, [], [], 0, 0, [], 0
+    dropped_lost_moves = 0
     for fen, rs in rows.items():
         bmv = rs[0][4]
         if bmv != "-":
@@ -82,13 +83,17 @@ def main():
         if not el:
             ineligible += 1
             continue
-        # a pin needs at least one won or drawn occurrence: moves met only in lost games are not pinned
-        if all(games[r[0]]["res"] == "L" for r in el):
+        # a pinned move needs at least one won or drawn occurrence of that move: moves met only in lost games are
+        # dropped before the choice (review 2026-11-10 c); a position left without a move is not pinned
+        by_all = collections.defaultdict(list)
+        for r in el:
+            by_all[r[2]].append(r)
+        by = {m: v for m, v in by_all.items() if any(games[r[0]]["res"] != "L" for r in v)}
+        if len(by) < len(by_all):
+            dropped_lost_moves += len(by_all) - len(by)
+        if not by:
             only_lost += 1
             continue
-        by = collections.defaultdict(list)
-        for r in el:
-            by[r[2]].append(r)
         def key(mv):
             gs = by[mv]
             worst = min(RANK[games[r[0]]["res"]] for r in gs)
@@ -115,7 +120,8 @@ def main():
           f"- positions with Regicide to move (ballot end to 8 pieces): {len(rows)} distinct",
           f"- already in book r10 (decision or old-book move): {in_book} (the played move differs in {len(book_differs)})",
           f"- never consulted (inside a run of king moves / database-decided): {ineligible}, left out",
-          f"- met only in lost games: {only_lost}, left out (a pin needs a won or drawn occurrence)",
+          f"- positions whose every move was met only in lost games: {only_lost}, left out; moves dropped because all "
+          f"their occurrences were lost, in positions that keep another move: {dropped_lost_moves}",
           f"- **pins: {len(pins)}**; positions with different moves across games: {len(conflicts)}; of these, "
           f"{len(ties)} still tie after worst result, frequency and run a, and the first move met in the frozen input "
           f"order (runs sorted by name, games in file order) wins",

@@ -83,6 +83,9 @@ ensure_memory() {  # sets MEM (text for the start line)
   done
 }
 if done_run; then st "BL skip $TAG"; exit 0; fi
+# Hold: a tag matching a line of $L/HOLD_TAGS (extended regular expressions) is not played (exit 6), so that a
+# chain stops at that run instead of being killed while a match plays.
+if [ -s $L/HOLD_TAGS ] && echo "$TAG" | grep -Eqf $L/HOLD_TAGS; then st "BL held $TAG (HOLD_TAGS)"; exit 6; fi
 # pre-flight: the same option list (minus the runner flags) through cbhost, then get book must answer 3
 preflight() {  # preflight NAME DLL --option-x TEXT ...
   local name=$1 dll=$2; shift 2
@@ -92,6 +95,11 @@ preflight() {  # preflight NAME DLL --option-x TEXT ...
   echo "$name: $r"
   return $rc
 }
+st "BL wait-lock $TAG $A vs $B deck $DECK mt $MT c $CONC"
+exec 9>$LOCK
+flock 9
+if done_run; then flock -u 9; st "BL skip $TAG (finished while waiting)"; exit 0; fi
+# The pre-flight runs under the lock (review 2026-11-10 a): loading Regicide initialises its database.
 PF=$(preflight A "$DA" "${OA[@]}" && preflight B "$DB" "${OB[@]}"); prc=$?
 if [ $prc -eq 0 ] && [[ "${EXTRA_A:-}" == "set param "* ]]; then
   want=${EXTRA_A#set param }
@@ -99,11 +107,7 @@ if [ $prc -eq 0 ] && [[ "${EXTRA_A:-}" == "set param "* ]]; then
   PF="$PF; param: $got"
   [[ "$got" == *"reply 1 $want"* ]] || prc=1
 fi
-if [ $prc -ne 0 ]; then st "BL refused $TAG: book read-back differs: $(echo $PF)"; exit 3; fi
-st "BL wait-lock $TAG $A vs $B deck $DECK mt $MT c $CONC"
-exec 9>$LOCK
-flock 9
-if done_run; then flock -u 9; st "BL skip $TAG (finished while waiting)"; exit 0; fi
+if [ $prc -ne 0 ]; then flock -u 9; st "BL refused $TAG: book read-back differs: $(echo $PF)"; exit 3; fi
 rm -rf "$OUT"
 [ -n "${SHIMDIR:-}" ] && { rm -rf "$SHIMDIR"; mkdir -p "$SHIMDIR"; }
 ensure_memory
@@ -111,7 +115,8 @@ st "BL start $TAG $A vs $B; $(echo $PF); $MEM; bg: $(for p in $(pgrep -f '[d]ata
 "$MATCH" ${EXTRA_ARGS:-} -a "$SA" -b "$SB" "${NAMES[@]}" "${OA[@]}" "${OB[@]}" \
   --openings $DECK --movetime $MT -c $CONC --pdn-comments -o "$OUT" > "$L/bl-$TAG.log" 2>&1
 rc=$?
-flock -u 9
+# The marker is written and checked before the lock is released (review 2026-11-10 b), so a second caller waiting for
+# the lock sees a finished run and skips it.
 mkdir -p "$OUT"; echo $rc > "$OUT/exit_status"
 st "BL end $TAG rc=$rc $(grep '^Games:' $OUT/summary.txt 2>/dev/null) $(grep '^A:' $OUT/summary.txt 2>/dev/null) $(grep '^Elo (pent' $OUT/summary.txt 2>/dev/null)"
 nb=$(bad_games)
@@ -120,4 +125,5 @@ if [ "$nb" != "0" ]; then
 elif ! done_run; then
   [ $rc -eq 0 ] && rc=4; st "BL INCOMPLETE $TAG (exit $rc)"
 fi
+flock -u 9
 exit $rc
