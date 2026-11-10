@@ -74,7 +74,8 @@ def is_book(fam, c):
     if c is None:
         return 0
     if fam == "regicide":
-        return int(bool(re.search(r"depth 0/0 score -?\d+ nodes 0 ", c)))
+        # cb_api prints "depth 0/0  score 9  nodes 0  0 kN/s" (two spaces); PDN line wrapping may change spacing
+        return int(bool(re.search(r"depth\s+0/0\s+score\s+-?\d+\s+nodes\s+0\s", c)))
     if fam == "cake":
         return int("book" in c)
     if fam == "kingsrow":
@@ -207,7 +208,7 @@ def build(args):
     rin.close()
     with open(tmp_in) as fi, open(tmp_out, "w") as fo:
         subprocess.run([args.replay], stdin=fi, stdout=fo, check=True)
-    nplies = npos = nerr = 0
+    nplies = npos = nerr = namb = 0
     batch, fbatch = [], []
     with open(tmp_out) as fo:
         for line in fo:
@@ -223,6 +224,10 @@ def build(args):
             elif p[0] == "F":
                 fbatch.append((p[1], p[2]))
                 npos += 1
+            elif p[0] == "A":
+                namb += 1
+                if namb <= 20:
+                    print("ambiguous capture text in the game record", p[1:], file=sys.stderr)
             else:
                 nerr += 1
                 if nerr <= 20:
@@ -246,7 +251,7 @@ def build(args):
       CREATE INDEX theory_key ON theory(key);
     """)
     db.commit()
-    print(f"{len(files)} files, {ngames} games, {nplies} plies, {npos} positions, {nerr} replay errors")
+    print(f"{len(files)} files, {ngames} games, {nplies} plies, {npos} positions, {nerr} replay errors, {namb} ambiguous capture texts in game records")
     for fam, n, pos in db.execute("SELECT fam, SUM(n), COUNT(DISTINCT key) FROM theory GROUP BY fam"):
         print(f"  {fam}: {n} moves in {pos} positions")
 

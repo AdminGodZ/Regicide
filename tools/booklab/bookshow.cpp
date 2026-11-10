@@ -6,6 +6,7 @@
 
 #include "book.hpp"
 #include "position.hpp"
+#include "movetext.hpp"
 
 using namespace regicide;
 
@@ -32,7 +33,7 @@ int main(int argc, char** argv) {
         std::cout << fen << ":";
         for (const Book::Entry& e : es)
             if (auto m = Book::to_move(pos, e))
-                std::cout << ' ' << move_to_string(*m) << ' ' << e.score << " (d" << int(e.depth) << ")"
+                std::cout << ' ' << booklab::move_text(pos, *m) << ' ' << e.score << " (d" << int(e.depth) << ")"
                           << (book.avoids(pos, *m) ? " [avoid]" : "") << ';';
         if (es.empty()) std::cout << " (not in book)";
         std::cout << '\n';

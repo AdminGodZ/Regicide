@@ -85,6 +85,22 @@ in r5 (sweep dropped; 11-15 forced at ply 44, harmless if not reached).
 | 2 | bl-r5 | KingsRow | **0 / 312 / 0** | queued |
 | 2 | bl-r5 | GuiNN | h1 0 / 156 / 0, h2 queued | queued |
 
+## Review fixes (2026-11-10, after 8535bca)
+
+1. **Capture identity.** `booklab_replay`, `booklab_show`, `booklab_apply` reports now write captures with their full
+   jump path (`tools/booklab/movetext.hpp`); `booklab_apply` rejects a decision whose move text matches more than one
+   legal move (e.g. `2x18` in `B:W6,7,14,15,32:B2`, where 2x9x18 and 2x11x18 are both legal; both full paths are
+   accepted and forced correctly). The replay flags game-record tokens that match several routes. **Effect:** the
+   rebuilt theory table (109,727 games, 11.85M plies) has 0 ambiguous tokens in game records and exactly one position
+   where two routes with the same start and end were both played (Regicide self-play, 18x11x2 / 18x9x2; in no
+   decision). Rebuilding book_r5 and book_w1 with the strict bookapply gives byte-identical books: no decision was
+   affected.
+2. **census.py pairs.** Only complete pairs (both games) enter the pentanomial Elo; unpaired games are counted and
+   printed. **Effect:** none; every census pair was complete, the tables are unchanged.
+3. **Regicide book marks.** `is_book()` now matches `depth\s+0/0\s+score\s+-?\d+\s+nodes\s+0\s`. The PDNs written by
+   the match runner on this machine contain single spaces (0 double-space occurrences), so the old pattern already
+   matched here. **Effect:** the regenerated book-depth column is identical.
+
 ## Regicide wins seen (for win mining)
 
 | Run | Ballot | Regicide as | Opponent | Line after the ballot (first 30 plies) |

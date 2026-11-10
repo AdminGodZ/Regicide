@@ -5,6 +5,8 @@
 //   P <TAB> GID <TAB> ply <TAB> key (hex) <TAB> move    for every move played (ply 0 = the game's first position)
 //   F <TAB> key <TAB> FEN                               the first time a position is seen
 //   E <TAB> GID <TAB> ply <TAB> token                   illegal or unparsable move (the rest of that game is skipped)
+//   A <TAB> GID <TAB> ply <TAB> token                   token matches several capture routes (first one used)
+// Moves are printed with booklab::move_text (captures with their full jump path).
 #include <cstdio>
 #include <iostream>
 #include <sstream>
@@ -13,6 +15,7 @@
 
 #include "movegen.hpp"
 #include "position.hpp"
+#include "movetext.hpp"
 
 using namespace regicide;
 
@@ -41,9 +44,11 @@ int main() {
                 std::cout << "E\t" << gid << '\t' << ply << '\t' << tok << '\n';
                 break;
             }
+            if (booklab::matching_moves(pos, tok) > 1)  // the game record itself does not say which capture route
+                std::cout << "A\t" << gid << '\t' << ply << '\t' << tok << '\n';
             std::snprintf(hex, sizeof hex, "%016llx", (unsigned long long)pos.key());
             if (seen.insert(pos.key()).second) std::cout << "F\t" << hex << '\t' << pos.fen() << '\n';
-            std::cout << "P\t" << gid << '\t' << ply << '\t' << hex << '\t' << move_to_string(m) << '\n';
+            std::cout << "P\t" << gid << '\t' << ply << '\t' << hex << '\t' << booklab::move_text(pos, m) << '\n';
             pos.make_move(m);
             ++ply;
         }

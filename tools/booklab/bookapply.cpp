@@ -24,6 +24,7 @@
 #include "book.hpp"
 #include "movegen.hpp"
 #include "position.hpp"
+#include "movetext.hpp"
 
 using namespace regicide;
 
@@ -123,6 +124,11 @@ int main(int argc, char** argv) {
         Decision d{lineno, Position(), Move(), false};
         if (!d.pos.set_fen(f[0])) { fail("bad FEN " + f[0]); continue; }
         if (!parse_move(d.pos, f[1], d.move)) { fail("illegal move " + f[1] + " in " + f[0]); continue; }
+        if (const int k = booklab::matching_moves(d.pos, f[1]); k != 1) {
+            fail("move text " + f[1] + " matches " + std::to_string(k) + " legal moves in " + f[0] +
+                 "; write the full capture path");
+            continue;
+        }
         if (f[2] == "force") d.force = true;
         else if (f[2] != "avoid") { fail("third field must be force or avoid, got " + f[2]); continue; }
         ds.push_back(d);
@@ -146,7 +152,7 @@ int main(int argc, char** argv) {
         const Book::Entry me = Book::make_entry(d.pos, d.move, 0, 0);
         for (const Book::Entry& e : avoid)
             if (same_move(e, me)) {
-                std::cerr << "line " << d.line << ": forced move " << move_to_string(d.move)
+                std::cerr << "line " << d.line << ": forced move " << booklab::move_text(d.pos, d.move)
                           << " is on the base avoid list\n";
                 ++errors;
             }
@@ -166,7 +172,7 @@ int main(int argc, char** argv) {
         for (const Book::Entry& e : entries)
             if (e.key == me.key) {
                 if (auto m = Book::to_move(d.pos, e))
-                    before << ' ' << move_to_string(*m) << ':' << e.score << "/d" << int(e.depth);
+                    before << ' ' << booklab::move_text(d.pos, *m) << ':' << e.score << "/d" << int(e.depth);
                 best = std::max(best, int(e.score));
                 if (same_move(e, me)) keep = e, had = true;
             }
@@ -179,7 +185,7 @@ int main(int argc, char** argv) {
             avoid.push_back(me);
             ++avoided;
         }
-        rep << "line " << d.line << ": " << (d.force ? "force " : "avoid ") << move_to_string(d.move) << " in "
+        rep << "line " << d.line << ": " << (d.force ? "force " : "avoid ") << booklab::move_text(d.pos, d.move) << " in "
             << d.pos.fen() << "; base book moves:" << (before.str().empty() ? " (none)" : before.str()) << '\n';
     }
     Book book;

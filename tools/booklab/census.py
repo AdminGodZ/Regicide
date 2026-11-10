@@ -109,7 +109,7 @@ def main():
             continue
         an = None
         w = d = l = 0
-        pairs = collections.defaultdict(float)
+        pairs = collections.defaultdict(list)  # (run, round) -> A's scores; only complete pairs (2 games) count
         dec = []
         for t, tg, moves in gs:
             b, wh = tg.get("Black", ""), tg.get("White", "")
@@ -126,7 +126,7 @@ def main():
             w += sc == 1.0
             d += sc == 0.5
             l += sc == 0.0
-            pairs[(t, tg.get("Round", "").split(".")[0])] += sc
+            pairs[(t, tg.get("Round", "").split(".")[0])].append(sc)
             if res in ("1-0", "0-1"):
                 win_col = "B" if res == "1-0" else "W"
                 winner = b if win_col == "B" else wh
@@ -137,8 +137,14 @@ def main():
             for col, nm in (("B", b), ("W", wh)):
                 inst[(family(nm), bmoves, col)].append(li[col])
                 book[(family(nm), bmoves, col)].append(lb[col])
-        e, lo, hi = pent_elo(list(pairs.values()))
-        md.append(f"| {name} | {w + d + l} | {w} / {d} / {l} | {e:+.1f} [{lo:+.1f}, {hi:+.1f}] | "
+        full = [sum(v) for v in pairs.values() if len(v) == 2]
+        unpaired = sum(len(v) for v in pairs.values() if len(v) != 2)
+        e, lo, hi = pent_elo(full) if full else (0.0, 0.0, 0.0)
+        if unpaired:
+            print(f"{name}: {unpaired} game(s) without their pair game, left out of the pentanomial Elo",
+                  file=sys.stderr)
+        md.append(f"| {name} | {w + d + l}{f' ({unpaired} unpaired)' if unpaired else ''} | {w} / {d} / {l} | "
+                  f"{e:+.1f} [{lo:+.1f}, {hi:+.1f}] | "
                   f"{'; '.join(dec) if dec else '-'} |")
     md.append("")
     # Instant leading moves (book depth) per engine.
