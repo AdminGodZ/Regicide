@@ -38,4 +38,11 @@ if(NOT WIN32)
     match/stats.cpp
   )
   target_link_libraries(match PRIVATE cbt_common Threads::Threads)
+
+  # The runner's side of the protocol, against a scripted engine (the test executable itself).
+  add_executable(engine_process_test match/engine_process_test.cpp match/engine_process.cpp)
+  target_include_directories(engine_process_test PRIVATE match)
+  target_link_libraries(engine_process_test PRIVATE cbt_common Threads::Threads)
+  add_test(NAME match_rejected_options COMMAND engine_process_test rejected)
+  add_test(NAME match_deadline COMMAND engine_process_test deadline)
 endif()

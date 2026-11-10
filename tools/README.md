@@ -2,8 +2,9 @@
 
 Native opponents and a match runner, so Regicide can be measured against strong engines on
 macOS. Cake and KingsRow are Windows-only CheckerBoard DLLs; here we build the strongest
-open engines natively and play them through the CheckerBoard engine API, which Regicide will
-also export.
+open engines natively and play them through the CheckerBoard engine API. Regicide exports the
+same API: the top-level CMake target `regicide_cb` builds it as a shared library
+(`build/libregicide_cb.dylib` on macOS), which `match` loads through `cbhost` like any other engine.
 
 | Path | What |
 |---|---|
@@ -41,7 +42,7 @@ build/tools/match -a build/opponents/cake/cake.dylib -b build/opponents/guinn/gu
 
 `-a` is the engine under test; everything is reported from its point of view. An engine is a
 CheckerBoard `.dylib` (run through `cbhost`) or `exec:COMMAND` for a program that speaks the
-cbhost protocol itself (e.g. a future `regicide --cbhost`). `match --help` lists all options;
+cbhost protocol itself (the `regicide` CLI does not). `match --help` lists all options;
 the important ones:
 
 - `--openings acf156|acf174|acf144|FILE`. Every opening is played twice with colours reversed.
@@ -70,6 +71,10 @@ the important ones:
   gets `stop` after `--stop-factor` x maxtime + `--grace` (fixed time) or its remaining clock
   (increment), and is killed `--kill-after` seconds later: loss, process restarted. A crashed
   engine loses the game and is restarted.
+- `--option-a`/`--option-b TEXT`: engine commands sent after startup (`set hashsize 64`). If an
+  engine rejects one (its reply starts with `reply 0`), the match does not start, so an engine
+  never plays with settings other than the ones asked for. `--allow-rejected-options` prints a
+  warning and plays on.
 - `--sprt ELO0,ELO1[,ALPHA,BETA]`: stop early when the GSPRT decides (never before
   `--sprt-min-pairs`, default 20).
 - `-c N` games in parallel (default 6; two processes each). The CheckerBoard engines here are
@@ -90,9 +95,13 @@ checkers, where many ballots are lopsided and most games between strong engines 
   the same formula, with SE from the variance of the pair scores. The trinomial (per-game)
   estimate is printed for comparison; it overstates confidence when pairs are correlated.
 - LOS = Phi((s - 0.5) / SE).
-- GSPRT: LLR = N (s1 - s0)(2s - s0 - s1) / (2 var), with N pairs, s the mean pair score, var
-  the per-pair variance, and s0, s1 the scores of elo0, elo1 (normal approximation, variance
-  estimated from the data). Bounds log(beta/(1-alpha)) and log((1-beta)/alpha).
+- GSPRT: LLR = N (s1 - s0)(2s - s0 - s1) / (2 var), with N pairs, s the mean pair score, and
+  s0, s1 the scores of elo0, elo1 (normal approximation). var is the per-pair variance with two
+  pseudo-pairs added, a quarter point above and below the mean: var = (N v + 2 * 0.25^2) / (N + 2),
+  where v is the variance of the N pair scores. Without them a run of identical pairs would have
+  variance 0. Bounds log(beta/(1-alpha)) and log((1-beta)/alpha).
+- As `--help` says: with very few decisive pairs the GSPRT's error rates are not guaranteed, and a
+  long run of drawn pairs can accept elo0 too easily. Use a fixed number of pairs for decisions.
 
 ## Engine port notes
 

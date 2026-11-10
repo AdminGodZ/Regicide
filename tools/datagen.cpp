@@ -4,15 +4,17 @@
 //           [--seeds seeds.txt [--seed-frac 0.5] [--seed-plies 2-4]]
 //
 // Each game starts with a few uniformly random plies, then both sides play with a fixed node budget.
-// Every quiet position (side to move has no capture) is written with its search score and the game result.
-// With --egdb, a game ends (and takes its result from the database) at the first position the database knows, and
-// positions whose search score is proven (decisive) are kept, clamped and flagged (DataRecord::make_proven), instead
-// of being dropped. With --seeds (one FEN per line), a share --seed-frac of the games (default 1) starts from a random
-// seed position followed by --seed-plies random plies (default 2-4); the others start as usual (the start position
-// plus --random-min..--random-max random plies).
+// Every quiet position (side to move has no capture) is written with its search score and the game result. The result is
+// a loss for the side without a move; a draw on a third occurrence, after 60 plies without a capture or man move, or
+// after 300 plies; the database value at the first position the database knows (--egdb); or a win for one side once
+// the score has been 900 or more in its favour for 6 plies in a row (with --egdb: only proven scores count).
+// Without --egdb, positions with a decisive score are dropped; with --egdb they are kept, clamped and flagged
+// (DataRecord::make_proven). With --seeds (one FEN per line), a share --seed-frac of the games (default 1) starts from
+// a random seed position followed by --seed-plies random plies (default 2-4); the others start as usual (the start
+// position plus --random-min..--random-max random plies).
 // The first record of every game carries DataRecord::GAME_START. Write a new file per run (the normal case); --out
 // appends only to a file whose records carry those flags, never to a file written by an older datagen. Proven
-// labels follow tools/label.hpp; with --egdb, score adjudication counts only proven scores.
+// labels follow tools/label.hpp.
 #include <atomic>
 #include <cstdint>
 #include <cstdio>
@@ -43,6 +45,9 @@ struct Config {
     int random_min = 4, random_max = 12;
     int max_opening_score = 300;
     int adjudicate_score = 900, adjudicate_plies = 6;
+    // Stop and label the game a draw after this many plies without a capture or man move: earlier than the 79-ply
+    // rule of the search and the match runner (NO_PROGRESS_PLIES in src/search.hpp) and than selfplay's 80, so long
+    // king endings stop sooner. The value predates the search's rule and was not changed with it.
     int draw_reversible = 60;
     int max_plies = 300;
     std::uint64_t seed = 1;

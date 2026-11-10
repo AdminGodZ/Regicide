@@ -601,6 +601,7 @@ void Worker::iterate(const Limits& limits, TimeControl& t, const Engine::InfoFn*
             // A stable best move lets us stop early; a fresh change of mind buys extra time.
             double factor = stability >= 6 ? 0.5 : stability >= 3 ? 0.8 : stability == 0 ? 1.6 : 1.0;
             if (dropping) factor = std::max(factor, 1.0) * P.tm_drop_factor / 100.0;  // a falling score: think longer
+            if (limits.movetime_ms) factor = 1.0;  // a fixed time per move: nothing is saved by stopping early
             if (elapsed_ms(t.start) > std::int64_t(t.soft_ms * factor)) break;
         }
         if (is_decisive(score) && SCORE_WIN - std::abs(score) < root_depth && std::abs(score) > SCORE_MATE_BOUND)
@@ -688,8 +689,13 @@ void Engine::set_position(const Position& root, const std::vector<Position>& his
     root_.set_reversible_plies(rev);
 }
 
-// Perfect play from the database when the root is in it and decided: the winner follows moves-to-conversion
-// downhill (so the win is always realised), the loser maximises it. Draws are left to the search.
+// Database play when the root is in the MTC tables and decided. The winner keeps the WLD win: at MTC 0 it plays a
+// winning capture or man move, otherwise it prefers any winning capture or man move and else steps to the winning
+// king move with the smallest child MTC. The loser plays to the child with the largest MTC. Every man move counts
+// as progress here (the tables count only advances of the leading man), so this is not MTC-optimal play: it
+// always realises the win, because each move either makes progress with a man or lowers MTC, but not by the
+// shortest route, and the loser does not always make the longest defence. Kept on purpose after the November 2026
+// review; see the note at the end of experiments/wld-conversion/RESULTS.md. Draws are left to the search.
 std::optional<std::pair<Move, Score>> Engine::egdb_root_move(const Position& root,
                                                              const std::vector<Move>& list) const {
     if (!egdb_pieces_ || root.piece_count() > std::min({egdb_pieces_, egdb::max_mtc_pieces(), egdb_mtc_pieces_}))

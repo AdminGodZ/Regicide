@@ -88,7 +88,13 @@ can be copied between machines (`egdb_gen manifest` verifies checksums).
   original lookup code in Cake 1.22's `db.c` (patched for LP64 in a scratch directory, never copied
   into this repository).
 
-## Future 8-piece build (not started; run only on request)
+## Coverage
+
+The database in use (`~/regicide-data/egdb` on Win11-AdminGod) has WLD for 2–8 pieces and MTC for 2–6 pieces:
+561 files, 11 GB. The 8-piece WLD slices were built on 2026-11-08 with the instructions below; build log,
+validation and timings are in [experiments/egdb8/README.md](../../experiments/egdb8/README.md).
+
+## 8-piece build (done 2026-11-08; the instructions as written before the build)
 
 Prerequisite: the complete 2..7-piece set in the target directory (`egdb_gen manifest` exits 0,
 `egdb_test --data` passes). Then, in that directory's parent (e.g. WSL on Win11-AdminGod):

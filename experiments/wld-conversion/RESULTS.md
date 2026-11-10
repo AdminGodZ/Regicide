@@ -353,3 +353,24 @@ every losing move the same score and plays the first one, so it collapses.
    limit.
 6. **Defender quality** (B) is measured only against MTC-optimal attackers on small tables. The loser now survives
    longer than master and longer than the MTC reference, and it seeks repetitions.
+
+## Note added 2026-11-10: the reference is not MTC-optimal
+
+The observations above are unchanged; this note corrects how to read them. The opponent and reference player called
+"MTC-optimal" in this file is `Engine::egdb_root_move`, and a review of master 901c3a7 found that it does not play
+MTC-optimally:
+- It treats every man move as progress, while the tables count only captures, promotions and advances of a side's
+  leading man. The winner plays any winning man move or capture before an MTC-decreasing king move; the loser
+  maximises the child's MTC instead of the cost of each move.
+- Checked exhaustively on all 3- and 4-piece positions: it never gives away a database win and always makes progress
+  (a man moves or MTC falls), so every won game is won and none runs into the 79-ply rule from a fresh count.
+- The winner picks a move that is not distance-optimal in 6.7% of 3-piece and 11.1% of 4-piece wins (mean cost 1.6
+  and 1.5 plies where it differs, at most 8 and 6). The loser misses the longest defence in 0.003% of 3-piece and
+  4.3% of 4-piece losses.
+- Over 10,000 sampled starts per piece count, games with this policy on both sides averaged 20.9 plies (3 pieces)
+  and 22.1 (4 pieces), against 20.2 and 21.0 with an MTC-optimal policy on both sides; single games differ both ways.
+
+So "MTC-optimal defender", "MTC-optimal attacker" and "reference length" above mean the database policy of
+`egdb_root_move`, not optimal play: the reference is a baseline that always wins, and the engine's negative excess
+partly reflects that baseline's detours. The policy was kept on purpose, since it preserves every win; see the
+comment on `egdb_root_move` in `src/search.cpp`. `tests/conversion_test.cpp` now labels the columns "reference".

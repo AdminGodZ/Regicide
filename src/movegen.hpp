@@ -82,4 +82,8 @@ bool parse_move(const Position& pos, const std::string& text, Move& out);
 // Squares visited by a move: origin, every landing square of a multi-jump, destination.
 std::vector<int> move_path(const Position& pos, const Move& m);
 
+// PDN text of a legal move of `pos`, a capture with every square it lands on ("9x18x27"): unlike move_to_string,
+// which gives the two end squares only, parse_move reads it back as the same move.
+std::string move_text(const Position& pos, const Move& m);
+
 }  // namespace regicide

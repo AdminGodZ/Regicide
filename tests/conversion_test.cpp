@@ -1,7 +1,9 @@
 // Conversion of database wins without distance information (Engine::go, conversion search). Builds a small
 // database (WLD and MTC up to 4 pieces), caps the pieces for which the engine may use MTC, and plays won positions
 // out under the referee's rules (threefold repetition and 79 plies without capture or man move are draws) against
-// an MTC-optimal opponent: an engine with the full MTC, which plays every decided position from the database.
+// the database policy: an engine with the full MTC, which plays every decided position by Engine::egdb_root_move.
+// That policy always realises a win but is not MTC-optimal (see egdb_root_move), so the reference game it plays
+// against itself is a baseline, not the shortest win or the longest defence.
 //
 //   conversion_test                          the ctest check: audit positions, the winner keeps the win (also when
 //                                            every winning move repeats a position), a sample of 3- and 4-piece wins
@@ -187,7 +189,8 @@ struct Engines {
         oracle_limits.nodes = o.oracle_nodes;
         oracle_limits.use_book = false;
     }
-    // Game with the engine playing the winner (`engine_wins`) or the loser, and the oracle the other side.
+    // Game with the engine playing the winner (`engine_wins`) or the loser, and the database policy (`oracle`) the
+    // other side.
     Game play(const Position& p, bool engine_wins) {
         const Color winner = probe(p) == Wld::Win ? p.side_to_move() : ~p.side_to_move();
         Engine* players[2];
@@ -198,7 +201,8 @@ struct Engines {
         limits[~winner] = engine_wins ? oracle_limits : engine_limits;
         return ::play(p, winner, players, limits);
     }
-    Game optimal(const Position& p) {
+    // Reference game: the database policy on both sides.
+    Game reference(const Position& p) {
         const Color winner = probe(p) == Wld::Win ? p.side_to_move() : ~p.side_to_move();
         Engine* players[2] = {&oracle, &oracle};
         const Limits limits[2] = {oracle_limits, oracle_limits};
@@ -220,12 +224,12 @@ void measure(Engines& en, const Options& o, bool engine_wins) {
         const std::vector<Position> positions = sample(n, o.sample, rng, o.kind);
         std::map<Game::Result, int> results;
         int kind_games[3] = {}, kind_won[3] = {};
-        std::vector<int> excess, optimal_len, ratio_pct;
-        int at_most_optimal = 0, reference_lost = 0;
-        double sum_engine = 0, sum_optimal = 0;
+        std::vector<int> excess, reference_len, ratio_pct;
+        int at_most_reference = 0, reference_lost = 0;
+        double sum_engine = 0, sum_reference = 0;
         for (const Position& p : positions) {
-            // MTC-optimal play always wins; the reference can only fail where the database has no MTC.
-            const Game opt = en.optimal(p);
+            // The database policy always wins; the reference can only fail where the database has no MTC.
+            const Game opt = en.reference(p);
             if (opt.result != Game::Won && egdb::max_mtc_pieces() >= n) std::abort();
             reference_lost += opt.result != Game::Won;
             const Game g = en.play(p, engine_wins);
@@ -233,15 +237,15 @@ void measure(Engines& en, const Options& o, bool engine_wins) {
             ++kind_games[kind_of(p)];
             kind_won[kind_of(p)] += g.result == Game::Won;
             sum_engine += g.plies;
-            sum_optimal += opt.plies;
-            optimal_len.push_back(opt.plies);
+            sum_reference += opt.plies;
+            reference_len.push_back(opt.plies);
             if (g.result == Game::Won || !engine_wins) {
                 excess.push_back(g.plies - opt.plies);
                 ratio_pct.push_back(opt.plies ? 100 * g.plies / opt.plies : 100);
-                at_most_optimal += g.plies <= opt.plies;
+                at_most_reference += g.plies <= opt.plies;
             }
             if (o.list || (engine_wins && g.result != Game::Won))
-                std::printf("  %-28s optimal %3d  engine %3d  %s\n", p.fen().c_str(), opt.plies, g.plies,
+                std::printf("  %-28s reference %3d  engine %3d  %s\n", p.fen().c_str(), opt.plies, g.plies,
                             result_name(g.result));
         }
         const double secs =
@@ -251,14 +255,14 @@ void measure(Engines& en, const Options& o, bool engine_wins) {
         for (const auto& [r, c] : results) std::printf("%s %d, ", result_name(r), c);
         if (reference_lost) std::printf("reference game not won %d, ", reference_lost);
         std::printf("mean plies: engine %.1f, reference %.1f", sum_engine / positions.size(),
-                    sum_optimal / positions.size());
+                    sum_reference / positions.size());
         std::printf("\n  won by kind:");
         for (int k = 0; k < 3; ++k) std::printf(" %s %d/%d", kind_name(k), kind_won[k], kind_games[k]);
-        std::printf("\n  optimal length median %d p90 %d max %d; engine minus optimal: median %d p90 %d max %d; "
-                    "engine/optimal %%: median %d p90 %d; at most optimal %d; %.1f s\n",
-                    percentile(optimal_len, 50), percentile(optimal_len, 90), percentile(optimal_len, 100),
+        std::printf("\n  reference length median %d p90 %d max %d; engine minus reference: median %d p90 %d max %d; "
+                    "engine/reference %%: median %d p90 %d; at most reference %d; %.1f s\n",
+                    percentile(reference_len, 50), percentile(reference_len, 90), percentile(reference_len, 100),
                     percentile(excess, 50), percentile(excess, 90), percentile(excess, 100),
-                    percentile(ratio_pct, 50), percentile(ratio_pct, 90), at_most_optimal, secs);
+                    percentile(ratio_pct, 50), percentile(ratio_pct, 90), at_most_reference, secs);
         if (engine_wins)
             check(results[Game::Won] == int(positions.size()),
                   "converted " + std::to_string(results[Game::Won]) + " of " + std::to_string(positions.size()) +
@@ -384,9 +388,9 @@ void test_audit(Engines& en) {
             check(false, std::string(fen) + " is a database win");
             continue;
         }
-        const Game opt = en.optimal(p), g = en.play(p, true);
+        const Game opt = en.reference(p), g = en.play(p, true);
         check(g.result == Game::Won, std::string(fen) + ": " + result_name(g.result) + " after " +
-                                         std::to_string(g.plies) + " plies (MTC-optimal " + std::to_string(opt.plies) +
+                                         std::to_string(g.plies) + " plies (reference " + std::to_string(opt.plies) +
                                          ")");
     }
 }
