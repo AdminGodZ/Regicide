@@ -18,3 +18,5 @@ DONE b1_hashdb90 rc=0 secs=1271 2026-11-10T00:43:20+01:00 :: final games 1600  A
 BEGIN b2_leafcache16 bin=selfplay-lab2 a="leaf_cache=16" b="" mt=300 pairs=800 extra="--egdb /home/admingod/regicide-data/egdb --book books/uho1600.txt" 2026-11-10T00:43:20+01:00
 DONE b2_leafcache16 rc=0 secs=1258 2026-11-10T01:04:18+01:00 :: final games 1600  A: +618 =363 -619  score 0.4997  draws 22.7%  elo -0.2 [-5.1, +4.7]  penta [0 66 669 65 0]
 BEGIN b3_corr100 bin=selfplay-lab2 a="corr_hist=100" b="" mt=300 pairs=800 extra="--egdb /home/admingod/regicide-data/egdb --book books/uho1600.txt" 2026-11-10T01:04:18+01:00
+DONE b3_corr100 rc=0 secs=1253 2026-11-10T01:25:11+01:00 :: final games 1600  A: +617 =371 -612  score 0.5016  draws 23.2%  elo +1.1 [-4.8, +7.0]  penta [0 93 609 98 0]
+BEGIN b4_nosafe1 bin=selfplay-lab2 a="nosafe_ext=1" b="" mt=300 pairs=800 extra="--egdb /home/admingod/regicide-data/egdb --book books/uho1600.txt" 2026-11-10T01:25:11+01:00
