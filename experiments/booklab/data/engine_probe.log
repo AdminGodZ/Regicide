@@ -1,4 +1,4 @@
-# engine probe 2026-11-10T18:27:09+01:00; cbhost b71dfa9; options exactly as the match runs send them (bl_run.sh)
+# engine probe 2026-11-10T23:56:02+01:00; cbhost b71dfa9; options exactly as the match runs send them (bl_run.sh)
 
 ## Cake (C:\regicide-match\engines\cake\cake_189f.dll)
 <<< id name Cake 1.89f
@@ -42,16 +42,16 @@
 <<< ok
 >>> go maxtime 0.5 reset
 <<< info book  11-16 v0 d35   9-14 v0 d35   10-15 v0 d34   12-16 v0 d34   11-15 v0 d34   9-13 v0 d34   10-14 v0 d31
-<<< bestmove 11-15 result unknown time 0.8721
-(start position: 0.81 s wall)
+<<< bestmove 11-15 result unknown time 0.7797
+(start position: 0.77 s wall)
 >>> newgame
 <<< ok
 >>> position fen W:W17,21,22,25:B5,9,10,K14
 <<< ok
 >>> go maxtime 0.5 reset
-<<< info depth 24/37/26.1  time 0.38s  value=954  nodes 1457313  3814kN/s  db 100% cut 93.1% pv 17-13 10-15 13x6 15-19 6-1 19-23 22-17 14-18  Cake claims a win
-<<< bestmove 17-13 result win time 0.3815
-(W:W17,21,22,25:B5,9,10,K14: 0.35 s wall)
+<<< info depth 24/37/26.1  time 0.32s  value=954  nodes 1457313  4611kN/s  db 100% cut 93.1% pv 17-13 10-15 13x6 15-19 6-1 19-23 22-17 14-18  Cake claims a win
+<<< bestmove 17-13 result win time 0.3167
+(W:W17,21,22,25:B5,9,10,K14: 0.31 s wall)
 >>> cmd get book
 <<< reply 1 3
 >>> cmd get max_dbpieces
@@ -64,10 +64,10 @@
 <<< ok
 >>> go maxtime 0.5 reset
 <<< info book  23-19 v0 d33   21-17 v0 d33   22-17 v0 d33   23-18 v0 d29   24-20 v0 d28   22-18 v0 d27   24-19 v0 d24
-<<< bestmove 22-18 result unknown time 0.0001
+<<< bestmove 22-18 result unknown time 0.0002
 
 ## KingsRow (C:\regicide-match\engines\kingsrow\Kingsrow64.dll)
-<<< id name Kingsrow(x64)[8] 1.20
+<<< id name Kingsrow(x64) 1.20
 <<< id protocol cbhost 1
 <<< ready
 >>> cmd set dbpath C:\regicide-match\db\kingsrow_wld8
@@ -83,7 +83,7 @@
 >>> cmd set searchthreads 1
 <<< reply 1 searchthreads set to 1
 >>> cmd get book
-<<< reply 1 1
+<<< reply 1 3
 >>> cmd get dbpath
 <<< reply 1 C:\\regicide-match\\db\\kingsrow_wld8
 >>> cmd get hashsize
@@ -99,7 +99,7 @@
 >>> cmd get gamehist
 <<< reply 0 Unrecognized get command 'gamehist', ignored
 >>> cmd name
-<<< reply 1 Kingsrow(x64)[8] 1.20
+<<< reply 1 Kingsrow(x64) 1.20
 >>> cmd about
 <<< reply 1 Kingsrow 1.20 -- September 16, 2026\nby Ed Gilbert <eygilbert@gmail.com>\n\nThe endgame databases are not initialized yet.\nInitialization occurs when you start a search.\nOpening book database version 4.1 with 3458897 positions\nUsing 128mb for hashtable.\n
 >>> cmd help
@@ -109,19 +109,19 @@
 >>> position startpos
 <<< ok
 >>> go maxtime 0.5 reset
-<<< info 10-14(-1/39)*  11-15(1/25)*  12-16(-1/37)*  11-16(-1/32)*  9-14(-1/27)*  9-13(-1/25)*  10-15(-1/22)*
-<<< bestmove 10-14 result unknown time 0.7995
-(start position: 0.72 s wall)
+<<< info 11-15(1/25)*  10-14(-1/39)?  12-16(-1/37)?  11-16(-1/32)?  9-14(-1/27)?  9-13(-1/25)?  10-15(-1/22)?
+<<< bestmove 11-15 result unknown time 0.6970
+(start position: 0.69 s wall)
 >>> newgame
 <<< ok
 >>> position fen W:W17,21,22,25:B5,9,10,K14
 <<< ok
 >>> go maxtime 0.5 reset
-<<< info value=-2667,  depth 27/24.8/37,  0.4s,  5825 kN/s,  pv 17-13 10-15 13x6 14-9 6-2 9-13 2-6 15-19 22-18 19-23 18-14
-<<< bestmove 17-13 result win time 0.4089
-(W:W17,21,22,25:B5,9,10,K14: 0.37 s wall)
+<<< info value=-2670,  depth 28/25.9/38,  0.6s,  7038 kN/s,  pv 17-13 10-15 13x6 5-9 22-17 14-18 17-13 9-14 6-2 15-19 2-7
+<<< bestmove 17-13 result win time 0.6369
+(W:W17,21,22,25:B5,9,10,K14: 0.63 s wall)
 >>> cmd get book
-<<< reply 1 1
+<<< reply 1 3
 >>> cmd get max_dbpieces
 <<< reply 1 8
 >>> cmd about
@@ -131,8 +131,8 @@
 >>> position startpos moves 11-15
 <<< ok
 >>> go maxtime 0.5 reset
-<<< info 24-20(1/27)*  22-18(1/24)*  23-19(1/37)*  23-18(1/23)*  21-17(1/19)*  24-19(1/17)*  22-17(1/16)*
-<<< bestmove 24-20 result unknown time 0.0021
+<<< info 22-18(1/24)*  23-19(1/37)?  24-20(1/27)?  23-18(1/23)?  21-17(1/19)?  24-19(1/17)?  22-17(1/16)?
+<<< bestmove 22-18 result unknown time 0.0026
 
 ## GuiNN (C:\regicide-match\engines\guinn\gui_nn64.dll)
 <<< id name GuiNN Checkers 2.06 avx2
@@ -175,17 +175,17 @@
 >>> position startpos
 <<< ok
 >>> go maxtime 0.5 reset
-<<< info Eval: 8  Depth: 18/38 (0/7)  Move: 11-15   Time: 0.50s   Speed 5000 KN/s   Nodes: 2.48 Mn (db: 333 n) 11-15  22-18  15x22  25x18  12-16  29-25  10-14  25-22  16-20  24-19  6-10  22-17  9-13  18x9  13x22  26x17  5x14  23-18  14x23  27x18  10-15  19x10  7x23  31-27  8-11  27x18  4-8
-<<< bestmove 11-15 result unknown time 1.4348
-(start position: 1.29 s wall)
+<<< info Eval: 8  Depth: 18/38 (0/7)  Move: 11-15   Time: 0.49s   Speed 5802 KN/s   Nodes: 2.86 Mn (db: 580 n) 11-15  22-18  15x22  25x18  12-16  29-25  10-14  25-22  16-20  24-19  6-10  22-17  9-13  18x9  13x22  26x17  5x14  23-18  14x23  27x18  10-15  19x10  7x23  31-27  8-11  27x18  4-8
+<<< bestmove 11-15 result unknown time 1.2890
+(start position: 1.27 s wall)
 >>> newgame
 <<< ok
 >>> position fen W:W17,21,22,25:B5,9,10,K14
 <<< ok
 >>> go maxtime 0.5 reset
-<<< info :-D  Eval: -595  Depth: 30/37 (0/2)  Move: 17-13   Time: 0.49s   Speed 4300 KN/s   Nodes: 2.12 Mn (db: 1.12 Mn) 17-13  10-15  13x6  15-19  6-1  14-9  21-17  9-13  1-6  19-24  25-21  24-28  17-14  28-32  14-10  32-28  21-17  28-24  10-7  24-27  7-2
-<<< bestmove 17-13 result win time 0.4926
-(W:W17,21,22,25:B5,9,10,K14: 0.44 s wall)
+<<< info :-D  Eval: -606  Depth: 30/37 (2/2)  Move: 17-13   Time: 0.39s   Speed 5302 KN/s   Nodes: 2.06 Mn (db: 1.11 Mn) 17-13  10-15  13x6  15-19  6-1  19-23  22-17  14-18  17-13  23-26  1-6  26-31  6-10  18-23  21-17  31-27  17-14  27-32  25-21  32-28  14-9  5x14  10x17  28-32  13-9  23-18  9-5  32-27  5-1  27-32
+<<< bestmove 17-13 result win time 0.3873
+(W:W17,21,22,25:B5,9,10,K14: 0.38 s wall)
 >>> cmd get book
 <<< reply 1 3
 >>> cmd get max_dbpieces
@@ -197,8 +197,8 @@
 >>> position startpos moves 11-15
 <<< ok
 >>> go maxtime 0.5 reset
-<<< info Eval: 0  Depth: 0/0 (0/7)  Move: 21-17   Time: 0.00s   Speed 0 KN/s   Nodes: 0 n (db: 0 n)
-<<< bestmove 21-17 result unknown time 0.0001
+<<< info Eval: 0  Depth: 0/0 (0/7)  Move: 22-17   Time: 0.00s   Speed 0 KN/s   Nodes: 0 n (db: 0 n)
+<<< bestmove 22-17 result unknown time 0.0001
 
 ## Regicide bl-final1 (C:\regicide-match\engines\regicide\bl-final1\regicide_cb.dll)
 <<< id name Regicide 0.2
@@ -231,8 +231,8 @@
 >>> position startpos
 <<< ok
 >>> go maxtime 0.5 reset
-<<< info depth 17/36  score 10  nodes 567378  3169 kN/s  pv 11-15 21-17 9-13 25-21 5-9 29-25 9-14 23-18 14x23 27x11
-<<< bestmove 11-15 result unknown time 0.1870
+<<< info depth 17/36  score 10  nodes 567378  3480 kN/s  pv 11-15 21-17 9-13 25-21 5-9 29-25 9-14 23-18 14x23 27x11
+<<< bestmove 11-15 result unknown time 0.1719
 (start position: 0.17 s wall)
 >>> newgame
 <<< ok
@@ -253,5 +253,5 @@
 >>> position startpos moves 11-15
 <<< ok
 >>> go maxtime 0.5 reset
-<<< info depth 17/36  score -13  nodes 858584  2881 kN/s  pv 22-17 8-11 17-14 9x18 23x14 10x17 21x14 12-16 24-19 16x23
-<<< bestmove 22-17 result unknown time 0.3078
+<<< info depth 17/36  score -13  nodes 858584  3353 kN/s  pv 22-17 8-11 17-14 9x18 23x14 10x17 21x14 12-16 24-19 16x23
+<<< bestmove 22-17 result unknown time 0.2647

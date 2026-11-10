@@ -5,6 +5,51 @@ KingsRow 8-piece WLD db, Regicide with its 2–8-piece db, PDN comments on. Each
 × 2 colours (`scripts/acf156_h1.txt`, `acf156_h2.txt`), one timing-lock hold per half. Raw `summary.txt`/`results.csv`
 per run in `tests/`.
 
+## Restart of Win11-AdminGod (2026-11-10) and the clocks the timings use
+
+**Restarts.** Windows event log: shutdown 21:30–23:35 (owner's update; booklab stopped at 21:29, `RESUME.md`), then two
+more restarts after the first resume: 23:40:33 (initiated from the Start menu) with Windows up at 23:41:35, and 23:42:03
+(initiated by TrustedInstaller, update servicing) with Windows up at 23:42:30; WSL started 23:47:37. The resume of
+23:35 had done nothing yet (one machine check; its clock measurement never started), so nothing was left behind:
+no booklab process, timing lock free, worktree clean at 5e17c09, no files written after 23:30 except two check scripts.
+
+**Machine check after the restart (23:47–00:00).** WSL starts; the KingsRow 8-piece WLD files and Regicide's 2–8-piece
+database are present; Windows free commit 34 GB. One short smoke match per opponent (r10, 2 openings × 2 colours,
+final-validation runner, `set book 3` read back as 3 on both sides): Cake 0/4/0, KingsRow 0/4/0, GuiNN 0/4/0, no crash.
+The configuration probe (`data/engine_probe.log`, rerun) shows each opponent with its 8-piece database after the
+first search (Cake "Using 512 MB for database cache", `db 100%`; KingsRow "Using the Kingsrow 8-piece WLD endgame
+database"; GuiNN "Database : 8-piece Win/Loss/Draw").
+
+**Clocks.** Which clock each timing uses:
+
+| Timing | Process | Clock |
+|---|---|---|
+| bank, offered `maxtime`, per-move charge (runners match-747ab51, match-cur; PR #49 charges `min(host time, wall)`) | runner in WSL | `std::chrono::steady_clock` = Linux `CLOCK_MONOTONIC` |
+| `time S` in cbhost's `bestmove` line (getmove) | cbhost.exe on Windows | Windows performance counter |
+| each engine's own time management (Regicide DLL, Cake, KingsRow, GuiNN) | inside cbhost on Windows | Windows clocks |
+
+Measured after the restart (`adhoc/clk3.sh`, `clk4.sh`; 90 s windows, ±0.4 % from the bracketing): Windows advanced
+**2.0 % and 1.5 % more than WSL `CLOCK_MONOTONIC`** in two windows, and the same 1.5 % in a third, in which
+`CLOCK_MONOTONIC_RAW` agreed with Windows within 0.03 %. The cause is the kernel's tick: `adjtimex` reports
+`tick 9846` (nominal 10000), i.e. the time-sync slew of WSL slows `CLOCK_MONOTONIC` (and so the runner's clock) by
+1.5 %; before the restart the same effect was 7.9 % (measured 20:55, 60 s window). The size depends on the boot.
+
+What it means for the 0.5 s setting: the 0.5 s credited per move is a constant, but every move's charge is measured
+on the slow clock, so each engine is charged 1.5 % (before the restart 7.9 %) less than the real time it thought and
+its bank, and therefore its offered `maxtime`, grows correspondingly. **Every engine gets more real time than
+intended, in proportion to how long it thinks**: on searched moves KingsRow (1.5 s at 20–24 pieces), Cake (0.94 s) and
+GuiNN (0.75 s) gain more than Regicide (0.42 s) — before the restart about 0.12 s, 0.07 s, 0.06 s and 0.03 s per such
+move, now a fifth of that. The rule is the same for both sides of every match, so no result is invalid; the
+absolute time control was slightly longer than nominal, by a margin that changed at this restart. PR #49 does not
+remove it (its `min` keeps the slow wall time on every searched move, 1,865 of 1,865 in the accounting run). A clean
+fix would be the runner measuring with `CLOCK_MONOTONIC_RAW` (or charging the host's time); not changed here. Per
+engine, the old accounting's own overhead (wall minus host time, clock-corrected, warm-ups excluded,
+`data/acct_report.md`) is about zero: Regicide −0.4 ms, Cake −3.3 ms, KingsRow +0.6 ms, GuiNN +0.5 ms per move.
+
+**Wrapper:** `done_run` now counts a fixed-colour deck (every line `| A=B` or `| A=W`) as one game per line (the
+runner's summary says "N of 2N scheduled" for it). `w13-ev-cake` (40 of 40 games, rc 0 at 21:29:21, before the stop
+order at 21:29:31) is counted as finished and not replayed.
+
 ## KingsRow in book mode 3 (production deck, 2026-11-10 20:16–20:48): the quoted KingsRow number from now on
 
 Until 2026-11-10 KingsRow played in its default book mode 1 (section "Book mode" below). Master + r10 + n6c

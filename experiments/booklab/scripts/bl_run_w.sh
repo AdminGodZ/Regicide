@@ -13,8 +13,8 @@
 # is refused (exit 3) and nothing is played. (Until 2026-11-10 no script sent set book: KingsRow played in its
 # default mode 1, the others in 3.)
 # Takes the machine-wide timing lock (~/regicide-jobs/locks/timing.lock) for the whole match (not the pre-flight).
-# A run counts as finished only if the runner exited 0 (recorded in OUT/exit_status) and the summary says
-# "Games: N of N scheduled"; otherwise it is replayed. The script exits with the runner's exit status.
+# A run counts as finished only if the runner exited 0 (recorded in OUT/exit_status) and it played all its games
+# ("Games: N of N scheduled"; for a fixed-colour deck N = its number of lines); otherwise it is replayed. The script exits with the runner's exit status.
 # Memory (2026-11-10 20:16: 16 engine crashes in k3-kingsrow-a-h1 at the start of the run, Windows commit exhausted
 # by the WSL VM's page cache): after taking the lock, Windows free commit must be at least MINCOMMIT GB (default 14);
 # below that the WSL page cache is dropped (as root through wsl.exe; only clean cached file pages are discarded) and
@@ -66,10 +66,20 @@ OB+=(--option-b "set book 3")
 NAMES=()
 [ "${A%2}" = "${B%2}" ] && NAMES=(--name-a "${A%2}-A" --name-b "${B%2}-B")
 bad_games() { grep -h "^\[Termination" "$OUT/games.pdn" 2>/dev/null | grep -c -E "crashed|did not start|timed out|illegal|protocol error"; }
+# Games a finished run must have played. A deck whose every line carries a fixed colour for A ("| A=B" / "| A=W")
+# plays one game per line, although the runner's summary says "N of 2N scheduled" for it (2026-11-10 21:29,
+# w13-ev-cake: 40 of 80); every other deck plays what the summary schedules.
+expected_games() {
+  local n f
+  n=$(grep -v '^[[:space:]]*#' "$DECK" 2>/dev/null | grep -c '[^[:space:]]')
+  f=$(grep -v '^[[:space:]]*#' "$DECK" 2>/dev/null | grep -Ec '\|[[:space:]]*A=[BW][[:space:]]*$')
+  if [ -f "$DECK" ] && [ "$n" -gt 0 ] && [ "$f" = "$n" ]; then echo "$n"
+  else sed -n 's/^Games: [0-9]* of \([0-9]*\) scheduled.*/\1/p' "$OUT/summary.txt" 2>/dev/null; fi
+}
 done_run() {
   [ -f "$OUT/summary.txt" ] && [ "$(cat "$OUT/exit_status" 2>/dev/null)" = "0" ] &&
-    grep -Eq "^Games: ([0-9]+) of \1 scheduled" "$OUT/summary.txt" && grep -q "^A:" "$OUT/summary.txt" &&
-    [ "$(bad_games)" = "0" ]
+    [ -n "$(expected_games)" ] && grep -Eq "^Games: $(expected_games) of [0-9]+ scheduled" "$OUT/summary.txt" &&
+    grep -q "^A:" "$OUT/summary.txt" && [ "$(bad_games)" = "0" ]
 }
 commit_free() { /mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -NoProfile -Command \
   '[math]::Round((Get-CimInstance Win32_OperatingSystem).FreeVirtualMemory/1MB,1)' 2>/dev/null | tr -d '\r'; }
