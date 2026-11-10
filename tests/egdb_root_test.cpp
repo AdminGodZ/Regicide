@@ -1,35 +1,17 @@
 // A root the endgame database decides is played from the database, past the book and the avoid list: a book move
 // that throws the win is not taken, and the avoid list does not push the engine off the move it would choose.
 // Builds a 2..3-piece database (WLD and MTC) in a temporary directory; the engine uses only its WLD values.
-#include <fcntl.h>
-
-#include <cstdio>
-#include <filesystem>
 #include <iostream>
 #include <memory>
-#include <random>
 #include <string>
-#include <system_error>
 #include <vector>
 
 #include "book.hpp"
-#include "egdb/build.hpp"
 #include "egdb/egdb.hpp"
 #include "movegen.hpp"
 #include "position.hpp"
 #include "search.hpp"
-
-#ifdef _WIN32
-#include <io.h>
-#define dup _dup
-#define dup2 _dup2
-#define open _open
-#define close _close
-constexpr const char* NULL_DEVICE = "NUL";
-#else
-#include <unistd.h>
-constexpr const char* NULL_DEVICE = "/dev/null";
-#endif
+#include "test_egdb.hpp"
 
 using namespace regicide;
 using egdb::Wld;
@@ -47,40 +29,11 @@ void check(bool ok, const std::string& what) {
 
 Wld probe(const Position& p) { return egdb::probe(p.pieces(BLACK), p.pieces(WHITE), p.kings(), p.side_to_move()); }
 
-// The database builder logs every slice to stdout; this keeps it quiet for the length of a scope.
-struct QuietStdout {
-    int saved;
-    QuietStdout() {
-        std::fflush(stdout);
-        saved = dup(1);
-        const int null = open(NULL_DEVICE, O_WRONLY);
-        dup2(null, 1);
-        close(null);
-    }
-    ~QuietStdout() {
-        std::fflush(stdout);
-        dup2(saved, 1);
-        close(saved);
-    }
-};
-
 }  // namespace
 
 int main() {
-    const std::string dir =
-        (std::filesystem::temp_directory_path() / ("regicide-egdb-root-test-" + std::to_string(std::random_device{}())))
-            .string();
-    egdb::detail::BuildOptions b;
-    b.dir = dir;
-    b.threads = 1;
-    b.mtc_pieces = 3;
-    b.verbose = false;
-    bool built;
-    {
-        QuietStdout quiet;
-        built = egdb::detail::build_range(b, 2, 3);
-    }
-    check(built && egdb::init(dir, 64) && egdb::max_pieces() >= 3, "build and load 2..3 pieces in " + dir);
+    const std::string dir = test_egdb::build("egdb-root-test", 3);
+    check(!dir.empty(), "build and load 2..3 pieces");
 
     // Black wins; some moves keep the win, at least one throws it.
     Position p;
@@ -128,7 +81,6 @@ int main() {
         check(e.go(l).best == chosen, "a database-decided root ignores the avoid list");
     }
 
-    std::error_code ec;
-    std::filesystem::remove_all(dir, ec);  // best effort: mapped files cannot be removed on Windows
+    test_egdb::remove(dir);
     return failures == 0 ? 0 : 1;
 }
