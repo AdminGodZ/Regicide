@@ -11,8 +11,9 @@
 results from the database; E3 n8c = E2 with re-searched scores (proven ones exact). Every net is matched against n6c
 with the standard setup.
 
-**Status (2026-11-10 02:00):** E0 done. E1 and E2 matched: **n8bn (E2 with n6c's K) +4.5 [+0.5, +8.6] vs n6c**, the
-first net with a CI above 0; its 0.5 s/move confirmation is queued. E3's rescoring is running (gen5a, then gen4a).
+**Status (2026-11-10 05:05):** E0 done. E1 and E2 matched. **n8bn (E2: database-relabelled game results, ≥ 9-piece
+records, n6c's K) beats n6c: +4.5 [+0.5, +8.6] at 0.1 s/move and +4.5 [+1.6, +7.4] at 0.5 s/move (805 pairs each).**
+E3: gen5a is rescored, gen4a is being rescored; n8c follows.
 
 ## E0: census (no training)
 
@@ -72,7 +73,7 @@ evaluates with the net.
 **Label noise falls with every generation:** 18–24% of games (gen1–gen3a) disagree with the database, 11–13% (gen3b–d),
 5.5% (gen4) and 3.4% (gen5, 50k nodes). Almost all disagreements are a database win that the game drew (the self-play
 failed to convert); 0–10 games per file had the opposite result. Disagreements in the other direction (database draw,
-game decisive) are about a sixth of them.
+game decisive) are 14% of them in gen1 and 24–26% in gen4a and gen5.
 
 ## E0: pilot (200k records with 9–14 pieces, searched with the 8-piece database)
 
@@ -200,6 +201,22 @@ moves every pruning margin of the search. So each step was also trained at a fix
 | n8bk (E2, K 77.4) vs n6c | 283 / 1060 / 267 | [0 42 705 58 0] | +3.5 [−0.8, +7.7] | 94.5% |
 | **n8bn (E2, K 102.4) vs n6c** | 276 / 1079 / 255 | [0 36 712 57 0] | **+4.5 [+0.5, +8.6]** | **98.6%** |
 <!-- E3MATCHES -->
+
+### Confirmation at 0.5 s/move: n8bn
+
+Same engine and settings, 0.5 s/move, openings4's 805 pairs in four chunks (each run held the timing lock < 15 min;
+other agents' runs in between; my background jobs stopped during each chunk). Pooled with `jobs/pool_dirs.py`.
+
+| Chunk | Pairs | W / D / L | Pentanomial | Elo [95% CI] |
+|---|---|---|---|---|
+| a | 207 | 65 / 290 / 59 | [0 1 199 7 0] | +5.0 [+0.4, +9.6] |
+| b | 205 | 82 / 252 / 76 | [0 5 189 11 0] | +5.1 [−1.5, +11.7] |
+| c | 197 | 52 / 294 / 48 | [0 4 185 8 0] | +3.5 [−2.4, +9.5] |
+| d | 196 | 68 / 261 / 63 | [0 3 185 8 0] | +4.4 [−1.3, +10.2] |
+| **pooled** | **805** | **267 / 1097 / 246** | **[0 13 758 34 0]** | **+4.5 [+1.6, +7.4]**, LOS 99.9% |
+
+**n8bn is confirmed: +4.5 [+1.6, +7.4] at 0.5 s/move**, the same size as at 0.1 s (+4.5 [+0.5, +8.6]). The longer
+time control has fewer decisive pairs (47 of 805 against 93), and 34 of them are n8bn's.
 
 ### Database-truth metric
 
