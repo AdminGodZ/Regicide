@@ -43,7 +43,7 @@ bash /mnt/c/regicide-match/jobs/truth/launch.sh e5_gen.sh gen6b_n50k_egdb datage
      overlap and the embed test. Put the net on the branch; the laptop plays it against n8q.
 2. **n9a:** the same at 30M (`n9.sh n9a`).
 3. **Forecast** (not a measurement): ~2.0M game-deduplicated records per hour with both generators (~1.0M with gen6b
-   paused). From the counts above, 15M is ~1 h of running away and 30M ~8–9 h.
+   paused). From 10,973,587 game-deduplicated records at the stop: 15M is ~2 h of running away (both generators), 30M ~9.5 h.
 4. **Loss analysis (item 4b):** 19 of 25 runs done (partial table in RESULTS.md).
    - Remaining: `ba-off-769-cake`, `ba-off-769b-cake`, `ba-off-769-2s-cake`, `ba-tm-off-cake`, `ba-deep-off-guinn`,
      `ba-off-769-guinn`.
