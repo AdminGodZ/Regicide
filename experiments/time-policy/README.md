@@ -27,8 +27,19 @@ directly and cheaply before anything is changed.
 - Logged per move: wall time, charged time, bank before the move and the offered maxtime.
 - Read-out: paired by opening and colour: wins, losses, score difference with an interval by opening; time used per
   phase and bank left at the first position with 8 or fewer pieces.
-- Decision rule, fixed beforehand: adopt 100 only if the paired score difference is positive with its 95% interval
-  above zero, or if it is at least +3 points and a second run of both arms repeats the sign; otherwise the default
-  stays. A result within noise is reported as "no measurable effect", not as a tie-break in favour of the change.
+- Unit: match-score points (win 1, draw 0.5) over the 312 games of an arm. Three points are 0.96 percentage
+  points. The interval resamples the 156 openings (both colours of an opening stay together); if a second run is
+  played, the two runs are averaged within each opening first.
+- Decision rule, fixed beforehand: adopt 100 only if (a) the paired score difference is positive with its 95%
+  interval above zero, or (b) it is at least +3 points and a second run of both arms is positive again; otherwise
+  the default stays. Path (b) is an adoption rule, not a 95% claim: a change accepted that way is labelled
+  provisional, and the second-run and combined intervals are published. A result within noise is reported with
+  its interval as "no measurable effect"; it is neither a tie-break in favour of the change nor proof that there
+  is none.
+- Before 100 is adopted or mining starts under it: one run of the production deck against Cake with the frozen
+  book and the new setting. The deck is all draws, so it cannot show a gain, but it can show a regression; a new
+  loss must be explained first.
+- "Bank before the move" in the log includes that move's 0.5 s credit; the runner's own bank value is logged, not
+  reconstructed from the offered time (review round A14, `T1_REVIEW.md`).
 - The test is played before win mining starts, because lines found by mining depend on how the engine plays after
   the book ends.
