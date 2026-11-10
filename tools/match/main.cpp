@@ -400,8 +400,15 @@ struct Match {
 
     const Opening& opening_for(long game) const { return openings[(game / 2) % openings.size()]; }
 
+    // Openings with a fixed colour for A (file field A=B / A=W) play only that leg (0: A black, 1: A white).
+    bool skipped(long task) const {
+        const char c = opening_for(task).a_colour;
+        return c && (task % 2) != (c == 'B' ? 0 : 1);
+    }
+
     std::optional<long> take_task() {
         std::lock_guard lock(mu);
+        while (next_task < total_games && skipped(next_task)) ++next_task;
         if (stop_scheduling || g_interrupted || next_task >= total_games) return std::nullopt;
         return next_task++;
     }

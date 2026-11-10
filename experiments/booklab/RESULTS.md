@@ -125,6 +125,19 @@ GuiNN 346 of 351.**
   conversion fix (t3/wld-conversion) is worth far more than any book change; `missed_wins.txt` (362 FENs, first
   won position per game, Regicide to move or just moved) is its regression set.
 
+## WP9: conversion test harness
+
+- **tools/match change (20 lines, `scripts/patch_match_colour.py`):** an openings-file line may carry a third field,
+  `FEN | moves | A=B` or `A=W`, which fixes engine A's colour for that opening; the game with colours reversed is not
+  scheduled ("Games: N of 2N scheduled"). Lines without the field behave as before; referee test passes.
+- `tools/booklab/wp9.py decks` writes one deck per opponent (≤ 40 positions per deck, so each lock hold stays under
+  about 20 min) from WP8's table 1: every first database-won position, Regicide = A with the winning side, against the
+  opponent of the original game (GuiNN 198, KingsRow 158, Cake 6 positions). `wp9.py report` replays the games with
+  `booklab_dbscan`: converted / not converted per opponent and piece count, plies to the win, every non-converted
+  position with its ending and last 20 moves, and every game where Regicide moved from a won position into a
+  non-won one. Runner: `scripts/wp9_run.sh DLL TAG POSDIR` (0.5 s/move, baseline settings, timing lock per deck).
+- Baseline (before the fix): 60 random positions (seed 9: GuiNN 35, KingsRow 24, Cake 1), `bl-r6`; running.
+
 ## Review fixes (2026-11-10, after 8535bca)
 
 1. **Capture identity.** `booklab_replay`, `booklab_show`, `booklab_apply` reports now write captures with their full

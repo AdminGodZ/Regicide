@@ -22,7 +22,11 @@ done
 grep -v "^THEORY" $L/status > $E/timeline.txt || true
 [ -n "$BOOK" ] && cp $BOOK $E/book_booklab.bin
 cd $W
-git add -A tools/booklab experiments/booklab CMakeLists.txt tools/bookgen.cpp
+mkdir -p $E/wp9
+for d in $L/wp9/*/; do [ -f $d/positions.tsv ] && { mkdir -p $E/wp9/$(basename $d); cp $d/*.txt $d/positions.tsv $E/wp9/$(basename $d)/; }; done
+cp $L/wp9/report-*.md $E/wp9/ 2>/dev/null || true
+cp $J/wp9_run.sh $J/patch_match_colour.py $J/requeue1.sh $E/scripts/ 2>/dev/null || true
+git add -A tools/booklab tools/match experiments/booklab CMakeLists.txt tools/bookgen.cpp
 git -c user.name=AdminGodZ -c user.email=159120313+AdminGodZ@users.noreply.github.com commit -q -F $M || echo "(nothing to commit)"
 git push -q -u origin t3/booklab 2>&1 | tail -2
 git log --oneline -1

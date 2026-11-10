@@ -8,7 +8,7 @@
 # Must run inside an attached wsl.exe session (Windows interop). Output ~/regicide-match/results/bl-TAG.
 set -u
 A=$1; B=$2; TAG=$3; DECK=$4; MT=${5:-0.5}; CONC=${6:-8}
-MATCH=~/regicide-match/bin/match-747ab51
+MATCH=${MATCH:-~/regicide-match/bin/match-747ab51}  # WP9 sets MATCH to the booklab build (A=B/A=W openings)
 CB='/mnt/c/regicide-match/bin/b71dfa9/cbhost.exe'
 E='C:\regicide-match\engines'
 DB8='C:\regicide-match\db\kingsrow_wld8'
