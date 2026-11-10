@@ -98,7 +98,10 @@ void reader_thread() {
             if (g_searching) g_playnow = 1;
             continue;
         }
-        if (line == "quit" && g_searching) g_playnow = 1;
+        if (line == "quit") {  // also ends the search of a go that is still queued or being prepared
+            g_stop_for = g_go_read.load();
+            if (g_searching) g_playnow = 1;
+        }
         std::istringstream words(line);
         std::string first;
         if (words >> first && first == "go") ++g_go_read;
@@ -106,6 +109,7 @@ void reader_thread() {
         g_queue.push_back(line);
         g_queue_cv.notify_one();
     }
+    g_stop_for = g_go_read.load();  // end of input: as `quit`
     g_playnow = 1;
     std::lock_guard lock(g_queue_mutex);
     g_queue.push_back("quit");

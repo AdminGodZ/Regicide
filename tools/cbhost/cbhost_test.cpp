@@ -5,9 +5,17 @@
 //                                      stop flag set on entry and returns at once
 //   cbhost_test charged CBHOST ENGINE  the runner charges a CheckerBoard time bank with the time the engine spent
 //                                      in getmove, not with the host's preparation before it
+//   cbhost_test incremental CBHOST ENGINE MATCH
+//                                      the same in an incremental time control: an engine that answers at once but
+//                                      takes 350 ms for the game history does not lose a 0.05 s game on time
+#include <unistd.h>
+
 #include <chrono>
 #include <cstdio>
+#include <filesystem>
+#include <fstream>
 #include <iostream>
+#include <iterator>
 #include <string>
 #include <thread>
 
@@ -77,12 +85,39 @@ int charged(const std::string& cbhost, const std::string& engine) {
     return ok ? 0 : 1;
 }
 
+// One two-ply game through the match executable, engine A with a 350 ms history command, 0.05 s on the clock.
+int incremental(const std::string& cbhost, const std::string& engine, const std::string& match_exe) {
+    namespace fs = std::filesystem;
+    const fs::path dir = fs::temp_directory_path() / ("cbhost_test_" + std::to_string(::getpid()));
+    fs::create_directories(dir);
+    std::ofstream(dir / "opening.txt") << "B:W21-32:B1-12\n";
+    const std::string spec = "exec:" + cbhost + " " + engine;
+    match::Process run;
+    std::string err, line;
+    const bool started = run.start({match_exe, "-a", spec, "-b", spec, "--option-a", "set histdelay 350", "--openings",
+                                    (dir / "opening.txt").string(), "--tc", "0.05+0", "--max-plies", "2", "-c", "1",
+                                    "--out", (dir / "out").string()},
+                                   "/dev/null", err);
+    const auto deadline = Clock::now() + std::chrono::seconds(60);
+    while (started && run.read_line(line, deadline) == match::Process::Read::Line) {
+    }
+    std::ifstream in(dir / "out" / "summary.txt");
+    const std::string summary((std::istreambuf_iterator<char>(in)), std::istreambuf_iterator<char>());
+    fs::remove_all(dir);
+    const bool played = summary.find("Games: 2 of 2") != std::string::npos;
+    const bool forfeit = summary.find("time forfeit") != std::string::npos;
+    if (!started || !played) std::cerr << "FAIL: the match plays its two games (" << err << ")\n" << summary;
+    if (forfeit) std::cerr << "FAIL: the history command is not charged to the clock\n" << summary;
+    return started && played && !forfeit ? 0 : 1;
+}
+
 }  // namespace
 
 int main(int argc, char** argv) {
     const std::string what = argc > 1 ? argv[1] : "";
     if (argc == 4 && what == "stop") return stop(argv[2], argv[3]);
     if (argc == 4 && what == "charged") return charged(argv[2], argv[3]);
-    std::cerr << "usage: cbhost_test stop|charged CBHOST ENGINE\n";
+    if (argc == 5 && what == "incremental") return incremental(argv[2], argv[3], argv[4]);
+    std::cerr << "usage: cbhost_test stop|charged CBHOST ENGINE | incremental CBHOST ENGINE MATCH\n";
     return 2;
 }
