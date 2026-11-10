@@ -199,9 +199,10 @@ Checks:
   reachable and none unreachable beyond the 3.
 - **Same play as r8:** every position with Regicide to move in the games played with the r6/r7/r8 books (WP9
   steps 3–4, the re-tests, the final validation so far) probed in both books: first 3,046 games / 110,157 positions,
-  re-run at 14:46 on **3,534 games / 124,038 positions: 0 differ**; none of the 4 removed positions occurred.
+  re-run at 14:46 on 3,534 games / 124,038 positions, and after the final validation on **all 4,314 games / 148,864
+  positions: 0 differ**; none of the 4 removed positions occurred.
   (`book_equiv_r10.md`; every position with both books' moves: `data/book_equiv_r10_positions.tsv.gz`; re-run again
-  when the final validation ends.)
+  when the final validation ends: done, see the numbers above.)
 - r8 reproduces byte-identically from the repair files with the current assemble.sh.
 
 ## Pre-merge review fixes (branch merged with master 456e9b2: ctest 27/27, bench 7,677,736)

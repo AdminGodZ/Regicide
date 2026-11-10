@@ -1,0 +1,2 @@
+== good: match: 2 games (1 openings from /home/admingod/regicide-jobs/booklab/decks/n8q_smoke.txt), 0.1s/move (CheckerBoard match rules), concurrency 2, output /home/admingod/regicide-match/results/bl-n8q-verify-good [   1/2] /home/admingod/regicid B-A 1/2-1/2 repetition         | A +0 =1 -0 (50.0%, draws 10
+== bad: match: 2 games (1 openings from /home/admingod/regicide-jobs/booklab/decks/n8q_smoke.txt), 0.1s/move (CheckerBoard match rules), concurrency 2, output /home/admingod/regicide-match/results/bl-n8q-verify-bad  Match: A = , B =  

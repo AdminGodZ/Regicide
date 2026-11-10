@@ -316,3 +316,7 @@ BL start n8q-verify-good regicide:bl-456e9b2-r10 vs guinn; bg: datagen-eb1037c:T
 BL end n8q-verify-good rc=0 A: +0 =2 -0   score 1.0/2 = 50.00%   draw rate 100.0% Elo (pentanomial, pairs): -0.0 [-0.0, -0.0] 95% CI, score 0.5000 +- 0.0000, LOS 50.00% 2026-11-10T16:23:54+01:00
 BL wait-lock n8q-verify-bad regicide:bl-456e9b2-r10 vs guinn deck /home/admingod/regicide-jobs/booklab/decks/n8q_smoke.txt mt 0.1 c 2 2026-11-10T16:23:54+01:00
 BL start n8q-verify-bad regicide:bl-456e9b2-r10 vs guinn; bg: datagen-eb1037c:T bash:S datagen-tr6:S  2026-11-10T16:23:54+01:00
+BL end n8q-verify-bad rc=1 A: +0 =0 -0   score 0.0/0 = 0.00%   draw rate 0.0%  2026-11-10T16:23:56+01:00
+F4 start 2026-11-10T16:24:33+01:00
+BL wait-lock f4-cake-h1 regicide:bl-456e9b2-r10 vs cake deck /mnt/c/regicide-match/jobs/booklab/acf156_h1.txt mt 0.5 c 8 2026-11-10T16:24:33+01:00
+BL start f4-cake-h1 regicide:bl-456e9b2-r10 vs cake; bg: datagen-eb1037c:T bash:S datagen-tr6:S  2026-11-10T16:24:33+01:00

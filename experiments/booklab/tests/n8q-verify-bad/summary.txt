@@ -1,0 +1,13 @@
+Match: A = , B = 
+Openings: /home/admingod/regicide-jobs/booklab/decks/n8q_smoke.txt (1 openings x 1 rounds, each played with both colours)
+Time control: 0.1s/move (CheckerBoard match rules); no-progress rule: 40 moves
+Games: 0 of 2 scheduled
+
+A: +0 =0 -0   score 0.0/0 = 0.00%   draw rate 0.0%
+A as black: +0 =0 -0   A as white: +0 =0 -0
+By colour: black won 0, white won 0, drawn 0
+Pairs: 0   pentanomial [LL LD DD/WL WD WW] = [0 0 0 0 0]
+Terminations:
+A : 0 moves, avg 0.000s/move, max 0.000s
+B : 0 moves, avg 0.000s/move, max 0.000s
+FATAL: worker 1: A: the engine rejected 'cmd set evalfile C:\regicide-match\nets\booklab\missing.nnue' (reply 0 cannot open C:\\regicide-match\\nets\\booklab\\missing.nnue); --allow-rejected-options plays on anyway
