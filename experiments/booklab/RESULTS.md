@@ -136,6 +136,23 @@ the WP9 test runs (`bl-wp9*`, they start from won positions) and can restrict th
   1,011 of 1,017; KingsRow 226 of 248; GuiNN 347 of 352. Opponent vs opponent: 90 reached, 66 converted (the new games
   are other agents' runs). The scan now also records the longest no-progress run per game.
 
+## WP9 step 3: the 362 missed wins against the original opponents (`wp9/report-wp9conv1.md`)
+
+Every position of `missed_wins.txt` played once from that position, Regicide (engine A) with the side that has the
+database win, against the opponent of the original game with its usual 8-piece database; 0.5 s/move, threefold
+repetition and the 40-move rule, timing lock per deck of ≤ 40 positions (`scripts/wp9_run.sh`).
+
+| DLL | Positions | Converted | Cake | GuiNN | KingsRow | 7 pieces | 8 pieces | Left the won region |
+|---|---|---|---|---|---|---|---|---|
+| bl-r6 (before: engine fcf6acb, round-6 book) | random 60 | **1 (1.7%)** | 0/1 | 0/35 | 1/24 | 0/3 | 1/57 | 26 games |
+| **bl-conv1** (engine 714502c + round-6 book) | all 362 | **362 (100%)** | 6/6 | 198/198 | 158/158 | 16/16 | 346/346 | **0** |
+| bl-conv3 (2156359 + round-6 book) | random 100 | running | | | | | | |
+
+- bl-conv1, plies to the win: median 109, quartiles 95–129, max 210.
+- Highest no-progress count (plies without a capture or man move; the 40-move rule draws at 79) in the converted
+  games: median 27, max 63; 12 games reached ≥ 40 plies, 2 ≥ 60, none ≥ 70.
+- No failures, so there is no failure list; the per-game table (plies, no-progress maximum) is in the report.
+
 ## WP9 step 2: conversion_test with the real 2–8-piece database (bl-conv1 tree, engine 714502c)
 
 `conversion_test --dir ~/regicide-data/egdb --pieces P --kind both --sample 200 --cap 32 --nodes 100000

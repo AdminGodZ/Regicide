@@ -52,15 +52,16 @@ def main():
             if not ((bf in TOP and wf in TOP) or (bf == "regicide" and wf in TOP) or (wf == "regicide" and bf in TOP)):
                 continue
             mv = " ".join(m for m, _ in moves)
+            # result first: an unfinished copy must not hide a finished copy of the same game as a "duplicate"
+            res = {"1-0": "B", "0-1": "W", "1/2-1/2": "D"}.get(tags.get("Result", "").strip())
+            if res is None:  # "*" or missing: interrupted or unfinished game, no final result
+                unfinished.append((run, tags.get("Round", ""), tags.get("Result", "")))
+                continue
             k = (bf, wf, tags.get("FEN", ""), mv)
             if k in seen:
                 dups += 1
                 continue
             seen.add(k)
-            res = {"1-0": "B", "0-1": "W", "1/2-1/2": "D"}.get(tags.get("Result", "").strip())
-            if res is None:  # "*" or missing: interrupted or unfinished game, no final result
-                unfinished.append((run, tags.get("Round", ""), tags.get("Result", "")))
-                continue
             games.append(dict(run=run, round=tags.get("Round", ""), ballot=ballot_of(tags.get("Opening", ""))[0],
                               bf=bf, wf=wf, res=res, term=tags.get("Termination", ""), fen=tags.get("FEN", ""), mv=mv))
     print(f"{len(games)} games ({dups} duplicates removed, {len(unfinished)} games without a final result skipped)",
