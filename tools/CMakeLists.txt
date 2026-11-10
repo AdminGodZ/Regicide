@@ -61,4 +61,12 @@ if(NOT WIN32)
       add_test(NAME ${name} COMMAND ${name}_test $<TARGET_FILE:bookgen>)
     endforeach()
   endif()
+  # datagen, run as a process for one seeded game.
+  if(TARGET regicide_core AND TARGET datagen)
+    add_executable(datagen_partial_loss_test ${CMAKE_SOURCE_DIR}/tests/datagen_partial_loss_test.cpp
+                   match/engine_process.cpp)
+    target_include_directories(datagen_partial_loss_test PRIVATE match ${CMAKE_SOURCE_DIR}/tests)
+    target_link_libraries(datagen_partial_loss_test PRIVATE regicide_core Threads::Threads)
+    add_test(NAME datagen_partial_loss COMMAND datagen_partial_loss_test $<TARGET_FILE:datagen>)
+  endif()
 endif()
