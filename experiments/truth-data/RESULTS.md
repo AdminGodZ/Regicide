@@ -372,6 +372,9 @@ extra threads stopped during these runs (load 9–10). The n6c Cake runs are the
 **Reading.** The self-play gain does not show against Cake with the book off: the same 5 losses per 312 games, on
 other ballots. Against KingsRow n8bn is +2 games better than n6c, within noise.
 
+**Book-mode note (lead, 2026-11-10): KingsRow ran with book mode 1 in all of these runs, not mode 3.** Every conclusion
+here and below that rests on KingsRow is provisional until it is repeated with mode 3.
+
 ### Review fixes (before any E5 data)
 
 - **Incomplete searches.**
@@ -866,6 +869,77 @@ All 94 analysed games: proven lost at median 11.0 pieces; turns at 20–24 / 17�
 
 **Reading so far:** the games are proven lost at a median of 11 pieces, but the deep score falls below −50 much earlier: in most games while 20–24 pieces are still on the board, and in none at ≤ 8 pieces. That agrees with the reviewer's measurement that the search is nearly error-free one step beyond the database. The losses are made in the opening and early middle game.
 
+
+#### KingsRow, book mode 3: the seven games Regicide lost as Black (Book Lab k3; lead, 2026-11-10)
+
+The seven games (origin/t3/booklab `experiments/booklab/k3/`, `k3_losses.md`) are four distinct lines:
+- #60: a-h1 and b-h1 52.1, the same game.
+- #71: a-h1 and b-h1 63.1, the same game.
+- #141/#9: #141 a-h2 49.1 and #9 b-h1 8.1. The ballots differ, but the games are the same from ply 4 on by
+  transposition.
+- #34: b-h1 31.1.
+
+For every position Regicide (Black) had to move, from the end of the ballot to the first position a 20M-node search
+(n6c, 8-piece database) proves lost, we record:
+- the static eval and a 1M-node search of n6c and of n8q;
+- the exact positions and their one-move neighbours in the training data: the E2 files gen1–gen5c with their original
+  results, and the E5 files gen6a/gen6b.
+
+Searches: this branch's CLI, book off, fresh hash, game history kept. Ply k = the position after k plies (Black to
+move); `k3_losses.md` counts the move made there as ply k+1, and its plies are converted to this numbering in the table.
+"Turn" = Black's moves after which the 20M value fell by ≥ 40 cm.
+
+| line | Book Lab (in game): own search from / own score ≤ −100 from | turn: ply (pieces), 20M before → after | game move; 20M, n6c 1M, n8q 1M choose | there: static n6c / n8q; 1M n6c / n8q | proven lost (20M): ply, pieces | in training (exact) |
+|---|---|---|---|---|---|---|
+| #60 | 12 / 18 | 12 (18): −39 → −81; 18 (18): −109 → −177 | 2-6; 3-7, 2-6, 3-7 — 16-20; 5-9, 5-9, 16-20 | ply 18: −71 / −82; −96 / −104 | 102, 9 (20M at −100 to −130 from ply 26 to 100) | to ply 12 (ply 6/10: ~750 records each, mostly D/L, mean −34; ply 12: 1, L); later only ply 48 (10 pieces: 5, L, −126) |
+| #71 | 4 / 16 | 12 (20): −21 → −88; 14 (20): −88 → −129 | 2-7; 3-7, 3-7, 3-7 — 7-10; 5-9, 5-9, 7-11 | ply 14: −39 / −44; −57 / −28 | 44, 11 | to ply 14 (ply 8: 607, mostly D; ply 12: 6, D; ply 14: 1, L) |
+| #141/#9 | 10 / 48 | slide under 20M's own moves: 36 (17) −35, 38 −75, 40 −118, 42 −226, 44 −322, 48 −511, 52 −724 | 20M agrees with the game at 36, 38, 44, 46, 50, 52; prefers 12-16, 11-16, 13-17 at 40, 42, 48 | plies 40–52: n6c −16 … −101 (one −238 before a capture), n8q −10 … −243; 1M n6c −28 … −129, n8q −82 … −405 | 54, 15 | to ply 18 (18 pieces; ply 6: 1129 records, D/L, mean −27); none from ply 20 on |
+| #34 | 12 / 16 | 26 (14): −58 → −122 | 11-15; 10-15, 11-15, 10-15 | ply 26: −40 / −32; −67 / −128 | 46, 11 | to ply 26 (14 pieces): plies 12–26 each 72 records, all from one game repeated 36 times in gen5a and in gen5c, labelled lost (E2 and original), score −30 … −71 |
+
+One-move neighbours add nothing beyond the plies with exact hits: after ply 20 there are only two single records.
+
+Files:
+- `data/k3/k3_lines.md`: full per-ply tables.
+- `data/k3/k3_hits.txt`: training hits per file.
+- `data/k3/k3_decisions.txt`: move choices at each drop.
+- `scripts/k3.py`: the script.
+
+**Reading.**
+- **Three of the four lines (#60, #71, #34) turned on 40–70 cm choices at 14–20 pieces.**
+  - At each turn, the 20M search prefers a move other than the game's.
+  - The two nets' 1M searches split. n6c picks the game's move at #60 ply 12 and at #34. n8q picks it at #60 ply 18.
+    At #71 ply 12, all three searches pick 3-7, but the game's own search played 2-7.
+  - At #60 ply 12 the losing move was the game's first own search after the book.
+  - The static evals at the turns are only mildly negative (−30 … −80). A 1M search with either net reaches the 20M
+    verdict within one move:
+
+    | position | 1M n6c / n8q | 20M |
+    |---|---|---|
+    | #60 ply 20 | −124 / −137 | −177 |
+    | #71 ply 16 | −109 / −190 | −129 |
+    | #34 ply 30 | −119 / −175 | −148 |
+
+  - **This is search depth, not a structure the net cannot judge.** These positions are not proven: the 20M value is
+    n6c's own opinion. It is not checked that 20M's alternative move actually holds the draw.
+- **#141/#9 is different.**
+  - The 20M value slides from −35 to −724 over eight Black moves, while 20M agrees with most of the game's moves. So the
+    game was already worse at ply 36 (17 pieces) than even 20M saw: the error lies there or earlier, beyond its horizon.
+  - At plies 40–52, where 20M says −118 … −724, n6c's static eval and its 1M search stay at −20 … −130. **n6c
+    misjudges this structure, and only the 20M search makes up for it.**
+  - n8q's 1M search is closer (−82 … −405) but erratic.
+  - The game's own search fell to ≤ −100 only at ply 48, eight plies after 20M did.
+- **Training data.**
+  - From the turn onwards, no position of any line is in the data, and neither is any one-move neighbour, except in #34.
+  - In #34, the line up to and including the turn position (14 pieces) is in gen5a/gen5c 72 times. All 72 records come
+    from one seeded game, repeated 36 times in each file. All are labelled lost, with mild scores (−30 … −71), and the
+    nets' mild static evals there match those scores.
+  - All other exact hits are opening positions (18–24 pieces), with mixed draw/loss labels.
+  - The 8-piece database plays no part: the proofs come at 9–15 pieces, long after the turns.
+- **Caveats.**
+  - There is one game per line.
+  - The 20M reference search uses n6c, so it is not independent of n6c.
+  - The game's own search disagrees with 20M at times: at #34 it was at ≤ −100 from ply 16, where 20M says −25.
+  - KingsRow-based results stay provisional (see the book-mode note in P1).
 
 <!-- PHASE3MORE -->
 
