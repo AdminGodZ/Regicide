@@ -72,6 +72,18 @@ add_executable(perft_test tests/perft_test.cpp)
 target_link_libraries(perft_test PRIVATE regicide_core)
 add_test(NAME perft COMMAND perft_test)
 
+add_executable(search_test tests/search_test.cpp)
+target_link_libraries(search_test PRIVATE regicide_core)
+add_test(NAME search COMMAND search_test)
+
+add_executable(fen_test tests/fen_test.cpp)
+target_link_libraries(fen_test PRIVATE regicide_core)
+add_test(NAME fen COMMAND fen_test)
+
+add_executable(ttmove_test tests/ttmove_test.cpp)
+target_link_libraries(ttmove_test PRIVATE regicide_core)
+add_test(NAME ttmove COMMAND ttmove_test)
+
 add_executable(eval_test tests/eval_test.cpp)
 target_link_libraries(eval_test PRIVATE regicide_core)
 add_test(NAME eval_builtin COMMAND eval_test)
@@ -154,6 +166,11 @@ add_test(NAME egdb_data COMMAND egdb_test --data)
 # The search probes the endgame database.
 set_target_properties(regicide_egdb PROPERTIES POSITION_INDEPENDENT_CODE ON)
 target_link_libraries(regicide_core PUBLIC regicide_egdb)
+
+# Conversion of database wins without distance information, on a small generated database.
+add_executable(conversion_test tests/conversion_test.cpp)
+target_link_libraries(conversion_test PRIVATE regicide_core)
+add_test(NAME conversion COMMAND conversion_test)
 
 option(REGICIDE_TOOLS "Build the match tools (cbhost, match runner)" ON)
 if(REGICIDE_TOOLS)

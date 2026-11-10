@@ -111,6 +111,32 @@ int main(int argc, char** argv) {
         return 1;
     }
 
+    // Malformed commands are answered as not handled; none may throw out of the library.
+    for (const char* bad : {"set evalfile", "set avoidfile", "set dbpath", "set param tm_soft=abc", "set param tm_soft",
+                            "set", ""})
+        if (command(bad, reply) != 0) {
+            std::cerr << "malformed command accepted: '" << bad << "' -> " << reply << '\n';
+            return 1;
+        }
+
+    // A search stopped before it has scored a move knows nothing: no win or loss claim (3 = unknown).
+    {
+        if (command("get book", reply) != 1) return 1;
+        const std::string book = reply;
+        command("set book 0", reply);
+        Board8x8 b;
+        to_board(Position(), b);
+        char str[1024] = "";
+        int playnow = 1;
+        unsigned char cbmove[512];
+        const int claim = getmove(b, 2, 0.01, str, &playnow, 1, 0, cbmove);
+        if (claim != 3) {
+            std::cerr << "a search stopped at once claims " << claim << '\n';
+            return 1;
+        }
+        command(("set book " + book).c_str(), reply);
+    }
+
     Position pos;
     int plies = 0;
     for (; plies < 200; ++plies) {

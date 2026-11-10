@@ -16,6 +16,10 @@
 
 namespace regicide {
 
+// A game is drawn after this many plies in a row without a capture or a man move: CheckerBoard's rule, 40 moves
+// by one side and 39 by the other. The match runner applies the same count.
+constexpr int NO_PROGRESS_PLIES = 79;
+
 struct Limits {
     int depth = MAX_PLY - 1;
     std::uint64_t nodes = 0;  // 0 = unlimited
@@ -44,8 +48,19 @@ struct SearchInfo {
 
 struct SearchResult {
     Move best;
+    // The best score known when the search ended. If the last iteration was cut short (`partial`), this comes from
+    // that iteration: it can be an aspiration bound instead of a score, and it covers only the root moves searched
+    // so far, so a losing score then says that those moves lose, not that the position is lost.
     Score score = 0;
-    int depth = 0;
+    int depth = 0;  // last completed iteration
+    Score completed_score = -SCORE_INF;  // its score; -SCORE_INF if no iteration was completed
+    bool partial = false;
+    // The score as a statement about the position: a losing score from a partial iteration only says that the
+    // moves searched so far lose, so the last completed score stands in for it (0 if no iteration was completed).
+    Score sound_score() const {
+        if (!partial || score > -SCORE_KNOWN_WIN) return score;
+        return completed_score != -SCORE_INF ? completed_score : SCORE_DRAW;
+    }
     std::uint64_t nodes = 0;
     std::int64_t time_ms = 0;
     std::vector<Move> pv;
@@ -104,10 +119,24 @@ public:
     void stop() { stop_.store(true, std::memory_order_relaxed); }
     // Polled by the main search thread; returning true aborts the search (e.g. a GUI "play now").
     void set_stop_poll(std::function<bool()> poll) { stop_poll_ = std::move(poll); }
-    void set_evaluator(std::shared_ptr<const Evaluator> e) { eval_ = std::move(e); }
+    // Clears the hash table: it holds static evals and scores of the previous evaluator.
+    void set_evaluator(std::shared_ptr<const Evaluator> e) {
+        eval_ = std::move(e);
+        tt_.clear();
+    }
     // Probe the (process-wide, already initialised) endgame database in positions with at most n pieces; 0 = off.
-    void set_egdb_pieces(int n) { egdb_pieces_ = n; }
+    // A change clears the hash table: scores and evals of database positions depend on it.
+    void set_egdb_pieces(int n) {
+        if (n != egdb_pieces_) tt_.clear();
+        egdb_pieces_ = n;
+    }
     int egdb_pieces() const { return egdb_pieces_; }
+    // Use moves-to-conversion only in positions with at most n pieces (default: wherever the database has it).
+    // Lets tests stand in small generated tables for the real database's WLD-only range.
+    void set_egdb_mtc_pieces(int n) {
+        if (n != egdb_mtc_pieces_) tt_.clear();
+        egdb_mtc_pieces_ = n;
+    }
     // nullptr disables the book. `margin` > 0 picks randomly among book moves within margin of the best.
     void set_book(std::shared_ptr<const Book> b, int margin = 0) {
         book_ = std::move(b);
@@ -118,6 +147,7 @@ public:
     void set_avoid(std::shared_ptr<const Book> a) { avoid_ = std::move(a); }
     const Book* avoid() const { return avoid_.get(); }
     const Evaluator& evaluator() const { return *eval_; }
+    const TranspositionTable& hash() const { return tt_; }  // for tests and diagnostics
 
     SearchParams params;
 
@@ -127,6 +157,9 @@ private:
     std::optional<std::pair<Move, Score>> egdb_root_move(const Position& root, const std::vector<Move>& list) const;
 
     TranspositionTable tt_;
+    // Late-move reductions by depth and move number, filled from `params` by go(). Per engine: engines with
+    // different parameters search at the same time in one process (selfplay).
+    int lmr_[64][64] = {};
     std::vector<std::unique_ptr<struct Worker>> workers_;
     Position root_;
     std::vector<Key> history_;
@@ -136,6 +169,8 @@ private:
     std::shared_ptr<const Book> book_;
     std::shared_ptr<const Book> avoid_;
     int egdb_pieces_ = 0;
+    int egdb_mtc_pieces_ = 32;
+    int conversion_ = 0;  // this search converts a database win (+1) or defends a database loss (-1); see go()
     int book_margin_ = 0;
     std::uint64_t book_seed_ = 0x1234567;
     int threads_ = 1;

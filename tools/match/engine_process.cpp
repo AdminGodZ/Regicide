@@ -159,6 +159,17 @@ bool Engine::launch(std::string& err) {
             proc_.kill();
             return false;
         }
+        // "reply 0 ...": the engine did not accept the command, so it would play with other settings than asked.
+        if (line.rfind("reply 0", 0) == 0) {
+            if (!spec_.allow_rejected) {
+                err = spec_.label + ": the engine rejected 'cmd " + c + "' (" + line +
+                      "); --allow-rejected-options plays on anyway";
+                proc_.kill();
+                return false;
+            }
+            std::fprintf(stderr, "warning: %s: the engine rejected 'cmd %s' (%s)\n", spec_.label.c_str(), c.c_str(),
+                         line.c_str());
+        }
     }
     // Warm-up search so one-time initialisation does not count against the first game's clock.
     proc_.send("newgame");
@@ -186,6 +197,7 @@ GoResult Engine::go(const std::string& position, const std::string& go_cmd, Cloc
                     Clock::time_point kill_at) {
     GoResult r;
     std::string line;
+    const auto entered = Clock::now();
     if (!proc_.send(position)) {
         r.status = GoResult::Status::Crash;
         r.detail = "engine process is gone";
@@ -213,6 +225,9 @@ GoResult Engine::go(const std::string& position, const std::string& go_cmd, Cloc
     }
 
     auto t0 = Clock::now();
+    // The caller set the deadlines before the position was sent, but the engine is charged from here on.
+    stop_at += t0 - entered;
+    kill_at += t0 - entered;
     if (!proc_.send(go_cmd)) {
         r.status = GoResult::Status::Crash;
         r.detail = "engine process is gone";
