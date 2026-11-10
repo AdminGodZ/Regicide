@@ -151,14 +151,21 @@ with the current engine (master fcf6acb, built-in n6c, no history, fresh hash) a
 and 200k nodes. "Proven": a decisive score (database win/loss or a forced win). "Stored result wrong": the game
 result in the file disagrees with the proof at 200k; "E2 result wrong": the same after `truth relabel`.
 
-> **Note (2026-11-10).** This pilot was run before the partial-loss rule (`tools/label.hpp`, from master 5ea3189). It
-> took the score of a search as given, so a losing score from an unfinished last iteration counted as a proof. The
-> pilot (`truth pilot`) now uses `label_of`, as rescore and datagen do. The table therefore **overstates the proven
-> losses** somewhat.
-> - In the gen4a rescore under the new rule, 16,120 of 708,208 would-be proven losses (2.3%) were partial; that is
->   0.36% of all its searches.
-> - The proven shares below (wins and losses together) would drop by about one percentage point or less.
-> - The conclusions do not change.
+> **Re-run with the corrected label rule (2026-11-10).** The table below was made with the first pilot, which took a
+> search's score as given: a losing score from an unfinished last iteration counted as a proof. The same 200k records
+> were searched again with `truth pilot` using `label_of` (`tools/label.hpp`), on the current engine (this branch with
+> master 2efe11a merged). Full output: `logs/pilot2_report.md`; per-record data: `data/pilot2_label_rule.csv.gz`.
+>
+> | | proven @10k | proven @50k | proven @200k | stored result wrong (of proven @200k) |
+> |---|---|---|---|---|
+> | 9 pieces: first pilot / re-run | 64.9% / 64.3% | 72.9% / 72.6% | 77.9% / 77.6% | 22.0% / 21.9% |
+> | 12 pieces | 7.7% / 7.4% | 13.9% / 13.5% | 20.5% / 20.0% | 13.4% / 13.2% |
+> | 9–14 pieces | 30.5% / 30.0% | 38.0% / 37.6% | 44.1% / 43.7% | 17.5% / 17.4% |
+>
+> - The first pilot overstated the proven shares by 0.3–0.6 percentage points.
+> - Under the rule every proof is stable: all 59,990 positions proven at 10k nodes are still proven at 200k (first pilot:
+>   45 of 60,954 were not, 1 with the opposite sign).
+> - The conclusions drawn from the pilot do not change.
 
 records 200000 (14092 from 50k-node files)  budgets 10000, 50000, 200000
 
