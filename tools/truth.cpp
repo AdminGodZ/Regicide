@@ -8,6 +8,7 @@
 //                 --out pilot.csv FILE...            searches random records with the database at each budget
 //   truth split   --in IN --out OUT --min 9 --max 12 --proven [--from F]   copies matching records (F: first
 //                                                    record index considered)
+//   truth probe   --egdb DIR FEN...                  database value (side to move) of each position
 //   truth seeds   --min 6 --max 40 --opponents cake,kingsrow,guinn --out seeds.txt PDN...
 //                                                    positions after plies min..max of real games (datagen --seeds)
 //
@@ -35,6 +36,7 @@
 
 #include "datafile.hpp"
 #include "egdb/egdb.hpp"
+#include "label.hpp"
 #include "movegen.hpp"
 #include "position.hpp"
 #include "search.hpp"
@@ -254,8 +256,10 @@ int pilot(const std::vector<std::string>& files, long n, int lo, int hi, const s
                 l.nodes = budgets[b];
                 l.use_book = false;
                 const SearchResult sr = engine.go(l);
-                // an incomplete search (sentinel score) counts as unknown (0), never as a proof
-                scores[i][b] = sr.depth >= 1 && std::abs(sr.score) <= SCORE_WIN ? sr.score : 0;
+                // label.hpp, as rescore and datagen: a partial losing score falls back to the completed iteration's score;
+                // a search without a completed iteration counts as unknown (0), never as a proof
+                const auto lab = label_of(sr);
+                scores[i][b] = lab ? lab->score : 0;
             }
             const long d = ++done;
             if (d % 10000 == 0) {
@@ -461,6 +465,18 @@ int main(int argc, char** argv) {
     if (cmd == "census") return census(files);
     if (cmd == "relabel") return relabel(in, out);
     if (cmd == "pilot") return pilot(files, n, lo, hi, budgets, threads, seed, out);
+    if (cmd == "probe") {  // database value (side to move) of each FEN
+        for (const auto& fen : files) {
+            Position p;
+            if (!p.set_fen(fen)) {
+                std::printf("%s bad-fen\n", fen.c_str());
+                continue;
+            }
+            const egdb::Wld w = egdb::probe(p.pieces(BLACK), p.pieces(WHITE), p.kings(), p.side_to_move());
+            std::printf("%s %s\n", fen.c_str(), w == egdb::Wld::Win ? "win" : w == egdb::Wld::Loss ? "loss" : w == egdb::Wld::Draw ? "draw" : "unknown");
+        }
+        return 0;
+    }
     std::cerr << "unknown command " << cmd << '\n';
     return 2;
 }

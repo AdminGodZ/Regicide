@@ -26,6 +26,9 @@ import torch.nn.functional as F
 INPUTS = 128
 ACTIVATION, QA, QB, QH = 1, 255, 64, 127
 OUT_SCALE = 400
+# Run the exact (float64) integer sums of quantisation-aware training on the CPU on every device (automatic on MPS,
+# which has no float64); for tests.
+_EXACT_ON_CPU = __import__("os").environ.get("REGICIDE_EXACT_ON_CPU") == "1"
 SCORE_LIMIT = 14999  # the engine clamps static evals to +-(SCORE_KNOWN_WIN - 1)
 HIDDEN_WIDTHS = (16, 32, 64)  # L1 / L2 widths the engine has kernels for
 FT_TILE = 128  # FT widths are multiples of this
@@ -116,8 +119,19 @@ def proven_of(rec):
     return (rec["stm"] & PROVEN) != 0
 
 
+_POP8 = np.array([bin(i).count("1") for i in range(256)], dtype=np.uint8)
+
+
+def popcount32(x):
+    """Bits set in each uint32 (np.bitwise_count needs NumPy 2.0; this works with 1.24 too)."""
+    if hasattr(np, "bitwise_count"):
+        return np.bitwise_count(x)
+    b = np.ascontiguousarray(x, dtype="<u4").view(np.uint8).reshape(-1, 4)
+    return _POP8[b].sum(1, dtype=np.uint8).reshape(np.shape(x))
+
+
 def piece_counts(rec):
-    return np.bitwise_count(rec["black"] | rec["white"])
+    return popcount32(rec["black"] | rec["white"])
 
 
 def stm_result(rec):
@@ -402,19 +416,24 @@ class Net(nn.Module):
 
         # The integer affine sums (activations 0..127 times int8 weights, plus int32 biases) are formed in float64:
         # float32 is exact only below 2^24, which FT 2048 x 127 x 127 (33M) or a large bias can exceed, and then the
-        # simulated net would differ from the exported one.
+        # simulated net would differ from the exported one. Devices without float64 (MPS) do these few small layers on
+        # the CPU (autograd follows the transfers), so every device trains the same exact integer net.
+        dev = x.device
+        exact = torch.device("cpu") if dev.type == "mps" or _EXACT_ON_CPU else dev
+        bk = bucket.to(exact)
+
         def hidden(layer, inp, n):
             w = ste(layer.weight * QB, torch.round(layer.weight * QB))
             b = ste(layer.bias * QH * QB, torch.round(layer.bias * QH * QB))
-            s = select(F.linear(inp.double(), w.double(), b.double()), bucket, n) / QB
-            return ste(s, torch.floor(s)).clamp(0, QH).float()
+            s = select(F.linear(inp.to(exact).double(), w.to(exact).double(), b.to(exact).double()), bk, n) / QB
+            return ste(s, torch.floor(s)).clamp(0, QH).float().to(dev)
 
         h1 = hidden(self.l1, act, a.l1)
         h2 = hidden(self.l2, h1, a.l2)
         w = ste(self.out.weight * QB, torch.round(self.out.weight * QB))
         b = ste(self.out.bias * QH * QB, torch.round(self.out.bias * QH * QB))
-        y = F.linear(h2.double(), w.double(), b.double()).gather(1, bucket.view(-1, 1)).squeeze(1)
-        return (y * self.out_scale / (QH * QB)).float()
+        y = F.linear(h2.to(exact).double(), w.to(exact).double(), b.to(exact).double()).gather(1, bk.view(-1, 1)).squeeze(1)
+        return (y * self.out_scale / (QH * QB)).float().to(dev)
 
     @torch.no_grad()
     def clip_(self):
