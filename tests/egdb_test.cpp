@@ -88,6 +88,26 @@ void test_index() {
                     }
                 }
     check(bad == 0, "index round trip for 2..4 pieces (" + std::to_string(valid) + " positions)");
+    // The sequential cursor agrees with unindex() on every entry and is not valid after the last one (it used to
+    // read one men configuration beyond its table there).
+    std::uint64_t walked = 0, differ = 0, past_end = 0;
+    for (int n = 2; n <= 3; ++n)
+        for (const Material& m : materials_with(n))
+            for (int x = 0; x < 7; ++x)
+                for (int y = 0; y < 7; ++y) {
+                    const SubDims d = make_dims(m, x, y);
+                    if (!d.size) continue;
+                    Cursor cur(d);
+                    cur.set(0);
+                    for (std::uint64_t i = 0; i < d.size; ++i, cur.next()) {
+                        Pos p;
+                        const bool ok = unindex(d, i, p);
+                        ++walked;
+                        differ += ok != cur.valid || (ok && !(cur.p == p));
+                    }
+                    past_end += cur.valid;
+                }
+    check(differ == 0 && past_end == 0, "cursor walk for 2..3 pieces (" + std::to_string(walked) + " entries)");
     static const std::uint64_t known[] = {0, 120, 6972, 261224, 7092774, 148688232, 2503611964ull};
     for (int n = 2; n <= 6; ++n) {
         const std::uint64_t f = count_positions_formula(n), ix = count_positions_index(n);

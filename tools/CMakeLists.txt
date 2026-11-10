@@ -54,6 +54,7 @@ if(NOT WIN32)
   target_link_libraries(cbhost_test PRIVATE cbt_common Threads::Threads)
   add_dependencies(cbhost_test cbhost cbhost_mock_engine match)
   add_test(NAME cbhost_stop_pending COMMAND cbhost_test stop $<TARGET_FILE:cbhost> $<TARGET_FILE:cbhost_mock_engine>)
+  add_test(NAME cbhost_quit_pending COMMAND cbhost_test quit $<TARGET_FILE:cbhost> $<TARGET_FILE:cbhost_mock_engine>)
   add_test(NAME match_charged_time COMMAND cbhost_test charged $<TARGET_FILE:cbhost> $<TARGET_FILE:cbhost_mock_engine>)
   add_test(NAME match_incremental_charged COMMAND cbhost_test incremental $<TARGET_FILE:cbhost>
            $<TARGET_FILE:cbhost_mock_engine> $<TARGET_FILE:match>)
