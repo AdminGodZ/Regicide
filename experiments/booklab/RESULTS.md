@@ -187,9 +187,21 @@ stated). Loader counts with the current runner: **H1 18 openings (36 games), H2 
 Blocks 3–6 use the current runner (master 40e1f59 tools/match + the A=B/A=W field, `bin/match-cur`) with
 `--allow-rejected-options`, so the opponents receive the same option list as in the final validation. Block 2 used the
 old runner (match-747ab51) like the final runs it is compared with game by game. E/EB/EBN are one engine build:
-master 456e9b2 (engine identical through 40e1f59). Changed positions for "exposure": **958** (of the 987 r10 decisions,
-29 force the move the old book already plays there; `wp10/changed_positions.tsv`). Per-game data:
-`wp10/games.tsv`, game records `wp10/games/*.pdn.gz`, summaries `wp10/runs/`, report `wp10/report.md`.
+master 456e9b2 (engine identical through 40e1f59). Per-game data: `wp10/games.tsv`, game records
+`wp10/games/*.pdn.gz`, summaries `wp10/runs/`, report `wp10/report.md`.
+
+**Book setting (review item 2):** no run of this work (final validation, Block 2, Blocks 3–6, WP11) sends a `set book`
+command; every DLL starts in its default `book_mode = 3` (CB_BOOK_BEST_MOVES), whose margin is 0: the book move is
+the deterministic best entry. (`set book 1` would use margin 60; never used.)
+
+**Exposure (review item 1):** the rule of `experiments/holdout/EXPOSURE.md`: before one of our engine moves after the
+dealt prefix, the position's book entry list differs between old book and r10 (**975 positions**,
+`wp10/changed_entries.txt`; 958 of them change the deterministic probe, `wp10/changed_positions.tsv`), and the engine
+would consult its book there (reversible-ply count 0, reconstructed from the whole record including the dealt moves;
+root not a database win or loss). Implemented with `booklab_pinwalk`; first exposure ply one-based including the
+prefix. **Cross-check with the independent checker (`classify_exposure.py`, `--played-book new` for EB/EBN, `old`
+for E) over every current-engine game so far: 2,880 agree, 0 differ** (`wp10/exposure_xcheck.tsv`). O is not
+cross-checked (the checker models the current book policy).
 
 **Block 2: EBN (master + r10 book + net n8q) on acf156, one 312-game run per opponent, compared with the final
 validation (same engine and book in play, net n6c, two runs):**

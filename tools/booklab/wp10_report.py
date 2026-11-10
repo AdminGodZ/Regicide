@@ -61,7 +61,7 @@ def main():
         if not os.path.exists(f):
             continue
         cfg, opp, panel, block = parse_run(run)
-        for tags, moves in parse_pdn(open(f, errors="replace").read()):
+        for idx, (tags, moves) in enumerate(parse_pdn(open(f, errors="replace").read()), 1):
             bf, wf = family(tags.get("Black", "")), family(tags.get("White", ""))
             col = "B" if bf == "regicide" else "W"
             res = tags.get("Result", "")
@@ -73,7 +73,7 @@ def main():
             if panel == "H2x":
                 pn = f"H2x-t{tier.get(om, '?')}"
             games.append(dict(run=run, block=block, cfg=cfg, opp=opp, panel=pn, opening=om, col=col, res=r,
-                              term=tags.get("Termination", ""), file=gfile, fen=tags.get("FEN", ""), nopen=nopen,
+                              term=tags.get("Termination", ""), file=gfile, idx=idx, fen=tags.get("FEN", ""), nopen=nopen,
                               moves=[m for m, _ in moves]))
     # exposure (rule of experiments/holdout/EXPOSURE.md): before one of our engine moves after the dealt prefix, the
     # position's book entry list differs between the books (--changed: one FEN per line, 975 positions), and the
@@ -103,7 +103,7 @@ def main():
         fb, fw = int(f[13]), int(f[14])
         g["db_reg"] = (fb if g["col"] == "B" else fw)
         g["db_opp"] = (fw if g["col"] == "B" else fb)
-    keys = ["block", "cfg", "opp", "panel", "opening", "col", "res", "term", "exposed", "db_reg", "db_opp", "file"]
+    keys = ["block", "cfg", "opp", "panel", "opening", "col", "res", "term", "exposed", "db_reg", "db_opp", "file", "run", "idx"]
     with open(a.out_tsv, "w") as fo:
         fo.write("\t".join(keys) + "\n")
         for g in games:
