@@ -10,7 +10,7 @@ BASE=$L/book_master.bin
 $W/build-linux/booklab_apply --book $BASE --decisions $D --out $OUT --report ${OUT%.bin}.report.txt | tail -1
 if [ -z "${NOREACH:-}" ]; then
   python3 $W/tools/booklab/reach_check.py --decisions $D --book $OUT --reach $W/build-linux/booklab_reach \
-    --db $L/theory.sqlite --limit 200000 | tee ${OUT%.bin}.reach.txt | tail -12
+     --db $L/theory.sqlite --limit 200000 --egdb ~/regicide-data/egdb | tee ${OUT%.bin}.reach.txt | tail -12
 fi
 [ -n "$NAME" ] && bash /mnt/c/regicide-match/jobs/booklab/bl_build_dll.sh $NAME $OUT 6 | tail -6
 exit 0

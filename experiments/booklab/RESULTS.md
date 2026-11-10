@@ -162,6 +162,17 @@ max 53 (2 games ≥ 40, none ≥ 60); no game left the won region.
   these positions out): **818 decisions, all 818 proved reachable**; `book_booklab.bin` = book_r9. The final
   validation (bl-final1) runs with the r8 book; r9 differs from it only in the 173 positions that no recorded game
   reaches under this book.
+- **Superseded (lead's caution):** "unknown" is not "unreachable". `book_equiv.py` replayed every game played with
+  the r6/r7/r8 books (2,448 games, 93,624 positions with Regicide to move): one of the 173 removed positions occurred
+  (r8 line 943, Skull-Cracker ply 52, 15-18, once), and r8 and r9 differ in exactly that position. So r9 is **not** the
+  merge candidate; the candidate is r8 minus only proved-unreachable decisions (being rebuilt; see below).
+- **reach.cpp now uses the engine's book eligibility** (review point): a book move is treated as forced only where
+  Engine::go would consult the book (`reversible_plies() == 0`, i.e. not inside a run of king moves, and the root not
+  decided by the endgame database), with the database passed to the tool. On r8 **3 verdicts change** (lines 963, 979,
+  990: unknown → reachable); 821 reachable, the same 3 proved unreachable, 167 unknown. A deeper exhaustive search
+  (20M nodes per decision) on the 170 is running.
+- Referee check (PR #38): no game in any result directory on this machine ended as "illegal move"; the only
+  terminations are no legal moves, no progress and repetition.
 - **assemble.sh** now fails on a conflict (two rounds give different moves for the same position: both rows printed),
   and still drops same-move duplicates (39) silently but counts them; r9 assembles with 0 conflicts.
 

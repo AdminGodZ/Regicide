@@ -1,12 +1,13 @@
 // booklab_reach: can a decision's position still arise from its ballot under a given book?
 //
-//   booklab_reach BOOK [NODE_LIMIT] < queries.tsv
+//   booklab_reach BOOK [NODE_LIMIT [EGDB_DIR]] < queries.tsv
 // stdin, one query per line:  ID <TAB> ballot moves from the start position <TAB> target FEN <TAB> max plies
 // optional 5th field: witness moves after the ballot (checked against the book instead of searching)
 // stdout, one line per query: ID <TAB> reachable|unreachable|unknown <TAB> nodes <TAB> path (when reachable)
 //
 // Search: depth-first from the position after the ballot. "Our" side is the side to move in the target. Where our side
-// is to move and the book has a move for the position (Book::probe, best move, avoid list applied), only that move is
+// is to move, the engine would consult its book there (book_applies(): the same test as Engine::go) and the book has
+// a move for the position (Book::probe, best move, avoid list applied), only that move is
 // tried; otherwise every legal move (the engine's search could choose any). The opponent may play any legal move.
 // Pruned by necessary conditions for reaching the target: per colour, men and pieces never increase; men only move
 // forward (for every row r, the target cannot have more men of a colour at or behind... see can_reach()); the ply
@@ -21,6 +22,7 @@
 #include <vector>
 
 #include "book.hpp"
+#include "egdb/egdb.hpp"
 #include "movegen.hpp"
 #include "movetext.hpp"
 #include "position.hpp"
@@ -78,6 +80,19 @@ bool can_reach(const Counts& p, const Counts& t) {
     return true;
 }
 
+int egdb_pieces = 0;
+
+// The same test as Engine::go (src/search.cpp, master 2efe11a) before its book probe: no book move inside a run of
+// king moves (reversible_plies() > 0), nor from a root the endgame database has decided (win or loss).
+bool book_applies(const Position& p) {
+    if (p.reversible_plies() > 0) return false;
+    if (egdb_pieces && p.piece_count() <= egdb_pieces) {
+        const egdb::Wld r = egdb::probe(p.pieces(BLACK), p.pieces(WHITE), p.kings(), p.side_to_move());
+        if (r == egdb::Wld::Win || r == egdb::Wld::Loss) return false;
+    }
+    return true;
+}
+
 struct Search {
     const Book& book;
     Key target;
@@ -85,7 +100,7 @@ struct Search {
     Color ours;
     long limit, nodes = 0;
     bool hit_limit = false;
-    std::set<std::pair<Key, int>> seen;
+    std::set<std::pair<Key, int>> seen;  // (position, 2 * ply + inside a run of king moves)
     std::vector<std::string> path;
 
     bool dfs(const Position& p, int ply, int maxply) {
@@ -95,10 +110,11 @@ struct Search {
             hit_limit = true;
             return false;
         }
-        if (!seen.insert({p.key(), ply}).second) return false;
+        // the book's eligibility depends on the run of king moves, so it is part of the state
+        if (!seen.insert({p.key(), ply * 2 + (p.reversible_plies() > 0)}).second) return false;
         if (!can_reach(counts(p), tc)) return false;
         std::vector<Move> moves;
-        if (p.side_to_move() == ours) {
+        if (p.side_to_move() == ours && book_applies(p)) {
             if (auto m = book.probe(p)) moves.push_back(*m);
         }
         if (moves.empty()) {
@@ -131,6 +147,13 @@ int main(int argc, char** argv) {
         return 1;
     }
     const long limit = argc > 2 ? std::stol(argv[2]) : 2000000;
+    if (argc > 3) {  // endgame database, so that database-decided roots skip the book as in the engine
+        if (!egdb::init(argv[3], 512)) {
+            std::cerr << "no endgame database in " << argv[3] << '\n';
+            return 1;
+        }
+        egdb_pieces = egdb::max_pieces();
+    }
     std::string line;
     while (std::getline(std::cin, line)) {
         std::vector<std::string> f;
@@ -162,7 +185,7 @@ int main(int argc, char** argv) {
                 Move m;
                 if (!parse_move(p, t, m)) { why = "illegal " + t; break; }
                 if (p.side_to_move() == s.ours)
-                    if (auto bm = book.probe(p); bm && !(*bm == m)) { why = "book plays " + booklab::move_text(p, *bm) + " not " + t; break; }
+                    if (auto bm = book_applies(p) ? book.probe(p) : std::nullopt; bm && !(*bm == m)) { why = "book plays " + booklab::move_text(p, *bm) + " not " + t; break; }
                 p.make_move(m);
             }
             const bool hit = why.empty() && p.key() == target.key();

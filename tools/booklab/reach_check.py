@@ -31,8 +31,8 @@ def acf_moves():
     return {int(re.match(r"ACF #(\d+)", n).group(1)): mv for mv, n in theory._ACF.items()}
 
 
-def run(reach, book, limit, queries):
-    out = subprocess.run([reach, book, str(limit)], input="\n".join(queries) + "\n", capture_output=True, text=True,
+def run(reach, book, limit, queries, egdb=""):
+    out = subprocess.run([reach, book, str(limit)] + ([egdb] if egdb else []), input="\n".join(queries) + "\n", capture_output=True, text=True,
                          check=True).stdout
     return [l.split("\t") for l in out.splitlines()]
 
@@ -46,6 +46,7 @@ def main():
     ap.add_argument("--slack", type=int, default=2)
     ap.add_argument("--limit", type=int, default=300000)
     ap.add_argument("--witnesses", type=int, default=30)
+    ap.add_argument("--egdb", default="", help="endgame database: database-decided roots skip the book, as in Engine::go")
     a = ap.parse_args()
     deck = acf_moves()
     db = sqlite3.connect(a.db)
@@ -77,7 +78,7 @@ def main():
             wq.append(f"{n}:{gid}\t{ballot}\t{d['fen']}\t0\t{' '.join(mv) if mv else '-'}")
     proved = {}
     why = collections.defaultdict(list)
-    for f in run(a.reach, a.book, a.limit, wq) if wq else []:
+    for f in run(a.reach, a.book, a.limit, wq, a.egdb) if wq else []:
         n = int(f[0].split(":")[0])
         if f[1] == "reachable":
             proved[n] = "witness game " + f[0].split(":")[1]
@@ -86,7 +87,7 @@ def main():
     # 2. search for the rest
     sq = [f"{n}\t{d['ballot']}\t{d['fen']}\t{d['ply'] + a.slack}" for n, d in dec.items() if n not in proved]
     res = {}
-    for f in run(a.reach, a.book, a.limit, sq) if sq else []:
+    for f in run(a.reach, a.book, a.limit, sq, a.egdb) if sq else []:
         res[int(f[0])] = f
         if f[1] == "reachable":
             proved[int(f[0])] = "search"
