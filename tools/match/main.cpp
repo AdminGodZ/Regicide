@@ -257,10 +257,12 @@ void play_game(const Config& cfg, Engine* eng[2], GameRecord& g) {
         if (cfg.time_mode == TimeMode::CbMatch) {
             c.remaining -= r.charged();
         } else if (cfg.time_mode == TimeMode::Incremental) {
+            // As in CheckerBoard, the clock runs while the engine thinks, not while the host prepares the call.
+            const double used = r.charged();
             double before = c.remaining;
-            c.remaining += cfg.tc_increment - r.elapsed;
-            if (cfg.time_forfeit && r.elapsed > before + cfg.grace) {
-                std::snprintf(buf, sizeof buf, " lost on time (%.3fs used, %.3fs left)", r.elapsed, before);
+            c.remaining += cfg.tc_increment - used;
+            if (cfg.time_forfeit && used > before + cfg.grace) {
+                std::snprintf(buf, sizeof buf, " lost on time (%.3fs used, %.3fs left)", used, before);
                 lose(b.stm, e.name() + buf, "time forfeit");
                 return;
             }
