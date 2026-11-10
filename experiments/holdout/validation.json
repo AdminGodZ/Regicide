@@ -1,0 +1,22 @@
+{
+  "two_parser_panels": {
+    "h1_barred.txt": 18,
+    "h2_holdout156.txt": 19,
+    "h2x_touched156.txt": 156
+  },
+  "selected_final_states_unique": true,
+  "H2_H2x_disjoint": true,
+  "independent_SHA256_reselection": "passed",
+  "short_depth_pruned_vs_unpruned": {
+    "cases": 36,
+    "colours": 2,
+    "depth": 4,
+    "result": "all agree, no caps"
+  },
+  "strict_contact_certificates_replayed": 167,
+  "H1_contact_certificates_replayed": 9,
+  "raw_book_delta": "changed_position_keys=975 outside_active_decisions=0 avoid_bytes_identical=1",
+  "script_matches_manifest_hash": true,
+  "cpp_matches_manifest_hash": true,
+  "current_master_playing_core_matches_panel_build": "c4d0ded90930c0587849568aaafdbf863cdfb6b1"
+}
