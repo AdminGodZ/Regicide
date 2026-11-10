@@ -173,7 +173,15 @@ Checks:
 `wp9/report-wp9final1.md`); plies to the win median 112, quartiles 93–130, max 180; highest no-progress count median 26,
 max 53 (2 games ≥ 40, none ≥ 60); no game left the won region.
 
-(b) Two full acf156 runs against each opponent: running (`scripts/chain_final.sh`).
+(b) Two full acf156 runs against each opponent (`scripts/chain_final.sh`; runs `tests/f1-<opp>-<a|b>-<half>`):
+
+| Opponent | Run a | Run b | master fcf6acb (before) |
+|---|---|---|---|
+| Cake | **0 / 312 / 0** | running | 0 / 307 / 5 |
+| KingsRow | h1 7 / 149 / 0, h2 running | queued | 0 / 312 / 0 |
+| GuiNN | h1 8 / 148 / 0, h2 running | queued | 1 / 309 / 2 |
+
+Repairs during the final validation: none so far.
 
 ## Book hand-over checks (round 9)
 

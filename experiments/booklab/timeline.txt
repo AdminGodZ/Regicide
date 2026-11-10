@@ -280,3 +280,6 @@ BL end f1-guinn-a-h1 rc=0 A: +8 =148 -0   score 82.0/156 = 52.56%   draw rate 94
 BL wait-lock f1-cake-a-h2 regicide:bl-final1 vs cake deck /mnt/c/regicide-match/jobs/booklab/acf156_h2.txt mt 0.5 c 8 2026-11-10T13:52:33+01:00
 DEEPREACH done 2026-11-10T14:06:44+01:00
 BL start f1-cake-a-h2 regicide:bl-final1 vs cake; bg: datagen-eb1037c:T bash:T datagen-tr5:T bash:T datagen-tr6:T  2026-11-10T14:06:48+01:00
+BL end f1-cake-a-h2 rc=0 A: +0 =156 -0   score 78.0/156 = 50.00%   draw rate 100.0% Elo (pentanomial, pairs): -0.0 [-0.0, -0.0] 95% CI, score 0.5000 +- 0.0000, LOS 50.00% 2026-11-10T14:12:49+01:00
+BL wait-lock f1-kingsrow-a-h2 regicide:bl-final1 vs kingsrow deck /mnt/c/regicide-match/jobs/booklab/acf156_h2.txt mt 0.5 c 8 2026-11-10T14:12:49+01:00
+BL start f1-kingsrow-a-h2 regicide:bl-final1 vs kingsrow; bg: datagen-eb1037c:T bash:S datagen-tr5:S bash:S datagen-tr6:S  2026-11-10T14:12:49+01:00
