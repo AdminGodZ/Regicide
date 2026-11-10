@@ -1,0 +1,4 @@
+game,pair,opening,black,white,result,score_a,termination,engine_plies
+4,2,"/home/admingod/regicide-jobs/booklab/wp9/conv3_100/cake_1.txt:2","Cake 1.89f","Regicide 0.2",0-1,1,"no legal moves",81
+2,1,"/home/admingod/regicide-jobs/booklab/wp9/conv3_100/cake_1.txt:1","Cake 1.89f","Regicide 0.2",0-1,1,"no legal moves",92
+6,3,"/home/admingod/regicide-jobs/booklab/wp9/conv3_100/cake_1.txt:3","Cake 1.89f","Regicide 0.2",0-1,1,"no legal moves",96

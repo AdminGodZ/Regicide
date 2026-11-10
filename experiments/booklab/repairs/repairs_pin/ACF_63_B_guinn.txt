@@ -1,0 +1,12 @@
+# game 46281 regicide-match/results/bl-c-reg-guinn-h1/games.pdn: ACF #63 (/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:55: 10-14 22-17 14-18), regicide as B, result W, opponent guinn
+#   ply 4 9x18: guinn 9x18 31x 0/31/0
+#   ply 6 6-9: guinn 6-9 25x 0/25/0
+#   ply 8 9x18: guinn 9x18 25x 0/25/0
+#   ply 10 5-9: guinn 5-9 23x 0/23/0
+# DEVIATION ply 12 (9 after the ballot): regicide played 1-5; guinn: 9-13 22x w/d/l 0/22/0
+#   FEN B:W14,21,24,25,26,27,28,29,31,32:B1,2,3,4,7,8,9,11,12,18
+# guinn's defence: 22 non-lost games from the deviation position, 128 positions of our side within 40 plies (stop at <= 8 pieces)
+B:W14,17,21,24,25,26,27,28,29,30,31,32:B1,2,3,4,5,6,7,8,9,11,12 | 9x18 | force | ACF #63 regicide B ply 4: guinn played the same move 31x (w/d/l 0/31/0) on the path to the deviation
+B:W17,21,23,24,25,27,28,29,30,31,32:B1,2,3,4,5,6,7,8,11,12,18 | 6-9 | force | ACF #63 regicide B ply 6: guinn played the same move 25x (w/d/l 0/25/0) on the path to the deviation
+B:W14,17,21,24,25,27,28,29,30,31,32:B1,2,3,4,5,7,8,9,11,12 | 9x18 | force | ACF #63 regicide B ply 8: guinn played the same move 25x (w/d/l 0/25/0) on the path to the deviation
+B:W17,21,24,25,26,27,28,29,31,32:B1,2,3,4,5,7,8,11,12,18 | 5-9 | force | ACF #63 regicide B ply 10: guinn played the same move 23x (w/d/l 0/23/0) on the path to the deviation

@@ -1,0 +1,34 @@
+# game 33473 regicide-match/results/ba-deep2b-full-cake/games.pdn: ACF #153 Black Widow (ACF #153 Black Widow: 11-16 23-19 16x23), regicide as W, result B, opponent cake
+#   ply 3 27x18: cake 26x19 221x 0/219/2
+#   ply 5 32-27: cake -
+#   ply 7 26-23: cake -
+#   ply 9 30-26: cake -
+#   ply 11 24-19: cake -
+#   ply 13 22-17: cake -
+#   ply 15 17x10: cake -
+#   ply 17 18-15: cake -
+#   ply 19 26-22: cake -
+#   ply 21 22x15: cake -
+#   ply 23 25-22: cake -
+#   ply 25 23x14: cake -
+#   ply 27 29x22: cake -
+#   ply 29 22-18: cake -
+#   ply 31 27-23: cake -
+#   ply 33 31-26: cake -
+#   ply 35 18-14: cake -
+#   ply 37 26-22: cake -
+#   ply 39 14-10: cake -
+#   ply 41 23-18: cake -
+#   ply 43 28x19: cake -
+#   ply 45 10-6: cake -
+#   ply 47 15-10: cake -
+#   ply 49 6-2: cake -
+#   ply 51 18x9: cake -
+#   ply 53 22-17: cake -
+#   ply 55 2-6: cake -
+#   ply 57 6-9: cake -
+#   ply 59 19-15: cake -
+#   ply 61 10-6: cake -
+#   ply 63 15-10: cake -
+#   ply 65 10-7: cake -
+# no deviation from cake's non-losing moves within 60 plies after the ballot

@@ -128,6 +128,20 @@ target_link_libraries(bookgen PRIVATE regicide_core)
 add_executable(lossprobe tools/lossprobe.cpp)
 target_link_libraries(lossprobe PRIVATE regicide_core)
 
+# booklab (tools/booklab): theory-table replay and decisions-to-book builder.
+add_executable(booklab_replay tools/booklab/replay.cpp)
+target_link_libraries(booklab_replay PRIVATE regicide_core)
+add_executable(booklab_apply tools/booklab/bookapply.cpp)
+target_link_libraries(booklab_apply PRIVATE regicide_core)
+add_executable(booklab_show tools/booklab/bookshow.cpp)
+target_link_libraries(booklab_show PRIVATE regicide_core)
+add_executable(booklab_dbscan tools/booklab/dbscan.cpp)
+target_link_libraries(booklab_dbscan PRIVATE regicide_core)
+add_executable(booklab_reach tools/booklab/reach.cpp)
+target_link_libraries(booklab_reach PRIVATE regicide_core)
+add_executable(booklab_bookcmp tools/booklab/bookcmp.cpp)
+target_link_libraries(booklab_bookcmp PRIVATE regicide_core)
+
 add_executable(truth tools/truth.cpp)
 target_link_libraries(truth PRIVATE regicide_core)
 

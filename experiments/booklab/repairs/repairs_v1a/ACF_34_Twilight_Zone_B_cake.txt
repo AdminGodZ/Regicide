@@ -1,0 +1,40 @@
+# game 45640 regicide-match/results/bl-v1-cake-a-h1/games.pdn: ACF #34 Twilight Zone (/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:31: 9-13 24-20 11-16), regicide as B, result W, opponent cake
+#   ply 4 7x16: cake 7x16 30x 1/29/0
+#   ply 6 16-19: cake 16-19 26x 0/26/0
+#   ply 8 12x19: cake 12x19 26x 0/26/0
+#   ply 10 10x17: cake 10x17 12x 0/12/0
+#   ply 12 6-9: cake 6-9 12x 0/12/0
+#   ply 14 9x18: cake 9x18 12x 0/12/0
+#   ply 16 1-6: cake 1-6 12x 0/12/0
+#   ply 18 5-9: cake 5-9 7x 0/7/0
+#   ply 20 9-14: cake 9-14 12x 0/12/0
+#   ply 22 8-11: cake 8-11 5x 0/5/0
+#   ply 24 4x11: cake 4x11 5x 0/5/0
+#   ply 26 3-8: cake 3-8 4x 0/4/0
+#   ply 28 11x18: cake 11x18 4x 0/4/0
+#   ply 30 6-9: cake 6-9 2x 0/2/0
+#   ply 32 18-23: cake 18-23 2x 0/2/0
+#   ply 34 23-27: cake 23-27 2x 0/2/0
+#   ply 36 27-32: cake 27-32 2x 0/2/0
+#   ply 38 32-28: cake 32-28 2x 0/2/0
+# DEVIATION ply 40 (37 after the ballot): regicide played 8-11; cake: 28-24 2x w/d/l 0/2/0
+#   FEN B:W6,20,21,29,30,31:B2,8,9,13,14,K28
+# cake's defence: 2 non-lost games from the deviation position, 18 positions of our side within 40 plies (stop at <= 8 pieces)
+B:W6,20,21,29,30,31:B2,8,9,13,14,K28 | 28-24 | force | ACF #34 Twilight Zone regicide B ply 40: cake defence: 28-24 in 2 of 2 non-lost cake games from here (theory 2x w/d/l 0/2/0); regicide played 8-11 here and lost (gid 45640, bl-v1-cake-a-h1)
+B:W6,20,21,25,30,31:B2,8,9,13,14,K24 | 14-18 | force | ACF #34 Twilight Zone regicide B ply 42: cake defence: 14-18 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK1,20,21,29,30,31:B2,8,9,13,14,K24 | 8-11 | force | ACF #34 Twilight Zone regicide B ply 42: cake defence: 8-11 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK1,20,21,25,30,31:B2,8,9,13,18,K24 | 9-14 | force | ACF #34 Twilight Zone regicide B ply 44: cake defence: 9-14 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK5,20,21,29,30,31:B2,9,11,13,14,K24 | 11-15 | force | ACF #34 Twilight Zone regicide B ply 44: cake defence: 11-15 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK5,20,21,25,30,31:B2,8,13,14,18,K24 | 13-17 | force | ACF #34 Twilight Zone regicide B ply 46: cake defence: 13-17 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK5,16,21,29,30,31:B2,9,13,14,15,K24 | 15-18 | force | ACF #34 Twilight Zone regicide B ply 46: cake defence: 15-18 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK5,20,21,25,26,31:B2,8,14,17,18,K24 | 2-6 | force | ACF #34 Twilight Zone regicide B ply 48: cake defence: 2-6 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK5,12,21,29,30,31:B2,9,13,14,18,K24 | 18-23 | force | ACF #34 Twilight Zone regicide B ply 48: cake defence: 18-23 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK5,16,21,25,26,31:B6,8,14,17,18,K24 | 8-12 | force | ACF #34 Twilight Zone regicide B ply 50: cake defence: 8-12 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK5,8,21,29,30,31:B2,9,13,14,23,K24 | 23-27 | force | ACF #34 Twilight Zone regicide B ply 50: cake defence: 23-27 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK5,16,21,22,25,31:B6,12,14,17,18,K24 | 17x26 | force | ACF #34 Twilight Zone regicide B ply 52: cake defence: 17x26 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK3,K5,21,29,30,31:B2,9,13,14,K24,27 | 24-28 | force | ACF #34 Twilight Zone regicide B ply 52: cake defence: 24-28 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK5,15,16,21,25:B6,12,14,K24 | 12x19 | force | ACF #34 Twilight Zone regicide B ply 54: cake defence: 12x19 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK3,K5,21,24,29,30:B2,9,13,14,K28 | 28x19 | force | ACF #34 Twilight Zone regicide B ply 54: cake defence: 28x19 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK3,K5,21,26,29:B2,9,13,14,K19 | 19-16 | force | ACF #34 Twilight Zone regicide B ply 56: cake defence: 19-16 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK3,K5,21,23,29:B2,9,13,14,K16 | 14-18 | force | ACF #34 Twilight Zone regicide B ply 58: cake defence: 14-18 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK3,K5,14,21,29:B2,9,13,K16 | 9x18 | force | ACF #34 Twilight Zone regicide B ply 60: cake defence: 9x18 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)

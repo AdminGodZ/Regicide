@@ -1,0 +1,22 @@
+# game 48476 regicide-match/results/bl-v2-guinn-a-h2/games.pdn: ACF #96 Skull-Cracker (/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:7: 10-15 22-17 15-19), regicide as B, result W, opponent cake
+#   ply 4 11x18: cake 11x18 37x 0/36/1
+#   ply 6 9x18: cake 9x18 37x 0/36/1
+#   ply 8 6-9: cake 6-9 34x 0/33/1
+#   ply 10 9x18: cake 9x18 34x 0/33/1
+#   ply 12 5-9: cake 5-9 27x 0/26/1
+#   ply 14 1-5: cake 1-5 24x 0/24/0, 9-13 2x 0/1/1
+#   ply 16 9-13: cake 9-13 21x 0/21/0
+#   ply 18 13x22: cake 13x22 21x 0/21/0
+#   ply 20 2-6: cake 2-6 21x 0/21/0
+# DEVIATION ply 22 (19 after the ballot): regicide played 7-11; cake: 12-16 21x w/d/l 0/21/0
+#   FEN B:W14,17,21,25,27,28,31,32:B3,4,5,6,7,8,12,18
+# cake's defence: 21 non-lost games from the deviation position, 124 positions of our side within 40 plies (stop at <= 8 pieces)
+B:W15,17,21,23,25,26,27,28,29,30,31,32:B1,2,3,4,5,6,7,8,9,11,12 | 11x18 | force | ACF #96 Skull-Cracker regicide B ply 4: cake played the same move 37x (w/d/l 0/36/1) on the path to the deviation
+B:W14,17,21,25,26,27,28,29,30,31,32:B1,2,3,4,5,6,7,8,9,12 | 9x18 | force | ACF #96 Skull-Cracker regicide B ply 6: cake played the same move 37x (w/d/l 0/36/1) on the path to the deviation
+B:W17,21,23,25,27,28,29,30,31,32:B1,2,3,4,5,6,7,8,12,18 | 6-9 | force | ACF #96 Skull-Cracker regicide B ply 8: cake played the same move 34x (w/d/l 0/33/1) on the path to the deviation
+B:W14,17,21,25,27,28,29,30,31,32:B1,2,3,4,5,7,8,9,12 | 9x18 | force | ACF #96 Skull-Cracker regicide B ply 10: cake played the same move 34x (w/d/l 0/33/1) on the path to the deviation
+B:W17,21,25,26,27,28,29,31,32:B1,2,3,4,5,7,8,12,18 | 5-9 | force | ACF #96 Skull-Cracker regicide B ply 12: cake played the same move 27x (w/d/l 0/26/1) on the path to the deviation
+B:W14,21,25,26,27,28,29,31,32:B1,2,3,4,7,8,9,12,18 | 1-5 | force | ACF #96 Skull-Cracker regicide B ply 14: cake played the same move 24x (w/d/l 0/24/0) on the path to the deviation
+B:W14,17,25,26,27,28,29,31,32:B2,3,4,5,7,8,9,12,18 | 9-13 | force | ACF #96 Skull-Cracker regicide B ply 16: cake played the same move 21x (w/d/l 0/21/0) on the path to the deviation
+B:W14,17,21,26,27,28,29,31,32:B2,3,4,5,7,8,12,13,18 | 13x22 | force | ACF #96 Skull-Cracker regicide B ply 18: cake played the same move 21x (w/d/l 0/21/0) on the path to the deviation
+B:W14,17,21,27,28,29,31,32:B2,3,4,5,7,8,12,18 | 2-6 | force | ACF #96 Skull-Cracker regicide B ply 20: cake played the same move 21x (w/d/l 0/21/0) on the path to the deviation

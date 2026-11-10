@@ -1,0 +1,4 @@
+# WP5b: v1-cake-a-h1 (bl-r4) lost ACF #34 Twilight Zone as Black (gid 45640). Theory repair: Regicide followed Cake's
+# defence for 18 moves, then 8-11 at ply 40 (Cake 28-24, 2 games); deep analysis (blk-bookgen, 100M nodes per move,
+# 2-8 egdb, 2 GB hash) scores 8-11 / 28-24 / 28-32 all 0 there. The score fell at ply 44: 2-7 (0.92 s, own score -6).
+B:WK5,20,21,29,30,31:B2,9,11,13,14,K24 | 11-15 | force | ACF #34 Twilight Zone regicide B ply 44: deep analysis 100M nodes/move, 8-piece egdb, 2 GB hash: 11-15 0 (d34), 2-7 -94 (d36), 24-19 -98 (d36), rest lost; regicide played 2-7 and lost (gid 45640, bl-v1-cake-a-h1); at ply 46 the best move then scores -96

@@ -1,0 +1,22 @@
+# game 33215 regicide-match/results/ba-deep2b-full-cake/games.pdn: ACF #7 (ACF #7: 9-13 22-18 10-15), regicide as B, result W, opponent cake
+#   ply 4 6-10: cake 6-10 220x 0/220/0
+#   ply 6 11-16: cake 11-16 134x 0/134/0
+#   ply 8 16x23: cake 16x23 134x 0/134/0
+#   ply 10 8x15: cake 8x15 134x 0/134/0
+#   ply 12 7x16: cake 7x16 134x 0/134/0
+#   ply 14 4-8: cake 4-8 131x 0/131/0
+#   ply 16 10x19: cake 10x19 121x 0/121/0
+#   ply 18 5-9: cake 5-9 121x 0/121/0
+#   ply 20 16-19: cake 16-19 88x 0/88/0
+# DEVIATION ply 22 (19 after the ballot): regicide played 2-7; cake: 3-7 80x w/d/l 0/80/0, 1-6 1x w/d/l 0/1/0
+#   FEN B:W15,21,24,26,28,29,30,31:B1,2,3,8,9,12,13,19
+# cake's defence: 81 non-lost games from the deviation position, 108 positions of our side within 40 plies (stop at <= 8 pieces)
+B:W18,21,22,23,24,26,27,28,29,30,31,32:B1,2,3,4,5,6,7,8,11,12,13,15 | 6-10 | force | ACF #7 regicide B ply 4: cake played the same move 220x (w/d/l 0/220/0) on the path to the deviation
+B:W18,19,21,22,24,26,27,28,29,30,31,32:B1,2,3,4,5,7,8,10,11,12,13,15 | 11-16 | force | ACF #7 regicide B ply 6: cake played the same move 134x (w/d/l 0/134/0) on the path to the deviation
+B:W11,19,21,22,24,26,27,28,29,30,31,32:B1,2,3,4,5,7,8,10,12,13,16 | 16x23 | force | ACF #7 regicide B ply 8: cake played the same move 134x (w/d/l 0/134/0) on the path to the deviation
+B:W11,18,21,22,24,26,28,29,30,31,32:B1,2,3,4,5,7,8,10,12,13 | 8x15 | force | ACF #7 regicide B ply 10: cake played the same move 134x (w/d/l 0/134/0) on the path to the deviation
+B:W11,21,22,24,26,28,29,30,31,32:B1,2,3,4,5,7,10,12,13 | 7x16 | force | ACF #7 regicide B ply 12: cake played the same move 134x (w/d/l 0/134/0) on the path to the deviation
+B:W18,21,24,26,28,29,30,31,32:B1,2,3,4,5,10,12,13,16 | 4-8 | force | ACF #7 regicide B ply 14: cake played the same move 131x (w/d/l 0/131/0) on the path to the deviation
+B:W15,21,24,26,28,29,30,31,32:B1,2,3,5,8,10,12,13,16 | 10x19 | force | ACF #7 regicide B ply 16: cake played the same move 121x (w/d/l 0/121/0) on the path to the deviation
+B:W15,21,26,28,29,30,31,32:B1,2,3,5,8,12,13,16 | 5-9 | force | ACF #7 regicide B ply 18: cake played the same move 121x (w/d/l 0/121/0) on the path to the deviation
+B:W15,21,24,26,29,30,31,32:B1,2,3,8,9,12,13,16 | 16-19 | force | ACF #7 regicide B ply 20: cake played the same move 88x (w/d/l 0/88/0) on the path to the deviation

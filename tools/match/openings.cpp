@@ -328,6 +328,16 @@ std::vector<Opening> load_openings(const std::string& deck, std::string& err) {
         if (bar != std::string::npos) {
             o.fen = trim(line.substr(0, bar));
             o.moves = trim(line.substr(bar + 1));
+            if (auto bar2 = o.moves.find('|'); bar2 != std::string::npos) {
+                const std::string side = trim(o.moves.substr(bar2 + 1));
+                o.moves = trim(o.moves.substr(0, bar2));
+                if (side == "A=B" || side == "A=W") {
+                    o.a_colour = side[2];
+                } else {
+                    err = deck + ":" + std::to_string(lineno) + ": third field must be A=B or A=W";
+                    return {};
+                }
+            }
         } else if (looks_like_fen(line)) {
             o.fen = line;
         } else {
