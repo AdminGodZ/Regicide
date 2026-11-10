@@ -135,3 +135,15 @@ calibration runs (60 pairs each): tm_nodes 150 → A 104.8 ms vs B 138.3 ms; 170
 | B7 tt_eval=1 | 605 / 381 / 614 | 23.8% | -2.0 [-7.9, +4.0] | 0 101 607 92 0 | 800 | ±6.0 | -0.66 | 199.2 / 198.6 ms, d 15.29 / 15.26 |
 | B6 tm_nodes=178 (--target 300) ✓ | 639 / 345 / 616 | 21.6% | +5.0 [+0.4, +9.5] | 0 46 685 69 0 | 800 | ±4.5 | +2.15 | 142.4 / 139.6 ms, d 14.51 / 14.52 |
 | B8 lmr_base=80 (1,600 pairs) | 1231 / 740 / 1229 | 23.1% | +0.2 [-3.9, +4.4] | 0 188 1223 188 1 | 1600 | ±5.9 | +0.09 | 199.5 / 198.8 ms, d 15.45 / 15.40 |
+
+B6 time check at `--target 1000` (60 pairs each): tm_nodes 176 → A 446.7 ms vs B 453.2 ms (0.986); 168 → 423.8 vs
+445.0 (0.952). Equal time at ≈ 179, used for the confirmation.
+
+## Part C matches: 4 threads vs 4 threads of master
+
+`--tha 4 --thb 4 --threads 4 --hash 64` (4 games at once = 16 search threads), 300 ms, new set, database on. B =
+defaults (= master's Lazy SMP: depth skipping, result from thread 0).
+
+| test | W / D / L | draws | Elo [95% CI] | penta | pairs | ± per 800 | t | time A / B |
+|---|---|---|---|---|---|---|---|---|
+| C1 smp_vote=1 (deepest thread) | 651 / 308 / 641 | 19.2% | +2.2 [-2.9, +7.2] | 0 65 660 75 0 | 800 | ±5.0 | +0.85 | 205.1 / 205.7 ms, d 17.73 / 17.23 |

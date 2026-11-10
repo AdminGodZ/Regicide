@@ -1,0 +1,6 @@
+openings 1600, pairs 60, A="tm_nodes=190" B=""
+      games 40  A: +16 =8 -16  score 0.5000  draws 20.0%  elo -0.0 [-24.1, +24.1]  penta [0 1 18 1 0]
+      games 80  A: +34 =13 -33  score 0.5062  draws 16.2%  elo +4.3 [-14.7, +23.4]  penta [0 2 35 3 0]
+final games 120  A: +47 =29 -44  score 0.5125  draws 24.2%  elo +8.7 [-11.7, +29.1]  penta [0 5 47 8 0]
+time A: moves 3762  mean ms 154.5  mean depth 14.97
+time B: moves 3765  mean ms 138.8  mean depth 14.68

@@ -32,3 +32,9 @@ DONE b6_tmnodes178 rc=0 secs=950 2026-11-10T03:06:45+01:00 :: final games 1600  
 BEGIN b8_lmr80 bin=selfplay-lab2 a="lmr_base=80" b="" mt=300 pairs=1600 extra="--egdb /home/admingod/regicide-data/egdb --book books/uho1600.txt" 2026-11-10T03:06:45+01:00
 DONE b8_lmr80 rc=0 secs=2545 2026-11-10T03:49:10+01:00 :: final games 3200  A: +1231 =740 -1229  score 0.5003  draws 23.1%  elo +0.2 [-3.9, +4.4]  penta [0 188 1223 188 1]
 BEGIN tmcal1000_176 bin=selfplay-lab2 a="tm_nodes=176" b="" mt=0 pairs=60 extra="--target 1000 --egdb /home/admingod/regicide-data/egdb --book books/uho1600.txt" 2026-11-10T03:49:10+01:00
+DONE tmcal1000_176 rc=0 secs=258 2026-11-10T03:53:28+01:00 :: final games 120  A: +51 =19 -50  score 0.5042  draws 15.8%  elo +2.9 [-14.1, +19.9]  penta [0 4 51 5 0]
+BEGIN tmcal1000_168 bin=selfplay-lab2 a="tm_nodes=168" b="" mt=0 pairs=60 extra="--target 1000 --egdb /home/admingod/regicide-data/egdb --book books/uho1600.txt" 2026-11-10T03:53:28+01:00
+DONE tmcal1000_168 rc=0 secs=240 2026-11-10T03:57:28+01:00 :: final games 120  A: +42 =29 -49  score 0.4708  draws 24.2%  elo -20.3 [-34.5, -6.2]  penta [0 7 53 0 0]
+BEGIN c1_vote1 bin=selfplay-lab2 a="smp_vote=1" b="" mt=300 pairs=800 extra="--egdb /home/admingod/regicide-data/egdb --book books/uho1600.txt --tha 4 --thb 4 --threads 4 --hash 64" 2026-11-10T03:57:28+01:00
+DONE c1_vote1 rc=0 secs=5165 2026-11-10T05:23:33+01:00 :: final games 1600  A: +651 =308 -641  score 0.5031  draws 19.2%  elo +2.2 [-2.9, +7.2]  penta [0 65 660 75 0]
+BEGIN b6conf_tm179_t1000 bin=selfplay-lab2 a="tm_nodes=179" b="" mt=0 pairs=400 extra="--target 1000 --egdb /home/admingod/regicide-data/egdb --book books/uho1600.txt" 2026-11-10T05:23:33+01:00
