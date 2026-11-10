@@ -15,6 +15,12 @@
 # Takes the machine-wide timing lock (~/regicide-jobs/locks/timing.lock) for the whole match (not the pre-flight).
 # A run counts as finished only if the runner exited 0 (recorded in OUT/exit_status) and the summary says
 # "Games: N of N scheduled"; otherwise it is replayed. The script exits with the runner's exit status.
+# Memory (2026-11-10 20:16: 16 engine crashes in k3-kingsrow-a-h1 at the start of the run, Windows commit exhausted
+# by the WSL VM's page cache): after taking the lock, Windows free commit must be at least MINCOMMIT GB (default 14);
+# below that the WSL page cache is dropped (as root through wsl.exe; only clean cached file pages are discarded) and
+# the check repeats every 30 s for up to 10 minutes; the values are written to the start line.
+# A run with any crash, time-out, illegal-move, protocol-error or no-new-game termination is not finished either
+# (status line "BL CRASHES", exit 5).
 # Must run inside an attached wsl.exe session (Windows interop). Output ~/regicide-match/results/bl-TAG.
 set -u
 A=$1; B=$2; TAG=$3; DECK=$4; MT=${5:-0.5}; CONC=${6:-8}
@@ -55,9 +61,22 @@ spec b "$B"; SB=$SPEC; DB=$DLL; OB=("${OPTS[@]}")
 OB+=(--option-b "set book 3")
 NAMES=()
 [ "${A%2}" = "${B%2}" ] && NAMES=(--name-a "${A%2}-A" --name-b "${B%2}-B")
+bad_games() { grep -h "^\[Termination" "$OUT/games.pdn" 2>/dev/null | grep -c -E "crashed|did not start|timed out|illegal|protocol error"; }
 done_run() {
   [ -f "$OUT/summary.txt" ] && [ "$(cat "$OUT/exit_status" 2>/dev/null)" = "0" ] &&
-    grep -Eq "^Games: ([0-9]+) of \1 scheduled" "$OUT/summary.txt" && grep -q "^A:" "$OUT/summary.txt"
+    grep -Eq "^Games: ([0-9]+) of \1 scheduled" "$OUT/summary.txt" && grep -q "^A:" "$OUT/summary.txt" &&
+    [ "$(bad_games)" = "0" ]
+}
+commit_free() { /mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -NoProfile -Command \
+  '[math]::Round((Get-CimInstance Win32_OperatingSystem).FreeVirtualMemory/1MB,1)' 2>/dev/null | tr -d '\r'; }
+ensure_memory() {  # sets MEM (text for the start line)
+  local min=${MINCOMMIT:-14} c t=0
+  c=$(commit_free); MEM="commit free ${c} GB"
+  while awk -v c="$c" -v m="$min" 'BEGIN { exit !(c < m) }'; do
+    /mnt/c/Windows/System32/wsl.exe -u root -- sh -c 'sync; echo 1 > /proc/sys/vm/drop_caches' > /dev/null 2>&1
+    sleep 30; t=$((t + 30)); c=$(commit_free); MEM="$MEM; page cache dropped, ${c} GB after ${t} s"
+    [ $t -ge 600 ] && { MEM="$MEM; STILL LOW, started anyway"; break; }
+  done
 }
 if done_run; then st "BL skip $TAG"; exit 0; fi
 # pre-flight: the same option list (minus the runner flags) through cbhost, then get book must answer 3
@@ -76,12 +95,18 @@ exec 9>$LOCK
 flock 9
 if done_run; then flock -u 9; st "BL skip $TAG (finished while waiting)"; exit 0; fi
 rm -rf "$OUT"
-st "BL start $TAG $A vs $B; $(echo $PF); bg: $(for p in $(pgrep -f '[d]atagen-|[b]ookgen-|[l]ossprobe'); do echo -n "$(ps -o comm= -p $p):$(awk '/^State/{print $2}' /proc/$p/status) "; done)"
+ensure_memory
+st "BL start $TAG $A vs $B; $(echo $PF); $MEM; bg: $(for p in $(pgrep -f '[d]atagen-|[b]ookgen-|[l]ossprobe'); do echo -n "$(ps -o comm= -p $p):$(awk '/^State/{print $2}' /proc/$p/status) "; done)"
 "$MATCH" ${EXTRA_ARGS:-} -a "$SA" -b "$SB" "${NAMES[@]}" "${OA[@]}" "${OB[@]}" \
   --openings $DECK --movetime $MT -c $CONC --pdn-comments -o "$OUT" > "$L/bl-$TAG.log" 2>&1
 rc=$?
 flock -u 9
 mkdir -p "$OUT"; echo $rc > "$OUT/exit_status"
 st "BL end $TAG rc=$rc $(grep '^Games:' $OUT/summary.txt 2>/dev/null) $(grep '^A:' $OUT/summary.txt 2>/dev/null) $(grep '^Elo (pent' $OUT/summary.txt 2>/dev/null)"
-done_run || { [ $rc -eq 0 ] && rc=4; st "BL INCOMPLETE $TAG (exit $rc)"; }
+nb=$(bad_games)
+if [ "$nb" != "0" ]; then
+  [ $rc -eq 0 ] && rc=5; st "BL CRASHES $TAG: $nb games ended by crash/time-out/illegal move/no new game (exit $rc)"
+elif ! done_run; then
+  [ $rc -eq 0 ] && rc=4; st "BL INCOMPLETE $TAG (exit $rc)"
+fi
 exit $rc

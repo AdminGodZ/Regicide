@@ -10,6 +10,12 @@ CB='/mnt/c/regicide-match/bin/b71dfa9/cbhost.exe'; E='C:\regicide-match\engines'
 MATCH=~/regicide-match/bin/match-747ab51
 head -10 $J/acf156_h1.txt > $L/acct_deck.txt
 st() { echo "$* $(date -Is)" >> $L/status; }
+# First: replay any KingsRow mode-3 part that is not finished (k3-kingsrow-a-h1 had 16 crashes at 20:16 from
+# exhausted Windows commit; bl_run_w.sh skips finished parts and now guards memory and rejects crashed runs).
+for run in a b; do for h in h1 h2; do
+  bash $J/bl_run_x.sh regicide:bl-456e9b2-r10 kingsrow k3-kingsrow-$run-$h $J/acf156_$h.txt < /dev/null
+done; done
+st "K3 replay check done"
 for opp in cake kingsrow guinn; do
   case $opp in
     cake) D="$E\\cake\\cake_189f.dll"; X=() ;;

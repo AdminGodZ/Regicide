@@ -26,7 +26,8 @@ run_block() {  # run_block BLOCK "CONFIGS" PARTS...
   echo "WP10 block $b start ($configs) $(date -Is)" >> $L/status
   for part in "$@"; do for opp in cake kingsrow guinn; do for c in $configs; do
     cfg $c
-    EXTRA_A="$EA" bash $J/bl_run_w.sh regicide:$DLL $opp "w10-b$b-$c-$opp-$part" $P/$part.txt 0.5 8 < /dev/null
+    EXTRA_A="$EA" bash $J/bl_run_w.sh regicide:$DLL $opp "w10-b$b-$c-$opp-$part" $P/$part.txt 0.5 8 < /dev/null \
+      || { echo "WP10 block $b FAILED at w10-b$b-$c-$opp-$part $(date -Is)" >> $L/status; exit 1; }
   done; done; done
   echo "WP10 block $b done $(date -Is)" >> $L/status
 }

@@ -5,6 +5,36 @@ KingsRow 8-piece WLD db, Regicide with its 2–8-piece db, PDN comments on. Each
 × 2 colours (`scripts/acf156_h1.txt`, `acf156_h2.txt`), one timing-lock hold per half. Raw `summary.txt`/`results.csv`
 per run in `tests/`.
 
+## KingsRow in book mode 3 (production deck, 2026-11-10 20:16–20:48): the quoted KingsRow number from now on
+
+Until 2026-11-10 KingsRow played in its default book mode 1 (section "Book mode" below). Master + r10 + n6c
+(`bl-456e9b2-r10`) against KingsRow with `set book 3` (read back as 3), two runs of 312, final-validation runner
+match-747ab51, everything else as the final validation. Tables `k3/k3_compare.md`, `k3/k3_losses.md`, records
+`k3/games/`.
+
+| KingsRow book mode | Run | Regicide W / D / L |
+|---|---|---|
+| **3** | k3 a | **2 / 307 / 3** |
+| **3** | k3 b | **1 / 307 / 4** |
+| 1 | final validation a | 12 / 300 / 0 |
+| 1 | final validation b | 11 / 301 / 0 |
+
+- **7 losses in 624 games, all with Regicide as Black, on 4 lines:** ACF #60 Black Hole (both runs), #71 Diabolical
+  Denny (both runs), #34 Twilight Zone (run b), and #141 (run a) / #9 Wilderness I (run b), which transpose into the
+  same line after the ballot (11-16 22-17 9-13 17-14 = 9-13 22-18 11-16 18-14). Regicide's book has no move on these
+  lines after the ballot; its own score is about −40 at its first move (ply 5) and ≤ −100 from ply 17–19 (#60, #71,
+  #34) or 49 (#141/#9). In mode 1 KingsRow left all of these lines at ply 4–6 and every game was drawn. The same
+  ballots are White wins for Cake against GuiNN in the census (#9, #34, #60, #141), so they are known hard for Black.
+- Determinism: KingsRow's book is now deterministic, its search is not: the two mode-3 runs have 4 identical games
+  of 312; the median first difference is at ply 42, by KingsRow in 259 and by Regicide in 49 pairs. Against the
+  mode-1 runs no game is identical (median first difference ply 5, KingsRow's move in 293–298 of 312).
+- Per opening and colour (both runs): 283 drawn in both modes; 20 openings × colours that Regicide won in one
+  mode-1 run are drawn twice in mode 3; 2 are won once in mode 3; 5 lose at least once (the lines above).
+- The first attempt of run a, half 1 (20:16) had 16 crashes (8 Regicide, 8 KingsRow) from exhausted Windows commit
+  (the WSL VM's page cache); it was discarded and replayed at 20:38 (timeline.txt). Since then every match checks
+  Windows free commit first (≥ 14 GB, otherwise the WSL page cache is dropped) and a run with any crash, time-out
+  or engine that did not start is not counted as finished. No earlier run of this work has a crash termination.
+
 ## WP1 census (`census/census.md`, `census/decisive.csv`, `census/instant_by_ballot.csv`)
 
 | Pairing (A vs B) | Games | A: W / D / L | Elo of A [95% CI] |
