@@ -320,3 +320,6 @@ BL end n8q-verify-bad rc=1 A: +0 =0 -0   score 0.0/0 = 0.00%   draw rate 0.0%  2
 F4 start 2026-11-10T16:24:33+01:00
 BL wait-lock f4-cake-h1 regicide:bl-456e9b2-r10 vs cake deck /mnt/c/regicide-match/jobs/booklab/acf156_h1.txt mt 0.5 c 8 2026-11-10T16:24:33+01:00
 BL start f4-cake-h1 regicide:bl-456e9b2-r10 vs cake; bg: datagen-eb1037c:T bash:S datagen-tr6:S  2026-11-10T16:24:33+01:00
+BL end f4-cake-h1 rc=0 A: +0 =153 -3   score 76.5/156 = 49.04%   draw rate 98.1% Elo (pentanomial, pairs): -6.7 [-14.1, +0.7] 95% CI, score 0.4904 +- 0.0107, LOS 3.87% 2026-11-10T16:31:11+01:00
+BL wait-lock f4-kingsrow-h1 regicide:bl-456e9b2-r10 vs kingsrow deck /mnt/c/regicide-match/jobs/booklab/acf156_h1.txt mt 0.5 c 8 2026-11-10T16:31:11+01:00
+BL start f4-kingsrow-h1 regicide:bl-456e9b2-r10 vs kingsrow; bg: datagen-eb1037c:T bash:S datagen-tr6:S  2026-11-10T16:31:11+01:00
