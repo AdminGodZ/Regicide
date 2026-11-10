@@ -25,7 +25,7 @@
 set -u
 A=$1; B=$2; TAG=$3; DECK=$4; MT=${5:-0.5}; CONC=${6:-8}
 MATCH=${MATCH:-~/regicide-match/bin/match-747ab51}
-CB='/mnt/c/regicide-match/bin/b71dfa9/cbhost.exe'
+CB=${CBHOST:-/mnt/c/regicide-match/bin/b71dfa9/cbhost.exe}  # CBHOST: e.g. the PR #49 host (T1, WP12)
 E='C:\regicide-match\engines'
 DB8='C:\regicide-match\db\kingsrow_wld8'
 PROBE=/mnt/c/regicide-match/jobs/booklab/src/tools/booklab/book_probe.py
@@ -54,10 +54,14 @@ spec() {  # spec SIDE(a|b) ENGINE -> fills SPEC, DLL and OPTS
   esac
   case $e in kingsrow*) OPTS+=(--option-$s "set searchthreads 1") ;; esac
 }
-spec a "$A"; SA=$SPEC; DA=$DLL; OA=("${OPTS[@]}")
+# SHIMDIR: every engine runs behind tools/booklab/cbshim.py, which logs each protocol line with a timestamp
+# (SHIMDIR/A, SHIMDIR/B; T1's per-move log of wall time, host time and offered maxtime)
+SHIM=/mnt/c/regicide-match/jobs/booklab/src/tools/booklab/cbshim.py
+shimmed() { [ -n "${SHIMDIR:-}" ] && echo "exec:/usr/bin/python3 $SHIM $SHIMDIR/$1 $CB \"$2\"" || echo "$3"; }
+spec a "$A"; SA=$(shimmed A "$DLL" "$SPEC"); DA=$DLL; OA=("${OPTS[@]}")
 [ -n "${EXTRA_A:-}" ] && OA+=(--option-a "$EXTRA_A" --option-a "get evalfile")
 OA+=(--option-a "set book 3")
-spec b "$B"; SB=$SPEC; DB=$DLL; OB=("${OPTS[@]}")
+spec b "$B"; SB=$(shimmed B "$DLL" "$SPEC"); DB=$DLL; OB=("${OPTS[@]}")
 OB+=(--option-b "set book 3")
 NAMES=()
 [ "${A%2}" = "${B%2}" ] && NAMES=(--name-a "${A%2}-A" --name-b "${B%2}-B")
@@ -89,12 +93,19 @@ preflight() {  # preflight NAME DLL --option-x TEXT ...
   return $rc
 }
 PF=$(preflight A "$DA" "${OA[@]}" && preflight B "$DB" "${OB[@]}"); prc=$?
+if [ $prc -eq 0 ] && [[ "${EXTRA_A:-}" == "set param "* ]]; then
+  want=${EXTRA_A#set param }
+  got=$(python3 $PROBE --cbhost $CB --dll "$DA" --opt "$EXTRA_A" --book 3 --readback-only --show-replies 2>&1 | grep -F "set param" | head -1)
+  PF="$PF; param: $got"
+  [[ "$got" == *"reply 1 $want"* ]] || prc=1
+fi
 if [ $prc -ne 0 ]; then st "BL refused $TAG: book read-back differs: $(echo $PF)"; exit 3; fi
 st "BL wait-lock $TAG $A vs $B deck $DECK mt $MT c $CONC"
 exec 9>$LOCK
 flock 9
 if done_run; then flock -u 9; st "BL skip $TAG (finished while waiting)"; exit 0; fi
 rm -rf "$OUT"
+[ -n "${SHIMDIR:-}" ] && { rm -rf "$SHIMDIR"; mkdir -p "$SHIMDIR"; }
 ensure_memory
 st "BL start $TAG $A vs $B; $(echo $PF); $MEM; bg: $(for p in $(pgrep -f '[d]atagen-|[b]ookgen-|[l]ossprobe'); do echo -n "$(ps -o comm= -p $p):$(awk '/^State/{print $2}' /proc/$p/status) "; done)"
 "$MATCH" ${EXTRA_ARGS:-} -a "$SA" -b "$SB" "${NAMES[@]}" "${OA[@]}" "${OB[@]}" \

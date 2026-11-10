@@ -26,6 +26,7 @@ def main():
     ap.add_argument("--readback-only", action="store_true",
                     help="one process, options + set book, get book, no search; exit 1 unless the reply is "
                          "'reply 1 <BOOK>' (the match scripts' pre-flight check)")
+    ap.add_argument("--show-replies", action="store_true", help="with --readback-only: print every command's reply")
     a = ap.parse_args()
     if a.readback_only:
         p = subprocess.Popen([a.cbhost, a.dll], stdin=subprocess.PIPE, stdout=subprocess.PIPE,
@@ -44,6 +45,8 @@ def main():
                 if not line or line.startswith("reply"):
                     break
             last = line.rstrip()
+            if a.show_replies:
+                print(f"{c} -> {last}")
         p.stdin.write("quit\n")
         p.stdin.flush()
         try:
