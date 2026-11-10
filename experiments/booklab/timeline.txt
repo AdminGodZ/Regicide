@@ -154,3 +154,9 @@ BL end wp9base-cake_1 rc=0 A: +0 =1 -0   score 0.5/1 = 50.00%   draw rate 100.0%
 BL wait-lock wp9base-guinn_1 regicide:bl-r6 vs guinn deck /home/admingod/regicide-jobs/booklab/wp9/base60/guinn_1.txt mt 0.5 c 8 2026-11-10T08:56:19+01:00
 BL start wp9conv1-guinn_1 regicide:bl-conv1 vs guinn; bg: datagen-eb1037c:T bash:T datagen-tr5:T  2026-11-10T09:07:16+01:00
 CT done 2026-11-10T09:10:05+01:00
+BL end wp9conv1-guinn_1 rc=0 A: +40 =0 -0   score 40.0/40 = 100.00%   draw rate 0.0%  2026-11-10T09:10:13+01:00
+BL wait-lock wp9conv1-guinn_2 regicide:bl-conv1 vs guinn deck /home/admingod/regicide-jobs/booklab/wp9/all362/guinn_2.txt mt 0.5 c 8 2026-11-10T09:10:13+01:00
+BL start wp9base-guinn_1 regicide:bl-r6 vs guinn; bg: datagen-eb1037c:T bash:S datagen-tr5:S  2026-11-10T09:10:13+01:00
+BL end wp9base-guinn_1 rc=0 A: +0 =35 -0   score 17.5/35 = 50.00%   draw rate 100.0%  2026-11-10T09:11:10+01:00
+BL wait-lock wp9base-kingsrow_1 regicide:bl-r6 vs kingsrow deck /home/admingod/regicide-jobs/booklab/wp9/base60/kingsrow_1.txt mt 0.5 c 8 2026-11-10T09:11:10+01:00
+BL start wp9conv1-guinn_2 regicide:bl-conv1 vs guinn; bg: datagen-eb1037c:T bash:S datagen-tr5:S  2026-11-10T09:11:10+01:00

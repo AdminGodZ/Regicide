@@ -136,6 +136,24 @@ the WP9 test runs (`bl-wp9*`, they start from won positions) and can restrict th
   1,011 of 1,017; KingsRow 226 of 248; GuiNN 347 of 352. Opponent vs opponent: 90 reached, 66 converted (the new games
   are other agents' runs). The scan now also records the longest no-progress run per game.
 
+## WP9 step 2: conversion_test with the real 2–8-piece database (bl-conv1 tree, engine 714502c)
+
+`conversion_test --dir ~/regicide-data/egdb --pieces P --kind both --sample 200 --cap 32 --nodes 100000
+--oracle-nodes 1000000 --role R`, run as 4 processes (P = 7, 8; R = win, lose; `scripts/ct_run.sh`, logs `wp9/ct/`).
+
+| Pieces | Engine converts (vs 1M-node oracle) | Mean plies engine / reference | Engine defends (oracle must win) | Mean plies engine / reference |
+|---|---|---|---|---|
+| 7 | **198 / 200** (2 draws by the no-progress rule) | 62.0 / 53.9 | oracle won 200 / 200 | 51.5 / 53.9 |
+| 8 | **200 / 200** | 50.0 / 45.0 | oracle won 200 / 200 | 45.1 / 45.0 |
+
+The two 7-piece failures (no-progress draws after 142 and 177 plies; MTC-optimal 67 and 40):
+`W:W8,18,K20,28:B6,K17,K25`, `B:W15,24,K28,K31:B13,18,K30`.
+
+**Speed in won 7–8-piece roots:** the CLI from the same tree, `go nodes 3000000` with the 8-piece database: 4.3M nodes/s
+(score +10107, the conversion score) and 5.2M nodes/s in two won/lost 8-piece positions, against 2.9M in the start
+position, all measured while matches and the four test processes ran. So the database probe at every node does not
+slow the search down here; it is faster than in the middlegame.
+
 ## WP9: conversion test harness
 
 - **tools/match change (20 lines, `scripts/patch_match_colour.py`):** an openings-file line may carry a third field,
