@@ -182,3 +182,28 @@ TR rescore_chain restarting with 8 threads 2026-11-10T10:01:25+01:00
 TR rescore_chain start pid 2029318 threads 8 nodes 9:50000,13:20000 keep-above 16 2026-11-10T10:01:25+01:00
 TR PROVEN_SET_DONE 2026-11-10T10:01:25+01:00
 TR rescore gen4a_n10k start 2026-11-10T10:01:25+01:00
+TR windows dll built: /mnt/c/regicide-match/engines/regicide/truth-c0dde2e 2026-11-10T11:05:11+01:00
+TR cb wait-lock n8bn-cake-c0dde2e cake net C:/regicide-match/nets/n8bn.nnue 2026-11-10T11:06:35+01:00
+TR cb start n8bn-cake-c0dde2e cake net C:/regicide-match/nets/n8bn.nnue dll truth-c0dde2e cfg A book 0 c 8 mt 0.5; load 14.02 2026-11-10T11:14:05+01:00
+TR rescore gen4a_n10k done: written 28083233 / 28083233 (100.00%)  searched 2923283  proven 949584  sign flips 16820  untrusted 0  partial losses 10561  626 searched/s 2026-11-10T11:25:35+01:00
+TR rescore gen5c_n50k start 2026-11-10T11:25:35+01:00
+TR rescore chain parked after gen4a (resumable: rs_threads.sh N); its threads go to E5 gen6a 2026-11-10T11:25:43+01:00
+TR e5 gen6a_n50k_egdb start (datagen-tr6, seed 611, 6 threads) 2026-11-10T11:25:43+01:00
+TR cb end n8bn-cake-c0dde2e A: +0 =307 -5   score 153.5/312 = 49.20%   draw rate 98.4% | Elo (pentanomial, pairs): -5.6 [-10.4, -0.8] 95% CI, score 0.4920 +- 0.0069, LOS 1.15% 2026-11-10T11:25:49+01:00
+TR cb wait-lock n8bn-guinn-c0dde2e guinn net C:/regicide-match/nets/n8bn.nnue 2026-11-10T11:25:49+01:00
+TR train n8c start: --data /home/admingod/regicide-data/truth/gen1_n10k_e2.bin --data /home/admingod/regicide-data/truth/gen1b_n10k_e2.bin --data /home/admingod/regicide-data/truth/gen1c_n10k_e2.bin --data /home/admingod/regicide-data/truth/gen2a_n10k_e2.bin --data /home/admingod/regicide-data/truth/gen2b_n10k_e2.bin --data /home/admingod/regicide-data/truth/gen3a_n10k_e2.bin --data /home/admingod/regicide-data/truth/gen3b_n10k_e2.bin --data /home/admingod/regicide-data/truth/gen3c_n10k_e2.bin --data /home/admingod/regicide-data/truth/gen3d_n10k_e2.bin --data /home/admingod/regicide-data/truth/gen4a_n10k_e3.bin --data /home/admingod/regicide-data/truth/gen5a_n50k_e3.bin --data /home/admingod/regicide-data/truth/gen5a_n50k_e3.bin --data /home/admingod/regicide-data/truth/gen5a_n50k_e3.bin --lambda 0.5 --min-pieces 9 --k 102.39766405914318 2026-11-10T11:26:01+01:00
+TR cb start n8bn-guinn-c0dde2e guinn net C:/regicide-match/nets/n8bn.nnue dll truth-c0dde2e cfg A book 0 c 8 mt 0.5; load 13.52 2026-11-10T11:33:12+01:00
+TR train n8c end rc=0 2026-11-10T11:46:42+01:00
+TR train n8c exported /home/admingod/regicide-truth-work/n8c.nnue: simulated int (training) vs engine: max |diff| 1.00 OK 2026-11-10T11:47:02+01:00
+TR match n8c-vs-n6c queued 2026-11-10T11:47:02+01:00
+TR cb end n8bn-guinn-c0dde2e A: +16 =294 -2   score 163.0/312 = 52.24%   draw rate 94.2% | Elo (pentanomial, pairs): +15.6 [+6.7, +24.6] 95% CI, score 0.5224 +- 0.0129, LOS 99.97% 2026-11-10T11:48:18+01:00
+TR cb wait-lock n8c-cake-c0dde2e cake net C:/regicide-match/nets/n8c.nnue 2026-11-10T11:48:18+01:00
+TR timing lock + matchlock taken; bg: datagen-eb1037c:T bash:T datagen-tr5:T bash:T datagen-tr6:T  2026-11-10T11:56:22+01:00
+TR matchlock removed, timing lock released (rc=0) 2026-11-10T12:07:21+01:00
+TR match n8c-vs-n6c end: Elo (pentanomial, pairs): +0.4 [-3.3, +4.2] 95% CI, score 0.5006 +- 0.0054, LOS 58.96% 2026-11-10T12:07:21+01:00
+TR cb start n8c-cake-c0dde2e cake net C:/regicide-match/nets/n8c.nnue dll truth-c0dde2e cfg A book 0 c 8 mt 0.5; load 9.38 2026-11-10T12:07:21+01:00
+TR n8c vs n6c Elo +0.4 (n8bn +4.5) 2026-11-10T12:07:21+01:00
+TR CHAIN3_DONE 2026-11-10T12:07:21+01:00
+TR ft2048 build rc=0 at c0dde2e: bench: 7677736 nodes 2741 ms 2801071 nps 2026-11-10T12:07:45+01:00
+TR P5 start: best v1 n8bn, data e2 2026-11-10T12:07:55+01:00
+TR train w2032 start: --data /home/admingod/regicide-data/truth/gen1_n10k_e2.bin --data /home/admingod/regicide-data/truth/gen1b_n10k_e2.bin --data /home/admingod/regicide-data/truth/gen1c_n10k_e2.bin --data /home/admingod/regicide-data/truth/gen2a_n10k_e2.bin --data /home/admingod/regicide-data/truth/gen2b_n10k_e2.bin --data /home/admingod/regicide-data/truth/gen3a_n10k_e2.bin --data /home/admingod/regicide-data/truth/gen3b_n10k_e2.bin --data /home/admingod/regicide-data/truth/gen3c_n10k_e2.bin --data /home/admingod/regicide-data/truth/gen3d_n10k_e2.bin --data /home/admingod/regicide-data/truth/gen4a_n10k_e2.bin --data /home/admingod/regicide-data/truth/gen5a_n50k_e2.bin --data /home/admingod/regicide-data/truth/gen5a_n50k_e2.bin --data /home/admingod/regicide-data/truth/gen5a_n50k_e2.bin --lambda 0.5 --min-pieces 9 --k 102.39766405914318 --ft 2048 --l1 32 2026-11-10T12:07:55+01:00

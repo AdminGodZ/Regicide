@@ -12,8 +12,10 @@ CB='/mnt/c/regicide-match/bin/b71dfa9/cbhost.exe'
 E='C:\regicide-match\engines'
 DB8='C:\regicide-match\db\kingsrow_wld8'
 OUT=~/regicide-match/results/tr-$TAG
-REG="exec:$CB \"$E\regicide\ponder-df7780a\regicide_cb.dll\""
-RX=(--option-a "set hashsize 128" --option-a "set threads 1" --option-a "set ponder 0" --option-a "set book 0" --option-a "set evalfile $NET")
+DLLDIR=${DLLDIR:-ponder-df7780a}   # engine DLL directory under C:\regicide-match\engines\regicide
+REG="exec:$CB \"$E\regicide\\$DLLDIR\regicide_cb.dll\""
+RX=(--option-a "set hashsize 128" --option-a "set threads 1" --option-a "set book 0" --option-a "set evalfile $NET")
+case $DLLDIR in ponder-*) RX+=(--option-a "set ponder 0") ;; esac   # only the ponder DLLs know it
 DBO=(--option-b "set dbpath $DB8" --option-b "set enable_wld 1" --option-b "set dbmbytes 512" --option-b "set max_dbpieces 8" --option-b "set hashsize 128")
 case $OPP in
   kingsrow) DLL="$E\kingsrow\Kingsrow64.dll"; OX=(--option-b "set searchthreads 1") ;;
@@ -26,7 +28,7 @@ st "cb wait-lock $TAG $OPP net $NET"
   turn_wait
   exec 9>$LOCKS/timing.lock; flock 9
   rm -rf "$OUT"; touch $LOCKS/yield_truth   # my extra threads stop: background load as in the reference runs
-  st "cb start $TAG $OPP net $NET cfg A book 0 c 8 mt $MT; load $(cut -d' ' -f1 /proc/loadavg)"
+  st "cb start $TAG $OPP net $NET dll $DLLDIR cfg A book 0 c 8 mt $MT; load $(cut -d' ' -f1 /proc/loadavg)"
   "$MATCH" -a "$REG" -b "exec:$CB \"$DLL\"" --name-a "Regicide-$TAG" "${RX[@]}" "${DBO[@]}" "${OX[@]}" \
     --openings acf156 --movetime $MT -c 8 --pdn-comments -o "$OUT" > "$J/tr-$TAG.log" 2>&1
   rm -f $LOCKS/yield_truth; date +%s > $J/my_last_release

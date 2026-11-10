@@ -1,3 +1,3 @@
-written 24958464 / 28083233 (88.87%)  searched 1990141  proven 644117  sign flips 11410  untrusted 0  partial losses 7174  620 searched/s
-written 25159424 / 28083233 (89.59%)  searched 2051461  proven 664531  sign flips 11725  untrusted 0  partial losses 7423  619 searched/s
-written 25359872 / 28083233 (90.30%)  searched 2111459  proven 685256  sign flips 12087  untrusted 0  partial losses 7652  619 searched/s
+written 27970048 / 28083233 (99.60%)  searched 2890644  proven 939514  sign flips 16596  untrusted 0  partial losses 10432  626 searched/s
+written 28083233 / 28083233 (100.00%)  searched 2923283  proven 949584  sign flips 16820  untrusted 0  partial losses 10561  626 searched/s
+done: /home/admingod/regicide-data/truth/gen4a_n10k_e3.bin.part has 28083233 of 28083233 records

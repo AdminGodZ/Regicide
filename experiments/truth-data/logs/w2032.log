@@ -1,0 +1,5 @@
+net v1 2048 -> 32 -> 32 -> 1, 8 buckets  train 124030528  valid 1000000  K 102.4  lambda 0.50  min pieces 9  device cuda  6103 steps/epoch
+/home/admingod/regicide-nnue/.venv/lib/python3.12/site-packages/torch/_inductor/compile_fx.py:322: UserWarning: TensorFloat32 tensor cores for float32 matrix multiplication available but not enabled. Consider setting `torch.set_float32_matmul_precision('high')` for better performance.
+  warnings.warn(
+epoch   1  lr 9.99e-04  train 0.455706  valid 0.449333  valid(int) 0.450217  3042535 pos/s
+epoch   2  lr 9.94e-04  train 0.447478  valid 0.446556  valid(int) 0.447292  3589878 pos/s

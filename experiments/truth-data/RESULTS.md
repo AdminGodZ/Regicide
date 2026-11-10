@@ -233,13 +233,18 @@ proven positions 96357 (wins 49906, losses 46451); by pieces: 9: 51785, 10: 2564
 |---|---|---|---|---|---|---|---|---|---|
 | n4c | 99.68% | 99.95% | 99.43% | 99.50% | 98.78% | 502 (1.08%) | 740 (1.48%) | 294 / -315 | 149.6 |
 | n6c | 99.78% | 99.95% | 99.61% | 99.65% | 99.27% | 409 (0.88%) | 474 (0.95%) | 307 / -309 | 142.9 |
-| n7a | 99.76% | 99.95% | 99.57% | 99.67% | 99.15% | 305 (0.66%) | 605 (1.21%) | 293 / -305 | 136.1 |
 | n7b | 99.77% | 99.95% | 99.61% | 99.63% | 99.19% | 311 (0.67%) | 609 (1.22%) | 300 / -314 | 139.7 |
 | n8a | 99.78% | 99.95% | 99.57% | 99.72% | 99.29% | 515 (1.11%) | 491 (0.98%) | 263 / -272 | 124.1 |
 | n8ak | 99.78% | 99.96% | 99.60% | 99.68% | 99.21% | 288 (0.62%) | 481 (0.96%) | 299 / -328 | 147.2 |
 | n8b | 99.82% | 99.96% | 99.70% | 99.69% | 99.34% | 385 (0.83%) | 650 (1.30%) | 221 / -223 | 110.7 |
 | n8bk | 99.82% | 99.96% | 99.72% | 99.71% | 99.27% | 269 (0.58%) | 463 (0.93%) | 294 / -303 | 145.7 |
 | n8bn | 99.83% | 99.97% | 99.72% | 99.72% | 99.27% | 222 (0.48%) | 358 (0.72%) | 339 / -337 | 166.7 |
+| n8bk130 | 99.82% | 99.96% | 99.70% | 99.74% | 99.21% | 193 (0.42%) | 350 (0.70%) | 361 / -380 | 187.7 |
+| n8bl6 | 99.83% | 99.96% | 99.72% | 99.71% | 99.32% | 273 (0.59%) | 355 (0.71%) | 347 / -368 | 181.0 |
+| n8bl7 | 99.78% | 99.95% | 99.62% | 99.64% | 99.32% | 193 (0.42%) | 404 (0.81%) | 363 / -392 | 196.7 |
+| n8p | 99.80% | 99.96% | 99.67% | 99.68% | 99.21% | 269 (0.58%) | 401 (0.80%) | 321 / -337 | 163.8 |
+| n8p2 | 99.80% | 99.96% | 99.68% | 99.66% | 99.19% | 269 (0.58%) | 372 (0.75%) | 328 / -333 | 166.2 |
+| n8c | 99.84% | 99.96% | 99.72% | 99.74% | 99.44% | 267 (0.57%) | 291 (0.58%) | 357 / -349 | 164.8 |
 
 ## Phase 2
 
@@ -300,6 +305,61 @@ other ballots. Against KingsRow n8bn is +2 games better than n6c, within noise.
     when a file has the flags.
   - Test: two seeded K-vs-K games, 5 games written. The flags give 5; the old heuristic counted 1.
   - All E5 data has the flags (gen6b was restarted twice, discarding what the older binaries had written).
+
+### P2: E3 (n8c)
+
+**Net.** n8c is n8bn's recipe (E2 relabelled results, ≥ 9 pieces, K 102.4, λ 0.5, n6c's files) with **gen5a (×3) and
+gen4a rescored**:
+- every record with 9–16 pieces is re-searched with the 8-piece database: gen5a 50k nodes; gen4a 50k nodes at 9–12 and
+  20k at 13–16;
+- proven records are trained on their exact result whatever λ is.
+
+**Rescored data:**
+- gen5a: 1,144,718 proven of 3.33M searched;
+- gen4a: 2,753,696 proven (1,304,428 losses, 1,449,268 wins) of 8.4M searched;
+- gen4a from record 13,020,160 on was rescored under the partial-loss rule: 16,120 of 4,483,523 searches (0.36%) ended
+  in a partial loss and were stored unproven with `completed_score`.
+
+| Match (0.1 s/move, 805 pairs, `rtruth.so` fcf6acb) | W / D / L | Pentanomial | Elo [95% CI] | LOS |
+|---|---|---|---|---|
+| n8c (E3) vs n6c | 263 / 1086 / 261 | [0 38 727 40 0] | +0.4 [−3.3, +4.2] | 59.0% |
+| n8bn (E2) vs n6c, for comparison | 276 / 1079 / 255 | [0 36 712 57 0] | +4.5 [+0.5, +8.6] | 98.6% |
+
+**E3 does not add to E2.** n8c scores +0.4, below n8bn's +4.5, so the n8c–n8bn match was not played (rule: only if
+n8c's point estimate beat +4.5).
+- n8c has the best database-truth numbers of all nets: sign agreement 99.84%, proven wins below +30 0.58%.
+- Its per-group loss on the E2 targets equals n8bn's (0.46488 against 0.46465).
+- The sharper targets on proven positions are learnt, but they do not make the net play better than the relabelled
+  results alone.
+- This matches the pilot: the stored scores were already right in sign and of reasonable size on the positions the
+  database search proves.
+
+**The best net of P2 and P3 stays n8bn** (no net beats it), so there is no 0.5 s confirmation against n8bn to play.
+
+### Opponents on a DLL with the conversion search (lead, 2026-11-10)
+
+**Setup.** DLL `truth-c0dde2e`: this branch at c0dde2e = master 2efe11a (conversion search) merged; bench 7,677,736;
+built with llvm-mingw like the ponder agent's DLLs; egdb junction to the 2–8 database. Otherwise config A as in P1
+(book off, threads 1, hash 128, `-c 8`, ACF 156 × 2, 0.5 s/move; the opponents with their books and the KingsRow 8-piece
+WLD database).
+
+| Run | W / D / L | Elo [95% CI] |
+|---|---|---|
+| n8bn vs Cake | 0 / 307 / 5 | −5.6 [−10.4, −0.8] |
+| n8bn vs GuiNN | **16 / 294 / 2** | **+15.6 [+6.7, +24.6]** |
+| n8c vs Cake | running | |
+| n8c vs GuiNN | queued | |
+| n6c (built-in) vs GuiNN, reference | queued | |
+| n6c (built-in) vs Cake, reference | queued | |
+
+**Ballots:**
+- **Cake, n8bn on truth-c0dde2e:** lost #6 Inferno, #14, #34 Twilight Zone, #85 (black) and #153 Black Widow (white).
+  #6, #34 and #153 were also lost on the ponder DLL.
+- **GuiNN, n8bn:**
+  - won #16 Wilderness II, #23, #34 Twilight Zone, #55, #60 Black Hole, #71 Diabolical Denny, #74, #76, #81, #86 Octopus,
+    #141 and #174 Skunk (white);
+  - won #22, #28, #92 and #121 (black);
+  - lost #6 Inferno and #96 Skull-Cracker (black).
 
 ### P3: sweeps on the E2 data
 
