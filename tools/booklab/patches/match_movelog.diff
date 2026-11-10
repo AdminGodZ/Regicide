@@ -1,0 +1,46 @@
+diff --git a/tools/match/main.cpp b/tools/match/main.cpp
+index a07663e..882a4ad 100644
+--- a/tools/match/main.cpp
++++ b/tools/match/main.cpp
+@@ -118,6 +118,7 @@ struct GameRecord {
+     std::string category;      // for counting
+     std::vector<std::string> moves;  // engine moves (after the opening), PDN
+     std::vector<std::string> comments;
++    std::vector<std::string> timelog;  // booklab: one row per engine move (games/<n>.moves.tsv)
+     double time_used[2] = {0, 0};  // by colour
+     int moves_made[2] = {0, 0};
+     double max_time[2] = {0, 0};
+@@ -212,6 +213,7 @@ void play_game(const Config& cfg, Engine* eng[2], GameRecord& g) {
+                 maxtime = cbt::cb_maxtime_for_incremental_tc(c.remaining, cfg.tc_initial, cfg.tc_increment);
+                 break;
+         }
++        const double bank_before = c.remaining;  // booklab move log: the runner's own bank, credit included
+         std::snprintf(buf, sizeof buf, " maxtime %.4f", maxtime);
+         go += buf;
+         if (c.first) go += " reset";  // CheckerBoard: CB_RESET_MOVES on each side's first search
+@@ -236,6 +238,13 @@ void play_game(const Config& cfg, Engine* eng[2], GameRecord& g) {
+         g.time_used[side] += r.elapsed;
+         g.max_time[side] = std::max(g.max_time[side], r.elapsed);
+         g.moves_made[side]++;
++        {
++            char lb[200];
++            const double charged = cfg.time_mode == TimeMode::CbMatch ? r.charged() : r.elapsed;
++            std::snprintf(lb, sizeof lb, "%zu\t%c\t%.4f\t%.4f\t%.4f\t%.4f\t%.4f\n", history.size(),
++                          side == 0 ? 'B' : 'W', bank_before, maxtime, r.elapsed, r.engine_time, charged);
++            g.timelog.push_back(lb);
++        }
+ 
+         switch (r.status) {
+             case GoResult::Status::Ok: break;
+@@ -466,6 +475,11 @@ struct Match {
+         std::snprintf(name, sizeof name, "%05ld.pdn", g.index + 1);
+         std::string text = pdn_text(cfg, g);
+         std::ofstream(fs::path(cfg.out_dir) / "games" / name) << text;
++        {
++            std::ofstream ml(fs::path(cfg.out_dir) / "games" / (std::string(name) + ".moves.tsv"));
++            ml << "ply\tside\tbank_before\tmaxtime\twall\thost_time\tcharged\n";
++            for (const auto& row : g.timelog) ml << row;
++        }
+         all_pdn << text << std::flush;
+         csv << g.index + 1 << ',' << g.pair + 1 << ",\"" << g.opening->name << "\",\"" << g.black << "\",\"" << g.white
+             << "\"," << pdn_result(g.winner) << ',' << s << ",\"" << g.category << "\"," << g.moves.size() << '\n'

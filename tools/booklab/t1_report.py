@@ -1,25 +1,24 @@
 #!/usr/bin/env python3
-"""T1 report (experiments/time-policy/README.md): tm_soft 60 against 100, Cake, H3, paired by opening and colour.
+"""T1 report (experiments/time-policy/README.md on master ac4bd20): tm_soft 100 against 60, Cake, H3.
 
-  t1_report.py --results DIR --shim DIR --repeat a [--rate R] [--movetime 0.5] [--md OUT]
-Runs bl-t1<rep>-<arm>-cake-H3_<k> (arm 60 and 100); shim logs <shim>/t1<rep>-<arm>-H3_<k>/{A,B}/*.tsv.
+  t1_report.py --results DIR --repeats a [b ...] [--boot 10000] [--md OUT]
+Runs bl-t1<rep>-<arm>-cake-H3_<k> for arm 60 and 100, played with bin/match-pr49-movelog (the PR #49 runner plus a
+per-move log, tools/booklab/patches/match_movelog.diff): games/<n>.pdn.moves.tsv holds, for every engine move, the
+runner's own bank before the move (this move's credit included), the offered maxtime, the runner's wall time, the
+host's time and the time the runner charged. Nothing is reconstructed (review 2026-11-11).
 
-Per move (from the shim logs of Regicide, side A): wall time (go to bestmove at the shim, WSL clock, times R to
-convert to Windows seconds), host time S ("bestmove ... time S", Windows clock), the charge (PR #49 runner:
-min(S, runner wall); the runner's wall is the shim interval plus two pipe hops, taken as the shim interval), the
-offered maxtime (from the `go maxtime X` line) and the bank before the move (CheckerBoard banking:
-maxtime = M + (bank - M) / 2.5, so bank = M + 2.5 (maxtime - M)). Moves are joined to the games by the move list
-of the `position` line; pieces on the board from the replayed game.
-Read-out: W/D/L per arm; paired score difference (100 minus 60) by opening (both colours summed) with a 95%
-interval (normal, over openings); time used per phase on searched moves (> 0.02 s) by pieces on the board;
-bank before the first own move at <= 8 pieces. The decision rule is the README's; this script does not decide.
+Read-out (README): W/D/L per arm; the paired score difference 100 minus 60 in match-score points over an arm's 312
+games (3 points = 0.96 percentage points), with a 95% interval that resamples the 156 openings (both colours of an
+opening stay together); with a second run, each opening's difference is the mean of the runs. Time used by Regicide
+per phase on searched moves (host time; > 0.02 s), its share of the offered maxtime, and the bank before Regicide's
+first move with 8 or fewer pieces on the board. The decision rule is the README's; this script does not decide.
 """
 import argparse
 import collections
+import csv
 import glob
-import math
 import os
-import re
+import random
 import statistics
 import sys
 
@@ -30,7 +29,6 @@ PHASES = [(21, 24, "21-24"), (17, 20, "17-20"), (13, 16, "13-16"), (9, 12, "9-12
 
 
 def pieces_after(moves):
-    """Pieces on the board after each prefix: 24 minus captured men (a capture's jumps: path length - 1)."""
     out, n = [24], 24
     for m in moves:
         if "x" in m:
@@ -39,111 +37,101 @@ def pieces_after(moves):
     return out
 
 
-def shim_moves(d):
-    """[(position move list, wall, S, maxtime)] for every searched move of the process logs in d."""
-    res = []
-    for f in sorted(glob.glob(os.path.join(d, "*.tsv"))):
-        pos = go_t = mt = None
-        for l in open(f, errors="replace"):
-            t, direc, line = l.rstrip("\n").split("\t", 2)
-            t = float(t)
-            if direc == ">" and line.startswith("position"):
-                pos = line.split(" moves ", 1)[1] if " moves " in line else ""
-            elif direc == ">" and line.startswith("go"):
-                go_t = t
-                m = re.search(r"maxtime ([0-9.]+)", line)
-                mt = float(m.group(1)) if m else None
-            elif direc == "<" and line.startswith("bestmove") and go_t is not None:
-                m = re.search(r"\btime ([0-9.]+)", line)
-                res.append((pos, t - go_t, float(m.group(1)) if m else None, mt))
-                go_t = None
-    return res
+def load_run(d):
+    """[(opening, regicide colour, score, moves, movelog rows)] for every game of a run directory."""
+    games = []
+    for p in sorted(glob.glob(os.path.join(d, "games", "*.pdn"))):
+        g = list(parse_pdn(open(p, errors="replace").read()))
+        if len(g) != 1:
+            sys.exit(f"{p}: {len(g)} games")
+        tags, mv = g[0]
+        col = "B" if family(tags["Black"]) == "regicide" else "W"
+        r = tags.get("Result", "").strip()
+        sc = {"1-0": 1.0 if col == "B" else 0.0, "0-1": 1.0 if col == "W" else 0.0, "1/2-1/2": 0.5}.get(r)
+        log = p + ".moves.tsv"
+        if not os.path.exists(log):
+            sys.exit(f"{log} missing: the run was not played with match-pr49-movelog")
+        rows = list(csv.DictReader(open(log), delimiter="\t"))
+        games.append((ballot_of(tags["Opening"])[1], col, sc, [m for m, _ in mv], rows))
+    return games
 
 
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--results", required=True)
-    ap.add_argument("--shim", required=True)
-    ap.add_argument("--repeat", default="a")
-    ap.add_argument("--rate", type=float, default=1.0)
-    ap.add_argument("--movetime", type=float, default=0.5)
+    ap.add_argument("--repeats", nargs="+", default=["a"])
+    ap.add_argument("--boot", type=int, default=10000)
     ap.add_argument("--md")
     a = ap.parse_args()
-    M = a.movetime
-    res = {}  # arm -> {(opening, colour): result}
-    tim = {}  # arm -> phase -> [S]
-    tim_wall, share = {}, {}
-    bank8 = {}
+    score = {}  # (rep, arm) -> {(opening, colour): score}
+    tim, share, bank8, wdl = (collections.defaultdict(lambda: collections.defaultdict(list)),
+                              collections.defaultdict(lambda: collections.defaultdict(list)),
+                              collections.defaultdict(list), collections.defaultdict(collections.Counter))
+    for rep in a.repeats:
+        for arm in ("60", "100"):
+            score[(rep, arm)] = {}
+            for part in ("H3_0", "H3_1"):
+                for opening, col, sc, moves, rows in load_run(os.path.join(a.results, f"bl-t1{rep}-{arm}-cake-{part}")):
+                    key = (opening, col)
+                    if key in score[(rep, arm)]:
+                        sys.exit(f"duplicate {key} in repeat {rep}, arm {arm}")
+                    score[(rep, arm)][key] = sc
+                    wdl[arm][{1.0: "W", 0.5: "D", 0.0: "L", None: "?"}[sc]] += 1
+                    pcs = pieces_after(moves)
+                    seen8 = False
+                    for row in rows:
+                        if row["side"] != col:
+                            continue
+                        ply = int(row["ply"])
+                        if pcs[ply] <= 8 and not seen8:
+                            bank8[arm].append(float(row["bank_before"]))
+                            seen8 = True
+                        ht = float(row["host_time"])
+                        if ht < 0.02:
+                            continue
+                        ph = next(name for lo, hi, name in PHASES if lo <= pcs[ply] <= hi)
+                        tim[arm][ph].append(ht)
+                        share[arm][ph].append(ht / float(row["maxtime"]))
+    # paired difference per opening, mean over repeats
+    per_open = collections.defaultdict(list)  # opening -> [difference of one repeat (both colours summed)]
+    missing = 0
+    for rep in a.repeats:
+        d = collections.defaultdict(float)
+        for key, s60 in score[(rep, "60")].items():
+            s100 = score[(rep, "100")].get(key)
+            if s60 is None or s100 is None:
+                missing += 1
+                continue
+            d[key[0]] += s100 - s60
+        for op, v in d.items():
+            per_open[op].append(v)
+    diffs = [statistics.mean(v) for v in per_open.values()]
+    total = sum(diffs)
+    rnd = random.Random(2026111101)
+    boots = sorted(sum(rnd.choice(diffs) for _ in diffs) for _ in range(a.boot))
+    lo, hi = boots[int(0.025 * a.boot)], boots[int(0.975 * a.boot) - 1]
+    games = sum(len(score[(a.repeats[0], "60")]) for _ in [0])
+    out = [f"# T1 report: tm_soft 100 minus 60, Cake, holdout H3, repeats {', '.join(a.repeats)}", ""]
     for arm in ("60", "100"):
-        res[arm], tim[arm], tim_wall[arm], share[arm], bank8[arm] = {}, collections.defaultdict(list), \
-            collections.defaultdict(list), collections.defaultdict(list), []
-        for part in ("H3_0", "H3_1"):
-            run = f"bl-t1{a.repeat}-{arm}-cake-{part}"
-            moves_by_pos = {}
-            for pos, wall, s, mt in shim_moves(os.path.join(a.shim, f"t1{a.repeat}-{arm}-{part}", "A")):
-                moves_by_pos[pos] = (wall * a.rate, s, mt)
-            for tags, mv in parse_pdn(open(os.path.join(a.results, run, "games.pdn"), errors="replace").read()):
-                col = "B" if family(tags["Black"]) == "regicide" else "W"
-                r = tags.get("Result", "").strip()
-                sc = {"1-0": 1.0 if col == "B" else 0.0, "0-1": 1.0 if col == "W" else 0.0, "1/2-1/2": 0.5}.get(r)
-                key = (ballot_of(tags["Opening"])[1], col)
-                if key in res[arm]:
-                    sys.exit(f"duplicate {key} in arm {arm}")
-                res[arm][key] = sc
-                moves = [m for m, _ in mv]
-                pcs = pieces_after(moves)
-                seen8 = False
-                for i in range(len(moves)):
-                    if (i % 2 == 0) != (col == "B"):
-                        continue
-                    rec = moves_by_pos.get(" ".join(moves[:i]))
-                    if rec is None:
-                        continue
-                    wall, s, mt = rec
-                    if pcs[i] <= 8 and not seen8 and mt is not None:
-                        bank8[arm].append(M + 2.5 * (mt - M))
-                        seen8 = True
-                    if s is None or s < 0.02:
-                        continue
-                    ph = next(name for lo, hi, name in PHASES if lo <= pcs[i] <= hi)
-                    tim[arm][ph].append(s)
-                    tim_wall[arm][ph].append(wall)
-                    if mt:
-                        share[arm][ph].append(s / mt)
-    out = [f"# T1 report, repeat {a.repeat} (tm_soft 100 minus 60), Cake, H3", ""]
-    for arm in ("60", "100"):
-        c = collections.Counter(res[arm].values())
-        out.append(f"- tm_soft {arm}: {len(res[arm])} games, Regicide W / D / L = {c[1.0]} / {c[0.5]} / {c[0.0]}"
-                   + (f" ({sum(1 for v in res[arm].values() if v is None)} without result)" if None in res[arm].values() else ""))
-    by_open = collections.defaultdict(float)
-    pairs = better = worse = 0
-    for k in res["60"]:
-        if k in res["100"] and res["60"][k] is not None and res["100"][k] is not None:
-            d = res["100"][k] - res["60"][k]
-            by_open[k[0]] += d
-            pairs += 1
-            better += d > 0
-            worse += d < 0
-    diffs = list(by_open.values())
-    tot = sum(diffs)
-    se = statistics.pstdev(diffs) * math.sqrt(len(diffs)) if len(diffs) > 1 else float("nan")
-    out += ["", f"Paired by opening and colour: {pairs} pairs, 100 better in {better}, worse in {worse}; score difference "
-            f"100 − 60 = **{tot:+.1f} points**, 95% interval by opening [{tot - 1.96 * se:+.1f}, {tot + 1.96 * se:+.1f}] "
-            f"({len(diffs)} openings).", "",
-            "Time on searched moves (> 0.02 s) by pieces on the board: host time mean (wall time mean), share of the "
-            "offered maxtime (median):", "", "| Pieces | tm_soft 60 | tm_soft 100 |", "|---|---|---|"]
+        c = wdl[arm]
+        out.append(f"- tm_soft {arm}: Regicide W / D / L = {c['W']} / {c['D']} / {c['L']}" + (f", {c['?']} without result" if c["?"] else ""))
+    out += ["", f"**Paired score difference (100 − 60): {total:+.1f} match-score points over {games} games per arm** "
+            f"({100 * total / games:+.2f} percentage points); 95% interval resampling the {len(diffs)} openings "
+            f"[{lo:+.1f}, {hi:+.1f}]" + (f"; mean of {len(a.repeats)} runs within each opening" if len(a.repeats) > 1 else "")
+            + (f"; {missing} pairs without a result left out" if missing else "") + ".", "",
+            "Regicide's time on searched moves (host time > 0.02 s) by pieces on the board: mean host time, median share "
+            "of the offered maxtime [moves]:", "", "| Pieces | tm_soft 60 | tm_soft 100 |", "|---|---|---|"]
     for _, _, ph in PHASES:
         cells = []
         for arm in ("60", "100"):
             x = tim[arm][ph]
-            cells.append(f"{statistics.mean(x):.2f} s ({statistics.mean(tim_wall[arm][ph]):.2f} s), "
-                         f"{100 * statistics.median(share[arm][ph]):.0f}% [{len(x)} moves]" if x else "-")
+            cells.append(f"{statistics.mean(x):.2f} s, {100 * statistics.median(share[arm][ph]):.0f}% [{len(x)}]" if x else "-")
         out.append(f"| {ph} | {cells[0]} | {cells[1]} |")
-    out += ["", "Bank before Regicide's first move with 8 or fewer pieces on the board (median / mean, games):", ""]
+    out += ["", "Runner's bank before Regicide's first move with 8 or fewer pieces (this move's credit included), "
+            "median / mean [games]:", ""]
     for arm in ("60", "100"):
         b = bank8[arm]
-        out.append(f"- tm_soft {arm}: {statistics.median(b):.2f} s / {statistics.mean(b):.2f} s ({len(b)} games)" if b else
-                   f"- tm_soft {arm}: -")
+        out.append(f"- tm_soft {arm}: {statistics.median(b):.2f} s / {statistics.mean(b):.2f} s [{len(b)}]" if b else f"- tm_soft {arm}: -")
     text = "\n".join(out)
     print(text)
     if a.md:

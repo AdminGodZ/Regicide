@@ -58,9 +58,19 @@ def sha(path):
     return h.hexdigest()
 
 
-def manifest_sha(d):
-    items = sorted((n, os.path.getsize(os.path.join(d, n))) for n in os.listdir(d))
-    return hashlib.sha256(json.dumps(items).encode()).hexdigest()
+def manifest_sha(d, out_path=None):
+    """Content identity of the database directory (review 2026-11-11): SHA-256 of every file (sha256sum, 6 in
+    parallel), the sorted 'name checksum' list written to out_path, and the SHA-256 of that list returned."""
+    names = sorted(n for n in os.listdir(d) if os.path.isfile(os.path.join(d, n)))
+    r = subprocess.run(["xargs", "-0", "-P", "6", "-n", "8", "sha256sum"], input="\0".join(names), cwd=d,
+                       capture_output=True, text=True, check=True)
+    rows = sorted(f"{l.split()[1].lstrip('*')} {l.split()[0]}" for l in r.stdout.splitlines() if l.strip())
+    if len(rows) != len(names):
+        sys.exit(f"database manifest: {len(rows)} checksums for {len(names)} files")
+    text = "\n".join(rows) + "\n"
+    if out_path:
+        open(out_path, "w").write(text)
+    return hashlib.sha256(text.encode()).hexdigest()
 
 
 def ballot_no(b):
@@ -78,7 +88,8 @@ def main():
     ap.add_argument("--slots", type=int, default=3)
     a = ap.parse_args()
     os.makedirs(a.out, exist_ok=True)
-    parts = dict(scorer=sha(a.multiscore), net=sha(a.net), book=sha(a.book), egdb_manifest=manifest_sha(a.egdb),
+    parts = dict(scorer=sha(a.multiscore), net=sha(a.net), book=sha(a.book),
+                 egdb_content=manifest_sha(a.egdb, os.path.join(a.out, "egdb_manifest.txt")),
                  nodes=a.nodes, hash_mb=a.hash, margin=MARGIN)
     key = hashlib.sha256(json.dumps(parts, sort_keys=True).encode()).hexdigest()[:16]
     with open(os.path.join(a.out, "campaign.txt"), "w") as fo:
@@ -94,9 +105,15 @@ def main():
             continue
         p = dict(zip(hdr, f))
         p["category"], p["distance"], p["ply"] = int(p["category"]), int(p["distance"]), int(p["ply"])
-        src_runs = {p["run"].rsplit("-", 1)[0]}  # v11-n6c-cake
-        p["cake_lines"] = sorted({(c.split("|")[0], c.split("|")[1]) for c in p["contexts"].split(";")
-                                  if c.split("|")[2] == "cake" and c.split("|")[3].rsplit("-", 1)[0] in src_runs})
+        src_runs = {p["run"].rsplit("-", 1)[0]}  # bl-v11-n6c-cake (both halves)
+        # every Cake line of the point source that reaches the position, with the position's ply on that line
+        # (review 2026-11-11: cap and spacing are checked on each of them with that line's ply)
+        p["line_ply"] = {(p["ballot"], p["colour"]): p["ply"]}
+        for c in p["contexts"].split(";"):
+            f5 = c.split("|")
+            if len(f5) == 5 and f5[2] == "cake" and f5[3].split(":")[0].rsplit("-", 1)[0] in src_runs:
+                ln = (f5[0], f5[1])
+                p["line_ply"][ln] = min(p["line_ply"].get(ln, 10 ** 6), int(f5[4]))
         pts[p["id"]] = p
         if p["category"] in (2, 3):
             lines[(p["ballot"], p["colour"])].append(p)
@@ -177,10 +194,21 @@ def main():
     considered, cands = {}, []
     kept = collections.defaultdict(list)  # line -> kept candidate points (counting on every Cake line through them)
 
+    # kept[line] = [(point, its ply on that line)]
+    def blocked(p):
+        """Why p cannot be kept: on some line it reaches, three candidates are kept already, or one is within four
+        plies (each line with its own ply). None if it can be kept."""
+        for ln, ply in p["line_ply"].items():
+            if len(kept[ln]) >= 3:
+                return f"line {ln[0]} {ln[1]} has three candidates"
+            if any(abs(ply - qply) < 4 for _, qply in kept[ln]):
+                return f"within 4 plies of a kept candidate on line {ln[0]} {ln[1]}"
+        return None
+
     def keep(p, arm, slot, alt, alts, ps):
         cands.append(dict(arm=arm, slot=slot, p=p, alt=alt, alts=alts, ps=ps))
-        for ln in set(p["cake_lines"]) | {(p["ballot"], p["colour"])}:
-            kept[ln].append(p)
+        for ln, ply in p["line_ply"].items():
+            kept[ln].append((p, ply))
 
     # the known position first
     score([w30])
@@ -205,8 +233,7 @@ def main():
                 while pos[k] < len(L) and scanned[k] < PER_SLOT_SCAN:
                     p = L[pos[k]]
                     reason = ("already the known position" if p["id"] == w30["id"] else
-                              "within 4 plies of a kept candidate on this line"
-                              if any(abs(p["ply"] - q["ply"]) < 4 for q in kept[k]) else qualifies(p))
+                              blocked(p) or qualifies(p))
                     if reason:
                         considered.setdefault(p["id"], (p, None, None, None, False, reason))
                         pos[k] += 1
@@ -224,9 +251,13 @@ def main():
                 considered[p["id"]] = (p, alt, alts, ps, ok, why)
                 pos[k] += 1
                 scanned[k] += 1
-                if ok and all(abs(p["ply"] - q["ply"]) >= 4 for q in kept[k]) and len(kept[k]) < 3:
-                    keep(p, f"slot {s}", s, alt, alts, ps)
-                    done[k] = True
+                if ok:
+                    why_not = blocked(p)  # a candidate kept on another line this round may have filled one of p's lines
+                    if why_not:
+                        considered[p["id"]] = (p, alt, alts, ps, False, "passes the margin, but " + why_not)
+                    else:
+                        keep(p, f"slot {s}", s, alt, alts, ps)
+                        done[k] = True
         write(a, key, cands, considered, scores, legal)
         print(f"slot {s}: {sum(1 for c in cands if c['slot'] == s)} candidates", flush=True)
     write(a, key, cands, considered, scores, legal)

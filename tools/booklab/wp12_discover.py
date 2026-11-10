@@ -145,6 +145,7 @@ def main():
     ap.add_argument("--parallel", type=int, default=8)
     ap.add_argument("--per-lock", type=int, default=48)
     ap.add_argument("--out", required=True)
+    ap.add_argument("--replay", nargs="*", default=[], help="ranks whose saved game is archived and played again")
     a = ap.parse_args()
     os.makedirs(a.out, exist_ok=True)
     csha = sha(a.candidates)
@@ -195,10 +196,21 @@ def main():
                 fo.write("\n".join(quarantined) + "\n")
             st(f"W12 quarantined {len(quarantined)} games (analysis failed; see {qtsv})")
 
-    # games played before but not analysed (quarantined, or interrupted after play): analyse again, do not replay
-    record([c for c in cands if c["rank"] not in done and os.path.exists(f"{c['outdir']}/games.pdn")
-            and os.path.exists(f"{c['outdir']}/summary.txt")])
-    todo = [c for c in cands if c["rank"] not in done]
+    # An intended replay (--replay RANK) archives the saved game first; nothing else is ever deleted.
+    for c in cands:
+        if c["rank"] in a.replay and os.path.exists(c["outdir"]):
+            arch = f"{c['outdir']}.replaced-{time.strftime('%Y%m%dT%H%M%S')}"
+            os.rename(c["outdir"], arch)
+            st(f"W12 replay of {c['name']} requested: saved game archived as {arch}")
+    # games played before but not analysed (quarantined, or interrupted after play): analyse again, never replay
+    saved = [c for c in cands if c["rank"] not in done and os.path.exists(f"{c['outdir']}/games.pdn")
+             and os.path.exists(f"{c['outdir']}/summary.txt")]
+    record(saved)
+    held = {c["rank"] for c in saved if c["rank"] not in done}  # analysis still failing: kept, not in the play queue
+    if held:
+        st(f"W12 {len(held)} saved games still fail analysis and stay out of the play queue (quarantine.tsv; "
+           f"resolve, or replay explicitly with --replay RANK)")
+    todo = [c for c in cands if c["rank"] not in done and c["rank"] not in held]
     print(f"{len(todo)} candidates to play", flush=True)
     while todo:
         chunk, todo = todo[:a.per_lock], todo[a.per_lock:]
@@ -223,7 +235,8 @@ def main():
             while queue or running:
                 while queue and len(running) < a.parallel:
                     c = queue.pop(0)
-                    subprocess.run(["rm", "-rf", c["outdir"]])
+                    if os.path.exists(c["outdir"]):  # an unfinished earlier attempt (no summary): archived, not deleted
+                        os.rename(c["outdir"], f"{c['outdir']}.partial-{time.strftime('%Y%m%dT%H%M%S')}")
                     logf = open(f"{RESULTS}/bl-w12-d-{c['name']}.log", "w")
                     p = subprocess.Popen(match_cmd(c["name"], c["deck"], c["outdir"]), stdout=logf,
                                          stderr=subprocess.STDOUT, stdin=subprocess.DEVNULL)

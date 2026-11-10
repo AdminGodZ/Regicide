@@ -17,7 +17,8 @@ Points are deduplicated by position (the first game met keeps it, sorted runs, g
 run:round) whose game reaches the point's position with Regicide to move is listed (protocol: every ballot and
 colour from which a candidate's position is reached is recorded and screened in stage 3).
 Output TSV: id, category, distance, ballot, colour, run, round, ply, fen, pinned move, contexts
-(contexts: "ballot|colour|opponent|run:round" separated by ";", the point's own game included).
+(contexts: "ballot|colour|opponent|run:round|ply" separated by ";", the point's own game included; ply = the
+position's ply in that game, from the start position).
 """
 import argparse
 import collections
@@ -86,9 +87,9 @@ def main():
     for gi, ply, fen, mv, el, bmv in pinwalk(a.pinwalk, a.book, a.egdb, cgames):
         if fen in pts:
             g = cgames[gi]
-            ctx[fen].add(f"{g['ballot']}|{g['col']}|{g['opp']}|{g['run']}:{g['rnd']}")
+            ctx[fen].add(f"{g['ballot']}|{g['col']}|{g['opp']}|{g['run']}:{g['rnd']}|{ply}")
     for fen, p in pts.items():  # the point's own game is always a context
-        ctx[fen].add(f"{p[2]}|{p[3]}|cake|{p[4]}:{p[5]}")
+        ctx[fen].add(f"{p[2]}|{p[3]}|cake|{p[4]}:{p[5]}|{p[6]}")
     with open(a.out, "w") as fo:
         fo.write("id\tcategory\tdistance\tballot\tcolour\trun\tround\tply\tfen\tpinned\tcontexts\n")
         for i, (fen, p) in enumerate(sorted(pts.items(), key=lambda kv: (kv[1][0], kv[1][2], kv[1][3], kv[1][6]))):
