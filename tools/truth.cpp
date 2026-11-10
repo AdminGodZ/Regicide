@@ -680,6 +680,17 @@ int main(int argc, char** argv) {
         std::fclose(f);
         if (bytes / 16 <= 0) return std::cerr << in << " holds no complete record\n", 1;
     }
+    if (cmd == "pilot") {  // likewise: the inputs are checked before the database loads (same ctest)
+        long total = 0;
+        for (const auto& file : files) {
+            std::FILE* f = std::fopen(file.c_str(), "rb");
+            if (!f) return std::cerr << "cannot open " << file << '\n', 1;
+            std::fseek(f, 0, SEEK_END);
+            total += std::ftell(f) / 16;
+            std::fclose(f);
+        }
+        if (total <= 0) return std::cerr << "the input holds no complete record\n", 1;
+    }
     if (egdb_dir.empty() || !egdb::init(egdb_dir, 4096)) return std::cerr << "cannot load egdb (--egdb DIR)\n", 1;
     if (cmd == "census") return census(files);
     if (cmd == "relabel") return relabel(in, out);
