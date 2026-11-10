@@ -43,3 +43,271 @@ game,pair,opening,black,white,result,score_a,termination,engine_plies
 46,23,"ACF #25","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",76
 41,21,"ACF #23","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",106
 44,22,"ACF #24","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",73
+42,21,"ACF #23","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",81
+48,24,"ACF #27","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",59
+47,24,"ACF #27","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",60
+45,23,"ACF #25","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",59
+52,26,"ACF #29","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",77
+51,26,"ACF #29","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",68
+50,25,"ACF #28","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",77
+53,27,"ACF #30","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",103
+54,27,"ACF #30","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",73
+49,25,"ACF #28","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",76
+55,28,"ACF #31","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",88
+58,29,"ACF #32","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",73
+60,30,"ACF #33","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",58
+57,29,"ACF #32","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",88
+59,30,"ACF #33","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",70
+56,28,"ACF #31","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",79
+62,31,"ACF #34 Twilight Zone","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",82
+64,32,"ACF #36","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",57
+65,33,"ACF #37","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",72
+66,33,"ACF #37","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",69
+68,34,"ACF #38","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",69
+67,34,"ACF #38","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",78
+63,32,"ACF #36","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",60
+70,35,"ACF #39","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",114
+69,35,"ACF #39","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",55
+72,36,"ACF #40","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",75
+71,36,"ACF #40","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",79
+74,37,"ACF #41","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",69
+75,38,"ACF #42","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",80
+77,39,"ACF #43","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",73
+76,38,"ACF #42","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",98
+78,39,"ACF #43","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",89
+82,41,"ACF #47","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",69
+81,41,"ACF #47","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",80
+73,37,"ACF #41","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",101
+61,31,"ACF #34 Twilight Zone","Regicide-n8c-cake-c0dde2e","Cake 1.89f",0-1,0,"no legal moves",133
+79,40,"ACF #46 Double Cross","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",64
+80,40,"ACF #46 Double Cross","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",71
+83,42,"ACF #49","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",116
+84,42,"ACF #49","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",76
+87,44,"ACF #51","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",94
+86,43,"ACF #50","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",75
+92,46,"ACF #54","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",75
+88,44,"ACF #51","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",86
+85,43,"ACF #50","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",94
+89,45,"ACF #53","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",86
+91,46,"ACF #54","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",71
+98,49,"ACF #57","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",74
+96,48,"ACF #56","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",63
+93,47,"ACF #55","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",73
+97,49,"ACF #57","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",113
+99,50,"ACF #58","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",69
+90,45,"ACF #53","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",92
+94,47,"ACF #55","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",76
+95,48,"ACF #56","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",69
+100,50,"ACF #58","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",79
+102,51,"ACF #59","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",73
+101,51,"ACF #59","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",114
+106,53,"ACF #61","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",65
+110,55,"ACF #63","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",75
+105,53,"ACF #61","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",124
+104,52,"ACF #60 Black Hole","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",70
+107,54,"ACF #62 Gemini I","Regicide-n8c-cake-c0dde2e","Cake 1.89f",0-1,0,"no legal moves",55
+103,52,"ACF #60 Black Hole","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",118
+109,55,"ACF #63","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",133
+108,54,"ACF #62 Gemini I","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",100
+113,57,"ACF #65 Fraser's Inferno","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",78
+115,58,"ACF #66","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",75
+112,56,"ACF #64","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",88
+116,58,"ACF #66","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",68
+114,57,"ACF #65 Fraser's Inferno","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",73
+117,59,"ACF #67","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",86
+118,59,"ACF #67","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",77
+122,61,"ACF #69","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",77
+111,56,"ACF #64","Regicide-n8c-cake-c0dde2e","Cake 1.89f",0-1,0,"no legal moves",79
+123,62,"ACF #70","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",89
+119,60,"ACF #68 White Doctor","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",124
+124,62,"ACF #70","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",84
+121,61,"ACF #69","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",83
+120,60,"ACF #68 White Doctor","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",98
+125,63,"ACF #71 Diabolical Denny","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",91
+127,64,"ACF #72","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",69
+126,63,"ACF #71 Diabolical Denny","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",74
+129,65,"ACF #73","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",73
+134,67,"ACF #75","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",75
+133,67,"ACF #75","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",84
+130,65,"ACF #73","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",50
+128,64,"ACF #72","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",100
+132,66,"ACF #74","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",73
+136,68,"ACF #76","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",77
+131,66,"ACF #74","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",103
+135,68,"ACF #76","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",93
+141,71,"ACF #80","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",86
+138,69,"ACF #78","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",77
+140,70,"ACF #79","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",94
+137,69,"ACF #78","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",57
+143,72,"ACF #81","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",71
+142,71,"ACF #80","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",74
+144,72,"ACF #81","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",75
+139,70,"ACF #79","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",97
+146,73,"ACF #82","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",92
+148,74,"ACF #83","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",70
+147,74,"ACF #83","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",69
+145,73,"ACF #82","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",97
+149,75,"ACF #84","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",89
+150,75,"ACF #84","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",83
+151,76,"ACF #85","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",104
+156,78,"ACF #87 Tyne","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",73
+153,77,"ACF #86 Octopus","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",75
+158,79,"ACF #89","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",83
+154,77,"ACF #86 Octopus","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",86
+157,79,"ACF #89","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",84
+155,78,"ACF #87 Tyne","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",106
+164,82,"ACF #92","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",93
+163,82,"ACF #92","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",107
+161,81,"ACF #91","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",98
+160,80,"ACF #90","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",84
+162,81,"ACF #91","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",83
+159,80,"ACF #90","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",110
+152,76,"ACF #85","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",128
+165,83,"ACF #93","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",55
+167,84,"ACF #95","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",90
+166,83,"ACF #93","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",99
+170,85,"ACF #96 Skull-Cracker","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",60
+172,86,"ACF #97","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",76
+168,84,"ACF #95","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",80
+175,88,"ACF #99","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",63
+171,86,"ACF #97","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",97
+174,87,"ACF #98","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",71
+173,87,"ACF #98","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",92
+180,90,"ACF #101","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",69
+178,89,"ACF #100","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",76
+176,88,"ACF #99","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",90
+182,91,"ACF #102","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",71
+169,85,"ACF #96 Skull-Cracker","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",84
+177,89,"ACF #100","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",83
+179,90,"ACF #101","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",105
+183,92,"ACF #103","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",117
+181,91,"ACF #102","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",166
+187,94,"ACF #105 Gemini II","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",77
+186,93,"ACF #104","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",85
+184,92,"ACF #103","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",80
+185,93,"ACF #104","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",111
+188,94,"ACF #105 Gemini II","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",73
+190,95,"ACF #106","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",75
+189,95,"ACF #106","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",62
+195,98,"ACF #110","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",67
+193,97,"ACF #108","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",110
+192,96,"ACF #107","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",88
+191,96,"ACF #107","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",92
+194,97,"ACF #108","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",75
+197,99,"ACF #111","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",63
+196,98,"ACF #110","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",81
+198,99,"ACF #111","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",73
+201,101,"ACF #113","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",78
+202,101,"ACF #113","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",72
+205,103,"ACF #116","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",61
+203,102,"ACF #115","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",84
+200,100,"ACF #112","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",81
+206,103,"ACF #116","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",83
+204,102,"ACF #115","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",79
+207,104,"ACF #117","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",67
+209,105,"ACF #118","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",67
+210,105,"ACF #118","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",73
+211,106,"ACF #119","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",78
+208,104,"ACF #117","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",64
+212,106,"ACF #119","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",83
+199,100,"ACF #112","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",135
+214,107,"ACF #120","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",74
+218,109,"ACF #122","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",65
+217,109,"ACF #122","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",72
+216,108,"ACF #121","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",77
+219,110,"ACF #123","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",72
+215,108,"ACF #121","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",79
+220,110,"ACF #123","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",73
+213,107,"ACF #120","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",78
+225,113,"ACF #126","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",127
+221,111,"ACF #124","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",99
+226,113,"ACF #126","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",75
+224,112,"ACF #125","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",71
+227,114,"ACF #127","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",63
+222,111,"ACF #124","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",67
+228,114,"ACF #127","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",71
+223,112,"ACF #125","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",60
+231,116,"ACF #129","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",100
+232,116,"ACF #129","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",63
+230,115,"ACF #128","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",87
+233,117,"ACF #130","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",88
+235,118,"ACF #131","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",72
+237,119,"ACF #132","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",88
+236,118,"ACF #131","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",71
+238,119,"ACF #132","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",82
+234,117,"ACF #130","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",74
+239,120,"ACF #133 Octopus","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",84
+240,120,"ACF #133 Octopus","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",83
+229,115,"ACF #128","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",125
+241,121,"ACF #134","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",87
+243,122,"ACF #135","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",78
+242,121,"ACF #134","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",69
+246,123,"ACF #136","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",92
+244,122,"ACF #135","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",84
+248,124,"ACF #138","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",71
+250,125,"ACF #139","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",86
+245,123,"ACF #136","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",52
+252,126,"ACF #140","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",59
+249,125,"ACF #139","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",90
+247,124,"ACF #138","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",132
+255,128,"ACF #142","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",70
+251,126,"ACF #140","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",105
+256,128,"ACF #142","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",79
+254,127,"ACF #141","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",73
+253,127,"ACF #141","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",55
+258,129,"ACF #143","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",84
+260,130,"ACF #144","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",61
+263,132,"ACF #147","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",115
+259,130,"ACF #144","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",63
+265,133,"ACF #148","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",67
+261,131,"ACF #146","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",76
+264,132,"ACF #147","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",71
+262,131,"ACF #146","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",84
+266,133,"ACF #148","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",88
+268,134,"ACF #149","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",71
+267,134,"ACF #149","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",60
+257,129,"ACF #143","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",135
+270,135,"ACF #150","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",82
+271,136,"ACF #151","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",92
+269,135,"ACF #150","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",85
+277,139,"ACF #154","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",67
+278,139,"ACF #154","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",70
+275,138,"ACF #153 Black Widow","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",66
+272,136,"ACF #151","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",87
+274,137,"ACF #152","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",61
+279,140,"ACF #155","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",73
+282,141,"ACF #157","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",83
+283,142,"ACF #158","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",84
+280,140,"ACF #155","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",77
+284,142,"ACF #158","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",73
+287,144,"ACF #160","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",88
+273,137,"ACF #152","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",122
+286,143,"ACF #159","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",73
+285,143,"ACF #159","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",107
+281,141,"ACF #157","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",95
+289,145,"ACF #161","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",86
+293,147,"ACF #163","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",86
+290,145,"ACF #161","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",65
+291,146,"ACF #162","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",83
+292,146,"ACF #162","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",89
+295,148,"ACF #164","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",78
+276,138,"ACF #153 Black Widow","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1-0,0,"no legal moves",144
+288,144,"ACF #160","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",87
+294,147,"ACF #163","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",80
+298,149,"ACF #165","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",82
+299,150,"ACF #166","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",60
+297,149,"ACF #165","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",86
+296,148,"ACF #164","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",80
+301,151,"ACF #167","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",84
+303,152,"ACF #169","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",81
+305,153,"ACF #170","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",63
+300,150,"ACF #166","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",88
+302,151,"ACF #167","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",87
+307,154,"ACF #172","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",63
+304,152,"ACF #169","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",73
+306,153,"ACF #170","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",77
+308,154,"ACF #172","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",77
+309,155,"ACF #173","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",82
+310,155,"ACF #173","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",79
+311,156,"ACF #174 Skunk","Regicide-n8c-cake-c0dde2e","Cake 1.89f",1/2-1/2,0.5,"repetition",81
+312,156,"ACF #174 Skunk","Cake 1.89f","Regicide-n8c-cake-c0dde2e",1/2-1/2,0.5,"repetition",89

@@ -55,3 +55,15 @@ python int vs engine: max |diff| 0, 0 positions differ
 float model vs engine: mean |diff| 9.62, max 82.54 centi-men
 simulated int (training) vs engine: max |diff| 1.00
 OK
+== w2032 export check (100k positions of the shared validation set), final net_e040.nnue, rc=0
+positions 100000  distinct engine scores 1343  range [-705, 643]
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 6.47, max 74.33 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK
+== w1064 export check (100k positions of the shared validation set), final net_e040.nnue, rc=0
+positions 100000  distinct engine scores 1450  range [-720, 783]
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 6.09, max 64.02 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK

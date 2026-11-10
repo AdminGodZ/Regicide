@@ -343,14 +343,22 @@ built with llvm-mingw like the ponder agent's DLLs; egdb junction to the 2–8 d
 (book off, threads 1, hash 128, `-c 8`, ACF 156 × 2, 0.5 s/move; the opponents with their books and the KingsRow 8-piece
 WLD database).
 
-| Run | W / D / L | Elo [95% CI] |
+| Run (truth-c0dde2e, config A, book off, 312 games) | W / D / L | Elo [95% CI] |
 |---|---|---|
 | n8bn vs Cake | 0 / 307 / 5 | −5.6 [−10.4, −0.8] |
-| n8bn vs GuiNN | **16 / 294 / 2** | **+15.6 [+6.7, +24.6]** |
-| n8c vs Cake | running | |
-| n8c vs GuiNN | queued | |
-| n6c (built-in) vs GuiNN, reference | queued | |
-| n6c (built-in) vs Cake, reference | queued | |
+| n8c vs Cake | 0 / 307 / 5 | −5.6 [−10.4, −0.8] |
+| n6c (built-in) vs Cake, reference | 0 / 305 / 7 | −7.8 [−13.4, −2.2] |
+| n8bn vs GuiNN | 16 / 294 / 2 | +15.6 [+6.7, +24.6] |
+| n8c vs GuiNN | 17 / 293 / 2 | +16.7 [+7.6, +25.9] |
+| n6c (built-in) vs GuiNN, reference | 19 / 290 / 3 | +17.8 [+7.5, +28.2] |
+
+**Reading:**
+- **GuiNN:** with the conversion search all three nets beat GuiNN by +16 to +18 Elo, and the nets do not differ (16–19
+  wins, 2–3 losses). The gain comes from the conversion search, not from the truth-data nets.
+- **Cake:** still no wins. n8bn and n8c lose 5 games, n6c 7, which is within noise.
+- **The 0/307/5 streak:** six config-A Cake runs in a row (n6c ×2 on the ponder DLL, n8bn ×3, n8c) ended 0/307/5 on
+  partly different ballots. The n6c reference on the new DLL (0/305/7) breaks it, so it was chance, not a harness
+  artefact.
 
 **Ballots:**
 - **Cake, n8bn on truth-c0dde2e:** lost #6 Inferno, #14, #34 Twilight Zone, #85 (black) and #153 Black Widow (white).
@@ -423,7 +431,45 @@ validation tails of 11 files, >= 9 pieces: 2343232 records; sampled per group [1
 So differences of 0.001 in this loss do not rank nets of the same family. Larger gaps (n6c 0.47083 against the E2 nets
 0.464–0.466) do go with the match results.
 
-<!-- P4 -->
+### P4: E5 data with the database (running)
+
+**What `datagen-eb1037c` is.** The old gen4b generator (10k nodes, n4c engine eb1037c, seed 54,
+`~/regicide-data/train/gen4b_n10k.bin`, 5.48M records). It has been stopped (SIGSTOP, `gen4bhold`) since 2026-11-08 and
+generates nothing.
+
+**Settings** (`jobs/e5_gen.sh`, datagen of this branch):
+- 8-piece database, 50k nodes/move;
+- a game ends at its first ≤ 8-piece position with the database value as result, so nothing ≤ 8 is written;
+- positions with a proven score are written with the PROVEN flag (`label.hpp` rule);
+- score adjudication counts only proven scores, so every decisive result is exact;
+- each game's first record carries GAME_START;
+- half the games start from random openings (4–12 random plies), half from **seeds**: 227,871 distinct positions at
+  plies 6–30 of the 25,113 match games vs Cake (11,542), KingsRow (7,801) and GuiNN (5,770) under
+  `~/regicide-match/results`, plus 2–4 random plies.
+- Files: `gen6a_n50k_egdb.bin` (6 base-budget threads, seed 611) and `gen6b_n50k_egdb.bin` (6 extra threads that yield
+  to Book Lab's computing and to my CheckerBoard runs, seed 612).
+
+**Throughput.** 20-minute side-by-side test, same engine, 3 threads each (`logs/e5_rate.txt`):
+
+| Settings | Records per CPU-hour | ≥ 9-piece records per CPU-hour | Proven |
+|---|---|---|---|
+| gen5a style (no database, random openings, 50k nodes) | 170,929 | 74,111 | 0 (dropped) |
+| E5 (database, half seeds, 50k nodes) | 154,342 | **154,342** | 10.3% |
+
+The production run confirms it: 158k ≥ 9-piece positions per CPU-hour. So E5 gives **2.1× as many useful (≥ 9-piece)
+positions per CPU-hour** as gen5a's settings.
+
+**Composition and game ends:**
+- piece counts: 9–12 42%, 13–16 34%, 17–24 24% (E2's ≥ 9-piece data: 53 / 23.5 / 23.6), so more weight on the middle
+  game;
+- game ends (gen6a, first 17,000 games): database 7,467, proven adjudication 9,430, draw rules 103, no legal moves 0;
+- 0 incomplete searches; 2,318 partial losses stored unproven.
+
+**Progress** (2026-11-10 13:10): 3.73M positions (gen6a 1.50M, gen6b 2.23M). Goal 30M+. At ~1.9M/h with both
+processes running, **ETA about 14 h of running, i.e. 2026-11-11 around 03:00–06:00** depending on match pauses.
+Then n9a (n8bn's recipe + this data ×3) against n8bn.
+
+<!-- P5 -->
 
 ## What holds and what does not
 
