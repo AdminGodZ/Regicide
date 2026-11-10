@@ -146,6 +146,9 @@ target_link_libraries(booklab_pinwalk PRIVATE regicide_core)
 add_executable(booklab_multiscore tools/booklab/multiscore.cpp)
 target_link_libraries(booklab_multiscore PRIVATE regicide_core)
 
+add_executable(booklab_override tools/booklab/override.cpp)
+target_link_libraries(booklab_override PRIVATE regicide_core)
+
 add_executable(truth tools/truth.cpp)
 target_link_libraries(truth PRIVATE regicide_core)
 
