@@ -146,7 +146,10 @@ repetition and the 40-move rule, timing lock per deck of ≤ 40 positions (`scri
 |---|---|---|---|---|---|---|---|---|
 | bl-r6 (before: engine fcf6acb, round-6 book) | random 60 | **1 (1.7%)** | 0/1 | 0/35 | 1/24 | 0/3 | 1/57 | 26 games |
 | **bl-conv1** (engine 714502c + round-6 book) | all 362 | **362 (100%)** | 6/6 | 198/198 | 158/158 | 16/16 | 346/346 | **0** |
-| bl-conv3 (2156359 + round-6 book) | random 100 | running | | | | | | |
+| **bl-conv3** (2156359 + round-6 book) | random 100 of the 362 (seed 13; bl-conv1 failed none) | **100 (100%)** | 3/3 | 59/59 | 38/38 | 8/8 | 92/92 | **0** |
+
+- bl-conv3: plies to the win median 114, quartiles 93–129, max 235; no-progress maximum median 27, max 41 (2 games
+  ≥ 40, none ≥ 60). Report: `wp9/report-wp9conv3.md`.
 
 - bl-conv1, plies to the win: median 109, quartiles 95–129, max 210.
 - Highest no-progress count (plies without a capture or man move; the 40-move rule draws at 79) in the converted
