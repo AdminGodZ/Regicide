@@ -23,8 +23,13 @@ in its own table (`mining_report_template.csv`), never mixed with the holdout or
 
 ## Candidates
 
+- Points are taken from the games of the r11 validation against Cake with n6c (lines the pinned book really
+  plays), not from older games whose prefix r11 would leave.
 - At most three points per ballot and colour, one alternative each, deduplicated over all lines by position and
-  move, at least four plies apart where possible.
+  move, at least four plies apart where possible. The known position below counts as one of the three on its
+  lines if it passes the margin; if it fails the margin it is its own arm and does not count.
+- Every ballot and colour from which a candidate's position is reached (by any opponent, in any validation game)
+  is recorded with the candidate and kept through deduplication.
 - A point qualifies if it is our move before the first position with 8 or fewer pieces, the book is consulted there
   (no run of king moves before it), and there are at least two legal moves that are not on the avoid list.
 - The alternative is the best move other than the pinned one, by a search with the book off, a cleared hash and the
@@ -44,12 +49,31 @@ in its own table (`mining_report_template.csv`), never mixed with the holdout or
    three separately started blocks. Kept if the candidate wins at least 4, loses none, and wins at least 3 more
    games than the control. (The plan's stricter gate, 48 pairs with 10 wins, is not used for single candidates;
    the claim about the whole book is made by stage 4.)
-3. **Other opponents.** The book does not know its opponent. For every kept candidate: 12 games against KingsRow and
-   12 against GuiNN from the same ballot and colour. A loss in a game that consulted the changed key rejects the
-   candidate.
+   Only wins in games that consulted the changed key count towards the 4; all 24 games are reported.
+3. **Other opponents and other ways in.** The book does not know its opponent. For every kept candidate: 12 games
+   against KingsRow and 12 against GuiNN from the nominating ballot and colour, and 12 games against each of the
+   three opponents from every other recorded ballot and colour that reaches the position. A loss in a game that
+   consulted the changed key rejects the candidate. A candidate whose key was consulted in fewer than 6 of the
+   games against an opponent is reported as untested against that opponent, not as safe.
 4. **Whole book.** r12 = r11 plus all kept candidates: two full runs of the production deck against all three
-   opponents. No loss anywhere, and the number of wins against Cake in those two runs is the result that is
-   reported. A loss sends the responsible candidate back out and the runs are repeated.
+   opponents, and two runs with the unchanged r11 played alongside as the control (opponents vary between runs,
+   so a win counts as mined only against the control's result on the same ballot and colour). No loss anywhere.
+   Reported: wins against Cake with r12 and with r11, and for every kept key how often it was consulted, from
+   which ballots, and the results of those games. If a loss removes a candidate, the failed version is kept in
+   the report, the runs are repeated, and the final clean runs are called an acceptance screen of a selected
+   book, not an independent validation.
+
+## What the gates do not show
+
+Twelve loss-free games bound a candidate's loss rate only at about one in five; a position reached from a second
+opening, or after a rare reply, may be met twice in two full runs. The gates are a screen that keeps the claim
+honest, not a proof that a pinned move never loses (review round A13, `PILOT_GATE_REVIEW.md`).
+
+## Caching and resuming
+
+Scores and discovery results are reused only for the same campaign: the cache key holds the engine build, net,
+book and database hashes, the position, the node budget and the full move list; the discovery ledger holds the
+hash of the candidate list. A game whose analysis fails is quarantined and analysed again, never marked done.
 
 ## Reporting
 
