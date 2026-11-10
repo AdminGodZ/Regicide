@@ -173,6 +173,7 @@ def build(args):
     meta = {}  # gid -> [(fam, t, book, score)] per ply
     gid = 0
     ngames = 0
+    nunfinished = 0
     for f in files:
         src = os.path.relpath(f, os.path.expanduser("~"))
         try:
@@ -182,9 +183,12 @@ def build(args):
         for tags, moves in parse_pdn(text):
             if not moves:
                 continue
+            res = {"1-0": "B", "0-1": "W", "1/2-1/2": "D"}.get(tags.get("Result", "").strip())
+            if res is None:  # unfinished or interrupted game: its moves must not count as "not lost"
+                nunfinished += 1
+                continue
             gid += 1
             b, w = tags.get("Black", "?"), tags.get("White", "?")
-            res = {"1-0": "B", "0-1": "W", "1/2-1/2": "D"}.get(tags.get("Result", ""), "?")
             op = tags.get("Opening", "")
             ballot, _, nopen = ballot_of(op)
             fen = tags.get("FEN", "")
@@ -210,11 +214,21 @@ def build(args):
         subprocess.run([args.replay], stdin=fi, stdout=fo, check=True)
     nplies = npos = nerr = namb = 0
     batch, fbatch = [], []
+    # A game with a replay error (E) or an ambiguous capture text (A) is dropped entirely: no ply of it is counted.
+    bad = set()
+    with open(tmp_out) as fo:
+        for line in fo:
+            if line[0] in "EA":
+                bad.add(int(line.split("\t")[1]))
+    if bad:
+        db.executemany("DELETE FROM games WHERE gid=?", [(g,) for g in bad])
     with open(tmp_out) as fo:
         for line in fo:
             p = line.rstrip("\n").split("\t")
             if p[0] == "P":
                 g, ply = int(p[1]), int(p[2])
+                if g in bad:
+                    continue
                 fam, t, bk, sc = meta[g][ply]
                 batch.append((g, ply, p[3], p[4], fam, t, bk, sc))
                 nplies += 1
@@ -253,7 +267,8 @@ def build(args):
       CREATE INDEX theory_key ON theory(key);
     """)
     db.commit()
-    print(f"{len(files)} files, {ngames} games, {nplies} plies, {npos} positions, {nerr} replay errors, {namb} ambiguous capture texts in game records")
+    print(f"{len(files)} files, {ngames - len(bad)} games ({nunfinished} without a final result skipped; {len(bad)} dropped: "
+          f"{nerr} replay errors, {namb} ambiguous capture texts), {nplies} plies, {npos} positions")
     for fam, n, pos in db.execute("SELECT fam, SUM(n), COUNT(DISTINCT key) FROM theory GROUP BY fam"):
         print(f"  {fam}: {n} moves in {pos} positions")
 

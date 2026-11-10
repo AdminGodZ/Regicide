@@ -2,7 +2,7 @@
 # assemble.sh OUT.txt REPAIRDIR... : concatenates repair outputs into a decisions file, one section per repair file
 # (its '#' header lines kept as comments). Positions listed in experiments/booklab/removed_decisions.txt (FEN | move |
 # reason) are left out. The first decision per position is kept; a later row for the same position with the SAME move
-# is dropped (counted); a later row with a DIFFERENT move is a conflict: both rows are printed and the script fails,
+# is dropped (counted); a later row with a DIFFERENT move or action (force/avoid) is a conflict: both rows are printed and the script fails,
 # so a later repair can never be shadowed by an older one unnoticed.
 OUT=$1; shift
 REMOVED=${REMOVED:-~/regicide-booklab/experiments/booklab/removed_decisions.txt}
@@ -21,11 +21,11 @@ REMOVED=${REMOVED:-~/regicide-booklab/experiments/booklab/removed_decisions.txt}
   /^#/ || NF < 3 { print; next }
   ($1 in rm) { nrm++; next }
   ($1 in seen) {
-    if (seen[$1] != $2) { print "CONFLICT: " $1 ": kept \"" seen[$1] "\" (" src[$1] ") vs \"" $2 "\" (" $4 ")" > "/dev/stderr"; bad++ }
+    if (seen[$1] != $2 " " $3) { print "CONFLICT: " $1 ": kept \"" seen[$1] "\" (" src[$1] ") vs \"" $2 " " $3 "\" (" $4 ")" > "/dev/stderr"; bad++ }
     else dup++
     next
   }
-  { seen[$1] = $2; src[$1] = substr($4, 1, 80); print }
+  { seen[$1] = $2 " " $3; src[$1] = substr($4, 1, 80); print }  # identity: move AND action (force/avoid)
   END { print "# " dup+0 " duplicate rows with the same move dropped, " nrm+0 " removed positions left out, " bad+0 " conflicts" > "/dev/stderr"; if (bad) exit 3 }
 ' > $OUT
 rc=${PIPESTATUS[1]}

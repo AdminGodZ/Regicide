@@ -43,7 +43,8 @@ inline int jumped(int a, int b) {
 
 }  // namespace detail
 
-// Number of legal moves the PDN text can denote. With only start and end squares: every legal move sharing them
+// Number of legal moves the PDN text can denote. With only start and end squares: the single jump between them if
+// they are one jump apart and that jump is legal (1); otherwise every legal move sharing them
 // (more than one = ambiguous). With a longer path: the legal moves with that start, end and exactly the set of pieces
 // the path jumps over (at most one, since legal moves are unique by start, end and captured set); 0 if the path is
 // not a chain of jumps.
@@ -61,19 +62,21 @@ inline int matching_moves(const regicide::Position& pos, const std::string& text
             const int j = detail::jumped(sq[i], sq[i + 1]);
             if (!j || !caps.insert(j).second) return 0;  // not a jump, or the same piece jumped twice
         }
+    // Two squares one jump apart name that single jump when it is legal (the exact reading wins, as in parse_move
+    // and the referee since master PR #38); only otherwise are they an abbreviation of longer captures.
+    const int single = sq.size() == 2 ? detail::jumped(sq[0], sq[1]) : 0;
     regicide::MoveList list;
     regicide::generate_moves(pos, list);
-    int count = 0;
+    int count = 0, exact = 0;
     for (const regicide::Move& m : list) {
         if (regicide::to_pdn(m.from) != sq.front() || regicide::to_pdn(m.to) != sq.back()) continue;
-        if (sq.size() > 2) {
-            std::set<int> mc;
-            for (regicide::Bitboard b = m.captures; b; b &= b - 1) mc.insert(regicide::to_pdn(__builtin_ctzll(b)));
-            if (mc != caps) continue;
-        }
+        std::set<int> mc;
+        for (regicide::Bitboard b = m.captures; b; b &= b - 1) mc.insert(regicide::to_pdn(__builtin_ctzll(b)));
+        if (sq.size() > 2 && mc != caps) continue;
+        if (single && mc.size() == 1 && *mc.begin() == single) ++exact;
         ++count;
     }
-    return count;
+    return exact ? 1 : count;
 }
 
 }  // namespace booklab

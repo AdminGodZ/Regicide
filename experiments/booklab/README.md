@@ -1,5 +1,9 @@
 # booklab: opening knowledge from real games (Windows box, 2026-11-09/10)
 
+> **Archived job scripts.** `scripts/` and the status logs (`timeline.txt`) are the historical jobs of this run on one
+> machine (paths under `/mnt/c/regicide-match` and `/home/admingod`, CheckerBoard DLLs, a shared timing lock). They
+> document how the results were produced; they are not general tooling. The reusable tools are in `tools/booklab/`.
+
 **Status: work in progress** (this push: after WP3/WP4; census and validation still running). Final tables follow.
 
 Master fcf6acb = engine 6bb8c6c + book_deep2b (bench 7,712,020; 8,089,571 with `set book off`). All match settings as

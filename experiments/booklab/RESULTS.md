@@ -136,6 +136,19 @@ the WP9 test runs (`bl-wp9*`, they start from won positions) and can restrict th
   1,011 of 1,017; KingsRow 226 of 248; GuiNN 347 of 352. Opponent vs opponent: 90 reached, 66 converted (the new games
   are other agents' runs). The scan now also records the longest no-progress run per game.
 
+## Pre-merge review fixes (branch merged with master 456e9b2: ctest 27/27, bench 7,677,736)
+
+- **B1** `movetext.hpp`: two squares one jump apart name that single jump when it is legal (the exact reading wins,
+  as in master's parse_move and referee since PR #38); only otherwise is the text an abbreviation, rejected when
+  ambiguous. `22x29` in `W:WK22:B9,10,17,18,25` is now accepted by booklab_apply and booklab_dbscan. Books r8 and w1
+  rebuild byte-identical.
+- **B2** `theory.py`: a game without a recognised final result is skipped, and a game with any replay error (E) or
+  ambiguity notice (A) is dropped entirely before anything is counted. Rebuilt table: 128,189 games, **0 skipped,
+  0 dropped** (0 E, 0 A lines), so every count equals what the old code gives on the same corpus: **no decision's
+  evidence changes**.
+- **B3** `assemble.sh`: identity of a row is move **and** action (force/avoid); a different action is a conflict.
+- README: the job scripts and status logs are marked as archived machine-specific jobs.
+
 ## FINAL VALIDATION: bl-final1 = master 2efe11a + round-8 book
 
 (a) The same 100 missed-win positions as bl-conv3: **converted 100 of 100** (Cake 3/3, GuiNN 59/59, KingsRow 38/38;
