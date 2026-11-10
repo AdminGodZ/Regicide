@@ -152,6 +152,17 @@ def kept_indices(m, min_pieces, chunk=1 << 22):
     return np.concatenate(parts) if parts else np.empty(0, np.uint32)
 
 
+def valid_start(m, valid_frac):
+    """First record of the validation tail of memmap m: the last valid_frac of the records. In files with game-start
+    flags (datagen since 2026-11-10) the cut moves forward to the next game start, so no game is split between training
+    and validation; older files are cut by record index (one game can straddle the cut)."""
+    start = len(m) - int(len(m) * valid_frac)
+    if len(m) and (int(m[0]["stm"]) & GAME_START) and start < len(m):
+        flags = np.flatnonzero(np.asarray(m["stm"][start:]) & GAME_START)
+        start = start + int(flags[0]) if len(flags) else len(m)
+    return start
+
+
 class Data:
     """Several DataRecord files, memory-mapped. The last `valid_frac` of each file is held out for validation
     (files are written game by game, so this keeps validation games apart from training games).
@@ -167,12 +178,12 @@ class Data:
         cache = {}
         for f in files:
             m = np.memmap(f, dtype=RECORD, mode="r")
-            nv = int(len(m) * valid_frac)
+            start = valid_start(m, valid_frac)
             self.maps.append(m)
             if min_pieces > 0:
                 if f not in cache:
                     k = kept_indices(m, min_pieces)
-                    cut = np.searchsorted(k, len(m) - nv)
+                    cut = np.searchsorted(k, start)
                     cache[f] = (k[:cut], m[k[cut:].astype(np.int64)])
                 k, v = cache[f]
                 self.keep.append(k)
@@ -180,8 +191,8 @@ class Data:
                 self.valid_parts.append(v)
             else:
                 self.keep.append(None)
-                self.train_sizes.append(len(m) - nv)
-                self.valid_parts.append(m[len(m) - nv:])
+                self.train_sizes.append(start)
+                self.valid_parts.append(m[start:])
         self.train_ends = np.cumsum(self.train_sizes)
         self.n_train = int(self.train_ends[-1]) if files else 0
         self.n_valid = sum(len(v) for v in self.valid_parts)

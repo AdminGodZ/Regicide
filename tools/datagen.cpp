@@ -22,6 +22,7 @@
 #include <fstream>
 #include <iostream>
 #include <mutex>
+#include <unordered_set>
 #include <random>
 #include <string>
 #include <thread>
@@ -116,15 +117,29 @@ int main(int argc, char** argv) {
 
     // Every game's first record is flagged (DataRecord::GAME_START). Appending is only safe to a file written that way:
     // a legacy file (no flag on its first record) would mix guessed and marked game boundaries.
+    // The file must also hold whole records: anything appended after a partial record would be shifted.
+    long existing = 0;  // records already in the file
     if (std::FILE* old = std::fopen(cfg.out.c_str(), "rb")) {
         DataRecord first;
         const bool has = std::fread(&first, sizeof first, 1, old) == 1;
+        std::fseek(old, 0, SEEK_END);
+        const long bytes = std::ftell(old);
         std::fclose(old);
         if (has && !first.game_start()) {
             std::cerr << cfg.out << " exists and was written without game-start flags: use a new file\n";
             return 1;
         }
+        if (bytes % long(sizeof(DataRecord)) != 0) {
+            std::cerr << cfg.out << " ends in a partial record (" << bytes << " bytes): truncate it to a multiple of "
+                      << sizeof(DataRecord) << " bytes first\n";
+            return 1;
+        }
+        existing = bytes / long(sizeof(DataRecord));
     }
+    // The random streams depend on the records already in the file, so a restart with the same --seed does not
+    // replay the games it already wrote.
+    const std::uint64_t stream = cfg.seed * 1000003 + std::uint64_t(existing) * 0x9E3779B97F4A7C15ull;
+    if (existing > 0) std::printf("appending to %ld existing records; random streams offset by them\n", existing);
     std::FILE* out = std::fopen(cfg.out.c_str(), "ab");
     if (!out) {
         std::cerr << "cannot open " << cfg.out << '\n';
@@ -135,9 +150,11 @@ int main(int argc, char** argv) {
     std::atomic<long> ends[4] = {0, 0, 0, 0};  // no legal moves, draw rule (repetition/length), database, adjudicated
     std::atomic<long> results[3] = {0, 0, 0};  // black loss, draw, black win
     std::mutex mu;
+    std::unordered_set<Key> started;  // start positions used in this run
+    std::atomic<long> repeats{0};
 
     auto worker = [&](int tid) {
-        std::mt19937_64 rng(cfg.seed * 1000003 + tid);
+        std::mt19937_64 rng(stream + std::uint64_t(tid));
         Engine engine;
         engine.set_hash_mb(16);
         engine.set_evaluator(ev);
@@ -164,6 +181,15 @@ int main(int argc, char** argv) {
                 }
             }
             if (!ok) continue;
+            // Fixed-node play from the same start position repeats the same game: each start position is used
+            // once per run (2026-11-10: without this, 19-23% of the E5 games were copies, mostly random openings).
+            {
+                std::lock_guard lock(mu);
+                if (!started.insert(pos.key()).second) {
+                    repeats++;
+                    continue;
+                }
+            }
             engine.new_game();
             {
                 Limits quick;
@@ -242,10 +268,10 @@ int main(int argc, char** argv) {
             const long g = results[0] + results[1] + results[2];
             if (g % 1000 == 0) {
                 std::printf("games %ld  positions %ld  black +%ld =%ld -%ld  ends: no-moves %ld draw-rule %ld "
-                            "database %ld adjudicated %ld  incomplete searches %ld  partial losses %ld\n",
+                            "database %ld adjudicated %ld  incomplete searches %ld  partial losses %ld  repeated starts skipped %ld\n",
                             g, positions.load(), results[2].load(), results[1].load(), results[0].load(),
                             ends[0].load(), ends[1].load(), ends[2].load(), ends[3].load(), incomplete.load(),
-                            partial_losses.load());
+                            partial_losses.load(), repeats.load());
                 std::fflush(stdout);
             }
         }

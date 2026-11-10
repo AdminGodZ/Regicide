@@ -511,6 +511,34 @@ int losswalk(const std::vector<std::string>& files, const std::string& name, std
             const std::size_t b = std::size_t(k + 1);
             std::string best;
             const auto [bproven, bscore] = value(before[b], &best);
+            // The turning move: walk back over Regicide's decision points from b until the deep score (side to move =
+            // Regicide) is >= -50; the move played there is where the game turned from about level to bad.
+            auto ingame = [&](std::size_t p) {
+                const std::string& c = g.comments[p];
+                const std::size_t at = c.find("score ");
+                if (at != std::string::npos) return std::atoi(c.c_str() + at + 6);
+                const std::size_t v = c.find("value=");
+                return v != std::string::npos ? std::atoi(c.c_str() + v + 6) : 99999;
+            };
+            std::string traj;
+            long t = long(b);
+            int tscore = bscore;
+            for (;;) {
+                char tb[64];
+                std::snprintf(tb, sizeof tb, "%s%zu:%d:%d", traj.empty() ? "" : " ", ply[std::size_t(t)],
+                              before[std::size_t(t)].piece_count(), tscore);
+                traj += tb;
+                if (tscore >= -50 || t == 0) break;
+                --t;
+                tscore = value(before[std::size_t(t)], nullptr).second;
+                ++scanned;
+            }
+            const std::size_t tt = std::size_t(t);
+            const int tafter = -value(after[tt], nullptr).second;
+            ++scanned;
+            char tbuf[256];
+            std::snprintf(tbuf, sizeof tbuf, "\t%zu\t%d\t%d\t%s\t%d\t%d", ply[tt], before[tt].piece_count(), tscore,
+                          g.moves[ply[tt]].c_str(), tafter, ingame(ply[tt]));
             char buf[256];
             std::snprintf(buf, sizeof buf, "\t%zu\t%zu\t%d\t%d\t%s\t%d\t%d\t%s", ply[b], ply[b] / 2 + 1,
                           before[b].piece_count(), after[b].piece_count(), best.c_str(), bscore, -opp_score[b],
@@ -519,7 +547,8 @@ int losswalk(const std::vector<std::string>& files, const std::string& name, std
             for (char& c : comment)
                 if (c == '\t' || c == '\n') c = ' ';
             rows[j] = row + buf + "\t" + g.moves[ply[b]] + "\t" + before[b].fen() + "\t" + after[b].fen() + "\t" +
-                      std::to_string(scanned) + "\t" + comment;
+                      std::to_string(scanned) + "\t" + comment + tbuf + "\t" + before[tt].fen() + "\t" +
+                      after[tt].fen() + "\t" + traj;
         }
     };
     std::vector<std::thread> pool;
@@ -527,7 +556,9 @@ int losswalk(const std::vector<std::string>& files, const std::string& name, std
     for (auto& t : pool) t.join();
     std::ofstream o(out);
     o << "file\tround\topening\tregicide\ttermination\tply\tmove_no\tpieces_before\tpieces_after\tdeep_best\t"
-         "deep_score_before\tdeep_score_after\tbefore_status\tplayed\tfen_before\tfen_after\tsearched\tingame_comment\n";
+         "deep_score_before\tdeep_score_after\tbefore_status\tplayed\tfen_before\tfen_after\tsearched\tingame_comment\t"
+         "turn_ply\tturn_pieces\tturn_deep_before\tturn_played\tturn_deep_after\tturn_ingame_score\tturn_fen_before\t"
+         "turn_fen_after\ttrajectory(ply:pieces:deep score)\n";
     for (const auto& r : rows) o << r << '\n';
     std::printf("losswalk: %zu lost games -> %s\n", jobs.size(), out.c_str());
     return 0;
@@ -537,11 +568,19 @@ int split(const std::string& in, const std::string& out, int lo, int hi, bool pr
     Reader r(in);
     std::FILE* o = std::fopen(out.c_str(), "wb");
     if (!r.f || !o) return std::cerr << "cannot open files\n", 1;
+    // Game-start flags survive filtering: once the input has shown a flag, the first RETAINED record of each game
+    // (and the first record after --from) carries GAME_START, so game-wise tools (relabel, census) do not merge games.
+    // Legacy files without flags stay without flags (their games are split by the heuristic).
     DataRecord d;
     long i = 0, n = 0;
+    bool seen_flag = false, pending = false;
     while (r.next(d)) {
+        if (d.game_start()) seen_flag = pending = true;
         if (i++ < from) continue;
+        if (i - 1 == from && seen_flag) pending = true;  // the cut may fall inside a game
         if (d.pieces() < lo || d.pieces() > hi || (proven_only && !d.proven())) continue;
+        if (pending) d.stm |= DataRecord::GAME_START;
+        pending = false;
         std::fwrite(&d, 16, 1, o);
         ++n;
     }
