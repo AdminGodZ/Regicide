@@ -233,6 +233,16 @@ void play_game(const Config& cfg, Engine* eng[2], GameRecord& g) {
             for (const auto& m : history) position += " " + m;
         }
         GoResult r = e.go(position, go, stop_at, kill_at);
+        if (r.status != GoResult::Status::Ok) {
+            // An interrupt of the whole process group ends the engines too. Their exit is not a result: give the
+            // runner's own signal a moment to arrive, and leave the game undecided.
+            if (!g_interrupted) std::this_thread::sleep_for(std::chrono::milliseconds(50));
+            if (g_interrupted) {
+                g.winner = Winner::Aborted;
+                g.termination = "interrupted";
+                return;
+            }
+        }
         g.time_used[side] += r.elapsed;
         g.max_time[side] = std::max(g.max_time[side], r.elapsed);
         g.moves_made[side]++;

@@ -231,13 +231,14 @@ bool finish(Opening& o, std::string& err) {
 // Strip PDN comments, variations and move numbers' trailing dots are handled by play_moves().
 std::string clean_movetext(const std::string& s) {
     std::string r;
-    int brace = 0, paren = 0;
+    bool comment = false;  // inside { }: PDN comments do not nest, and their text is not looked at
+    int paren = 0;
     for (char c : s) {
-        if (c == '{') ++brace;
-        else if (c == '}') --brace;
+        if (comment) comment = c != '}';
+        else if (c == '{') comment = true;
         else if (c == '(') ++paren;
-        else if (c == ')') --paren;
-        else if (brace == 0 && paren == 0) r += c;
+        else if (c == ')') paren -= paren > 0;
+        else if (paren == 0) r += c;
     }
     return r;
 }

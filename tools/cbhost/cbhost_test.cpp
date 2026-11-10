@@ -3,6 +3,8 @@
 //   cbhost_test stop CBHOST ENGINE     a `stop` that arrives while the host is still sending the game history
 //                                      (before the engine's getmove is entered) is not lost: the engine finds the
 //                                      stop flag set on entry and returns at once
+//   cbhost_test stops CBHOST ENGINE    two queued gos each keep their own `stop`; a `stop` for the second go does
+//                                      not stop the first
 //   cbhost_test quit CBHOST ENGINE     a `quit` (or end of input) stops every go that is still queued, not only the
 //                                      last one
 //   cbhost_test charged CBHOST ENGINE  the runner charges a CheckerBoard time bank with the time the engine spent
@@ -16,6 +18,7 @@
 #include <cstdio>
 #include <filesystem>
 #include <fstream>
+#include <initializer_list>
 #include <iostream>
 #include <iterator>
 #include <string>
@@ -61,6 +64,38 @@ int stop(const std::string& cbhost, const std::string& engine) {
     if (!seen) std::cerr << "FAIL: the stop sent during the history command reaches the engine on entry\n";
     if (total > 1.0) std::cerr << "FAIL: the stopped search returns at once (took " << total << " s)\n";
     return seen && total <= 1.0 ? 0 : 1;
+}
+
+// Several commands sent together; the engine takes 80 ms for each game history and would think 300 ms. Returns the
+// stop flags the two searches found on entry, as "ab" ('?' if a search did not answer).
+std::string entry_flags(const std::string& cbhost, const std::string& engine, std::initializer_list<const char*> cmds) {
+    match::Process host;
+    std::string err, line, flags;
+    if (!host.start({cbhost, engine}, "/dev/null", err) || !expect(host, "ready", line)) return "??";
+    for (const char* c : {"cmd set histdelay 80", "cmd set think 300"}) {
+        host.send(c);
+        if (!expect(host, "reply 1", line)) return "??";
+    }
+    host.send("newgame");
+    host.send("position startpos");
+    if (!expect(host, "ok", line) || !expect(host, "ok", line)) return "??";
+    for (const char* c : cmds) host.send(c);
+    for (int i = 0; i < 2; ++i) {
+        std::string info;
+        if (!expect(host, "info ", info) || !expect(host, "bestmove ", line)) return flags + "?";
+        flags += info.find("stopped_on_entry 1") != std::string::npos ? '1' : '0';
+    }
+    host.send("quit");
+    return flags;
+}
+
+int stops(const std::string& cbhost, const std::string& engine) {
+    const std::string each = entry_flags(cbhost, engine, {"go maxtime 1", "stop", "go maxtime 1", "stop"});
+    const std::string last = entry_flags(cbhost, engine, {"go maxtime 1", "go maxtime 1", "stop"});
+    std::printf("go stop go stop: %s | go go stop: %s\n", each.c_str(), last.c_str());
+    if (each != "11") std::cerr << "FAIL: each queued go keeps its own stop\n";
+    if (last != "01") std::cerr << "FAIL: a stop for the second go leaves the first alone\n";
+    return each == "11" && last == "01" ? 0 : 1;
 }
 
 // Two go commands and a quit are sent together; the engine takes 100 ms for each game history and would think 2 s.
@@ -148,9 +183,10 @@ int incremental(const std::string& cbhost, const std::string& engine, const std:
 int main(int argc, char** argv) {
     const std::string what = argc > 1 ? argv[1] : "";
     if (argc == 4 && what == "stop") return stop(argv[2], argv[3]);
+    if (argc == 4 && what == "stops") return stops(argv[2], argv[3]);
     if (argc == 4 && what == "quit") return quit(argv[2], argv[3]);
     if (argc == 4 && what == "charged") return charged(argv[2], argv[3]);
     if (argc == 5 && what == "incremental") return incremental(argv[2], argv[3], argv[4]);
-    std::cerr << "usage: cbhost_test stop|quit|charged CBHOST ENGINE | incremental CBHOST ENGINE MATCH\n";
+    std::cerr << "usage: cbhost_test stop|stops|quit|charged CBHOST ENGINE | incremental CBHOST ENGINE MATCH\n";
     return 2;
 }

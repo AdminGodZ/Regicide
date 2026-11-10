@@ -24,6 +24,7 @@
 #include <filesystem>
 #include <iostream>
 #include <mutex>
+#include <set>
 #include <sstream>
 #include <string>
 #include <thread>
@@ -81,9 +82,12 @@ struct Engine {
 volatile int g_playnow = 0;
 std::atomic<bool> g_searching{false};
 // A `stop` belongs to the `go` read last. It can arrive before that go reaches the engine (the command is still
-// queued, or the game history is being sent), so it is remembered by the go's number and honoured on entry.
-std::atomic<long> g_go_read{0};   // `go` lines read so far
-std::atomic<long> g_stop_for{0};  // number of the go the last `stop` was meant for
+// queued, or the game history is being sent), so it is remembered by the go's number and honoured on entry. Several
+// queued gos can each have their own stop.
+std::atomic<long> g_go_read{0};       // `go` lines read so far
+std::atomic<long> g_searching_go{0};  // number of the go inside the engine (0: none)
+std::mutex g_stop_mutex;
+std::set<long> g_stopped;             // gos a `stop` was meant for that have not been entered yet
 std::atomic<bool> g_shutdown{false};  // `quit` or end of input was read: every go still to come starts stopped
 
 std::mutex g_queue_mutex;
@@ -95,8 +99,12 @@ void reader_thread() {
     while (std::getline(std::cin, line)) {
         while (!line.empty() && (line.back() == '\r' || line.back() == ' ')) line.pop_back();
         if (line == "stop") {
-            g_stop_for = g_go_read.load();
-            if (g_searching) g_playnow = 1;
+            const long target = g_go_read.load();
+            {
+                std::lock_guard lock(g_stop_mutex);
+                g_stopped.insert(target);
+            }
+            if (g_searching_go == target) g_playnow = 1;
             continue;
         }
         if (line == "quit") {  // also ends the search of every go that is still queued or being prepared
@@ -276,14 +284,21 @@ int run(Engine& eng, bool send_hist) {
             CBmove cbm{};
             char str[4096] = {0};  // CB promises 1024; extra slack for sloppy engines
             g_playnow = 0;
+            g_searching_go = go_number;
             g_searching = true;
-            // stopped while this go was queued or being prepared, or the host is shutting down
-            if (g_shutdown || g_stop_for == go_number) g_playnow = 1;
+            bool stopped = false;  // while this go was queued or being prepared
+            {
+                std::lock_guard lock(g_stop_mutex);
+                stopped = g_stopped.contains(go_number);
+                g_stopped.erase(g_stopped.begin(), g_stopped.upper_bound(go_number));
+            }
+            if (stopped || g_shutdown) g_playnow = 1;
             auto t0 = std::chrono::steady_clock::now();
             int r = eng.getmove(board8, before.stm == Color::Black ? CB_BLACK : CB_WHITE, maxtime, str,
                                 const_cast<int*>(&g_playnow), info, moreinfo, &cbm);
             double elapsed = std::chrono::duration<double>(std::chrono::steady_clock::now() - t0).count();
             g_searching = false;
+            g_searching_go = 0;
             g_playnow = 0;
             reset_pending = false;
             str[sizeof(str) - 1] = 0;
