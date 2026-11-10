@@ -1,0 +1,41 @@
+game,pair,opening,black,white,result,score_a,termination,engine_plies
+4,2,"/home/admingod/regicide-jobs/booklab/decks/t1-r1-kingsrow.txt:2","Kingsrow(x64)[1] 1.20","Regicide 0.2",1/2-1/2,0.5,"repetition",161
+2,1,"/home/admingod/regicide-jobs/booklab/decks/t1-r1-kingsrow.txt:1","Kingsrow(x64) 1.20","Regicide 0.2",1/2-1/2,0.5,"repetition",161
+1,1,"/home/admingod/regicide-jobs/booklab/decks/t1-r1-kingsrow.txt:1","Regicide 0.2","Kingsrow(x64)[2] 1.20",1/2-1/2,0.5,"repetition",164
+6,3,"/home/admingod/regicide-jobs/booklab/decks/t1-r1-kingsrow.txt:3","Kingsrow(x64)[3] 1.20","Regicide 0.2",1/2-1/2,0.5,"no progress",173
+3,2,"/home/admingod/regicide-jobs/booklab/decks/t1-r1-kingsrow.txt:2","Regicide 0.2","Kingsrow(x64)[6] 1.20",1/2-1/2,0.5,"repetition",164
+8,4,"/home/admingod/regicide-jobs/booklab/decks/t1-r1-kingsrow.txt:4","Kingsrow(x64)[4] 1.20","Regicide 0.2",1/2-1/2,0.5,"repetition",87
+7,4,"/home/admingod/regicide-jobs/booklab/decks/t1-r1-kingsrow.txt:4","Regicide 0.2","Kingsrow(x64)[5] 1.20",1/2-1/2,0.5,"no progress",184
+9,5,"/home/admingod/regicide-jobs/booklab/decks/t1-r1-kingsrow.txt:5","Regicide 0.2","Kingsrow(x64)[1] 1.20",1/2-1/2,0.5,"no progress",193
+5,3,"/home/admingod/regicide-jobs/booklab/decks/t1-r1-kingsrow.txt:3","Regicide 0.2","Kingsrow(x64)[7] 1.20",1/2-1/2,0.5,"repetition",78
+10,5,"/home/admingod/regicide-jobs/booklab/decks/t1-r1-kingsrow.txt:5","Kingsrow(x64) 1.20","Regicide 0.2",1/2-1/2,0.5,"no progress",157
+11,6,"/home/admingod/regicide-jobs/booklab/decks/t1-r1-kingsrow.txt:6","Regicide 0.2","Kingsrow(x64)[2] 1.20",1/2-1/2,0.5,"repetition",69
+13,7,"/home/admingod/regicide-jobs/booklab/decks/t1-r1-kingsrow.txt:7","Regicide 0.2","Kingsrow(x64)[6] 1.20",1/2-1/2,0.5,"repetition",69
+17,9,"/home/admingod/regicide-jobs/booklab/decks/t1-r1-kingsrow.txt:9","Regicide 0.2","Kingsrow(x64)[7] 1.20",1/2-1/2,0.5,"repetition",95
+15,8,"/home/admingod/regicide-jobs/booklab/decks/t1-r1-kingsrow.txt:8","Regicide 0.2","Kingsrow(x64)[5] 1.20",1/2-1/2,0.5,"repetition",143
+12,6,"/home/admingod/regicide-jobs/booklab/decks/t1-r1-kingsrow.txt:6","Kingsrow(x64)[3] 1.20","Regicide 0.2",1/2-1/2,0.5,"no progress",204
+14,7,"/home/admingod/regicide-jobs/booklab/decks/t1-r1-kingsrow.txt:7","Kingsrow(x64)[4] 1.20","Regicide 0.2",1/2-1/2,0.5,"no progress",242
+16,8,"/home/admingod/regicide-jobs/booklab/decks/t1-r1-kingsrow.txt:8","Kingsrow(x64)[1] 1.20","Regicide 0.2",1/2-1/2,0.5,"repetition",137
+19,10,"/home/admingod/regicide-jobs/booklab/decks/t1-r1-kingsrow.txt:10","Regicide 0.2","Kingsrow(x64)[2] 1.20",1/2-1/2,0.5,"repetition",111
+20,10,"/home/admingod/regicide-jobs/booklab/decks/t1-r1-kingsrow.txt:10","Kingsrow(x64)[6] 1.20","Regicide 0.2",1/2-1/2,0.5,"repetition",88
+24,12,"/home/admingod/regicide-jobs/booklab/decks/t1-r1-kingsrow.txt:12","Kingsrow(x64)[4] 1.20","Regicide 0.2",1/2-1/2,0.5,"repetition",93
+21,11,"/home/admingod/regicide-jobs/booklab/decks/t1-r1-kingsrow.txt:11","Regicide 0.2","Kingsrow(x64)[7] 1.20",1/2-1/2,0.5,"no progress",153
+18,9,"/home/admingod/regicide-jobs/booklab/decks/t1-r1-kingsrow.txt:9","Kingsrow(x64) 1.20","Regicide 0.2",1/2-1/2,0.5,"no progress",181
+25,13,"/home/admingod/regicide-jobs/booklab/decks/t1-r1-kingsrow.txt:13","Regicide 0.2","Kingsrow(x64)[1] 1.20",1/2-1/2,0.5,"repetition",114
+23,12,"/home/admingod/regicide-jobs/booklab/decks/t1-r1-kingsrow.txt:12","Regicide 0.2","Kingsrow(x64)[3] 1.20",1/2-1/2,0.5,"repetition",186
+27,14,"/home/admingod/regicide-jobs/booklab/decks/t1-r1-kingsrow.txt:14","Regicide 0.2","Kingsrow(x64)[6] 1.20",1/2-1/2,0.5,"no progress",153
+22,11,"/home/admingod/regicide-jobs/booklab/decks/t1-r1-kingsrow.txt:11","Kingsrow(x64)[5] 1.20","Regicide 0.2",1/2-1/2,0.5,"repetition",94
+29,15,"/home/admingod/regicide-jobs/booklab/decks/t1-r1-kingsrow.txt:15","Regicide 0.2","Kingsrow(x64)[7] 1.20",1/2-1/2,0.5,"no progress",152
+26,13,"/home/admingod/regicide-jobs/booklab/decks/t1-r1-kingsrow.txt:13","Kingsrow(x64)[2] 1.20","Regicide 0.2",1/2-1/2,0.5,"no progress",227
+28,14,"/home/admingod/regicide-jobs/booklab/decks/t1-r1-kingsrow.txt:14","Kingsrow(x64)[4] 1.20","Regicide 0.2",1/2-1/2,0.5,"no progress",162
+30,15,"/home/admingod/regicide-jobs/booklab/decks/t1-r1-kingsrow.txt:15","Kingsrow(x64) 1.20","Regicide 0.2",1/2-1/2,0.5,"repetition",130
+31,16,"/home/admingod/regicide-jobs/booklab/decks/t1-r1-kingsrow.txt:16","Regicide 0.2","Kingsrow(x64)[1] 1.20",1/2-1/2,0.5,"no progress",273
+32,16,"/home/admingod/regicide-jobs/booklab/decks/t1-r1-kingsrow.txt:16","Kingsrow(x64)[3] 1.20","Regicide 0.2",1/2-1/2,0.5,"repetition",92
+33,17,"/home/admingod/regicide-jobs/booklab/decks/t1-r1-kingsrow.txt:17","Regicide 0.2","Kingsrow(x64)[6] 1.20",1/2-1/2,0.5,"no progress",192
+34,17,"/home/admingod/regicide-jobs/booklab/decks/t1-r1-kingsrow.txt:17","Kingsrow(x64)[5] 1.20","Regicide 0.2",1/2-1/2,0.5,"repetition",131
+35,18,"/home/admingod/regicide-jobs/booklab/decks/t1-r1-kingsrow.txt:18","Regicide 0.2","Kingsrow(x64)[7] 1.20",1/2-1/2,0.5,"repetition",159
+37,19,"/home/admingod/regicide-jobs/booklab/decks/t1-r1-kingsrow.txt:19","Regicide 0.2","Kingsrow(x64)[4] 1.20",1/2-1/2,0.5,"repetition",101
+39,20,"/home/admingod/regicide-jobs/booklab/decks/t1-r1-kingsrow.txt:20","Regicide 0.2","Kingsrow(x64)[1] 1.20",1/2-1/2,0.5,"repetition",88
+36,18,"/home/admingod/regicide-jobs/booklab/decks/t1-r1-kingsrow.txt:18","Kingsrow(x64)[2] 1.20","Regicide 0.2",1/2-1/2,0.5,"repetition",127
+38,19,"/home/admingod/regicide-jobs/booklab/decks/t1-r1-kingsrow.txt:19","Kingsrow(x64) 1.20","Regicide 0.2",1/2-1/2,0.5,"repetition",127
+40,20,"/home/admingod/regicide-jobs/booklab/decks/t1-r1-kingsrow.txt:20","Kingsrow(x64)[3] 1.20","Regicide 0.2",1/2-1/2,0.5,"repetition",222

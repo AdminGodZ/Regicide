@@ -1,0 +1,313 @@
+repeat,run1,run2,opening,black,verdict,first_difference_after_ballot,plies1,plies2
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:1: 9-13 21-17 5-9,cake-B,identical,,90,90
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:1: 9-13 21-17 5-9,cake-A,identical,,90,90
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:3: 9-13 22-17 13x22,cake-A,identical,,85,85
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:3: 9-13 22-17 13x22,cake-B,identical,,85,85
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:4: 9-13 22-18 6-9,cake-A,identical,,67,67
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:2: 9-13 21-17 6-9,cake-B,differ,31,69,70
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:2: 9-13 21-17 6-9,cake-A,differ,31,102,70
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:4: 9-13 22-18 6-9,cake-B,differ,20,68,67
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:7: 9-13 22-18 11-15,cake-B,identical,,72,72
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:7: 9-13 22-18 11-15,cake-A,identical,,72,72
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:5: 9-13 22-18 10-14,cake-A,differ,36,103,89
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:5: 9-13 22-18 10-14,cake-B,differ,36,103,64
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:6: 9-13 22-18 10-15,cake-B,differ,34,63,80
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:10: 9-13 23-18 5-9,cake-A,identical,,71,71
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:10: 9-13 23-18 5-9,cake-B,identical,,71,71
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:6: 9-13 22-18 10-15,cake-A,differ,34,109,63
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:9: 9-13 22-18 12-16,cake-A,identical,,91,91
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:9: 9-13 22-18 12-16,cake-B,identical,,91,91
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:11: 9-13 23-18 6-9,cake-A,identical,,73,73
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:12: 9-13 23-18 10-15,cake-A,differ,54,86,87
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:8: 9-13 22-18 11-16,cake-A,differ,53,145,86
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:11: 9-13 23-18 6-9,cake-B,identical,,73,73
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:12: 9-13 23-18 10-15,cake-B,differ,54,86,87
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:8: 9-13 22-18 11-16,cake-B,differ,60,132,146
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:13: 9-13 23-18 11-15,cake-A,differ,28,72,72
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:13: 9-13 23-18 11-15,cake-B,differ,30,67,72
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:17: 9-13 23-19 6-9,cake-A,differ,54,78,102
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:16: 9-13 23-19 5-9,cake-B,differ,40,82,93
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:17: 9-13 23-19 6-9,cake-B,differ,44,76,102
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:15: 9-13 23-18 12-16,cake-B,identical,,68,68
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:15: 9-13 23-18 12-16,cake-A,identical,,68,68
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:16: 9-13 23-19 5-9,cake-A,differ,40,58,97
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:18: 9-13 23-19 10-14,cake-A,differ,51,102,93
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:19: 9-13 23-19 10-15,cake-A,differ,52,117,120
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:20: 9-13 23-19 11-16,cake-A,differ,48,120,93
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:19: 9-13 23-19 10-15,cake-B,differ,27,76,77
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:18: 9-13 23-19 10-14,cake-B,differ,28,158,75
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:14: 9-13 23-18 11-16,cake-A,differ,58,136,156
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:20: 9-13 23-19 11-16,cake-B,differ,27,82,79
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:14: 9-13 23-18 11-16,cake-B,differ,51,113,127
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:22: 9-13 24-19 6-9,cake-A,identical,,79,79
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:21: 9-13 24-19 5-9,cake-B,differ,22,83,143
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:22: 9-13 24-19 6-9,cake-B,differ,23,64,78
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:23: 9-13 24-19 10-14,cake-A,differ,47,76,64
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:21: 9-13 24-19 5-9,cake-A,differ,32,88,72
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:23: 9-13 24-19 10-14,cake-B,differ,44,84,76
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:26: 9-13 24-20 5-9,cake-B,identical,,84,84
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:24: 9-13 24-19 11-15,cake-B,differ,49,104,120
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:26: 9-13 24-20 5-9,cake-A,identical,,84,84
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:28: 9-13 24-20 10-14,cake-A,differ,25,84,84
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:24: 9-13 24-19 11-15,cake-A,differ,27,99,91
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:28: 9-13 24-20 10-14,cake-B,differ,25,84,84
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:29: 9-13 24-20 10-15,cake-A,identical,,68,68
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:25: 9-13 24-19 11-16,cake-A,differ,27,84,96
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:27: 9-13 24-20 6-9,cake-A,identical,,84,84
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:27: 9-13 24-20 6-9,cake-B,identical,,84,84
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:25: 9-13 24-19 11-16,cake-B,differ,27,84,94
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:29: 9-13 24-20 10-15,cake-B,identical,,68,68
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:30: 9-13 24-20 11-15,cake-A,differ,23,64,48
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:30: 9-13 24-20 11-15,cake-B,differ,23,96,48
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:33: 9-14 22-17 6-9,cake-B,differ,15,76,69
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:34: 9-14 22-17 11-15,cake-A,identical,,54,54
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:33: 9-14 22-17 6-9,cake-A,identical,,69,69
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:34: 9-14 22-17 11-15,cake-B,identical,,54,54
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:31: 9-13 24-20 11-16,cake-B,differ,38,142,51
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:32: 9-14 22-17 5-9,cake-A,differ,50,82,78
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:31: 9-13 24-20 11-16,cake-A,differ,46,90,74
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:32: 9-14 22-17 5-9,cake-B,differ,54,110,102
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:37: 9-14 22-18 10-15,cake-B,differ,18,67,70
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:37: 9-14 22-18 10-15,cake-A,differ,18,72,70
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:35: 9-14 22-17 11-16,cake-A,identical,,67,67
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:35: 9-14 22-17 11-16,cake-B,identical,,67,67
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:36: 9-14 22-18 5-9,cake-B,differ,18,66,69
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:38: 9-14 22-18 11-15,cake-A,differ,34,103,74
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:38: 9-14 22-18 11-15,cake-B,differ,34,145,114
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:36: 9-14 22-18 5-9,cake-A,differ,16,55,73
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:41: 9-14 23-19 5-9,cake-B,identical,,54,54
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:42: 9-14 23-19 11-16,cake-A,differ,32,54,102
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:39: 9-14 22-18 11-16,cake-B,identical,,61,61
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:42: 9-14 23-19 11-16,cake-B,identical,,54,54
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:39: 9-14 22-18 11-16,cake-A,identical,,61,61
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:41: 9-14 23-19 5-9,cake-A,identical,,54,54
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:40: 9-14 23-18 14x23,cake-B,differ,24,73,130
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:43: 9-14 23-19 14-18,cake-A,differ,65,76,76
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:43: 9-14 23-19 14-18,cake-B,differ,49,74,71
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:40: 9-14 23-18 14x23,cake-A,differ,35,73,56
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:44: 9-14 24-19 5-9,cake-A,differ,46,66,98
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:44: 9-14 24-19 5-9,cake-B,differ,46,70,66
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:45: 9-14 24-19 11-15,cake-B,identical,,62,62
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:45: 9-14 24-19 11-15,cake-A,differ,22,61,62
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:46: 9-14 24-19 11-16,cake-A,identical,,78,78
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:46: 9-14 24-19 11-16,cake-B,identical,,78,78
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:47: 9-14 24-20 5-9,cake-B,differ,18,104,55
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:47: 9-14 24-20 5-9,cake-A,differ,18,65,118
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:49: 9-14 24-20 11-15,cake-A,identical,,70,70
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:50: 9-14 24-20 11-16,cake-A,differ,12,88,58
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:50: 9-14 24-20 11-16,cake-B,differ,52,89,93
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:49: 9-14 24-20 11-15,cake-B,identical,,70,70
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:48: 9-14 24-20 10-15,cake-A,identical,,86,86
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:48: 9-14 24-20 10-15,cake-B,identical,,86,86
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:51: 10-14 22-17 7-10,cake-A,identical,,71,71
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:51: 10-14 22-17 7-10,cake-B,identical,,71,71
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:53: 10-14 22-17 11-15,cake-A,identical,,67,67
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:53: 10-14 22-17 11-15,cake-B,differ,19,73,73
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:55: 10-14 22-17 14-18,cake-A,identical,,76,76
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:57: 10-14 22-18 7-10,cake-A,identical,,76,76
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:55: 10-14 22-17 14-18,cake-B,identical,,76,76
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:54: 10-14 22-17 11-16,cake-B,differ,33,118,59
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:52: 10-14 22-17 9-13,cake-A,differ,36,108,100
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:54: 10-14 22-17 11-16,cake-A,differ,33,106,91
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:56: 10-14 22-18 6-10,cake-A,identical,,68,68
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:52: 10-14 22-17 9-13,cake-B,differ,36,119,90
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:56: 10-14 22-18 6-10,cake-B,differ,18,68,47
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:59: 10-14 22-18 11-16,cake-A,identical,,76,76
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:59: 10-14 22-18 11-16,cake-B,identical,,76,76
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:57: 10-14 22-18 7-10,cake-B,differ,24,65,76
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:58: 10-14 22-18 11-15,cake-B,differ,14,62,78
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:58: 10-14 22-18 11-15,cake-A,differ,28,62,62
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:62: 10-14 23-19 6-10,cake-A,differ,20,65,54
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:61: 10-14 23-18 14x23,cake-B,differ,23,62,83
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:63: 10-14 23-19 7-10,cake-A,differ,56,76,78
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:63: 10-14 23-19 7-10,cake-B,differ,54,78,80
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:62: 10-14 23-19 6-10,cake-B,differ,21,89,54
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:61: 10-14 23-18 14x23,cake-A,differ,43,99,83
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:60: 10-14 22-18 12-16,cake-A,differ,46,74,116
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:64: 10-14 23-19 11-15,cake-A,identical,,63,63
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:64: 10-14 23-19 11-15,cake-B,identical,,63,63
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:60: 10-14 22-18 12-16,cake-B,differ,44,184,102
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:67: 10-14 24-19 6-10,cake-A,differ,15,90,69
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:65: 10-14 23-19 11-16,cake-A,differ,18,109,58
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:65: 10-14 23-19 11-16,cake-B,differ,14,76,136
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:67: 10-14 24-19 6-10,cake-B,identical,,69,69
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:66: 10-14 23-19 14-18,cake-A,differ,17,80,102
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:66: 10-14 23-19 14-18,cake-B,differ,32,83,88
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:68: 10-14 24-19 7-10,cake-A,differ,26,53,66
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:69: 10-14 24-19 11-16,cake-A,differ,26,177,64
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:68: 10-14 24-19 7-10,cake-B,differ,26,61,44
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:70: 10-14 24-19 14-18,cake-A,differ,20,80,68
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:69: 10-14 24-19 11-16,cake-B,differ,34,70,61
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:70: 10-14 24-19 14-18,cake-B,differ,53,70,80
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:71: 10-14 24-20 6-10,cake-A,differ,12,70,70
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:71: 10-14 24-20 6-10,cake-B,differ,12,70,63
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:73: 10-14 24-20 11-15,cake-A,differ,31,69,55
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:73: 10-14 24-20 11-15,cake-B,differ,31,114,84
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:72: 10-14 24-20 7-10,cake-A,identical,,70,70
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:72: 10-14 24-20 7-10,cake-B,identical,,70,70
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:74: 10-14 24-20 11-16,cake-B,identical,,75,75
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:75: 10-14 24-20 14-18,cake-A,differ,21,70,70
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:74: 10-14 24-20 11-16,cake-A,differ,10,70,70
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:76: 10-15 21-17 6-10,cake-A,differ,21,58,85
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:76: 10-15 21-17 6-10,cake-B,differ,21,70,58
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:77: 10-15 21-17 7-10,cake-A,differ,38,72,82
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:75: 10-14 24-20 14-18,cake-B,differ,18,71,76
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:77: 10-15 21-17 7-10,cake-B,differ,22,78,58
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:78: 10-15 21-17 9-13,cake-B,differ,30,94,66
+Cake-Cake,bl-c-cake-cake-h1,bl-c-cake-cake-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:78: 10-15 21-17 9-13,cake-A,differ,32,73,78
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:4: 9-13 22-18 6-9,GuiNN Checkers 2.06 avx2,differ,1,70,161
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:1: 9-13 21-17 5-9,GuiNN Checkers 2.06 avx2,differ,12,78,85
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:2: 9-13 21-17 6-9,Regicide 0.2,differ,9,83,85
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:2: 9-13 21-17 6-9,GuiNN Checkers 2.06 avx2,differ,18,73,88
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:3: 9-13 22-17 13x22,GuiNN Checkers 2.06 avx2,differ,1,70,74
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:4: 9-13 22-18 6-9,Regicide 0.2,differ,2,98,69
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:3: 9-13 22-17 13x22,Regicide 0.2,differ,5,77,111
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:6: 9-13 22-18 10-15,Regicide 0.2,differ,8,99,79
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:5: 9-13 22-18 10-14,Regicide 0.2,differ,36,77,92
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:7: 9-13 22-18 11-15,GuiNN Checkers 2.06 avx2,differ,18,85,90
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:1: 9-13 21-17 5-9,Regicide 0.2,differ,2,93,99
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:8: 9-13 22-18 11-16,Regicide 0.2,differ,0,67,48
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:6: 9-13 22-18 10-15,GuiNN Checkers 2.06 avx2,differ,15,96,83
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:7: 9-13 22-18 11-15,Regicide 0.2,differ,10,97,142
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:9: 9-13 22-18 12-16,GuiNN Checkers 2.06 avx2,differ,12,74,63
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:10: 9-13 23-18 5-9,Regicide 0.2,differ,0,91,109
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:9: 9-13 22-18 12-16,Regicide 0.2,differ,13,115,68
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:5: 9-13 22-18 10-14,GuiNN Checkers 2.06 avx2,differ,5,111,236
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:8: 9-13 22-18 11-16,GuiNN Checkers 2.06 avx2,differ,3,88,101
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:12: 9-13 23-18 10-15,Regicide 0.2,differ,0,93,83
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:10: 9-13 23-18 5-9,GuiNN Checkers 2.06 avx2,differ,0,95,60
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:13: 9-13 23-18 11-15,Regicide 0.2,differ,2,61,98
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:14: 9-13 23-18 11-16,Regicide 0.2,differ,9,80,61
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:13: 9-13 23-18 11-15,GuiNN Checkers 2.06 avx2,differ,3,89,72
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:12: 9-13 23-18 10-15,GuiNN Checkers 2.06 avx2,differ,34,70,70
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:11: 9-13 23-18 6-9,GuiNN Checkers 2.06 avx2,differ,1,83,73
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:16: 9-13 23-19 5-9,Regicide 0.2,differ,0,73,78
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:15: 9-13 23-18 12-16,Regicide 0.2,differ,12,61,88
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:16: 9-13 23-19 5-9,GuiNN Checkers 2.06 avx2,differ,0,74,70
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:17: 9-13 23-19 6-9,Regicide 0.2,differ,12,86,81
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:17: 9-13 23-19 6-9,GuiNN Checkers 2.06 avx2,differ,57,97,88
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:18: 9-13 23-19 10-14,Regicide 0.2,differ,2,87,71
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:19: 9-13 23-19 10-15,Regicide 0.2,differ,2,63,103
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:11: 9-13 23-18 6-9,Regicide 0.2,differ,0,166,63
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:20: 9-13 23-19 11-16,Regicide 0.2,differ,8,71,152
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:19: 9-13 23-19 10-15,GuiNN Checkers 2.06 avx2,differ,51,94,87
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:14: 9-13 23-18 11-16,GuiNN Checkers 2.06 avx2,differ,3,141,97
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:20: 9-13 23-19 11-16,GuiNN Checkers 2.06 avx2,differ,28,86,78
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:22: 9-13 24-19 6-9,Regicide 0.2,differ,6,116,83
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:21: 9-13 24-19 5-9,Regicide 0.2,differ,33,93,81
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:22: 9-13 24-19 6-9,GuiNN Checkers 2.06 avx2,differ,11,80,76
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:23: 9-13 24-19 10-14,Regicide 0.2,differ,0,61,91
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:24: 9-13 24-19 11-15,Regicide 0.2,identical,,77,77
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:24: 9-13 24-19 11-15,GuiNN Checkers 2.06 avx2,differ,1,78,82
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:18: 9-13 23-19 10-14,GuiNN Checkers 2.06 avx2,differ,9,142,76
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:25: 9-13 24-19 11-16,GuiNN Checkers 2.06 avx2,differ,14,92,68
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:26: 9-13 24-20 5-9,GuiNN Checkers 2.06 avx2,differ,18,68,60
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:23: 9-13 24-19 10-14,GuiNN Checkers 2.06 avx2,differ,51,119,116
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:21: 9-13 24-19 5-9,GuiNN Checkers 2.06 avx2,differ,11,163,74
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:27: 9-13 24-20 6-9,Regicide 0.2,differ,25,88,69
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:28: 9-13 24-20 10-14,Regicide 0.2,differ,0,97,115
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:26: 9-13 24-20 5-9,Regicide 0.2,differ,8,135,78
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:28: 9-13 24-20 10-14,GuiNN Checkers 2.06 avx2,differ,7,82,99
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:25: 9-13 24-19 11-16,Regicide 0.2,differ,29,110,110
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:29: 9-13 24-20 10-15,Regicide 0.2,identical,,65,65
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:29: 9-13 24-20 10-15,GuiNN Checkers 2.06 avx2,differ,1,78,85
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:27: 9-13 24-20 6-9,GuiNN Checkers 2.06 avx2,differ,31,94,96
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:30: 9-13 24-20 11-15,Regicide 0.2,differ,0,93,75
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:31: 9-13 24-20 11-16,Regicide 0.2,differ,4,67,103
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:30: 9-13 24-20 11-15,GuiNN Checkers 2.06 avx2,differ,10,88,77
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:33: 9-14 22-17 6-9,Regicide 0.2,differ,0,104,104
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:34: 9-14 22-17 11-15,GuiNN Checkers 2.06 avx2,differ,1,75,85
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:35: 9-14 22-17 11-16,Regicide 0.2,differ,2,71,71
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:32: 9-14 22-17 5-9,Regicide 0.2,differ,4,106,71
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:32: 9-14 22-17 5-9,GuiNN Checkers 2.06 avx2,differ,12,91,144
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:33: 9-14 22-17 6-9,GuiNN Checkers 2.06 avx2,differ,17,97,68
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:35: 9-14 22-17 11-16,GuiNN Checkers 2.06 avx2,differ,1,76,72
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:15: 9-13 23-18 12-16,GuiNN Checkers 2.06 avx2,differ,5,340,68
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:37: 9-14 22-18 10-15,Regicide 0.2,differ,2,83,73
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:36: 9-14 22-18 5-9,Regicide 0.2,differ,0,85,81
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:36: 9-14 22-18 5-9,GuiNN Checkers 2.06 avx2,differ,1,88,78
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:34: 9-14 22-17 11-15,Regicide 0.2,differ,0,132,73
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:31: 9-13 24-20 11-16,GuiNN Checkers 2.06 avx2,differ,7,131,82
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:37: 9-14 22-18 10-15,GuiNN Checkers 2.06 avx2,differ,20,64,91
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:38: 9-14 22-18 11-15,Regicide 0.2,differ,0,65,67
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:39: 9-14 22-18 11-16,GuiNN Checkers 2.06 avx2,differ,23,82,64
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:40: 9-14 23-18 14x23,Regicide 0.2,differ,60,102,102
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:41: 9-14 23-19 5-9,Regicide 0.2,differ,0,79,75
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:39: 9-14 22-18 11-16,Regicide 0.2,differ,2,81,75
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:42: 9-14 23-19 11-16,Regicide 0.2,differ,15,85,63
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:43: 9-14 23-19 14-18,GuiNN Checkers 2.06 avx2,differ,7,68,82
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:42: 9-14 23-19 11-16,GuiNN Checkers 2.06 avx2,differ,3,78,64
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:43: 9-14 23-19 14-18,Regicide 0.2,differ,20,60,72
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:44: 9-14 24-19 5-9,Regicide 0.2,differ,15,122,91
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:40: 9-14 23-18 14x23,GuiNN Checkers 2.06 avx2,differ,49,118,88
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:38: 9-14 22-18 11-15,GuiNN Checkers 2.06 avx2,differ,22,117,76
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:44: 9-14 24-19 5-9,GuiNN Checkers 2.06 avx2,differ,20,74,88
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:45: 9-14 24-19 11-15,Regicide 0.2,differ,7,75,129
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:45: 9-14 24-19 11-15,GuiNN Checkers 2.06 avx2,differ,5,82,87
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:41: 9-14 23-19 5-9,GuiNN Checkers 2.06 avx2,differ,14,135,74
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:47: 9-14 24-20 5-9,Regicide 0.2,differ,7,79,80
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:46: 9-14 24-19 11-16,Regicide 0.2,differ,0,81,71
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:48: 9-14 24-20 10-15,GuiNN Checkers 2.06 avx2,differ,10,74,88
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:46: 9-14 24-19 11-16,GuiNN Checkers 2.06 avx2,identical,,74,74
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:49: 9-14 24-20 11-15,GuiNN Checkers 2.06 avx2,differ,5,78,74
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:50: 9-14 24-20 11-16,GuiNN Checkers 2.06 avx2,differ,21,74,71
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:49: 9-14 24-20 11-15,Regicide 0.2,differ,5,82,66
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:51: 10-14 22-17 7-10,GuiNN Checkers 2.06 avx2,differ,12,86,74
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:50: 9-14 24-20 11-16,Regicide 0.2,differ,6,101,111
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:48: 9-14 24-20 10-15,Regicide 0.2,differ,1,108,89
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:47: 9-14 24-20 5-9,GuiNN Checkers 2.06 avx2,differ,1,110,98
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:52: 10-14 22-17 9-13,Regicide 0.2,differ,4,85,76
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:52: 10-14 22-17 9-13,GuiNN Checkers 2.06 avx2,differ,15,73,157
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:53: 10-14 22-17 11-15,Regicide 0.2,differ,2,89,75
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:54: 10-14 22-17 11-16,Regicide 0.2,differ,6,67,83
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:54: 10-14 22-17 11-16,GuiNN Checkers 2.06 avx2,differ,11,94,86
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:53: 10-14 22-17 11-15,GuiNN Checkers 2.06 avx2,differ,10,70,94
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:55: 10-14 22-17 14-18,GuiNN Checkers 2.06 avx2,differ,18,82,78
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:56: 10-14 22-18 6-10,Regicide 0.2,differ,6,63,88
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:57: 10-14 22-18 7-10,Regicide 0.2,differ,0,90,87
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:58: 10-14 22-18 11-15,Regicide 0.2,differ,5,93,63
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:56: 10-14 22-18 6-10,GuiNN Checkers 2.06 avx2,differ,22,106,76
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:51: 10-14 22-17 7-10,Regicide 0.2,differ,7,126,104
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:58: 10-14 22-18 11-15,GuiNN Checkers 2.06 avx2,differ,5,68,80
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:59: 10-14 22-18 11-16,Regicide 0.2,differ,20,109,80
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:59: 10-14 22-18 11-16,GuiNN Checkers 2.06 avx2,differ,5,81,80
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:61: 10-14 23-18 14x23,GuiNN Checkers 2.06 avx2,differ,11,78,86
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:57: 10-14 22-18 7-10,GuiNN Checkers 2.06 avx2,differ,1,105,91
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:61: 10-14 23-18 14x23,Regicide 0.2,differ,5,91,91
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:62: 10-14 23-19 6-10,Regicide 0.2,differ,16,93,109
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:63: 10-14 23-19 7-10,Regicide 0.2,differ,0,61,112
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:60: 10-14 22-18 12-16,GuiNN Checkers 2.06 avx2,differ,16,96,211
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:60: 10-14 22-18 12-16,Regicide 0.2,differ,6,115,99
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:64: 10-14 23-19 11-15,Regicide 0.2,differ,6,74,77
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:62: 10-14 23-19 6-10,GuiNN Checkers 2.06 avx2,differ,15,84,81
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:65: 10-14 23-19 11-16,Regicide 0.2,differ,2,65,68
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:63: 10-14 23-19 7-10,GuiNN Checkers 2.06 avx2,differ,5,102,125
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:67: 10-14 24-19 6-10,Regicide 0.2,identical,,69,69
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:64: 10-14 23-19 11-15,GuiNN Checkers 2.06 avx2,differ,9,106,64
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:66: 10-14 23-19 14-18,Regicide 0.2,differ,17,101,91
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:68: 10-14 24-19 7-10,Regicide 0.2,differ,2,80,73
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:67: 10-14 24-19 6-10,GuiNN Checkers 2.06 avx2,differ,17,72,84
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:68: 10-14 24-19 7-10,GuiNN Checkers 2.06 avx2,differ,12,69,88
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:69: 10-14 24-19 11-16,Regicide 0.2,differ,19,83,77
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:65: 10-14 23-19 11-16,GuiNN Checkers 2.06 avx2,differ,8,115,116
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:70: 10-14 24-19 14-18,Regicide 0.2,differ,26,70,77
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:66: 10-14 23-19 14-18,GuiNN Checkers 2.06 avx2,differ,7,101,78
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:71: 10-14 24-20 6-10,GuiNN Checkers 2.06 avx2,identical,,76,76
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:72: 10-14 24-20 7-10,Regicide 0.2,differ,0,73,67
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:71: 10-14 24-20 6-10,Regicide 0.2,identical,,93,93
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:70: 10-14 24-19 14-18,GuiNN Checkers 2.06 avx2,differ,13,79,126
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:72: 10-14 24-20 7-10,GuiNN Checkers 2.06 avx2,differ,1,74,76
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:74: 10-14 24-20 11-16,Regicide 0.2,differ,8,75,64
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:73: 10-14 24-20 11-15,GuiNN Checkers 2.06 avx2,differ,10,62,76
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:73: 10-14 24-20 11-15,Regicide 0.2,differ,0,95,97
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:69: 10-14 24-19 11-16,GuiNN Checkers 2.06 avx2,differ,1,115,96
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:74: 10-14 24-20 11-16,GuiNN Checkers 2.06 avx2,differ,2,85,78
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:75: 10-14 24-20 14-18,Regicide 0.2,differ,4,85,129
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:55: 10-14 22-17 14-18,Regicide 0.2,differ,28,276,162
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:76: 10-15 21-17 6-10,Regicide 0.2,differ,17,116,74
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:75: 10-14 24-20 14-18,GuiNN Checkers 2.06 avx2,differ,7,74,78
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:76: 10-15 21-17 6-10,GuiNN Checkers 2.06 avx2,differ,9,67,82
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:77: 10-15 21-17 7-10,Regicide 0.2,differ,4,72,189
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:77: 10-15 21-17 7-10,GuiNN Checkers 2.06 avx2,differ,16,72,80
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:78: 10-15 21-17 9-13,Regicide 0.2,differ,16,72,101
+Regicide-GuiNN,bl-c-reg-guinn-h1,bl-c-reg-guinn-rep-h1,/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:78: 10-15 21-17 9-13,GuiNN Checkers 2.06 avx2,differ,21,130,141

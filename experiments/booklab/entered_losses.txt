@@ -1,0 +1,4 @@
+# Database-lost positions Regicide entered (WP9 step 4, build conv3): first quiet lost position (opponent to move or Regicide to move) and the position four plies earlier.
+# FEN lost | FEN four plies earlier | run round ballot, Regicide colour, opponent, result
+W:WK13,K17,21,28:B5,K15,23,K26 | W:WK11,K13,K17,21,28:B5,19,K22,K26 | bl-s4-conv3-cake-h1 6.1 ACF #7, Regicide B, Cake, 0-1
+B:W11,12,K15,16:B20,K21,K23 | B:WK7,K10,11,12,16:B3,20,K23,K25 | bl-s4-conv3-kingsrow-h1 9.1 ACF #10, Regicide B, KingsRow, 0-1

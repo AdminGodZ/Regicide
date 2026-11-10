@@ -1,0 +1,61 @@
+pairing,ballot,winner,winner_colour,run,round
+Cake vs KingsRow,ACF #23,Cake 1.89f,B,bl-c-cake-kingsrow-h1,21.1
+Cake vs KingsRow,ACF #36,Cake 1.89f,W,bl-c-cake-kingsrow-h1,32.2
+Cake vs KingsRow,ACF #28,Cake 1.89f,B,bl-c-cake-kingsrow-h1,25.1
+Cake vs KingsRow,ACF #59,Cake 1.89f,W,bl-c-cake-kingsrow-h1,51.2
+Cake vs KingsRow,ACF #86 Octopus,Cake 1.89f,W,bl-c-cake-kingsrow-h1,77.2
+Cake vs KingsRow,ACF #84,Cake 1.89f,W,bl-c-cake-kingsrow-h1,75.2
+Cake vs KingsRow,ACF #99,Cake 1.89f,W,bl-c-cake-kingsrow-h2,10.2
+Cake vs KingsRow,ACF #128,Cake 1.89f,W,bl-c-cake-kingsrow-h2,37.2
+Cake vs KingsRow,ACF #139,Cake 1.89f,B,bl-c-cake-kingsrow-h2,47.1
+Cake vs KingsRow,ACF #151,Cake 1.89f,B,bl-c-cake-kingsrow-h2,58.1
+Cake vs KingsRow,ACF #154,Cake 1.89f,W,bl-c-cake-kingsrow-h2,61.2
+Cake vs KingsRow,ACF #155,Cake 1.89f,B,bl-c-cake-kingsrow-h2,62.1
+Cake vs KingsRow,ACF #166,Cake 1.89f,W,bl-c-cake-kingsrow-h2,72.2
+Cake vs GuiNN,ACF #9 Wilderness I,Cake 1.89f,W,bl-c-cake-guinn-h1,8.2
+Cake vs GuiNN,ACF #6 Inferno,Cake 1.89f,W,bl-c-cake-guinn-h1,5.2
+Cake vs GuiNN,ACF #16 Wilderness II,Cake 1.89f,W,bl-c-cake-guinn-h1,14.2
+Cake vs GuiNN,ACF #34 Twilight Zone,Cake 1.89f,W,bl-c-cake-guinn-h1,31.2
+Cake vs GuiNN,ACF #41,Cake 1.89f,W,bl-c-cake-guinn-h1,37.2
+Cake vs GuiNN,ACF #40,Cake 1.89f,W,bl-c-cake-guinn-h1,36.2
+Cake vs GuiNN,ACF #60 Black Hole,Cake 1.89f,W,bl-c-cake-guinn-h1,52.2
+Cake vs GuiNN,ACF #87 Tyne,Cake 1.89f,W,bl-c-cake-guinn-h1,78.2
+Cake vs GuiNN,ACF #92,Cake 1.89f,W,bl-c-cake-guinn-h2,4.2
+Cake vs GuiNN,ACF #96 Skull-Cracker,Cake 1.89f,W,bl-c-cake-guinn-h2,7.2
+Cake vs GuiNN,ACF #112,Cake 1.89f,B,bl-c-cake-guinn-h2,22.1
+Cake vs GuiNN,ACF #108,Cake 1.89f,B,bl-c-cake-guinn-h2,19.1
+Cake vs GuiNN,ACF #120,Cake 1.89f,B,bl-c-cake-guinn-h2,29.1
+Cake vs GuiNN,ACF #134,Cake 1.89f,W,bl-c-cake-guinn-h2,43.2
+Cake vs GuiNN,ACF #141,Cake 1.89f,W,bl-c-cake-guinn-h2,49.2
+Cake vs GuiNN,ACF #153 Black Widow,Cake 1.89f,B,bl-c-cake-guinn-h2,60.1
+Cake vs GuiNN,ACF #163,GuiNN Checkers 2.06 avx2,B,bl-c-cake-guinn-h2,69.2
+Cake vs GuiNN,ACF #165,GuiNN Checkers 2.06 avx2,B,bl-c-cake-guinn-h2,71.2
+KingsRow vs GuiNN,ACF #104,GuiNN Checkers 2.06 avx2,B,bl-c-kingsrow-guinn-h2,15.2
+KingsRow vs GuiNN,ACF #98,Kingsrow(x64)[3] 1.20,W,bl-c-kingsrow-guinn-h2,9.2
+KingsRow vs GuiNN,ACF #99,GuiNN Checkers 2.06 avx2,B,bl-c-kingsrow-guinn-h2,10.2
+KingsRow vs GuiNN,ACF #105 Gemini II,GuiNN Checkers 2.06 avx2,B,bl-c-kingsrow-guinn-h2,16.2
+KingsRow vs GuiNN,ACF #139,GuiNN Checkers 2.06 avx2,W,bl-c-kingsrow-guinn-h2,47.1
+KingsRow vs GuiNN,ACF #138,GuiNN Checkers 2.06 avx2,W,bl-c-kingsrow-guinn-h2,46.1
+KingsRow vs GuiNN,ACF #142,GuiNN Checkers 2.06 avx2,W,bl-c-kingsrow-guinn-h2,50.1
+KingsRow vs GuiNN,ACF #169,Kingsrow(x64)[7] 1.20,W,bl-c-kingsrow-guinn-h2,74.2
+KingsRow vs GuiNN,ACF #172,GuiNN Checkers 2.06 avx2,B,bl-c-kingsrow-guinn-h2,76.2
+Cake vs Cake,ACF #165,cake-A,B,bl-c-cake-cake-h2,71.1
+Cake vs Cake,ACF #165,cake-B,B,bl-c-cake-cake-h2,71.2
+KingsRow vs KingsRow,ACF #9 Wilderness I,kingsrow-A,W,bl-c-kingsrow-kingsrow-h1,8.2
+KingsRow vs KingsRow,ACF #134,kingsrow-A,B,bl-c-kingsrow-kingsrow-h2,43.1
+GuiNN vs GuiNN,ACF #6 Inferno,guinn-A,W,bl-c-guinn-guinn-h1,5.2
+GuiNN vs GuiNN,ACF #16 Wilderness II,guinn-B,B,bl-c-guinn-guinn-h1,14.2
+GuiNN vs GuiNN,ACF #16 Wilderness II,guinn-A,B,bl-c-guinn-guinn-h1,14.1
+GuiNN vs GuiNN,ACF #28,guinn-B,B,bl-c-guinn-guinn-h1,25.2
+GuiNN vs GuiNN,ACF #28,guinn-A,B,bl-c-guinn-guinn-h1,25.1
+GuiNN vs GuiNN,ACF #87 Tyne,guinn-B,W,bl-c-guinn-guinn-h1,78.1
+GuiNN vs GuiNN,ACF #101,guinn-B,W,bl-c-guinn-guinn-h2,12.1
+GuiNN vs GuiNN,ACF #149,guinn-B,B,bl-c-guinn-guinn-h2,56.2
+Regicide master vs GuiNN,ACF #59,GuiNN Checkers 2.06 avx2,W,bl-c-reg-guinn-h1,51.1
+Regicide master vs GuiNN,ACF #63,GuiNN Checkers 2.06 avx2,W,bl-c-reg-guinn-h1,55.1
+Regicide master vs GuiNN,ACF #153 Black Widow,Regicide 0.2,B,bl-c-reg-guinn-h2,60.1
+"(ref) Regicide master vs Cake, ba-deep2b-full",ACF #7,Cake 1.89f,W,ba-deep2b-full-cake,6.1
+"(ref) Regicide master vs Cake, ba-deep2b-full",ACF #62 Gemini I,Cake 1.89f,W,ba-deep2b-full-cake,54.1
+"(ref) Regicide master vs Cake, ba-deep2b-full",ACF #79,Cake 1.89f,W,ba-deep2b-full-cake,70.1
+"(ref) Regicide master vs Cake, ba-deep2b-full",ACF #90,Cake 1.89f,W,ba-deep2b-full-cake,80.1
+"(ref) Regicide master vs Cake, ba-deep2b-full",ACF #153 Black Widow,Cake 1.89f,B,ba-deep2b-full-cake,138.2
