@@ -1,0 +1,313 @@
+game,pair,opening,black,white,result,score_a,termination,engine_plies
+8,4,"ACF #5 Dreaded Edinburgh","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",79
+6,3,"ACF #4","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",91
+7,4,"ACF #5 Dreaded Edinburgh","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",78
+2,1,"ACF #1","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",63
+4,2,"ACF #2","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",93
+3,2,"ACF #2","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",97
+5,3,"ACF #4","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",85
+10,5,"ACF #6 Inferno","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",74
+12,6,"ACF #7","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",63
+1,1,"ACF #1","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",142
+15,8,"ACF #9 Wilderness I","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",68
+14,7,"ACF #8 Edinburgh Single","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",72
+9,5,"ACF #6 Inferno","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",84
+11,6,"ACF #7","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",48
+18,9,"ACF #10","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",86
+16,8,"ACF #9 Wilderness I","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",0-1,1,"no legal moves",51
+19,10,"ACF #11","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",89
+20,10,"ACF #11","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",67
+21,11,"ACF #12","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",78
+22,11,"ACF #12","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",71
+13,7,"ACF #8 Edinburgh Single","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",0-1,0,"no legal moves",91
+24,12,"ACF #14","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",77
+17,9,"ACF #10","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",92
+27,14,"ACF #16 Wilderness II","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",78
+25,13,"ACF #15","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",62
+23,12,"ACF #14","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",111
+26,13,"ACF #15","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",81
+30,15,"ACF #17","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",86
+29,15,"ACF #17","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",72
+31,16,"ACF #18","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",95
+32,16,"ACF #18","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",73
+34,17,"ACF #19","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",73
+33,17,"ACF #19","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",82
+35,18,"ACF #20","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",60
+28,14,"ACF #16 Wilderness II","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",0-1,1,"no legal moves",143
+38,19,"ACF #21","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",63
+36,18,"ACF #20","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",76
+41,21,"ACF #23","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",64
+37,19,"ACF #21","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",69
+40,20,"ACF #22","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",75
+47,24,"ACF #27","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",58
+42,21,"ACF #23","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",73
+43,22,"ACF #24","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",113
+46,23,"ACF #25","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",79
+39,20,"ACF #22","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1-0,1,"no legal moves",158
+44,22,"ACF #24","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",81
+52,26,"ACF #29","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",72
+50,25,"ACF #28","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",79
+51,26,"ACF #29","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",74
+54,27,"ACF #30","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",72
+45,23,"ACF #25","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",106
+53,27,"ACF #30","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",109
+55,28,"ACF #31","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",60
+57,29,"ACF #32","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",62
+58,29,"ACF #32","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",89
+59,30,"ACF #33","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",70
+60,30,"ACF #33","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",65
+48,24,"ACF #27","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",0-1,1,"no legal moves",147
+61,31,"ACF #34 Twilight Zone","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",78
+63,32,"ACF #36","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",66
+65,33,"ACF #37","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",97
+67,34,"ACF #38","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",67
+66,33,"ACF #37","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",67
+68,34,"ACF #38","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",69
+70,35,"ACF #39","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",67
+69,35,"ACF #39","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",62
+71,36,"ACF #40","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",68
+72,36,"ACF #40","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",73
+73,37,"ACF #41","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",91
+49,25,"ACF #28","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1-0,1,"no legal moves",196
+75,38,"ACF #42","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",72
+74,37,"ACF #41","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",92
+56,28,"ACF #31","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",159
+78,39,"ACF #43","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",63
+76,38,"ACF #42","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",74
+64,32,"ACF #36","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",0-1,1,"no legal moves",205
+77,39,"ACF #43","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",78
+81,41,"ACF #47","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",91
+83,42,"ACF #49","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",78
+85,43,"ACF #50","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",55
+82,41,"ACF #47","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",75
+62,31,"ACF #34 Twilight Zone","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",0-1,1,"no legal moves",221
+84,42,"ACF #49","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",79
+86,43,"ACF #50","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",69
+80,40,"ACF #46 Double Cross","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",99
+87,44,"ACF #51","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",106
+89,45,"ACF #53","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",90
+92,46,"ACF #54","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",81
+79,40,"ACF #46 Double Cross","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1-0,1,"no legal moves",138
+90,45,"ACF #53","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",71
+88,44,"ACF #51","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",85
+96,48,"ACF #56","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",59
+91,46,"ACF #54","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",78
+93,47,"ACF #55","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",82
+95,48,"ACF #56","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",82
+98,49,"ACF #57","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",63
+97,49,"ACF #57","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",79
+100,50,"ACF #58","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",88
+102,51,"ACF #59","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",87
+99,50,"ACF #58","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",60
+101,51,"ACF #59","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",103
+105,53,"ACF #61","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",60
+108,54,"ACF #62 Gemini I","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",77
+106,53,"ACF #61","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",71
+103,52,"ACF #60 Black Hole","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",56
+110,55,"ACF #63","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",78
+112,56,"ACF #64","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",79
+109,55,"ACF #63","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",120
+111,56,"ACF #64","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",80
+113,57,"ACF #65 Fraser's Inferno","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",90
+114,57,"ACF #65 Fraser's Inferno","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",95
+115,58,"ACF #66","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",62
+94,47,"ACF #55","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",0-1,1,"no legal moves",195
+117,59,"ACF #67","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",77
+118,59,"ACF #67","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",77
+116,58,"ACF #66","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",92
+120,60,"ACF #68 White Doctor","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",76
+123,62,"ACF #70","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",72
+121,61,"ACF #69","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",62
+107,54,"ACF #62 Gemini I","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",0-1,0,"no legal moves",149
+122,61,"ACF #69","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",67
+124,62,"ACF #70","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",77
+125,63,"ACF #71 Diabolical Denny","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",80
+127,64,"ACF #72","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",60
+104,52,"ACF #60 Black Hole","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",0-1,1,"no legal moves",233
+128,64,"ACF #72","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",71
+129,65,"ACF #73","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",74
+119,60,"ACF #68 White Doctor","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",112
+130,65,"ACF #73","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",75
+134,67,"ACF #75","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",61
+131,66,"ACF #74","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",77
+135,68,"ACF #76","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",80
+133,67,"ACF #75","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",113
+136,68,"ACF #76","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",77
+137,69,"ACF #78","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",94
+138,69,"ACF #78","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",73
+142,71,"ACF #80","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",75
+141,71,"ACF #80","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",88
+143,72,"ACF #81","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",74
+126,63,"ACF #71 Diabolical Denny","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",0-1,1,"no legal moves",179
+140,70,"ACF #79","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",85
+139,70,"ACF #79","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",80
+145,73,"ACF #82","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",70
+147,74,"ACF #83","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",68
+144,72,"ACF #81","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",65
+148,74,"ACF #83","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",71
+146,73,"ACF #82","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",63
+149,75,"ACF #84","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",72
+152,76,"ACF #85","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",83
+154,77,"ACF #86 Octopus","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",75
+150,75,"ACF #84","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",77
+151,76,"ACF #85","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",88
+153,77,"ACF #86 Octopus","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",113
+157,79,"ACF #89","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",74
+155,78,"ACF #87 Tyne","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",98
+156,78,"ACF #87 Tyne","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",67
+161,81,"ACF #91","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",72
+132,66,"ACF #74","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",0-1,1,"no legal moves",205
+158,79,"ACF #89","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",75
+160,80,"ACF #90","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",72
+159,80,"ACF #90","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",81
+162,81,"ACF #91","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",91
+164,82,"ACF #92","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",82
+167,84,"ACF #95","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",62
+168,84,"ACF #95","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",87
+165,83,"ACF #93","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",75
+170,85,"ACF #96 Skull-Cracker","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",76
+169,85,"ACF #96 Skull-Cracker","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",87
+166,83,"ACF #93","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",88
+171,86,"ACF #97","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",62
+172,86,"ACF #97","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",58
+175,88,"ACF #99","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",91
+174,87,"ACF #98","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",79
+177,89,"ACF #100","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",78
+176,88,"ACF #99","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",79
+178,89,"ACF #100","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",63
+179,90,"ACF #101","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",89
+181,91,"ACF #102","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",78
+184,92,"ACF #103","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",75
+180,90,"ACF #101","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",74
+183,92,"ACF #103","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",99
+186,93,"ACF #104","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",85
+187,94,"ACF #105 Gemini II","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",59
+188,94,"ACF #105 Gemini II","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",71
+163,82,"ACF #92","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1-0,1,"no legal moves",202
+190,95,"ACF #106","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",77
+189,95,"ACF #106","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",96
+192,96,"ACF #107","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",77
+194,97,"ACF #108","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",78
+195,98,"ACF #110","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",60
+197,99,"ACF #111","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",79
+196,98,"ACF #110","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",65
+198,99,"ACF #111","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",81
+199,100,"ACF #112","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",69
+193,97,"ACF #108","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",129
+200,100,"ACF #112","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",93
+201,101,"ACF #113","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",74
+182,91,"ACF #102","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"no progress",182
+185,93,"ACF #104","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1-0,1,"no legal moves",226
+203,102,"ACF #115","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",89
+204,102,"ACF #115","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",69
+202,101,"ACF #113","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",80
+206,103,"ACF #116","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",61
+208,104,"ACF #117","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",69
+211,106,"ACF #119","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",63
+207,104,"ACF #117","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",83
+209,105,"ACF #118","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",60
+210,105,"ACF #118","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",67
+212,106,"ACF #119","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",73
+173,87,"ACF #98","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"no progress",276
+214,107,"ACF #120","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",73
+215,108,"ACF #121","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",78
+213,107,"ACF #120","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",81
+217,109,"ACF #122","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",58
+205,103,"ACF #116","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1-0,1,"no legal moves",150
+218,109,"ACF #122","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",78
+219,110,"ACF #123","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",72
+220,110,"ACF #123","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",72
+225,113,"ACF #126","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",119
+221,111,"ACF #124","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",103
+222,111,"ACF #124","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",65
+223,112,"ACF #125","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",64
+224,112,"ACF #125","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",81
+191,96,"ACF #107","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"no progress",243
+227,114,"ACF #127","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",62
+228,114,"ACF #127","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",97
+226,113,"ACF #126","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",74
+229,115,"ACF #128","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",74
+230,115,"ACF #128","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",85
+231,116,"ACF #129","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",64
+236,118,"ACF #131","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",69
+234,117,"ACF #130","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",59
+233,117,"ACF #130","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",84
+235,118,"ACF #131","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",91
+216,108,"ACF #121","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",149
+238,119,"ACF #132","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",75
+237,119,"ACF #132","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",78
+232,116,"ACF #129","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",94
+243,122,"ACF #135","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",88
+239,120,"ACF #133 Octopus","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",90
+242,121,"ACF #134","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",77
+245,123,"ACF #136","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",86
+240,120,"ACF #133 Octopus","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",85
+244,122,"ACF #135","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",75
+246,123,"ACF #136","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",70
+241,121,"ACF #134","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",74
+250,125,"ACF #139","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",71
+247,124,"ACF #138","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",55
+253,127,"ACF #141","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",88
+249,125,"ACF #139","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",101
+252,126,"ACF #140","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",65
+256,128,"ACF #142","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",87
+254,127,"ACF #141","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",0-1,1,"no legal moves",53
+255,128,"ACF #142","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",66
+251,126,"ACF #140","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",110
+248,124,"ACF #138","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",69
+259,130,"ACF #144","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",114
+261,131,"ACF #146","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",90
+262,131,"ACF #146","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",75
+263,132,"ACF #147","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",83
+265,133,"ACF #148","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",72
+264,132,"ACF #147","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",75
+257,129,"ACF #143","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",80
+260,130,"ACF #144","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",77
+267,134,"ACF #149","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",84
+258,129,"ACF #143","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",91
+266,133,"ACF #148","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",73
+268,134,"ACF #149","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",77
+269,135,"ACF #150","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",76
+273,137,"ACF #152","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",70
+271,136,"ACF #151","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",80
+275,138,"ACF #153 Black Widow","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",72
+276,138,"ACF #153 Black Widow","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",85
+272,136,"ACF #151","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",73
+274,137,"ACF #152","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",74
+278,139,"ACF #154","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",70
+277,139,"ACF #154","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",70
+279,140,"ACF #155","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",73
+270,135,"ACF #150","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",90
+283,142,"ACF #158","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",109
+281,141,"ACF #157","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",60
+285,143,"ACF #159","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",96
+282,141,"ACF #157","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",77
+280,140,"ACF #155","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",71
+284,142,"ACF #158","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",68
+287,144,"ACF #160","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",90
+286,143,"ACF #159","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",61
+289,145,"ACF #161","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",86
+290,145,"ACF #161","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",67
+288,144,"ACF #160","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",69
+293,147,"ACF #163","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",88
+291,146,"ACF #162","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",50
+294,147,"ACF #163","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",73
+292,146,"ACF #162","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",76
+295,148,"ACF #164","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",62
+298,149,"ACF #165","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",81
+299,150,"ACF #166","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",80
+296,148,"ACF #164","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",77
+302,151,"ACF #167","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",75
+304,152,"ACF #169","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",114
+306,153,"ACF #170","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",73
+300,150,"ACF #166","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",81
+305,153,"ACF #170","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",80
+297,149,"ACF #165","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",110
+307,154,"ACF #172","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",96
+301,151,"ACF #167","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",104
+303,152,"ACF #169","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",130
+309,155,"ACF #173","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",82
+308,154,"ACF #172","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",84
+311,156,"ACF #174 Skunk","Regicide-n8c-guinn-c0dde2e","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",104
+310,155,"ACF #173","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",1/2-1/2,0.5,"repetition",101
+312,156,"ACF #174 Skunk","GuiNN Checkers 2.06 avx2","Regicide-n8c-guinn-c0dde2e",0-1,1,"no legal moves",147

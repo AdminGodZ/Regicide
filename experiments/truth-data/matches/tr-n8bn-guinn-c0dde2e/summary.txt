@@ -1,0 +1,14 @@
+Match: A = Regicide-n8bn-guinn-c0dde2e, B = GuiNN Checkers 2.06 avx2
+Openings: acf156 (156 openings x 1 rounds, each played with both colours)
+Time control: 0.5s/move (CheckerBoard match rules); no-progress rule: 40 moves
+Games: 312 of 312 scheduled
+
+A: +16 =294 -2   score 163.0/312 = 52.24%   draw rate 94.2%
+A as black: +4 =150 -2   A as white: +12 =144 -0
+By colour: black won 4, white won 14, drawn 294
+Pairs: 156   pentanomial [LL LD DD/WL WD WW] = [0 2 138 16 0]
+Elo (pentanomial, pairs): +15.6 [+6.7, +24.6] 95% CI, score 0.5224 +- 0.0129, LOS 99.97%
+Elo (trinomial, games):   +15.6 [+6.5, +24.7] 95% CI, LOS 99.96%
+Terminations: no legal moves 18; no progress 2; repetition 292;
+A Regicide-n8bn-guinn-c0dde2e: 13534 moves, avg 0.202s/move, max 2.802s
+B GuiNN Checkers 2.06 avx2: 13448 moves, avg 0.257s/move, max 5.422s

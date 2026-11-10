@@ -46,6 +46,11 @@ def parse_args(argv=None):
     p.add_argument("--lambda", dest="lam", type=float, default=0.7, help="weight of the game result")
     p.add_argument("--k", type=float, default=0, help="score scale K (0 = fit to the data)")
     p.add_argument("--valid-frac", type=float, default=0.02, help="tail of each file held out")
+    p.add_argument("--min-pieces", type=int, default=0,
+                   help="leave out records with fewer pieces (9: what the 8-piece database never lets the net see)")
+    p.add_argument("--groups", help="phase-balanced sampling: piece-count group lower bounds, e.g. 9,13,17 (the first "
+                   "must equal --min-pieces); every batch draws exactly its share from each group")
+    p.add_argument("--group-weights", help="share of each group in a batch, e.g. 1,1,1 (default equal) or 1,1,2")
     p.add_argument("--valid-max", type=int, default=1_000_000, help="validation positions used")
     p.add_argument("--qat-epochs", type=int, default=2,
                    help="final epochs trained through the simulated integer forward pass")
@@ -71,6 +76,8 @@ def batch_loss(model, arch, t, K, lam, quant):
     x, xo, b = nnue.inputs(arch, t["black"], t["white"], t["kings"], t["stm"])
     pred = model(x, xo, b, quant=quant)
     target = lam * t["result"] + (1 - lam) * torch.sigmoid(t["score"].float() / K)
+    # A proven score (stm flag, src/datafile.hpp) is the exact result: it is the target whatever lambda is.
+    target = torch.where(t["proven"], (t["score"] > 0).float(), target)
     return F.binary_cross_entropy_with_logits(pred / K, target), pred
 
 
@@ -96,7 +103,13 @@ def main(argv=None):
     torch.manual_seed(args.seed)
     rng = np.random.default_rng(args.seed)
 
-    data = nnue.Data(args.data, args.valid_frac)
+    groups = [int(x) for x in args.groups.split(",")] if args.groups else None
+    weights = [float(x) for x in args.group_weights.split(",")] if args.group_weights else None
+    data = nnue.Data(args.data, args.valid_frac, args.min_pieces, groups, weights)
+    if data.groups is not None:
+        print("groups %s: training records %s, batch split %s" % (
+            ", ".join("%d-%d" % (data.group_bounds[g], data.group_bounds[g + 1] - 1) for g in range(len(groups))),
+            data.group_sizes, data.batch_split(args.batch).tolist()), flush=True)
     if data.n_train == 0:
         sys.exit("no training data")
     valid = data.validation(args.valid_max, rng)
@@ -121,8 +134,8 @@ def main(argv=None):
     epoch_size = args.epoch_size or data.n_train
     steps_per_epoch = max(1, epoch_size // args.batch)
     total_steps = steps_per_epoch * args.epochs
-    print("net %s  train %d  valid %d  K %.1f  lambda %.2f  device %s  %d steps/epoch" %
-          (arch, data.n_train, len(valid), K, args.lam, device, steps_per_epoch), flush=True)
+    print("net %s  train %d  valid %d  K %.1f  lambda %.2f  min pieces %d  device %s  %d steps/epoch" %
+          (arch, data.n_train, len(valid), K, args.lam, args.min_pieces, device, steps_per_epoch), flush=True)
     with open(os.path.join(args.out, "config.json"), "w") as f:
         json.dump(dict(vars(args), K=K, net=dict(arch._asdict())), f, indent=1)
 

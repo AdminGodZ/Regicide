@@ -1,0 +1,8 @@
+written 300000 / 300000 (100.00%)  searched 89420  proven 28815  sign flips 524  untrusted 0  129 searched/s
+done: /tmp/sentinel/o4.bin has 300000 of 300000 records
+rescore /tmp/sentinel/s5.bin -> /tmp/sentinel/o5.bin: 200000 records, resuming at 0, 2 threads, egdb 8 pieces, pieces 9..16 searched
+gen5a_n50k_e3.bin: records 10435120 proven 1144718 (losses 549270, wins 595448); proven losses with old score > +100: 0; proven wins with old score < -100: 0
+gen4a_n10k_e3.bin.part: records 13020160 proven 1285317 (losses 612340, wins 672977); proven losses with old score > +100: 0; proven wins with old score < -100: 1
+tails/tail_gen5a_n50k_9_12_rs.bin: records 47215 proven 23009 (losses 11113, wins 11896); proven losses with old score > +100: 0; proven wins with old score < -100: 0
+tails/tail_gen5c_n50k_9_12_rs.bin: records 46670 proven 21779 (losses 10549, wins 11230); proven losses with old score > +100: 0; proven wins with old score < -100: 0
+tails/tail_gen4a_n10k_9_12_rs.bin: records 114071 proven 51569 (losses 24789, wins 26780); proven losses with old score > +100: 0; proven wins with old score < -100: 0
