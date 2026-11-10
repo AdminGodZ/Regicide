@@ -228,3 +228,4 @@ gzipped PDN with per-move comments, summary per chunk) in `netm/matches/<match>/
 
 | match | database | W / D / L (A) | pentanomial [LL LD DD/WL WD WW] | Elo [95% CI] | LOS | mean time per move A / B | mean depth A / B | forfeits / illegal moves |
 |---|---|---|---|---|---|---|---|---|
+| M5 n8c vs n8bn | on | 262 / 1078 / 270 | [0, 41, 731, 33, 0] | **-1.7 [-5.4, +1.9]** | 17.6% | 0.271 / 0.270 s | 33.75 / 33.84 | none |

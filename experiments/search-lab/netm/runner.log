@@ -1,0 +1,10 @@
+RUNNER START 2026-11-10T15:42:07+01:00
+BEGIN M5_n8c-vs-n8bn A=n8c B=n8bn eng=eng mt=0.5 2026-11-10T15:42:10+01:00
+DONE M5_n8c-vs-n8bn secs=8421 2026-11-10T18:02:31+01:00 :: Elo -1.7 [-5.4, +1.9] 95% CI (pentanomial, pairs), score 0.4975 +- 0.0052, LOS 17.6%
+STOPPED 2026-11-10T18:02:31+01:00
+RESTART: first runner gone, runner2 starts 2026-11-10T18:02:42+01:00
+RUNNER2 START 2026-11-10T18:02:42+01:00
+BEGIN M5_n8c-vs-n8bn attempt 1 chunks '' A=n8c B=n8bn eng=eng mt=0.5 2026-11-10T18:02:42+01:00
+DONE M5_n8c-vs-n8bn secs=0 2026-11-10T18:02:42+01:00 :: Elo -1.7 [-5.4, +1.9] 95% CI (pentanomial, pairs), score 0.4975 +- 0.0052, LOS 17.6%
+FETCHED n8q 2026-11-10T18:02:44+01:00
+BEGIN M1_n8q-vs-n6c attempt 1 chunks 'abcdef' A=n8q B=builtin eng=eng mt=0.5 2026-11-10T18:02:44+01:00

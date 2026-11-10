@@ -1,0 +1,8 @@
+a 278/278 ok (exit status unrecorded, old runner)
+b 278/278 ok (exit status unrecorded, old runner)
+c 268/268 ok (exit status unrecorded, old runner)
+d 262/262 ok (exit status unrecorded, old runner)
+e 264/264 ok (exit status unrecorded, old runner)
+f 260/260 ok (exit status unrecorded, old runner)
+pooled pairs 805/805 pool exit 0 ok
+COMPLETE

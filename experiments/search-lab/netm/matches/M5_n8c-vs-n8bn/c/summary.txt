@@ -1,0 +1,14 @@
+Match: A = n8c, B = n8bn
+Openings: /home/admingod/regicide-jobs/netm/chunks/op4_c (134 openings x 1 rounds, each played with both colours)
+Time control: 0.5s/move (CheckerBoard match rules); no-progress rule: 40 moves
+Games: 268 of 268 scheduled
+
+A: +60 =151 -57   score 135.5/268 = 50.56%   draw rate 56.3%
+A as black: +46 =74 -14   A as white: +14 =77 -43
+By colour: black won 89, white won 28, drawn 151
+Pairs: 134   pentanomial [LL LD DD/WL WD WW] = [0 4 123 7 0]
+Elo (pentanomial, pairs): +3.9 [-4.5, +12.3] 95% CI, score 0.5056 +- 0.0121, LOS 81.79%
+Elo (trinomial, games):   +3.9 [-23.6, +31.5] 95% CI, LOS 60.93%
+Terminations: no legal moves 117; repetition 151;
+A n8c: 14864 moves, avg 0.271s/move, max 2.666s
+B n8bn: 14876 moves, avg 0.271s/move, max 2.778s

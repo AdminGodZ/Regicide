@@ -1,0 +1,261 @@
+game,pair,opening,black,white,result,score_a,termination,engine_plies
+1,1,"/home/admingod/regicide-jobs/netm/chunks/op4_f:1","n8c","n8bn",1/2-1/2,0.5,"repetition",79
+2,1,"/home/admingod/regicide-jobs/netm/chunks/op4_f:1","n8bn","n8c",1/2-1/2,0.5,"repetition",95
+3,2,"/home/admingod/regicide-jobs/netm/chunks/op4_f:2","n8c","n8bn",1/2-1/2,0.5,"repetition",66
+4,2,"/home/admingod/regicide-jobs/netm/chunks/op4_f:2","n8bn","n8c",1/2-1/2,0.5,"repetition",62
+5,3,"/home/admingod/regicide-jobs/netm/chunks/op4_f:3","n8c","n8bn",1/2-1/2,0.5,"repetition",111
+6,3,"/home/admingod/regicide-jobs/netm/chunks/op4_f:3","n8bn","n8c",1/2-1/2,0.5,"repetition",93
+7,4,"/home/admingod/regicide-jobs/netm/chunks/op4_f:4","n8c","n8bn",1/2-1/2,0.5,"repetition",71
+8,4,"/home/admingod/regicide-jobs/netm/chunks/op4_f:4","n8bn","n8c",1/2-1/2,0.5,"repetition",89
+9,5,"/home/admingod/regicide-jobs/netm/chunks/op4_f:5","n8c","n8bn",1/2-1/2,0.5,"repetition",110
+10,5,"/home/admingod/regicide-jobs/netm/chunks/op4_f:5","n8bn","n8c",1/2-1/2,0.5,"repetition",96
+11,6,"/home/admingod/regicide-jobs/netm/chunks/op4_f:6","n8c","n8bn",1/2-1/2,0.5,"repetition",87
+12,6,"/home/admingod/regicide-jobs/netm/chunks/op4_f:6","n8bn","n8c",1/2-1/2,0.5,"repetition",77
+13,7,"/home/admingod/regicide-jobs/netm/chunks/op4_f:7","n8c","n8bn",1/2-1/2,0.5,"repetition",70
+14,7,"/home/admingod/regicide-jobs/netm/chunks/op4_f:7","n8bn","n8c",1/2-1/2,0.5,"repetition",85
+15,8,"/home/admingod/regicide-jobs/netm/chunks/op4_f:8","n8c","n8bn",1/2-1/2,0.5,"repetition",83
+16,8,"/home/admingod/regicide-jobs/netm/chunks/op4_f:8","n8bn","n8c",1/2-1/2,0.5,"repetition",105
+17,9,"/home/admingod/regicide-jobs/netm/chunks/op4_f:9","n8c","n8bn",1/2-1/2,0.5,"repetition",105
+18,9,"/home/admingod/regicide-jobs/netm/chunks/op4_f:9","n8bn","n8c",1/2-1/2,0.5,"repetition",91
+19,10,"/home/admingod/regicide-jobs/netm/chunks/op4_f:10","n8c","n8bn",1/2-1/2,0.5,"repetition",92
+20,10,"/home/admingod/regicide-jobs/netm/chunks/op4_f:10","n8bn","n8c",1/2-1/2,0.5,"repetition",108
+21,11,"/home/admingod/regicide-jobs/netm/chunks/op4_f:11","n8c","n8bn",1/2-1/2,0.5,"repetition",92
+22,11,"/home/admingod/regicide-jobs/netm/chunks/op4_f:11","n8bn","n8c",1/2-1/2,0.5,"repetition",101
+23,12,"/home/admingod/regicide-jobs/netm/chunks/op4_f:12","n8c","n8bn",1/2-1/2,0.5,"repetition",104
+24,12,"/home/admingod/regicide-jobs/netm/chunks/op4_f:12","n8bn","n8c",1/2-1/2,0.5,"repetition",85
+25,13,"/home/admingod/regicide-jobs/netm/chunks/op4_f:13","n8c","n8bn",1/2-1/2,0.5,"repetition",62
+26,13,"/home/admingod/regicide-jobs/netm/chunks/op4_f:13","n8bn","n8c",1/2-1/2,0.5,"repetition",79
+27,14,"/home/admingod/regicide-jobs/netm/chunks/op4_f:14","n8c","n8bn",1/2-1/2,0.5,"repetition",89
+28,14,"/home/admingod/regicide-jobs/netm/chunks/op4_f:14","n8bn","n8c",1/2-1/2,0.5,"repetition",83
+29,15,"/home/admingod/regicide-jobs/netm/chunks/op4_f:15","n8c","n8bn",1/2-1/2,0.5,"repetition",70
+30,15,"/home/admingod/regicide-jobs/netm/chunks/op4_f:15","n8bn","n8c",1-0,0,"no legal moves",231
+31,16,"/home/admingod/regicide-jobs/netm/chunks/op4_f:16","n8c","n8bn",1/2-1/2,0.5,"repetition",89
+32,16,"/home/admingod/regicide-jobs/netm/chunks/op4_f:16","n8bn","n8c",1/2-1/2,0.5,"repetition",109
+33,17,"/home/admingod/regicide-jobs/netm/chunks/op4_f:17","n8c","n8bn",1/2-1/2,0.5,"repetition",109
+34,17,"/home/admingod/regicide-jobs/netm/chunks/op4_f:17","n8bn","n8c",0-1,1,"no legal moves",130
+35,18,"/home/admingod/regicide-jobs/netm/chunks/op4_f:18","n8c","n8bn",1/2-1/2,0.5,"repetition",99
+36,18,"/home/admingod/regicide-jobs/netm/chunks/op4_f:18","n8bn","n8c",1/2-1/2,0.5,"repetition",93
+37,19,"/home/admingod/regicide-jobs/netm/chunks/op4_f:19","n8c","n8bn",1/2-1/2,0.5,"repetition",77
+38,19,"/home/admingod/regicide-jobs/netm/chunks/op4_f:19","n8bn","n8c",1/2-1/2,0.5,"repetition",69
+39,20,"/home/admingod/regicide-jobs/netm/chunks/op4_f:20","n8c","n8bn",1/2-1/2,0.5,"repetition",63
+40,20,"/home/admingod/regicide-jobs/netm/chunks/op4_f:20","n8bn","n8c",1/2-1/2,0.5,"repetition",63
+41,21,"/home/admingod/regicide-jobs/netm/chunks/op4_f:21","n8c","n8bn",1-0,1,"no legal moves",113
+42,21,"/home/admingod/regicide-jobs/netm/chunks/op4_f:21","n8bn","n8c",1-0,0,"no legal moves",169
+43,22,"/home/admingod/regicide-jobs/netm/chunks/op4_f:22","n8c","n8bn",1-0,1,"no legal moves",157
+44,22,"/home/admingod/regicide-jobs/netm/chunks/op4_f:22","n8bn","n8c",1-0,0,"no legal moves",129
+45,23,"/home/admingod/regicide-jobs/netm/chunks/op4_f:23","n8c","n8bn",1/2-1/2,0.5,"repetition",67
+46,23,"/home/admingod/regicide-jobs/netm/chunks/op4_f:23","n8bn","n8c",1/2-1/2,0.5,"repetition",65
+47,24,"/home/admingod/regicide-jobs/netm/chunks/op4_f:24","n8c","n8bn",1/2-1/2,0.5,"repetition",70
+48,24,"/home/admingod/regicide-jobs/netm/chunks/op4_f:24","n8bn","n8c",1/2-1/2,0.5,"repetition",79
+49,25,"/home/admingod/regicide-jobs/netm/chunks/op4_f:25","n8c","n8bn",1/2-1/2,0.5,"repetition",98
+50,25,"/home/admingod/regicide-jobs/netm/chunks/op4_f:25","n8bn","n8c",1/2-1/2,0.5,"repetition",75
+51,26,"/home/admingod/regicide-jobs/netm/chunks/op4_f:26","n8c","n8bn",1/2-1/2,0.5,"repetition",81
+52,26,"/home/admingod/regicide-jobs/netm/chunks/op4_f:26","n8bn","n8c",1/2-1/2,0.5,"repetition",80
+53,27,"/home/admingod/regicide-jobs/netm/chunks/op4_f:27","n8c","n8bn",1/2-1/2,0.5,"repetition",129
+54,27,"/home/admingod/regicide-jobs/netm/chunks/op4_f:27","n8bn","n8c",1/2-1/2,0.5,"repetition",83
+55,28,"/home/admingod/regicide-jobs/netm/chunks/op4_f:28","n8c","n8bn",1/2-1/2,0.5,"repetition",66
+56,28,"/home/admingod/regicide-jobs/netm/chunks/op4_f:28","n8bn","n8c",1/2-1/2,0.5,"repetition",68
+57,29,"/home/admingod/regicide-jobs/netm/chunks/op4_f:29","n8c","n8bn",1/2-1/2,0.5,"repetition",66
+58,29,"/home/admingod/regicide-jobs/netm/chunks/op4_f:29","n8bn","n8c",1/2-1/2,0.5,"repetition",68
+59,30,"/home/admingod/regicide-jobs/netm/chunks/op4_f:30","n8c","n8bn",1/2-1/2,0.5,"repetition",79
+60,30,"/home/admingod/regicide-jobs/netm/chunks/op4_f:30","n8bn","n8c",1/2-1/2,0.5,"repetition",80
+61,31,"/home/admingod/regicide-jobs/netm/chunks/op4_f:31","n8c","n8bn",1/2-1/2,0.5,"repetition",67
+62,31,"/home/admingod/regicide-jobs/netm/chunks/op4_f:31","n8bn","n8c",1/2-1/2,0.5,"repetition",85
+63,32,"/home/admingod/regicide-jobs/netm/chunks/op4_f:32","n8c","n8bn",1/2-1/2,0.5,"repetition",77
+64,32,"/home/admingod/regicide-jobs/netm/chunks/op4_f:32","n8bn","n8c",1/2-1/2,0.5,"repetition",113
+65,33,"/home/admingod/regicide-jobs/netm/chunks/op4_f:33","n8c","n8bn",1/2-1/2,0.5,"repetition",117
+66,33,"/home/admingod/regicide-jobs/netm/chunks/op4_f:33","n8bn","n8c",1/2-1/2,0.5,"repetition",139
+67,34,"/home/admingod/regicide-jobs/netm/chunks/op4_f:34","n8c","n8bn",1/2-1/2,0.5,"repetition",63
+68,34,"/home/admingod/regicide-jobs/netm/chunks/op4_f:34","n8bn","n8c",1/2-1/2,0.5,"repetition",66
+69,35,"/home/admingod/regicide-jobs/netm/chunks/op4_f:35","n8c","n8bn",1-0,1,"no legal moves",143
+70,35,"/home/admingod/regicide-jobs/netm/chunks/op4_f:35","n8bn","n8c",1-0,0,"no legal moves",143
+71,36,"/home/admingod/regicide-jobs/netm/chunks/op4_f:36","n8c","n8bn",1/2-1/2,0.5,"repetition",79
+72,36,"/home/admingod/regicide-jobs/netm/chunks/op4_f:36","n8bn","n8c",1/2-1/2,0.5,"repetition",143
+73,37,"/home/admingod/regicide-jobs/netm/chunks/op4_f:37","n8c","n8bn",1/2-1/2,0.5,"repetition",76
+74,37,"/home/admingod/regicide-jobs/netm/chunks/op4_f:37","n8bn","n8c",1/2-1/2,0.5,"repetition",89
+75,38,"/home/admingod/regicide-jobs/netm/chunks/op4_f:38","n8c","n8bn",1/2-1/2,0.5,"repetition",114
+76,38,"/home/admingod/regicide-jobs/netm/chunks/op4_f:38","n8bn","n8c",1/2-1/2,0.5,"repetition",77
+77,39,"/home/admingod/regicide-jobs/netm/chunks/op4_f:39","n8c","n8bn",1/2-1/2,0.5,"repetition",87
+78,39,"/home/admingod/regicide-jobs/netm/chunks/op4_f:39","n8bn","n8c",1/2-1/2,0.5,"repetition",70
+79,40,"/home/admingod/regicide-jobs/netm/chunks/op4_f:40","n8c","n8bn",1/2-1/2,0.5,"repetition",87
+80,40,"/home/admingod/regicide-jobs/netm/chunks/op4_f:40","n8bn","n8c",1/2-1/2,0.5,"repetition",85
+81,41,"/home/admingod/regicide-jobs/netm/chunks/op4_f:41","n8c","n8bn",1/2-1/2,0.5,"repetition",103
+82,41,"/home/admingod/regicide-jobs/netm/chunks/op4_f:41","n8bn","n8c",1/2-1/2,0.5,"repetition",87
+83,42,"/home/admingod/regicide-jobs/netm/chunks/op4_f:42","n8c","n8bn",1-0,1,"no legal moves",205
+84,42,"/home/admingod/regicide-jobs/netm/chunks/op4_f:42","n8bn","n8c",1-0,0,"no legal moves",85
+85,43,"/home/admingod/regicide-jobs/netm/chunks/op4_f:43","n8c","n8bn",1/2-1/2,0.5,"repetition",76
+86,43,"/home/admingod/regicide-jobs/netm/chunks/op4_f:43","n8bn","n8c",1/2-1/2,0.5,"repetition",71
+87,44,"/home/admingod/regicide-jobs/netm/chunks/op4_f:44","n8c","n8bn",1-0,1,"no legal moves",183
+88,44,"/home/admingod/regicide-jobs/netm/chunks/op4_f:44","n8bn","n8c",1/2-1/2,0.5,"repetition",85
+89,45,"/home/admingod/regicide-jobs/netm/chunks/op4_f:45","n8c","n8bn",1/2-1/2,0.5,"repetition",107
+90,45,"/home/admingod/regicide-jobs/netm/chunks/op4_f:45","n8bn","n8c",1/2-1/2,0.5,"repetition",60
+91,46,"/home/admingod/regicide-jobs/netm/chunks/op4_f:46","n8c","n8bn",1-0,1,"no legal moves",201
+92,46,"/home/admingod/regicide-jobs/netm/chunks/op4_f:46","n8bn","n8c",1-0,0,"no legal moves",271
+93,47,"/home/admingod/regicide-jobs/netm/chunks/op4_f:47","n8c","n8bn",1/2-1/2,0.5,"repetition",204
+94,47,"/home/admingod/regicide-jobs/netm/chunks/op4_f:47","n8bn","n8c",1/2-1/2,0.5,"repetition",79
+95,48,"/home/admingod/regicide-jobs/netm/chunks/op4_f:48","n8c","n8bn",1/2-1/2,0.5,"repetition",109
+96,48,"/home/admingod/regicide-jobs/netm/chunks/op4_f:48","n8bn","n8c",1/2-1/2,0.5,"repetition",93
+97,49,"/home/admingod/regicide-jobs/netm/chunks/op4_f:49","n8c","n8bn",1/2-1/2,0.5,"repetition",87
+98,49,"/home/admingod/regicide-jobs/netm/chunks/op4_f:49","n8bn","n8c",1/2-1/2,0.5,"repetition",66
+99,50,"/home/admingod/regicide-jobs/netm/chunks/op4_f:50","n8c","n8bn",1/2-1/2,0.5,"repetition",107
+100,50,"/home/admingod/regicide-jobs/netm/chunks/op4_f:50","n8bn","n8c",1-0,0,"no legal moves",215
+101,51,"/home/admingod/regicide-jobs/netm/chunks/op4_f:51","n8c","n8bn",1/2-1/2,0.5,"repetition",66
+102,51,"/home/admingod/regicide-jobs/netm/chunks/op4_f:51","n8bn","n8c",1/2-1/2,0.5,"repetition",91
+103,52,"/home/admingod/regicide-jobs/netm/chunks/op4_f:52","n8c","n8bn",1/2-1/2,0.5,"repetition",93
+104,52,"/home/admingod/regicide-jobs/netm/chunks/op4_f:52","n8bn","n8c",0-1,1,"no legal moves",194
+105,53,"/home/admingod/regicide-jobs/netm/chunks/op4_f:53","n8c","n8bn",1-0,1,"no legal moves",85
+106,53,"/home/admingod/regicide-jobs/netm/chunks/op4_f:53","n8bn","n8c",1-0,0,"no legal moves",135
+107,54,"/home/admingod/regicide-jobs/netm/chunks/op4_f:54","n8c","n8bn",1/2-1/2,0.5,"repetition",95
+108,54,"/home/admingod/regicide-jobs/netm/chunks/op4_f:54","n8bn","n8c",1/2-1/2,0.5,"repetition",103
+109,55,"/home/admingod/regicide-jobs/netm/chunks/op4_f:55","n8c","n8bn",1-0,1,"no legal moves",207
+110,55,"/home/admingod/regicide-jobs/netm/chunks/op4_f:55","n8bn","n8c",1-0,0,"no legal moves",273
+111,56,"/home/admingod/regicide-jobs/netm/chunks/op4_f:56","n8c","n8bn",1-0,1,"no legal moves",131
+112,56,"/home/admingod/regicide-jobs/netm/chunks/op4_f:56","n8bn","n8c",1-0,0,"no legal moves",91
+113,57,"/home/admingod/regicide-jobs/netm/chunks/op4_f:57","n8c","n8bn",1/2-1/2,0.5,"repetition",84
+114,57,"/home/admingod/regicide-jobs/netm/chunks/op4_f:57","n8bn","n8c",1/2-1/2,0.5,"repetition",89
+115,58,"/home/admingod/regicide-jobs/netm/chunks/op4_f:58","n8c","n8bn",1/2-1/2,0.5,"repetition",85
+116,58,"/home/admingod/regicide-jobs/netm/chunks/op4_f:58","n8bn","n8c",1/2-1/2,0.5,"repetition",66
+117,59,"/home/admingod/regicide-jobs/netm/chunks/op4_f:59","n8c","n8bn",1-0,1,"no legal moves",113
+118,59,"/home/admingod/regicide-jobs/netm/chunks/op4_f:59","n8bn","n8c",1-0,0,"no legal moves",229
+119,60,"/home/admingod/regicide-jobs/netm/chunks/op4_f:60","n8c","n8bn",1-0,1,"no legal moves",151
+120,60,"/home/admingod/regicide-jobs/netm/chunks/op4_f:60","n8bn","n8c",1-0,0,"no legal moves",69
+121,61,"/home/admingod/regicide-jobs/netm/chunks/op4_f:61","n8c","n8bn",1/2-1/2,0.5,"repetition",159
+122,61,"/home/admingod/regicide-jobs/netm/chunks/op4_f:61","n8bn","n8c",1/2-1/2,0.5,"repetition",100
+123,62,"/home/admingod/regicide-jobs/netm/chunks/op4_f:62","n8c","n8bn",0-1,0,"no legal moves",82
+124,62,"/home/admingod/regicide-jobs/netm/chunks/op4_f:62","n8bn","n8c",0-1,1,"no legal moves",62
+125,63,"/home/admingod/regicide-jobs/netm/chunks/op4_f:63","n8c","n8bn",1-0,1,"no legal moves",185
+126,63,"/home/admingod/regicide-jobs/netm/chunks/op4_f:63","n8bn","n8c",1-0,0,"no legal moves",63
+127,64,"/home/admingod/regicide-jobs/netm/chunks/op4_f:64","n8c","n8bn",1/2-1/2,0.5,"repetition",115
+128,64,"/home/admingod/regicide-jobs/netm/chunks/op4_f:64","n8bn","n8c",1-0,0,"no legal moves",109
+129,65,"/home/admingod/regicide-jobs/netm/chunks/op4_f:65","n8c","n8bn",1-0,1,"no legal moves",153
+130,65,"/home/admingod/regicide-jobs/netm/chunks/op4_f:65","n8bn","n8c",1-0,0,"no legal moves",127
+131,66,"/home/admingod/regicide-jobs/netm/chunks/op4_f:66","n8c","n8bn",1/2-1/2,0.5,"repetition",122
+132,66,"/home/admingod/regicide-jobs/netm/chunks/op4_f:66","n8bn","n8c",1/2-1/2,0.5,"repetition",100
+133,67,"/home/admingod/regicide-jobs/netm/chunks/op4_f:67","n8c","n8bn",1/2-1/2,0.5,"repetition",87
+134,67,"/home/admingod/regicide-jobs/netm/chunks/op4_f:67","n8bn","n8c",1/2-1/2,0.5,"repetition",104
+135,68,"/home/admingod/regicide-jobs/netm/chunks/op4_f:68","n8c","n8bn",1/2-1/2,0.5,"repetition",63
+136,68,"/home/admingod/regicide-jobs/netm/chunks/op4_f:68","n8bn","n8c",1/2-1/2,0.5,"repetition",102
+137,69,"/home/admingod/regicide-jobs/netm/chunks/op4_f:69","n8c","n8bn",1/2-1/2,0.5,"repetition",81
+138,69,"/home/admingod/regicide-jobs/netm/chunks/op4_f:69","n8bn","n8c",1/2-1/2,0.5,"repetition",91
+139,70,"/home/admingod/regicide-jobs/netm/chunks/op4_f:70","n8c","n8bn",1-0,1,"no legal moves",143
+140,70,"/home/admingod/regicide-jobs/netm/chunks/op4_f:70","n8bn","n8c",1-0,0,"no legal moves",127
+141,71,"/home/admingod/regicide-jobs/netm/chunks/op4_f:71","n8c","n8bn",1/2-1/2,0.5,"repetition",69
+142,71,"/home/admingod/regicide-jobs/netm/chunks/op4_f:71","n8bn","n8c",1/2-1/2,0.5,"repetition",81
+143,72,"/home/admingod/regicide-jobs/netm/chunks/op4_f:72","n8c","n8bn",1/2-1/2,0.5,"repetition",89
+144,72,"/home/admingod/regicide-jobs/netm/chunks/op4_f:72","n8bn","n8c",1/2-1/2,0.5,"repetition",135
+145,73,"/home/admingod/regicide-jobs/netm/chunks/op4_f:73","n8c","n8bn",1/2-1/2,0.5,"repetition",87
+146,73,"/home/admingod/regicide-jobs/netm/chunks/op4_f:73","n8bn","n8c",1/2-1/2,0.5,"repetition",85
+147,74,"/home/admingod/regicide-jobs/netm/chunks/op4_f:74","n8c","n8bn",1-0,1,"no legal moves",197
+148,74,"/home/admingod/regicide-jobs/netm/chunks/op4_f:74","n8bn","n8c",1-0,0,"no legal moves",145
+149,75,"/home/admingod/regicide-jobs/netm/chunks/op4_f:75","n8c","n8bn",1-0,1,"no legal moves",101
+150,75,"/home/admingod/regicide-jobs/netm/chunks/op4_f:75","n8bn","n8c",1-0,0,"no legal moves",139
+151,76,"/home/admingod/regicide-jobs/netm/chunks/op4_f:76","n8c","n8bn",1-0,1,"no legal moves",167
+152,76,"/home/admingod/regicide-jobs/netm/chunks/op4_f:76","n8bn","n8c",1-0,0,"no legal moves",109
+153,77,"/home/admingod/regicide-jobs/netm/chunks/op4_f:77","n8c","n8bn",1/2-1/2,0.5,"repetition",88
+154,77,"/home/admingod/regicide-jobs/netm/chunks/op4_f:77","n8bn","n8c",1/2-1/2,0.5,"repetition",141
+155,78,"/home/admingod/regicide-jobs/netm/chunks/op4_f:78","n8c","n8bn",0-1,0,"no legal moves",84
+156,78,"/home/admingod/regicide-jobs/netm/chunks/op4_f:78","n8bn","n8c",0-1,1,"no legal moves",130
+157,79,"/home/admingod/regicide-jobs/netm/chunks/op4_f:79","n8c","n8bn",1/2-1/2,0.5,"repetition",97
+158,79,"/home/admingod/regicide-jobs/netm/chunks/op4_f:79","n8bn","n8c",1/2-1/2,0.5,"repetition",123
+159,80,"/home/admingod/regicide-jobs/netm/chunks/op4_f:80","n8c","n8bn",1/2-1/2,0.5,"repetition",83
+160,80,"/home/admingod/regicide-jobs/netm/chunks/op4_f:80","n8bn","n8c",1/2-1/2,0.5,"repetition",82
+161,81,"/home/admingod/regicide-jobs/netm/chunks/op4_f:81","n8c","n8bn",1/2-1/2,0.5,"repetition",83
+162,81,"/home/admingod/regicide-jobs/netm/chunks/op4_f:81","n8bn","n8c",1/2-1/2,0.5,"repetition",75
+163,82,"/home/admingod/regicide-jobs/netm/chunks/op4_f:82","n8c","n8bn",1/2-1/2,0.5,"repetition",87
+164,82,"/home/admingod/regicide-jobs/netm/chunks/op4_f:82","n8bn","n8c",1/2-1/2,0.5,"repetition",62
+165,83,"/home/admingod/regicide-jobs/netm/chunks/op4_f:83","n8c","n8bn",1-0,1,"no legal moves",157
+166,83,"/home/admingod/regicide-jobs/netm/chunks/op4_f:83","n8bn","n8c",1-0,0,"no legal moves",63
+167,84,"/home/admingod/regicide-jobs/netm/chunks/op4_f:84","n8c","n8bn",1-0,1,"no legal moves",193
+168,84,"/home/admingod/regicide-jobs/netm/chunks/op4_f:84","n8bn","n8c",1-0,0,"no legal moves",57
+169,85,"/home/admingod/regicide-jobs/netm/chunks/op4_f:85","n8c","n8bn",1-0,1,"no legal moves",117
+170,85,"/home/admingod/regicide-jobs/netm/chunks/op4_f:85","n8bn","n8c",1-0,0,"no legal moves",203
+171,86,"/home/admingod/regicide-jobs/netm/chunks/op4_f:86","n8c","n8bn",1-0,1,"no legal moves",153
+172,86,"/home/admingod/regicide-jobs/netm/chunks/op4_f:86","n8bn","n8c",1-0,0,"no legal moves",157
+173,87,"/home/admingod/regicide-jobs/netm/chunks/op4_f:87","n8c","n8bn",1/2-1/2,0.5,"repetition",97
+174,87,"/home/admingod/regicide-jobs/netm/chunks/op4_f:87","n8bn","n8c",1/2-1/2,0.5,"repetition",93
+175,88,"/home/admingod/regicide-jobs/netm/chunks/op4_f:88","n8c","n8bn",1-0,1,"no legal moves",199
+176,88,"/home/admingod/regicide-jobs/netm/chunks/op4_f:88","n8bn","n8c",1-0,0,"no legal moves",149
+177,89,"/home/admingod/regicide-jobs/netm/chunks/op4_f:89","n8c","n8bn",0-1,0,"no legal moves",80
+178,89,"/home/admingod/regicide-jobs/netm/chunks/op4_f:89","n8bn","n8c",0-1,1,"no legal moves",164
+179,90,"/home/admingod/regicide-jobs/netm/chunks/op4_f:90","n8c","n8bn",1/2-1/2,0.5,"repetition",108
+180,90,"/home/admingod/regicide-jobs/netm/chunks/op4_f:90","n8bn","n8c",1/2-1/2,0.5,"repetition",79
+181,91,"/home/admingod/regicide-jobs/netm/chunks/op4_f:91","n8c","n8bn",1/2-1/2,0.5,"repetition",90
+182,91,"/home/admingod/regicide-jobs/netm/chunks/op4_f:91","n8bn","n8c",1-0,0,"no legal moves",169
+183,92,"/home/admingod/regicide-jobs/netm/chunks/op4_f:92","n8c","n8bn",1/2-1/2,0.5,"repetition",89
+184,92,"/home/admingod/regicide-jobs/netm/chunks/op4_f:92","n8bn","n8c",1/2-1/2,0.5,"repetition",90
+185,93,"/home/admingod/regicide-jobs/netm/chunks/op4_f:93","n8c","n8bn",1/2-1/2,0.5,"repetition",113
+186,93,"/home/admingod/regicide-jobs/netm/chunks/op4_f:93","n8bn","n8c",1/2-1/2,0.5,"repetition",138
+187,94,"/home/admingod/regicide-jobs/netm/chunks/op4_f:94","n8c","n8bn",1/2-1/2,0.5,"repetition",81
+188,94,"/home/admingod/regicide-jobs/netm/chunks/op4_f:94","n8bn","n8c",1/2-1/2,0.5,"repetition",83
+189,95,"/home/admingod/regicide-jobs/netm/chunks/op4_f:95","n8c","n8bn",1/2-1/2,0.5,"repetition",86
+190,95,"/home/admingod/regicide-jobs/netm/chunks/op4_f:95","n8bn","n8c",1/2-1/2,0.5,"repetition",67
+191,96,"/home/admingod/regicide-jobs/netm/chunks/op4_f:96","n8c","n8bn",1-0,1,"no legal moves",119
+192,96,"/home/admingod/regicide-jobs/netm/chunks/op4_f:96","n8bn","n8c",1-0,0,"no legal moves",107
+193,97,"/home/admingod/regicide-jobs/netm/chunks/op4_f:97","n8c","n8bn",1/2-1/2,0.5,"repetition",88
+194,97,"/home/admingod/regicide-jobs/netm/chunks/op4_f:97","n8bn","n8c",1/2-1/2,0.5,"repetition",153
+195,98,"/home/admingod/regicide-jobs/netm/chunks/op4_f:98","n8c","n8bn",1/2-1/2,0.5,"repetition",96
+196,98,"/home/admingod/regicide-jobs/netm/chunks/op4_f:98","n8bn","n8c",1-0,0,"no legal moves",141
+197,99,"/home/admingod/regicide-jobs/netm/chunks/op4_f:99","n8c","n8bn",1/2-1/2,0.5,"repetition",85
+198,99,"/home/admingod/regicide-jobs/netm/chunks/op4_f:99","n8bn","n8c",1/2-1/2,0.5,"repetition",83
+199,100,"/home/admingod/regicide-jobs/netm/chunks/op4_f:100","n8c","n8bn",0-1,0,"no legal moves",96
+200,100,"/home/admingod/regicide-jobs/netm/chunks/op4_f:100","n8bn","n8c",0-1,1,"no legal moves",182
+201,101,"/home/admingod/regicide-jobs/netm/chunks/op4_f:101","n8c","n8bn",1/2-1/2,0.5,"repetition",82
+202,101,"/home/admingod/regicide-jobs/netm/chunks/op4_f:101","n8bn","n8c",1/2-1/2,0.5,"repetition",49
+203,102,"/home/admingod/regicide-jobs/netm/chunks/op4_f:102","n8c","n8bn",0-1,0,"no legal moves",58
+204,102,"/home/admingod/regicide-jobs/netm/chunks/op4_f:102","n8bn","n8c",0-1,1,"no legal moves",86
+205,103,"/home/admingod/regicide-jobs/netm/chunks/op4_f:103","n8c","n8bn",1/2-1/2,0.5,"repetition",89
+206,103,"/home/admingod/regicide-jobs/netm/chunks/op4_f:103","n8bn","n8c",1/2-1/2,0.5,"repetition",72
+207,104,"/home/admingod/regicide-jobs/netm/chunks/op4_f:104","n8c","n8bn",1/2-1/2,0.5,"repetition",87
+208,104,"/home/admingod/regicide-jobs/netm/chunks/op4_f:104","n8bn","n8c",1/2-1/2,0.5,"repetition",74
+209,105,"/home/admingod/regicide-jobs/netm/chunks/op4_f:105","n8c","n8bn",1-0,1,"no legal moves",137
+210,105,"/home/admingod/regicide-jobs/netm/chunks/op4_f:105","n8bn","n8c",1-0,0,"no legal moves",147
+211,106,"/home/admingod/regicide-jobs/netm/chunks/op4_f:106","n8c","n8bn",1/2-1/2,0.5,"repetition",73
+212,106,"/home/admingod/regicide-jobs/netm/chunks/op4_f:106","n8bn","n8c",1/2-1/2,0.5,"repetition",112
+213,107,"/home/admingod/regicide-jobs/netm/chunks/op4_f:107","n8c","n8bn",1/2-1/2,0.5,"repetition",105
+214,107,"/home/admingod/regicide-jobs/netm/chunks/op4_f:107","n8bn","n8c",1/2-1/2,0.5,"repetition",69
+215,108,"/home/admingod/regicide-jobs/netm/chunks/op4_f:108","n8c","n8bn",1/2-1/2,0.5,"repetition",78
+216,108,"/home/admingod/regicide-jobs/netm/chunks/op4_f:108","n8bn","n8c",1/2-1/2,0.5,"repetition",69
+217,109,"/home/admingod/regicide-jobs/netm/chunks/op4_f:109","n8c","n8bn",1/2-1/2,0.5,"repetition",79
+218,109,"/home/admingod/regicide-jobs/netm/chunks/op4_f:109","n8bn","n8c",1/2-1/2,0.5,"repetition",84
+219,110,"/home/admingod/regicide-jobs/netm/chunks/op4_f:110","n8c","n8bn",1/2-1/2,0.5,"repetition",171
+220,110,"/home/admingod/regicide-jobs/netm/chunks/op4_f:110","n8bn","n8c",0-1,1,"no legal moves",94
+221,111,"/home/admingod/regicide-jobs/netm/chunks/op4_f:111","n8c","n8bn",1/2-1/2,0.5,"repetition",74
+222,111,"/home/admingod/regicide-jobs/netm/chunks/op4_f:111","n8bn","n8c",1/2-1/2,0.5,"repetition",81
+223,112,"/home/admingod/regicide-jobs/netm/chunks/op4_f:112","n8c","n8bn",1-0,1,"no legal moves",133
+224,112,"/home/admingod/regicide-jobs/netm/chunks/op4_f:112","n8bn","n8c",1-0,0,"no legal moves",149
+225,113,"/home/admingod/regicide-jobs/netm/chunks/op4_f:113","n8c","n8bn",0-1,0,"no legal moves",124
+226,113,"/home/admingod/regicide-jobs/netm/chunks/op4_f:113","n8bn","n8c",0-1,1,"no legal moves",96
+227,114,"/home/admingod/regicide-jobs/netm/chunks/op4_f:114","n8c","n8bn",1-0,1,"no legal moves",123
+228,114,"/home/admingod/regicide-jobs/netm/chunks/op4_f:114","n8bn","n8c",1-0,0,"no legal moves",143
+229,115,"/home/admingod/regicide-jobs/netm/chunks/op4_f:115","n8c","n8bn",1/2-1/2,0.5,"repetition",88
+230,115,"/home/admingod/regicide-jobs/netm/chunks/op4_f:115","n8bn","n8c",1/2-1/2,0.5,"repetition",86
+231,116,"/home/admingod/regicide-jobs/netm/chunks/op4_f:116","n8c","n8bn",1/2-1/2,0.5,"repetition",85
+232,116,"/home/admingod/regicide-jobs/netm/chunks/op4_f:116","n8bn","n8c",1/2-1/2,0.5,"repetition",65
+233,117,"/home/admingod/regicide-jobs/netm/chunks/op4_f:117","n8c","n8bn",1-0,1,"no legal moves",137
+234,117,"/home/admingod/regicide-jobs/netm/chunks/op4_f:117","n8bn","n8c",1-0,0,"no legal moves",151
+235,118,"/home/admingod/regicide-jobs/netm/chunks/op4_f:118","n8c","n8bn",1/2-1/2,0.5,"repetition",103
+236,118,"/home/admingod/regicide-jobs/netm/chunks/op4_f:118","n8bn","n8c",1/2-1/2,0.5,"repetition",81
+237,119,"/home/admingod/regicide-jobs/netm/chunks/op4_f:119","n8c","n8bn",1/2-1/2,0.5,"repetition",66
+238,119,"/home/admingod/regicide-jobs/netm/chunks/op4_f:119","n8bn","n8c",1/2-1/2,0.5,"repetition",69
+239,120,"/home/admingod/regicide-jobs/netm/chunks/op4_f:120","n8c","n8bn",1-0,1,"no legal moves",155
+240,120,"/home/admingod/regicide-jobs/netm/chunks/op4_f:120","n8bn","n8c",1-0,0,"no legal moves",265
+241,121,"/home/admingod/regicide-jobs/netm/chunks/op4_f:121","n8c","n8bn",1-0,1,"no legal moves",185
+242,121,"/home/admingod/regicide-jobs/netm/chunks/op4_f:121","n8bn","n8c",1-0,0,"no legal moves",195
+243,122,"/home/admingod/regicide-jobs/netm/chunks/op4_f:122","n8c","n8bn",1/2-1/2,0.5,"repetition",143
+244,122,"/home/admingod/regicide-jobs/netm/chunks/op4_f:122","n8bn","n8c",1-0,0,"no legal moves",135
+245,123,"/home/admingod/regicide-jobs/netm/chunks/op4_f:123","n8c","n8bn",0-1,0,"no legal moves",122
+246,123,"/home/admingod/regicide-jobs/netm/chunks/op4_f:123","n8bn","n8c",1/2-1/2,0.5,"repetition",81
+247,124,"/home/admingod/regicide-jobs/netm/chunks/op4_f:124","n8c","n8bn",0-1,0,"no legal moves",72
+248,124,"/home/admingod/regicide-jobs/netm/chunks/op4_f:124","n8bn","n8c",0-1,1,"no legal moves",104
+249,125,"/home/admingod/regicide-jobs/netm/chunks/op4_f:125","n8c","n8bn",0-1,0,"no legal moves",198
+250,125,"/home/admingod/regicide-jobs/netm/chunks/op4_f:125","n8bn","n8c",0-1,1,"no legal moves",142
+251,126,"/home/admingod/regicide-jobs/netm/chunks/op4_f:126","n8c","n8bn",1/2-1/2,0.5,"repetition",78
+252,126,"/home/admingod/regicide-jobs/netm/chunks/op4_f:126","n8bn","n8c",1-0,0,"no legal moves",223
+253,127,"/home/admingod/regicide-jobs/netm/chunks/op4_f:127","n8c","n8bn",1/2-1/2,0.5,"repetition",111
+254,127,"/home/admingod/regicide-jobs/netm/chunks/op4_f:127","n8bn","n8c",1-0,0,"no legal moves",145
+255,128,"/home/admingod/regicide-jobs/netm/chunks/op4_f:128","n8c","n8bn",1-0,1,"no legal moves",69
+256,128,"/home/admingod/regicide-jobs/netm/chunks/op4_f:128","n8bn","n8c",1-0,0,"no legal moves",147
+257,129,"/home/admingod/regicide-jobs/netm/chunks/op4_f:129","n8c","n8bn",1/2-1/2,0.5,"repetition",99
+258,129,"/home/admingod/regicide-jobs/netm/chunks/op4_f:129","n8bn","n8c",1/2-1/2,0.5,"repetition",120
+259,130,"/home/admingod/regicide-jobs/netm/chunks/op4_f:130","n8c","n8bn",0-1,0,"no legal moves",108
+260,130,"/home/admingod/regicide-jobs/netm/chunks/op4_f:130","n8bn","n8c",0-1,1,"no legal moves",126
