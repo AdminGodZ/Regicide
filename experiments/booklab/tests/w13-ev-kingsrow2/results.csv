@@ -1,0 +1,41 @@
+game,pair,opening,black,white,result,score_a,termination,engine_plies
+2,1,"/home/admingod/regicide-jobs/booklab/wp13/evidence_deck.txt:1","kingsrow-B","kingsrow-A",1/2-1/2,0.5,"no progress",248
+12,6,"/home/admingod/regicide-jobs/booklab/wp13/evidence_deck.txt:6","kingsrow-B","kingsrow-A",1/2-1/2,0.5,"no progress",214
+14,7,"/home/admingod/regicide-jobs/booklab/wp13/evidence_deck.txt:7","kingsrow-B","kingsrow-A",1/2-1/2,0.5,"no progress",205
+10,5,"/home/admingod/regicide-jobs/booklab/wp13/evidence_deck.txt:5","kingsrow-B","kingsrow-A",1/2-1/2,0.5,"no progress",274
+6,3,"/home/admingod/regicide-jobs/booklab/wp13/evidence_deck.txt:3","kingsrow-B","kingsrow-A",1/2-1/2,0.5,"no progress",164
+8,4,"/home/admingod/regicide-jobs/booklab/wp13/evidence_deck.txt:4","kingsrow-B","kingsrow-A",1/2-1/2,0.5,"repetition",89
+16,8,"/home/admingod/regicide-jobs/booklab/wp13/evidence_deck.txt:8","kingsrow-B","kingsrow-A",1/2-1/2,0.5,"repetition",320
+4,2,"/home/admingod/regicide-jobs/booklab/wp13/evidence_deck.txt:2","kingsrow-B","kingsrow-A",1/2-1/2,0.5,"no progress",261
+24,12,"/home/admingod/regicide-jobs/booklab/wp13/evidence_deck.txt:12","kingsrow-B","kingsrow-A",1/2-1/2,0.5,"repetition",123
+22,11,"/home/admingod/regicide-jobs/booklab/wp13/evidence_deck.txt:11","kingsrow-B","kingsrow-A",1/2-1/2,0.5,"no progress",162
+20,10,"/home/admingod/regicide-jobs/booklab/wp13/evidence_deck.txt:10","kingsrow-B","kingsrow-A",1/2-1/2,0.5,"no progress",239
+28,14,"/home/admingod/regicide-jobs/booklab/wp13/evidence_deck.txt:14","kingsrow-B","kingsrow-A",1/2-1/2,0.5,"no progress",253
+30,15,"/home/admingod/regicide-jobs/booklab/wp13/evidence_deck.txt:15","kingsrow-B","kingsrow-A",1/2-1/2,0.5,"repetition",105
+26,13,"/home/admingod/regicide-jobs/booklab/wp13/evidence_deck.txt:13","kingsrow-B","kingsrow-A",1/2-1/2,0.5,"no progress",188
+18,9,"/home/admingod/regicide-jobs/booklab/wp13/evidence_deck.txt:9","kingsrow-B","kingsrow-A",1/2-1/2,0.5,"no progress",248
+36,18,"/home/admingod/regicide-jobs/booklab/wp13/evidence_deck.txt:18","kingsrow-B","kingsrow-A",1/2-1/2,0.5,"no progress",284
+32,16,"/home/admingod/regicide-jobs/booklab/wp13/evidence_deck.txt:16","kingsrow-B","kingsrow-A",1/2-1/2,0.5,"repetition",186
+34,17,"/home/admingod/regicide-jobs/booklab/wp13/evidence_deck.txt:17","kingsrow-B","kingsrow-A",1/2-1/2,0.5,"no progress",165
+38,19,"/home/admingod/regicide-jobs/booklab/wp13/evidence_deck.txt:19","kingsrow-B","kingsrow-A",1/2-1/2,0.5,"repetition",171
+40,20,"/home/admingod/regicide-jobs/booklab/wp13/evidence_deck.txt:20","kingsrow-B","kingsrow-A",1/2-1/2,0.5,"no progress",220
+44,22,"/home/admingod/regicide-jobs/booklab/wp13/evidence_deck.txt:22","kingsrow-B","kingsrow-A",1/2-1/2,0.5,"no progress",260
+42,21,"/home/admingod/regicide-jobs/booklab/wp13/evidence_deck.txt:21","kingsrow-B","kingsrow-A",1/2-1/2,0.5,"no progress",169
+48,24,"/home/admingod/regicide-jobs/booklab/wp13/evidence_deck.txt:24","kingsrow-B","kingsrow-A",1/2-1/2,0.5,"no progress",169
+46,23,"/home/admingod/regicide-jobs/booklab/wp13/evidence_deck.txt:23","kingsrow-B","kingsrow-A",1/2-1/2,0.5,"no progress",168
+50,25,"/home/admingod/regicide-jobs/booklab/wp13/evidence_deck.txt:25","kingsrow-B","kingsrow-A",1/2-1/2,0.5,"repetition",85
+52,26,"/home/admingod/regicide-jobs/booklab/wp13/evidence_deck.txt:26","kingsrow-B","kingsrow-A",1/2-1/2,0.5,"no progress",192
+60,30,"/home/admingod/regicide-jobs/booklab/wp13/evidence_deck.txt:30","kingsrow-B","kingsrow-A",1/2-1/2,0.5,"repetition",85
+56,28,"/home/admingod/regicide-jobs/booklab/wp13/evidence_deck.txt:28","kingsrow-B","kingsrow-A",1/2-1/2,0.5,"repetition",243
+54,27,"/home/admingod/regicide-jobs/booklab/wp13/evidence_deck.txt:27","kingsrow-B","kingsrow-A",1/2-1/2,0.5,"repetition",97
+58,29,"/home/admingod/regicide-jobs/booklab/wp13/evidence_deck.txt:29","kingsrow-B","kingsrow-A",1/2-1/2,0.5,"repetition",95
+64,32,"/home/admingod/regicide-jobs/booklab/wp13/evidence_deck.txt:32","kingsrow-B","kingsrow-A",1/2-1/2,0.5,"repetition",85
+66,33,"/home/admingod/regicide-jobs/booklab/wp13/evidence_deck.txt:33","kingsrow-B","kingsrow-A",1/2-1/2,0.5,"repetition",85
+62,31,"/home/admingod/regicide-jobs/booklab/wp13/evidence_deck.txt:31","kingsrow-B","kingsrow-A",1/2-1/2,0.5,"no progress",245
+68,34,"/home/admingod/regicide-jobs/booklab/wp13/evidence_deck.txt:34","kingsrow-B","kingsrow-A",1/2-1/2,0.5,"repetition",95
+74,37,"/home/admingod/regicide-jobs/booklab/wp13/evidence_deck.txt:37","kingsrow-B","kingsrow-A",1/2-1/2,0.5,"repetition",85
+72,36,"/home/admingod/regicide-jobs/booklab/wp13/evidence_deck.txt:36","kingsrow-B","kingsrow-A",1/2-1/2,0.5,"repetition",168
+70,35,"/home/admingod/regicide-jobs/booklab/wp13/evidence_deck.txt:35","kingsrow-B","kingsrow-A",1/2-1/2,0.5,"no progress",199
+78,39,"/home/admingod/regicide-jobs/booklab/wp13/evidence_deck.txt:39","kingsrow-B","kingsrow-A",1/2-1/2,0.5,"no progress",199
+76,38,"/home/admingod/regicide-jobs/booklab/wp13/evidence_deck.txt:38","kingsrow-B","kingsrow-A",1/2-1/2,0.5,"repetition",123
+80,40,"/home/admingod/regicide-jobs/booklab/wp13/evidence_deck.txt:40","kingsrow-B","kingsrow-A",0-1,1,"no legal moves",197

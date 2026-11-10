@@ -1,0 +1,13 @@
+Match: A = Kingsrow(x64)[4] 1.20, B = GuiNN Checkers 2.06 avx2
+Openings: /home/admingod/regicide-jobs/booklab/wp13/evidence_deck.txt (40 openings x 1 rounds, each played with both colours)
+Time control: 0.5s/move (CheckerBoard match rules); no-progress rule: 40 moves
+Games: 40 of 80 scheduled
+
+A: +21 =19 -0   score 30.5/40 = 76.25%   draw rate 47.5%
+A as black: +0 =0 -0   A as white: +21 =19 -0
+By colour: black won 0, white won 21, drawn 19
+Pairs: 0   pentanomial [LL LD DD/WL WD WW] = [0 0 0 0 0]
+Elo (trinomial, games):   +202.6 [+135.1, +287.9] 95% CI, LOS 100.00%
+Terminations: no legal moves 21; no progress 5; repetition 14;
+A Kingsrow(x64)[4] 1.20: 2525 moves, avg 0.368s/move, max 10.025s
+B GuiNN Checkers 2.06 avx2: 2490 moves, avg 0.344s/move, max 2.332s

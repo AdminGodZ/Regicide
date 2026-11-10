@@ -66,15 +66,23 @@ OB+=(--option-b "set book 3")
 NAMES=()
 [ "${A%2}" = "${B%2}" ] && NAMES=(--name-a "${A%2}-A" --name-b "${B%2}-B")
 bad_games() { grep -h "^\[Termination" "$OUT/games.pdn" 2>/dev/null | grep -c -E "crashed|did not start|timed out|illegal|protocol error"; }
-# Games a finished run must have played. A deck whose every line carries a fixed colour for A ("| A=B" / "| A=W")
-# plays one game per line, although the runner's summary says "N of 2N scheduled" for it (2026-11-10 21:29,
-# w13-ev-cake: 40 of 80); every other deck plays what the summary schedules.
+# Games a finished run must have played (review 2026-11-11): one per deck row with a fixed colour for A
+# ("| A=B" / "| A=W"), two per ordinary row (both colours), times --rounds N in EXTRA_ARGS. The runner's summary
+# says "of 2N scheduled" for fixed-colour rows (2026-11-10, w13-ev-cake: 40 of 80), so it is not used for decks with
+# such rows. With --pairs in EXTRA_ARGS the count is not derived (the run is then checked against the summary only
+# for decks without fixed-colour rows; with both, nothing counts as finished and the wrapper says so).
 expected_games() {
-  local n f
-  n=$(grep -v '^[[:space:]]*#' "$DECK" 2>/dev/null | grep -c '[^[:space:]]')
-  f=$(grep -v '^[[:space:]]*#' "$DECK" 2>/dev/null | grep -Ec '\|[[:space:]]*A=[BW][[:space:]]*$')
-  if [ -f "$DECK" ] && [ "$n" -gt 0 ] && [ "$f" = "$n" ]; then echo "$n"
-  else sed -n 's/^Games: [0-9]* of \([0-9]*\) scheduled.*/\1/p' "$OUT/summary.txt" 2>/dev/null; fi
+  local rows fixed rounds
+  rows=$(grep -v '^[[:space:]]*#' "$DECK" 2>/dev/null | grep -c '[^[:space:]]')
+  fixed=$(grep -v '^[[:space:]]*#' "$DECK" 2>/dev/null | grep -Ec '\|[[:space:]]*A=[BW][[:space:]]*$')
+  rounds=$(echo " ${EXTRA_ARGS:-} " | sed -n 's/.* --rounds \([0-9][0-9]*\) .*/\1/p'); rounds=${rounds:-1}
+  if [ ! -f "$DECK" ] || [ "${fixed:-0}" = 0 ]; then
+    sed -n 's/^Games: [0-9]* of \([0-9]*\) scheduled.*/\1/p' "$OUT/summary.txt" 2>/dev/null
+  elif echo " ${EXTRA_ARGS:-} " | grep -q -- " --pairs "; then
+    echo ""
+  else
+    echo $(( (fixed + 2 * (rows - fixed)) * rounds ))
+  fi
 }
 done_run() {
   [ -f "$OUT/summary.txt" ] && [ "$(cat "$OUT/exit_status" 2>/dev/null)" = "0" ] &&

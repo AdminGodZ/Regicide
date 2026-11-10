@@ -1,0 +1,14 @@
+Match: A = Regicide 0.2, B = Kingsrow(x64)[1] 1.20
+Openings: /home/admingod/regicide-jobs/booklab/smoke_deck2.txt (2 openings x 1 rounds, each played with both colours)
+Time control: 0.5s/move (CheckerBoard match rules); no-progress rule: 40 moves
+Games: 4 of 4 scheduled
+
+A: +2 =0 -2   score 2.0/4 = 50.00%   draw rate 0.0%
+A as black: +1 =0 -1   A as white: +1 =0 -1
+By colour: black won 2, white won 2, drawn 0
+Pairs: 2   pentanomial [LL LD DD/WL WD WW] = [0 0 2 0 0]
+Elo (pentanomial, pairs): -0.0 [-0.0, -0.0] 95% CI, score 0.5000 +- 0.0000, LOS 50.00%
+Elo (trinomial, games):   -0.0 [-798.1, +798.1] 95% CI, LOS 50.00%
+Terminations: crash 4;
+A Regicide 0.2: 39 moves, avg 0.534s/move, max 6.464s
+B Kingsrow(x64)[1] 1.20: 39 moves, avg 0.230s/move, max 8.620s

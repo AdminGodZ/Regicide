@@ -1,0 +1,78 @@
+#60:5	ours 6x15 (-31)	cake 6x15:8d0l	KR 6x15	search 6x15 (-31, d23)		agreed: 6x15
+#60:7	ours 15-19 (-40)	cake 15-19:8d0l	KR 15-19	search 15-19 (-40, d23)		agreed: 15-19
+#60:9	ours 11x18x25 (-44)	cake 11x18x25:8d0l	KR 11x18x25	search 11x18x25 (-44, d23)		agreed: 11x18x25
+#60:11	ours 7-11 (-40)	cake 7-10:8d0l	KR 8-11	search 5-9 (-31, d23)	LEAVES	agreed: 7-10,8-11
+#60:13	ours 2-6 (-104)	cake -	KR 11-16	search 3-7 (-34, d23)	LEAVES	
+#60:15	ours 6-10 (-83)	cake -	KR 11-16	search 6-10 (-83, d25)	LEAVES	
+#60:17	ours 11-16 (-114)	cake -	KR 11-16	search 5-9 (-92, d24)		
+#60:19	ours 16-20 (-150)	cake -	KR 5-9	search 5-9 (-116, d26)	LEAVES	agreed: 5-9
+#60:21	ours 5-9 (-175)	cake -	KR 5-9	search 5-9 (-175, d26)		agreed: 5-9
+#60:23	ours 1-6 (-193)	cake -	KR 1-6	search 1-6 (-193, d27)		agreed: 1-6
+#60:25	ours 10x19 (-196)	cake -	KR 10x19	search 10x19 (-196, d29)		agreed: 10x19
+#60:27	ours 3-7 (-205)	cake -	KR 12-16	search 3-7 (-205, d28)	LEAVES	agreed: 12-16
+#60:29	ours 7-10 (-125)	cake -	KR 7-10	search 7-10 (-125, d30)		agreed: 7-10
+#60:31	ours 10-14 (-126)	cake -	KR 10-14	search 10-14 (-126, d29)		agreed: 10-14
+#60:33	ours 8-11 (-130)	cake -	KR 8-11	search 8-11 (-130, d29)		agreed: 8-11
+#60:35	ours 4x11 (-130)	cake -	KR -	search 4x11 (-130, d29)		
+#60:37	ours 11-16 (-130)	cake -	KR -	search 11-16 (-130, d29)		
+#60:39	ours 13-17 (-127)	cake -	KR -	search 13-17 (-127, d29)		
+#71:5	ours 10x19 (-24)	cake 10x19:8d0l	KR 10x19	search 10x19 (-24, d24)		agreed: 10x19
+#71:7	ours 11x18 (-24)	cake 11x18:8d0l	KR 11x18	search 11x18 (-24, d24)		agreed: 11x18
+#71:9	ours 14-18 (-16)	cake 14-18:8d0l	KR 2-7	search 3-7 (-11, d25)		agreed: 14-18
+#71:11	ours 9-14 (-17)	cake 9-14:8d0l	KR 9-14	search 12-16 (-7, d23)		agreed: 9-14
+#71:13	ours 2-7 (-114)	cake 3-7:8d0l	KR 3-7	search 3-7 (-13, d25)	LEAVES	agreed: 3-7
+#71:15	ours 7-10 (-143)	cake -	KR 5-9	search 5-9 (-88, d26)	LEAVES	agreed: 5-9
+#71:17	ours 8-11 (-130)	cake -	KR 8-11	search 8-11 (-130, d28)		agreed: 8-11
+#71:19	ours 4x11 (-155)	cake -	KR 4x11	search 4x11 (-155, d28)		agreed: 4x11
+#71:21	ours 10x19 (-140)	cake -	KR 10x19	search 10x19 (-140, d29)		agreed: 10x19
+#71:23	ours 3x10 (-140)	cake -	KR 3x10	search 3x10 (-140, d29)		agreed: 3x10
+#71:25	ours 10-15 (-143)	cake -	KR 10-15	search 10-15 (-143, d31)		agreed: 10-15
+#71:27	ours 14x21 (-140)	cake -	KR 14x21	search 14x21 (-140, d32)		agreed: 14x21
+#71:29	ours 12-16 (-144)	cake -	KR 15-19	search 6-9 (-135, d29)	LEAVES	agreed: 15-19
+#71:31	ours 15-19 (-145)	cake -	KR 15-19	search 15-19 (-145, d32)		agreed: 15-19
+#71:33	ours 6-9 (-145)	cake -	KR 16-20	search 6-9 (-145, d31)	LEAVES	
+#71:35	ours 16-20 (-160)	cake -	KR -	search 9-14 (-142, d31)		
+#71:37	ours 9-14 (-148)	cake -	KR -	search 9-14 (-148, d31)		
+#71:39	ours 14-18 (-158)	cake -	KR -	search 14-18 (-158, d31)		
+#141:5	ours 10x17 (-56)	cake 10x17:16d0l	KR -	search 10x17 (-56, d22)		agreed: 10x17
+#141:7	ours 16-20 (-68)	cake 6-9:16d0l	KR -	search 6-9 (-51, d23)	LEAVES	agreed: 6-9
+#141:9	ours 6-10 (-30)	cake -	KR -	search 6-10 (-30, d24)		
+#141:11	ours 10x17 (-31)	cake -	KR -	search 10x17 (-31, d25)		
+#141:13	ours 2-6 (-31)	cake -	KR -	search 1-6 (-25, d24)		
+#141:15	ours 6-10 (-54)	cake -	KR -	search 6-10 (-54, d24)		
+#141:17	ours 10x17 (-45)	cake -	KR -	search 10x17 (-45, d24)		
+#141:19	ours 1-6 (-63)	cake -	KR -	search 1-6 (-63, d25)		
+#141:21	ours 6-10 (-43)	cake -	KR -	search 6-10 (-43, d25)		
+#141:23	ours 5x14 (-35)	cake -	KR -	search 5x14 (-35, d25)		
+#141:25	ours 14-17 (-45)	cake -	KR -	search 14-17 (-45, d25)		
+#141:27	ours 10-14 (-31)	cake -	KR -	search 10-14 (-31, d26)		
+#141:29	ours 17-22 (-33)	cake -	KR -	search 17-22 (-33, d24)		
+#141:31	ours 14-17 (-54)	cake -	KR -	search 14-17 (-54, d25)		
+#141:33	ours 7-11 (-29)	cake -	KR -	search 7-11 (-29, d25)		
+#141:35	ours 3-7 (-43)	cake -	KR -	search 3-7 (-43, d26)		
+#141:37	ours 17-21 (-108)	cake -	KR -	search 17-21 (-108, d25)		
+#141:39	ours 22-25 (-105)	cake -	KR -	search 22-25 (-105, d25)		
+#34:5	ours 8x15 (-36)	cake 7x16:8d0l	KR 7x16	search 8x15 (-36, d24)	LEAVES	agreed: 7x16
+#34:7	ours 6-9 (-34)	cake -	KR 6-9	search 7-11 (-30, d24)		agreed: 6-9
+#34:9	ours 7x16 (-51)	cake -	KR 7x16	search 7x16 (-51, d24)		agreed: 7x16
+#34:11	ours 4-8 (-43)	cake -	KR 4-8	search 16-20 (-39, d24)		agreed: 4-8
+#34:13	ours 16-19 (-75)	cake -	KR 16-19	search 8-11 (-30, d24)		
+#34:15	ours 9-14 (-46)	cake -	KR 9-14	search 9-14 (-46, d24)		agreed: 9-14
+#34:17	ours 5x14 (-57)	cake -	KR 5x14	search 5x14 (-57, d24)		agreed: 5x14
+#34:19	ours 1-5 (-79)	cake -	KR 1-6	search 1-6 (-24, d25)	LEAVES	agreed: 1-6
+#34:21	ours 13x22 (-74)	cake -	KR 13x22	search 13x22 (-74, d26)		agreed: 13x22
+#34:23	ours 5x14 (-74)	cake -	KR 5x14	search 5x14 (-74, d26)		agreed: 5x14
+#34:25	ours 8-11 (-69)	cake -	KR 19-24	search 10-15 (-66, d29)	LEAVES	
+#34:27	ours 11-15 (-105)	cake -	KR 11-15	search 10-15 (-66, d29)		
+#34:29	ours 3-7 (-129)	cake -	KR 3-7	search 14-18 (-128, d26)		agreed: 3-7
+#34:31	ours 14-18 (-158)	cake -	KR 19-24	search 14-18 (-158, d28)	LEAVES	
+#34:33	ours 2-6 (-185)	cake -	KR 10-14	search 2-6 (-185, d28)	LEAVES	
+#34:35	ours 19-24 (-191)	cake -	KR -	search 19-24 (-191, d28)		
+#34:37	ours 12x19 (-167)	cake -	KR -	search 12x19 (-167, d27)		
+#34:39	ours 18-23 (-159)	cake -	KR -	search 18-23 (-159, d29)		
+
+Repair points (earliest position where our move leaves Cake's non-lost moves and KingsRow's move):
+#60: #60:11 B:W21,22,23,26,27,28,30,31,32:B1,2,3,4,5,7,8,12,13 ours 7-11; Cake ['7-10'], KingsRow 8-11, search 5-9; PROPOSED 7-10 (also agreed: 8-11)
+#71: #71:13 B:W15,21,23,24,25,27,29,30,31,32:B1,2,3,4,5,6,8,12,14,18 ours 2-7; Cake ['3-7'], KingsRow 3-7, search 3-7; PROPOSED 3-7
+#141: #141:7 B:W14,23,24,25,26,27,28,29,30,31,32:B1,2,3,4,5,6,7,8,12,13,16 ours 16-20; Cake ['6-9'], KingsRow None, search 6-9; PROPOSED 6-9
+#34: #34:5 B:W11,21,22,23,25,26,27,28,29,30,31,32:B1,2,3,4,5,6,7,8,10,12,13 ours 8x15; Cake ['7x16'], KingsRow 7x16, search 8x15; PROPOSED 7x16

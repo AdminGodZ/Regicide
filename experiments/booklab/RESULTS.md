@@ -75,10 +75,55 @@ match-747ab51, everything else as the final validation. Tables `k3/k3_compare.md
   mode-1 runs no game is identical (median first difference ply 5, KingsRow's move in 293–298 of 312).
 - Per opening and colour (both runs): 283 drawn in both modes; 20 openings × colours that Regicide won in one
   mode-1 run are drawn twice in mode 3; 2 are won once in mode 3; 5 lose at least once (the lines above).
-- The first attempt of run a, half 1 (20:16) had 16 crashes (8 Regicide, 8 KingsRow) from exhausted Windows commit
-  (the WSL VM's page cache); it was discarded and replayed at 20:38 (timeline.txt). Since then every match checks
-  Windows free commit first (≥ 14 GB, otherwise the WSL page cache is dropped) and a run with any crash, time-out
-  or engine that did not start is not counted as finished. No earlier run of this work has a crash termination.
+- The first attempt of run a, half 1 (20:16) had 16 crashes (8 Regicide, 8 KingsRow); it was discarded and replayed
+  at 20:38 (timeline.txt). **Corrected cause (2026-11-11 00:08):** not, or not only, the low Windows commit I named
+  first (4.6 GB free at the time), but the launch: Windows processes started through WSL interop (cbhost and the
+  engines) die when the `wsl.exe` session that started their chain exits. The chain had been started with
+  `nohup setsid` from a short `wsl` call that ended at about 20:16:44, inside the crash window (20:16:40–55). The same
+  happened to `w13-ev-guinn` at 23:57 (16 crashes, replayed), and a test reproduced it: a 4-game match whose launching
+  call exited after 8 s lost all 4 games to "engine exited during search". Since 00:15 every chain is started by
+  `scripts/launch.sh`, which runs it in its own hidden `wsl.exe` session that lives as long as the chain (test: 4 of 4
+  games, no crash). Every match still checks Windows free commit first (≥ 14 GB, otherwise the WSL page cache is
+  dropped), and a run with any crash, time-out or engine that did not start is not counted as finished. No other run
+  of this work has a crash termination.
+
+## WP13: repair of the KingsRow mode-3 losses (in progress, 2026-11-11)
+
+**Evidence** (`wp13/`): KingsRow in book mode 3 as White on the five lost ballots (#60, #71, #34, #141, #9), 8 games
+per ballot against each Black opponent (current runner, `set book 3` read back for both engines; the GuiNN run was
+replayed after the launch crash):
+
+| Black | KingsRow (White) W / D / L |
+|---|---|
+| Cake 1.89f | 0 / 40 / 0 |
+| GuiNN 2.06 | 21 / 19 / 0 |
+| KingsRow 1.20, mode 3 | 1 / 39 / 0 |
+
+**Sources and repairs** (rule of the lead: theory table only from games against KingsRow mode 3, i.e. the four k3
+runs and the evidence runs; three sources per position: Cake's moves as Black in its non-lost games, KingsRow mode
+3's own book move as Black (`k3/kr_defence.tsv`), our 20M-node search (book off, cleared hash, last completed
+iteration, `wp13/score20m.tsv`); a move two sources agree on (search: within 15 centi-men of its best); repair at
+the earliest position where our move leaves Cake's and KingsRow's moves). Per position: `wp13/sources.txt`.
+
+| Line | Repair point, our move (our search) | Cake (non-lost) | KingsRow mode 3 | Our search best | Repair |
+|---|---|---|---|---|---|
+| #141 / #9 | ply 7, 16-20 (−68) | 6-9 (16 of 16) | 6-9 | 6-9 (−51) | **6-9** |
+| #34 | ply 5, 8x15 (−36) | 7x16 (8/8) | 7x16 | 8x15 (−36; 7x16 within 15) | **7x16** |
+| #71 | ply 13, 2-7 (−114) | 3-7 (8/8) | 3-7 | 3-7 (−13) | **3-7** |
+| #60 | ply 11, 7-11 (−40; KingsRow's book −104) | 7-10 (8/8) | 8-11 | 5-9 (−31; 7-10, 8-11 within 15) | **7-10** (Cake + search) |
+
+From each repair point the book follows Cake's non-lost line against KingsRow mode 3 (`theory.py repair`, as in WP5;
+94 new force decisions over the four lines, `wp13/rep_cake/`). One of them conflicted with the base book's avoid list:
+on the #141/#9 line at ply 11 Cake plays 16-19 (16 of 16 non-lost), which master's lossprobe list forbids there.
+KingsRow mode 3's book plays 16-19 too (−1/35; 11-15 −4/28); our search prefers 11-15 (−42 against −77). Two sources
+agree, so 16-19 is forced with the new action `force-unavoid` of `booklab_apply`, which removes exactly that one avoid
+entry and reports it (r10 still rebuilds byte-identically with the changed tool).
+
+**Book r10k** = r10 + these decisions: 1,081 decisions, sha256
+`0477f837c110855c590d11184f32d8be3e2cd0eedd60e72a7f5bdae345a22554`; reachability 891 reachable, 0 unreachable, 190
+unknown at the node limit (r10: 822 / 0 / 165); DLL `bl-456e9b2-r10k` (bench unchanged: 7,677,736 / 8,055,287).
+Targeted test (Regicide as Black on the five ballots, 10 games against KingsRow mode 3, 4 each against Cake and GuiNN):
+running.
 
 ## WP1 census (`census/census.md`, `census/decisive.csv`, `census/instant_by_ballot.csv`); every KingsRow game here is KingsRow in book mode 1
 

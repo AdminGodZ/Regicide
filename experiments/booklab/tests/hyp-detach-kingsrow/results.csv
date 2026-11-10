@@ -1,0 +1,5 @@
+game,pair,opening,black,white,result,score_a,termination,engine_plies
+3,2,"/home/admingod/regicide-jobs/booklab/smoke_deck2.txt:2","Regicide 0.2","Kingsrow(x64) 1.20",1-0,1,"crash",20
+1,1,"/home/admingod/regicide-jobs/booklab/smoke_deck2.txt:1","Regicide 0.2","Kingsrow(x64)[3] 1.20",0-1,0,"crash",19
+4,2,"/home/admingod/regicide-jobs/booklab/smoke_deck2.txt:2","Kingsrow(x64)[1] 1.20","Regicide 0.2",1-0,0,"crash",18
+2,1,"/home/admingod/regicide-jobs/booklab/smoke_deck2.txt:1","Kingsrow(x64)[2] 1.20","Regicide 0.2",0-1,1,"crash",17

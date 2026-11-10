@@ -8,8 +8,10 @@
 //          --max-ply, since the engine probes the book by position key.
 //   avoid: the move is added to the avoid list (never played at the root unless every legal move is avoided; the
 //          book probe skips it).
+//   force-unavoid: as force, for a move on the base book's avoid list: that one avoid entry (position and move) is
+//          removed and the removal is reported (WP13: a defence two sources agree on, against a lossprobe entry).
 // Every line must carry evidence (non-empty fourth field). Conflicts (force and avoid of the same move, two forces in
-// one position, forcing a move on the base avoid list) are errors. After writing, the output is reloaded and every
+// one position, forcing a move on the base avoid list without force-unavoid) are errors. After writing, the output is reloaded and every
 // decision is verified with Book::probe / Book::avoids.
 #include <algorithm>
 #include <cstdio>
@@ -68,6 +70,7 @@ struct Decision {
     Position pos;
     Move move;
     bool force;
+    bool unavoid = false;  // force-unavoid: the base avoid entry of this exact (position, move) is removed
 };
 
 }  // namespace
@@ -134,7 +137,8 @@ int main(int argc, char** argv) {
             continue;
         }
         if (f[2] == "force") d.force = true;
-        else if (f[2] != "avoid") { fail("third field must be force or avoid, got " + f[2]); continue; }
+        else if (f[2] == "force-unavoid") d.force = d.unavoid = true;
+        else if (f[2] != "avoid") { fail("third field must be force, force-unavoid or avoid, got " + f[2]); continue; }
         ds.push_back(d);
     }
     // Conflicts.
@@ -154,12 +158,23 @@ int main(int argc, char** argv) {
     for (const Decision& d : ds) {
         if (!d.force) continue;
         const Book::Entry me = Book::make_entry(d.pos, d.move, 0, 0);
+        bool on_list = false;
         for (const Book::Entry& e : avoid)
-            if (same_move(e, me)) {
-                std::cerr << "line " << d.line << ": forced move " << booklab::move_text(d.pos, d.move)
-                          << " is on the base avoid list\n";
-                ++errors;
-            }
+            if (same_move(e, me)) on_list = true;
+        if (on_list && !d.unavoid) {
+            std::cerr << "line " << d.line << ": forced move " << booklab::move_text(d.pos, d.move)
+                      << " is on the base avoid list (force-unavoid overrides it, with evidence)\n";
+            ++errors;
+        } else if (!on_list && d.unavoid) {
+            std::cerr << "line " << d.line << ": force-unavoid, but " << booklab::move_text(d.pos, d.move)
+                      << " is not on the base avoid list\n";
+            ++errors;
+        } else if (on_list) {
+            const auto before = avoid.size();
+            std::erase_if(avoid, [&](const Book::Entry& e) { return same_move(e, me); });
+            rep << "line " << d.line << ": force-unavoid " << booklab::move_text(d.pos, d.move) << " in "
+                << d.pos.fen() << ": removed " << before - avoid.size() << " base avoid entry\n";
+        }
     }
     if (errors) {
         std::cerr << errors << " error(s); nothing written\n";

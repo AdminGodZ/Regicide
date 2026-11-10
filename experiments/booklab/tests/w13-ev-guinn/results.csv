@@ -1,0 +1,41 @@
+game,pair,opening,black,white,result,score_a,termination,engine_plies
+14,7,"/home/admingod/regicide-jobs/booklab/wp13/evidence_deck.txt:7","GuiNN Checkers 2.06 avx2","Kingsrow(x64)[2] 1.20",1/2-1/2,0.5,"no progress",151
+18,9,"/home/admingod/regicide-jobs/booklab/wp13/evidence_deck.txt:9","GuiNN Checkers 2.06 avx2","Kingsrow(x64)[2] 1.20",1/2-1/2,0.5,"repetition",69
+2,1,"/home/admingod/regicide-jobs/booklab/wp13/evidence_deck.txt:1","GuiNN Checkers 2.06 avx2","Kingsrow(x64)[5] 1.20",0-1,1,"no legal moves",129
+4,2,"/home/admingod/regicide-jobs/booklab/wp13/evidence_deck.txt:2","GuiNN Checkers 2.06 avx2","Kingsrow(x64) 1.20",0-1,1,"no legal moves",117
+16,8,"/home/admingod/regicide-jobs/booklab/wp13/evidence_deck.txt:8","GuiNN Checkers 2.06 avx2","Kingsrow(x64)[1] 1.20",0-1,1,"no legal moves",129
+10,5,"/home/admingod/regicide-jobs/booklab/wp13/evidence_deck.txt:5","GuiNN Checkers 2.06 avx2","Kingsrow(x64)[4] 1.20",0-1,1,"no legal moves",133
+8,4,"/home/admingod/regicide-jobs/booklab/wp13/evidence_deck.txt:4","GuiNN Checkers 2.06 avx2","Kingsrow(x64)[6] 1.20",0-1,1,"no legal moves",149
+22,11,"/home/admingod/regicide-jobs/booklab/wp13/evidence_deck.txt:11","GuiNN Checkers 2.06 avx2","Kingsrow(x64)[5] 1.20",1/2-1/2,0.5,"repetition",81
+28,14,"/home/admingod/regicide-jobs/booklab/wp13/evidence_deck.txt:14","GuiNN Checkers 2.06 avx2","Kingsrow(x64)[4] 1.20",1/2-1/2,0.5,"no progress",146
+24,12,"/home/admingod/regicide-jobs/booklab/wp13/evidence_deck.txt:12","GuiNN Checkers 2.06 avx2","Kingsrow(x64) 1.20",1/2-1/2,0.5,"no progress",162
+26,13,"/home/admingod/regicide-jobs/booklab/wp13/evidence_deck.txt:13","GuiNN Checkers 2.06 avx2","Kingsrow(x64)[1] 1.20",1/2-1/2,0.5,"no progress",190
+6,3,"/home/admingod/regicide-jobs/booklab/wp13/evidence_deck.txt:3","GuiNN Checkers 2.06 avx2","Kingsrow(x64)[7] 1.20",0-1,1,"no legal moves",183
+30,15,"/home/admingod/regicide-jobs/booklab/wp13/evidence_deck.txt:15","GuiNN Checkers 2.06 avx2","Kingsrow(x64)[6] 1.20",1/2-1/2,0.5,"repetition",195
+12,6,"/home/admingod/regicide-jobs/booklab/wp13/evidence_deck.txt:6","GuiNN Checkers 2.06 avx2","Kingsrow(x64)[3] 1.20",0-1,1,"no legal moves",185
+38,19,"/home/admingod/regicide-jobs/booklab/wp13/evidence_deck.txt:19","GuiNN Checkers 2.06 avx2","Kingsrow(x64)[1] 1.20",1/2-1/2,0.5,"repetition",57
+34,17,"/home/admingod/regicide-jobs/booklab/wp13/evidence_deck.txt:17","GuiNN Checkers 2.06 avx2","Kingsrow(x64)[4] 1.20",1/2-1/2,0.5,"repetition",57
+36,18,"/home/admingod/regicide-jobs/booklab/wp13/evidence_deck.txt:18","GuiNN Checkers 2.06 avx2","Kingsrow(x64) 1.20",1/2-1/2,0.5,"repetition",57
+20,10,"/home/admingod/regicide-jobs/booklab/wp13/evidence_deck.txt:10","GuiNN Checkers 2.06 avx2","Kingsrow(x64)[2] 1.20",0-1,1,"no legal moves",137
+40,20,"/home/admingod/regicide-jobs/booklab/wp13/evidence_deck.txt:20","GuiNN Checkers 2.06 avx2","Kingsrow(x64)[7] 1.20",1/2-1/2,0.5,"repetition",57
+42,21,"/home/admingod/regicide-jobs/booklab/wp13/evidence_deck.txt:21","GuiNN Checkers 2.06 avx2","Kingsrow(x64)[6] 1.20",1/2-1/2,0.5,"repetition",57
+50,25,"/home/admingod/regicide-jobs/booklab/wp13/evidence_deck.txt:25","GuiNN Checkers 2.06 avx2","Kingsrow(x64) 1.20",1/2-1/2,0.5,"repetition",74
+48,24,"/home/admingod/regicide-jobs/booklab/wp13/evidence_deck.txt:24","GuiNN Checkers 2.06 avx2","Kingsrow(x64)[4] 1.20",1/2-1/2,0.5,"repetition",57
+32,16,"/home/admingod/regicide-jobs/booklab/wp13/evidence_deck.txt:16","GuiNN Checkers 2.06 avx2","Kingsrow(x64)[5] 1.20",0-1,1,"no legal moves",159
+52,26,"/home/admingod/regicide-jobs/booklab/wp13/evidence_deck.txt:26","GuiNN Checkers 2.06 avx2","Kingsrow(x64)[2] 1.20",1/2-1/2,0.5,"repetition",73
+44,22,"/home/admingod/regicide-jobs/booklab/wp13/evidence_deck.txt:22","GuiNN Checkers 2.06 avx2","Kingsrow(x64)[3] 1.20",0-1,1,"no legal moves",131
+56,28,"/home/admingod/regicide-jobs/booklab/wp13/evidence_deck.txt:28","GuiNN Checkers 2.06 avx2","Kingsrow(x64)[6] 1.20",1/2-1/2,0.5,"repetition",103
+66,33,"/home/admingod/regicide-jobs/booklab/wp13/evidence_deck.txt:33","GuiNN Checkers 2.06 avx2","Kingsrow(x64)[3] 1.20",0-1,1,"no legal moves",57
+46,23,"/home/admingod/regicide-jobs/booklab/wp13/evidence_deck.txt:23","GuiNN Checkers 2.06 avx2","Kingsrow(x64)[1] 1.20",0-1,1,"no legal moves",183
+62,31,"/home/admingod/regicide-jobs/booklab/wp13/evidence_deck.txt:31","GuiNN Checkers 2.06 avx2","Kingsrow(x64)[5] 1.20",1/2-1/2,0.5,"repetition",93
+64,32,"/home/admingod/regicide-jobs/booklab/wp13/evidence_deck.txt:32","GuiNN Checkers 2.06 avx2","Kingsrow(x64)[2] 1.20",1/2-1/2,0.5,"repetition",91
+60,30,"/home/admingod/regicide-jobs/booklab/wp13/evidence_deck.txt:30","GuiNN Checkers 2.06 avx2","Kingsrow(x64)[4] 1.20",0-1,1,"no legal moves",139
+54,27,"/home/admingod/regicide-jobs/booklab/wp13/evidence_deck.txt:27","GuiNN Checkers 2.06 avx2","Kingsrow(x64)[7] 1.20",0-1,1,"no legal moves",187
+70,35,"/home/admingod/regicide-jobs/booklab/wp13/evidence_deck.txt:35","GuiNN Checkers 2.06 avx2","Kingsrow(x64)[3] 1.20",0-1,1,"no legal moves",141
+68,34,"/home/admingod/regicide-jobs/booklab/wp13/evidence_deck.txt:34","GuiNN Checkers 2.06 avx2","Kingsrow(x64)[6] 1.20",0-1,1,"no legal moves",159
+76,38,"/home/admingod/regicide-jobs/booklab/wp13/evidence_deck.txt:38","GuiNN Checkers 2.06 avx2","Kingsrow(x64)[2] 1.20",1/2-1/2,0.5,"no progress",186
+58,29,"/home/admingod/regicide-jobs/booklab/wp13/evidence_deck.txt:29","GuiNN Checkers 2.06 avx2","Kingsrow(x64) 1.20",0-1,1,"no legal moves",199
+80,40,"/home/admingod/regicide-jobs/booklab/wp13/evidence_deck.txt:40","GuiNN Checkers 2.06 avx2","Kingsrow(x64)[7] 1.20",0-1,1,"no legal moves",95
+74,37,"/home/admingod/regicide-jobs/booklab/wp13/evidence_deck.txt:37","GuiNN Checkers 2.06 avx2","Kingsrow(x64)[5] 1.20",0-1,1,"no legal moves",139
+78,39,"/home/admingod/regicide-jobs/booklab/wp13/evidence_deck.txt:39","GuiNN Checkers 2.06 avx2","Kingsrow(x64)[4] 1.20",0-1,1,"no legal moves",135
+72,36,"/home/admingod/regicide-jobs/booklab/wp13/evidence_deck.txt:36","GuiNN Checkers 2.06 avx2","Kingsrow(x64)[1] 1.20",0-1,1,"no legal moves",173
