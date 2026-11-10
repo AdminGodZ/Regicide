@@ -251,3 +251,7 @@ BL start s4-conv3-guinn-h2 regicide:bl-conv3 vs guinn; bg: datagen-eb1037c:T bas
 BL end s4-conv3-guinn-h2 rc=0 A: +7 =149 -0   score 81.5/156 = 52.24%   draw rate 95.5% Elo (pentanomial, pairs): +15.6 [+4.6, +26.7] 95% CI, score 0.5224 +- 0.0159, LOS 99.72% 2026-11-10T11:56:14+01:00
 BL wait-lock s4-m11e-guinn-h2 regicide:bl-m11e vs guinn deck /mnt/c/regicide-match/jobs/booklab/acf156_h2.txt mt 0.5 c 8 2026-11-10T11:56:14+01:00
 BL start s4-m11e-guinn-h2 regicide:bl-m11e vs guinn; bg: datagen-eb1037c:T bash:T datagen-tr5:T bash:S datagen-tr6:S  2026-11-10T12:19:14+01:00
+BL end s4-m11e-guinn-h2 rc=0 A: +2 =154 -0   score 79.0/156 = 50.64%   draw rate 98.7% Elo (pentanomial, pairs): +4.5 [-1.6, +10.6] 95% CI, score 0.5064 +- 0.0088, LOS 92.40% 2026-11-10T12:25:57+01:00
+WP9 step4 done 2026-11-10T12:25:57+01:00
+WP9 wp9final1 start dll bl-final1 positions /home/admingod/regicide-jobs/booklab/wp9/conv3_100 2026-11-10T12:25:57+01:00
+BL wait-lock wp9final1-cake_1 regicide:bl-final1 vs cake deck /home/admingod/regicide-jobs/booklab/wp9/conv3_100/cake_1.txt mt 0.5 c 8 2026-11-10T12:25:57+01:00

@@ -175,11 +175,21 @@ play in 389 games and converted 37; 352 missed** (`missed_wins.txt` now holds th
 play, 62 converted. WP9 on the corrected set: bl-conv1 352 / 352 (it also won the 10 dropped ones), bl-conv3 98 / 98
 of its sample (2 of its 100 were dropped ones, both won), the old engine 1 of 55 (5 of its 60 were dropped ones).
 
-## WP9 step 4 (running) and round 7
+## WP9 step 4: full runs with the conversion fix (`wp9/s4_scan.md` tables)
 
-Full acf156 runs with **bl-conv3** (engine 2156359 + round-6 book) and **bl-m11e** (its master base 11e19b4 + the same
-book, no conversion fix), interleaved by half (`scripts/chain_wp9.sh`). (bl-conv2 was built, ctest 17/17, but no run
-was started with it, per the lead's switch to bl-conv3.)
+Full acf156 runs (312 games each) with **bl-conv3** (engine 2156359 + round-6 book) and **bl-m11e** (its master base
+11e19b4 + the same book, no conversion fix), interleaved by half (`scripts/chain_wp9.sh`, `chain_final.sh`). (bl-conv2
+was built, ctest 17/17, but no run was started with it, per the switch to bl-conv3.) "In play": a database win in a
+position from which the game went on (`s4_report.sh`, no dedup).
+
+| Opponent | bl-conv3 W / D / L | Elo | bl-m11e (no fix) W / D / L | Regicide's in-play db wins converted: conv3 / m11e | Opponent's in-play db wins vs conv3 (converted) |
+|---|---|---|---|---|---|
+| Cake | 0 / 311 / 1 (#7 B) | −1.1 | 0 / 312 / 0 | 0 / 0 – 0 / 0 | 1 (1) |
+| KingsRow | **11 / 300 / 1** (#10 B) | +11.1 | 0 / 312 / 0 | **11 / 11** – 0 / 13 | 1 (1) |
+| GuiNN | **20 / 292 / 0** | +22.3 | 6 / 306 / 0 | **20 / 20** – 5 / 21 | 0 |
+
+Both bl-conv3 losses are opening losses, repaired since (#7 by the r7 path pins, #10 by the r8 repair; re-tests 4/4
+draws each). Elo is computed from the total score of the 312 games.
 
 - s4-conv3-cake-h1: 0 / 155 / 1. The loss: **ACF #7 as Black**. With the new engine Regicide's own search played
   16-20 at ply 20 instead of 16-19 (the move Cake plays there, 88 draws in 88, and the move the old engine played), one
