@@ -55,5 +55,23 @@ int main() {
     check(twice.set_fen("B:W6,14,32:BK2"), "set_fen");
     check(parse_move(twice, "2x9x18", m) && !parse_move(twice, "2x9x2x9x18", m),
           "a path that jumps the same piece twice is rejected");
+
+    // move_text reads back as the same move, where the two end squares alone would not.
+    for (const char* f : {"W:WK22:B9,10,17,18,25", "B:W6,7,14,15,32:BK9", "B:W6,7,14,15,32:B2",
+                          "B:WK9,K10,K11,K17,K18,K19,K25,K26,K27:BK29"}) {
+        Position p;
+        check(p.set_fen(f), "set_fen");
+        MoveList list;
+        generate_moves(p, list);
+        for (const Move& mv : list) {
+            Move back;
+            check(parse_move(p, move_text(p, mv), back) && back == mv,
+                  std::string(f) + ": " + move_text(p, mv) + " reads back as the same move");
+        }
+    }
+    // Two end squares one jump apart mean that jump, also when a longer capture ends on the same square.
+    Position ring;
+    check(ring.set_fen("W:WK22:B9,10,17,18,25"), "set_fen");
+    check(parse_move(ring, "22x29", m) && popcount(m.captures) == 1, "22x29 is the single jump");
     return failures == 0 ? 0 : 1;
 }
