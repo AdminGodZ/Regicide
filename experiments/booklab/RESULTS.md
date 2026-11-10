@@ -309,7 +309,8 @@ twice per process (newgame in between), 0.5 s:
 | Regicide r10, `set book 3` | `reply 1 3` | (no book before the ballots end) | — |
 
 So mode 1 is why KingsRow never repeated a game; mode 3 makes its book deterministic and it chooses different
-moves (e.g. 11-15 at the start and 27-23 against 11-15 23-19 8-11, which mode 1 never chose in 10 searches).
+moves: at the start it plays 11-15, which mode 1 never chose in 10 searches (10-15, 11-16, 12-16); in the other
+positions mode 3's move is one of the moves mode 1 chose some of the time.
 GuiNN keeps some variation in mode 3
 (its book loads lazily at the first search of a process, and it may choose among equal book moves).
 
