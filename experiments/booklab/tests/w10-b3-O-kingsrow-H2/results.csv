@@ -1,0 +1,39 @@
+game,pair,opening,black,white,result,score_a,termination,engine_plies
+1,1,"/home/admingod/regicide-jobs/booklab/wp10/parts/H2.txt:1","Regicide 0.2","Kingsrow(x64)[4] 1.20",1/2-1/2,0.5,"no progress",178
+2,1,"/home/admingod/regicide-jobs/booklab/wp10/parts/H2.txt:1","Kingsrow(x64)[7] 1.20","Regicide 0.2",1/2-1/2,0.5,"repetition",107
+5,3,"/home/admingod/regicide-jobs/booklab/wp10/parts/H2.txt:3","Regicide 0.2","Kingsrow(x64) 1.20",1/2-1/2,0.5,"repetition",162
+6,3,"/home/admingod/regicide-jobs/booklab/wp10/parts/H2.txt:3","Kingsrow(x64)[1] 1.20","Regicide 0.2",1/2-1/2,0.5,"repetition",83
+7,4,"/home/admingod/regicide-jobs/booklab/wp10/parts/H2.txt:4","Regicide 0.2","Kingsrow(x64)[5] 1.20",1/2-1/2,0.5,"no progress",290
+8,4,"/home/admingod/regicide-jobs/booklab/wp10/parts/H2.txt:4","Kingsrow(x64)[3] 1.20","Regicide 0.2",1/2-1/2,0.5,"no progress",229
+12,6,"/home/admingod/regicide-jobs/booklab/wp10/parts/H2.txt:6","Kingsrow(x64)[1] 1.20","Regicide 0.2",1/2-1/2,0.5,"repetition",83
+9,5,"/home/admingod/regicide-jobs/booklab/wp10/parts/H2.txt:5","Regicide 0.2","Kingsrow(x64)[4] 1.20",0-1,0,"no legal moves",46
+11,6,"/home/admingod/regicide-jobs/booklab/wp10/parts/H2.txt:6","Regicide 0.2","Kingsrow(x64) 1.20",1/2-1/2,0.5,"repetition",95
+13,7,"/home/admingod/regicide-jobs/booklab/wp10/parts/H2.txt:7","Regicide 0.2","Kingsrow(x64)[5] 1.20",1/2-1/2,0.5,"no progress",180
+17,9,"/home/admingod/regicide-jobs/booklab/wp10/parts/H2.txt:9","Regicide 0.2","Kingsrow(x64) 1.20",1/2-1/2,0.5,"no progress",151
+16,8,"/home/admingod/regicide-jobs/booklab/wp10/parts/H2.txt:8","Kingsrow(x64)[4] 1.20","Regicide 0.2",1/2-1/2,0.5,"repetition",93
+4,2,"/home/admingod/regicide-jobs/booklab/wp10/parts/H2.txt:2","Kingsrow(x64)[6] 1.20","Regicide 0.2",1-0,0,"no legal moves",129
+10,5,"/home/admingod/regicide-jobs/booklab/wp10/parts/H2.txt:5","Kingsrow(x64)[7] 1.20","Regicide 0.2",1/2-1/2,0.5,"repetition",103
+19,10,"/home/admingod/regicide-jobs/booklab/wp10/parts/H2.txt:10","Regicide 0.2","Kingsrow(x64) 1.20",1/2-1/2,0.5,"repetition",94
+18,9,"/home/admingod/regicide-jobs/booklab/wp10/parts/H2.txt:9","Kingsrow(x64)[5] 1.20","Regicide 0.2",1/2-1/2,0.5,"repetition",83
+3,2,"/home/admingod/regicide-jobs/booklab/wp10/parts/H2.txt:2","Regicide 0.2","Kingsrow(x64)[2] 1.20",1/2-1/2,0.5,"repetition",170
+21,11,"/home/admingod/regicide-jobs/booklab/wp10/parts/H2.txt:11","Regicide 0.2","Kingsrow(x64)[6] 1.20",1/2-1/2,0.5,"repetition",96
+20,10,"/home/admingod/regicide-jobs/booklab/wp10/parts/H2.txt:10","Kingsrow(x64)[4] 1.20","Regicide 0.2",1/2-1/2,0.5,"no progress",192
+25,13,"/home/admingod/regicide-jobs/booklab/wp10/parts/H2.txt:13","Regicide 0.2","Kingsrow(x64)[2] 1.20",1/2-1/2,0.5,"no progress",155
+24,12,"/home/admingod/regicide-jobs/booklab/wp10/parts/H2.txt:12","Kingsrow(x64)[5] 1.20","Regicide 0.2",1/2-1/2,0.5,"repetition",83
+23,12,"/home/admingod/regicide-jobs/booklab/wp10/parts/H2.txt:12","Regicide 0.2","Kingsrow(x64) 1.20",1/2-1/2,0.5,"repetition",50
+15,8,"/home/admingod/regicide-jobs/booklab/wp10/parts/H2.txt:8","Regicide 0.2","Kingsrow(x64)[1] 1.20",1/2-1/2,0.5,"repetition",198
+27,14,"/home/admingod/regicide-jobs/booklab/wp10/parts/H2.txt:14","Regicide 0.2","Kingsrow(x64)[4] 1.20",1/2-1/2,0.5,"no progress",185
+22,11,"/home/admingod/regicide-jobs/booklab/wp10/parts/H2.txt:11","Kingsrow(x64)[7] 1.20","Regicide 0.2",1/2-1/2,0.5,"no progress",248
+26,13,"/home/admingod/regicide-jobs/booklab/wp10/parts/H2.txt:13","Kingsrow(x64)[6] 1.20","Regicide 0.2",1/2-1/2,0.5,"no progress",175
+30,15,"/home/admingod/regicide-jobs/booklab/wp10/parts/H2.txt:15","Kingsrow(x64) 1.20","Regicide 0.2",1/2-1/2,0.5,"repetition",109
+28,14,"/home/admingod/regicide-jobs/booklab/wp10/parts/H2.txt:14","Kingsrow(x64)[2] 1.20","Regicide 0.2",1/2-1/2,0.5,"no progress",182
+29,15,"/home/admingod/regicide-jobs/booklab/wp10/parts/H2.txt:15","Regicide 0.2","Kingsrow(x64)[5] 1.20",1/2-1/2,0.5,"repetition",100
+33,17,"/home/admingod/regicide-jobs/booklab/wp10/parts/H2.txt:17","Regicide 0.2","Kingsrow(x64)[7] 1.20",1/2-1/2,0.5,"no progress",152
+14,7,"/home/admingod/regicide-jobs/booklab/wp10/parts/H2.txt:7","Kingsrow(x64)[3] 1.20","Regicide 0.2",1/2-1/2,0.5,"no progress",254
+34,17,"/home/admingod/regicide-jobs/booklab/wp10/parts/H2.txt:17","Kingsrow(x64)[6] 1.20","Regicide 0.2",1/2-1/2,0.5,"no progress",178
+38,19,"/home/admingod/regicide-jobs/booklab/wp10/parts/H2.txt:19","Kingsrow(x64)[7] 1.20","Regicide 0.2",1/2-1/2,0.5,"repetition",163
+37,19,"/home/admingod/regicide-jobs/booklab/wp10/parts/H2.txt:19","Regicide 0.2","Kingsrow(x64)[5] 1.20",1/2-1/2,0.5,"repetition",177
+31,16,"/home/admingod/regicide-jobs/booklab/wp10/parts/H2.txt:16","Regicide 0.2","Kingsrow(x64)[1] 1.20",1-0,1,"no legal moves",129
+36,18,"/home/admingod/regicide-jobs/booklab/wp10/parts/H2.txt:18","Kingsrow(x64)[2] 1.20","Regicide 0.2",1-0,0,"no legal moves",75
+32,16,"/home/admingod/regicide-jobs/booklab/wp10/parts/H2.txt:16","Kingsrow(x64)[4] 1.20","Regicide 0.2",1-0,0,"no legal moves",85
+35,18,"/home/admingod/regicide-jobs/booklab/wp10/parts/H2.txt:18","Regicide 0.2","Kingsrow(x64) 1.20",1-0,1,"no legal moves",173

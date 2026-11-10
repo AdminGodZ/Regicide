@@ -3,7 +3,7 @@
 # for the current-engine configurations (E, EB, EBN; not O, whose older book policy the checker does not model).
 SRC=~/regicide-booklab; L=~/regicide-jobs/booklab; R=~/regicide-match/results; E=$SRC/experiments/booklab/wp10
 out=$E/exposure_xcheck.tsv; : > $out.tmp
-for run in $(cut -f13 $E/games.tsv | sort -u | grep -v "^run$"); do
+for run in $(cut -f14 $E/games.tsv | sort -u | grep -v "^run$"); do
   case $run in *-O-*) continue ;; *-E-*) pb=old ;; *) pb=new ;; esac
   python3 $SRC/experiments/holdout/classify_exposure.py --helper $L/bin/exposure_helper --old-book $L/book_master.bin \
     --new-book $L/book_r10.bin --our-name 'Regicide 0.2' --played-book $pb $R/$run/games.pdn 2>> $L/xcheck.err \

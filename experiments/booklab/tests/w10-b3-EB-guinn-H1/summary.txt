@@ -1,0 +1,14 @@
+Match: A = Regicide 0.2, B = GuiNN Checkers 2.06 avx2
+Openings: /home/admingod/regicide-jobs/booklab/wp10/parts/H1.txt (18 openings x 1 rounds, each played with both colours)
+Time control: 0.5s/move (CheckerBoard match rules); no-progress rule: 40 moves
+Games: 36 of 36 scheduled
+
+A: +14 =15 -7   score 21.5/36 = 59.72%   draw rate 41.7%
+A as black: +0 =11 -7   A as white: +14 =4 -0
+By colour: black won 0, white won 21, drawn 15
+Pairs: 18   pentanomial [LL LD DD/WL WD WW] = [0 1 9 8 0]
+Elo (pentanomial, pairs): +68.4 [+20.2, +119.4] 95% CI, score 0.5972 +- 0.0682, LOS 99.74%
+Elo (trinomial, games):   +68.4 [-16.3, +162.2] 95% CI, LOS 94.29%
+Terminations: no legal moves 21; repetition 15;
+A Regicide 0.2: 2436 moves, avg 0.283s/move, max 3.493s
+B GuiNN Checkers 2.06 avx2: 2428 moves, avg 0.365s/move, max 3.046s

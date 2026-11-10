@@ -17,6 +17,7 @@ import collections
 import csv
 import json
 import os
+import statistics
 import subprocess
 import sys
 
@@ -27,14 +28,17 @@ NAMES = {"cake": "Cake", "kingsrow": "KingsRow", "guinn": "GuiNN"}
 
 
 def parse_run(run):
+    """(configuration, opponent, panel, block, repeat) from a run name."""
     p = run.split("-")
     if p[1] == "w10":   # bl-w10-b3-EB-cake-H3_0
-        return p[3], p[4], p[5].split("_")[0], p[2]
-    if p[1] == "f4":
-        return "EBN", p[2], "acf156", "b2"
-    if p[1] == "f1":
-        return "EB(final,r8)", p[2], "acf156", "final"
-    return "?", "?", "?", "?"
+        return p[3], p[4], p[5].split("_")[0], p[2], "1"
+    if p[1] == "f4":    # bl-f4-cake-h1
+        return "EBN", p[2], "acf156", "b2", "1"
+    if p[1] == "f1":    # bl-f1-cake-a-h1: runs a and b are two repeats
+        return "EB(final,r8)", p[2], "acf156", "final", p[3]
+    if p[1] == "v11":   # bl-v11-n6c-cake-h1
+        return f"EB11({p[2]})", p[3], "acf156", "wp11", "1"
+    return "?", "?", "?", "?", "?"
 
 
 def main():
@@ -60,7 +64,7 @@ def main():
         f = os.path.join(a.results, run, "games.pdn")
         if not os.path.exists(f):
             continue
-        cfg, opp, panel, block = parse_run(run)
+        cfg, opp, panel, block, rep = parse_run(run)
         for idx, (tags, moves) in enumerate(parse_pdn(open(f, errors="replace").read()), 1):
             bf, wf = family(tags.get("Black", "")), family(tags.get("White", ""))
             col = "B" if bf == "regicide" else "W"
@@ -72,7 +76,7 @@ def main():
             pn = panel
             if panel == "H2x":
                 pn = f"H2x-t{tier.get(om, '?')}"
-            games.append(dict(run=run, block=block, cfg=cfg, opp=opp, panel=pn, opening=om, col=col, res=r,
+            games.append(dict(run=run, block=block, rep=rep, cfg=cfg, opp=opp, panel=pn, opening=om, col=col, res=r,
                               term=tags.get("Termination", ""), file=gfile, idx=idx, fen=tags.get("FEN", ""), nopen=nopen,
                               moves=[m for m, _ in moves]))
     # exposure (rule of experiments/holdout/EXPOSURE.md): before one of our engine moves after the dealt prefix, the
@@ -103,7 +107,7 @@ def main():
         fb, fw = int(f[13]), int(f[14])
         g["db_reg"] = (fb if g["col"] == "B" else fw)
         g["db_opp"] = (fw if g["col"] == "B" else fb)
-    keys = ["block", "cfg", "opp", "panel", "opening", "col", "res", "term", "exposed", "db_reg", "db_opp", "file", "run", "idx"]
+    keys = ["block", "cfg", "rep", "opp", "panel", "opening", "col", "res", "term", "exposed", "db_reg", "db_opp", "file", "run", "idx"]
     with open(a.out_tsv, "w") as fo:
         fo.write("\t".join(keys) + "\n")
         for g in games:
@@ -147,28 +151,45 @@ def main():
         for k in sorted(cp):
             md.append(f"| {k[0]} | {NAMES.get(k[1], k[1])} | {k[2]} | {cp[k].get('B', '-')} | {cp[k].get('W', '-')} |")
     # pairings
+    # Pairing policy: games are keyed by (opponent, panel, opening, colour, configuration, repeat). A configuration
+    # with several repeats there (the final validation's runs a and b) enters with the MEAN of its repeats' points;
+    # the table then also shows the pairing against each repeat separately. The same (key, configuration, repeat)
+    # twice is an error, never an overwrite.
     pts = {"W": 1, "D": 0.5, "L": 0}
+    idx = collections.defaultdict(lambda: collections.defaultdict(dict))
+    for g in games:
+        k = (g["opp"], g["panel"], g["opening"], g["col"])
+        if g["rep"] in idx[k][g["cfg"]]:
+            sys.exit(f"duplicate game for {k} {g['cfg']} repeat {g['rep']}: {g['file']} and {idx[k][g['cfg']][g['rep']]['file']}")
+        idx[k][g["cfg"]][g["rep"]] = g
     for pr in a.pair:
         x, y = pr.split(":")
-        idx = collections.defaultdict(dict)
-        for g in games:
-            idx[(g["opp"], g["panel"], g["opening"], g["col"])][g["cfg"]] = g
-        rows = collections.defaultdict(lambda: collections.Counter())
-        for k, d in idx.items():
-            if x in d and y in d:
-                diff = pts[d[x]["res"]] - pts[d[y]["res"]] if d[x]["res"] in pts and d[y]["res"] in pts else 0
-                key = (k[0], k[1], "exposed" if d[x]["exposed"] >= 0 else "unexposed")
+        variants = [("mean of repeats", None)]
+        reps_y = sorted({r for d in idx.values() if y in d for r in d[y]})
+        if len(reps_y) > 1:
+            variants += [(f"{y} repeat {r}", r) for r in reps_y]
+        for label, ry in variants:
+            rows = collections.defaultdict(lambda: collections.Counter())
+            for k, d in idx.items():
+                if x not in d or y not in d or (ry is not None and ry not in d[y]):
+                    continue
+                gx = list(d[x].values())
+                gy = [d[y][ry]] if ry is not None else list(d[y].values())
+                if any(g["res"] not in pts for g in gx + gy):
+                    continue
+                diff = statistics.mean(pts[g["res"]] for g in gx) - statistics.mean(pts[g["res"]] for g in gy)
+                key = (k[0], k[1], "exposed" if any(g["exposed"] >= 0 for g in gx) else "unexposed")
                 rows[key]["n"] += 1
                 rows[key]["better" if diff > 0 else "worse" if diff < 0 else "same"] += 1
                 rows[key]["diff"] += diff
-        if rows:
-            md += ["", f"## Paired by opening and colour: {x} minus {y}", "",
-                   f"| Opponent | Panel | {x} game exposed? | Pairs | {x} better | same | {x} worse | score difference |",
-                   "|---|---|---|---|---|---|---|---|"]
-            for k in sorted(rows):
-                c = rows[k]
-                md.append(f"| {NAMES.get(k[0], k[0])} | {k[1]} | {k[2]} | {c['n']} | {c['better']} | {c['same']} | "
-                          f"{c['worse']} | {c['diff']:+.1f} |")
+            if rows:
+                md += ["", f"## Paired by opening and colour: {x} minus {y} ({label})", "",
+                       f"| Opponent | Panel | {x} game exposed? | Pairs | {x} better | same | {x} worse | score difference |",
+                       "|---|---|---|---|---|---|---|---|"]
+                for k in sorted(rows):
+                    c = rows[k]
+                    md.append(f"| {NAMES.get(k[0], k[0])} | {k[1]} | {k[2]} | {c['n']} | {c['better']} | {c['same']} | "
+                              f"{c['worse']} | {c['diff']:+.1f} |")
     open(a.out_md, "w").write("\n".join(md) + "\n")
     print("\n".join(md[:40]))
 

@@ -232,6 +232,36 @@ independent of the net there; not done (your call).
 Estimate for the rest (Blocks 3–6): about 6,500 games ≈ 5.5–6 h of lock time, 6–8 h of wall time with the other
 agents' 15-minute holds; under the 10-hour limit, so I continue.
 
+## Opponent configuration (evidence: `data/engine_probe.log`, raw cbhost dialogue)
+
+`scripts/engine_probe.sh` loads each engine through cbhost (b71dfa9, the one all matches use), sends **exactly the
+option list the match scripts send** (`bl_run.sh`), records every reply verbatim, queries the settings, searches the
+start position and an 8-piece position (`W:W17,21,22,25:B5,9,10,K14`) at maxtime 0.5, queries again, and plays a second
+start-position game. Summary:
+
+| Engine | Options sent → reply | Book | Endgame database | Hash |
+|---|---|---|---|---|
+| Cake 1.89f | `set dbpath C:\regicide-match\db\kingsrow_wld8` → 1; `set enable_wld 1` → **0** "Enable WLD set to 1"; `set dbmbytes 512` → 1; `set max_dbpieces 8` → **0** "max DB pieces to use set to 8 / You must restart Cake for the change to take effect"; `set hashsize 128` → 1 "hash size set to 128" | `get book` 3; after the first search `about`: "148300 moves in opening book"; start position answered `info book 11-16 v0 d35 …` | `get max_dbpieces` 8, `get enable_wld` 1; after the first search `about`: "Found 8-piece databases / Using 8-piece databases", "Using 512 MB for database cache"; 8-piece search: "db 100% … Cake claims a win" | `about`: "Using 128 MB for the hashtable" |
+| KingsRow 1.20 | all six accepted (reply 1 with an echo), incl. `set searchthreads 1` | `get book` 1; `about`: "Opening book database version 4.1 with 3458897 positions"; start position answered with its book list `10-14(-1/39)* …` | after the first search `about`: "Using the Kingsrow 8-piece WLD endgame database and 512mb for database buffers"; 8-piece search: value −2667 (database scale), result win | `about`: "Using 128mb for hashtable." |
+| GuiNN 2.06 avx2 | all five accepted (reply 1) | `get book` 3; before any search `about` says "Opening Book : not loaded", after it: "Opening Book : 25614 positions"; the very first search (start position) is a real search, the second game's first move is a book move (`Depth: 0/0 … Nodes: 0`) | after the first search `about`: "Database : 8-piece Win/Loss/Draw"; 8-piece search: "(db: 1.12 Mn)" probes | `get hashsize` 128 |
+| Regicide (bl-final1) | `set hashsize 128` → 1; `set threads 1` → 1 | `get book` 3 (margin 0), `get avoid` 1; no book entry at the start position (the book starts after the ballots) | `get dbpath` its `egdb` folder, `get dbpieces` 8; 8-piece search: score 9885 (conversion score) | `get hashsize` 128, `get threads` 1 |
+
+- **Rejected replies:** only Cake's two (reply 0 with a text saying the setting was made). Both settings are
+  confirmed in effect by `get` and by Cake's own `about` after the first search; Cake initialises its database
+  lazily at the first search, so the "restart" note does not apply to a fresh process. The old runner ignored reply
+  values; the current runner (Blocks 3–6) prints them as warnings (`--allow-rejected-options`), and the logs show
+  exactly these two warnings for Cake and none for KingsRow or GuiNN.
+- **Book use in play:** census leading moves marked as book by the engine's own comment (mean per game): Cake 7.3–7.4,
+  KingsRow 8.1–8.5, GuiNN 6.3–7.5 (`census/census.md`). GuiNN's book loads lazily, so only the first search of each
+  GuiNN process is out of book: one game per process (8 per run) may start without its book.
+- **Time semantics:** every match uses the runner's default `--movetime-mode cb`: maxtime = S + (bank − S)/2.5 with
+  the per-side bank, no `CB_EXACT_TIME` (that flag is sent only in `exact` mode, never used), identical for both
+  sides. All engines use the banked time: in the final runs the longest single moves were Regicide 2.1–2.5 s, Cake
+  3.7–6.1 s, KingsRow 7.0–7.1 s, GuiNN 5.9–6.9 s (`A`/`B` lines of each summary), against a nominal 0.5 s.
+- **Settings that cannot be confirmed from the engine:** the meaning of `get book` (1 for KingsRow, 3 for the others)
+  is engine-specific and not documented in the replies; KingsRow's and GuiNN's thread use beyond `searchthreads 1`
+  (GuiNN has no thread option) is not reported by the engines.
+
 ## Data behind the numbers (`data/`)
 
 | File | Contents | Re-derives |
