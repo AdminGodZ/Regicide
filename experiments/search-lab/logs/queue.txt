@@ -14,3 +14,6 @@ b5_neg|selfplay-lab2|se_neg=1|300|800||--egdb /home/admingod/regicide-data/egdb 
 b7_tteval|selfplay-lab2|tt_eval=1|300|800||--egdb /home/admingod/regicide-data/egdb --book books/uho1600.txt
 b6_tmnodes178|selfplay-lab2|tm_nodes=178|0|800||--target 300 --egdb /home/admingod/regicide-data/egdb --book books/uho1600.txt
 b8_lmr80|selfplay-lab2|lmr_base=80|300|1600||--egdb /home/admingod/regicide-data/egdb --book books/uho1600.txt
+c1_vote1|selfplay-lab2|smp_vote=1|300|800||--egdb /home/admingod/regicide-data/egdb --book books/uho1600.txt --tha 4 --thb 4 --threads 4 --hash 64
+c2_vote2|selfplay-lab2|smp_vote=2|300|800||--egdb /home/admingod/regicide-data/egdb --book books/uho1600.txt --tha 4 --thb 4 --threads 4 --hash 64
+c3_skip2vote2|selfplay-lab2|smp_skip=2,smp_vote=2|300|400||--egdb /home/admingod/regicide-data/egdb --book books/uho1600.txt --tha 4 --thb 4 --threads 4 --hash 64
