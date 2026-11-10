@@ -12,7 +12,7 @@ gzip -9c $J/pilot.csv > $D/pilot_2026-11-09.csv.gz
 for f in $O/tails/proven_*_9_12.bin; do gzip -9c $f > $D/heldout_$(basename $f).gz; done
 SETS=""; for f in $O/tails/proven_*_9_12.bin; do SETS="$SETS --set $f"; done
 NETS="--net n4c=$HOME/regicide-nnue4-work/n4c.nnue --net n6c=$HOME/regicide-nnue6-work/n6c.nnue --net n7b=$HOME/regicide-nnue7-work/n7b.nnue"
-for n in n8a n8ak n8b n8bk n8bn n8bk130 n8bl6 n8bl7 n8p n8p2 n8c n8q n8bn2; do [ -s $W/$n.ok ] && NETS="$NETS --net $n=$W/$n.nnue"; done
+for n in n8a n8ak n8b n8bk n8bn n8bn2 n8bk130 n8bl6 n8bl7 n8p n8p2 n8c n8q w2032 w1064 w2064; do [ -s $W/$n.ok ] && NETS="$NETS --net $n=$W/$n.nnue"; done
 (cd ~/regicide-truth/experiments/truth-data/scripts && OMP_NUM_THREADS=1 nice $PY db_truth.py $SETS $NETS \
   --general ~/regicide-nnue5-work/val2/nnue_valid_1M.bin --general-n 100000 --dump $D/db_truth_per_record.csv.gz) > $J/db_truth_full.md
 # 3. the ponder agent's n6c reference runs against Cake (config A), copied with their origin

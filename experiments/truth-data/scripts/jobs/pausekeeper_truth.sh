@@ -5,7 +5,7 @@
 #   and its bash parent, as pausekeeper5 does) while ~/regicide-jobs/r4/matchlock exists.
 # Group 2: names in ~/regicide-jobs/locks/bg_patterns_yield (the truth agent's threads beyond its base budget of 8)
 #   are also stopped while ~/regicide-jobs/locks/yield_truth exists (the truth agent's own CheckerBoard runs) or another
-#   agent computes in the background (a running, not stopped, process named bookgen-* or lossprobe*).
+#   agent computes in the background (a running, not stopped, process named bookgen-*, lossprobe* or blk-*).
 # Patterns are re-read every cycle. Names, not command lines: a command line can mention a pattern without being the job
 # (2026-11-09: a -f version stopped an unrelated python process). Runs while ~/regicide-jobs/locks/pk_hold exists.
 L=~/regicide-jobs/locks; R4=~/regicide-jobs/r4; mkdir -p $L; touch $L/pk_hold $L/bg_patterns $L/bg_patterns_yield
@@ -26,7 +26,7 @@ fam() {  # fam PATTERN_FILE: matching pids and their bash parents, sorted, space
 merge() { printf '%s\n' $* | sort -un | xargs; }
 other_computing() {
   local p
-  for p in $(pgrep "^bookgen-|^lossprobe"); do
+  for p in $(pgrep "^bookgen-|^lossprobe|^blk-"); do
     [ "$(awk '/^State/{print $2}' /proc/$p/status 2>/dev/null)" != T ] && return 0
   done
   return 1

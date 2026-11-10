@@ -844,7 +844,28 @@ after the move, with either net's evaluation):
   playable moves (one horizon miss aside), the kind of difference that lies within the noise of a net's evaluation. Better
   labels there may help a little; a verdict needs n9h/n9a against these ballots, not only self-play.
 
-<!-- LOSSTABLE -->
+#### All book-off lost games against Cake and GuiNN (PARTIAL: 19 of 25 runs; stopped for a machine restart)
+
+Per-game rows: `logs/lossreport_partial.md`; raw output: `logs/losswalk/lw_*.tsv`. Read with the caveats at the top of 4b (no game history; the turn is a heuristic). KingsRow games are not part of it.
+
+**Summary by opponent and net (partial)**
+
+Turning moves whose deep score drops by 100 or more: 'horizon' if Regicide's in-game score for the move stayed above −50, 'eval' if the net's static eval of the position after the move is ≥ 0.
+
+| opponent | net | lost games | proven lost: median pieces | already ≤ −50 at Regicide's first decision | turn: games at 20–24 / 17–19 / 13–16 / 9–12 / ≤ 8 pieces (others) | drops ≥ 100 at the turn | of which horizon / eval |
+|---|---|---|---|---|---|---|---|
+| Cake | n6c | 62 | 11.0 | 0 | 30 / 14 / 15 / 3 / 0 | 10 | 6 / 0 |
+| Cake | n8bn | 15 | 12 | 0 | 8 / 6 / 1 / 0 / 0 | 8 | 3 / 0 |
+| Cake | n8c | 5 | 11 | 0 | 5 / 0 / 0 / 0 / 0 | 1 | 1 / 0 |
+| Cake | n8q | 5 | 12 | 0 | 1 / 4 / 0 / 0 / 0 | 1 | 1 / 0 |
+| GuiNN | n6c | 3 | 9 | 0 | 2 / 0 / 1 / 0 / 0 | 1 | 0 / 0 |
+| GuiNN | n8bn | 2 | 9.5 | 0 | 1 / 0 / 1 / 0 / 0 | 1 | 1 / 0 |
+| GuiNN | n8c | 2 | 12.0 | 0 | 2 / 0 / 0 / 0 / 0 | 0 | 0 / 0 |
+
+All 94 analysed games: proven lost at median 11.0 pieces; turns at 20–24 / 17–19 / 13–16 / 9–12 / ≤ 8 pieces: 49 / 24 / 18 / 3 / 0; unresolved or not proven: 0; already ≤ −50 at Regicide's first decision: 0.
+
+**Reading so far:** the games are proven lost at a median of 11 pieces, but the deep score falls below −50 much earlier: in most games while 20–24 pieces are still on the board, and in none at ≤ 8 pieces. That agrees with the reviewer's measurement that the search is nearly error-free one step beyond the database. The losses are made in the opening and early middle game.
+
 
 <!-- PHASE3MORE -->
 
