@@ -1,0 +1,11 @@
+ok   load /Users/timheld/regicide-data/egdb
+database: 7 pieces, MTC 6
+convert 6 pieces, 400 positions, 100000 nodes/move, MTC cap 4: won 400, mean plies: engine 25.5, reference 34.5
+  won by kind: kings only 0/0 men on one side 0/0 men on both sides 400/400
+  optimal length median 32 p90 67 max 104; engine minus optimal: median -4 p90 16 max 68; engine/optimal %: median 87 p90 176; at most optimal 310; 11.3 s
+ok   converted 400 of 400 6-piece wins
+defend 6 pieces, 400 positions, 100000 nodes/move, MTC cap 4: won 400, mean plies: engine 58.7, reference 34.5
+  won by kind: kings only 0/0 men on one side 0/0 men on both sides 400/400
+  optimal length median 32 p90 67 max 104; engine minus optimal: median 20 p90 66 max 112; engine/optimal %: median 160 p90 915; at most optimal 123; 72.3 s
+ok   the defender loses every game, as it must
+all conversion tests passed

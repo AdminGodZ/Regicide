@@ -3,7 +3,8 @@
 // out under the referee's rules (threefold repetition and 79 plies without capture or man move are draws) against
 // an MTC-optimal opponent: an engine with the full MTC, which plays every decided position from the database.
 //
-//   conversion_test                          the ctest check: audit positions and a sample of 3- and 4-piece wins
+//   conversion_test                          the ctest check: audit positions, the winner keeps the win (also when
+//                                            every winning move repeats a position), a sample of 3- and 4-piece wins
 //   conversion_test [options]                measurements:
 //     --dir D        load the database from D instead of building 2..4 pieces into a temporary directory
 //     --build N      with --dir: build 2..N pieces (WLD and MTC) into D first if it has no N-piece tables

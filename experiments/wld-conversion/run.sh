@@ -16,7 +16,12 @@ for nodes in 5000 20000 100000; do
   # B: the engine defends 3- and 4-piece losses (cap 0) against the MTC-optimal attacker.
   $bin --dir "$dir" --pieces 3,4 --sample 400 --cap 0 --nodes $nodes --role lose --seed 1 \
     > "$out/B_cap0_${nodes}.txt" 2>&1 || true
-  # C: 5-piece wins with MTC up to 4 pieces: the engine has to steer into the MTC region.
+  # C: 5-piece wins with MTC up to 4 pieces: the engine has to steer into the MTC region. Also with men on
+  # both sides only, the kind of position real games reach, and without any MTC.
   $bin --dir "$dir" --pieces 5 --sample 400 --cap 4 --nodes $nodes --role both --seed 1 \
     > "$out/C_cap4_${nodes}.txt" 2>&1 || true
+  $bin --dir "$dir" --pieces 5 --sample 400 --cap 4 --kind both --nodes $nodes --role win --seed 2 \
+    > "$out/C_cap4_men_${nodes}.txt" 2>&1 || true
+  $bin --dir "$dir" --pieces 4,5 --sample 400 --cap 0 --kind both --nodes $nodes --role win --seed 3 \
+    > "$out/C_cap0_men_${nodes}.txt" 2>&1 || true
 done

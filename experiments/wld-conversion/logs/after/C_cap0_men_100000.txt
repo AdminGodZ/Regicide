@@ -1,0 +1,11 @@
+ok   load /private/tmp/claude-501/-Users-timheld--t3-worktrees-Regicide-t3-1fb0d56b/353c3a4f-f094-49e4-9063-64d86206a9c9/scratchpad/egdb5
+database: 5 pieces, MTC 5
+convert 4 pieces, 400 positions, 100000 nodes/move, MTC cap 0: won 400, mean plies: engine 10.6, reference 24.1
+  won by kind: kings only 0/0 men on one side 0/0 men on both sides 400/400
+  optimal length median 19 p90 51 max 72; engine minus optimal: median -6 p90 0 max 46; engine/optimal %: median 61 p90 100; at most optimal 376; 4.2 s
+ok   converted 400 of 400 4-piece wins
+convert 5 pieces, 400 positions, 100000 nodes/move, MTC cap 0: won 400, mean plies: engine 16.2, reference 32.7
+  won by kind: kings only 0/0 men on one side 0/0 men on both sides 400/400
+  optimal length median 33 p90 63 max 93; engine minus optimal: median -12 p90 0 max 132; engine/optimal %: median 54 p90 100; at most optimal 363; 13.7 s
+ok   converted 400 of 400 5-piece wins
+all conversion tests passed
