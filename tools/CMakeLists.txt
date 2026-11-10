@@ -54,6 +54,7 @@ if(NOT WIN32)
   target_link_libraries(cbhost_test PRIVATE cbt_common Threads::Threads)
   add_dependencies(cbhost_test cbhost cbhost_mock_engine match)
   add_test(NAME cbhost_stop_pending COMMAND cbhost_test stop $<TARGET_FILE:cbhost> $<TARGET_FILE:cbhost_mock_engine>)
+  add_test(NAME cbhost_stop_each COMMAND cbhost_test stops $<TARGET_FILE:cbhost> $<TARGET_FILE:cbhost_mock_engine>)
   add_test(NAME cbhost_quit_pending COMMAND cbhost_test quit $<TARGET_FILE:cbhost> $<TARGET_FILE:cbhost_mock_engine>)
   add_test(NAME match_charged_time COMMAND cbhost_test charged $<TARGET_FILE:cbhost> $<TARGET_FILE:cbhost_mock_engine>)
   add_test(NAME match_incremental_charged COMMAND cbhost_test incremental $<TARGET_FILE:cbhost>
@@ -64,6 +65,13 @@ if(NOT WIN32)
   target_include_directories(terminal_before_draw_test PRIVATE match)
   target_link_libraries(terminal_before_draw_test PRIVATE Threads::Threads)
   add_test(NAME match_terminal_before_draw COMMAND terminal_before_draw_test $<TARGET_FILE:match>)
+
+  # The opening loader, and an interrupt of the runner together with its engines (scripted: this executable).
+  add_executable(runner_test match/runner_test.cpp match/openings.cpp)
+  target_include_directories(runner_test PRIVATE match)
+  target_link_libraries(runner_test PRIVATE cbt_common Threads::Threads)
+  add_test(NAME match_opening_comment COMMAND runner_test comment)
+  add_test(NAME match_interrupted_game COMMAND runner_test interrupt $<TARGET_FILE:match>)
 
   # bookgen, run as a process on a prepared book (needs the engine library: not in the standalone tools build).
   if(TARGET regicide_core AND TARGET bookgen)
