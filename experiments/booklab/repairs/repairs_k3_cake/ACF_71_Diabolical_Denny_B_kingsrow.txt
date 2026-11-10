@@ -1,0 +1,33 @@
+# game 456 regicide-match/results/bl-k3-kingsrow-b-h1/games.pdn: ACF #71 Diabolical Denny (/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:63: 10-14 23-19 7-10), regicide as B, result W, opponent cake
+#   ply 4 10x19: cake -
+#   ply 6 11x18: cake -
+#   ply 8 14-18: cake -
+#   ply 10 9-14: cake -
+#   ply 12 2-7: cake -
+#   ply 14 7-10: cake -
+#   ply 16 8-11: cake -
+#   ply 18 4x11: cake -
+#   ply 20 10x19: cake -
+#   ply 22 3x10: cake -
+#   ply 24 10-15: cake -
+#   ply 26 14x21: cake -
+#   ply 28 12-16: cake -
+#   ply 30 6-9: cake -
+#   ply 32 15-19: cake -
+#   ply 34 9-14: cake -
+#   ply 36 16-20: cake -
+#   ply 38 14-18: cake -
+#   ply 40 19-23: cake -
+#   ply 42 18-22: cake -
+#   ply 44 5-9: cake -
+#   ply 46 1x10: cake -
+#   ply 48 22-26: cake -
+#   ply 50 10-14: cake -
+#   ply 52 14-17: cake -
+#   ply 54 17-22: cake -
+#   ply 56 26-30: cake -
+#   ply 58 30-26: cake -
+#   ply 60 21-25: cake -
+#   ply 62 26-31: cake -
+#   ply 64 31-26: cake -
+# no deviation from cake's non-losing moves within 60 plies after the ballot

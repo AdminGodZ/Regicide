@@ -1,35 +1,44 @@
 #!/usr/bin/env python3
-"""WP12: choose and score the candidates (protocol: experiments/booklab/wp12/PROTOCOL.md).
+"""WP12: choose and score the candidates (PROTOCOL.md on master e670910).
 
-  wp12_select.py --points points.tsv --moves moves0.tsv --decisions decisions.txt --multiscore blk-multiscore
-                 --egdb DIR --book book_r11.bin [--threads 6] [--nodes 20000000] [--slots 1] [--out DIR]
+  wp12_select.py --points points.tsv --decisions decisions_r10.txt --multiscore blk-multiscore --net net.bin
+                 --egdb DIR --book book_r11.bin [--threads 6] [--nodes 20000000] [--hash 128] [--slots 3]
+                 --cache scores.tsv --out DIR
 
-Inputs: points.tsv (wp12_points.py: our move positions on the r11 lines of the final-validation games against
-Cake, book consulted, the book plays the played move), moves0.tsv (booklab_multiscore NODES=0 with book r11: the
-legal moves of every point and their avoid flags), decisions.txt (r10's decisions: protected, never a candidate).
+Campaign key (review M2): the SHA-256 of the scoring binary (booklab_multiscore: engine build, embedded net), of the
+net file it embeds (--net, recorded separately), of the book used for the avoid flags, of the database directory's
+manifest (file names and sizes), the node budget and the hash size. A cached score is used only when the campaign
+key, the position (FEN) and the full list of legal moves are the same; the cache is a TSV (append only) shared by
+campaigns. Header of every output: the campaign key and its parts.
 
 Rules fixed before any score is seen:
-  - A point qualifies when it is not a protected decision position and has at least two legal moves not on the
-    avoid list. (Before 8 pieces, book consulted, on the r11 line: wp12_points.py.)
-  - Every legal move of a scored point is searched with booklab_multiscore: book off, cleared hash per move,
-    NODES nodes (20 M), the score of the last completed iteration. The alternative is the best non-avoided move
-    other than the pinned one; the point gives a candidate when that move's score >= pinned score - 15 (centi-men).
-    No completed score for the pinned move or for every other move: no candidate.
-  - Lines are (ballot, colour). Inside a line the points are ordered: category 2 (10..25 plies after Cake's book
-    ends) by distance ascending, then category 3 (earlier) by distance descending (nearest to the end of Cake's
-    book first). Category 4 (later) is not used.
-  - Slots: a line gives at most three candidates, at least four plies apart (plies of the game the point was
-    met in, from the start position). Slot s of a line is the first point in the line order after slot s-1's point
-    that passes the margin and keeps the spacing; at most 6 points are scored per line and slot (the rest of the
-    line is left for the next slot).
-  - Global order: (1) the w30/w31 point (ballots 163/165, Black, ply 4, alternative 8-12; its own arm when it fails
-    the margin); then slot 1 of every line in deck order (ballot number, Black before White), then slot 2, slot 3.
-    The pilot is the first 300 candidates of this order.
-Scores are cached in OUT/scores.tsv (appended; a restart reuses them). Outputs: OUT/considered.tsv (every scored
-point with all moves, kept or not, and why), OUT/candidates.tsv (global order).
+  - A point qualifies when it is not a protected decision position (r10's decisions) and has at least two legal
+    moves that are not on the avoid list (multiscore NODES=0 with the book). (Before 8 pieces, book consulted, on the
+    r11 line: wp12_points.py.)
+  - Every legal move of a scored point is searched with booklab_multiscore: book off, cleared hash per move, NODES
+    nodes, the score of the last completed iteration. The alternative is the best non-avoided move other than the
+    pinned one; the point gives a candidate when that move's score >= pinned score - 15 (centi-men). No completed
+    score for the pinned move or for every other move: no candidate.
+  - Lines are (ballot, colour) of the Cake games the points come from. Inside a line its points are ordered:
+    category 2 (10..25 plies after Cake's book ends) by distance ascending, then category 3 (earlier) by distance
+    descending. Category 4 is not used.
+  - A line gives at most three candidates, at least four plies apart (ply of the point, from the start position). A
+    candidate counts on every line whose Cake game passes through its position (its contexts against Cake in the
+    point source), not only on the line it was found on.
+  - The known position (w30/w31: ballots 163/165, Black, alternative 8-12) is scored first. If it passes the margin
+    it is candidate 0 and counts as one of the three on its lines (review M3, protocol); if it fails, it is its own
+    arm and does not count.
+  - Slot s of a line is the first point in the line order after slot s-1's point that passes the margin and keeps
+    the spacing; at most 6 points are scored per line and slot. Global order: candidate 0, then slot 1 of every line
+    in deck order (ballot number, Black before White), then slot 2, slot 3. The pilot is the first 300.
+Outputs: OUT/considered.tsv (every point considered, kept or not, with all move scores and why), OUT/candidates.tsv
+(global order, with each candidate's contexts), OUT/campaign.txt (the key), and the SHA-256 of candidates.tsv in
+OUT/candidates.sha256 (the discovery ledger is bound to it).
 """
 import argparse
 import collections
+import hashlib
+import json
 import os
 import re
 import subprocess
@@ -41,6 +50,19 @@ W30_FEN = "B:W17,21,22,23,24,26,27,28,29,30,31,32:B1,2,3,4,5,6,7,8,9,10,11,20"
 W30_ALT = "8-12"
 
 
+def sha(path):
+    h = hashlib.sha256()
+    with open(path, "rb") as f:
+        for b in iter(lambda: f.read(1 << 20), b""):
+            h.update(b)
+    return h.hexdigest()
+
+
+def manifest_sha(d):
+    items = sorted((n, os.path.getsize(os.path.join(d, n))) for n in os.listdir(d))
+    return hashlib.sha256(json.dumps(items).encode()).hexdigest()
+
+
 def ballot_no(b):
     m = re.search(r"#(\d+)", b)
     return int(m.group(1)) if m else 0
@@ -48,26 +70,23 @@ def ballot_no(b):
 
 def main():
     ap = argparse.ArgumentParser()
-    for k in ("points", "moves", "decisions", "multiscore", "egdb", "book"):
+    for k in ("points", "decisions", "multiscore", "net", "egdb", "book", "cache", "out"):
         ap.add_argument("--" + k, required=True)
     ap.add_argument("--threads", type=int, default=6)
     ap.add_argument("--nodes", type=int, default=20_000_000)
-    ap.add_argument("--slots", type=int, default=1)
-    ap.add_argument("--out", default=".")
+    ap.add_argument("--hash", type=int, default=128)
+    ap.add_argument("--slots", type=int, default=3)
     a = ap.parse_args()
     os.makedirs(a.out, exist_ok=True)
+    parts = dict(scorer=sha(a.multiscore), net=sha(a.net), book=sha(a.book), egdb_manifest=manifest_sha(a.egdb),
+                 nodes=a.nodes, hash_mb=a.hash, margin=MARGIN)
+    key = hashlib.sha256(json.dumps(parts, sort_keys=True).encode()).hexdigest()[:16]
+    with open(os.path.join(a.out, "campaign.txt"), "w") as fo:
+        fo.write(f"campaign {key}\n" + "".join(f"{k} {v}\n" for k, v in sorted(parts.items())))
+    print(f"campaign {key}", flush=True)
 
-    protected = set()
-    for l in open(a.decisions):
-        if l.startswith("#") or "|" not in l:
-            continue
-        protected.add(l.split("|")[0].strip())
-    legal = collections.defaultdict(list)  # id -> [(move, avoided)]
-    for l in open(a.moves):
-        f = l.rstrip("\n").split("\t")
-        legal[f[0]].append((f[1], f[6] == "1"))
-    pts, lines = {}, collections.defaultdict(list)
-    hdr = None
+    protected = {l.split("|")[0].strip() for l in open(a.decisions) if "|" in l and not l.startswith("#")}
+    pts, lines, hdr = {}, collections.defaultdict(list), None
     for l in open(a.points):
         f = l.rstrip("\n").split("\t")
         if hdr is None:
@@ -75,10 +94,24 @@ def main():
             continue
         p = dict(zip(hdr, f))
         p["category"], p["distance"], p["ply"] = int(p["category"]), int(p["distance"]), int(p["ply"])
+        src_runs = {p["run"].rsplit("-", 1)[0]}  # v11-n6c-cake
+        p["cake_lines"] = sorted({(c.split("|")[0], c.split("|")[1]) for c in p["contexts"].split(";")
+                                  if c.split("|")[2] == "cake" and c.split("|")[3].rsplit("-", 1)[0] in src_runs})
         pts[p["id"]] = p
         if p["category"] in (2, 3):
             lines[(p["ballot"], p["colour"])].append(p)
-    w30 = next(p for p in pts.values() if p["fen"] == W30_FEN)
+    w30 = next((p for p in pts.values() if p["fen"] == W30_FEN), None)
+    if w30 is None:
+        sys.exit("the w30/w31 position is not among the points")
+
+    # legal moves and avoid flags (no search)
+    r = subprocess.run([a.multiscore, "0", "1", a.egdb, str(a.hash), a.book], capture_output=True, text=True,
+                       check=True, input="".join(f"{p['id']}\t{p['fen']}\n" for p in pts.values()))
+    legal = collections.defaultdict(list)
+    for l in r.stdout.splitlines():
+        f = l.split("\t")
+        legal[f[0]].append((f[1], f[6] == "1"))
+    movelist = {pid: ",".join(sorted(m for m, _ in mv)) for pid, mv in legal.items()}
 
     def qualifies(p):
         if p["fen"] in protected:
@@ -91,31 +124,43 @@ def main():
         lines[k].sort(key=lambda p: (0, p["distance"], p["ply"]) if p["category"] == 2 else (1, -p["distance"], p["ply"]))
     order = sorted(lines, key=lambda k: (ballot_no(k[0]), k[1] != "B"))
 
-    cache_path = os.path.join(a.out, "scores.tsv")
-    scores = collections.defaultdict(dict)  # id -> move -> (score|None, depth, nodes, partial)
-    if os.path.exists(cache_path):
-        for l in open(cache_path):
+    # cache: campaign, fen, move list, move, score, depth, nodes, partial
+    scores = collections.defaultdict(dict)
+    by_fen = {p["fen"]: p["id"] for p in pts.values()}
+    if os.path.exists(a.cache):
+        for l in open(a.cache):
             f = l.rstrip("\n").split("\t")
-            scores[f[0]][f[1]] = (None if f[2] == "none" else int(f[2]), int(f[3]), int(f[4]), int(f[5]))
+            if len(f) != 8 or f[0] != key or f[1] not in by_fen or movelist[by_fen[f[1]]] != f[2]:
+                continue
+            scores[by_fen[f[1]]][f[3]] = (None if f[4] == "none" else int(f[4]), int(f[5]), int(f[6]), int(f[7]))
+    for pid in list(scores):  # only complete move lists count as cached
+        if set(scores[pid]) != {m for m, _ in legal[pid]}:
+            del scores[pid]
+    print(f"{len(scores)} points already scored in this campaign", flush=True)
 
     def score(batch):
         todo = [p for p in batch if p["id"] not in scores]
         if not todo:
             return
-        inp = "".join(f"{p['id']}\t{p['fen']}\n" for p in todo)
-        r = subprocess.run([a.multiscore, str(a.nodes), str(a.threads), a.egdb, "128", a.book], input=inp,
-                           capture_output=True, text=True, check=True)
-        with open(cache_path, "a") as fo:
-            for l in r.stdout.splitlines():
-                f = l.split("\t")
-                if f[1] == "ERR":
-                    sys.exit(f"multiscore: {l}")
-                scores[f[0]][f[1]] = (None if f[2] == "none" else int(f[2]), int(f[3]), int(f[4]), int(f[5]))
-                fo.write("\t".join(f[:6]) + "\n")
-        print(f"scored {len(todo)} points ({sum(len(scores[p['id']]) for p in todo)} moves)", flush=True)
+        r = subprocess.run([a.multiscore, str(a.nodes), str(a.threads), a.egdb, str(a.hash), a.book],
+                           input="".join(f"{p['id']}\t{p['fen']}\n" for p in todo), capture_output=True, text=True,
+                           check=True)
+        got = collections.defaultdict(dict)
+        for l in r.stdout.splitlines():
+            f = l.split("\t")
+            if f[1] == "ERR":
+                sys.exit(f"multiscore: {l}")
+            got[f[0]][f[1]] = (None if f[2] == "none" else int(f[2]), int(f[3]), int(f[4]), int(f[5]))
+        with open(a.cache, "a") as fo:
+            for p in todo:
+                if set(got[p["id"]]) != {m for m, _ in legal[p["id"]]}:
+                    sys.exit(f"multiscore returned an incomplete move list for {p['id']}")
+                scores[p["id"]] = got[p["id"]]
+                for m, (s, d, n, part) in got[p["id"]].items():
+                    fo.write(f"{key}\t{p['fen']}\t{movelist[p['id']]}\t{m}\t{'none' if s is None else s}\t{d}\t{n}\t{part}\n")
+        print(f"scored {len(todo)} points", flush=True)
 
     def verdict(p, alt_forced=None):
-        """(alternative, its score, pinned score, passes, why)"""
         sc = scores[p["id"]]
         ps = sc.get(p["pinned"], (None,))[0]
         if ps is None:
@@ -129,76 +174,78 @@ def main():
         ok = best[1] >= ps - MARGIN
         return best[0], best[1], ps, ok, "" if ok else f"alternative {best[1] - ps:+d} below the pinned move"
 
-    considered = {}  # id -> row
-    cands = []
+    considered, cands = {}, []
+    kept = collections.defaultdict(list)  # line -> kept candidate points (counting on every Cake line through them)
 
-    # (1) w30/w31
+    def keep(p, arm, slot, alt, alts, ps):
+        cands.append(dict(arm=arm, slot=slot, p=p, alt=alt, alts=alts, ps=ps))
+        for ln in set(p["cake_lines"]) | {(p["ballot"], p["colour"])}:
+            kept[ln].append(p)
+
+    # the known position first
     score([w30])
     alt, alts, ps, ok, why = verdict(w30, W30_ALT)
-    best_alt = verdict(w30)[0]
-    considered[w30["id"]] = (w30, alt, alts, ps, ok, why + (f"; best other move by search: {best_alt}"))
-    cands.append(dict(arm="w30/w31" if ok else "w30/w31 (own arm: fails the margin)", slot=0, p=w30, alt=alt,
-                      alts=alts, ps=ps))
+    best_other = verdict(w30)[0]
+    considered[w30["id"]] = (w30, alt, alts, ps, ok, (why + "; " if why else "") + f"best other move by search: {best_other}")
+    if ok:
+        keep(w30, "w30/w31 (counts on its lines)", 0, alt, alts, ps)
+    else:
+        cands.append(dict(arm="w30/w31 own arm (fails the margin; not counted)", slot=0, p=w30, alt=alt, alts=alts, ps=ps))
 
-    # (2)/(3) slots
-    state = {k: dict(pos=0, kept=[]) for k in order}
+    pos = {k: 0 for k in order}
     for s in range(1, a.slots + 1):
-        need = {k: dict(scanned=0, done=False) for k in order}
+        scanned = {k: 0 for k in order}
+        done = {k: len(kept[k]) >= 3 for k in order}
         while True:
-            batch, want = [], {}
+            want = {}
             for k in order:
-                st, nd = state[k], need[k]
-                if nd["done"]:
+                if done[k]:
                     continue
                 L = lines[k]
-                while st["pos"] < len(L) and nd["scanned"] < PER_SLOT_SCAN:
-                    p = L[st["pos"]]
-                    if p["id"] == w30["id"]:
-                        st["pos"] += 1
-                        continue
-                    if any(abs(p["ply"] - q["ply"]) < 4 for q in st["kept"]):
-                        considered.setdefault(p["id"], (p, None, None, None, False, "within 4 plies of a kept point"))
-                        st["pos"] += 1
-                        continue
-                    why = qualifies(p)
-                    if why:
-                        considered.setdefault(p["id"], (p, None, None, None, False, why))
-                        st["pos"] += 1
+                while pos[k] < len(L) and scanned[k] < PER_SLOT_SCAN:
+                    p = L[pos[k]]
+                    reason = ("already the known position" if p["id"] == w30["id"] else
+                              "within 4 plies of a kept candidate on this line"
+                              if any(abs(p["ply"] - q["ply"]) < 4 for q in kept[k]) else qualifies(p))
+                    if reason:
+                        considered.setdefault(p["id"], (p, None, None, None, False, reason))
+                        pos[k] += 1
                         continue
                     break
-                if st["pos"] >= len(L) or nd["scanned"] >= PER_SLOT_SCAN:
-                    nd["done"] = True
+                if pos[k] >= len(L) or scanned[k] >= PER_SLOT_SCAN or len(kept[k]) >= 3:
+                    done[k] = True
                     continue
-                want[k] = L[st["pos"]]
-                batch.append(L[st["pos"]])
-            if not batch:
+                want[k] = L[pos[k]]
+            if not want:
                 break
-            score(batch)
+            score(list({p["id"]: p for p in want.values()}.values()))
             for k, p in want.items():
-                st, nd = state[k], need[k]
                 alt, alts, ps, ok, why = verdict(p)
                 considered[p["id"]] = (p, alt, alts, ps, ok, why)
-                st["pos"] += 1
-                nd["scanned"] += 1
-                if ok:
-                    st["kept"].append(p)
-                    cands.append(dict(arm=f"slot {s}", slot=s, p=p, alt=alt, alts=alts, ps=ps))
-                    nd["done"] = True
-        write(a, cands, considered, scores, legal)
+                pos[k] += 1
+                scanned[k] += 1
+                if ok and all(abs(p["ply"] - q["ply"]) >= 4 for q in kept[k]) and len(kept[k]) < 3:
+                    keep(p, f"slot {s}", s, alt, alts, ps)
+                    done[k] = True
+        write(a, key, cands, considered, scores, legal)
         print(f"slot {s}: {sum(1 for c in cands if c['slot'] == s)} candidates", flush=True)
-    write(a, cands, considered, scores, legal)
+    write(a, key, cands, considered, scores, legal)
 
 
-def write(a, cands, considered, scores, legal):
-    with open(os.path.join(a.out, "candidates.tsv"), "w") as fo:
+def write(a, key, cands, considered, scores, legal):
+    path = os.path.join(a.out, "candidates.tsv")
+    with open(path, "w") as fo:
+        fo.write(f"# campaign {key}\n")
         fo.write("rank\tarm\tpoint\tcategory\tdistance\tballot\tcolour\trun\tround\tply\tfen\tpinned\tpinned_score\t"
-                 "alternative\talt_score\tother_lines\n")
+                 "alternative\talt_score\tcontexts\n")
         for i, c in enumerate(cands):
             p = c["p"]
             fo.write(f"{i}\t{c['arm']}\t{p['id']}\t{p['category']}\t{p['distance']}\t{p['ballot']}\t{p['colour']}\t"
                      f"{p['run']}\t{p['round']}\t{p['ply']}\t{p['fen']}\t{p['pinned']}\t{c['ps']}\t{c['alt']}\t"
-                     f"{c['alts']}\t{p['other_lines']}\n")
+                     f"{c['alts']}\t{p['contexts']}\n")
+    open(os.path.join(a.out, "candidates.sha256"), "w").write(sha(path) + "\n")
     with open(os.path.join(a.out, "considered.tsv"), "w") as fo:
+        fo.write(f"# campaign {key}\n")
         fo.write("point\tcategory\tdistance\tballot\tcolour\tply\tfen\tpinned\tpinned_score\talternative\talt_score\t"
                  "kept\twhy\tmoves (move:score/depth/partial, * avoided)\n")
         for pid, (p, alt, alts, ps, ok, why) in considered.items():

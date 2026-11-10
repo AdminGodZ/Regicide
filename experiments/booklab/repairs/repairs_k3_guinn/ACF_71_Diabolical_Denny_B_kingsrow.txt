@@ -1,0 +1,33 @@
+# game 456 regicide-match/results/bl-k3-kingsrow-b-h1/games.pdn: ACF #71 Diabolical Denny (/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:63: 10-14 23-19 7-10), regicide as B, result W, opponent guinn
+#   ply 4 10x19: guinn -
+#   ply 6 11x18: guinn -
+#   ply 8 14-18: guinn -
+#   ply 10 9-14: guinn -
+#   ply 12 2-7: guinn -
+#   ply 14 7-10: guinn -
+#   ply 16 8-11: guinn -
+#   ply 18 4x11: guinn -
+#   ply 20 10x19: guinn -
+#   ply 22 3x10: guinn -
+#   ply 24 10-15: guinn -
+#   ply 26 14x21: guinn -
+#   ply 28 12-16: guinn -
+#   ply 30 6-9: guinn -
+#   ply 32 15-19: guinn -
+#   ply 34 9-14: guinn -
+#   ply 36 16-20: guinn -
+#   ply 38 14-18: guinn -
+#   ply 40 19-23: guinn -
+#   ply 42 18-22: guinn -
+#   ply 44 5-9: guinn -
+#   ply 46 1x10: guinn -
+#   ply 48 22-26: guinn -
+#   ply 50 10-14: guinn -
+#   ply 52 14-17: guinn -
+#   ply 54 17-22: guinn -
+#   ply 56 26-30: guinn -
+#   ply 58 30-26: guinn -
+#   ply 60 21-25: guinn -
+#   ply 62 26-31: guinn -
+#   ply 64 31-26: guinn -
+# no deviation from guinn's non-losing moves within 60 plies after the ballot

@@ -133,11 +133,15 @@ def main():
                     return i
         return None
     before, after, examples = [], [], []
+    rejected_ids = {int(l.split("\t")[0]) for l in rejected}
     for gi, g in enumerate(games):
+        if gi in rejected_ids:  # rejected by the full replay: not in the statistics either
+            continue
         b = first_think(g)
         aft = None
         for ply, fen, mv, el, bmv in per_game[gi]:
-            covered = (bmv != "-" and bmv == mv and el) or (fen in pins and pins[fen][0] == mv)
+            # covered: the engine consults its book here (el) and r11 plays the game's move (existing entry or pin)
+            covered = el and ((bmv != "-" and bmv == mv) or (fen in pins and pins[fen][0] == mv))
             if not covered:
                 aft = ply
                 break
@@ -156,10 +160,13 @@ def main():
                 bank_b = 0.5 * (len(own_b) + 1) - used
                 own_a = [i for i in range(g["nopen"], aft) if (i % 2 == 0) == (g["col"] == "B")]
                 bank_a = 0.5 * (len(own_a) + 1)
-                examples.append(f"- {g['run']} round {g['round'] if 'round' in g else g['rnd']} ({g['ballot']}, Regicide {g['col']}): first own "
-                                f"search at ply {b} with {bank_b:.1f} s banked (maxtime {0.5 + (bank_b - 0.5) / 2.5:.2f} s); with "
-                                f"the pins at ply {aft} with {bank_a:.1f} s banked (maxtime {0.5 + (bank_a - 0.5) / 2.5:.2f} s)")
-    md += ["", f"**Coverage of the old line** (not the first search under r11): first own non-book move in the old game "
+                examples.append(f"- {g['run']} round {g['rnd']} ({g['ballot']}, Regicide {g['col']}): first own "
+                                f"non-book move of the old game at ply {b} with {bank_b:.1f} s banked (maxtime "
+                                f"{0.5 + (bank_b - 0.5) / 2.5:.2f} s); first ply of the old line not covered by r11 at "
+                                f"ply {aft}, {bank_a:.1f} s banked if every covered move is instant (maxtime "
+                                f"{0.5 + (bank_a - 0.5) / 2.5:.2f} s)")
+    md += ["", f"**Coverage of the old line** (not r11's first own search, which only the r11 validation games show): "
+           f"first own non-book move in the old game "
            f"mean ply {statistics.mean(before):.1f} (median {statistics.median(before):.0f}); first ply of the old game "
            f"not covered by r11 with the old game's move: mean {statistics.mean(after):.1f} (median "
            f"{statistics.median(after):.0f}), over {len(before)} games. Where the pin differs from the old game's move, r11 "

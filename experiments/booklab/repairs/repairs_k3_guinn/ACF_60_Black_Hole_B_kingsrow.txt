@@ -1,0 +1,33 @@
+# game 437 regicide-match/results/bl-k3-kingsrow-b-h1/games.pdn: ACF #60 Black Hole (/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:52: 10-14 22-17 9-13), regicide as B, result W, opponent guinn
+#   ply 4 6x15: guinn -
+#   ply 6 15-19: guinn -
+#   ply 8 11x18x25: guinn -
+#   ply 10 7-11: guinn -
+#   ply 12 2-6: guinn -
+#   ply 14 6-10: guinn -
+#   ply 16 11-16: guinn -
+#   ply 18 16-20: guinn -
+#   ply 20 5-9: guinn -
+#   ply 22 1-6: guinn -
+#   ply 24 10x19: guinn -
+#   ply 26 3-7: guinn -
+#   ply 28 7-10: guinn -
+#   ply 30 10-14: guinn -
+#   ply 32 8-11: guinn -
+#   ply 34 4x11: guinn -
+#   ply 36 11-16: guinn -
+#   ply 38 13-17: guinn -
+#   ply 40 6-10: guinn -
+#   ply 42 9-13: guinn -
+#   ply 44 17-22: guinn -
+#   ply 46 13x22: guinn -
+#   ply 48 22-26: guinn -
+#   ply 50 26-31: guinn -
+#   ply 52 31x24: guinn -
+#   ply 54 24-27: guinn -
+#   ply 56 16-19: guinn -
+#   ply 58 12-16: guinn -
+#   ply 60 19-23: guinn -
+#   ply 62 23-26: guinn -
+#   ply 64 20-24: guinn -
+# no deviation from guinn's non-losing moves within 60 plies after the ballot

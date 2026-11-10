@@ -1,0 +1,33 @@
+# game 456 regicide-match/results/bl-k3-kingsrow-b-h1/games.pdn: ACF #71 Diabolical Denny (/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:63: 10-14 23-19 7-10), regicide as B, result W, opponent kingsrow
+#   ply 4 10x19: kingsrow 10x19 2x 0/1/1
+#   ply 6 11x18: kingsrow 11x18 2x 0/1/1
+#   ply 8 14-18: kingsrow 2-7 2x 0/1/1
+#   ply 10 9-14: kingsrow -
+#   ply 12 2-7: kingsrow -
+#   ply 14 7-10: kingsrow -
+#   ply 16 8-11: kingsrow -
+#   ply 18 4x11: kingsrow -
+#   ply 20 10x19: kingsrow -
+#   ply 22 3x10: kingsrow -
+#   ply 24 10-15: kingsrow -
+#   ply 26 14x21: kingsrow -
+#   ply 28 12-16: kingsrow -
+#   ply 30 6-9: kingsrow -
+#   ply 32 15-19: kingsrow -
+#   ply 34 9-14: kingsrow -
+#   ply 36 16-20: kingsrow -
+#   ply 38 14-18: kingsrow -
+#   ply 40 19-23: kingsrow -
+#   ply 42 18-22: kingsrow -
+#   ply 44 5-9: kingsrow -
+#   ply 46 1x10: kingsrow -
+#   ply 48 22-26: kingsrow -
+#   ply 50 10-14: kingsrow -
+#   ply 52 14-17: kingsrow -
+#   ply 54 17-22: kingsrow -
+#   ply 56 26-30: kingsrow -
+#   ply 58 30-26: kingsrow -
+#   ply 60 21-25: kingsrow -
+#   ply 62 26-31: kingsrow -
+#   ply 64 31-26: kingsrow -
+# no deviation from kingsrow's non-losing moves within 60 plies after the ballot

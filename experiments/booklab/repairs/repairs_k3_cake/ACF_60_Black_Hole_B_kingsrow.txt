@@ -1,0 +1,33 @@
+# game 437 regicide-match/results/bl-k3-kingsrow-b-h1/games.pdn: ACF #60 Black Hole (/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:52: 10-14 22-17 9-13), regicide as B, result W, opponent cake
+#   ply 4 6x15: cake -
+#   ply 6 15-19: cake -
+#   ply 8 11x18x25: cake -
+#   ply 10 7-11: cake -
+#   ply 12 2-6: cake -
+#   ply 14 6-10: cake -
+#   ply 16 11-16: cake -
+#   ply 18 16-20: cake -
+#   ply 20 5-9: cake -
+#   ply 22 1-6: cake -
+#   ply 24 10x19: cake -
+#   ply 26 3-7: cake -
+#   ply 28 7-10: cake -
+#   ply 30 10-14: cake -
+#   ply 32 8-11: cake -
+#   ply 34 4x11: cake -
+#   ply 36 11-16: cake -
+#   ply 38 13-17: cake -
+#   ply 40 6-10: cake -
+#   ply 42 9-13: cake -
+#   ply 44 17-22: cake -
+#   ply 46 13x22: cake -
+#   ply 48 22-26: cake -
+#   ply 50 26-31: cake -
+#   ply 52 31x24: cake -
+#   ply 54 24-27: cake -
+#   ply 56 16-19: cake -
+#   ply 58 12-16: cake -
+#   ply 60 19-23: cake -
+#   ply 62 23-26: cake -
+#   ply 64 20-24: cake -
+# no deviation from cake's non-losing moves within 60 plies after the ballot

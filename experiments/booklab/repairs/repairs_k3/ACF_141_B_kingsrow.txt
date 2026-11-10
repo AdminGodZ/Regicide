@@ -1,0 +1,25 @@
+# game 264 regicide-match/results/bl-k3-kingsrow-a-h2/games.pdn: ACF #141 (/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:49: 11-16 22-17 9-13), regicide as B, result W, opponent kingsrow
+#   ply 4 10x17: kingsrow 10x17 4x 0/4/0
+# DEVIATION ply 6 (3 after the ballot): regicide played 16-20; kingsrow: 6-9 4x w/d/l 0/4/0
+#   FEN B:W14,23,24,25,26,27,28,29,30,31,32:B1,2,3,4,5,6,7,8,12,13,16
+# kingsrow's defence: 4 non-lost games from the deviation position, 20 positions of our side within 40 plies (stop at <= 8 pieces)
+B:W14,23,24,25,26,27,28,29,30,31,32:B1,2,3,4,5,6,7,8,12,13,16 | 6-9 | force | ACF #141 regicide B ply 6: kingsrow defence: 6-9 in 4 of 4 non-lost kingsrow games from here (theory 4x w/d/l 0/4/0); regicide played 16-20 here and lost (gid 264, bl-k3-kingsrow-a-h2)
+B:W14,21,23,24,26,27,28,29,30,31,32:B1,2,3,4,5,7,8,9,12,13,16 | 9x18 | force | ACF #141 regicide B ply 8: kingsrow defence: 9x18 in 4 of 4 non-lost kingsrow games from here (theory 4x w/d/l 0/4/0)
+B:W14,21,24,26,27,28,29,30,31,32:B1,2,3,4,5,7,8,12,13,16 | 8-11 | force | ACF #141 regicide B ply 10: kingsrow defence: 8-11 in 4 of 4 non-lost kingsrow games from here (theory 4x w/d/l 0/4/0)
+B:W14,21,24,25,26,27,28,30,31,32:B1,2,3,4,5,7,11,12,13,16 | 11-15 | force | ACF #141 regicide B ply 12: kingsrow defence: 11-15 in 4 of 4 non-lost kingsrow games from here (theory 4x w/d/l 0/4/0)
+B:W14,19,21,25,26,27,28,30,31,32:B1,2,3,4,5,7,12,13,15,16 | 15x24 | force | ACF #141 regicide B ply 14: kingsrow defence: 15x24 in 4 of 4 non-lost kingsrow games from here (theory 4x w/d/l 0/4/0)
+B:W11,14,21,25,26,28,30,31,32:B1,2,3,4,5,7,12,13 | 7x16 | force | ACF #141 regicide B ply 16: kingsrow defence: 7x16 in 4 of 4 non-lost kingsrow games from here (theory 4x w/d/l 0/4/0)
+B:W14,21,22,26,28,30,31,32:B1,2,3,4,5,12,13,16 | 4-8 | force | ACF #141 regicide B ply 18: kingsrow defence: 4-8 in 4 of 4 non-lost kingsrow games from here (theory 4x w/d/l 0/4/0)
+B:W14,18,21,26,28,30,31,32:B1,2,3,5,8,12,13,16 | 1-6 | force | ACF #141 regicide B ply 20: kingsrow defence: 1-6 in 4 of 4 non-lost kingsrow games from here (theory 4x w/d/l 0/4/0)
+B:W14,18,21,24,26,30,31,32:B2,3,5,6,8,12,13,16 | 8-11 | force | ACF #141 regicide B ply 22: kingsrow defence: 8-11 in 4 of 4 non-lost kingsrow games from here (theory 4x w/d/l 0/4/0)
+B:W14,18,21,23,24,30,31,32:B2,3,5,6,11,12,13,16 | 16-20 | force | ACF #141 regicide B ply 24: kingsrow defence: 16-20 in 4 of 4 non-lost kingsrow games from here (theory 4x w/d/l 0/4/0)
+B:W14,18,19,21,23,30,31,32:B2,3,5,6,11,12,13,20 | 6-9 | force | ACF #141 regicide B ply 26: kingsrow defence: 6-9 in 4 of 4 non-lost kingsrow games from here (theory 4x w/d/l 0/4/0)
+B:W14,15,18,21,23,30,31,32:B2,3,5,9,11,12,13,20 | 11-16 | force | ACF #141 regicide B ply 28: kingsrow defence: 11-16 in 4 of 4 non-lost kingsrow games from here (theory 4x w/d/l 0/4/0)
+B:W10,14,18,21,23,30,31,32:B2,3,5,9,12,13,16,20 | 13-17 | force | ACF #141 regicide B ply 30: kingsrow defence: 13-17 in 4 of 4 non-lost kingsrow games from here (theory 4x w/d/l 0/4/0)
+B:W6,14,18,21,23,30,31,32:B2,3,5,9,12,16,17,20 | 16-19 | force | ACF #141 regicide B ply 32: kingsrow defence: 16-19 in 4 of 4 non-lost kingsrow games from here (theory 4x w/d/l 0/4/0)
+B:W6,14,16,18,21,30,31,32:B2,3,5,9,12,17,20 | 12x19 | force | ACF #141 regicide B ply 34: kingsrow defence: 12x19 in 4 of 4 non-lost kingsrow games from here (theory 4x w/d/l 0/4/0)
+B:WK1,14,18,21,30,31,32:B2,3,5,9,17,19,20 | 9-13 | force | ACF #141 regicide B ply 36: kingsrow defence: 9-13 in 4 of 4 non-lost kingsrow games from here (theory 4x w/d/l 0/4/0)
+B:WK1,14,15,21,30,31,32:B2,3,5,13,17,19,20 | 17-22 | force | ACF #141 regicide B ply 38: kingsrow defence: 17-22 in 4 of 4 non-lost kingsrow games from here (theory 4x w/d/l 0/4/0)
+B:WK1,10,15,21,30,31,32:B2,3,5,13,19,20,22 | 2-6 | force | ACF #141 regicide B ply 40: kingsrow defence: 2-6 in 4 of 4 non-lost kingsrow games from here (theory 4x w/d/l 0/4/0)
+B:WK1,7,15,21,30,31,32:B3,5,6,13,19,20,22 | 3x10 | force | ACF #141 regicide B ply 42: kingsrow defence: 3x10 in 4 of 4 non-lost kingsrow games from here (theory 4x w/d/l 0/4/0)
+B:WK1,11,21,30,31,32:B5,6,10,13,19,20,22 | 22-25 | force | ACF #141 regicide B ply 44: kingsrow defence: 22-25 in 4 of 4 non-lost kingsrow games from here (theory 4x w/d/l 0/4/0)

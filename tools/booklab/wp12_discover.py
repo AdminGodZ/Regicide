@@ -1,24 +1,27 @@
 #!/usr/bin/env python3
 """WP12 stage 1 (discovery): one full game from the ballot per candidate against Cake 1.89f.
 
-  wp12_discover.py --candidates candidates.tsv --first N [--parallel 8] [--per-lock 48] --out DIR
+  wp12_discover.py --candidates DIR/candidates.tsv --first N [--parallel 8] [--per-lock 48] --out DIR
+  env MATCH (runner), CBHOST (cbhost.exe path): default the PR #49 builds (bin/match-pr49, bin/pr49/cbhost.exe)
 
-Candidates in rank order (candidates.tsv of wp12_select.py; rank 0 = w30/w31). For each: the candidate DLL
-(wp12_dll.sh: bl-456e9b2-r11 with one book key changed, nothing else), a one-line deck "| ballot moves | A=colour"
-(the colour of the line the point came from), and one game with the WP10 settings (match-cur, the current runner,
---allow-rejected-options; 0.5 s/move CheckerBoard banking; hash 128, one thread; Cake with its book, the KingsRow
-2-8 WLD database, hash 128). Up to PARALLEL single-game matches run at once (the load of one -c 8 match); the
-machine-wide timing lock is held for at most PER_LOCK games at a time (about 15 minutes), then released.
+Candidates in rank order (wp12_select.py; rank 0 = the known position). For each: the candidate DLL (wp12_dll.sh:
+bl-456e9b2-r11 with one book key changed, nothing else), a one-line deck "| ballot moves | A=colour" (the ballot and
+colour of the Cake game the point came from), and one game: 0.5 s/move CheckerBoard banking, hash 128, one thread,
+`set book 3` for both engines (read back before every chunk, with each chunk's first candidate DLL and Cake), Cake with
+its book and the KingsRow 2-8 WLD database. Up to PARALLEL single-game matches at once (the load of one -c 8 match);
+the timing lock is held for at most PER_LOCK games at a time. Before each chunk Windows free commit must be >= 14 GB
+(else the WSL page cache is dropped, as in bl_run_w.sh).
 
-Every game is analysed with booklab_pinwalk on the candidate book: was the changed key reached with Regicide to
-move, was the book consulted there (eligible), and was the alternative played (= consulted). Result from
-Regicide's view; a win counts for nomination only if the key was consulted and the game ended on the board (not by
-forfeit, illegal move, time or crash: the PDN termination/result tags and the match log are recorded).
-Output: DIR/discovery.tsv (one row per attempted candidate, appended; a restart skips ranks already there).
+Ledger (DIR/discovery.tsv) is bound to the candidate list: its first line holds the SHA-256 of candidates.tsv, and a
+resume with a different list stops. A game is entered in the ledger only after a complete analysis (booklab_pinwalk
+on the candidate book: was the changed key reached with Regicide to move, consulted, and the alternative played);
+if the analysis fails the game is written to DIR/quarantine.tsv and analysed again at the next start (review M1),
+never marked done. A win nominates the candidate only if the key was consulted and the game ended on the board (no
+crash, time-out, illegal move or engine that did not start).
 """
 import argparse
 import fcntl
-import gzip
+import hashlib
 import os
 import subprocess
 import sys
@@ -30,19 +33,27 @@ from theory import parse_pdn, family, ballot_of  # noqa: E402
 HOME = os.path.expanduser("~")
 L = f"{HOME}/regicide-jobs/booklab"
 TOOLS = os.path.dirname(os.path.abspath(__file__))
-MATCH = f"{L}/bin/match-cur"
-CB = "/mnt/c/regicide-match/bin/b71dfa9/cbhost.exe"
+MATCH = os.environ.get("MATCH", f"{L}/bin/match-pr49")
+CB = os.environ.get("CBHOST", f"{L}/bin/pr49/cbhost.exe")
 E = r"C:\regicide-match\engines"
 DB8 = r"C:\regicide-match\db\kingsrow_wld8"
 RESULTS = f"{HOME}/regicide-match/results"
 LOCK = f"{HOME}/regicide-jobs/locks/timing.lock"
 PINWALK = f"{HOME}/regicide-booklab/build-linux/booklab_pinwalk"
 EGDB = f"{HOME}/regicide-data/egdb"
+PROBE = f"{TOOLS}/book_probe.py"
+PS = "/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe"
+OFF_BOARD = ("crashed", "did not start", "timed out", "illegal", "protocol error", "forfeit", "time loss")
+CAKE_OPTS = [f"set dbpath {DB8}", "set enable_wld 1", "set dbmbytes 512", "set max_dbpieces 8", "set hashsize 128"]
 
 
 def st(msg):
     with open(f"{L}/status", "a") as f:
         f.write(f"{msg} {time.strftime('%Y-%m-%dT%H:%M:%S%z')}\n")
+
+
+def sha(path):
+    return hashlib.sha256(open(path, "rb").read()).hexdigest()
 
 
 def ballot_moves(run, rnd):
@@ -52,43 +63,79 @@ def ballot_moves(run, rnd):
     raise KeyError((run, rnd))
 
 
+def dll(name):
+    return f"{E}\\regicide\\bl-w12-{name}\\regicide_cb.dll"
+
+
 def match_cmd(name, deck, out):
-    a = f'exec:{CB} "{E}\\regicide\\bl-w12-{name}\\regicide_cb.dll"'
-    b = f'exec:{CB} "{E}\\cake\\cake_189f.dll"'
-    opts = ["--option-a", "set hashsize 128", "--option-a", "set threads 1"]
-    for o in (f"set dbpath {DB8}", "set enable_wld 1", "set dbmbytes 512", "set max_dbpieces 8", "set hashsize 128"):
+    opts = ["--option-a", "set hashsize 128", "--option-a", "set threads 1", "--option-a", "set book 3"]
+    for o in CAKE_OPTS + ["set book 3"]:
         opts += ["--option-b", o]
-    return [MATCH, "--allow-rejected-options", "-a", a, "-b", b] + opts + [
+    return [MATCH, "--allow-rejected-options", "-a", f'exec:{CB} "{dll(name)}"',
+            "-b", f'exec:{CB} "{E}\\cake\\cake_189f.dll"'] + opts + [
         "--openings", deck, "--movetime", "0.5", "-c", "1", "--pdn-comments", "-o", out]
 
 
+def readback(dllpath, opts):
+    args = ["python3", PROBE, "--cbhost", CB, "--dll", dllpath, "--book", "3", "--readback-only"]
+    for o in opts:
+        args += ["--opt", o]
+    r = subprocess.run(args, capture_output=True, text=True)
+    return r.returncode == 0, r.stdout.strip()
+
+
+def commit_free():
+    r = subprocess.run([PS, "-NoProfile", "-Command",
+                        "[math]::Round((Get-CimInstance Win32_OperatingSystem).FreeVirtualMemory/1MB,1)"],
+                       capture_output=True, text=True)
+    try:
+        return float(r.stdout.strip())
+    except ValueError:
+        return -1.0
+
+
+def ensure_memory(minimum=14.0):
+    c, t, text = commit_free(), 0, ""
+    text = f"commit free {c} GB"
+    while c < minimum and t < 600:
+        subprocess.run(["/mnt/c/Windows/System32/wsl.exe", "-u", "root", "--", "sh", "-c",
+                        "sync; echo 1 > /proc/sys/vm/drop_caches"], capture_output=True)
+        time.sleep(30)
+        t += 30
+        c = commit_free()
+        text += f"; page cache dropped, {c} GB after {t} s"
+    return text
+
+
 def analyse(c, out):
-    pdn = open(f"{out}/games.pdn", errors="replace").read()
-    games = parse_pdn(pdn)
+    """Full analysis or an exception (the caller quarantines)."""
+    games = list(parse_pdn(open(f"{out}/games.pdn", errors="replace").read()))
     if len(games) != 1:
-        return dict(result="?", reached=0, consulted=0, plies=0, term=f"{len(games)} games", off_board=True)
+        raise ValueError(f"{len(games)} games in {out}")
     tags, moves = games[0]
     col = "B" if family(tags["Black"]) == "regicide" else "W"
+    if col != c["colour"]:
+        raise ValueError(f"Regicide played {col}, the candidate is for {c['colour']}")
     res = tags.get("Result", "").strip()
-    r = {"1-0": "W" if col == "B" else "L", "0-1": "W" if col == "W" else "L", "1/2-1/2": "D"}.get(res, "?")
+    r = {"1-0": "W" if col == "B" else "L", "0-1": "W" if col == "W" else "L", "1/2-1/2": "D"}.get(res)
+    if r is None:
+        raise ValueError(f"no final result ({res!r})")
     nopen = ballot_of(tags["Opening"])[2]
     line = f"0\t{tags.get('FEN', '')}\t{col}\t{nopen}\t{' '.join(m for m, _ in moves)}\n"
     pw = subprocess.run([PINWALK, f"{L}/wp12/books/{c['name']}.bin", EGDB], input=line, capture_output=True,
-                        text=True).stdout
+                        text=True, check=True).stdout
+    if not pw.strip() or "\tERR\t" in pw:
+        raise ValueError(f"pinwalk: {pw.strip()[:200]}")
     reached = consulted = 0
     for l in pw.splitlines():
         f = l.split("\t")
-        if len(f) >= 6 and f[2] == c["fen"]:
+        if f[2] == c["fen"]:
             reached = 1
-            if f[4] == "1" and f[3] == c["alt"]:
-                consulted = 1
+            consulted |= int(f[4] == "1" and f[3] == c["alt"])
     tag = tags.get("Termination", "")
-    logp = f"{out}/../{os.path.basename(out)}.log"
-    log = open(logp, errors="replace").read() if os.path.exists(logp) else ""
-    flags = [k for k in ("forfeit", "illegal", "crash", "timeout", "time loss", "adjudicat")
-             if k in (tag + " " + log).lower()]
-    return dict(result=r, reached=reached, consulted=consulted, plies=len(moves), colour=col,
-                term=(tag or "-") + ("; NOT ON THE BOARD: " + ",".join(flags) if flags else ""), off_board=bool(flags))
+    flags = [k for k in OFF_BOARD if k in tag.lower()]
+    return dict(result=r, reached=reached, consulted=consulted, plies=len(moves),
+                term=(tag or "-") + ("; NOT ON THE BOARD" if flags else ""), off_board=bool(flags))
 
 
 def main():
@@ -100,8 +147,11 @@ def main():
     ap.add_argument("--out", required=True)
     a = ap.parse_args()
     os.makedirs(a.out, exist_ok=True)
+    csha = sha(a.candidates)
     hdr, cands = None, []
     for l in open(a.candidates):
+        if l.startswith("#"):
+            continue
         f = l.rstrip("\n").split("\t")
         if hdr is None:
             hdr = f
@@ -109,36 +159,66 @@ def main():
         c = dict(zip(hdr, f))
         if int(c["rank"]) >= a.first:
             continue
-        if c["arm"].startswith("w30/w31") and "fails" in c["arm"]:
-            pass  # its own arm: still played (protocol: "as its own arm if it fails the margin"), reported apart
         c["name"] = f"c{int(c['rank']):03d}"
-        c["fen"], c["alt"] = c["fen"], c["alternative"]
+        c["alt"] = c["alternative"]
+        c["outdir"] = f"{RESULTS}/bl-w12-d-{c['name']}"
         cands.append(c)
-    tsv = f"{a.out}/discovery.tsv"
-    done = set()
+    tsv, qtsv = f"{a.out}/discovery.tsv", f"{a.out}/quarantine.tsv"
     if os.path.exists(tsv):
-        done = {l.split("\t")[0] for l in open(tsv)}
+        first = open(tsv).readline().strip()
+        if first != f"# candidates sha256 {csha}":
+            sys.exit(f"ledger {tsv} belongs to another candidate list ({first}); use a new --out")
     else:
         with open(tsv, "w") as fo:
+            fo.write(f"# candidates sha256 {csha}\n")
             fo.write("rank\tarm\tpoint\tballot\tcolour\tply\tpinned\talternative\tresult\treached\tconsulted\tplies\t"
                      "termination\tnominated\tresults_dir\n")
+    done = {l.split("\t")[0] for l in open(tsv) if not l.startswith("#")}
+
+    def record(chunk):
+        quarantined = []
+        with open(tsv, "a") as fo:
+            for c in chunk:
+                try:
+                    r = analyse(c, c["outdir"])
+                except Exception as ex:  # noqa: BLE001
+                    quarantined.append(f"{c['rank']}\t{c['outdir']}\t{type(ex).__name__}: {ex}\t"
+                                       f"{time.strftime('%Y-%m-%dT%H:%M:%S')}")
+                    continue
+                nom = int(r["result"] == "W" and r["consulted"] == 1 and not r["off_board"])
+                fo.write(f"{c['rank']}\t{c['arm']}\t{c['point']}\t{c['ballot']}\t{c['colour']}\t{c['ply']}\t"
+                         f"{c['pinned']}\t{c['alt']}\t{r['result']}\t{r['reached']}\t{r['consulted']}\t{r['plies']}\t"
+                         f"{r['term']}\t{nom}\t{c['outdir']}\n")
+                done.add(c["rank"])
+        if quarantined:
+            with open(qtsv, "a") as fo:
+                fo.write("\n".join(quarantined) + "\n")
+            st(f"W12 quarantined {len(quarantined)} games (analysis failed; see {qtsv})")
+
+    # games played before but not analysed (quarantined, or interrupted after play): analyse again, do not replay
+    record([c for c in cands if c["rank"] not in done and os.path.exists(f"{c['outdir']}/games.pdn")
+            and os.path.exists(f"{c['outdir']}/summary.txt")])
     todo = [c for c in cands if c["rank"] not in done]
     print(f"{len(todo)} candidates to play", flush=True)
     while todo:
         chunk, todo = todo[:a.per_lock], todo[a.per_lock:]
-        # build the DLLs and decks before taking the lock
-        for c in chunk:
+        for c in chunk:  # DLLs and decks before taking the lock
             subprocess.run(["bash", f"{TOOLS}/wp12_dll.sh", c["name"], c["fen"], c["alt"]], check=True,
                            stdout=subprocess.DEVNULL)
-            bm = ballot_moves(c["run"], c["round"])
             c["deck"] = f"{a.out}/{c['name']}.txt"
             with open(c["deck"], "w") as fo:
-                fo.write(f"| {bm} | A={c['colour']}\n")
-            c["outdir"] = f"{RESULTS}/bl-w12-d-{c['name']}"
-        st(f"BL wait-lock w12-discovery {chunk[0]['name']}..{chunk[-1]['name']} ({len(chunk)} single games vs cake)")
+                fo.write(f"| {ballot_moves(c['run'], c['round'])} | A={c['colour']}\n")
+        ok_a, ra = readback(dll(chunk[0]["name"]), ["set hashsize 128", "set threads 1"])
+        ok_b, rb = readback(f"{E}\\cake\\cake_189f.dll", CAKE_OPTS)
+        if not (ok_a and ok_b):
+            st(f"W12 refused: book read-back differs: A {ra}; B {rb}")
+            sys.exit(3)
+        names = f"{chunk[0]['name']}..{chunk[-1]['name']}"
+        st(f"BL wait-lock w12-discovery {names} ({len(chunk)} single games vs cake)")
         with open(LOCK, "w") as lk:
             fcntl.flock(lk, fcntl.LOCK_EX)
-            st(f"BL start w12-discovery {chunk[0]['name']}..{chunk[-1]['name']}")
+            mem = ensure_memory()
+            st(f"BL start w12-discovery {names}; A {ra}; B {rb}; {mem}; runner {MATCH}; host {CB}")
             queue, running = list(chunk), []
             while queue or running:
                 while queue and len(running) < a.parallel:
@@ -155,19 +235,9 @@ def main():
                         running.remove((p, c, logf))
                         c["rc"] = p.returncode
             fcntl.flock(lk, fcntl.LOCK_UN)
-        st(f"BL end w12-discovery {chunk[0]['name']}..{chunk[-1]['name']}")
-        with open(tsv, "a") as fo:
-            for c in chunk:
-                try:
-                    r = analyse(c, c["outdir"])
-                except Exception as ex:  # noqa: BLE001
-                    r = dict(result="?", reached=0, consulted=0, plies=0, term=f"error {ex} rc={c.get('rc')}",
-                             off_board=True)
-                nom = int(r["result"] == "W" and r["consulted"] == 1 and not r.get("off_board", True))
-                fo.write(f"{c['rank']}\t{c['arm']}\t{c['point']}\t{c['ballot']}\t{c['colour']}\t{c['ply']}\t"
-                         f"{c['pinned']}\t{c['alt']}\t{r['result']}\t{r['reached']}\t{r['consulted']}\t{r['plies']}\t"
-                         f"{r['term']}\t{nom}\t{c['outdir']}\n")
-        print(f"chunk done: {chunk[0]['name']}..{chunk[-1]['name']}", flush=True)
+        st(f"BL end w12-discovery {names}")
+        record(chunk)
+        print(f"chunk done: {names}", flush=True)
 
 
 if __name__ == "__main__":

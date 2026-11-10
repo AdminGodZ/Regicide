@@ -1,0 +1,21 @@
+game,pair,opening,black,white,result,score_a,termination,engine_plies
+6,3,"/home/admingod/regicide-jobs/booklab/acct_deck.txt:3","GuiNN Checkers 2.06 avx2","Regicide 0.2",1/2-1/2,0.5,"repetition",69
+8,4,"/home/admingod/regicide-jobs/booklab/acct_deck.txt:4","GuiNN Checkers 2.06 avx2","Regicide 0.2",1/2-1/2,0.5,"repetition",67
+3,2,"/home/admingod/regicide-jobs/booklab/acct_deck.txt:2","Regicide 0.2","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",62
+2,1,"/home/admingod/regicide-jobs/booklab/acct_deck.txt:1","GuiNN Checkers 2.06 avx2","Regicide 0.2",1/2-1/2,0.5,"repetition",83
+5,3,"/home/admingod/regicide-jobs/booklab/acct_deck.txt:3","Regicide 0.2","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",86
+7,4,"/home/admingod/regicide-jobs/booklab/acct_deck.txt:4","Regicide 0.2","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",104
+1,1,"/home/admingod/regicide-jobs/booklab/acct_deck.txt:1","Regicide 0.2","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",75
+4,2,"/home/admingod/regicide-jobs/booklab/acct_deck.txt:2","GuiNN Checkers 2.06 avx2","Regicide 0.2",1/2-1/2,0.5,"repetition",85
+11,6,"/home/admingod/regicide-jobs/booklab/acct_deck.txt:6","Regicide 0.2","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",109
+9,5,"/home/admingod/regicide-jobs/booklab/acct_deck.txt:5","Regicide 0.2","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",89
+14,7,"/home/admingod/regicide-jobs/booklab/acct_deck.txt:7","GuiNN Checkers 2.06 avx2","Regicide 0.2",1/2-1/2,0.5,"repetition",76
+15,8,"/home/admingod/regicide-jobs/booklab/acct_deck.txt:8","Regicide 0.2","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",57
+19,10,"/home/admingod/regicide-jobs/booklab/acct_deck.txt:10","Regicide 0.2","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",74
+17,9,"/home/admingod/regicide-jobs/booklab/acct_deck.txt:9","Regicide 0.2","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",112
+10,5,"/home/admingod/regicide-jobs/booklab/acct_deck.txt:5","GuiNN Checkers 2.06 avx2","Regicide 0.2",0-1,1,"no legal moves",133
+20,10,"/home/admingod/regicide-jobs/booklab/acct_deck.txt:10","GuiNN Checkers 2.06 avx2","Regicide 0.2",1/2-1/2,0.5,"repetition",81
+16,8,"/home/admingod/regicide-jobs/booklab/acct_deck.txt:8","GuiNN Checkers 2.06 avx2","Regicide 0.2",0-1,1,"no legal moves",135
+13,7,"/home/admingod/regicide-jobs/booklab/acct_deck.txt:7","Regicide 0.2","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",161
+18,9,"/home/admingod/regicide-jobs/booklab/acct_deck.txt:9","GuiNN Checkers 2.06 avx2","Regicide 0.2",0-1,1,"no legal moves",175
+12,6,"/home/admingod/regicide-jobs/booklab/acct_deck.txt:6","GuiNN Checkers 2.06 avx2","Regicide 0.2",0-1,1,"no legal moves",205

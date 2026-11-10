@@ -442,3 +442,17 @@ BL skip k3-kingsrow-b-h1 2026-11-10T20:48:29+01:00
 BL skip k3-kingsrow-b-h2 2026-11-10T20:48:29+01:00
 K3 replay check done 2026-11-10T20:48:29+01:00
 BL start acct-cake (20 games behind cbshim) 2026-11-10T20:48:29+01:00
+BL end acct-cake rc=0 Games: 20 of 20 scheduled A: +0 =20 -0   score 10.0/20 = 50.00%   draw rate 100.0% 2026-11-10T20:49:51+01:00
+BL start acct-kingsrow (20 games behind cbshim) 2026-11-10T20:49:51+01:00
+BL end acct-kingsrow rc=0 Games: 20 of 20 scheduled A: +0 =20 -0   score 10.0/20 = 50.00%   draw rate 100.0% 2026-11-10T20:50:58+01:00
+BL start acct-guinn (20 games behind cbshim) 2026-11-10T20:50:58+01:00
+BL start kr-defence probe 2026-11-10T20:52:43+01:00
+BL end acct-guinn rc=0 Games: 20 of 20 scheduled A: +4 =16 -0   score 12.0/20 = 60.00%   draw rate 80.0% 2026-11-10T20:52:43+01:00
+ACCT done 2026-11-10T20:52:43+01:00
+WP10 block 4 start (E EB) 2026-11-10T20:52:43+01:00
+BL wait-lock w10-b4-E-cake-H2x_0 regicide:bl-456e9b2-deep2b vs cake deck /home/admingod/regicide-jobs/booklab/wp10/parts/H2x_0.txt mt 0.5 c 8 2026-11-10T20:52:45+01:00
+BL end kr-defence probe 2026-11-10T20:53:05+01:00
+BL start w10-b4-E-cake-H2x_0 regicide:bl-456e9b2-deep2b vs cake; A: book read-back: 'reply 1 3' (ok) B: book read-back: 'reply 1 3' (ok); commit free 23.8 GB; bg: datagen-eb1037c:T bash:T datagen-tr5:T bash:S datagen-tr6:S  2026-11-10T20:53:06+01:00
+BL end w10-b4-E-cake-H2x_0 rc=0 Games: 156 of 156 scheduled A: +13 =122 -21   score 74.0/156 = 47.44%   draw rate 78.2% Elo (pentanomial, pairs): -17.8 [-31.1, -4.6] 95% CI, score 0.4744 +- 0.0190, LOS 0.41% 2026-11-10T21:01:12+01:00
+BL wait-lock w10-b4-EB-cake-H2x_0 regicide:bl-456e9b2-r10 vs cake deck /home/admingod/regicide-jobs/booklab/wp10/parts/H2x_0.txt mt 0.5 c 8 2026-11-10T21:01:14+01:00
+BL start w10-b4-EB-cake-H2x_0 regicide:bl-456e9b2-r10 vs cake; A: book read-back: 'reply 1 3' (ok) B: book read-back: 'reply 1 3' (ok); commit free 23.6 GB; bg: datagen-eb1037c:T bash:S datagen-tr5:S bash:S datagen-tr6:S  2026-11-10T21:01:14+01:00

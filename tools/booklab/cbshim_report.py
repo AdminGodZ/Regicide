@@ -43,9 +43,17 @@ def stats(xs):
 
 
 def main():
-    acct, runs = sys.argv[1], sys.argv[2:]
+    # optional --rate R: Windows seconds per WSL monotonic second (the shim and the runner time with the WSL clock;
+    # on Win11-AdminGod 2026-11-10 the WSL clocksource tsc ran 7.9 % slow against Windows QPC: R = 1.0788)
+    args = sys.argv[1:]
+    rate = 1.0
+    if args and args[0] == "--rate":
+        rate, args = float(args[1]), args[2:]
+    acct, runs = args[0], args[1:]
     names = {"cake": "Cake", "kingsrow": "KingsRow", "guinn": "GuiNN"}
     out = ["# Runner wall time minus host-reported getmove time, per move (old accounting)", "",
+           f"Shim intervals multiplied by {rate} (Windows seconds per WSL second) before the comparison." if rate != 1.0
+           else "Shim intervals in WSL seconds, uncorrected.", "",
            "Shim interval: from the runner's `go` line reaching the shim to the host's `bestmove` line leaving it "
            "(the runner's own clock adds one pipe hop on each side). Position interval: from the `position ...` "
            "line (with the game history) instead. Runner charge: the time in the PDN comment (2 decimals).", "",
@@ -57,7 +65,7 @@ def main():
             d = os.path.join(acct, opp, side)
             if not os.path.isdir(d):
                 continue
-            rows = shim_rows(d)
+            rows = [(w * rate, pw * rate, hs) for w, pw, hs in shim_rows(d)]
             per_engine.setdefault(eng, []).extend(rows)
             out.append(f"| {eng} (vs {names[opp]}) | {len(rows)} | {stats([r[0] - r[2] for r in rows])} | "
                        f"{stats([r[1] - r[2] for r in rows])} | {statistics.mean(r[2] for r in rows) * 1000:.0f} ms |")

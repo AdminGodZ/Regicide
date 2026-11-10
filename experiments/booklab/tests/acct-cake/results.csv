@@ -1,0 +1,21 @@
+game,pair,opening,black,white,result,score_a,termination,engine_plies
+6,3,"/home/admingod/regicide-jobs/booklab/acct_deck.txt:3","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",67
+1,1,"/home/admingod/regicide-jobs/booklab/acct_deck.txt:1","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",63
+8,4,"/home/admingod/regicide-jobs/booklab/acct_deck.txt:4","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",88
+3,2,"/home/admingod/regicide-jobs/booklab/acct_deck.txt:2","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",88
+4,2,"/home/admingod/regicide-jobs/booklab/acct_deck.txt:2","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",76
+2,1,"/home/admingod/regicide-jobs/booklab/acct_deck.txt:1","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",60
+5,3,"/home/admingod/regicide-jobs/booklab/acct_deck.txt:3","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",72
+7,4,"/home/admingod/regicide-jobs/booklab/acct_deck.txt:4","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",48
+13,7,"/home/admingod/regicide-jobs/booklab/acct_deck.txt:7","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",101
+14,7,"/home/admingod/regicide-jobs/booklab/acct_deck.txt:7","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",71
+9,5,"/home/admingod/regicide-jobs/booklab/acct_deck.txt:5","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",106
+10,5,"/home/admingod/regicide-jobs/booklab/acct_deck.txt:5","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",94
+11,6,"/home/admingod/regicide-jobs/booklab/acct_deck.txt:6","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",124
+12,6,"/home/admingod/regicide-jobs/booklab/acct_deck.txt:6","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",77
+20,10,"/home/admingod/regicide-jobs/booklab/acct_deck.txt:10","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",67
+19,10,"/home/admingod/regicide-jobs/booklab/acct_deck.txt:10","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",64
+16,8,"/home/admingod/regicide-jobs/booklab/acct_deck.txt:8","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",92
+18,9,"/home/admingod/regicide-jobs/booklab/acct_deck.txt:9","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",76
+17,9,"/home/admingod/regicide-jobs/booklab/acct_deck.txt:9","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",106
+15,8,"/home/admingod/regicide-jobs/booklab/acct_deck.txt:8","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",165

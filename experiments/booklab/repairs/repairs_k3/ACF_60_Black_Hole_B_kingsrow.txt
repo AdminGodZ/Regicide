@@ -1,0 +1,33 @@
+# game 437 regicide-match/results/bl-k3-kingsrow-b-h1/games.pdn: ACF #60 Black Hole (/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:52: 10-14 22-17 9-13), regicide as B, result W, opponent kingsrow
+#   ply 4 6x15: kingsrow 6x15 2x 0/2/0
+#   ply 6 15-19: kingsrow -
+#   ply 8 11x18x25: kingsrow -
+#   ply 10 7-11: kingsrow -
+#   ply 12 2-6: kingsrow -
+#   ply 14 6-10: kingsrow -
+#   ply 16 11-16: kingsrow -
+#   ply 18 16-20: kingsrow -
+#   ply 20 5-9: kingsrow -
+#   ply 22 1-6: kingsrow -
+#   ply 24 10x19: kingsrow -
+#   ply 26 3-7: kingsrow -
+#   ply 28 7-10: kingsrow -
+#   ply 30 10-14: kingsrow -
+#   ply 32 8-11: kingsrow -
+#   ply 34 4x11: kingsrow -
+#   ply 36 11-16: kingsrow -
+#   ply 38 13-17: kingsrow -
+#   ply 40 6-10: kingsrow -
+#   ply 42 9-13: kingsrow -
+#   ply 44 17-22: kingsrow -
+#   ply 46 13x22: kingsrow -
+#   ply 48 22-26: kingsrow -
+#   ply 50 26-31: kingsrow -
+#   ply 52 31x24: kingsrow -
+#   ply 54 24-27: kingsrow -
+#   ply 56 16-19: kingsrow -
+#   ply 58 12-16: kingsrow -
+#   ply 60 19-23: kingsrow -
+#   ply 62 23-26: kingsrow -
+#   ply 64 20-24: kingsrow -
+# no deviation from kingsrow's non-losing moves within 60 plies after the ballot

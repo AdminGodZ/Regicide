@@ -128,6 +128,7 @@ struct Search {
     std::vector<std::string> path{};
 
     bool dfs(const Position& p, int ply, int maxply) {
+        if (ply > maxply) return false;  // the horizon first: a ballot longer than the budget never reaches the target
         if (p.key() == target) return true;
         if (ply >= maxply) return false;
         if (++nodes > limit) {
@@ -205,7 +206,8 @@ int main(int argc, char** argv) {
             std::string why;
             const int maxply = std::stoi(f[3]);  // 0: no limit
             int wply = ply;                      // plies from the start position, the ballot included
-            for (std::string t; ws >> t;) {
+            if (maxply > 0 && wply > maxply) why = "the ballot alone is longer than the ply budget";
+            for (std::string t; why.empty() && ws >> t;) {
                 if (p.key() == target.key()) break;
                 if (maxply > 0 && wply >= maxply) { why = "witness longer than the ply budget"; break; }
                 Move m;
