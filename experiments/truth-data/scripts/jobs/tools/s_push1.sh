@@ -1,0 +1,2 @@
+T=~/regicide-truth/experiments/truth-data/scripts/jobs; cp /mnt/c/regicide-match/jobs/truth/*.sh $T/; cp /mnt/c/regicide-match/jobs/truth/tools/*.sh /mnt/c/regicide-match/jobs/truth/tools/*.py $T/tools/ 2>/dev/null
+cd ~/regicide-truth && bash /mnt/c/regicide-match/jobs/truth/tools/commit_push.sh "truth-data resume after the restarts: generators on the verified fixed binary (EXPECT_SHA, seeds 616/617), keepalive, yield group also stops while the timing lock is held" experiments/truth-data/scripts

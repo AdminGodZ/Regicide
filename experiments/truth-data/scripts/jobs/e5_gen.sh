@@ -8,7 +8,14 @@
 # Fails if the binary cannot be copied (never runs a stale one); logs its checksum; passes datagen's exit status on.
 source /mnt/c/regicide-match/jobs/truth/common.sh
 NAME=$1; BIN=$2; SEED=$3; TH=$4
-if ! cp ~/regicide-truth/build/datagen $J/bin/$BIN; then
+if [ -n "${EXPECT_SHA:-}" ]; then
+  # use the binary already in $J/bin, only if its sha256 starts with EXPECT_SHA (no copy)
+  sha=$(sha256sum $J/bin/$BIN | cut -c1-64)
+  case $sha in
+    $EXPECT_SHA*) ;;
+    *) st "e5 $NAME NOT started: $J/bin/$BIN has sha256 ${sha:0:16}, expected $EXPECT_SHA"; exit 1 ;;
+  esac
+elif ! cp ~/regicide-truth/build/datagen $J/bin/$BIN; then
   st "e5 $NAME NOT started: cannot copy datagen to $J/bin/$BIN"
   exit 1
 fi
