@@ -1,0 +1,88 @@
+// cbhost against a scripted CheckerBoard engine (mock_engine.cpp), and the runner's time accounting.
+//
+//   cbhost_test stop CBHOST ENGINE     a `stop` that arrives while the host is still sending the game history
+//                                      (before the engine's getmove is entered) is not lost: the engine finds the
+//                                      stop flag set on entry and returns at once
+//   cbhost_test charged CBHOST ENGINE  the runner charges a CheckerBoard time bank with the time the engine spent
+//                                      in getmove, not with the host's preparation before it
+#include <chrono>
+#include <cstdio>
+#include <iostream>
+#include <string>
+#include <thread>
+
+#include "engine_process.hpp"
+
+namespace {
+
+using match::Clock;
+
+bool expect(match::Process& host, const std::string& prefix, std::string& line, int seconds = 10) {
+    const auto deadline = Clock::now() + std::chrono::seconds(seconds);
+    while (host.read_line(line, deadline) == match::Process::Read::Line)
+        if (line.rfind(prefix, 0) == 0) return true;
+    return false;
+}
+
+// The engine takes 300 ms for the game history and would then think for 2 s. The stop goes out after 50 ms.
+int stop(const std::string& cbhost, const std::string& engine) {
+    match::Process host;
+    std::string err, line, info;
+    if (!host.start({cbhost, engine}, "/dev/null", err) || !expect(host, "ready", line)) {
+        std::cerr << "FAIL: cbhost does not start: " << err << '\n';
+        return 1;
+    }
+    for (const char* c : {"cmd set histdelay 300", "cmd set think 2000"}) {
+        host.send(c);
+        if (!expect(host, "reply 1", line)) return std::cerr << "FAIL: no reply to " << c << '\n', 1;
+    }
+    host.send("newgame");
+    host.send("position startpos");
+    if (!expect(host, "ok", line) || !expect(host, "ok", line)) return std::cerr << "FAIL: position\n", 1;
+    const auto start = Clock::now();
+    host.send("go maxtime 2");
+    std::this_thread::sleep_for(std::chrono::milliseconds(50));
+    host.send("stop");
+    if (!expect(host, "info ", info) || !expect(host, "bestmove ", line)) return std::cerr << "FAIL: no move\n", 1;
+    const double total = std::chrono::duration<double>(Clock::now() - start).count();
+    host.send("quit");
+    std::printf("%s | %s | %.3f s in all\n", info.c_str(), line.c_str(), total);
+    const bool seen = info.find("stopped_on_entry 1") != std::string::npos;
+    if (!seen) std::cerr << "FAIL: the stop sent during the history command reaches the engine on entry\n";
+    if (total > 1.0) std::cerr << "FAIL: the stopped search returns at once (took " << total << " s)\n";
+    return seen && total <= 1.0 ? 0 : 1;
+}
+
+// The engine takes 150 ms for the game history and answers the search at once.
+int charged(const std::string& cbhost, const std::string& engine) {
+    match::EngineSpec spec;
+    spec.label = "mock";
+    spec.argv = {cbhost, engine};
+    spec.cmds = {"set histdelay 150"};
+    match::Engine e(spec, "/dev/null");
+    std::string err;
+    if (!e.launch(err)) return std::cerr << "FAIL: launch: " << err << '\n', 1;
+    e.new_game();
+    const auto now = Clock::now();
+    const match::GoResult r =
+        e.go("position startpos", "go maxtime 1", now + std::chrono::seconds(5), now + std::chrono::seconds(10));
+    e.kill();
+    std::printf("runner %.3f s, engine %.3f s, charged %.3f s\n", r.elapsed, r.engine_time, r.charged());
+    const bool ok = r.status == match::GoResult::Status::Ok && r.elapsed >= 0.14 && r.engine_time >= 0 &&
+                    r.engine_time < 0.05 && r.charged() == r.engine_time;
+    if (!ok) std::cerr << "FAIL: the bank is charged the engine's time, without the 150 ms history command\n";
+    match::GoResult none;  // an engine that reports no time is charged the runner's wall time
+    none.elapsed = 0.2;
+    if (none.charged() != 0.2) return std::cerr << "FAIL: without a reported time the wall time is charged\n", 1;
+    return ok ? 0 : 1;
+}
+
+}  // namespace
+
+int main(int argc, char** argv) {
+    const std::string what = argc > 1 ? argv[1] : "";
+    if (argc == 4 && what == "stop") return stop(argv[2], argv[3]);
+    if (argc == 4 && what == "charged") return charged(argv[2], argv[3]);
+    std::cerr << "usage: cbhost_test stop|charged CBHOST ENGINE\n";
+    return 2;
+}

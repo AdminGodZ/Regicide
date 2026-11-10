@@ -49,7 +49,7 @@ or a single `error <message>` line and exits non-zero if the engine cannot be lo
 | `position startpos [moves <m1> <m2> ...]` | `ok` / `error <msg>` | Set the position. |
 | `position fen <FEN> [moves <m1> ...]` | `ok` / `error <msg>` | Same, from a FEN. Moves are validated. |
 | `go maxtime <s> [reset] [exact] [inc <s> remaining <s>]` | `info ...` then `bestmove ...` | Search the current position (see below). |
-| `stop` | none | Ask a running search to return now (sets `*playnow`). Ignored when idle. |
+| `stop` | none | Ask the search of the last `go` to return now (sets `*playnow`). If that `go` has not reached the engine yet (it is queued, or the game history is being sent), the engine is entered with the flag set. Ignored when no `go` is outstanding. |
 | `quit` | none | Exit (also on EOF). |
 
 Unknown commands get `error unknown command '<cmd>'`.
