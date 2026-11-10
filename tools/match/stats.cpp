@@ -57,8 +57,11 @@ double Stats::llr(const SprtConfig& c) const {
     const long n = pairs();
     if (n < 2) return 0;
     Estimate e = pentanomial();
-    double var = e.se * e.se * n;  // per-pair variance
-    var = std::max(var, 1e-4);     // all pairs identical so far: keep the ratio finite
+    // Per-pair variance, estimated with two extra pairs a quarter point above and below the mean. Without them a
+    // run of identical pairs (20 drawn pairs are common here) has variance 0, and any floor far below the real
+    // variance turns that run into strong evidence: the old floor of 1e-4 accepted H0 = 0 against H1 = +5 Elo
+    // after 20 drawn pairs.
+    const double var = (e.se * e.se * n * n + 2 * 0.25 * 0.25) / (n + 2);
     const double s0 = score_from_elo(c.elo0), s1 = score_from_elo(c.elo1);
     return n * (s1 - s0) * (2 * e.score - s0 - s1) / (2 * var);
 }

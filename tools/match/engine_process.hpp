@@ -40,6 +40,7 @@ struct EngineSpec {
     std::string name;                 // display name; empty = take it from the engine
     std::vector<std::string> argv;    // process to run
     std::vector<std::string> cmds;    // enginecommand strings sent after startup ("set hashsize 64")
+    bool allow_rejected = false;      // go on when the engine rejects one of `cmds`
 };
 
 // Search result of one `go`.
