@@ -470,6 +470,7 @@ int main(int argc, char** argv) {
         if (!f) return std::cerr << "cannot open " << in << '\n', 1;
         std::fseek(f, 0, SEEK_END);
         const long count = std::ftell(f) / 16;
+        if (count <= 0) return std::fclose(f), std::cerr << in << " holds no complete record\n", 1;
         std::mt19937_64 rng(seed);
         for (long got = 0, tries = 0; got < n && tries < 1000 * n; ++tries) {
             DataRecord r;
