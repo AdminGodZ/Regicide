@@ -178,7 +178,7 @@ max 53 (2 games ≥ 40, none ≥ 60); no game left the won region.
 | Opponent | Run a | Run b | master fcf6acb (before) |
 |---|---|---|---|
 | Cake | **0 / 312 / 0** | running | 0 / 307 / 5 |
-| KingsRow | h1 7 / 149 / 0, h2 running | queued | 0 / 312 / 0 |
+| KingsRow | **12 / 300 / 0** | queued | 0 / 312 / 0 |
 | GuiNN | h1 8 / 148 / 0, h2 running | queued | 1 / 309 / 2 |
 
 Repairs during the final validation: none so far.
