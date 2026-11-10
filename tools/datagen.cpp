@@ -3,7 +3,11 @@
 //   datagen --games 100000 --nodes 5000 --threads 12 --out data/run1.bin [--evalfile w.bin]
 //
 // Each game starts with a few uniformly random plies, then both sides play with a fixed node budget.
-// Every quiet position (side to move has no capture) is written with its search score and the game result.
+// Every quiet position (side to move has no capture) whose search score is not decisive (a proven win or loss) is
+// written with that score and the game result. The result is a loss for the side without a move; a draw on a third
+// occurrence, after 60 plies without a capture or man move, or after 300 plies; the database value once the piece
+// count is within the database (--egdb); or a win for one side once the score has been 900 or more in its favour
+// for 6 plies in a row.
 #include <atomic>
 #include <cstdint>
 #include <cstdio>
@@ -32,6 +36,9 @@ struct Config {
     int random_min = 4, random_max = 12;
     int max_opening_score = 300;
     int adjudicate_score = 900, adjudicate_plies = 6;
+    // Stop and label the game a draw after this many plies without a capture or man move: earlier than the 79-ply
+    // rule of the search and the match runner (NO_PROGRESS_PLIES in src/search.hpp) and than selfplay's 80, so long
+    // king endings stop sooner. The value predates the search's rule and was not changed with it.
     int draw_reversible = 60;
     int max_plies = 300;
     std::uint64_t seed = 1;

@@ -15,8 +15,9 @@
 //   version 2: N = 2 FT, the side to move's FT output followed by the opponent's (the FT weights are shared by the
 //              two points of view). L1, L2 and the output layer all have one set of weights per bucket.
 //
-// The search keeps one accumulator per colour's point of view on its stack and updates them from each move; version
-// 1 only needs the side to move's. tools/nnue/ trains and exports nets (see its README).
+// The search keeps one accumulator per colour's point of view on its stack and updates both from each move, since
+// the side to move alternates; version 1's forward pass reads only the side to move's. tools/nnue/ trains and
+// exports nets (see its README).
 //
 // File format (little endian): "RGNN", then u32 version, inputs, ft, l1, l2, buckets, activation, qa, qb,
 // out_scale, then ft_bias i16[FT], ft_weight i16[INPUTS][FT], l1_bias i32[HB][L1], l1_weight i8[HB][L1][N],

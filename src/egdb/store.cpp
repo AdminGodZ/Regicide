@@ -212,8 +212,7 @@ bool load_dir(const std::string& dir, std::size_t cache_mb) {
     namespace fs = std::filesystem;
     std::error_code ec;
     if (!fs::is_directory(dir, ec)) return false;
-    std::uint64_t total = 0;
-    std::vector<std::pair<std::string, std::uint64_t>> loaded;
+    bool loaded = false;
     for (const auto& ent : fs::directory_iterator(dir, ec)) {
         const std::string name = ent.path().filename().string();
         int a, b, c, d;
@@ -226,13 +225,10 @@ bool load_dir(const std::string& dir, std::size_t cache_mb) {
                                                             : TableKind(0);
         const Material m{a, b, c, d};
         if (k == TableKind(0) || !valid_material(m)) continue;
-        if (load_file(ent.path().string(), k, m)) {
-            total += ent.file_size(ec);
-            loaded.emplace_back(ent.path().string(), ent.file_size(ec));
-        }
+        if (load_file(ent.path().string(), k, m)) loaded = true;
     }
     prefault_within(cache_mb);
-    return !loaded.empty();
+    return loaded;
 }
 
 void prefault_within(std::size_t cache_mb) {

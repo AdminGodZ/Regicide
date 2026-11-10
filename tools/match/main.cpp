@@ -66,7 +66,10 @@ struct Config {
     double grace = 0.25;
     double kill_after = 2.0;   // then kill (loss) this long after `stop`
 
-    int no_progress = 40;  // moves per side without a capture or man move; 0 = off
+    // Moves per side without a capture or man move (draw after 2N - 1 plies); 0 = off. The default is the rule the
+    // engine's search assumes (NO_PROGRESS_PLIES = 79 in src/search.hpp), implemented here independently;
+    // tools/selfplay.cpp (80 plies) and tools/datagen.cpp (60) use limits of their own.
+    int no_progress = 40;
     int max_plies = 1000;
     bool accept_draw_claims = false;
 

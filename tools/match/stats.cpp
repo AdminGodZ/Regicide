@@ -9,6 +9,10 @@ namespace match {
 namespace {
 constexpr double kZ95 = 1.959963984540054;
 
+// Mean score, its standard error from the population variance (divided by n), and the interval endpoints mapped
+// through elo_from_score. tools/selfplay.cpp repeats this for its own report and is meant to agree with it. The
+// pool.py scripts under experiments/ use the n - 1 variance and a symmetric delta-method interval in Elo instead;
+// for a few hundred pairs near a 50% score the two give nearly the same interval.
 Estimate estimate(const double* values, const long* counts, int k) {
     Estimate e;
     long n = 0;

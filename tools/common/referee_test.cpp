@@ -59,6 +59,23 @@ int main() {
     auto crown = Board::from_fen("B:W26,27:B22");
     CHECK(crown && crown->legal_moves().size() == 1 && crown->legal_moves()[0].njumps == 1);
 
+    // Every legal move reads back from its own text, also a single jump that shares its end squares with a longer
+    // capture around a circle.
+    for (const char* fen : {"W:WK22:B9,10,17,18,25", "B:W6,7,14,15,32:BK9", "B:W6,7,14,15,32:B2",
+                            "B:WK9,K10,K11,K17,K18,K19,K25,K26,K27:BK29"}) {
+        auto pos = Board::from_fen(fen);
+        CHECK(pos.has_value());
+        for (const Move& m : pos->legal_moves()) {
+            auto back = parse_move(*pos, move_to_pdn(m));
+            CHECK(back.has_value() && back->same_effect(m));
+        }
+    }
+    // The routes around a circle that take the same pieces are one move, whichever way it is written.
+    auto circle = Board::from_fen("B:W6,7,14,15,32:BK9");
+    auto one = parse_move(*circle, "9x2x11x18x9"), other = parse_move(*circle, "9x18x11x2x9");
+    CHECK(one.has_value() && other.has_value() && one->same_effect(*other));
+    CHECK(!parse_move(*circle, "9x2x9x2x11x18x9").has_value());  // jumps a piece twice
+
     // Time packing decodes like CheckerBoard's get_incremental_times().
     int info = 0, more = 0;
     cb_format_time_args(0.5, 61.3, &info, &more);
