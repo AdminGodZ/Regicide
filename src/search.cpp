@@ -67,6 +67,7 @@ struct Worker {
     bool stopped() const { return eng.stop_.load(std::memory_order_relaxed); }
     void check_limits();
     bool is_repetition(const Position& pos, int ply) const;
+    bool repeats(Key key, int ply, int reversible) const;
     void update_quiet_stats(Color us, const Move& best, const Move* tried, int ntried, int depth, int ply);
     int quiet_score(Color us, const Move& m, int ply) const {
         return history[us][m.from][m.to] + (P.cont_hist ? cont[prev_to[ply]][m.from][m.to] : 0);
@@ -131,10 +132,16 @@ void Worker::setup(const Position& r, const std::vector<Key>& game_keys, const s
 }
 
 bool Worker::is_repetition(const Position& pos, int ply) const {
+    return repeats(pos.key(), ply, pos.reversible_plies());
+}
+
+// True if the position with this key, reached at `ply` after `reversible` plies without a capture or man move,
+// already occurred in the game or on the current search path.
+bool Worker::repeats(Key key, int ply, int reversible) const {
     const long idx = long(hist_len) + ply;
-    const long stop = std::max(0L, idx - pos.reversible_plies());
+    const long stop = std::max(0L, idx - reversible);
     for (long i = idx - 2; i >= stop; i -= 2)
-        if (keys[i] == pos.key()) return true;
+        if (keys[i] == key) return true;
     return false;
 }
 
@@ -249,9 +256,17 @@ Score Worker::search(Position& pos, Score alpha, Score beta, int depth, int ply,
     if (!is_root && !excluding && depth >= P.etc_min_depth) {
         for (const Move& m : moves) {
             TTData ce;
-            if (!tt.probe(pos.key_after(m), ce) || ce.depth < depth - 1 || !(ce.bound & BOUND_UPPER)) continue;
+            const Key ck = pos.key_after(m);
+            if (!tt.probe(ck, ce) || ce.depth < depth - 1 || !(ce.bound & BOUND_UPPER)) continue;
             const Score cs = -score_from_tt(ce.score, ply + 1);
-            if (cs >= beta && !is_decisive(cs)) return cs;
+            if (cs < beta || is_decisive(cs)) continue;
+            // The child's own search would call a repetition or the no-progress limit a draw before it looked at
+            // the hash table, so its entry says nothing about this line.
+            if ((pos.kings() & bit(m.from)) && !m.is_capture()) {
+                const int reversible = pos.reversible_plies() + 1;
+                if (reversible >= NO_PROGRESS_PLIES || repeats(ck, ply + 1, reversible)) continue;
+            }
+            return cs;
         }
     }
 
@@ -698,6 +713,8 @@ SearchResult Engine::go(const Limits& limits, InfoFn on_info) {
     const Worker& main = *workers_[0];
     result.best = main.roots[0].move;
     result.score = main.roots[0].score == -SCORE_INF ? main.roots[0].prev_score : main.roots[0].score;
+    // Stopped before any root move was scored: nothing is known about the position, which is not a loss.
+    if (result.score == -SCORE_INF) result.score = SCORE_DRAW;
     result.depth = main.completed_depth;
     result.completed_score = main.completed_score;
     result.partial = main.partial;
