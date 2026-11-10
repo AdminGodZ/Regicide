@@ -51,27 +51,34 @@ int main(int argc, char** argv) {
         }
         const Color ours = f[2] == "B" ? BLACK : WHITE;
         const int first = std::stoi(f[3]);
+        // The whole record is replayed before anything is printed: a game with an illegal or ambiguous move anywhere
+        // (also after the 8-piece point) yields only its ERR line, never a prefix.
         std::stringstream ms(f[4]);
+        std::ostringstream rows;
+        std::string err;
+        bool reporting = true;
         int ply = 0;
         for (std::string t; ms >> t; ++ply) {
             Move m;
             if (!parse_move(pos, t, m) || booklab::matching_moves(pos, t) != 1) {
-                std::cout << f[0] << "\tERR\t" << ply << '\t' << t << '\n';
+                err = std::to_string(ply) + '\t' + t;
                 break;
             }
-            if (pos.piece_count() <= 8) break;
-            if (ply >= first && pos.side_to_move() == ours) {
+            if (pos.piece_count() <= 8) reporting = false;
+            if (reporting && ply >= first && pos.side_to_move() == ours) {
                 bool eligible = pos.reversible_plies() == 0;
                 if (eligible && egdb_pieces && pos.piece_count() <= egdb_pieces) {
                     const egdb::Wld r = egdb::probe(pos.pieces(BLACK), pos.pieces(WHITE), pos.kings(), pos.side_to_move());
                     eligible = !(r == egdb::Wld::Win || r == egdb::Wld::Loss);
                 }
                 const auto bm = book.probe(pos);
-                std::cout << f[0] << '\t' << ply << '\t' << pos.fen() << '\t' << booklab::move_text(pos, m) << '\t'
-                          << (eligible ? 1 : 0) << '\t' << (bm ? booklab::move_text(pos, *bm) : "-") << '\n';
+                rows << f[0] << '\t' << ply << '\t' << pos.fen() << '\t' << booklab::move_text(pos, m) << '\t'
+                     << (eligible ? 1 : 0) << '\t' << (bm ? booklab::move_text(pos, *bm) : "-") << '\n';
             }
             pos.make_move(m);
         }
+        if (!err.empty()) std::cout << f[0] << "\tERR\t" << err << '\n';
+        else std::cout << rows.str();
     }
     return 0;
 }

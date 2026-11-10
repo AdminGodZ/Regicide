@@ -2,17 +2,21 @@
 //
 //   booklab_reach BOOK [NODE_LIMIT [EGDB_DIR]] < queries.tsv
 // stdin, one query per line:  ID <TAB> ballot moves from the start position <TAB> target FEN <TAB> max plies
-// optional 5th field: witness moves after the ballot (checked against the book instead of searching)
+// optional 5th field: witness moves after the ballot (checked against the book instead of searching; the ply budget,
+// counted from the start position with the ballot, applies when > 0)
 // stdout, one line per query: ID <TAB> reachable|unreachable|unknown <TAB> nodes <TAB> path (when reachable)
 //
 // Search: depth-first from the position after the ballot. "Our" side is the side to move in the target. Where our side
 // is to move, the engine would consult its book there (book_applies(): the same test as Engine::go) and the book has
-// a move for the position (Book::probe, best move, avoid list applied), only that move is
-// tried; otherwise every legal move (the engine's search could choose any). The opponent may play any legal move.
+// a move for the position (Book::probe, best move, avoid list applied), only that move is tried; otherwise every legal
+// move the engine may choose: the legal moves minus the book's avoid list (all of them if every move is avoided, and
+// at database-decided roots, where the engine does not apply the list). The opponent may play any legal move.
+// "reachable" therefore still over-approximates (the search may not choose that move); "unreachable" is a proof.
 // Pruned by necessary conditions for reaching the target: per colour, men and pieces never increase; men only move
 // forward (for every row r, the target cannot have more men of a colour at or behind... see can_reach()); the ply
 // budget (max plies from the start position). Visited (position, ply) pairs are not searched twice.
 // "unreachable" is a proof within the ply budget; "unknown" means the node limit was hit.
+#include <algorithm>
 #include <cstdint>
 #include <iostream>
 #include <set>
@@ -93,6 +97,26 @@ bool book_applies(const Position& p) {
     return true;
 }
 
+bool db_decided(const Position& p) {
+    if (!egdb_pieces || p.piece_count() > egdb_pieces) return false;
+    const egdb::Wld r = egdb::probe(p.pieces(BLACK), p.pieces(WHITE), p.kings(), p.side_to_move());
+    return r == egdb::Wld::Win || r == egdb::Wld::Loss;
+}
+
+// Our moves the engine can play: the book move where it consults the book and has one; otherwise the legal moves
+// minus those on the avoid list (Engine::go: unless that leaves none, and not at a database-decided root).
+std::vector<Move> own_moves(const Book& book, const Position& p) {
+    if (book_applies(p))
+        if (auto m = book.probe(p)) return {*m};
+    MoveList list;
+    generate_moves(p, list);
+    std::vector<Move> all(list.begin(), list.end()), kept;
+    if (db_decided(p)) return all;
+    for (const Move& m : all)
+        if (!book.avoids(p, m)) kept.push_back(m);
+    return kept.empty() ? all : kept;
+}
+
 struct Search {
     const Book& book;
     Key target;
@@ -114,10 +138,9 @@ struct Search {
         if (!seen.insert({p.key(), ply * 2 + (p.reversible_plies() > 0)}).second) return false;
         if (!can_reach(counts(p), tc)) return false;
         std::vector<Move> moves;
-        if (p.side_to_move() == ours && book_applies(p)) {
-            if (auto m = book.probe(p)) moves.push_back(*m);
-        }
-        if (moves.empty()) {
+        if (p.side_to_move() == ours) {
+            moves = own_moves(book, p);
+        } else {
             MoveList list;
             generate_moves(p, list);
             moves.assign(list.begin(), list.end());
@@ -180,13 +203,23 @@ int main(int argc, char** argv) {
             Position p = start;
             std::stringstream ws(f[4]);
             std::string why;
+            const int maxply = std::stoi(f[3]);  // 0: no limit
+            int wply = ply;                      // plies from the start position, the ballot included
             for (std::string t; ws >> t;) {
                 if (p.key() == target.key()) break;
+                if (maxply > 0 && wply >= maxply) { why = "witness longer than the ply budget"; break; }
                 Move m;
                 if (!parse_move(p, t, m)) { why = "illegal " + t; break; }
-                if (p.side_to_move() == s.ours)
-                    if (auto bm = book_applies(p) ? book.probe(p) : std::nullopt; bm && !(*bm == m)) { why = "book plays " + booklab::move_text(p, *bm) + " not " + t; break; }
+                if (p.side_to_move() == s.ours) {
+                    const std::vector<Move> ok_moves = own_moves(book, p);
+                    if (std::find(ok_moves.begin(), ok_moves.end(), m) == ok_moves.end()) {
+                        why = book_applies(p) && book.probe(p) ? "book plays " + booklab::move_text(p, ok_moves[0]) + " not " + t
+                                                               : "avoid list forbids " + t;
+                        break;
+                    }
+                }
                 p.make_move(m);
+                ++wply;
             }
             const bool hit = why.empty() && p.key() == target.key();
             std::cout << f[0] << '\t' << (hit ? "reachable" : "witness-failed") << "\t0\t" << (hit ? f[4] : why) << '\n';

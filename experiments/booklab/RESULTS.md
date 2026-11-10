@@ -172,6 +172,36 @@ the WP9 test runs (`bl-wp9*`, they start from won positions) and can restrict th
   1,011 of 1,017; KingsRow 226 of 248; GuiNN 347 of 352. Opponent vs opponent: 90 reached, 66 converted (the new games
   are other agents' runs). The scan now also records the longest no-progress run per game.
 
+## WP11: lock the validated lines (book r11; playing validation after Blocks 3 and 4)
+
+Source: the 1,872 games of the final validation (bl-final1, runs a and b; `tools/booklab/pins.py`,
+`booklab_pinwalk`). For every position with Regicide to move from the end of the ballot until 8 or fewer pieces, the
+move played is pinned as a forced book move, unless the book already has a move there or the engine would not consult
+the book (inside a run of king moves, database-decided). Report: `wp11/pins.md`; pins: `pins.txt`.
+
+- 31,395 distinct positions with Regicide to move; 1,085 already in book r10 (the played move differs in 1 position,
+  where the engine had skipped the book; the existing move is kept); 2,892 never consulted (left out); **27,418 pins**.
+- 398 positions had different moves across games; selection: best worst result, then frequency, then run a.
+  **57 still tie after all three, and the first move met in the frozen input order wins** (runs sorted by name,
+  games in file order; `pins.py` sorts its inputs).
+- Every source game has a final result and passes a full replay (0 skipped, 0 rejected).
+- **Book r11** = r10 + pins: 28,405 forced moves, 62,513 entries, sha256
+  `2509043e0ee4ee60a89eda256f369892b67640a6b58ec3249dd7f7f329243b29`, rebuilds byte-identically (also with the fixed
+  tools below); DLL `bl-456e9b2-r11` (engine 456e9b2, bench 7,677,736).
+- **Coverage of the old line** (renamed, review item 5): the first own non-book move in the old games came at a mean
+  ply of 6.0 (median 4); r11 covers the old games' own moves to a mean ply of 37.7 (median 41). Where a pin differs
+  from an old game's move (419 games), r11 may still answer from the book after that point, so this is a coverage
+  measure, not the first search under r11; the bank estimates in `wp11/pins.md` carry the same caveat. The real first
+  search plies and banks will be measured in the r11 validation games.
+
+**Tool fixes from the review (none changes r10 or the r11 payload):** `reach.cpp` applies the avoid list (with its
+all-moves-avoided exception, not at database-decided roots) after a book miss, so a positive answer can no longer pass
+through a forbidden move ("reachable" remains an over-approximation of the search's choice; "unreachable" a proof);
+the witness mode enforces the ply budget counted from the start position; `bookapply.cpp` rejects a version-2 file
+shorter than its 16-byte header; `pinwalk` replays the whole record before printing anything (an illegal tail rejects
+the game) and `pins.py` requires a finished result. Re-run of the r10 reachability check: unchanged (822 reachable,
+0 unreachable, 165 unknown).
+
 ## WP10 holdout (running)
 
 Configurations (DLLs in the build table): (1) `bl-fcf6acb-deep2b` old master + its book; (2) `bl-456e9b2-deep2b`

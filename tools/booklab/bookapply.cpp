@@ -44,8 +44,12 @@ bool read_raw(const std::string& path, std::vector<Book::Entry>& entries, std::v
     std::uint32_t version, count, avoid_count = 0;
     std::memcpy(&version, d.data() + 4, 4);
     std::memcpy(&count, d.data() + 8, 4);
-    if (version == 2) std::memcpy(&avoid_count, d.data() + 12, 4);
-    else if (version != 1) return false;
+    if (version == 2) {
+        if (d.size() < 16) return false;  // the avoid count is part of the version-2 header (as in Book::load)
+        std::memcpy(&avoid_count, d.data() + 12, 4);
+    } else if (version != 1) {
+        return false;
+    }
     const std::size_t h = version == 2 ? 16 : 12;
     if (d.size() != h + (std::size_t(count) + avoid_count) * sizeof(Book::Entry)) return false;
     entries.resize(count);

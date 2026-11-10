@@ -3,7 +3,8 @@
 - positions with Regicide to move (ballot end to 8 pieces): 31395 distinct
 - already in book r10 (decision or old-book move): 1085 (the played move differs in 1)
 - never consulted (inside a run of king moves / database-decided): 2892, left out
-- **pins: 27418**; positions with different moves across games: 398
+- **pins: 27418**; positions with different moves across games: 398; of these, 57 still tie after worst result, frequency and run a, and the first move met in the frozen input order (runs sorted by name, games in file order) wins
+- games without a final result skipped: 0; games rejected by the full replay: 0
 
 | Ballot | Pins |
 |---|---|
@@ -164,9 +165,9 @@
 | ACF #90 | 114 |
 | ACF #63 | 75 |
 
-**First own non-book move:** mean ply 6.0 (median 4) before, 37.7 (median 41) with the pins, over 1872 games.
+**Coverage of the old line** (not the first search under r11): first own non-book move in the old game mean ply 6.0 (median 4); first ply of the old game not covered by r11 with the old game's move: mean 37.7 (median 41), over 1872 games. Where the pin differs from the old game's move, r11 may still answer from the book after that point, so these figures are a coverage measure; the real first search and the bank at that point are measured in the r11 validation games.
 
-Banked time at that point (CheckerBoard banking, 0.5 s per move; all pinned moves instant):
+Bank estimates under the same caveat (CheckerBoard banking, 0.5 s per move; pinned moves instant):
 - bl-f1-cake-a-h1 round 2.1 (ACF #2, Regicide B): first own search at ply 4 with 0.5 s banked (maxtime 0.50 s); with the pins at ply 36 with 8.5 s banked (maxtime 3.70 s)
 - bl-f1-cake-a-h1 round 1.1 (ACF #1, Regicide B): first own search at ply 4 with 0.5 s banked (maxtime 0.50 s); with the pins at ply 36 with 8.5 s banked (maxtime 3.70 s)
 - bl-f1-cake-a-h1 round 3.2 (ACF #4, Regicide W): first own search at ply 3 with 0.5 s banked (maxtime 0.50 s); with the pins at ply 43 with 10.5 s banked (maxtime 4.50 s)

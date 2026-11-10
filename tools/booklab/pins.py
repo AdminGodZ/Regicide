@@ -37,15 +37,20 @@ def main():
     ap.add_argument("--out", required=True)
     ap.add_argument("--report", required=True)
     a = ap.parse_args()
-    games, lines = [], []
-    for d in a.runs:
+    games, lines, unfinished = [], [], 0
+    # Input order is frozen: runs sorted by name, games in file order. It decides the remaining ties (after worst
+    # result, frequency and run a, the first move met wins).
+    for d in sorted(a.runs):
         run = os.path.basename(d.rstrip("/"))  # bl-f1-cake-a-h1
         p = run.split("-")
         opp, ra = p[2], p[3]
         for tags, moves in parse_pdn(open(os.path.join(d, "games.pdn"), errors="replace").read()):
             col = "B" if family(tags["Black"]) == "regicide" else "W"
-            res = tags["Result"]
-            r = {"1-0": "W" if col == "B" else "L", "0-1": "W" if col == "W" else "L"}.get(res, "D")
+            res = tags.get("Result", "").strip()
+            r = {"1-0": "W" if col == "B" else "L", "0-1": "W" if col == "W" else "L", "1/2-1/2": "D"}.get(res)
+            if r is None:  # unfinished or interrupted: no pins from it
+                unfinished += 1
+                continue
             bname, bm, nopen = ballot_of(tags["Opening"])
             g = dict(run=run, opp=opp, ra=ra, rnd=tags["Round"], col=col, res=r, ballot=bname, nopen=nopen,
                      moves=[m for m, _ in moves], comments=[c for _, c in moves])
@@ -55,14 +60,16 @@ def main():
                          check=True).stdout
     rows = collections.defaultdict(list)  # fen -> [(game, ply, move, eligible, bookmove)]
     per_game = collections.defaultdict(list)
+    rejected = []
     for l in out.splitlines():
         f = l.split("\t")
-        if f[1] == "ERR":
-            sys.exit(f"pinwalk error: {l}")
+        if f[1] == "ERR":  # the whole game is left out (pinwalk prints nothing else for it)
+            rejected.append(l)
+            continue
         gi, ply, fen, mv, el, bmv = int(f[0]), int(f[1]), f[2], f[3], f[4] == "1", f[5]
         rows[fen].append((gi, ply, mv, el, bmv))
         per_game[gi].append((ply, fen, mv, el, bmv))
-    pins, conflicts, book_differs, ineligible, in_book = {}, [], [], 0, 0
+    pins, conflicts, book_differs, ineligible, in_book, ties = {}, [], [], 0, 0, []
     for fen, rs in rows.items():
         bmv = rs[0][4]
         if bmv != "-":
@@ -82,7 +89,9 @@ def main():
             gs = by[mv]
             worst = min(RANK[games[r[0]]["res"]] for r in gs)
             return (worst, len(gs), any(games[r[0]]["ra"] == "a" for r in gs))
-        best = max(by, key=key)
+        best = max(by, key=key)  # max() keeps the first move met among equal keys (frozen input order)
+        if len(by) > 1 and sum(1 for m in by if key(m) == key(best)) > 1:
+            ties.append(fen)
         if len(by) > 1:
             conflicts.append((fen, best, {m: [(games[r[0]]["run"], games[r[0]]["rnd"], games[r[0]]["res"]) for r in v]
                                           for m, v in by.items()}))
@@ -102,7 +111,10 @@ def main():
           f"- positions with Regicide to move (ballot end to 8 pieces): {len(rows)} distinct",
           f"- already in book r10 (decision or old-book move): {in_book} (the played move differs in {len(book_differs)})",
           f"- never consulted (inside a run of king moves / database-decided): {ineligible}, left out",
-          f"- **pins: {len(pins)}**; positions with different moves across games: {len(conflicts)}", ""]
+          f"- **pins: {len(pins)}**; positions with different moves across games: {len(conflicts)}; of these, "
+          f"{len(ties)} still tie after worst result, frequency and run a, and the first move met in the frozen input "
+          f"order (runs sorted by name, games in file order) wins",
+          f"- games without a final result skipped: {unfinished}; games rejected by the full replay: {len(rejected)}", ""]
     md.append("| Ballot | Pins |")
     md.append("|---|---|")
     for b, n in sorted(per_ballot.items(), key=lambda kv: -kv[1]):
@@ -142,9 +154,13 @@ def main():
                 examples.append(f"- {g['run']} round {g['round'] if 'round' in g else g['rnd']} ({g['ballot']}, Regicide {g['col']}): first own "
                                 f"search at ply {b} with {bank_b:.1f} s banked (maxtime {0.5 + (bank_b - 0.5) / 2.5:.2f} s); with "
                                 f"the pins at ply {aft} with {bank_a:.1f} s banked (maxtime {0.5 + (bank_a - 0.5) / 2.5:.2f} s)")
-    md += ["", f"**First own non-book move:** mean ply {statistics.mean(before):.1f} (median {statistics.median(before):.0f}) "
-           f"before, {statistics.mean(after):.1f} (median {statistics.median(after):.0f}) with the pins, over {len(before)} games.",
-           "", "Banked time at that point (CheckerBoard banking, 0.5 s per move; all pinned moves instant):"] + examples
+    md += ["", f"**Coverage of the old line** (not the first search under r11): first own non-book move in the old game "
+           f"mean ply {statistics.mean(before):.1f} (median {statistics.median(before):.0f}); first ply of the old game "
+           f"not covered by r11 with the old game's move: mean {statistics.mean(after):.1f} (median "
+           f"{statistics.median(after):.0f}), over {len(before)} games. Where the pin differs from the old game's move, r11 "
+           "may still answer from the book after that point, so these figures are a coverage measure; the real first "
+           "search and the bank at that point are measured in the r11 validation games.",
+           "", "Bank estimates under the same caveat (CheckerBoard banking, 0.5 s per move; pinned moves instant):"] + examples
     md += ["", "## Positions with different moves across games (chosen move first)", ""]
     for fen, best, d in conflicts:
         md.append(f"- `{fen}`: **{best}** " + "; ".join(f"{m}: {len(v)} game(s) {v[:3]}" for m, v in d.items()))
