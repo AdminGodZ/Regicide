@@ -760,6 +760,75 @@ compare nets with each other but are not an independent estimate of generalisati
 d6181de). Re-searched scores add nothing to the database-relabelled results. The rescore of the remaining old files is
 dropped for good, and its partial output (gen5c, 135 KB) is deleted.
 
+### 4b: where the lost games were decided
+
+**How to read the loss analysis** (`truth losswalk`, applies to everything below):
+- The walk searches each position **without the game's history** and probes the database without the draw rules.
+- **"Proven lost"** marks where a 10M-node search with the 8-piece database first proves the loss. That is a reliable
+  upper bound on when the game was decided.
+- **The "turning move"** is a heuristic: going back from there, the last of Regicide's decisions whose position still
+  scored at least −50. It estimates where the game turned. It does not certify the first move that turned a draw into a
+  loss.
+- For the games that matter most the turn was checked by a large search (below).
+
+#### The five games n8q lost to Cake with book r10 (Book Lab, bl-f4-cake-h1/h2; n6c drew all of them)
+
+**At the first move where n8q leaves n6c's line** (`tools/divergence.py`):
+- Both nets' static evals and searches are given, at the node count Regicide used in that game (×1) and ×10.
+- Searches: this branch's CLI (master 456e9b2+ engine), `set evalfile`, 8-piece database, fresh hash, no history; a
+  move's score is minus the score of the position after it.
+- #37 and #75 transpose into the same position.
+
+| ballot (Regicide) | ply (after ballot) | pieces | n8q's move / n6c's move | net | static eval before | static after n8q's move / n6c's move | search ×1 (nodes): n8q's / n6c's move | search ×10: n8q's / n6c's move |
+|---|---|---|---|---|---|---|---|---|
+| ACF #37 (B) | 15 (12) | 20 | 4-8 / 14-18 | n8q | +0 | -13 / -79 | +0 (d19) / -13 (d19) (1109k) | -5 (d25) / -11 (d24) (11098k) |
+| ACF #37 (B) | 15 (12) | 20 | 4-8 / 14-18 | n6c | -34 | -34 / -69 | +0 (d20) / -15 (d18) (1055k) | +0 (d25) / -11 (d23) (10554k) |
+| ACF #75 (B) | 15 (12) | 20 | 4-8 / 14-18 | n8q | +0 | -13 / -79 | +0 (d19) / -13 (d19) (1109k) | -5 (d25) / -11 (d24) (11098k) |
+| ACF #75 (B) | 15 (12) | 20 | 4-8 / 14-18 | n6c | -34 | -34 / -69 | +0 (d20) / -15 (d18) (1055k) | +0 (d25) / -11 (d23) (10554k) |
+| ACF #87 (B) | 13 (10) | 22 | 1-6 / 8-11 | n8q | -76 | -62 / -54 | -83 (d20) / -41 (d18) (1295k) | -88 (d25) / -59 (d23) (12955k) |
+| ACF #87 (B) | 13 (10) | 22 | 1-6 / 8-11 | n6c | -67 | -83 / -65 | -27 (d20) / -23 (d19) (2259k) | -51 (d26) / -51 (d24) (22597k) |
+| ACF #124 (B) | 11 (8) | 22 | 15-19 / 8-12 | n8q | -20 | -106 / -35 | -18 (d19) / +0 (d18) (1133k) | -32 (d25) / +0 (d25) (11331k) |
+| ACF #124 (B) | 11 (8) | 22 | 15-19 / 8-12 | n6c | -25 | -67 / -28 | -28 (d19) / -2 (d18) (893k) | -18 (d23) / +0 (d24) (8934k) |
+| ACF #131 (W) | 6 (3) | 22 | 21-17 / 28-24 | n8q | +7 | +10 / -7 | +2 (d19) / +11 (d18) (1321k) | -8 (d24) / +6 (d23) (13218k) |
+| ACF #131 (W) | 6 (3) | 22 | 21-17 / 28-24 | n6c | +2 | +8 / -2 | +12 (d18) / +23 (d17) (811k) | +0 (d23) / +9 (d22) (8116k) |
+
+- **No misjudgement at the divergence.** Neither net judges either candidate lost. n8q's move costs 10–40 centi-men
+  against n6c's move in three of the four distinct positions (#87, #124, #131), and in #37/#75 it is the slightly
+  better one.
+- Re-searched without the game's history and hash, n8q's own search even prefers n6c's move in #124 and #131. So the
+  in-game choice was close and depended on the search state, not on a clear evaluation difference.
+
+**Where they were lost** (losswalk, 10M nodes per position; turning moves confirmed by 100M-node searches before and
+after the move, with either net's evaluation):
+
+| game (Regicide) | turn: pieces | move played | net | search before (Regicide to move) | best move | move played: score after (Regicide's view) |
+|---|---|---|---|---|---|---|
+| 9-14 22-17 6-9 (black) | 17 | 5x14 | n8q | -47 (d33) | 5x14 | -33 (d33) |
+| 9-14 22-17 6-9 (black) | 17 | 5x14 | n6c | -31 (d32) | 5x14 | -29 (d33) |
+| 10-15 21-17 9-13 (black) | 22 | 6-9 | n8q | -82 (d30) | 6-9 | -23 (d30) |
+| 10-15 21-17 9-13 (black) | 22 | 6-9 | n6c | -32 (d29) | 6-9 | -21 (d30) |
+| 11-15 23-18 12-16 (black) | 18 | 10-15 | n8q | +0 (d30) | 8-12 | -167 (d32) |
+| 11-15 23-18 12-16 (black) | 18 | 10-15 | n6c | +0 (d31) | 8-12 | -107 (d31) |
+| 11-15 24-20 12-16 (white) | 17 | 23-19 | n8q | -83 (d34) | 23-19 | -74 (d35) |
+| 11-15 24-20 12-16 (white) | 17 | 23-19 | n6c | -54 (d34) | 23-19 | -57 (d34) |
+
+**Reading:**
+- **Proven lost:** #37/#75 at 12 pieces (move 21), #87 at 12 (move 37), #124 at 11 (move 25), #131 at 10 (move 39).
+- **One clear error, at 18 pieces (#124).** The position before is level (0 with either evaluation); 10-15 drops it to
+  −167 (n6c's evaluation: −107), while n8q's 0.5 s search had scored the move −8. That is a search-horizon miss; a deep
+  search with either net finds it.
+- **In the other games the estimated turning move was the best move** of the 100M-node search. The position was already
+  somewhat worse (−30 to −80 at 17–22 pieces): those games slid from the opening phase, starting with the cheaper
+  choices at the divergence (plies 6–15, 20–22 pieces).
+- **This matches the reviewer's measurement:** one step beyond the database the search is nearly error-free. These
+  losses are made early, with 17–22 pieces, by small concessions and once by a horizon miss, not at the database boundary.
+- **Would E5-style data help here?** It covers exactly this region: seeds from plies 6–30 of real games against Cake,
+  KingsRow and GuiNN, and 24% of its records have 17–24 pieces. But the errors are 10–40 centi-men choices between
+  playable moves (one horizon miss aside), the kind of difference that lies within the noise of a net's evaluation. Better
+  labels there may help a little; a verdict needs n9h/n9a against these ballots, not only self-play.
+
+<!-- LOSSTABLE -->
+
 <!-- PHASE3MORE -->
 
 ## What holds and what does not
