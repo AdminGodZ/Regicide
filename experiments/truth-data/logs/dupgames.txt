@@ -1,0 +1,3 @@
+gen6a_n50k_egdb.bin: 4121088 records, 149941 games, first record flagged True; duplicate games within the file: 34191
+gen6b_n50k_egdb.bin: 4066816 records, 148139 games, first record flagged True; duplicate games within the file: 28546
+games occurring in more than one file: 12515; total duplicate games (all copies beyond the first): 75252
