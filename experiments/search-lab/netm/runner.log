@@ -8,3 +8,5 @@ BEGIN M5_n8c-vs-n8bn attempt 1 chunks '' A=n8c B=n8bn eng=eng mt=0.5 2026-11-10T
 DONE M5_n8c-vs-n8bn secs=0 2026-11-10T18:02:42+01:00 :: Elo -1.7 [-5.4, +1.9] 95% CI (pentanomial, pairs), score 0.4975 +- 0.0052, LOS 17.6%
 FETCHED n8q 2026-11-10T18:02:44+01:00
 BEGIN M1_n8q-vs-n6c attempt 1 chunks 'abcdef' A=n8q B=builtin eng=eng mt=0.5 2026-11-10T18:02:44+01:00
+DONE M1_n8q-vs-n6c secs=8554 2026-11-10T20:25:18+01:00 :: Elo +3.5 [+0.1, +6.8] 95% CI (pentanomial, pairs), score 0.5050 +- 0.0048, LOS 97.9%
+BEGIN M3_n8q-vs-n6c_nodb attempt 1 chunks 'abcdef' A=n8q B=builtin eng=eng_nodb mt=0.5 2026-11-10T20:25:18+01:00

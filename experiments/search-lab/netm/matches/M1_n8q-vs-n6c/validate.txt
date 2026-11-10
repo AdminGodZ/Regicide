@@ -1,0 +1,8 @@
+a 278/278 ok
+b 278/278 ok
+c 268/268 ok
+d 262/262 ok
+e 264/264 ok
+f 260/260 ok
+pooled pairs 805/805 pool exit 0 ok
+COMPLETE
