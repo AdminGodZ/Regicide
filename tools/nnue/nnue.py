@@ -26,6 +26,9 @@ import torch.nn.functional as F
 INPUTS = 128
 ACTIVATION, QA, QB, QH = 1, 255, 64, 127
 OUT_SCALE = 400
+# Run the exact (float64) integer sums of quantisation-aware training on the CPU on every device (automatic on MPS,
+# which has no float64); for tests.
+_EXACT_ON_CPU = __import__("os").environ.get("REGICIDE_EXACT_ON_CPU") == "1"
 SCORE_LIMIT = 14999  # the engine clamps static evals to +-(SCORE_KNOWN_WIN - 1)
 HIDDEN_WIDTHS = (16, 32, 64)  # L1 / L2 widths the engine has kernels for
 FT_TILE = 128  # FT widths are multiples of this
@@ -95,6 +98,10 @@ OUT_WEIGHT_MAX = 500.0
 RECORD = np.dtype([("black", "<u4"), ("white", "<u4"), ("kings", "<u4"), ("score", "<i2"), ("stm", "u1"),
                    ("result", "i1")])
 BLACK, WHITE = 0, 1
+# stm byte (src/datafile.hpp): bit 0 the side to move; bit 7 (PROVEN) the score is proven, its sign is the exact
+# result; bit 6 (GAME_START) the first record of a game. Always read the side to move through stm_of().
+PROVEN = 0x80
+GAME_START = 0x40
 
 
 def bucket_of(pieces, buckets):
@@ -103,31 +110,111 @@ def bucket_of(pieces, buckets):
         min(max(pieces - 1, 0) * buckets // 24, buckets - 1)
 
 
+def stm_of(rec):
+    """Side to move of records (the stm byte without the PROVEN flag)."""
+    return rec["stm"] & 1
+
+
+def proven_of(rec):
+    return (rec["stm"] & PROVEN) != 0
+
+
+_POP8 = np.array([bin(i).count("1") for i in range(256)], dtype=np.uint8)
+
+
+def popcount32(x):
+    """Bits set in each uint32 (np.bitwise_count needs NumPy 2.0; this works with 1.24 too)."""
+    if hasattr(np, "bitwise_count"):
+        return np.bitwise_count(x)
+    b = np.ascontiguousarray(x, dtype="<u4").view(np.uint8).reshape(-1, 4)
+    return _POP8[b].sum(1, dtype=np.uint8).reshape(np.shape(x))
+
+
+def piece_counts(rec):
+    return popcount32(rec["black"] | rec["white"])
+
+
 def stm_result(rec):
     """Game result from the side to move's point of view, 0 / 0.5 / 1."""
     r = rec["result"].astype(np.float64)
-    return 0.5 + 0.5 * np.where(rec["stm"] == BLACK, r, -r)
+    return 0.5 + 0.5 * np.where(stm_of(rec) == BLACK, r, -r)
 
 
 # ----------------------------------------------------------------------------------------------------------------
 # Data
 
 
+def kept_indices(m, min_pieces, chunk=1 << 22):
+    """Indices (uint32) of the records of memmap `m` with at least `min_pieces` pieces."""
+    parts = []
+    for s in range(0, len(m), chunk):
+        parts.append((np.flatnonzero(piece_counts(m[s:s + chunk]) >= min_pieces) + s).astype(np.uint32))
+    return np.concatenate(parts) if parts else np.empty(0, np.uint32)
+
+
 class Data:
     """Several DataRecord files, memory-mapped. The last `valid_frac` of each file is held out for validation
-    (files are written game by game, so this keeps validation games apart from training games)."""
+    (files are written game by game, so this keeps validation games apart from training games).
+    min_pieces > 0 leaves out every record with fewer pieces (training and validation).
 
-    def __init__(self, files, valid_frac=0.02):
-        self.maps, self.train_sizes, self.valid_parts = [], [], []
+    groups (piece-count lower bounds, e.g. [9, 13, 17]; the first must equal min_pieces) with weights: phase-balanced
+    sampling. Every batch of n records holds exactly round(n * w_g / sum w) records of group g (the largest-remainder
+    split of n), each drawn uniformly (with replacement) from all training records of that group, over all files
+    (a file given k times counts k times, as in the plain sampler). Validation is unchanged (all records)."""
+
+    def __init__(self, files, valid_frac=0.02, min_pieces=0, groups=None, weights=None):
+        self.maps, self.train_sizes, self.valid_parts, self.keep = [], [], [], []
+        cache = {}
         for f in files:
             m = np.memmap(f, dtype=RECORD, mode="r")
             nv = int(len(m) * valid_frac)
             self.maps.append(m)
-            self.train_sizes.append(len(m) - nv)
-            self.valid_parts.append(m[len(m) - nv:])
+            if min_pieces > 0:
+                if f not in cache:
+                    k = kept_indices(m, min_pieces)
+                    cut = np.searchsorted(k, len(m) - nv)
+                    cache[f] = (k[:cut], m[k[cut:].astype(np.int64)])
+                k, v = cache[f]
+                self.keep.append(k)
+                self.train_sizes.append(len(k))
+                self.valid_parts.append(v)
+            else:
+                self.keep.append(None)
+                self.train_sizes.append(len(m) - nv)
+                self.valid_parts.append(m[len(m) - nv:])
         self.train_ends = np.cumsum(self.train_sizes)
         self.n_train = int(self.train_ends[-1]) if files else 0
         self.n_valid = sum(len(v) for v in self.valid_parts)
+        self.groups = None
+        if groups:
+            if min_pieces != groups[0] or any(k is None for k in self.keep):
+                raise ValueError("groups need min_pieces equal to the first group bound")
+            bounds = list(groups) + [25]
+            w = np.asarray(weights if weights else [1.0] * len(groups), dtype=np.float64)
+            self.group_weights = w / w.sum()
+            split = {}
+            for fi, f in enumerate(files):
+                if f not in split:
+                    k = self.keep[fi]
+                    pc = np.concatenate([piece_counts(self.maps[fi][k[s:s + (1 << 22)].astype(np.int64)])
+                                         for s in range(0, len(k), 1 << 22)]) if len(k) else np.empty(0, int)
+                    split[f] = [k[(pc >= bounds[g]) & (pc < bounds[g + 1])] for g in range(len(groups))]
+            self.groups = [[split[f][g] for f in files] for g in range(len(groups))]  # [group][file] -> indices
+            self.group_ends = [np.cumsum([len(a) for a in self.groups[g]]) for g in range(len(groups))]
+            self.group_sizes = [int(e[-1]) for e in self.group_ends]
+            self.group_bounds = bounds
+            empty = [g for g in range(len(groups)) if self.group_weights[g] > 0 and self.group_sizes[g] == 0]
+            if empty:
+                raise ValueError("phase groups %s have a share of every batch but no training records" %
+                                 ", ".join("%d-%d" % (bounds[g], bounds[g + 1] - 1) for g in empty))
+
+    def batch_split(self, n):
+        """Records per group in a batch of n: the largest-remainder split of n by the group weights (exact)."""
+        q = n * self.group_weights
+        k = np.floor(q).astype(np.int64)
+        for g in np.argsort(-(q - k), kind="stable")[: n - int(k.sum())]:
+            k[g] += 1
+        return k
 
     def gather(self, idx):
         """Training records at global indices `idx` (sorted for locality)."""
@@ -137,12 +224,28 @@ class Data:
         out = np.empty(len(idx), dtype=RECORD)
         for f in np.unique(which):
             sel = which == f
-            out[sel] = self.maps[f][idx[sel] - starts[f]]
+            local = idx[sel] - starts[f]
+            out[sel] = self.maps[f][local if self.keep[f] is None else self.keep[f][local]]
+        return out
+
+    def gather_group(self, g, idx):
+        """Training records of group g at group-global indices idx."""
+        idx = np.sort(idx)
+        ends = self.group_ends[g]
+        which = np.searchsorted(ends, idx, side="right")
+        starts = np.concatenate([[0], ends[:-1]])
+        out = np.empty(len(idx), dtype=RECORD)
+        for f in np.unique(which):
+            sel = which == f
+            out[sel] = self.maps[f][self.groups[g][f][idx[sel] - starts[f]]]
         return out
 
     def sample(self, rng, n):
-        """Uniform random training records (with replacement)."""
-        return self.gather(rng.integers(0, self.n_train, n))
+        """Uniform random training records (with replacement); with groups, exactly batch_split(n) per group."""
+        if self.groups is None:
+            return self.gather(rng.integers(0, self.n_train, n))
+        return np.concatenate([self.gather_group(g, rng.integers(0, self.group_sizes[g], k))
+                               for g, k in enumerate(self.batch_split(n)) if k > 0])
 
     def validation(self, limit, rng):
         v = np.concatenate([np.asarray(p) for p in self.valid_parts]) if self.valid_parts else np.empty(0, RECORD)
@@ -165,11 +268,17 @@ class Prefetcher:
             self.threads.append(t)
 
     def _run(self, data, batch, rng):
-        while not self.stop:
-            self.q.put(data.sample(rng, batch))
+        try:
+            while not self.stop:
+                self.q.put(data.sample(rng, batch))
+        except BaseException as e:  # hand it to next(): a dead worker must not leave the trainer waiting forever
+            self.q.put(e)
 
     def next(self):
-        return self.q.get()
+        item = self.q.get()
+        if isinstance(item, BaseException):
+            raise RuntimeError("data loader worker failed") from item
+        return item
 
     def close(self):
         self.stop = True
@@ -184,7 +293,9 @@ class Prefetcher:
 
 def to_tensors(rec, device):
     """Raw record fields as int64 tensors on `device`."""
-    cols = {k: torch.from_numpy(rec[k].astype(np.int64)) for k in ("black", "white", "kings", "stm", "score")}
+    cols = {k: torch.from_numpy(rec[k].astype(np.int64)) for k in ("black", "white", "kings", "score")}
+    cols["stm"] = torch.from_numpy(stm_of(rec).astype(np.int64))
+    cols["proven"] = torch.from_numpy(proven_of(rec))
     cols["result"] = torch.from_numpy(stm_result(rec).astype(np.float32))
     pin = torch.device(device).type == "cuda"
     return {k: (v.pin_memory() if pin else v).to(device, non_blocking=True) for k, v in cols.items()}
@@ -226,7 +337,9 @@ def features_np(rec, view):
 
 
 def fit_k(rec, lo=20.0, hi=2000.0):
-    """K such that sigmoid(score / K) best predicts the game results (as tools/train.cpp)."""
+    """K such that sigmoid(score / K) best predicts the game results (as tools/train.cpp). Proven records (clamped
+    scores) are left out."""
+    rec = rec[~proven_of(rec)]
     s = rec["score"].astype(np.float64)
     t = stm_result(rec)
 
@@ -301,18 +414,26 @@ class Net(nn.Module):
 
         act = transform(x) if xo is None else torch.cat([transform(x), transform(xo)], 1)
 
+        # The integer affine sums (activations 0..127 times int8 weights, plus int32 biases) are formed in float64:
+        # float32 is exact only below 2^24, which FT 2048 x 127 x 127 (33M) or a large bias can exceed, and then the
+        # simulated net would differ from the exported one. Devices without float64 (MPS) do these few small layers on
+        # the CPU (autograd follows the transfers), so every device trains the same exact integer net.
+        dev = x.device
+        exact = torch.device("cpu") if dev.type == "mps" or _EXACT_ON_CPU else dev
+        bk = bucket.to(exact)
+
         def hidden(layer, inp, n):
             w = ste(layer.weight * QB, torch.round(layer.weight * QB))
             b = ste(layer.bias * QH * QB, torch.round(layer.bias * QH * QB))
-            s = select(F.linear(inp, w, b), bucket, n) / QB
-            return ste(s, torch.floor(s)).clamp(0, QH)
+            s = select(F.linear(inp.to(exact).double(), w.to(exact).double(), b.to(exact).double()), bk, n) / QB
+            return ste(s, torch.floor(s)).clamp(0, QH).float().to(dev)
 
         h1 = hidden(self.l1, act, a.l1)
         h2 = hidden(self.l2, h1, a.l2)
         w = ste(self.out.weight * QB, torch.round(self.out.weight * QB))
         b = ste(self.out.bias * QH * QB, torch.round(self.out.bias * QH * QB))
-        y = F.linear(h2, w, b).gather(1, bucket.view(-1, 1)).squeeze(1)
-        return y * self.out_scale / (QH * QB)
+        y = F.linear(h2.to(exact).double(), w.to(exact).double(), b.to(exact).double()).gather(1, bk.view(-1, 1)).squeeze(1)
+        return (y * self.out_scale / (QH * QB)).float().to(dev)
 
     @torch.no_grad()
     def clip_(self):
@@ -400,7 +521,7 @@ def read_rgnn(path):
 def forward_int(qw, rec):
     """The engine's integer forward pass on records (numpy int64; must match Network::evaluate exactly)."""
     a = qw["arch"]
-    stm = rec["stm"].astype(np.int64)
+    stm = stm_of(rec).astype(np.int64)
 
     def transform(view):
         x, pieces = features_np(rec, view)

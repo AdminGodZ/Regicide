@@ -1,0 +1,50 @@
+net v1 2048 -> 32 -> 32 -> 1, 8 buckets  train 124030528  valid 1000000  K 102.4  lambda 0.50  min pieces 9  device cuda  6103 steps/epoch
+/home/admingod/regicide-nnue/.venv/lib/python3.12/site-packages/torch/_inductor/compile_fx.py:322: UserWarning: TensorFloat32 tensor cores for float32 matrix multiplication available but not enabled. Consider setting `torch.set_float32_matmul_precision('high')` for better performance.
+  warnings.warn(
+epoch   1  lr 9.99e-04  train 0.455706  valid 0.449333  valid(int) 0.450217  3042535 pos/s
+epoch   2  lr 9.94e-04  train 0.447478  valid 0.446556  valid(int) 0.447292  3589878 pos/s
+epoch   3  lr 9.87e-04  train 0.445486  valid 0.445292  valid(int) 0.446119  3442743 pos/s
+epoch   4  lr 9.76e-04  train 0.444283  valid 0.444364  valid(int) 0.444718  3447540 pos/s
+epoch   5  lr 9.63e-04  train 0.443541  valid 0.443696  valid(int) 0.444069  3385244 pos/s
+epoch   6  lr 9.47e-04  train 0.443054  valid 0.443137  valid(int) 0.443790  3462561 pos/s
+epoch   7  lr 9.28e-04  train 0.442663  valid 0.443020  valid(int) 0.443421  3446247 pos/s
+epoch   8  lr 9.06e-04  train 0.442365  valid 0.442732  valid(int) 0.443407  3765106 pos/s
+epoch   9  lr 8.82e-04  train 0.442116  valid 0.442511  valid(int) 0.442869  3275356 pos/s
+epoch  10  lr 8.56e-04  train 0.441923  valid 0.442636  valid(int) 0.443145  3354261 pos/s
+epoch  11  lr 8.27e-04  train 0.441746  valid 0.442278  valid(int) 0.442793  3395520 pos/s
+epoch  12  lr 7.97e-04  train 0.441594  valid 0.442141  valid(int) 0.442580  3770142 pos/s
+epoch  13  lr 7.64e-04  train 0.441435  valid 0.442013  valid(int) 0.442690  3467717 pos/s
+epoch  14  lr 7.30e-04  train 0.441351  valid 0.441844  valid(int) 0.443194  3466783 pos/s
+epoch  15  lr 6.95e-04  train 0.441205  valid 0.441692  valid(int) 0.442163  3442820 pos/s
+epoch  16  lr 6.59e-04  train 0.441099  valid 0.441713  valid(int) 0.442312  3438737 pos/s
+epoch  17  lr 6.21e-04  train 0.440986  valid 0.441512  valid(int) 0.442218  3747748 pos/s
+epoch  18  lr 5.83e-04  train 0.440888  valid 0.441467  valid(int) 0.442192  3395127 pos/s
+epoch  19  lr 5.45e-04  train 0.440777  valid 0.441419  valid(int) 0.443043  3406533 pos/s
+epoch  20  lr 5.06e-04  train 0.440706  valid 0.441317  valid(int) 0.442827  3351576 pos/s
+epoch  21  lr 4.67e-04  train 0.440584  valid 0.441246  valid(int) 0.441718  3291166 pos/s
+epoch  22  lr 4.28e-04  train 0.440554  valid 0.441156  valid(int) 0.441896  3413016 pos/s
+epoch  23  lr 3.90e-04  train 0.440501  valid 0.441144  valid(int) 0.441700  3825271 pos/s
+epoch  24  lr 3.53e-04  train 0.440396  valid 0.441055  valid(int) 0.442129  2900445 pos/s
+epoch  25  lr 3.16e-04  train 0.440308  valid 0.440951  valid(int) 0.441732  2947620 pos/s
+epoch  26  lr 2.81e-04  train 0.440256  valid 0.440919  valid(int) 0.441615  3047544 pos/s
+epoch  27  lr 2.47e-04  train 0.440156  valid 0.440813  valid(int) 0.441513  3111498 pos/s
+epoch  28  lr 2.14e-04  train 0.440104  valid 0.440774  valid(int) 0.442038  3151798 pos/s
+epoch  29  lr 1.84e-04  train 0.440017  valid 0.440769  valid(int) 0.442397  3151664 pos/s
+epoch  30  lr 1.55e-04  train 0.439929  valid 0.440670  valid(int) 0.441534  3138274 pos/s
+epoch  31  lr 1.29e-04  train 0.439901  valid 0.440635  valid(int) 0.441777  3044876 pos/s
+epoch  32  lr 1.05e-04  train 0.439903  valid 0.440592  valid(int) 0.442006  3117210 pos/s
+epoch  33  lr 8.31e-05  train 0.439793  valid 0.440559  valid(int) 0.442620  3114419 pos/s
+epoch  34  lr 6.40e-05  train 0.439779  valid 0.440511  valid(int) 0.442310  3177725 pos/s
+epoch  35  lr 4.77e-05  train 0.439690  valid 0.440490  valid(int) 0.442493  3752452 pos/s
+epoch  36  lr 3.43e-05  train 0.439730  valid 0.440458  valid(int) 0.442466  3351843 pos/s
+epoch  37  lr 2.37e-05  train 0.439650  valid 0.440437  valid(int) 0.442734  3301937 pos/s
+epoch  38  lr 1.61e-05  train 0.439669  valid 0.440428  valid(int) 0.442539  3366979 pos/s
+epoch  39  lr 1.15e-05  train 0.440080  valid 0.441573  valid(int) 0.441354  [qat]  740665 pos/s
+epoch  40  lr 1.00e-05  train 0.440174  valid 0.441443  valid(int) 0.441539  [qat]  770417 pos/s
+wrote /home/admingod/regicide-truth-work/runs/w2032/net_e040.nnue
+== w2032 export check (100k positions of the shared validation set), final net_e040.nnue, rc=0
+positions 100000  distinct engine scores 1343  range [-705, 643]
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 6.47, max 74.33 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK
