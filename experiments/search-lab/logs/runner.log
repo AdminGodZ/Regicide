@@ -24,3 +24,5 @@ DONE b4_nosafe1 rc=0 secs=1308 2026-11-10T01:46:59+01:00 :: final games 1600  A:
 BEGIN b5_double30 bin=selfplay-lab2 a="se_double=30" b="" mt=300 pairs=800 extra="--egdb /home/admingod/regicide-data/egdb --book books/uho1600.txt" 2026-11-10T01:46:59+01:00
 DONE b5_double30 rc=0 secs=1292 2026-11-10T02:08:31+01:00 :: final games 1600  A: +623 =357 -620  score 0.5009  draws 22.3%  elo +0.7 [-5.1, +6.4]  penta [0 90 617 93 0]
 BEGIN b5_neg bin=selfplay-lab2 a="se_neg=1" b="" mt=300 pairs=800 extra="--egdb /home/admingod/regicide-data/egdb --book books/uho1600.txt" 2026-11-10T02:08:31+01:00
+DONE b5_neg rc=0 secs=1293 2026-11-10T02:30:04+01:00 :: final games 1600  A: +623 =356 -621  score 0.5006  draws 22.2%  elo +0.4 [-5.3, +6.2]  penta [1 87 621 91 0]
+BEGIN b7_tteval bin=selfplay-lab2 a="tt_eval=1" b="" mt=300 pairs=800 extra="--egdb /home/admingod/regicide-data/egdb --book books/uho1600.txt" 2026-11-10T02:30:04+01:00
