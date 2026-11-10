@@ -1,0 +1,31 @@
+cal_se30_uho|selfplay-lab2|se_margin=30|300|800||--egdb /home/admingod/regicide-data/egdb --book books/uho1600.txt
+cal_se30_old|selfplay-lab2|se_margin=30|300|800||--egdb /home/admingod/regicide-data/egdb
+cal_n6c_uho|selfplay-lab2||300|800||--evalb n4c.nnue --egdb /home/admingod/regicide-data/egdb --book books/uho1600.txt
+cal_n6c_old|selfplay-lab2||300|800||--evalb n4c.nnue --egdb /home/admingod/regicide-data/egdb
+tmcal_150|selfplay-lab2|tm_nodes=150|0|60||--target 300 --egdb /home/admingod/regicide-data/egdb --book books/uho1600.txt
+tmcal_170|selfplay-lab2|tm_nodes=170|0|60||--target 300 --egdb /home/admingod/regicide-data/egdb --book books/uho1600.txt
+tmcal_190|selfplay-lab2|tm_nodes=190|0|60||--target 300 --egdb /home/admingod/regicide-data/egdb --book books/uho1600.txt
+b1_hashdb90|selfplay-lab2|hash_first_db=90|300|800||--egdb /home/admingod/regicide-data/egdb --book books/uho1600.txt
+b2_leafcache16|selfplay-lab2|leaf_cache=16|300|800||--egdb /home/admingod/regicide-data/egdb --book books/uho1600.txt
+b3_corr100|selfplay-lab2|corr_hist=100|300|800||--egdb /home/admingod/regicide-data/egdb --book books/uho1600.txt
+b4_nosafe1|selfplay-lab2|nosafe_ext=1|300|800||--egdb /home/admingod/regicide-data/egdb --book books/uho1600.txt
+b5_double30|selfplay-lab2|se_double=30|300|800||--egdb /home/admingod/regicide-data/egdb --book books/uho1600.txt
+b5_neg|selfplay-lab2|se_neg=1|300|800||--egdb /home/admingod/regicide-data/egdb --book books/uho1600.txt
+b7_tteval|selfplay-lab2|tt_eval=1|300|800||--egdb /home/admingod/regicide-data/egdb --book books/uho1600.txt
+b6_tmnodes178|selfplay-lab2|tm_nodes=178|0|800||--target 300 --egdb /home/admingod/regicide-data/egdb --book books/uho1600.txt
+b8_lmr80|selfplay-lab2|lmr_base=80|300|1600||--egdb /home/admingod/regicide-data/egdb --book books/uho1600.txt
+tmcal1000_176|selfplay-lab2|tm_nodes=176|0|60||--target 1000 --egdb /home/admingod/regicide-data/egdb --book books/uho1600.txt
+tmcal1000_168|selfplay-lab2|tm_nodes=168|0|60||--target 1000 --egdb /home/admingod/regicide-data/egdb --book books/uho1600.txt
+c1_vote1|selfplay-lab2|smp_vote=1|300|800||--egdb /home/admingod/regicide-data/egdb --book books/uho1600.txt --tha 4 --thb 4 --threads 4 --hash 64
+b6conf_tm179_t1000|selfplay-lab2|tm_nodes=179|0|400||--target 1000 --egdb /home/admingod/regicide-data/egdb --book books/uho1600.txt
+c2_vote2|selfplay-lab2|smp_vote=2|300|800||--egdb /home/admingod/regicide-data/egdb --book books/uho1600.txt --tha 4 --thb 4 --threads 4 --hash 64
+c3_skip2vote2|selfplay-lab2|smp_skip=2,smp_vote=2|300|400||--egdb /home/admingod/regicide-data/egdb --book books/uho1600.txt --tha 4 --thb 4 --threads 4 --hash 64
+lmr_base20|selfplay-lab4|lmr_base=20|200|800||--egdb /home/admingod/regicide-data/egdb --book books/uho1600.txt
+lmr_base40|selfplay-lab4|lmr_base=40|200|800||--egdb /home/admingod/regicide-data/egdb --book books/uho1600.txt
+lmr_base80|selfplay-lab4|lmr_base=80|200|800||--egdb /home/admingod/regicide-data/egdb --book books/uho1600.txt
+lmr_base100|selfplay-lab4|lmr_base=100|200|800||--egdb /home/admingod/regicide-data/egdb --book books/uho1600.txt
+lmr_base120|selfplay-lab4|lmr_base=120|200|800||--egdb /home/admingod/regicide-data/egdb --book books/uho1600.txt
+lmr_mult25|selfplay-lab4|lmr_mult=25|200|800||--egdb /home/admingod/regicide-data/egdb --book books/uho1600.txt
+lmr_mult35|selfplay-lab4|lmr_mult=35|200|800||--egdb /home/admingod/regicide-data/egdb --book books/uho1600.txt
+lmr_mult55|selfplay-lab4|lmr_mult=55|200|800||--egdb /home/admingod/regicide-data/egdb --book books/uho1600.txt
+lmr_mult65|selfplay-lab4|lmr_mult=65|200|800||--egdb /home/admingod/regicide-data/egdb --book books/uho1600.txt

@@ -1,0 +1,63 @@
+game,pair,opening,black,white,result,score_a,termination,engine_plies
+1,1,"/home/admingod/regicide-jobs/netm/chunks/op4_a:1","n8q","builtin",1-0,1,"no legal moves",125
+2,1,"/home/admingod/regicide-jobs/netm/chunks/op4_a:1","builtin","n8q",1-0,0,"no legal moves",143
+3,2,"/home/admingod/regicide-jobs/netm/chunks/op4_a:2","n8q","builtin",1/2-1/2,0.5,"repetition",67
+4,2,"/home/admingod/regicide-jobs/netm/chunks/op4_a:2","builtin","n8q",1-0,0,"no legal moves",123
+5,3,"/home/admingod/regicide-jobs/netm/chunks/op4_a:3","n8q","builtin",1/2-1/2,0.5,"repetition",96
+6,3,"/home/admingod/regicide-jobs/netm/chunks/op4_a:3","builtin","n8q",1/2-1/2,0.5,"repetition",145
+7,4,"/home/admingod/regicide-jobs/netm/chunks/op4_a:4","n8q","builtin",1-0,1,"no legal moves",133
+8,4,"/home/admingod/regicide-jobs/netm/chunks/op4_a:4","builtin","n8q",1-0,0,"no legal moves",99
+9,5,"/home/admingod/regicide-jobs/netm/chunks/op4_a:5","n8q","builtin",1-0,1,"no legal moves",149
+10,5,"/home/admingod/regicide-jobs/netm/chunks/op4_a:5","builtin","n8q",1-0,0,"no legal moves",217
+11,6,"/home/admingod/regicide-jobs/netm/chunks/op4_a:6","n8q","builtin",1/2-1/2,0.5,"repetition",97
+12,6,"/home/admingod/regicide-jobs/netm/chunks/op4_a:6","builtin","n8q",1-0,0,"no legal moves",123
+13,7,"/home/admingod/regicide-jobs/netm/chunks/op4_a:7","n8q","builtin",1/2-1/2,0.5,"repetition",81
+14,7,"/home/admingod/regicide-jobs/netm/chunks/op4_a:7","builtin","n8q",1/2-1/2,0.5,"repetition",77
+15,8,"/home/admingod/regicide-jobs/netm/chunks/op4_a:8","n8q","builtin",1-0,1,"no legal moves",115
+16,8,"/home/admingod/regicide-jobs/netm/chunks/op4_a:8","builtin","n8q",1-0,0,"no legal moves",177
+17,9,"/home/admingod/regicide-jobs/netm/chunks/op4_a:9","n8q","builtin",1-0,1,"no legal moves",97
+18,9,"/home/admingod/regicide-jobs/netm/chunks/op4_a:9","builtin","n8q",1-0,0,"no legal moves",105
+19,10,"/home/admingod/regicide-jobs/netm/chunks/op4_a:10","n8q","builtin",1-0,1,"no legal moves",155
+20,10,"/home/admingod/regicide-jobs/netm/chunks/op4_a:10","builtin","n8q",1-0,0,"no legal moves",81
+21,11,"/home/admingod/regicide-jobs/netm/chunks/op4_a:11","n8q","builtin",1-0,1,"no legal moves",161
+22,11,"/home/admingod/regicide-jobs/netm/chunks/op4_a:11","builtin","n8q",1-0,0,"no legal moves",135
+23,12,"/home/admingod/regicide-jobs/netm/chunks/op4_a:12","n8q","builtin",1-0,1,"no legal moves",151
+24,12,"/home/admingod/regicide-jobs/netm/chunks/op4_a:12","builtin","n8q",1-0,0,"no legal moves",145
+25,13,"/home/admingod/regicide-jobs/netm/chunks/op4_a:13","n8q","builtin",1/2-1/2,0.5,"repetition",124
+26,13,"/home/admingod/regicide-jobs/netm/chunks/op4_a:13","builtin","n8q",1/2-1/2,0.5,"repetition",165
+27,14,"/home/admingod/regicide-jobs/netm/chunks/op4_a:14","n8q","builtin",1-0,1,"no legal moves",151
+28,14,"/home/admingod/regicide-jobs/netm/chunks/op4_a:14","builtin","n8q",1/2-1/2,0.5,"no progress",288
+29,15,"/home/admingod/regicide-jobs/netm/chunks/op4_a:15","n8q","builtin",1/2-1/2,0.5,"repetition",143
+30,15,"/home/admingod/regicide-jobs/netm/chunks/op4_a:15","builtin","n8q",0-1,1,"no legal moves",154
+31,16,"/home/admingod/regicide-jobs/netm/chunks/op4_a:16","n8q","builtin",0-1,0,"no legal moves",154
+32,16,"/home/admingod/regicide-jobs/netm/chunks/op4_a:16","builtin","n8q",1/2-1/2,0.5,"repetition",105
+33,17,"/home/admingod/regicide-jobs/netm/chunks/op4_a:17","n8q","builtin",1/2-1/2,0.5,"repetition",182
+34,17,"/home/admingod/regicide-jobs/netm/chunks/op4_a:17","builtin","n8q",1-0,0,"no legal moves",157
+35,18,"/home/admingod/regicide-jobs/netm/chunks/op4_a:18","n8q","builtin",1/2-1/2,0.5,"repetition",104
+36,18,"/home/admingod/regicide-jobs/netm/chunks/op4_a:18","builtin","n8q",1/2-1/2,0.5,"repetition",123
+37,19,"/home/admingod/regicide-jobs/netm/chunks/op4_a:19","n8q","builtin",1-0,1,"no legal moves",163
+38,19,"/home/admingod/regicide-jobs/netm/chunks/op4_a:19","builtin","n8q",1-0,0,"no legal moves",125
+39,20,"/home/admingod/regicide-jobs/netm/chunks/op4_a:20","n8q","builtin",1-0,1,"no legal moves",161
+40,20,"/home/admingod/regicide-jobs/netm/chunks/op4_a:20","builtin","n8q",1-0,0,"no legal moves",109
+41,21,"/home/admingod/regicide-jobs/netm/chunks/op4_a:21","n8q","builtin",1/2-1/2,0.5,"repetition",136
+42,21,"/home/admingod/regicide-jobs/netm/chunks/op4_a:21","builtin","n8q",1-0,0,"no legal moves",185
+43,22,"/home/admingod/regicide-jobs/netm/chunks/op4_a:22","n8q","builtin",1/2-1/2,0.5,"repetition",66
+44,22,"/home/admingod/regicide-jobs/netm/chunks/op4_a:22","builtin","n8q",1/2-1/2,0.5,"repetition",131
+45,23,"/home/admingod/regicide-jobs/netm/chunks/op4_a:23","n8q","builtin",1-0,1,"no legal moves",167
+46,23,"/home/admingod/regicide-jobs/netm/chunks/op4_a:23","builtin","n8q",1-0,0,"no legal moves",127
+47,24,"/home/admingod/regicide-jobs/netm/chunks/op4_a:24","n8q","builtin",1-0,1,"no legal moves",141
+48,24,"/home/admingod/regicide-jobs/netm/chunks/op4_a:24","builtin","n8q",1-0,0,"no legal moves",201
+49,25,"/home/admingod/regicide-jobs/netm/chunks/op4_a:25","n8q","builtin",1/2-1/2,0.5,"repetition",121
+50,25,"/home/admingod/regicide-jobs/netm/chunks/op4_a:25","builtin","n8q",1/2-1/2,0.5,"repetition",90
+51,26,"/home/admingod/regicide-jobs/netm/chunks/op4_a:26","n8q","builtin",1-0,1,"no legal moves",149
+52,26,"/home/admingod/regicide-jobs/netm/chunks/op4_a:26","builtin","n8q",1-0,0,"no legal moves",85
+53,27,"/home/admingod/regicide-jobs/netm/chunks/op4_a:27","n8q","builtin",1-0,1,"no legal moves",169
+54,27,"/home/admingod/regicide-jobs/netm/chunks/op4_a:27","builtin","n8q",1-0,0,"no legal moves",113
+55,28,"/home/admingod/regicide-jobs/netm/chunks/op4_a:28","n8q","builtin",1/2-1/2,0.5,"repetition",337
+56,28,"/home/admingod/regicide-jobs/netm/chunks/op4_a:28","builtin","n8q",1/2-1/2,0.5,"repetition",70
+57,29,"/home/admingod/regicide-jobs/netm/chunks/op4_a:29","n8q","builtin",1/2-1/2,0.5,"repetition",86
+58,29,"/home/admingod/regicide-jobs/netm/chunks/op4_a:29","builtin","n8q",1/2-1/2,0.5,"repetition",125
+59,30,"/home/admingod/regicide-jobs/netm/chunks/op4_a:30","n8q","builtin",1-0,1,"no legal moves",129
+60,30,"/home/admingod/regicide-jobs/netm/chunks/op4_a:30","builtin","n8q",1-0,0,"no legal moves",95
+61,31,"/home/admingod/regicide-jobs/netm/chunks/op4_a:31","n8q","builtin",1/2-1/2,0.5,"repetition",121
+62,31,"/home/admingod/regicide-jobs/netm/chunks/op4_a:31","builtin","n8q",1/2-1/2,0.5,"repetition",103

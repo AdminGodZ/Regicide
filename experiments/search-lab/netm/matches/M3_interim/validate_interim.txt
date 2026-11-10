@@ -1,0 +1,7 @@
+a 62/278 INCOMPLETE: no summary; results.csv 62 games; exit status 143
+b 69/278 INCOMPLETE: no summary; results.csv 69 games; exit status 143
+c 68/268 INCOMPLETE: no summary; results.csv 68 games; exit status 143
+d 64/262 INCOMPLETE: no summary; results.csv 64 games; exit status 143
+e 67/264 INCOMPLETE: no summary; results.csv 67 games; exit status 143
+f 61/260 INCOMPLETE: no summary; results.csv 61 games; exit status 143
+INCOMPLETE abcdef

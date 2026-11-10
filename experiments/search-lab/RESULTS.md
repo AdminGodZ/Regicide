@@ -230,3 +230,4 @@ gzipped PDN with per-move comments, summary per chunk) in `netm/matches/<match>/
 |---|---|---|---|---|---|---|---|---|
 | M5 n8c vs n8bn | on | 262 / 1078 / 270 | [0, 41, 731, 33, 0] | **-1.7 [-5.4, +1.9]** | 17.6% | 0.271 / 0.270 s | 33.75 / 33.84 | none |
 | M1 n8q vs n6c (interim at 406 pairs was +3.9 [-1.6, +9.3]) | on | 265 / 1096 / 249 | [0, 23, 743, 39, 0] | **+3.5 [+0.1, +6.8]** | 97.9% | 0.275 / 0.275 s | 33.76 / 33.44 | none |
+| M3 n8q vs n6c — **INTERIM, stopped for a reboot: 391 of 1,610 games** (194 complete pairs; chunks a–f 62/69/68/64/67/61 of 278/278/268/262/264/260, all incomplete, to be replayed) | off | 75 / 234 / 82 | [0, 14, 173, 7, 0] | -6.3 [-14.3, +1.7] (interim, pool_dirs method) | | | | none so far |
