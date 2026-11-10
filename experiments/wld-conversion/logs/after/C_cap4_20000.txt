@@ -1,0 +1,12 @@
+ok   load /private/tmp/claude-501/-Users-timheld--t3-worktrees-Regicide-t3-1fb0d56b/353c3a4f-f094-49e4-9063-64d86206a9c9/scratchpad/egdb5
+database: 5 pieces, MTC 5
+  W:WK7,K22,K29:BK19,K27       optimal  63  engine  79  no progress
+convert 5 pieces, 400 positions, 20000 nodes/move, MTC cap 4: won 399, no progress 1, mean plies: engine 30.9, reference 30.7
+  won by kind: kings only 12/13 men on one side 127/127 men on both sides 260/260
+  optimal length median 30 p90 60 max 83; engine minus optimal: median 0 p90 34 max 122; engine/optimal %: median 100 p90 312; at most optimal 273; 3.2 s
+FAIL converted 399 of 400 5-piece wins
+defend 5 pieces, 400 positions, 20000 nodes/move, MTC cap 4: won 400, mean plies: engine 49.5, reference 30.7
+  won by kind: kings only 13/13 men on one side 127/127 men on both sides 260/260
+  optimal length median 30 p90 60 max 83; engine minus optimal: median 12 p90 58 max 92; engine/optimal %: median 130 p90 728; at most optimal 162; 10.0 s
+ok   the defender loses every game, as it must
+FAILED
