@@ -85,6 +85,40 @@ in r5 (sweep dropped; 11-15 forced at ply 44, harmless if not reached).
 | 2 | bl-r5 | KingsRow | **0 / 312 / 0** | queued |
 | 2 | bl-r5 | GuiNN | h1 0 / 156 / 0, h2 queued | queued |
 
+## WP8: missed database wins (`wp8/dbscan.md`, regression set `missed_wins.txt`)
+
+Every games.pdn under `~/regicide-match/results` (all Regicide versions and all agents' runs: baselines, ba-*, census,
+tests, validation, pt-*, tr-*), Regicide vs Cake/KingsRow/GuiNN plus the games among the three; 2,964 duplicate games
+removed. Each game replayed (`booklab_dbscan`, `tools/booklab/dbscan.cpp`) and every position with ≤ 8 pieces probed
+in Regicide's 2–8-piece WLD database.
+
+| Games | Scanned | Reached a database win | Winning side won | Not won |
+|---|---|---|---|---|
+| Regicide vs Cake/KingsRow/GuiNN | 21,013 | 1,925 | 1,554 | 371 |
+| Opponent vs opponent | 2,564 | 73 | 63 | 10 |
+
+**Conversion by the side that had the database win: Regicide 37 of 399; Cake 1,011 of 1,017; KingsRow 223 of 231;
+GuiNN 346 of 351.**
+
+- **Table 1, Regicide had a database win and did not win: 362 games.** In every one the first won position had 7 or 8
+  pieces (346 at 8, 16 at 7; none at ≤ 6, where the database has distance information). 253 ended still
+  database-won (the rules ran out: 312 of all 362 by threefold repetition, 50 by the 40-move rule); in 109 Regicide
+  later moved into a non-won position. It happens in every version, including the current book:
+  validation 2 (bl-r5) 15 of 15 won positions not converted, validation 1 (bl-r4) 28 of 32, census Regicide–GuiNN
+  (master) 30 of 31, deep2b full runs 9 of 9, ponder runs 26 of 27.
+- Cross-check against the opponents' own engines: in the census Regicide–GuiNN missed wins GuiNN's own eval at the
+  first won position is about −440 to −790 from its side, and Regicide's search reports 19999 (database win) on every
+  move until the repetition. So the positions are won by both programs' accounts; the database is not the problem.
+- **Table 2, an opponent had a database win against Regicide and did not win: 9 games**, all in old baselines
+  (a44591e, ae210fb, b71dfa9; Cake 4, GuiNN 5), all 8-piece positions, 6 by repetition / rule with the position still
+  won. The opponents convert 99% of their database wins.
+- **Table 3, opponent vs opponent: 10 games** (see `wp8/dbscan.md`), e.g. KingsRow failed to convert four won endings
+  against GuiNN in the census by the 40-move rule (three with 6 pieces). Here KingsRow runs with the WLD-only
+  8-piece database (`kingsrow_wld8`), which has the same lack of distance information.
+- Consequence: against GuiNN alone master had 30 won 7–8-piece endings in one 312-game census run and won one. The
+  conversion fix (t3/wld-conversion) is worth far more than any book change; `missed_wins.txt` (362 FENs, first
+  won position per game, Regicide to move or just moved) is its regression set.
+
 ## Review fixes (2026-11-10, after 8535bca)
 
 1. **Capture identity.** `booklab_replay`, `booklab_show`, `booklab_apply` reports now write captures with their full
