@@ -143,9 +143,10 @@ int main(int argc, char** argv) {
 
                 engine.set_position(pos, history);
                 const SearchResult r = engine.go(limits);
-                if (!list[0].is_capture() && !is_decisive(r.score)) game.push_back(DataRecord::make(pos, r.score));
+                const Score score = r.sound_score();
+                if (!list[0].is_capture() && !is_decisive(score)) game.push_back(DataRecord::make(pos, score));
 
-                const int black_view = pos.side_to_move() == BLACK ? r.score : -r.score;
+                const int black_view = pos.side_to_move() == BLACK ? score : -score;
                 const int sign = black_view >= cfg.adjudicate_score ? 1 : black_view <= -cfg.adjudicate_score ? -1 : 0;
                 run = sign != 0 && sign == last_sign ? run + 1 : sign != 0;
                 last_sign = sign;

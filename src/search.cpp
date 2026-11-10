@@ -41,10 +41,13 @@ constexpr Score CONV_REPEAT = 2000;
 
 // Once the no-progress draw is within reach, what a position is worth depends on how many plies have passed without
 // a capture or man move, so from this count on it is part of the hash-table key: an entry made at one count is not
-// used at another.
+// used at another. Below it the count is left out, so that transpositions through king moves still meet (a very
+// deep search of a simple ending can reach the limit from there; that is accepted). The conversion search's eval
+// falls with every such ply, so there the count is keyed in steps of sixteen from the start.
 constexpr int REV_KEYED = 48;
-constexpr Key rev_key(int reversible) {
-    if (reversible < REV_KEYED) return 0;
+constexpr Key rev_key(int reversible, bool conversion) {
+    if (reversible < REV_KEYED) reversible = conversion ? reversible / 16 : 0;
+    if (reversible == 0) return 0;
     Key z = Key(reversible) * 0x9E3779B97F4A7C15ull;
     z = (z ^ (z >> 32)) * 0xD6E8FEB86659FD93ull;
     return z ^ (z >> 32);
@@ -294,7 +297,7 @@ Score Worker::search(Position& pos, Score alpha, Score beta, int depth, int ply,
 
     const bool excluding = has_excluded[ply];
     TTData tte;
-    const Key tt_key = pos.key() ^ rev_key(pos.reversible_plies());
+    const Key tt_key = pos.key() ^ rev_key(pos.reversible_plies(), conversion);
     const bool tt_hit = !excluding && tt.probe(tt_key, tte);
     const Score tt_score = tt_hit ? score_from_tt(tte.score, ply) : 0;
     if (!pv_node && tt_hit && tte.depth >= depth &&
@@ -329,9 +332,9 @@ Score Worker::search(Position& pos, Score alpha, Score beta, int depth, int ply,
         }
     }
 
-    // With the no-progress draw inside the remaining depth the static eval says little about the outcome, so the
-    // pruning rules that rely on it stand down.
-    const bool limit_near = pos.reversible_plies() + std::max(depth, 1) >= NO_PROGRESS_PLIES;
+    // With the no-progress draw inside the remaining search the static eval says little about the outcome, so the
+    // pruning rules that rely on it stand down. Extensions can add a ply at every node below, hence twice the depth.
+    const bool limit_near = pos.reversible_plies() + 2 * std::max(depth, 1) + 2 >= NO_PROGRESS_PLIES;
 
     // Razoring: far below alpha at low depth, check whether the horizon search agrees.
     if (!pv_node && !excluding && !forced_capture && !conversion && !limit_near && depth > 0 &&
@@ -358,7 +361,9 @@ Score Worker::search(Position& pos, Score alpha, Score beta, int depth, int ply,
             TTData ce;
             const Key ck = pos.key_after(m);
             const int reversible = (pos.kings() & bit(m.from)) && !m.is_capture() ? pos.reversible_plies() + 1 : 0;
-            if (!tt.probe(ck ^ rev_key(reversible), ce) || ce.depth < depth - 1 || !(ce.bound & BOUND_UPPER)) continue;
+            if (!tt.probe(ck ^ rev_key(reversible, conversion), ce) || ce.depth < depth - 1 ||
+                !(ce.bound & BOUND_UPPER))
+                continue;
             const Score cs = -score_from_tt(ce.score, ply + 1);
             if (cs < beta || is_decisive(cs)) continue;
             // The child's own search would call a repetition or the no-progress limit a draw before it looked at
@@ -444,7 +449,7 @@ Score Worker::search(Position& pos, Score alpha, Score beta, int depth, int ply,
 
         Position child = pos;
         child.make_move(m);
-        tt.prefetch(child.key() ^ rev_key(child.reversible_plies()));
+        tt.prefetch(child.key() ^ rev_key(child.reversible_plies(), conversion));
         if (net) nn.push(ply + 1, pos, m);
         const int new_depth = depth - 1 + ext + (order[n] == (1 << 30) ? tt_move_ext : 0);
         prev_to[ply + 1] = m.to;
@@ -801,8 +806,9 @@ SearchResult Engine::go(const Limits& limits, InfoFn on_info) {
         if (!winning.empty()) root_moves = std::move(winning);
     }
 
-    // Avoid list: drop excluded root moves, unless that would leave none.
-    if (avoid_ && avoid_->avoid_size() && !analysis) {
+    // Avoid list: drop excluded root moves, unless that would leave none. Not from a root the database has decided:
+    // there it could leave only a winning move that repeats the position for the third time.
+    if (avoid_ && avoid_->avoid_size() && !analysis && !conversion_) {
         std::vector<Move> kept;
         for (const Move& m : root_moves)
             if (!avoid_->avoids(root_, m)) kept.push_back(m);

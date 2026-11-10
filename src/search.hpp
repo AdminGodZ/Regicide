@@ -55,6 +55,11 @@ struct SearchResult {
     int depth = 0;  // last completed iteration
     Score completed_score = -SCORE_INF;  // its score; -SCORE_INF if no iteration was completed
     bool partial = false;
+    // The score as a statement about the position: a losing score from a partial iteration only says that the
+    // moves searched so far lose, so the last completed score stands in for it.
+    Score sound_score() const {
+        return partial && score <= -SCORE_KNOWN_WIN && completed_score != -SCORE_INF ? completed_score : score;
+    }
     std::uint64_t nodes = 0;
     std::int64_t time_ms = 0;
     std::vector<Move> pv;

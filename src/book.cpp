@@ -145,9 +145,10 @@ bool Book::avoids(const Position& pos, const Move& m) const {
 
 std::optional<Move> Book::probe(const Position& pos, int margin, std::uint64_t seed, const Book* avoid) const {
     std::vector<Entry> es = lookup(pos);
+    // Only entries that name a legal move which is not on an avoid list take part in the choice.
     std::erase_if(es, [&](const Entry& e) {
         const std::optional<Move> m = to_move(pos, e);
-        return m && (avoids(pos, *m) || (avoid && avoid->avoids(pos, *m)));
+        return !m || avoids(pos, *m) || (avoid && avoid->avoids(pos, *m));
     });
     if (es.empty()) return std::nullopt;
     std::sort(es.begin(), es.end(), [](const Entry& a, const Entry& b) { return a.score > b.score; });

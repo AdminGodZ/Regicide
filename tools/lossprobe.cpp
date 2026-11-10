@@ -257,7 +257,9 @@ Outcome analyse(Engine& engine, const Game& g, const Config& cfg) {
         limits.use_book = false;
         limits.searchmoves.assign(list.begin(), list.end());
         engine.set_position(p, history);
-        const SearchResult full = engine.go(limits);
+        // A losing score from an unfinished iteration is no verdict on the position (SearchResult::sound_score).
+        SearchResult full = engine.go(limits);
+        full.score = full.sound_score();
 
         // Second search: the played move alone, or every other move when the played move was the best.
         const bool played_best = full.best == played;
@@ -265,7 +267,8 @@ Outcome analyse(Engine& engine, const Game& g, const Config& cfg) {
         for (const Move& m : list)
             if ((m == played) != played_best) limits.searchmoves.push_back(m);
         engine.set_position(p, history);
-        const SearchResult second = engine.go(limits);
+        SearchResult second = engine.go(limits);
+        second.score = second.sound_score();
         const SearchResult& played_r = played_best ? full : second;
         const SearchResult& alt_r = played_best ? second : full;
         const int best_score = std::max(full.score, second.score);
