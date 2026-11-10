@@ -1,0 +1,43 @@
+# Regicide holdout panel: h2_holdout156.txt
+# Actual openings: 19; each is played with both colours.
+# master=456e9b224a380771c50a1b0da9360757c16aa62e
+# booklab=3978ecd94f6f0f29a255b90d06a09eab9fb21c42
+# seed=20261110; no static-evaluation filtering.
+# source openings4 line 602
+11-15 22-17 12-16 17-14
+# source openings4 line 690
+11-16 22-18 7-11 18-15
+# source openings4 line 90
+9-13 23-18 6-9 18-15
+# source openings4 line 392
+10-14 23-19 7-10 19-15
+# source openings4 line 317
+9-14 24-19 14-18 22x15
+# source openings4 line 303
+9-14 24-19 6-9 23-18
+# source openings4 line 449
+10-15 21-17 6-10 17-14
+# source openings4 line 610
+11-15 22-17 15-19 24x15
+# source openings4 line 641
+11-16 21-17 7-11 17-14
+# source openings4 line 669
+11-16 22-17 7-11 17-14
+# source openings4 line 418
+10-14 24-19 11-16 23-18
+# source openings4 line 447
+10-14 24-20 14-18 23x14
+# source openings4 line 446
+10-14 24-20 14-18 22x15
+# source openings4 line 691
+11-16 22-18 7-11 23-19
+# source openings4 line 369
+10-14 22-18 7-10 23-19
+# source openings4 line 298
+9-14 24-19 5-9 23-18
+# source openings4 line 109
+9-13 23-18 12-16 18-15
+# source openings4 line 384
+10-14 22-18 12-16 23-19
+# source openings4 line 793
+12-16 23-18 16-20 18-15

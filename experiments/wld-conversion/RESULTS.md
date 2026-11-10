@@ -363,7 +363,7 @@ MTC-optimally:
   leading man. The winner plays any winning man move or capture before an MTC-decreasing king move; the loser
   maximises the child's MTC instead of the cost of each move.
 - Checked exhaustively on all 3- and 4-piece positions: it never gives away a database win and always makes progress
-  (a man moves or MTC falls), so every won game is won and none runs into the 79-ply rule from a fresh count.
+  (a capture removes material, a man moves, or MTC falls), so every won game is won and none runs into the 79-ply rule from a fresh count.
 - The winner picks a move that is not distance-optimal in 6.7% of 3-piece and 11.1% of 4-piece wins (mean cost 1.6
   and 1.5 plies where it differs, at most 8 and 6). The loser misses the longest defence in 0.003% of 3-piece and
   4.3% of 4-piece losses.
