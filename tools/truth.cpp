@@ -229,7 +229,10 @@ int pilot(const std::vector<std::string>& files, long n, int lo, int hi, const s
     };
     std::vector<Item> items;
     std::mt19937_64 rng(seed);
-    while (long(items.size()) < n) {
+    if (total <= 0) return std::cerr << "the input holds no complete record\n", 1;
+    for (long tries = 0; long(items.size()) < n; ++tries) {
+        if (tries > 1000 * n + 1000000)
+            return std::cerr << "too few records with " << lo << ".." << hi << " pieces in the input\n", 1;
         long g = long(rng() % std::uint64_t(total));
         int fi = 0;
         while (g >= src[fi].count) g -= src[fi++].count;
