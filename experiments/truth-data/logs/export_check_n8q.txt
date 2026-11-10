@@ -1,0 +1,5 @@
+positions 100000  distinct engine scores 1437  range [-764, 789]
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 7.35, max 70.00 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK
