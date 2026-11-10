@@ -1,6 +1,7 @@
 #include "position.hpp"
 
 #include <cctype>
+#include <charconv>
 #include <sstream>
 
 namespace regicide {
@@ -30,18 +31,26 @@ bool Position::set_fen(const std::string& fen) {
         std::stringstream list(field.substr(1));
         std::string tok;
         while (std::getline(list, tok, ',')) {
+            const auto space = [](char ch) { return std::isspace(static_cast<unsigned char>(ch)) != 0; };
+            while (!tok.empty() && space(tok.back())) tok.pop_back();
+            while (!tok.empty() && space(tok.front())) tok.erase(0, 1);
             if (tok.empty()) continue;
             bool king = std::toupper(static_cast<unsigned char>(tok[0])) == 'K';
-            int n;
-            try {
-                n = std::stoi(king ? tok.substr(1) : tok);
-            } catch (...) {
-                return false;
+            // A square or a range of squares ("21-32"); anything left over in the token is an error.
+            const char* p = tok.data() + king;
+            const char* const end = tok.data() + tok.size();
+            int first = 0, last = 0;
+            auto r = std::from_chars(p, end, first);
+            if (r.ec != std::errc{}) return false;
+            last = first;
+            if (r.ptr != end && *r.ptr == '-') r = std::from_chars(r.ptr + 1, end, last);
+            if (r.ec != std::errc{} || r.ptr != end) return false;
+            if (first < 1 || last > 32 || first > last) return false;
+            for (int n = first; n <= last; ++n) {
+                int sq = from_pdn(n);
+                pieces[c] |= bit(sq);
+                if (king) kings |= bit(sq);
             }
-            if (n < 1 || n > 32) return false;
-            int sq = from_pdn(n);
-            pieces[c] |= bit(sq);
-            if (king) kings |= bit(sq);
         }
     }
     if (pieces[BLACK] & pieces[WHITE]) return false;

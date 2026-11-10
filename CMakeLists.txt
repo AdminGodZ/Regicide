@@ -72,6 +72,18 @@ add_executable(perft_test tests/perft_test.cpp)
 target_link_libraries(perft_test PRIVATE regicide_core)
 add_test(NAME perft COMMAND perft_test)
 
+add_executable(search_test tests/search_test.cpp)
+target_link_libraries(search_test PRIVATE regicide_core)
+add_test(NAME search COMMAND search_test)
+
+add_executable(fen_test tests/fen_test.cpp)
+target_link_libraries(fen_test PRIVATE regicide_core)
+add_test(NAME fen COMMAND fen_test)
+
+add_executable(ttmove_test tests/ttmove_test.cpp)
+target_link_libraries(ttmove_test PRIVATE regicide_core)
+add_test(NAME ttmove COMMAND ttmove_test)
+
 add_executable(eval_test tests/eval_test.cpp)
 target_link_libraries(eval_test PRIVATE regicide_core)
 add_test(NAME eval_builtin COMMAND eval_test)

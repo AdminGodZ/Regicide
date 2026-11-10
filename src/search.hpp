@@ -16,6 +16,10 @@
 
 namespace regicide {
 
+// A game is drawn after this many plies in a row without a capture or a man move: CheckerBoard's rule, 40 moves
+// by one side and 39 by the other. The match runner applies the same count.
+constexpr int NO_PROGRESS_PLIES = 79;
+
 struct Limits {
     int depth = MAX_PLY - 1;
     std::uint64_t nodes = 0;  // 0 = unlimited
@@ -44,8 +48,13 @@ struct SearchInfo {
 
 struct SearchResult {
     Move best;
+    // The best score known when the search ended. If the last iteration was cut short (`partial`), this comes from
+    // that iteration: it can be an aspiration bound instead of a score, and it covers only the root moves searched
+    // so far, so a losing score then says that those moves lose, not that the position is lost.
     Score score = 0;
-    int depth = 0;
+    int depth = 0;  // last completed iteration
+    Score completed_score = -SCORE_INF;  // its score; -SCORE_INF if no iteration was completed
+    bool partial = false;
     std::uint64_t nodes = 0;
     std::int64_t time_ms = 0;
     std::vector<Move> pv;
@@ -104,7 +113,11 @@ public:
     void stop() { stop_.store(true, std::memory_order_relaxed); }
     // Polled by the main search thread; returning true aborts the search (e.g. a GUI "play now").
     void set_stop_poll(std::function<bool()> poll) { stop_poll_ = std::move(poll); }
-    void set_evaluator(std::shared_ptr<const Evaluator> e) { eval_ = std::move(e); }
+    // Clears the hash table: it holds static evals and scores of the previous evaluator.
+    void set_evaluator(std::shared_ptr<const Evaluator> e) {
+        eval_ = std::move(e);
+        tt_.clear();
+    }
     // Probe the (process-wide, already initialised) endgame database in positions with at most n pieces; 0 = off.
     void set_egdb_pieces(int n) { egdb_pieces_ = n; }
     int egdb_pieces() const { return egdb_pieces_; }
@@ -118,6 +131,7 @@ public:
     void set_avoid(std::shared_ptr<const Book> a) { avoid_ = std::move(a); }
     const Book* avoid() const { return avoid_.get(); }
     const Evaluator& evaluator() const { return *eval_; }
+    const TranspositionTable& hash() const { return tt_; }  // for tests and diagnostics
 
     SearchParams params;
 
@@ -127,6 +141,9 @@ private:
     std::optional<std::pair<Move, Score>> egdb_root_move(const Position& root, const std::vector<Move>& list) const;
 
     TranspositionTable tt_;
+    // Late-move reductions by depth and move number, filled from `params` by go(). Per engine: engines with
+    // different parameters search at the same time in one process (selfplay).
+    int lmr_[64][64] = {};
     std::vector<std::unique_ptr<struct Worker>> workers_;
     Position root_;
     std::vector<Key> history_;
