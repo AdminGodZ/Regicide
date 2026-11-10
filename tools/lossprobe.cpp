@@ -268,9 +268,9 @@ Outcome analyse(Engine& engine, const Game& g, const Config& cfg) {
         SearchResult second = engine.go(limits);
         // A losing score from an unfinished iteration speaks for the move it belongs to, not for the moves not yet
         // searched: the played move keeps it (it is the best move of `full` or the only move of `second`), the
-        // alternatives fall back to their last completed score.
+        // alternatives fall back to their last completed score. With a single alternative there is nothing unsearched.
         SearchResult& others = played_best ? second : full;
-        others.score = others.sound_score();
+        if (list.size() > 2) others.score = others.sound_score();
         const SearchResult& played_r = played_best ? full : second;
         const SearchResult& alt_r = played_best ? second : full;
         const int best_score = std::max(full.score, second.score);
