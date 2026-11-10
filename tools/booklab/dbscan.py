@@ -35,6 +35,10 @@ def main():
                     help="comma-separated run-name prefixes to leave out (default: the WP9 conversion tests, which "
                          "start from database-won positions)")
     ap.add_argument("--until", help="only runs whose games.pdn was last modified before this time (YYYY-MM-DDTHH:MM)")
+    ap.add_argument("--quiet", action="store_true",
+                    help="count a database win only in a position where the side to move has no capture pending")
+    ap.add_argument("--no-dedup", action="store_true",
+                    help="keep identical games from different runs (comparisons between builds that can play the same game)")
     a = ap.parse_args()
     os.makedirs(a.out, exist_ok=True)
     games, seen, dups, unfinished, conflicts = [], {}, 0, [], []
@@ -57,7 +61,7 @@ def main():
             if res is None:  # "*" or missing: interrupted or unfinished game, no final result
                 unfinished.append((run, tags.get("Round", ""), tags.get("Result", "")))
                 continue
-            k = (bf, wf, tags.get("FEN", ""), mv)
+            k = (bf, wf, tags.get("FEN", ""), mv) if not a.no_dedup else (run, tags.get("Round", ""))
             if k in seen:
                 dups += 1
                 first_rec = seen[k]
@@ -77,7 +81,8 @@ def main():
         with open(inp, "w") as fo:
             for g in ch:
                 fo.write(f"{games.index(g) if False else id(g)}\t{g['fen']}\t{g['mv']}\n")
-        procs.append(subprocess.Popen([a.scan, a.egdb, "1024"], stdin=open(inp), stdout=subprocess.PIPE, text=True))
+        procs.append(subprocess.Popen([a.scan, a.egdb, "1024"] + (["quiet"] if a.quiet else []), stdin=open(inp),
+                                      stdout=subprocess.PIPE, text=True))
     by_id = {id(g): g for g in games}
     rows, rejected = 0, []
     for p in procs:
@@ -91,7 +96,7 @@ def main():
                 continue
             g.update(first=int(f[1]), winner=f[2], pieces=int(f[3]), wfen=f[4], throw=int(f[5]), tmove=f[6],
                      tfen=f[7], throws=int(f[8]), final=f[9], fpieces=int(f[10]), plies=int(f[11]),
-                     max_quiet=int(f[12]))
+                     max_quiet=int(f[12]), first_b=int(f[13]), first_w=int(f[14]))
         if p.wait() != 0:
             sys.exit(f"scanner exited with status {p.returncode}")
     if rows != len(games):
@@ -188,7 +193,7 @@ def main():
             fo.write(f"{g['wfen']} | {g['pieces']} | {g['run']} {g['round']} {g['ballot']} | {g['term']}; {how(g)}\n")
     with open(os.path.join(a.out, "dbscan_games.tsv"), "w") as fo:
         keys = ["run", "round", "ballot", "bf", "wf", "res", "term", "first", "winner", "pieces", "throw", "throws",
-                "final", "fpieces", "plies", "max_quiet", "wfen"]
+                "final", "fpieces", "plies", "max_quiet", "first_b", "first_w", "wfen"]
         fo.write("\t".join(keys) + "\n")
         for g in games:
             fo.write("\t".join(str(g[k]) for k in keys) + "\n")

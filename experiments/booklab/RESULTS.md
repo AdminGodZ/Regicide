@@ -136,6 +136,45 @@ the WP9 test runs (`bl-wp9*`, they start from won positions) and can restrict th
   1,011 of 1,017; KingsRow 226 of 248; GuiNN 347 of 352. Opponent vs opponent: 90 reached, 66 converted (the new games
   are other agents' runs). The scan now also records the longest no-progress run per game.
 
+## Database-lost positions entered by Regicide in step 4: answer (b), an artefact (`wp9/entered_losses.md`)
+
+Question: "KingsRow had a database win in 16 games against bl-conv3 and converted one" — real (a) or artefact (b)?
+**It is (b).** All 15 unconverted cases (and 14 against bl-m11e) are the **final position** of a game already drawn by
+rule (threefold repetition or the 40-move rule): the move that completed the draw left the opponent a capture, the
+game ended there, and that position was never played. The earlier count also had the dedup problem (identical games
+of the two builds merged).
+
+Method: `dbscan.py --quiet --no-dedup` over the step-4 runs (a database win counts only when the side to move has no
+capture pending; identical games of both builds kept; first won position per side), and — the actual fix — a game's
+final position never counts as a reached win (`booklab_dbscan`: only positions from which a move was played).
+
+| Build | Opponent | Games | Opponent had a db win in play | it converted | Regicide had a db win in play | it converted |
+|---|---|---|---|---|---|---|
+| bl-conv3 | Cake | 312 | 1 | 1 | 0 | 0 |
+| bl-conv3 | KingsRow | 312 | 1 | 1 | 11 | **11** |
+| bl-conv3 | GuiNN | 312 | 0 | 0 | 20 | **20** |
+| bl-m11e (no fix) | Cake | 312 | 0 | 0 | 0 | 0 |
+| bl-m11e | KingsRow | 312 | 0 | 0 | 13 | **0** |
+| bl-m11e | GuiNN | 156 (h2 running) | 0 | 0 | 12 | **3** |
+
+The two games in which an opponent had a database win against bl-conv3 are the two step-4 losses; Regicide saw both
+long before (its own score was already ≤ −100 with 16 and 20 pieces), so they are opening losses, not walked-in
+endgames, and both are repaired (r7 pins #7, r8 repairs #10):
+
+| Run | Ballot | Regicide as | First lost ply (pieces) | Regicide's score on its move before | First Regicide score ≤ −100 | bl-m11e up to that ply |
+|---|---|---|---|---|---|---|
+| s4-conv3-cake-h1 6.1 | ACF #7 | B | 93 (8) | −19999 | ply 26, 16 pieces | deviated at ply 20 (Regicide: m11e 16-19, conv3 16-20) |
+| s4-conv3-kingsrow-h1 9.1 | ACF #10 | B | 80 (7) | −19999 | ply 18, 20 pieces | deviated at ply 3 (KingsRow played 24-19 / 25-22) |
+
+`entered_losses.txt` holds these two (first lost position and four plies earlier) for completeness; (a) is not
+confirmed, so there is no larger regression set.
+
+**The same artefact in WP8:** 10 of the 362 "missed wins" were final positions of games drawn by the 40-move rule (all
+old baselines vs GuiNN; list in `wp8/dropped_final_position.txt`). **Corrected WP8: Regicide had a database win in
+play in 389 games and converted 37; 352 missed** (`missed_wins.txt` now holds the 352). Opponent vs opponent: 66 in
+play, 62 converted. WP9 on the corrected set: bl-conv1 352 / 352 (it also won the 10 dropped ones), bl-conv3 98 / 98
+of its sample (2 of its 100 were dropped ones, both won), the old engine 1 of 55 (5 of its 60 were dropped ones).
+
 ## WP9 step 4 (running) and round 7
 
 Full acf156 runs with **bl-conv3** (engine 2156359 + round-6 book) and **bl-m11e** (its master base 11e19b4 + the same

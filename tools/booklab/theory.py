@@ -224,6 +224,8 @@ def build(args):
             elif p[0] == "F":
                 fbatch.append((p[1], p[2]))
                 npos += 1
+            elif p[0] == "Z":  # final position of a game (not needed for the table)
+                pass
             elif p[0] == "A":
                 namb += 1
                 if namb <= 20:

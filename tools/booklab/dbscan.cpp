@@ -1,16 +1,18 @@
 // booklab_dbscan (WP8): database audit of played games.
 //
-//   booklab_dbscan EGDB_DIR [CACHE_MB] < games.tsv > scan.tsv
+//   booklab_dbscan EGDB_DIR [CACHE_MB [quiet]] < games.tsv > scan.tsv
+// quiet: the first database win is counted only in a position where the side to move has no capture pending.
 // stdin, one game per line: GID <TAB> FEN (empty = start) <TAB> moves (PDN notation)
 // stdout, one line per game:
 //   GID <TAB> first_win_ply <TAB> winner (B/W) <TAB> pieces <TAB> fen <TAB> throw_ply <TAB> throw_move <TAB> throw_fen
-//       <TAB> throws <TAB> final_value <TAB> final_pieces <TAB> plies <TAB> max_quiet
+//       <TAB> throws <TAB> final_value <TAB> final_pieces <TAB> plies <TAB> max_quiet <TAB> first_b <TAB> first_w
 // first_win_ply: first position (ply index, 0 = the game's first position) with at most max_pieces() pieces where the
 // database says the side to move wins or loses (then the side that just moved wins); -1 if none. winner: that side.
 // throw_ply: first later ply where the winner, to move in a won position, played a move after which the position is
 // no longer lost for the opponent (-1 if never); throws: how many such moves. final_value: database value of the last
 // position from Black's view (B = Black wins, W = White wins, D = draw, - = more than max_pieces pieces).
 // max_quiet: the longest run of plies without a capture or man move (the 40-move rule draws at 79).
+// first_b, first_w (last two columns): the first ply at which Black / White has a database win (-1: never).
 // A game with a move that does not parse to exactly one legal move gets the row "GID <TAB> ERR <TAB> ply <TAB> token"
 // instead (rejected, never scanned as a prefix).
 #include <algorithm>
@@ -42,6 +44,12 @@ char value(const Position& p) {
     return (stm_wins == black_to_move) ? 'B' : 'W';
 }
 
+bool has_capture(const Position& p) {
+    MoveList list;
+    generate_moves(p, list);  // captures are compulsory: if one exists, every generated move is a capture
+    return list.size() > 0 && list.begin()->is_capture();
+}
+
 }  // namespace
 
 int main(int argc, char** argv) {
@@ -54,6 +62,8 @@ int main(int argc, char** argv) {
         return 1;
     }
     max_db = egdb::max_pieces();
+    // "quiet": a database win counts only in a position where the side to move has no capture (not inside an exchange)
+    const bool quiet_only = argc > 3 && std::string(argv[3]) == "quiet";
     std::ios::sync_with_stdio(false);
     std::string line;
     while (std::getline(std::cin, line)) {
@@ -61,19 +71,27 @@ int main(int argc, char** argv) {
         if (t1 == std::string::npos || t2 == std::string::npos) continue;
         const std::string gid = line.substr(0, t1), fen = line.substr(t1 + 1, t2 - t1 - 1);
         Position pos;
-        if (!fen.empty() && !pos.set_fen(fen)) continue;
+        if (!fen.empty() && !pos.set_fen(fen)) {
+            std::cout << gid << "\tERR\t0\tFEN:" << fen << '\n';
+            continue;
+        }
         std::vector<std::string> toks;
         {
             std::istringstream in(line.substr(t2 + 1));
             for (std::string t; in >> t;) toks.push_back(t);
         }
-        int ply = 0, first = -1, pieces = 0, throw_ply = -1, throws = 0, quiet = 0, max_quiet = 0;
+        int ply = 0, first = -1, pieces = 0, throw_ply = -1, throws = 0, quiet = 0, max_quiet = 0, first_b = -1,
+            first_w = -1;
         char winner = 0;
         std::string first_fen, throw_move, throw_fen, bad;
         char v = value(pos);
         for (std::size_t i = 0;; ++i) {
-            if (first < 0 && (v == 'B' || v == 'W')) {
-                first = ply, winner = v, pieces = pos.piece_count(), first_fen = pos.fen();
+            // A won position counts only if the game went on from it: the final position of a game drawn by rule
+            // (often reached by the move that completed the repetition or the 40-move limit) was never played.
+            if (i < toks.size() && (v == 'B' || v == 'W') && (!quiet_only || !has_capture(pos))) {
+                if (first < 0) first = ply, winner = v, pieces = pos.piece_count(), first_fen = pos.fen();
+                int& fs = v == 'B' ? first_b : first_w;  // first won position for each side separately
+                if (fs < 0) fs = ply;
             }
             if (i >= toks.size()) break;
             Move m;
@@ -104,7 +122,8 @@ int main(int argc, char** argv) {
         std::cout << gid << '\t' << first << '\t' << (winner ? std::string(1, winner) : "-") << '\t' << pieces << '\t'
                   << (first_fen.empty() ? "-" : first_fen) << '\t' << throw_ply << '\t'
                   << (throw_move.empty() ? "-" : throw_move) << '\t' << (throw_fen.empty() ? "-" : throw_fen) << '\t'
-                  << throws << '\t' << v << '\t' << pos.piece_count() << '\t' << ply << '\t' << max_quiet << '\n';
+                  << throws << '\t' << v << '\t' << pos.piece_count() << '\t' << ply << '\t' << max_quiet << '\t'
+                  << first_b << '\t' << first_w << '\n';
     }
     return 0;
 }

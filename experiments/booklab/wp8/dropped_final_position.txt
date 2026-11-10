@@ -1,0 +1,10 @@
+B:WK7,K9,21,28:B13,K15,K19,K23 | 8 | baseline-747ab51-guinn 149.1 ACF #165 | 40-move rule (no capture or man move); still won at the end (final db value B, 8 pieces): ran out the rules
+B:WK4,K14,21,22:B13,K15,K16,K27 | 8 | baseline-747ab51-guinn 4.1 ACF #5 Dreaded Edinburgh | 40-move rule (no capture or man move); still won at the end (final db value B, 8 pieces): ran out the rules
+W:WK15,K22,K23,30:B2,21,K27,K32 | 8 | baseline-747ab51-guinn 56.2 ACF #64 | 40-move rule (no capture or man move); still won at the end (final db value W, 8 pieces): ran out the rules
+W:WK6,K11,21,K22:B5,13,K24,K31 | 8 | baseline-a44591e-guinn 118.2 ACF #131 | 40-move rule (no capture or man move); still won at the end (final db value W, 8 pieces): ran out the rules
+W:WK4,K18,K30,32:BK7,13,28,K31 | 8 | baseline-ae210fb-guinn 107.2 ACF #120 | 40-move rule (no capture or man move); still won at the end (final db value W, 8 pieces): ran out the rules
+B:WK6,K9,21,28:B13,K18,K19,K26 | 8 | baseline-ae210fb-guinn 32.1 ACF #36 | 40-move rule (no capture or man move); still won at the end (final db value B, 8 pieces): ran out the rules
+W:W12,K22,K26,K32:BK3,13,21,K24 | 8 | baseline-ae210fb-guinn 77.2 ACF #86 Octopus | 40-move rule (no capture or man move); still won at the end (final db value W, 8 pieces): ran out the rules
+B:WK3,K9,21,28:B13,K15,K18,K22 | 8 | baseline-b71dfa9-guinn 141.1 ACF #157 | 40-move rule (no capture or man move); still won at the end (final db value B, 8 pieces): ran out the rules
+W:WK3,K6,K23,K27:BK11,16,20,K32 | 8 | baseline-b71dfa9-guinn 80.2 ACF #90 | 40-move rule (no capture or man move); still won at the end (final db value W, 8 pieces): ran out the rules
+W:WK13,K22,K27,30:B20,21,K24,K29 | 8 | baseline-eb1037c-n4c-guinn 27.2 ACF #30 | 40-move rule (no capture or man move); still won at the end (final db value W, 8 pieces): ran out the rules

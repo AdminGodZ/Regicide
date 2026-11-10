@@ -6,6 +6,7 @@
 //   F <TAB> key <TAB> FEN                               the first time a position is seen
 //   E <TAB> GID <TAB> ply <TAB> token                   illegal or unparsable move (the rest of that game is skipped)
 //   A <TAB> GID <TAB> ply <TAB> token                   token matches several capture routes (first one used)
+//   Z <TAB> GID <TAB> plies <TAB> FEN                   the position after the last move (end of each game)
 // Moves are printed with booklab::move_text (captures with their full jump path).
 #include <cstdio>
 #include <iostream>
@@ -52,6 +53,7 @@ int main() {
             pos.make_move(m);
             ++ply;
         }
+        std::cout << "Z\t" << gid << '\t' << ply << '\t' << pos.fen() << '\n';  // the position after the last move
     }
     return 0;
 }

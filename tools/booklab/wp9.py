@@ -60,21 +60,50 @@ def decks(a):
 def report(a):
     # games are mapped to positions by deck file and line ("Opening" tag: "/path/guinn_1.txt:3: ...")
     pos = {(r["deck"], r["line"]): r for r in csv.DictReader(open(a.positions), delimiter="\t")}
-    games = []
+
+    def board(fen):  # side to move and piece sets, independent of token order
+        parts = fen.strip().split(":")
+        sets = {}
+        for t in parts[1:]:
+            t = t.strip()
+            sets[t[:1].upper()] = frozenset(x.strip() for x in t[1:].split(",") if x.strip())
+        return parts[0].strip().upper(), sets.get("W", frozenset()), sets.get("B", frozenset())
+
+    games, seen, rejected = [], collections.Counter(), []
     for d in a.dirs:
         f = os.path.join(d, "games.pdn")
         if not os.path.exists(f):
             continue
         for tags, moves in parse_pdn(open(f, errors="replace").read()):
             parts = tags.get("Opening", "").split(":")
-            p = pos.get((os.path.basename(parts[0]), parts[1].strip())) if len(parts) > 1 else None
+            key = (os.path.basename(parts[0]), parts[1].strip()) if len(parts) > 1 else None
+            p = pos.get(key)
             if p is None:
                 continue
-            col = "B" if family(tags["Black"]) == "regicide" else "W"
+            bf, wf = family(tags.get("Black", "")), family(tags.get("White", ""))
+            col = "B" if bf == "regicide" else ("W" if wf == "regicide" else None)
+            opp = wf if col == "B" else bf
+            why = []
+            if board(tags.get("FEN", "")) != board(p["fen"]):
+                why.append(f"starting board {tags.get('FEN', '')} is not the planned {p['fen']}")
+            if col != p["colour"]:
+                why.append(f"Regicide plays {col}, planned {p['colour']}")
+            if opp != p["opp"]:
+                why.append(f"opponent {opp}, planned {p['opp']}")
+            if why:
+                rejected.append(f"{os.path.basename(d)} {tags.get('Round', '')} ({p['id']}): " + "; ".join(why))
+                continue
+            seen[p["id"]] += 1
             res = tags.get("Result", "")
             won = (res == "1-0" and col == "B") or (res == "0-1" and col == "W")
             games.append(dict(p=p, col=col, won=won, res=res, term=tags.get("Termination", ""), run=os.path.basename(d),
                               moves=[m for m, _ in moves]))
+    missing = sorted((r["id"] for r in pos.values() if seen[r["id"]] == 0), key=lambda x: int(x[1:]))
+    dup = sorted((i for i, n in seen.items() if n > 1), key=lambda x: int(x[1:]))
+    coverage = (f"Coverage: {len(pos)} planned positions, {len(seen)} played, missing {len(missing)}"
+                f"{' (' + ', '.join(missing) + ')' if missing else ''}, played more than once {len(dup)}"
+                f"{' (' + ', '.join(dup) + ')' if dup else ''}; {len(rejected)} games rejected (board, colour or "
+                f"opponent not as planned).")
     inp = "".join(f"{i}\t{g['p']['fen']}\t{' '.join(g['moves'])}\n" for i, g in enumerate(games))
     out = subprocess.run([a.scan, a.egdb, "1024"], input=inp, capture_output=True, text=True, check=True).stdout
     for line in out.splitlines():
@@ -84,7 +113,11 @@ def report(a):
             sys.exit(f"game {g['p']['id']} ({g['run']}): move {f[3]} at ply {f[2]} does not parse to one legal move")
         g.update(first=int(f[1]), winner=f[2], throw=int(f[5]), tmove=f[6], throws=int(f[8]), final=f[9],
                  quiet=int(f[12]) if len(f) > 12 else -1)
-    md = [f"# WP9 conversion test: {len(games)} games from {len(pos)} positions", ""]
+    md = [f"# WP9 conversion test: {len(games)} games from {len(pos)} positions", "", coverage, ""]
+    for r in rejected:
+        md.append(f"- rejected: {r}")
+    if rejected:
+        md.append("")
     conv = [g for g in games if g["won"]]
     md.append(f"**Converted: {len(conv)} of {len(games)} ({100 * len(conv) / max(1, len(games)):.1f}%).**")
     md.append("")
