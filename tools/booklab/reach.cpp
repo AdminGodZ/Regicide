@@ -100,8 +100,8 @@ struct Search {
     Color ours;
     long limit, nodes = 0;
     bool hit_limit = false;
-    std::set<std::pair<Key, int>> seen;  // (position, 2 * ply + inside a run of king moves)
-    std::vector<std::string> path;
+    std::set<std::pair<Key, int>> seen{};  // (position, 2 * ply + inside a run of king moves)
+    std::vector<std::string> path{};
 
     bool dfs(const Position& p, int ply, int maxply) {
         if (p.key() == target) return true;

@@ -69,4 +69,12 @@ if(NOT WIN32)
     target_link_libraries(datagen_partial_loss_test PRIVATE regicide_core Threads::Threads)
     add_test(NAME datagen_partial_loss COMMAND datagen_partial_loss_test $<TARGET_FILE:datagen>)
   endif()
+  # lossprobe, run as a process on a one-move game.
+  if(TARGET regicide_core AND TARGET lossprobe)
+    add_executable(lossprobe_partial_loss_test ${CMAKE_SOURCE_DIR}/tests/lossprobe_partial_loss_test.cpp
+                   match/engine_process.cpp)
+    target_include_directories(lossprobe_partial_loss_test PRIVATE match ${CMAKE_SOURCE_DIR}/tests)
+    target_link_libraries(lossprobe_partial_loss_test PRIVATE regicide_core Threads::Threads)
+    add_test(NAME lossprobe_partial_loss COMMAND lossprobe_partial_loss_test $<TARGET_FILE:lossprobe>)
+  endif()
 endif()
