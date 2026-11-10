@@ -665,6 +665,14 @@ int main(int argc, char** argv) {
     }
     if (cmd == "split") return split(in, out, lo, hi, proven, from);
     if (cmd == "seeds") return seeds(files, lo, hi, opponents, out);
+    if (cmd == "fens") {  // the input is checked before the database loads (tested by tests/truth_fens_test.cmake)
+        std::FILE* f = std::fopen(in.c_str(), "rb");
+        if (!f) return std::cerr << "cannot open " << in << '\n', 1;
+        std::fseek(f, 0, SEEK_END);
+        const long bytes = std::ftell(f);
+        std::fclose(f);
+        if (bytes / 16 <= 0) return std::cerr << in << " holds no complete record\n", 1;
+    }
     if (egdb_dir.empty() || !egdb::init(egdb_dir, 4096)) return std::cerr << "cannot load egdb (--egdb DIR)\n", 1;
     if (cmd == "census") return census(files);
     if (cmd == "relabel") return relabel(in, out);
@@ -675,6 +683,7 @@ int main(int argc, char** argv) {
         if (!f) return std::cerr << "cannot open " << in << '\n', 1;
         std::fseek(f, 0, SEEK_END);
         const long count = std::ftell(f) / 16;
+        if (count <= 0) return std::fclose(f), std::cerr << in << " holds no complete record\n", 1;
         std::mt19937_64 rng(seed);
         for (long got = 0, tries = 0; got < n && tries < 1000 * n; ++tries) {
             DataRecord r;

@@ -144,6 +144,7 @@ target_link_libraries(booklab_bookcmp PRIVATE regicide_core)
 
 add_executable(truth tools/truth.cpp)
 target_link_libraries(truth PRIVATE regicide_core)
+add_test(NAME truth_fens_no_record COMMAND ${CMAKE_COMMAND} -DTRUTH=$<TARGET_FILE:truth> -DWORK=${CMAKE_CURRENT_BINARY_DIR}/truth_fens_test -P ${CMAKE_CURRENT_SOURCE_DIR}/tests/truth_fens_test.cmake)
 
 add_executable(rescore tools/rescore.cpp)
 target_link_libraries(rescore PRIVATE regicide_core)
