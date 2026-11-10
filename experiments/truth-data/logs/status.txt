@@ -232,3 +232,11 @@ TR matchlock removed, timing lock released (rc=0) 2026-11-10T13:22:55+01:00
 TR P5 speed: n8bn nps 3173210;n8bn nps 3254220;n8bn nps 3228194;w2032 nps 2185469;w2032 nps 2156858;w2032 nps 2169969;w1064 nps 2512461;w1064 nps 2430242;w1064 nps 2492847;w2064 nps 1827033;w2064 nps 1812615;w2064 nps 1826125; 2026-11-10T13:22:55+01:00
 TR match w2032-vs-n8bn queued 2026-11-10T13:22:55+01:00
 TR timing lock + matchlock taken; bg: datagen-eb1037c:T bash:T datagen-tr5:T bash:T datagen-tr6:T  2026-11-10T13:32:06+01:00
+TR matchlock removed, timing lock released (rc=0) 2026-11-10T13:45:52+01:00
+TR match w2032-vs-n8bn end: Elo (pentanomial, pairs): -1.5 [-5.6, +2.6] 95% CI, score 0.4978 +- 0.0059, LOS 23.63% 2026-11-10T13:45:52+01:00
+TR match w1064-vs-n8bn queued 2026-11-10T13:45:52+01:00
+TR timing lock + matchlock taken; bg: datagen-eb1037c:T bash:T datagen-tr5:T bash:T datagen-tr6:T  2026-11-10T13:52:41+01:00
+TR matchlock removed, timing lock released (rc=0) 2026-11-10T14:06:48+01:00
+TR match w1064-vs-n8bn end: Elo (pentanomial, pairs): -0.9 [-4.6, +2.9] 95% CI, score 0.4988 +- 0.0054, LOS 32.73% 2026-11-10T14:06:48+01:00
+TR match w2064-vs-n8bn queued 2026-11-10T14:06:48+01:00
+TR train n8q start: --data /home/admingod/regicide-data/truth/gen1_n10k_e2.bin --data /home/admingod/regicide-data/truth/gen1b_n10k_e2.bin --data /home/admingod/regicide-data/truth/gen1c_n10k_e2.bin --data /home/admingod/regicide-data/truth/gen2a_n10k_e2.bin --data /home/admingod/regicide-data/truth/gen2b_n10k_e2.bin --data /home/admingod/regicide-data/truth/gen3a_n10k_e2.bin --data /home/admingod/regicide-data/truth/gen3b_n10k_e2.bin --data /home/admingod/regicide-data/truth/gen3c_n10k_e2.bin --data /home/admingod/regicide-data/truth/gen3d_n10k_e2.bin --data /home/admingod/regicide-data/truth/gen4a_n10k_e2.bin --data /home/admingod/regicide-data/truth/gen5a_n50k_e2.bin --data /home/admingod/regicide-data/truth/gen5a_n50k_e2.bin --data /home/admingod/regicide-data/truth/gen5a_n50k_e2.bin --lambda 0.5 --min-pieces 2 --k 102.39766405914318 --groups 2,9 --group-weights 1,9 2026-11-10T14:07:06+01:00

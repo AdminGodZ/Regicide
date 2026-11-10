@@ -85,6 +85,15 @@ with the current engine (master fcf6acb, built-in n6c, no history, fresh hash) a
 and 200k nodes. "Proven": a decisive score (database win/loss or a forced win). "Stored result wrong": the game
 result in the file disagrees with the proof at 200k; "E2 result wrong": the same after `truth relabel`.
 
+> **Note (2026-11-10).** This pilot was run before the partial-loss rule (`tools/label.hpp`, from master 5ea3189). It
+> took the score of a search as given, so a losing score from an unfinished last iteration counted as a proof. The
+> pilot (`truth pilot`) now uses `label_of`, as rescore and datagen do. The table therefore **overstates the proven
+> losses** somewhat.
+> - In the gen4a rescore under the new rule, 16,120 of 708,208 would-be proven losses (2.3%) were partial; that is
+>   0.36% of all its searches.
+> - The proven shares below (wins and losses together) would drop by about one percentage point or less.
+> - The conclusions do not change.
+
 records 200000 (14092 from 50k-node files)  budgets 10000, 50000, 200000
 
 ### all files
@@ -493,7 +502,35 @@ Then n9a (n8bn's recipe + this data ×3) against n8bn.
   0.48% of proven losses above −30 against n6c's 0.88%), in line with the matches, but the metric would not have
   predicted the match results on its own.
 
-<!-- BACKGROUND -->
+## Running in the background, and how to resume
+
+All job scripts are in `C:\regicide-match\jobs\truth` (copies in `scripts/jobs/`). Status lines go to
+`~/regicide-jobs/truth/status` and `~/regicide-jobs/r4/status` (prefix `TR`). `launch.sh SCRIPT ARGS` starts a script
+detached. Scripts that play CheckerBoard DLLs (run_cb.sh, p1*.sh) need an attached session:
+`Start-Process -WindowStyle Hidden wsl.exe -ArgumentList 'bash','/mnt/c/regicide-match/jobs/truth/<script>'`.
+
+- **E5 datagen** (P4): two processes append to their own new files.
+  - `gen6a_n50k_egdb.bin`: `datagen-tr6`, 6 base-budget threads, seed 611.
+  - `gen6b_n50k_egdb.bin`: `datagen-tr5`, 6 extra threads that yield, seed 612.
+  - Goal 30M positions together; ETA about 2026-11-11 03:00–06:00.
+  - Stop: `pkill -x datagen-tr5; pkill -x datagen-tr6` (each file keeps every finished game).
+  - Restart: `launch.sh e5_gen.sh gen6a_n50k_egdb datagen-tr6 611 6` (and the tr5/612 line); a new seed or a new
+    file name avoids repeating games. datagen appends only to files that carry game-start flags.
+  - Progress: `scratchpad/e5stat.sh`-style count with `nnue.piece_counts`, or the `games … positions …` lines in
+    `~/regicide-jobs/truth/e5_gen6*.log`.
+- **P5** (`p5.sh n8bn e2`): the 0.1 s and 0.5 s matches of w2032, w1064 and w2064 against n8bn on
+  `rft2048.so` (c0dde2e).
+  - Results: `TR match w…-vs-n8bn…` and `TR P5 … 0.5 pooled` lines.
+  - Rerun: the same command. Trained nets and finished match directories are skipped.
+- **Rescore of the remaining files**: parked after gen4a (gen5c, gen3d … gen1 to go, about 29 h of 8 threads).
+  - Resume: `bash rs_threads.sh 6`; `rescore_chain.sh` continues every file where it stopped.
+  - Rescores from now on use the partial-loss rule (`rescore-tr4`).
+- **Keepers**:
+  - `pausekeeper_truth.sh` runs while `~/regicide-jobs/locks/pk_hold` exists. It stops `^truth-tr`, `^rescore-tr` and
+    `^datagen-tr` (`locks/bg_patterns`) under `r4/matchlock`. It also stops the yield group (`locks/bg_patterns_yield`,
+    `^datagen-tr5`) under `locks/yield_truth` (my CheckerBoard runs) or while a `bookgen-*`/`lossprobe*` process runs.
+  - Book Lab's `pausekeeper5.sh` is unchanged.
+- **Nothing of mine holds** `timing.lock` or `matchlock` between runs.
 
 ## Files
 
