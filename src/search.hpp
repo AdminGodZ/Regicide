@@ -137,11 +137,9 @@ public:
     void stop() { stop_.store(true, std::memory_order_relaxed); }
     // Polled by the main search thread; returning true aborts the search (e.g. a GUI "play now").
     void set_stop_poll(std::function<bool()> poll) { stop_poll_ = std::move(poll); }
-    // Clears the hash table: it holds static evals and scores of the previous evaluator.
-    void set_evaluator(std::shared_ptr<const Evaluator> e) {
-        eval_ = std::move(e);
-        tt_.clear();
-    }
+    // Clears the hash table: it holds static evals and scores of the previous evaluator. So do the search-lab
+    // leaf eval cache and correction history, which are cleared too.
+    void set_evaluator(std::shared_ptr<const Evaluator> e);
     // Probe the (process-wide, already initialised) endgame database in positions with at most n pieces; 0 = off.
     // A change clears the hash table: scores and evals of database positions depend on it.
     void set_egdb_pieces(int n) {

@@ -75,11 +75,24 @@ int main(int argc, char** argv) {
         e.set_position(list[i]);
         std::uint64_t tb = 0;
         bool reached = false;
+        std::uint64_t ttd_nodes = 0;
+        std::int64_t ttd_ms = 0;
         e.set_stop_poll([&] { return reached; });
-        const SearchResult r = e.go(limits, [&](const SearchInfo& info) {
+        SearchResult r = e.go(limits, [&](const SearchInfo& info) {
             tb = info.tbhits;
-            if (ttd && info.depth >= ttd) reached = true;
+            if (ttd && info.depth >= ttd && !reached) {
+                // The stop is only noticed at the next limit check (up to 1,024 nodes later), so the time and nodes
+                // to depth are taken from the report of the completed iteration.
+                reached = true;
+                ttd_nodes = info.nodes;
+                ttd_ms = info.time_ms;
+            }
         });
+        if (reached) {
+            r.nodes = ttd_nodes;
+            r.time_ms = ttd_ms;
+            r.depth = ttd;
+        }
         nodes += r.nodes;
         ms += r.time_ms;
         tbhits += tb;

@@ -91,6 +91,10 @@ struct Worker {
         std::memset(history, 0, sizeof(history));
         std::memset(cont, 0, sizeof(cont));
         std::memset(killers, 0, sizeof(killers));
+        clear_eval_caches();
+    }
+    // Caches of the evaluator's output (B2 leaf cache, B3 correction history): stale after an evaluator change.
+    void clear_eval_caches() {
         std::memset(corr, 0, sizeof(corr));
         std::fill(ecache.begin(), ecache.end(), 0);
     }
@@ -808,6 +812,12 @@ void Engine::new_game() {
     for (auto& w : workers_) w->clear();
 }
 
+void Engine::set_evaluator(std::shared_ptr<const Evaluator> e) {
+    eval_ = std::move(e);
+    tt_.clear();
+    for (auto& w : workers_) w->clear_eval_caches();
+}
+
 void Engine::set_position(const Position& root, const std::vector<Position>& history) {
     root_ = root;
     history_.clear();
@@ -1030,10 +1040,15 @@ SearchResult Engine::go(const Limits& limits, InfoFn on_info) {
                 }
             }
         }
-        if (best != &main && best->completed_depth > 0 && !is_decisive(main.done_score)) {
+        // The selection compares completed iterations, so the chosen thread's completed snapshot is returned, also
+        // when that is the main thread. A decisive completed main-thread score is kept as it is.
+        const bool main_decisive = main.completed_depth > 0 && is_decisive(main.done_score);
+        if (best->completed_depth > 0 && !main_decisive) {
             result.best = best->done_move;
             result.score = best->done_score;
             result.depth = best->completed_depth;
+            result.completed_score = best->done_score;
+            result.partial = false;
             result.pv = best->done_pv;
         }
     }
