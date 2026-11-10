@@ -478,9 +478,9 @@ void Network::hidden2(Forward& f, int hb) const {
 template <int L2>
 Score Network::output(const Forward& f, int b) const {
     const std::int16_t* w = out_weight_.get() + std::size_t(b) * L2;
-    std::int32_t out = out_bias_[b];
+    std::int64_t out = out_bias_[b];  // 64 bits: a bias near the int32 limits plus the products must not wrap
     for (int j = 0; j < L2; ++j) out += std::int32_t(f.h2[j]) * w[j];
-    const std::int64_t s = std::int64_t(out) * out_scale_ / (QH * QB);
+    const std::int64_t s = out * out_scale_ / (QH * QB);
     return Score(std::clamp<std::int64_t>(s, -SCORE_KNOWN_WIN + 1, SCORE_KNOWN_WIN - 1));
 }
 

@@ -685,7 +685,10 @@ SearchResult Engine::go(const Limits& limits, InfoFn on_info) {
         if (!kept.empty()) root_moves = std::move(kept);
     }
 
-    if (book_ && limits.use_book && !limits.infinite && !analysis && !book_->empty()) {
+    // No book move in the middle of a run of king moves: book scores are backed up without regard to repetition,
+    // so following them there can walk in a circle.
+    if (book_ && limits.use_book && !limits.infinite && !analysis && !book_->empty() &&
+        root_.reversible_plies() == 0) {
         book_seed_ = book_seed_ * 6364136223846793005ull + 1442695040888963407ull;
         if (auto m = book_->probe(root_, book_margin_, book_seed_ >> 33, avoid_.get())) {
             for (const Book::Entry& e : book_->lookup(root_))
