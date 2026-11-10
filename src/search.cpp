@@ -39,6 +39,17 @@ constexpr int MTC_SCORE_CAP = 4000;    // keeps SCORE_DB_WIN - ply - mtc above S
 // any line that makes progress (CONV_BASE - CONV_PROGRESS) and more than any real draw.
 constexpr Score CONV_REPEAT = 2000;
 
+// Once the no-progress draw is within reach, what a position is worth depends on how many plies have passed without
+// a capture or man move, so from this count on it is part of the hash-table key: an entry made at one count is not
+// used at another.
+constexpr int REV_KEYED = 48;
+constexpr Key rev_key(int reversible) {
+    if (reversible < REV_KEYED) return 0;
+    Key z = Key(reversible) * 0x9E3779B97F4A7C15ull;
+    z = (z ^ (z >> 32)) * 0xD6E8FEB86659FD93ull;
+    return z ^ (z >> 32);
+}
+
 // Lazy SMP: helper threads skip some depths so they search different parts of the tree.
 constexpr int SKIP_SIZE[] = {1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4};
 constexpr int SKIP_PHASE[] = {0, 1, 0, 1, 2, 3, 0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5, 6, 7};
@@ -239,9 +250,12 @@ Score Worker::search(Position& pos, Score alpha, Score beta, int depth, int ply,
     keys[hist_len + ply] = pos.key();
 
     if (!is_root) {
+        // The no-progress limit ends the game as a draw, unless the side to move has no move left: then the
+        // move that got here won (the referee looks for that first).
+        const bool limit = pos.reversible_plies() >= NO_PROGRESS_PLIES && (has_capture(pos, us) || quiet_targets(pos, us));
         if (!conversion) {
-            if (is_repetition(pos, ply) || pos.reversible_plies() >= NO_PROGRESS_PLIES) return SCORE_DRAW;
-        } else if (const int seen = pos.reversible_plies() >= NO_PROGRESS_PLIES ? 2 : occurrences(pos, ply)) {
+            if (limit || is_repetition(pos, ply)) return SCORE_DRAW;
+        } else if (const int seen = limit ? 2 : occurrences(pos, ply)) {
             // Conversion search: as for the referee, only the third occurrence of a position is a draw. A won
             // position seen once before scores CONV_REPEAT, so that when every winning move repeats a position they
             // still rank above the moves that give the win away.
@@ -280,7 +294,8 @@ Score Worker::search(Position& pos, Score alpha, Score beta, int depth, int ply,
 
     const bool excluding = has_excluded[ply];
     TTData tte;
-    const bool tt_hit = !excluding && tt.probe(pos.key(), tte);
+    const Key tt_key = pos.key() ^ rev_key(pos.reversible_plies());
+    const bool tt_hit = !excluding && tt.probe(tt_key, tte);
     const Score tt_score = tt_hit ? score_from_tt(tte.score, ply) : 0;
     if (!pv_node && tt_hit && tte.depth >= depth &&
         (tte.bound & (tt_score >= beta ? BOUND_LOWER : BOUND_UPPER)))
@@ -314,8 +329,13 @@ Score Worker::search(Position& pos, Score alpha, Score beta, int depth, int ply,
         }
     }
 
+    // With the no-progress draw inside the remaining depth the static eval says little about the outcome, so the
+    // pruning rules that rely on it stand down.
+    const bool limit_near = pos.reversible_plies() + std::max(depth, 1) >= NO_PROGRESS_PLIES;
+
     // Razoring: far below alpha at low depth, check whether the horizon search agrees.
-    if (!pv_node && !excluding && !forced_capture && !conversion && depth > 0 && depth <= P.razor_depth &&
+    if (!pv_node && !excluding && !forced_capture && !conversion && !limit_near && depth > 0 &&
+        depth <= P.razor_depth &&
         eval + P.razor_margin * depth < alpha && !is_decisive(alpha)) {
         const Score s = search(pos, alpha - 1, alpha, 0, ply, cut_node, qext);
         if (stopped()) return 0;
@@ -324,8 +344,8 @@ Score Worker::search(Position& pos, Score alpha, Score beta, int depth, int ply,
     }
 
     // Reverse futility pruning: far above beta at low depth, assume a quiet move holds it.
-    if (!pv_node && !excluding && !forced_capture && !conversion && depth > 0 && depth <= P.rfp_max_depth &&
-        !is_decisive(beta) &&
+    if (!pv_node && !excluding && !forced_capture && !conversion && !limit_near && depth > 0 &&
+        depth <= P.rfp_max_depth && !is_decisive(beta) &&
         eval - P.rfp_margin * depth >= beta && !has_capture(pos, ~us))
         return eval;
 
@@ -337,15 +357,13 @@ Score Worker::search(Position& pos, Score alpha, Score beta, int depth, int ply,
         for (const Move& m : moves) {
             TTData ce;
             const Key ck = pos.key_after(m);
-            if (!tt.probe(ck, ce) || ce.depth < depth - 1 || !(ce.bound & BOUND_UPPER)) continue;
+            const int reversible = (pos.kings() & bit(m.from)) && !m.is_capture() ? pos.reversible_plies() + 1 : 0;
+            if (!tt.probe(ck ^ rev_key(reversible), ce) || ce.depth < depth - 1 || !(ce.bound & BOUND_UPPER)) continue;
             const Score cs = -score_from_tt(ce.score, ply + 1);
             if (cs < beta || is_decisive(cs)) continue;
             // The child's own search would call a repetition or the no-progress limit a draw before it looked at
             // the hash table, so its entry says nothing about this line.
-            if ((pos.kings() & bit(m.from)) && !m.is_capture()) {
-                const int reversible = pos.reversible_plies() + 1;
-                if (reversible >= NO_PROGRESS_PLIES || repeats(ck, ply + 1, reversible)) continue;
-            }
+            if (reversible && (reversible >= NO_PROGRESS_PLIES || repeats(ck, ply + 1, reversible))) continue;
             return cs;
         }
     }
@@ -421,12 +439,12 @@ Score Worker::search(Position& pos, Score alpha, Score beta, int depth, int ply,
         // Shallow pruning of late quiet moves.
         if (!pv_node && quiet && n > 0 && best > -SCORE_KNOWN_WIN) {
             if (depth <= P.lmp_depth && int(quiets.size()) >= P.lmp_base + depth * depth) continue;
-            if (depth <= P.fut_depth && !conversion && eval + P.fut_margin * depth <= alpha) continue;
+            if (depth <= P.fut_depth && !conversion && !limit_near && eval + P.fut_margin * depth <= alpha) continue;
         }
 
         Position child = pos;
         child.make_move(m);
-        tt.prefetch(child.key());
+        tt.prefetch(child.key() ^ rev_key(child.reversible_plies()));
         if (net) nn.push(ply + 1, pos, m);
         const int new_depth = depth - 1 + ext + (order[n] == (1 << 30) ? tt_move_ext : 0);
         prev_to[ply + 1] = m.to;
@@ -489,7 +507,7 @@ Score Worker::search(Position& pos, Score alpha, Score beta, int depth, int ply,
         generate_moves(pos, all);
         tt_move = encode_move(all, std::size_t(std::find(all.begin(), all.end(), moves[best_idx]) - all.begin()));
     }
-    tt.store(pos.key(), score_to_tt(best, ply), eval, std::max(depth, -8), bound, tt_move);
+    tt.store(tt_key, score_to_tt(best, ply), eval, std::max(depth, -8), bound, tt_move);
     return best;
 }
 
@@ -793,8 +811,9 @@ SearchResult Engine::go(const Limits& limits, InfoFn on_info) {
 
     // No book move in the middle of a run of king moves: book scores are backed up without regard to repetition,
     // so following them there can walk in a circle.
+    // Nor from a root the database has decided: the conversion search plays those.
     if (book_ && limits.use_book && !limits.infinite && !analysis && !book_->empty() &&
-        root_.reversible_plies() == 0) {
+        root_.reversible_plies() == 0 && !conversion_) {
         book_seed_ = book_seed_ * 6364136223846793005ull + 1442695040888963407ull;
         if (auto m = book_->probe(root_, book_margin_, book_seed_ >> 33, avoid_.get())) {
             for (const Book::Entry& e : book_->lookup(root_))

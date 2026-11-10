@@ -146,7 +146,7 @@ std::vector<Position> sample(int n, int count, std::mt19937_64& rng, Kind kind =
         if (r != Wld::Win && r != Wld::Loss) continue;
         const Color winner = r == Wld::Win ? p.side_to_move() : ~p.side_to_move();
         int& b = bucket[2 * (winner == BLACK) + (r == Wld::Win)];
-        if (b >= count / 4) continue;
+        if (b >= (count + 3) / 4) continue;
         ++b;
         out.push_back(p);
     }
