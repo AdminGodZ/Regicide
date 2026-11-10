@@ -1,0 +1,42 @@
+net v1 1024 -> 32 -> 32 -> 1, 8 buckets  train 124030528  valid 1000000  K 130.0  lambda 0.50  min pieces 9  device cuda  6103 steps/epoch
+epoch   1  lr 9.99e-04  train 0.483560  valid 0.478488  valid(int) 0.478116  2989768 pos/s
+epoch   2  lr 9.94e-04  train 0.476570  valid 0.475764  valid(int) 0.476033  3671340 pos/s
+epoch   3  lr 9.87e-04  train 0.475013  valid 0.474982  valid(int) 0.475269  4059473 pos/s
+epoch   4  lr 9.76e-04  train 0.474065  valid 0.474060  valid(int) 0.474488  3533851 pos/s
+epoch   5  lr 9.63e-04  train 0.473462  valid 0.473747  valid(int) 0.474065  3353128 pos/s
+epoch   6  lr 9.47e-04  train 0.473072  valid 0.473119  valid(int) 0.473477  3597142 pos/s
+epoch   7  lr 9.28e-04  train 0.472763  valid 0.472915  valid(int) 0.473238  3680162 pos/s
+epoch   8  lr 9.06e-04  train 0.472528  valid 0.472679  valid(int) 0.473157  3943475 pos/s
+epoch   9  lr 8.82e-04  train 0.472343  valid 0.472494  valid(int) 0.472820  3638528 pos/s
+epoch  10  lr 8.56e-04  train 0.472188  valid 0.472512  valid(int) 0.472651  3700325 pos/s
+epoch  11  lr 8.27e-04  train 0.472066  valid 0.472364  valid(int) 0.472515  3595984 pos/s
+epoch  12  lr 7.97e-04  train 0.471953  valid 0.472254  valid(int) 0.472606  3671050 pos/s
+epoch  13  lr 7.64e-04  train 0.471823  valid 0.472153  valid(int) 0.472355  4030477 pos/s
+epoch  14  lr 7.30e-04  train 0.471764  valid 0.472267  valid(int) 0.472450  3673047 pos/s
+epoch  15  lr 6.95e-04  train 0.471653  valid 0.472008  valid(int) 0.472332  3497003 pos/s
+epoch  16  lr 6.59e-04  train 0.471582  valid 0.471881  valid(int) 0.472142  3719040 pos/s
+epoch  17  lr 6.21e-04  train 0.471503  valid 0.471859  valid(int) 0.472051  4009411 pos/s
+epoch  18  lr 5.83e-04  train 0.471427  valid 0.471962  valid(int) 0.472086  3700990 pos/s
+epoch  19  lr 5.45e-04  train 0.471354  valid 0.471740  valid(int) 0.472364  3700158 pos/s
+epoch  20  lr 5.06e-04  train 0.471292  valid 0.471694  valid(int) 0.471993  3650047 pos/s
+epoch  21  lr 4.67e-04  train 0.471207  valid 0.471639  valid(int) 0.471945  3811315 pos/s
+epoch  22  lr 4.28e-04  train 0.471185  valid 0.471538  valid(int) 0.471930  3801794 pos/s
+epoch  23  lr 3.90e-04  train 0.471160  valid 0.471549  valid(int) 0.472090  3772090 pos/s
+epoch  24  lr 3.53e-04  train 0.471080  valid 0.471413  valid(int) 0.471984  3994625 pos/s
+epoch  25  lr 3.16e-04  train 0.471017  valid 0.471388  valid(int) 0.471929  3979866 pos/s
+epoch  26  lr 2.81e-04  train 0.470985  valid 0.471380  valid(int) 0.471692  4254843 pos/s
+epoch  27  lr 2.47e-04  train 0.470910  valid 0.471286  valid(int) 0.472071  3993571 pos/s
+epoch  28  lr 2.14e-04  train 0.470874  valid 0.471237  valid(int) 0.471960  3943879 pos/s
+epoch  29  lr 1.84e-04  train 0.470817  valid 0.471271  valid(int) 0.471634  4330454 pos/s
+epoch  30  lr 1.55e-04  train 0.470738  valid 0.471179  valid(int) 0.471711  3998048 pos/s
+epoch  31  lr 1.29e-04  train 0.470733  valid 0.471195  valid(int) 0.471822  3951913 pos/s
+epoch  32  lr 1.05e-04  train 0.470744  valid 0.471141  valid(int) 0.471647  3952514 pos/s
+epoch  33  lr 8.31e-05  train 0.470654  valid 0.471100  valid(int) 0.471626  4407976 pos/s
+epoch  34  lr 6.40e-05  train 0.470653  valid 0.471069  valid(int) 0.471463  3904683 pos/s
+epoch  35  lr 4.77e-05  train 0.470579  valid 0.471052  valid(int) 0.471684  3973813 pos/s
+epoch  36  lr 3.43e-05  train 0.470612  valid 0.471035  valid(int) 0.471502  4465320 pos/s
+epoch  37  lr 2.37e-05  train 0.470552  valid 0.471014  valid(int) 0.471663  3903759 pos/s
+epoch  38  lr 1.61e-05  train 0.470575  valid 0.471011  valid(int) 0.471652  3872210 pos/s
+epoch  39  lr 1.15e-05  train 0.470769  valid 0.471526  valid(int) 0.471487  [qat]  3766190 pos/s
+epoch  40  lr 1.00e-05  train 0.470889  valid 0.471494  valid(int) 0.471261  [qat]  4202191 pos/s
+wrote /home/admingod/regicide-truth-work/runs/n8bk130/net_e040.nnue

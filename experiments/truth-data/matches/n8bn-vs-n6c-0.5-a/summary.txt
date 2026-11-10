@@ -1,0 +1,14 @@
+Match: A = n8bn, B = n6c
+Openings: /home/admingod/regicide-truth-work/chunks/op4_a (207 openings x 1 rounds, each played with both colours)
+Time control: 0.5s/move (CheckerBoard match rules); no-progress rule: 40 moves
+Games: 414 of 414 scheduled
+
+A: +65 =290 -59   score 210.0/414 = 50.72%   draw rate 70.0%
+A as black: +47 =146 -14   A as white: +18 =144 -45
+By colour: black won 92, white won 32, drawn 290
+Pairs: 207   pentanomial [LL LD DD/WL WD WW] = [0 1 199 7 0]
+Elo (pentanomial, pairs): +5.0 [+0.4, +9.6] 95% CI, score 0.5072 +- 0.0066, LOS 98.40%
+Elo (trinomial, games):   +5.0 [-13.3, +23.4] 95% CI, LOS 70.51%
+Terminations: no legal moves 124; no progress 2; repetition 288;
+A n8bn: 20179 moves, avg 0.180s/move, max 4.216s
+B n6c: 20179 moves, avg 0.179s/move, max 3.637s

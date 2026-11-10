@@ -1,0 +1,395 @@
+game,pair,opening,black,white,result,score_a,termination,engine_plies
+10,5,"/home/admingod/regicide-truth-work/chunks/op4_c:5","n6c","n8bn",1/2-1/2,0.5,"repetition",105
+5,3,"/home/admingod/regicide-truth-work/chunks/op4_c:3","n8bn","n6c",1/2-1/2,0.5,"repetition",83
+9,5,"/home/admingod/regicide-truth-work/chunks/op4_c:5","n8bn","n6c",1/2-1/2,0.5,"repetition",67
+1,1,"/home/admingod/regicide-truth-work/chunks/op4_c:1","n8bn","n6c",1/2-1/2,0.5,"repetition",115
+6,3,"/home/admingod/regicide-truth-work/chunks/op4_c:3","n6c","n8bn",1/2-1/2,0.5,"repetition",107
+2,1,"/home/admingod/regicide-truth-work/chunks/op4_c:1","n6c","n8bn",1/2-1/2,0.5,"repetition",109
+13,7,"/home/admingod/regicide-truth-work/chunks/op4_c:7","n8bn","n6c",1/2-1/2,0.5,"repetition",89
+8,4,"/home/admingod/regicide-truth-work/chunks/op4_c:4","n6c","n8bn",1-0,0,"no legal moves",141
+7,4,"/home/admingod/regicide-truth-work/chunks/op4_c:4","n8bn","n6c",1-0,1,"no legal moves",143
+3,2,"/home/admingod/regicide-truth-work/chunks/op4_c:2","n8bn","n6c",0-1,0,"no legal moves",150
+14,7,"/home/admingod/regicide-truth-work/chunks/op4_c:7","n6c","n8bn",1/2-1/2,0.5,"repetition",89
+4,2,"/home/admingod/regicide-truth-work/chunks/op4_c:2","n6c","n8bn",0-1,1,"no legal moves",128
+12,6,"/home/admingod/regicide-truth-work/chunks/op4_c:6","n6c","n8bn",1/2-1/2,0.5,"repetition",119
+15,8,"/home/admingod/regicide-truth-work/chunks/op4_c:8","n8bn","n6c",0-1,0,"no legal moves",76
+20,10,"/home/admingod/regicide-truth-work/chunks/op4_c:10","n6c","n8bn",0-1,1,"no legal moves",126
+18,9,"/home/admingod/regicide-truth-work/chunks/op4_c:9","n6c","n8bn",0-1,1,"no legal moves",56
+16,8,"/home/admingod/regicide-truth-work/chunks/op4_c:8","n6c","n8bn",0-1,1,"no legal moves",132
+19,10,"/home/admingod/regicide-truth-work/chunks/op4_c:10","n8bn","n6c",0-1,0,"no legal moves",110
+23,12,"/home/admingod/regicide-truth-work/chunks/op4_c:12","n8bn","n6c",1/2-1/2,0.5,"repetition",61
+21,11,"/home/admingod/regicide-truth-work/chunks/op4_c:11","n8bn","n6c",1/2-1/2,0.5,"repetition",74
+17,9,"/home/admingod/regicide-truth-work/chunks/op4_c:9","n8bn","n6c",0-1,0,"no legal moves",68
+30,15,"/home/admingod/regicide-truth-work/chunks/op4_c:15","n6c","n8bn",1/2-1/2,0.5,"repetition",87
+27,14,"/home/admingod/regicide-truth-work/chunks/op4_c:14","n8bn","n6c",1/2-1/2,0.5,"repetition",81
+29,15,"/home/admingod/regicide-truth-work/chunks/op4_c:15","n8bn","n6c",1/2-1/2,0.5,"repetition",61
+28,14,"/home/admingod/regicide-truth-work/chunks/op4_c:14","n6c","n8bn",1/2-1/2,0.5,"repetition",84
+24,12,"/home/admingod/regicide-truth-work/chunks/op4_c:12","n6c","n8bn",1/2-1/2,0.5,"repetition",76
+31,16,"/home/admingod/regicide-truth-work/chunks/op4_c:16","n8bn","n6c",1/2-1/2,0.5,"repetition",68
+25,13,"/home/admingod/regicide-truth-work/chunks/op4_c:13","n8bn","n6c",1-0,1,"no legal moves",137
+26,13,"/home/admingod/regicide-truth-work/chunks/op4_c:13","n6c","n8bn",1-0,0,"no legal moves",63
+11,6,"/home/admingod/regicide-truth-work/chunks/op4_c:6","n8bn","n6c",1-0,1,"no legal moves",139
+37,19,"/home/admingod/regicide-truth-work/chunks/op4_c:19","n8bn","n6c",1/2-1/2,0.5,"repetition",72
+32,16,"/home/admingod/regicide-truth-work/chunks/op4_c:16","n6c","n8bn",1/2-1/2,0.5,"repetition",80
+22,11,"/home/admingod/regicide-truth-work/chunks/op4_c:11","n6c","n8bn",1/2-1/2,0.5,"repetition",125
+35,18,"/home/admingod/regicide-truth-work/chunks/op4_c:18","n8bn","n6c",1-0,1,"no legal moves",51
+36,18,"/home/admingod/regicide-truth-work/chunks/op4_c:18","n6c","n8bn",1-0,0,"no legal moves",101
+39,20,"/home/admingod/regicide-truth-work/chunks/op4_c:20","n8bn","n6c",1/2-1/2,0.5,"repetition",120
+40,20,"/home/admingod/regicide-truth-work/chunks/op4_c:20","n6c","n8bn",1/2-1/2,0.5,"repetition",109
+42,21,"/home/admingod/regicide-truth-work/chunks/op4_c:21","n6c","n8bn",1/2-1/2,0.5,"repetition",71
+38,19,"/home/admingod/regicide-truth-work/chunks/op4_c:19","n6c","n8bn",1/2-1/2,0.5,"repetition",95
+41,21,"/home/admingod/regicide-truth-work/chunks/op4_c:21","n8bn","n6c",1/2-1/2,0.5,"repetition",91
+43,22,"/home/admingod/regicide-truth-work/chunks/op4_c:22","n8bn","n6c",1/2-1/2,0.5,"repetition",100
+45,23,"/home/admingod/regicide-truth-work/chunks/op4_c:23","n8bn","n6c",1/2-1/2,0.5,"repetition",63
+48,24,"/home/admingod/regicide-truth-work/chunks/op4_c:24","n6c","n8bn",1/2-1/2,0.5,"repetition",85
+49,25,"/home/admingod/regicide-truth-work/chunks/op4_c:25","n8bn","n6c",1/2-1/2,0.5,"repetition",85
+44,22,"/home/admingod/regicide-truth-work/chunks/op4_c:22","n6c","n8bn",1-0,0,"no legal moves",125
+34,17,"/home/admingod/regicide-truth-work/chunks/op4_c:17","n6c","n8bn",1-0,0,"no legal moves",197
+47,24,"/home/admingod/regicide-truth-work/chunks/op4_c:24","n8bn","n6c",1/2-1/2,0.5,"repetition",103
+50,25,"/home/admingod/regicide-truth-work/chunks/op4_c:25","n6c","n8bn",1/2-1/2,0.5,"repetition",95
+46,23,"/home/admingod/regicide-truth-work/chunks/op4_c:23","n6c","n8bn",1/2-1/2,0.5,"repetition",123
+51,26,"/home/admingod/regicide-truth-work/chunks/op4_c:26","n8bn","n6c",1-0,1,"no legal moves",119
+33,17,"/home/admingod/regicide-truth-work/chunks/op4_c:17","n8bn","n6c",1-0,1,"no legal moves",133
+53,27,"/home/admingod/regicide-truth-work/chunks/op4_c:27","n8bn","n6c",1/2-1/2,0.5,"repetition",97
+54,27,"/home/admingod/regicide-truth-work/chunks/op4_c:27","n6c","n8bn",1/2-1/2,0.5,"repetition",96
+60,30,"/home/admingod/regicide-truth-work/chunks/op4_c:30","n6c","n8bn",1/2-1/2,0.5,"repetition",71
+55,28,"/home/admingod/regicide-truth-work/chunks/op4_c:28","n8bn","n6c",0-1,0,"no legal moves",108
+52,26,"/home/admingod/regicide-truth-work/chunks/op4_c:26","n6c","n8bn",1-0,0,"no legal moves",143
+59,30,"/home/admingod/regicide-truth-work/chunks/op4_c:30","n8bn","n6c",1/2-1/2,0.5,"repetition",77
+61,31,"/home/admingod/regicide-truth-work/chunks/op4_c:31","n8bn","n6c",1/2-1/2,0.5,"repetition",106
+58,29,"/home/admingod/regicide-truth-work/chunks/op4_c:29","n6c","n8bn",1-0,0,"no legal moves",145
+66,33,"/home/admingod/regicide-truth-work/chunks/op4_c:33","n6c","n8bn",0-1,1,"no legal moves",48
+63,32,"/home/admingod/regicide-truth-work/chunks/op4_c:32","n8bn","n6c",0-1,0,"no legal moves",100
+62,31,"/home/admingod/regicide-truth-work/chunks/op4_c:31","n6c","n8bn",1/2-1/2,0.5,"repetition",78
+67,34,"/home/admingod/regicide-truth-work/chunks/op4_c:34","n8bn","n6c",1/2-1/2,0.5,"repetition",61
+56,28,"/home/admingod/regicide-truth-work/chunks/op4_c:28","n6c","n8bn",0-1,1,"no legal moves",160
+65,33,"/home/admingod/regicide-truth-work/chunks/op4_c:33","n8bn","n6c",0-1,0,"no legal moves",102
+64,32,"/home/admingod/regicide-truth-work/chunks/op4_c:32","n6c","n8bn",0-1,1,"no legal moves",132
+69,35,"/home/admingod/regicide-truth-work/chunks/op4_c:35","n8bn","n6c",1/2-1/2,0.5,"repetition",92
+73,37,"/home/admingod/regicide-truth-work/chunks/op4_c:37","n8bn","n6c",1/2-1/2,0.5,"repetition",84
+57,29,"/home/admingod/regicide-truth-work/chunks/op4_c:29","n8bn","n6c",1-0,1,"no legal moves",161
+70,35,"/home/admingod/regicide-truth-work/chunks/op4_c:35","n6c","n8bn",1/2-1/2,0.5,"repetition",86
+68,34,"/home/admingod/regicide-truth-work/chunks/op4_c:34","n6c","n8bn",1/2-1/2,0.5,"repetition",99
+74,37,"/home/admingod/regicide-truth-work/chunks/op4_c:37","n6c","n8bn",1/2-1/2,0.5,"repetition",66
+71,36,"/home/admingod/regicide-truth-work/chunks/op4_c:36","n8bn","n6c",1/2-1/2,0.5,"repetition",91
+81,41,"/home/admingod/regicide-truth-work/chunks/op4_c:41","n8bn","n6c",1/2-1/2,0.5,"repetition",76
+72,36,"/home/admingod/regicide-truth-work/chunks/op4_c:36","n6c","n8bn",1/2-1/2,0.5,"repetition",59
+79,40,"/home/admingod/regicide-truth-work/chunks/op4_c:40","n8bn","n6c",1/2-1/2,0.5,"repetition",60
+83,42,"/home/admingod/regicide-truth-work/chunks/op4_c:42","n8bn","n6c",1/2-1/2,0.5,"repetition",95
+80,40,"/home/admingod/regicide-truth-work/chunks/op4_c:40","n6c","n8bn",1/2-1/2,0.5,"repetition",67
+78,39,"/home/admingod/regicide-truth-work/chunks/op4_c:39","n6c","n8bn",1-0,0,"no legal moves",69
+76,38,"/home/admingod/regicide-truth-work/chunks/op4_c:38","n6c","n8bn",1-0,0,"no legal moves",151
+84,42,"/home/admingod/regicide-truth-work/chunks/op4_c:42","n6c","n8bn",1/2-1/2,0.5,"repetition",69
+85,43,"/home/admingod/regicide-truth-work/chunks/op4_c:43","n8bn","n6c",1/2-1/2,0.5,"repetition",107
+77,39,"/home/admingod/regicide-truth-work/chunks/op4_c:39","n8bn","n6c",1-0,1,"no legal moves",181
+86,43,"/home/admingod/regicide-truth-work/chunks/op4_c:43","n6c","n8bn",1/2-1/2,0.5,"repetition",87
+88,44,"/home/admingod/regicide-truth-work/chunks/op4_c:44","n6c","n8bn",1/2-1/2,0.5,"repetition",67
+75,38,"/home/admingod/regicide-truth-work/chunks/op4_c:38","n8bn","n6c",1-0,1,"no legal moves",117
+90,45,"/home/admingod/regicide-truth-work/chunks/op4_c:45","n6c","n8bn",1/2-1/2,0.5,"repetition",75
+82,41,"/home/admingod/regicide-truth-work/chunks/op4_c:41","n6c","n8bn",1/2-1/2,0.5,"repetition",143
+89,45,"/home/admingod/regicide-truth-work/chunks/op4_c:45","n8bn","n6c",1/2-1/2,0.5,"repetition",77
+87,44,"/home/admingod/regicide-truth-work/chunks/op4_c:44","n8bn","n6c",1/2-1/2,0.5,"repetition",95
+95,48,"/home/admingod/regicide-truth-work/chunks/op4_c:48","n8bn","n6c",1/2-1/2,0.5,"repetition",79
+93,47,"/home/admingod/regicide-truth-work/chunks/op4_c:47","n8bn","n6c",1-0,1,"no legal moves",109
+92,46,"/home/admingod/regicide-truth-work/chunks/op4_c:46","n6c","n8bn",1-0,0,"no legal moves",117
+96,48,"/home/admingod/regicide-truth-work/chunks/op4_c:48","n6c","n8bn",1/2-1/2,0.5,"repetition",83
+97,49,"/home/admingod/regicide-truth-work/chunks/op4_c:49","n8bn","n6c",1/2-1/2,0.5,"repetition",89
+91,46,"/home/admingod/regicide-truth-work/chunks/op4_c:46","n8bn","n6c",1-0,1,"no legal moves",169
+98,49,"/home/admingod/regicide-truth-work/chunks/op4_c:49","n6c","n8bn",1/2-1/2,0.5,"repetition",82
+99,50,"/home/admingod/regicide-truth-work/chunks/op4_c:50","n8bn","n6c",1/2-1/2,0.5,"repetition",126
+100,50,"/home/admingod/regicide-truth-work/chunks/op4_c:50","n6c","n8bn",1/2-1/2,0.5,"repetition",123
+94,47,"/home/admingod/regicide-truth-work/chunks/op4_c:47","n6c","n8bn",1-0,0,"no legal moves",177
+107,54,"/home/admingod/regicide-truth-work/chunks/op4_c:54","n8bn","n6c",1/2-1/2,0.5,"repetition",126
+105,53,"/home/admingod/regicide-truth-work/chunks/op4_c:53","n8bn","n6c",1/2-1/2,0.5,"repetition",68
+108,54,"/home/admingod/regicide-truth-work/chunks/op4_c:54","n6c","n8bn",1/2-1/2,0.5,"repetition",75
+110,55,"/home/admingod/regicide-truth-work/chunks/op4_c:55","n6c","n8bn",1/2-1/2,0.5,"repetition",68
+106,53,"/home/admingod/regicide-truth-work/chunks/op4_c:53","n6c","n8bn",1/2-1/2,0.5,"repetition",81
+112,56,"/home/admingod/regicide-truth-work/chunks/op4_c:56","n6c","n8bn",1/2-1/2,0.5,"repetition",83
+109,55,"/home/admingod/regicide-truth-work/chunks/op4_c:55","n8bn","n6c",1/2-1/2,0.5,"repetition",111
+103,52,"/home/admingod/regicide-truth-work/chunks/op4_c:52","n8bn","n6c",0-1,0,"no legal moves",92
+113,57,"/home/admingod/regicide-truth-work/chunks/op4_c:57","n8bn","n6c",1/2-1/2,0.5,"repetition",87
+102,51,"/home/admingod/regicide-truth-work/chunks/op4_c:51","n6c","n8bn",1/2-1/2,0.5,"repetition",115
+115,58,"/home/admingod/regicide-truth-work/chunks/op4_c:58","n8bn","n6c",1/2-1/2,0.5,"repetition",66
+118,59,"/home/admingod/regicide-truth-work/chunks/op4_c:59","n6c","n8bn",1/2-1/2,0.5,"repetition",70
+111,56,"/home/admingod/regicide-truth-work/chunks/op4_c:56","n8bn","n6c",1/2-1/2,0.5,"repetition",101
+117,59,"/home/admingod/regicide-truth-work/chunks/op4_c:59","n8bn","n6c",1/2-1/2,0.5,"repetition",111
+104,52,"/home/admingod/regicide-truth-work/chunks/op4_c:52","n6c","n8bn",0-1,1,"no legal moves",146
+101,51,"/home/admingod/regicide-truth-work/chunks/op4_c:51","n8bn","n6c",1/2-1/2,0.5,"repetition",117
+116,58,"/home/admingod/regicide-truth-work/chunks/op4_c:58","n6c","n8bn",1/2-1/2,0.5,"repetition",70
+123,62,"/home/admingod/regicide-truth-work/chunks/op4_c:62","n8bn","n6c",1/2-1/2,0.5,"repetition",77
+124,62,"/home/admingod/regicide-truth-work/chunks/op4_c:62","n6c","n8bn",1/2-1/2,0.5,"repetition",68
+122,61,"/home/admingod/regicide-truth-work/chunks/op4_c:61","n6c","n8bn",1/2-1/2,0.5,"repetition",89
+127,64,"/home/admingod/regicide-truth-work/chunks/op4_c:64","n8bn","n6c",1/2-1/2,0.5,"repetition",76
+119,60,"/home/admingod/regicide-truth-work/chunks/op4_c:60","n8bn","n6c",1/2-1/2,0.5,"repetition",109
+128,64,"/home/admingod/regicide-truth-work/chunks/op4_c:64","n6c","n8bn",1/2-1/2,0.5,"repetition",70
+126,63,"/home/admingod/regicide-truth-work/chunks/op4_c:63","n6c","n8bn",1/2-1/2,0.5,"repetition",97
+121,61,"/home/admingod/regicide-truth-work/chunks/op4_c:61","n8bn","n6c",1/2-1/2,0.5,"repetition",113
+120,60,"/home/admingod/regicide-truth-work/chunks/op4_c:60","n6c","n8bn",1/2-1/2,0.5,"repetition",117
+125,63,"/home/admingod/regicide-truth-work/chunks/op4_c:63","n8bn","n6c",1/2-1/2,0.5,"repetition",94
+135,68,"/home/admingod/regicide-truth-work/chunks/op4_c:68","n8bn","n6c",1/2-1/2,0.5,"repetition",85
+136,68,"/home/admingod/regicide-truth-work/chunks/op4_c:68","n6c","n8bn",1/2-1/2,0.5,"repetition",66
+133,67,"/home/admingod/regicide-truth-work/chunks/op4_c:67","n8bn","n6c",1/2-1/2,0.5,"repetition",105
+134,67,"/home/admingod/regicide-truth-work/chunks/op4_c:67","n6c","n8bn",1/2-1/2,0.5,"repetition",73
+114,57,"/home/admingod/regicide-truth-work/chunks/op4_c:57","n6c","n8bn",1/2-1/2,0.5,"repetition",162
+131,66,"/home/admingod/regicide-truth-work/chunks/op4_c:66","n8bn","n6c",0-1,0,"no legal moves",70
+132,66,"/home/admingod/regicide-truth-work/chunks/op4_c:66","n6c","n8bn",0-1,1,"no legal moves",124
+130,65,"/home/admingod/regicide-truth-work/chunks/op4_c:65","n6c","n8bn",1/2-1/2,0.5,"repetition",133
+138,69,"/home/admingod/regicide-truth-work/chunks/op4_c:69","n6c","n8bn",1/2-1/2,0.5,"repetition",75
+129,65,"/home/admingod/regicide-truth-work/chunks/op4_c:65","n8bn","n6c",1-0,1,"no legal moves",143
+140,70,"/home/admingod/regicide-truth-work/chunks/op4_c:70","n6c","n8bn",1/2-1/2,0.5,"repetition",70
+144,72,"/home/admingod/regicide-truth-work/chunks/op4_c:72","n6c","n8bn",0-1,1,"no legal moves",44
+143,72,"/home/admingod/regicide-truth-work/chunks/op4_c:72","n8bn","n6c",0-1,0,"no legal moves",74
+141,71,"/home/admingod/regicide-truth-work/chunks/op4_c:71","n8bn","n6c",1/2-1/2,0.5,"repetition",101
+146,73,"/home/admingod/regicide-truth-work/chunks/op4_c:73","n6c","n8bn",1/2-1/2,0.5,"repetition",93
+139,70,"/home/admingod/regicide-truth-work/chunks/op4_c:70","n8bn","n6c",1/2-1/2,0.5,"repetition",94
+145,73,"/home/admingod/regicide-truth-work/chunks/op4_c:73","n8bn","n6c",1/2-1/2,0.5,"repetition",62
+142,71,"/home/admingod/regicide-truth-work/chunks/op4_c:71","n6c","n8bn",1/2-1/2,0.5,"repetition",86
+149,75,"/home/admingod/regicide-truth-work/chunks/op4_c:75","n8bn","n6c",1/2-1/2,0.5,"repetition",92
+153,77,"/home/admingod/regicide-truth-work/chunks/op4_c:77","n8bn","n6c",1/2-1/2,0.5,"repetition",101
+147,74,"/home/admingod/regicide-truth-work/chunks/op4_c:74","n8bn","n6c",1/2-1/2,0.5,"repetition",42
+154,77,"/home/admingod/regicide-truth-work/chunks/op4_c:77","n6c","n8bn",1/2-1/2,0.5,"repetition",91
+148,74,"/home/admingod/regicide-truth-work/chunks/op4_c:74","n6c","n8bn",1/2-1/2,0.5,"repetition",42
+151,76,"/home/admingod/regicide-truth-work/chunks/op4_c:76","n8bn","n6c",1/2-1/2,0.5,"repetition",66
+137,69,"/home/admingod/regicide-truth-work/chunks/op4_c:69","n8bn","n6c",1/2-1/2,0.5,"repetition",127
+150,75,"/home/admingod/regicide-truth-work/chunks/op4_c:75","n6c","n8bn",1/2-1/2,0.5,"repetition",113
+152,76,"/home/admingod/regicide-truth-work/chunks/op4_c:76","n6c","n8bn",1/2-1/2,0.5,"repetition",71
+156,78,"/home/admingod/regicide-truth-work/chunks/op4_c:78","n6c","n8bn",1/2-1/2,0.5,"repetition",66
+155,78,"/home/admingod/regicide-truth-work/chunks/op4_c:78","n8bn","n6c",1/2-1/2,0.5,"repetition",66
+157,79,"/home/admingod/regicide-truth-work/chunks/op4_c:79","n8bn","n6c",1/2-1/2,0.5,"repetition",93
+158,79,"/home/admingod/regicide-truth-work/chunks/op4_c:79","n6c","n8bn",1/2-1/2,0.5,"repetition",96
+162,81,"/home/admingod/regicide-truth-work/chunks/op4_c:81","n6c","n8bn",1/2-1/2,0.5,"repetition",107
+163,82,"/home/admingod/regicide-truth-work/chunks/op4_c:82","n8bn","n6c",1/2-1/2,0.5,"repetition",115
+165,83,"/home/admingod/regicide-truth-work/chunks/op4_c:83","n8bn","n6c",1/2-1/2,0.5,"repetition",81
+159,80,"/home/admingod/regicide-truth-work/chunks/op4_c:80","n8bn","n6c",1/2-1/2,0.5,"repetition",67
+160,80,"/home/admingod/regicide-truth-work/chunks/op4_c:80","n6c","n8bn",1/2-1/2,0.5,"repetition",112
+161,81,"/home/admingod/regicide-truth-work/chunks/op4_c:81","n8bn","n6c",1/2-1/2,0.5,"repetition",67
+166,83,"/home/admingod/regicide-truth-work/chunks/op4_c:83","n6c","n8bn",1/2-1/2,0.5,"repetition",103
+171,86,"/home/admingod/regicide-truth-work/chunks/op4_c:86","n8bn","n6c",1/2-1/2,0.5,"repetition",85
+164,82,"/home/admingod/regicide-truth-work/chunks/op4_c:82","n6c","n8bn",1/2-1/2,0.5,"repetition",95
+172,86,"/home/admingod/regicide-truth-work/chunks/op4_c:86","n6c","n8bn",1/2-1/2,0.5,"repetition",93
+169,85,"/home/admingod/regicide-truth-work/chunks/op4_c:85","n8bn","n6c",1/2-1/2,0.5,"repetition",97
+175,88,"/home/admingod/regicide-truth-work/chunks/op4_c:88","n8bn","n6c",1/2-1/2,0.5,"repetition",109
+173,87,"/home/admingod/regicide-truth-work/chunks/op4_c:87","n8bn","n6c",1/2-1/2,0.5,"repetition",65
+174,87,"/home/admingod/regicide-truth-work/chunks/op4_c:87","n6c","n8bn",1/2-1/2,0.5,"repetition",91
+177,89,"/home/admingod/regicide-truth-work/chunks/op4_c:89","n8bn","n6c",1/2-1/2,0.5,"repetition",88
+170,85,"/home/admingod/regicide-truth-work/chunks/op4_c:85","n6c","n8bn",1/2-1/2,0.5,"repetition",104
+176,88,"/home/admingod/regicide-truth-work/chunks/op4_c:88","n6c","n8bn",1/2-1/2,0.5,"repetition",94
+167,84,"/home/admingod/regicide-truth-work/chunks/op4_c:84","n8bn","n6c",1/2-1/2,0.5,"repetition",113
+178,89,"/home/admingod/regicide-truth-work/chunks/op4_c:89","n6c","n8bn",1/2-1/2,0.5,"repetition",84
+180,90,"/home/admingod/regicide-truth-work/chunks/op4_c:90","n6c","n8bn",1/2-1/2,0.5,"repetition",85
+182,91,"/home/admingod/regicide-truth-work/chunks/op4_c:91","n6c","n8bn",1/2-1/2,0.5,"repetition",103
+183,92,"/home/admingod/regicide-truth-work/chunks/op4_c:92","n8bn","n6c",1/2-1/2,0.5,"repetition",81
+168,84,"/home/admingod/regicide-truth-work/chunks/op4_c:84","n6c","n8bn",1-0,0,"no legal moves",85
+184,92,"/home/admingod/regicide-truth-work/chunks/op4_c:92","n6c","n8bn",1/2-1/2,0.5,"repetition",81
+181,91,"/home/admingod/regicide-truth-work/chunks/op4_c:91","n8bn","n6c",1/2-1/2,0.5,"repetition",87
+185,93,"/home/admingod/regicide-truth-work/chunks/op4_c:93","n8bn","n6c",1/2-1/2,0.5,"repetition",74
+188,94,"/home/admingod/regicide-truth-work/chunks/op4_c:94","n6c","n8bn",1/2-1/2,0.5,"repetition",86
+186,93,"/home/admingod/regicide-truth-work/chunks/op4_c:93","n6c","n8bn",1/2-1/2,0.5,"repetition",58
+179,90,"/home/admingod/regicide-truth-work/chunks/op4_c:90","n8bn","n6c",1/2-1/2,0.5,"repetition",103
+187,94,"/home/admingod/regicide-truth-work/chunks/op4_c:94","n8bn","n6c",1/2-1/2,0.5,"repetition",71
+191,96,"/home/admingod/regicide-truth-work/chunks/op4_c:96","n8bn","n6c",1/2-1/2,0.5,"repetition",73
+192,96,"/home/admingod/regicide-truth-work/chunks/op4_c:96","n6c","n8bn",1/2-1/2,0.5,"repetition",56
+195,98,"/home/admingod/regicide-truth-work/chunks/op4_c:98","n8bn","n6c",1/2-1/2,0.5,"repetition",76
+194,97,"/home/admingod/regicide-truth-work/chunks/op4_c:97","n6c","n8bn",1/2-1/2,0.5,"repetition",89
+190,95,"/home/admingod/regicide-truth-work/chunks/op4_c:95","n6c","n8bn",1/2-1/2,0.5,"repetition",99
+197,99,"/home/admingod/regicide-truth-work/chunks/op4_c:99","n8bn","n6c",1/2-1/2,0.5,"repetition",107
+196,98,"/home/admingod/regicide-truth-work/chunks/op4_c:98","n6c","n8bn",1/2-1/2,0.5,"repetition",79
+193,97,"/home/admingod/regicide-truth-work/chunks/op4_c:97","n8bn","n6c",1/2-1/2,0.5,"repetition",90
+198,99,"/home/admingod/regicide-truth-work/chunks/op4_c:99","n6c","n8bn",1/2-1/2,0.5,"repetition",62
+189,95,"/home/admingod/regicide-truth-work/chunks/op4_c:95","n8bn","n6c",1/2-1/2,0.5,"repetition",107
+200,100,"/home/admingod/regicide-truth-work/chunks/op4_c:100","n6c","n8bn",1/2-1/2,0.5,"repetition",83
+199,100,"/home/admingod/regicide-truth-work/chunks/op4_c:100","n8bn","n6c",1/2-1/2,0.5,"repetition",91
+207,104,"/home/admingod/regicide-truth-work/chunks/op4_c:104","n8bn","n6c",1/2-1/2,0.5,"repetition",67
+206,103,"/home/admingod/regicide-truth-work/chunks/op4_c:103","n6c","n8bn",1/2-1/2,0.5,"repetition",89
+208,104,"/home/admingod/regicide-truth-work/chunks/op4_c:104","n6c","n8bn",1/2-1/2,0.5,"repetition",85
+204,102,"/home/admingod/regicide-truth-work/chunks/op4_c:102","n6c","n8bn",1/2-1/2,0.5,"repetition",81
+205,103,"/home/admingod/regicide-truth-work/chunks/op4_c:103","n8bn","n6c",1/2-1/2,0.5,"repetition",80
+209,105,"/home/admingod/regicide-truth-work/chunks/op4_c:105","n8bn","n6c",1/2-1/2,0.5,"repetition",79
+202,101,"/home/admingod/regicide-truth-work/chunks/op4_c:101","n6c","n8bn",0-1,1,"no legal moves",60
+211,106,"/home/admingod/regicide-truth-work/chunks/op4_c:106","n8bn","n6c",1/2-1/2,0.5,"repetition",85
+210,105,"/home/admingod/regicide-truth-work/chunks/op4_c:105","n6c","n8bn",1/2-1/2,0.5,"repetition",93
+214,107,"/home/admingod/regicide-truth-work/chunks/op4_c:107","n6c","n8bn",1/2-1/2,0.5,"repetition",74
+201,101,"/home/admingod/regicide-truth-work/chunks/op4_c:101","n8bn","n6c",0-1,0,"no legal moves",88
+213,107,"/home/admingod/regicide-truth-work/chunks/op4_c:107","n8bn","n6c",1/2-1/2,0.5,"repetition",67
+215,108,"/home/admingod/regicide-truth-work/chunks/op4_c:108","n8bn","n6c",1/2-1/2,0.5,"repetition",82
+203,102,"/home/admingod/regicide-truth-work/chunks/op4_c:102","n8bn","n6c",1/2-1/2,0.5,"repetition",88
+217,109,"/home/admingod/regicide-truth-work/chunks/op4_c:109","n8bn","n6c",1/2-1/2,0.5,"repetition",101
+219,110,"/home/admingod/regicide-truth-work/chunks/op4_c:110","n8bn","n6c",1/2-1/2,0.5,"repetition",73
+222,111,"/home/admingod/regicide-truth-work/chunks/op4_c:111","n6c","n8bn",1/2-1/2,0.5,"repetition",91
+220,110,"/home/admingod/regicide-truth-work/chunks/op4_c:110","n6c","n8bn",1/2-1/2,0.5,"repetition",76
+218,109,"/home/admingod/regicide-truth-work/chunks/op4_c:109","n6c","n8bn",1/2-1/2,0.5,"repetition",101
+216,108,"/home/admingod/regicide-truth-work/chunks/op4_c:108","n6c","n8bn",1/2-1/2,0.5,"repetition",80
+221,111,"/home/admingod/regicide-truth-work/chunks/op4_c:111","n8bn","n6c",1/2-1/2,0.5,"repetition",81
+223,112,"/home/admingod/regicide-truth-work/chunks/op4_c:112","n8bn","n6c",1/2-1/2,0.5,"repetition",81
+224,112,"/home/admingod/regicide-truth-work/chunks/op4_c:112","n6c","n8bn",1/2-1/2,0.5,"repetition",103
+228,114,"/home/admingod/regicide-truth-work/chunks/op4_c:114","n6c","n8bn",1/2-1/2,0.5,"repetition",84
+232,116,"/home/admingod/regicide-truth-work/chunks/op4_c:116","n6c","n8bn",1/2-1/2,0.5,"repetition",89
+230,115,"/home/admingod/regicide-truth-work/chunks/op4_c:115","n6c","n8bn",1/2-1/2,0.5,"repetition",66
+227,114,"/home/admingod/regicide-truth-work/chunks/op4_c:114","n8bn","n6c",1/2-1/2,0.5,"repetition",135
+231,116,"/home/admingod/regicide-truth-work/chunks/op4_c:116","n8bn","n6c",1/2-1/2,0.5,"repetition",105
+229,115,"/home/admingod/regicide-truth-work/chunks/op4_c:115","n8bn","n6c",1/2-1/2,0.5,"repetition",96
+226,113,"/home/admingod/regicide-truth-work/chunks/op4_c:113","n6c","n8bn",1-0,0,"no legal moves",83
+234,117,"/home/admingod/regicide-truth-work/chunks/op4_c:117","n6c","n8bn",1/2-1/2,0.5,"repetition",75
+233,117,"/home/admingod/regicide-truth-work/chunks/op4_c:117","n8bn","n6c",1/2-1/2,0.5,"repetition",65
+212,106,"/home/admingod/regicide-truth-work/chunks/op4_c:106","n6c","n8bn",0-1,1,"no legal moves",156
+238,119,"/home/admingod/regicide-truth-work/chunks/op4_c:119","n6c","n8bn",1/2-1/2,0.5,"repetition",84
+237,119,"/home/admingod/regicide-truth-work/chunks/op4_c:119","n8bn","n6c",1/2-1/2,0.5,"repetition",91
+225,113,"/home/admingod/regicide-truth-work/chunks/op4_c:113","n8bn","n6c",1-0,1,"no legal moves",149
+236,118,"/home/admingod/regicide-truth-work/chunks/op4_c:118","n6c","n8bn",1/2-1/2,0.5,"repetition",100
+235,118,"/home/admingod/regicide-truth-work/chunks/op4_c:118","n8bn","n6c",1/2-1/2,0.5,"repetition",66
+243,122,"/home/admingod/regicide-truth-work/chunks/op4_c:122","n8bn","n6c",1/2-1/2,0.5,"repetition",77
+246,123,"/home/admingod/regicide-truth-work/chunks/op4_c:123","n6c","n8bn",1/2-1/2,0.5,"repetition",77
+239,120,"/home/admingod/regicide-truth-work/chunks/op4_c:120","n8bn","n6c",1-0,1,"no legal moves",93
+242,121,"/home/admingod/regicide-truth-work/chunks/op4_c:121","n6c","n8bn",1/2-1/2,0.5,"repetition",99
+244,122,"/home/admingod/regicide-truth-work/chunks/op4_c:122","n6c","n8bn",1/2-1/2,0.5,"repetition",88
+248,124,"/home/admingod/regicide-truth-work/chunks/op4_c:124","n6c","n8bn",1/2-1/2,0.5,"repetition",97
+240,120,"/home/admingod/regicide-truth-work/chunks/op4_c:120","n6c","n8bn",1-0,0,"no legal moves",141
+245,123,"/home/admingod/regicide-truth-work/chunks/op4_c:123","n8bn","n6c",1/2-1/2,0.5,"repetition",92
+247,124,"/home/admingod/regicide-truth-work/chunks/op4_c:124","n8bn","n6c",1/2-1/2,0.5,"repetition",77
+254,127,"/home/admingod/regicide-truth-work/chunks/op4_c:127","n6c","n8bn",1/2-1/2,0.5,"repetition",75
+253,127,"/home/admingod/regicide-truth-work/chunks/op4_c:127","n8bn","n6c",1/2-1/2,0.5,"repetition",75
+250,125,"/home/admingod/regicide-truth-work/chunks/op4_c:125","n6c","n8bn",0-1,1,"no legal moves",84
+249,125,"/home/admingod/regicide-truth-work/chunks/op4_c:125","n8bn","n6c",0-1,0,"no legal moves",72
+241,121,"/home/admingod/regicide-truth-work/chunks/op4_c:121","n8bn","n6c",1/2-1/2,0.5,"repetition",72
+257,129,"/home/admingod/regicide-truth-work/chunks/op4_c:129","n8bn","n6c",1/2-1/2,0.5,"repetition",77
+258,129,"/home/admingod/regicide-truth-work/chunks/op4_c:129","n6c","n8bn",1/2-1/2,0.5,"repetition",87
+252,126,"/home/admingod/regicide-truth-work/chunks/op4_c:126","n6c","n8bn",1-0,0,"no legal moves",127
+259,130,"/home/admingod/regicide-truth-work/chunks/op4_c:130","n8bn","n6c",1/2-1/2,0.5,"repetition",93
+260,130,"/home/admingod/regicide-truth-work/chunks/op4_c:130","n6c","n8bn",1/2-1/2,0.5,"repetition",59
+264,132,"/home/admingod/regicide-truth-work/chunks/op4_c:132","n6c","n8bn",1/2-1/2,0.5,"repetition",66
+251,126,"/home/admingod/regicide-truth-work/chunks/op4_c:126","n8bn","n6c",1-0,1,"no legal moves",67
+265,133,"/home/admingod/regicide-truth-work/chunks/op4_c:133","n8bn","n6c",1/2-1/2,0.5,"repetition",78
+255,128,"/home/admingod/regicide-truth-work/chunks/op4_c:128","n8bn","n6c",1/2-1/2,0.5,"repetition",95
+267,134,"/home/admingod/regicide-truth-work/chunks/op4_c:134","n8bn","n6c",1/2-1/2,0.5,"repetition",81
+263,132,"/home/admingod/regicide-truth-work/chunks/op4_c:132","n8bn","n6c",1/2-1/2,0.5,"repetition",73
+268,134,"/home/admingod/regicide-truth-work/chunks/op4_c:134","n6c","n8bn",1/2-1/2,0.5,"repetition",95
+256,128,"/home/admingod/regicide-truth-work/chunks/op4_c:128","n6c","n8bn",1/2-1/2,0.5,"repetition",90
+262,131,"/home/admingod/regicide-truth-work/chunks/op4_c:131","n6c","n8bn",1-0,0,"no legal moves",57
+269,135,"/home/admingod/regicide-truth-work/chunks/op4_c:135","n8bn","n6c",1/2-1/2,0.5,"repetition",76
+261,131,"/home/admingod/regicide-truth-work/chunks/op4_c:131","n8bn","n6c",1-0,1,"no legal moves",61
+270,135,"/home/admingod/regicide-truth-work/chunks/op4_c:135","n6c","n8bn",1/2-1/2,0.5,"repetition",83
+274,137,"/home/admingod/regicide-truth-work/chunks/op4_c:137","n6c","n8bn",1/2-1/2,0.5,"repetition",70
+277,139,"/home/admingod/regicide-truth-work/chunks/op4_c:139","n8bn","n6c",1/2-1/2,0.5,"repetition",98
+278,139,"/home/admingod/regicide-truth-work/chunks/op4_c:139","n6c","n8bn",1/2-1/2,0.5,"repetition",97
+266,133,"/home/admingod/regicide-truth-work/chunks/op4_c:133","n6c","n8bn",1/2-1/2,0.5,"repetition",131
+276,138,"/home/admingod/regicide-truth-work/chunks/op4_c:138","n6c","n8bn",0-1,1,"no legal moves",122
+271,136,"/home/admingod/regicide-truth-work/chunks/op4_c:136","n8bn","n6c",1/2-1/2,0.5,"repetition",133
+279,140,"/home/admingod/regicide-truth-work/chunks/op4_c:140","n8bn","n6c",1/2-1/2,0.5,"repetition",104
+280,140,"/home/admingod/regicide-truth-work/chunks/op4_c:140","n6c","n8bn",1/2-1/2,0.5,"repetition",82
+272,136,"/home/admingod/regicide-truth-work/chunks/op4_c:136","n6c","n8bn",0-1,1,"no legal moves",150
+275,138,"/home/admingod/regicide-truth-work/chunks/op4_c:138","n8bn","n6c",0-1,0,"no legal moves",160
+284,142,"/home/admingod/regicide-truth-work/chunks/op4_c:142","n6c","n8bn",1/2-1/2,0.5,"repetition",87
+285,143,"/home/admingod/regicide-truth-work/chunks/op4_c:143","n8bn","n6c",1/2-1/2,0.5,"repetition",81
+283,142,"/home/admingod/regicide-truth-work/chunks/op4_c:142","n8bn","n6c",1/2-1/2,0.5,"repetition",103
+273,137,"/home/admingod/regicide-truth-work/chunks/op4_c:137","n8bn","n6c",0-1,0,"no legal moves",90
+288,144,"/home/admingod/regicide-truth-work/chunks/op4_c:144","n6c","n8bn",1/2-1/2,0.5,"repetition",101
+286,143,"/home/admingod/regicide-truth-work/chunks/op4_c:143","n6c","n8bn",1/2-1/2,0.5,"repetition",115
+287,144,"/home/admingod/regicide-truth-work/chunks/op4_c:144","n8bn","n6c",1/2-1/2,0.5,"repetition",89
+282,141,"/home/admingod/regicide-truth-work/chunks/op4_c:141","n6c","n8bn",1-0,0,"no legal moves",105
+281,141,"/home/admingod/regicide-truth-work/chunks/op4_c:141","n8bn","n6c",1-0,1,"no legal moves",125
+292,146,"/home/admingod/regicide-truth-work/chunks/op4_c:146","n6c","n8bn",1/2-1/2,0.5,"repetition",61
+293,147,"/home/admingod/regicide-truth-work/chunks/op4_c:147","n8bn","n6c",1/2-1/2,0.5,"repetition",91
+291,146,"/home/admingod/regicide-truth-work/chunks/op4_c:146","n8bn","n6c",1/2-1/2,0.5,"repetition",97
+295,148,"/home/admingod/regicide-truth-work/chunks/op4_c:148","n8bn","n6c",1/2-1/2,0.5,"repetition",83
+290,145,"/home/admingod/regicide-truth-work/chunks/op4_c:145","n6c","n8bn",1-0,0,"no legal moves",151
+289,145,"/home/admingod/regicide-truth-work/chunks/op4_c:145","n8bn","n6c",1-0,1,"no legal moves",77
+296,148,"/home/admingod/regicide-truth-work/chunks/op4_c:148","n6c","n8bn",1/2-1/2,0.5,"repetition",94
+294,147,"/home/admingod/regicide-truth-work/chunks/op4_c:147","n6c","n8bn",1/2-1/2,0.5,"repetition",73
+302,151,"/home/admingod/regicide-truth-work/chunks/op4_c:151","n6c","n8bn",1/2-1/2,0.5,"repetition",63
+301,151,"/home/admingod/regicide-truth-work/chunks/op4_c:151","n8bn","n6c",1/2-1/2,0.5,"repetition",86
+297,149,"/home/admingod/regicide-truth-work/chunks/op4_c:149","n8bn","n6c",1/2-1/2,0.5,"repetition",95
+306,153,"/home/admingod/regicide-truth-work/chunks/op4_c:153","n6c","n8bn",1/2-1/2,0.5,"repetition",71
+305,153,"/home/admingod/regicide-truth-work/chunks/op4_c:153","n8bn","n6c",1/2-1/2,0.5,"repetition",94
+308,154,"/home/admingod/regicide-truth-work/chunks/op4_c:154","n6c","n8bn",1/2-1/2,0.5,"repetition",76
+307,154,"/home/admingod/regicide-truth-work/chunks/op4_c:154","n8bn","n6c",1/2-1/2,0.5,"repetition",88
+303,152,"/home/admingod/regicide-truth-work/chunks/op4_c:152","n8bn","n6c",1/2-1/2,0.5,"repetition",46
+299,150,"/home/admingod/regicide-truth-work/chunks/op4_c:150","n8bn","n6c",1/2-1/2,0.5,"repetition",97
+304,152,"/home/admingod/regicide-truth-work/chunks/op4_c:152","n6c","n8bn",1/2-1/2,0.5,"repetition",84
+298,149,"/home/admingod/regicide-truth-work/chunks/op4_c:149","n6c","n8bn",1/2-1/2,0.5,"repetition",111
+309,155,"/home/admingod/regicide-truth-work/chunks/op4_c:155","n8bn","n6c",1/2-1/2,0.5,"repetition",85
+310,155,"/home/admingod/regicide-truth-work/chunks/op4_c:155","n6c","n8bn",1/2-1/2,0.5,"repetition",67
+312,156,"/home/admingod/regicide-truth-work/chunks/op4_c:156","n6c","n8bn",1/2-1/2,0.5,"repetition",92
+311,156,"/home/admingod/regicide-truth-work/chunks/op4_c:156","n8bn","n6c",1/2-1/2,0.5,"repetition",109
+313,157,"/home/admingod/regicide-truth-work/chunks/op4_c:157","n8bn","n6c",1-0,1,"no legal moves",129
+300,150,"/home/admingod/regicide-truth-work/chunks/op4_c:150","n6c","n8bn",0-1,1,"no legal moves",102
+314,157,"/home/admingod/regicide-truth-work/chunks/op4_c:157","n6c","n8bn",1-0,0,"no legal moves",75
+317,159,"/home/admingod/regicide-truth-work/chunks/op4_c:159","n8bn","n6c",1/2-1/2,0.5,"repetition",119
+322,161,"/home/admingod/regicide-truth-work/chunks/op4_c:161","n6c","n8bn",1/2-1/2,0.5,"repetition",81
+316,158,"/home/admingod/regicide-truth-work/chunks/op4_c:158","n6c","n8bn",1-0,0,"no legal moves",181
+315,158,"/home/admingod/regicide-truth-work/chunks/op4_c:158","n8bn","n6c",1-0,1,"no legal moves",87
+320,160,"/home/admingod/regicide-truth-work/chunks/op4_c:160","n6c","n8bn",1-0,0,"no legal moves",117
+325,163,"/home/admingod/regicide-truth-work/chunks/op4_c:163","n8bn","n6c",1/2-1/2,0.5,"repetition",80
+326,163,"/home/admingod/regicide-truth-work/chunks/op4_c:163","n6c","n8bn",1/2-1/2,0.5,"repetition",97
+323,162,"/home/admingod/regicide-truth-work/chunks/op4_c:162","n8bn","n6c",1/2-1/2,0.5,"repetition",109
+321,161,"/home/admingod/regicide-truth-work/chunks/op4_c:161","n8bn","n6c",1-0,1,"no legal moves",169
+324,162,"/home/admingod/regicide-truth-work/chunks/op4_c:162","n6c","n8bn",1/2-1/2,0.5,"repetition",108
+318,159,"/home/admingod/regicide-truth-work/chunks/op4_c:159","n6c","n8bn",1/2-1/2,0.5,"repetition",131
+333,167,"/home/admingod/regicide-truth-work/chunks/op4_c:167","n8bn","n6c",1/2-1/2,0.5,"repetition",86
+327,164,"/home/admingod/regicide-truth-work/chunks/op4_c:164","n8bn","n6c",1-0,1,"no legal moves",113
+330,165,"/home/admingod/regicide-truth-work/chunks/op4_c:165","n6c","n8bn",1-0,0,"no legal moves",87
+335,168,"/home/admingod/regicide-truth-work/chunks/op4_c:168","n8bn","n6c",1/2-1/2,0.5,"repetition",70
+328,164,"/home/admingod/regicide-truth-work/chunks/op4_c:164","n6c","n8bn",1-0,0,"no legal moves",145
+334,167,"/home/admingod/regicide-truth-work/chunks/op4_c:167","n6c","n8bn",1/2-1/2,0.5,"repetition",75
+336,168,"/home/admingod/regicide-truth-work/chunks/op4_c:168","n6c","n8bn",1/2-1/2,0.5,"repetition",88
+329,165,"/home/admingod/regicide-truth-work/chunks/op4_c:165","n8bn","n6c",1-0,1,"no legal moves",107
+319,160,"/home/admingod/regicide-truth-work/chunks/op4_c:160","n8bn","n6c",1-0,1,"no legal moves",149
+332,166,"/home/admingod/regicide-truth-work/chunks/op4_c:166","n6c","n8bn",0-1,1,"no legal moves",166
+337,169,"/home/admingod/regicide-truth-work/chunks/op4_c:169","n8bn","n6c",1-0,1,"no legal moves",77
+331,166,"/home/admingod/regicide-truth-work/chunks/op4_c:166","n8bn","n6c",0-1,0,"no legal moves",116
+342,171,"/home/admingod/regicide-truth-work/chunks/op4_c:171","n6c","n8bn",1/2-1/2,0.5,"repetition",94
+346,173,"/home/admingod/regicide-truth-work/chunks/op4_c:173","n6c","n8bn",1/2-1/2,0.5,"repetition",96
+341,171,"/home/admingod/regicide-truth-work/chunks/op4_c:171","n8bn","n6c",1/2-1/2,0.5,"repetition",58
+347,174,"/home/admingod/regicide-truth-work/chunks/op4_c:174","n8bn","n6c",1/2-1/2,0.5,"repetition",77
+348,174,"/home/admingod/regicide-truth-work/chunks/op4_c:174","n6c","n8bn",1/2-1/2,0.5,"repetition",72
+338,169,"/home/admingod/regicide-truth-work/chunks/op4_c:169","n6c","n8bn",1-0,0,"no legal moves",135
+345,173,"/home/admingod/regicide-truth-work/chunks/op4_c:173","n8bn","n6c",1/2-1/2,0.5,"repetition",95
+343,172,"/home/admingod/regicide-truth-work/chunks/op4_c:172","n8bn","n6c",0-1,0,"no legal moves",100
+344,172,"/home/admingod/regicide-truth-work/chunks/op4_c:172","n6c","n8bn",0-1,1,"no legal moves",80
+349,175,"/home/admingod/regicide-truth-work/chunks/op4_c:175","n8bn","n6c",0-1,0,"no legal moves",90
+354,177,"/home/admingod/regicide-truth-work/chunks/op4_c:177","n6c","n8bn",1/2-1/2,0.5,"repetition",73
+353,177,"/home/admingod/regicide-truth-work/chunks/op4_c:177","n8bn","n6c",1/2-1/2,0.5,"repetition",72
+350,175,"/home/admingod/regicide-truth-work/chunks/op4_c:175","n6c","n8bn",0-1,1,"no legal moves",54
+355,178,"/home/admingod/regicide-truth-work/chunks/op4_c:178","n8bn","n6c",1/2-1/2,0.5,"repetition",72
+351,176,"/home/admingod/regicide-truth-work/chunks/op4_c:176","n8bn","n6c",0-1,0,"no legal moves",108
+356,178,"/home/admingod/regicide-truth-work/chunks/op4_c:178","n6c","n8bn",1/2-1/2,0.5,"repetition",73
+352,176,"/home/admingod/regicide-truth-work/chunks/op4_c:176","n6c","n8bn",0-1,1,"no legal moves",76
+339,170,"/home/admingod/regicide-truth-work/chunks/op4_c:170","n8bn","n6c",1-0,1,"no legal moves",119
+358,179,"/home/admingod/regicide-truth-work/chunks/op4_c:179","n6c","n8bn",1/2-1/2,0.5,"repetition",73
+360,180,"/home/admingod/regicide-truth-work/chunks/op4_c:180","n6c","n8bn",1/2-1/2,0.5,"repetition",85
+359,180,"/home/admingod/regicide-truth-work/chunks/op4_c:180","n8bn","n6c",1/2-1/2,0.5,"repetition",89
+340,170,"/home/admingod/regicide-truth-work/chunks/op4_c:170","n6c","n8bn",1-0,0,"no legal moves",169
+363,182,"/home/admingod/regicide-truth-work/chunks/op4_c:182","n8bn","n6c",1/2-1/2,0.5,"repetition",84
+364,182,"/home/admingod/regicide-truth-work/chunks/op4_c:182","n6c","n8bn",1/2-1/2,0.5,"repetition",81
+365,183,"/home/admingod/regicide-truth-work/chunks/op4_c:183","n8bn","n6c",1/2-1/2,0.5,"repetition",105
+368,184,"/home/admingod/regicide-truth-work/chunks/op4_c:184","n6c","n8bn",1/2-1/2,0.5,"repetition",95
+367,184,"/home/admingod/regicide-truth-work/chunks/op4_c:184","n8bn","n6c",1/2-1/2,0.5,"repetition",78
+362,181,"/home/admingod/regicide-truth-work/chunks/op4_c:181","n6c","n8bn",1-0,0,"no legal moves",137
+366,183,"/home/admingod/regicide-truth-work/chunks/op4_c:183","n6c","n8bn",1/2-1/2,0.5,"repetition",99
+361,181,"/home/admingod/regicide-truth-work/chunks/op4_c:181","n8bn","n6c",1-0,1,"no legal moves",161
+370,185,"/home/admingod/regicide-truth-work/chunks/op4_c:185","n6c","n8bn",1/2-1/2,0.5,"repetition",85
+357,179,"/home/admingod/regicide-truth-work/chunks/op4_c:179","n8bn","n6c",1-0,1,"no legal moves",149
+372,186,"/home/admingod/regicide-truth-work/chunks/op4_c:186","n6c","n8bn",1/2-1/2,0.5,"repetition",81
+371,186,"/home/admingod/regicide-truth-work/chunks/op4_c:186","n8bn","n6c",1/2-1/2,0.5,"repetition",75
+375,188,"/home/admingod/regicide-truth-work/chunks/op4_c:188","n8bn","n6c",1/2-1/2,0.5,"repetition",88
+380,190,"/home/admingod/regicide-truth-work/chunks/op4_c:190","n6c","n8bn",1/2-1/2,0.5,"repetition",67
+377,189,"/home/admingod/regicide-truth-work/chunks/op4_c:189","n8bn","n6c",1/2-1/2,0.5,"repetition",109
+379,190,"/home/admingod/regicide-truth-work/chunks/op4_c:190","n8bn","n6c",1/2-1/2,0.5,"repetition",59
+378,189,"/home/admingod/regicide-truth-work/chunks/op4_c:189","n6c","n8bn",1/2-1/2,0.5,"repetition",92
+382,191,"/home/admingod/regicide-truth-work/chunks/op4_c:191","n6c","n8bn",1/2-1/2,0.5,"repetition",108
+383,192,"/home/admingod/regicide-truth-work/chunks/op4_c:192","n8bn","n6c",1/2-1/2,0.5,"repetition",97
+369,185,"/home/admingod/regicide-truth-work/chunks/op4_c:185","n8bn","n6c",1-0,1,"no legal moves",173
+381,191,"/home/admingod/regicide-truth-work/chunks/op4_c:191","n8bn","n6c",1/2-1/2,0.5,"repetition",112
+384,192,"/home/admingod/regicide-truth-work/chunks/op4_c:192","n6c","n8bn",1/2-1/2,0.5,"repetition",93
+374,187,"/home/admingod/regicide-truth-work/chunks/op4_c:187","n6c","n8bn",1-0,0,"no legal moves",149
+386,193,"/home/admingod/regicide-truth-work/chunks/op4_c:193","n6c","n8bn",0-1,1,"no legal moves",70
+387,194,"/home/admingod/regicide-truth-work/chunks/op4_c:194","n8bn","n6c",1/2-1/2,0.5,"repetition",97
+388,194,"/home/admingod/regicide-truth-work/chunks/op4_c:194","n6c","n8bn",1/2-1/2,0.5,"repetition",84
+385,193,"/home/admingod/regicide-truth-work/chunks/op4_c:193","n8bn","n6c",0-1,0,"no legal moves",94
+391,196,"/home/admingod/regicide-truth-work/chunks/op4_c:196","n8bn","n6c",1/2-1/2,0.5,"repetition",85
+373,187,"/home/admingod/regicide-truth-work/chunks/op4_c:187","n8bn","n6c",1-0,1,"no legal moves",181
+393,197,"/home/admingod/regicide-truth-work/chunks/op4_c:197","n8bn","n6c",1/2-1/2,0.5,"repetition",65
+392,196,"/home/admingod/regicide-truth-work/chunks/op4_c:196","n6c","n8bn",1/2-1/2,0.5,"repetition",83
+394,197,"/home/admingod/regicide-truth-work/chunks/op4_c:197","n6c","n8bn",1/2-1/2,0.5,"repetition",73
+376,188,"/home/admingod/regicide-truth-work/chunks/op4_c:188","n6c","n8bn",1-0,0,"no legal moves",113
+390,195,"/home/admingod/regicide-truth-work/chunks/op4_c:195","n6c","n8bn",1-0,0,"no legal moves",133
+389,195,"/home/admingod/regicide-truth-work/chunks/op4_c:195","n8bn","n6c",1-0,1,"no legal moves",155
