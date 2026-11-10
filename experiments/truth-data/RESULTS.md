@@ -677,6 +677,54 @@ Pilot records proven at 200k nodes (label.hpp rule): 87370 (wins 45492, losses 4
   625–680 against 947), which matches what the E2 labels teach.
 - n8q, with its 10% ≤ 8-piece share, is level with n8bn here.
 
+### 4a (addition): draws at 9–12 pieces
+
+The lead asked whether n8q's over-confidence on drawn odd-piece endings (≤ 7 pieces, measured against the database by the reviewer) also shows where the engine has no database. `tools/pilot_draws.py`, no new searches.
+
+Pilot records with 9-12 pieces: 162191; proven at 200k: 82391 (all wins or losses: a search cannot prove a draw above the database); proven draws: 0.
+
+**Draw proxy: not proven at 200k, game's database value a draw** - mean |eval| / share within ±100:
+
+| pieces | material (stm − opp) | records | n6c | n8bn | n8q |
+|---|---|---|---|---|---|
+| 9 | ±1 | 3115 | 69 / 79% | 86 / 62% | 85 / 62% |
+| 9 | all | 3119 | 69 / 79% | 86 / 62% | 85 / 62% |
+| 10 | equal | 25054 | 20 / 98% | 22 / 97% | 20 / 98% |
+| 10 | all | 25140 | 21 / 98% | 23 / 97% | 21 / 97% |
+| 11 | ±1 | 2800 | 74 / 70% | 87 / 62% | 82 / 65% |
+| 11 | all | 2806 | 75 / 70% | 88 / 62% | 82 / 64% |
+| 12 | equal | 13056 | 28 / 97% | 33 / 93% | 30 / 95% |
+| 12 | all | 13152 | 29 / 96% | 34 / 93% | 31 / 94% |
+
+**Stricter draw proxy: as above and |200k score| <= 20** - mean |eval| / share within ±100:
+
+| pieces | material (stm − opp) | records | n6c | n8bn | n8q |
+|---|---|---|---|---|---|
+| 9 | ±1 | 1854 | 55 / 85% | 61 / 79% | 58 / 80% |
+| 9 | all | 1855 | 55 / 85% | 61 / 78% | 59 / 80% |
+| 10 | equal | 23057 | 18 / 99% | 19 / 98% | 18 / 99% |
+| 10 | all | 23097 | 18 / 99% | 19 / 98% | 18 / 99% |
+| 11 | ±1 | 1760 | 52 / 85% | 56 / 81% | 52 / 84% |
+| 11 | all | 1760 | 52 / 85% | 56 / 81% | 52 / 84% |
+| 12 | equal | 10781 | 22 / 99% | 26 / 97% | 24 / 97% |
+| 12 | all | 10825 | 23 / 99% | 26 / 96% | 24 / 97% |
+
+**Proven wins / losses** - share scored beyond ±100 in the proven direction:
+
+| pieces | proven | n6c | n8bn | n8q |
+|---|---|---|---|---|
+| 9 | 42654 | 92.3% | 98.2% | 98.4% |
+| 10 | 20814 | 88.0% | 92.8% | 92.1% |
+| 11 | 13084 | 96.5% | 98.4% | 98.3% |
+| 12 | 5839 | 85.8% | 91.7% | 90.4% |
+
+**Reading:**
+- **There are no proven draws at 9–12 pieces:** a search cannot prove a draw above the database. The draw rows are a proxy: positions the 200k-node search did not prove, from games whose first ≤ 8-piece position is a database draw. They can contain wins the self-play missed; the stricter proxy (200k score within ±20) shows the same pattern, smaller.
+- **Yes, at odd piece counts.** Drawn 9- and 11-piece positions are almost all one piece up, and n8bn and n8q score them further from zero than n6c: at 9 pieces mean |eval| 85–86 against 69, and 62% within ±100 against 79%. At 11 pieces 82–88 against 75.
+- n8q is slightly closer to zero than n8bn at 11 pieces; at 9 pieces they are the same. Its ≤ 8-piece share does not cause the effect: n8bn, which never saw ≤ 8 pieces, shows it as well.
+- **Even counts (mostly equal material) are fine for all three:** 10 pieces 20–23 and 97–98% within ±100; 12 pieces 29–34 and 93–96%.
+- **The other side of it:** n8bn and n8q score proven wins and losses beyond ±100 far more often than n6c (9 pieces 98% against 92%, 12 pieces 90–92% against 86%). The database-relabelled targets make the nets more confident about a piece of material: right when it wins, too much when it draws.
+
 <!-- PHASE3MORE -->
 
 ## What holds and what does not
