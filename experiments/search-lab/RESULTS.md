@@ -209,3 +209,9 @@ very high depths, so the mean over all moves is also given in each match's `stat
 LMR self-check (step 3 preparation; `selfplay` of this branch, 100 ms, 20 pairs, UHO set): lmr_base=20 vs
 lmr_base=120 → mean depth **13.66 vs 14.70** with the per-engine table. With the old `selfplay-lab2` (shared global
 table) the same match gave 13.03 vs 13.30. The tool now gives each side its own table.
+
+All at 0.5 s/move (CheckerBoard banked), 805 pairs, master 456e9b2 for both sides. Per-game files (results.csv,
+gzipped PDN with per-move comments, summary per chunk) in `netm/matches/<match>/`.
+
+| match | database | W / D / L (A) | pentanomial [LL LD DD/WL WD WW] | Elo [95% CI] | LOS | mean time per move A / B | mean depth A / B | forfeits / illegal moves |
+|---|---|---|---|---|---|---|---|---|

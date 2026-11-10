@@ -5,6 +5,7 @@
 // --threads is the number of games played in parallel; --tha/--thb are search threads per engine.
 // --avoida/--avoidb <file|builtin> give an engine the avoid list of a book file (default: none).
 // --book <file> replaces the 3-ply set with the positions of a text file (first token of each line: a FEN).
+// --skip N starts at opening N of the shuffled list (--skip 800 with 800 pairs plays the other half of 1,600).
 //
 // Every distinct position after 3 plies from the start is an opening; each is played twice with colours
 // reversed. Reports W/D/L for A, and Elo with a 95% interval from the pentanomial distribution of game pairs.
@@ -47,6 +48,7 @@ struct Config {
     int max_plies = 400;
     int opening_plies = 3;
     std::string book;  // opening positions file (FEN per line); empty = every position after opening_plies
+    int skip = 0;      // start at this index of the shuffled opening list (e.g. the other half of a set)
     int egdb_pieces = 0;  // engines probe the database and games end on a database result
     int threads_a = 1, threads_b = 1;  // search threads per engine (Lazy SMP)
 };
@@ -169,6 +171,7 @@ int main(int argc, char** argv) {
         else if (k == "--hash") cfg.hash_mb = std::stoull(next());
         else if (k == "--plies") cfg.opening_plies = std::stoi(next());
         else if (k == "--book") cfg.book = next();
+        else if (k == "--skip") cfg.skip = std::stoi(next());
         else if (k == "--tha") cfg.threads_a = std::stoi(next());
         else if (k == "--thb") cfg.threads_b = std::stoi(next());
         else if (k == "--egdb") {
@@ -265,7 +268,7 @@ int main(int argc, char** argv) {
             std::exit(2);
         }
         for (int i; (i = next_pair++) < pairs;) {
-            const Position& open = openings[i % openings.size()];
+            const Position& open = openings[(i + cfg.skip) % openings.size()];
             const double g1 = play_game(open, ea, eb, cfg, stats_a, stats_b);        // A is black
             const double g2 = 1.0 - play_game(open, eb, ea, cfg, stats_b, stats_a);  // A is white
             std::lock_guard lock(mu);
