@@ -1,0 +1,11 @@
+# database: 8 pieces
+file gen6a_n50k_egdb.bin records 3214080 games 117048 avg_len 27.5 le8 0 (0.00%)
+boundaries gen6a_n50k_egdb.bin flags
+hist gen6a_n50k_egdb.bin 0 0 0 0 0 0 0 0 209902 366275 333114 448392 273619 342997 198774 259864 148740 208187 111760 141027 60282 74066 21998 15083
+games gen6a_n50k_egdb.bin reach_le8 0 (0.0%) unknown 0 disagree 0 (0.00%) changed_ge9_records 0 of 0 in those games (0.00% of all ge9)
+matrix gen6a_n50k_egdb.bin db\stored(L D W):  0 0 0 |  0 0 0 |  0 0 0 |
+file gen6b_n50k_egdb.bin records 3191552 games 116242 avg_len 27.5 le8 0 (0.00%)
+boundaries gen6b_n50k_egdb.bin flags
+hist gen6b_n50k_egdb.bin 0 0 0 0 0 0 0 0 202671 367364 332299 443755 269470 340916 199429 257122 145653 208327 109217 143861 60864 74056 21505 15043
+games gen6b_n50k_egdb.bin reach_le8 0 (0.0%) unknown 0 disagree 0 (0.00%) changed_ge9_records 0 of 0 in those games (0.00% of all ge9)
+matrix gen6b_n50k_egdb.bin db\stored(L D W):  0 0 0 |  0 0 0 |  0 0 0 |

@@ -319,12 +319,19 @@ proven positions 96357 (wins 49906, losses 46451); by pieces: 9: 51785, 10: 2564
 | n8b | 99.82% | 99.96% | 99.70% | 99.69% | 99.34% | 385 (0.83%) | 650 (1.30%) | 221 / -223 | 110.7 |
 | n8bk | 99.82% | 99.96% | 99.72% | 99.71% | 99.27% | 269 (0.58%) | 463 (0.93%) | 294 / -303 | 145.7 |
 | n8bn | 99.83% | 99.97% | 99.72% | 99.72% | 99.27% | 222 (0.48%) | 358 (0.72%) | 339 / -337 | 166.7 |
+| n8bn2 | 99.83% | 99.95% | 99.69% | 99.76% | 99.46% | 285 (0.61%) | 295 (0.59%) | 346 / -336 | 168.6 |
 | n8bk130 | 99.82% | 99.96% | 99.70% | 99.74% | 99.21% | 193 (0.42%) | 350 (0.70%) | 361 / -380 | 187.7 |
 | n8bl6 | 99.83% | 99.96% | 99.72% | 99.71% | 99.32% | 273 (0.59%) | 355 (0.71%) | 347 / -368 | 181.0 |
 | n8bl7 | 99.78% | 99.95% | 99.62% | 99.64% | 99.32% | 193 (0.42%) | 404 (0.81%) | 363 / -392 | 196.7 |
 | n8p | 99.80% | 99.96% | 99.67% | 99.68% | 99.21% | 269 (0.58%) | 401 (0.80%) | 321 / -337 | 163.8 |
 | n8p2 | 99.80% | 99.96% | 99.68% | 99.66% | 99.19% | 269 (0.58%) | 372 (0.75%) | 328 / -333 | 166.2 |
 | n8c | 99.84% | 99.96% | 99.72% | 99.74% | 99.44% | 267 (0.57%) | 291 (0.58%) | 357 / -349 | 164.8 |
+| n8q | 99.83% | 99.95% | 99.72% | 99.74% | 99.40% | 265 (0.57%) | 386 (0.77%) | 325 / -331 | 161.0 |
+| w2032 | 99.83% | 99.97% | 99.69% | 99.73% | 99.44% | 190 (0.41%) | 522 (1.05%) | 302 / -351 | 159.8 |
+| w1064 | 99.83% | 99.96% | 99.75% | 99.68% | 99.34% | 194 (0.42%) | 412 (0.83%) | 338 / -341 | 167.4 |
+| w2064 | 99.86% | 99.97% | 99.75% | 99.77% | 99.49% | 182 (0.39%) | 363 (0.73%) | 315 / -346 | 162.2 |
+
+(Per-record evals: `data/db_truth_per_record.csv.gz`; held-out set: `data/heldout_proven_*_9_12.bin.gz`. Updated 2026-11-10 with every net trained since, including n8bn2, n8q and the wide nets.)
 
 ## Phase 2
 
@@ -548,9 +555,9 @@ positions per CPU-hour** as gen5a's settings.
 - game ends (gen6a, first 17,000 games): database 7,467, proven adjudication 9,430, draw rules 103, no legal moves 0;
 - 0 incomplete searches; 2,318 partial losses stored unproven.
 
-**Progress** (2026-11-10 13:10): 3.73M positions (gen6a 1.50M, gen6b 2.23M). Goal 30M+. At ~1.9M/h with both
-processes running, **ETA about 14 h of running, i.e. 2026-11-11 around 03:00–06:00** depending on match pauses.
-Then n9a (n8bn's recipe + this data ×3) against n8bn.
+**Measured (2026-11-10 16:45, `data/e5_census.txt`):** 6,405,632 positions with ≥ 9 pieces in 233,290 games (gen6a 3,214,080 in 117,048 games; gen6b 3,191,552 in 116,242), game boundaries from the GAME_START flags, no record with ≤ 8 pieces. Seeds: `data/e5_seed_provenance.txt` (sha256 of the seed file, the command, the 126 PDN files).
+
+**Forecast (not a measurement):** about 1.9M positions per hour while both processes run (12 threads × 158k per CPU-hour); 30M would be reached after about 12–13 more hours of running, i.e. around 2026-11-11 05:00–08:00 depending on pauses. Then n9a: n8q's recipe (incl. the ≤ 8-piece group) + this data ×3, against the best n8 net.
 
 ### T4: a built-in net that stays sane without the database (n8q)
 
