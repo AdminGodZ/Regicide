@@ -172,6 +172,19 @@ the WP9 test runs (`bl-wp9*`, they start from won positions) and can restrict th
   1,011 of 1,017; KingsRow 226 of 248; GuiNN 347 of 352. Opponent vs opponent: 90 reached, 66 converted (the new games
   are other agents' runs). The scan now also records the longest no-progress run per game.
 
+## WP10 holdout (running)
+
+Configurations (DLLs in the build table): (1) `bl-fcf6acb-deep2b` old master + its book; (2) `bl-456e9b2-deep2b`
+master + the old book; (3) `bl-456e9b2-r10` master + the new book; (4) = (3) + `set evalfile` net **n8q**
+(`experiments/truth-data/n8q.nnue` on master c4d0ded, sha256 `681549690f165eed94edafd958b06f2f76cf44ab5fba6654c82eab183efe9a24`).
+Loading of n8q verified with master's runner (which stops on a rejected option): the real path plays, a missing file
+stops the match with 0 games (`n8q_verify.txt`); the games themselves use the same old runner as the final validation
+(`scripts/bl_run_x.sh` = bl_run.sh + the extra option). Runner: `scripts/wp10_run.sh` (panels in parts of ≤ 78
+openings), `scripts/f4_run.sh` (configuration 4 on acf156).
+
+- Configuration 4 on acf156 (one run vs each opponent): running.
+- Panels: waiting for the opening files.
+
 ## Data behind the numbers (`data/`)
 
 | File | Contents | Re-derives |
