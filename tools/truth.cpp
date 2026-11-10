@@ -415,6 +415,33 @@ int seeds(const std::vector<std::string>& files, int lo, int hi, const std::stri
     return 0;
 }
 
+// A move written by its two end squares only ("2x18") is ambiguous when more than one legal move runs from the first to
+// the last square (different capture paths taking different pieces). parse_move would take the first match.
+bool ambiguous_capture(const Position& pos, const std::string& text) {
+    auto squares = [](const std::string& s) {
+        std::vector<int> v;
+        int n = -1;
+        for (char ch : s + '-') {
+            if (std::isdigit(static_cast<unsigned char>(ch))) n = (n < 0 ? 0 : n * 10) + (ch - '0');
+            else {
+                if (n > 0) v.push_back(n);
+                n = -1;
+            }
+        }
+        return v;
+    };
+    const std::vector<int> sq = squares(text);
+    if (sq.size() != 2) return false;
+    MoveList list;
+    generate_moves(pos, list);
+    int count = 0;
+    for (std::size_t i = 0; i < list.size(); ++i) {
+        const std::vector<int> v = squares(move_to_string(list[i]));
+        if (v.size() >= 2 && v.front() == sq[0] && v.back() == sq[1]) ++count;
+    }
+    return count > 1;
+}
+
 // ---- losswalk: where were the games Regicide lost decided?
 //
 // For every game a player whose name contains `name` lost, the positions after each of its moves are searched (from
@@ -454,14 +481,23 @@ int losswalk(const std::vector<std::string>& files, const std::string& name, std
                 return it == g.tags.end() ? std::string() : it->second;
             };
             Position pos;
-            if (g.tags.count("FEN")) pos.set_fen(g.tags.at("FEN"));
+            std::string error;
+            if (g.tags.count("FEN") && !pos.set_fen(g.tags.at("FEN"))) error = "PARSE-ERROR bad FEN";
+            const Color first_mover = pos.side_to_move();
             std::vector<Position> before, after;
             std::vector<std::size_t> ply;
-            bool ok = true;
-            for (std::size_t i = 0; i < g.moves.size(); ++i) {
+            bool ok = error.empty();
+            for (std::size_t i = 0; ok && i < g.moves.size(); ++i) {
                 Move m;
                 if (!parse_move(pos, g.moves[i], m)) {
                     ok = false;
+                    error = "PARSE-ERROR illegal move " + g.moves[i] + " at ply " + std::to_string(i);
+                    break;
+                }
+                // A capture written by its end squares only is ambiguous when two different captures share them.
+                if (ambiguous_capture(pos, g.moves[i])) {
+                    ok = false;
+                    error = "UNRESOLVED ambiguous capture " + g.moves[i] + " at ply " + std::to_string(i);
                     break;
                 }
                 const bool ours = pos.side_to_move() == job.us;
@@ -490,10 +526,10 @@ int losswalk(const std::vector<std::string>& files, const std::string& name, std
                 const auto lab = label_of(sr);
                 return lab ? std::pair{lab->proven, lab->score} : std::pair{false, 0};
             };
-            std::string row = base(job.file) + "\t" + tag("Round") + "\t" + tag("Opening") + "\t" +
-                              (job.us == BLACK ? "black" : "white") + "\t" + tag("Termination");
+            std::string row = job.file + "\t" + tag("Black") + "\t" + tag("White") + "\t" + tag("Round") + "\t" +
+                              tag("Opening") + "\t" + (job.us == BLACK ? "black" : "white") + "\t" + tag("Termination");
             if (!ok || after.empty()) {
-                rows[j] = row + "\tPARSE-ERROR";
+                rows[j] = row + "\t" + (error.empty() ? std::string("PARSE-ERROR no moves") : error);
                 continue;
             }
             int k = int(after.size()) - 1, scanned = 0;
@@ -540,7 +576,8 @@ int losswalk(const std::vector<std::string>& files, const std::string& name, std
             std::snprintf(tbuf, sizeof tbuf, "\t%zu\t%d\t%d\t%s\t%d\t%d", ply[tt], before[tt].piece_count(), tscore,
                           g.moves[ply[tt]].c_str(), tafter, ingame(ply[tt]));
             char buf[256];
-            std::snprintf(buf, sizeof buf, "\t%zu\t%zu\t%d\t%d\t%s\t%d\t%d\t%s", ply[b], ply[b] / 2 + 1,
+            std::snprintf(buf, sizeof buf, "\t%zu\t%zu\t%d\t%d\t%s\t%d\t%d\t%s", ply[b],
+                          (ply[b] + (first_mover == WHITE ? 1 : 0)) / 2 + 1,
                           before[b].piece_count(), after[b].piece_count(), best.c_str(), bscore, -opp_score[b],
                           bproven ? "before-proven" : "before-open");
             std::string comment = g.comments[ply[b]];
@@ -555,7 +592,7 @@ int losswalk(const std::vector<std::string>& files, const std::string& name, std
     for (int t = 0; t < threads; ++t) pool.emplace_back(worker);
     for (auto& t : pool) t.join();
     std::ofstream o(out);
-    o << "file\tround\topening\tregicide\ttermination\tply\tmove_no\tpieces_before\tpieces_after\tdeep_best\t"
+    o << "file\tblack\twhite\tround\topening\tregicide\ttermination\tply\tmove_no\tpieces_before\tpieces_after\tdeep_best\t"
          "deep_score_before\tdeep_score_after\tbefore_status\tplayed\tfen_before\tfen_after\tsearched\tingame_comment\t"
          "turn_ply\tturn_pieces\tturn_deep_before\tturn_played\tturn_deep_after\tturn_ingame_score\tturn_fen_before\t"
          "turn_fen_after\ttrajectory(ply:pieces:deep score)\n";
@@ -638,7 +675,6 @@ int main(int argc, char** argv) {
         if (!f) return std::cerr << "cannot open " << in << '\n', 1;
         std::fseek(f, 0, SEEK_END);
         const long count = std::ftell(f) / 16;
-        if (count <= 0) return std::fclose(f), std::cerr << in << " holds no complete record\n", 1;
         std::mt19937_64 rng(seed);
         for (long got = 0, tries = 0; got < n && tries < 1000 * n; ++tries) {
             DataRecord r;
