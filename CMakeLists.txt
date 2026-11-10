@@ -141,6 +141,8 @@ add_executable(booklab_reach tools/booklab/reach.cpp)
 target_link_libraries(booklab_reach PRIVATE regicide_core)
 add_executable(booklab_bookcmp tools/booklab/bookcmp.cpp)
 target_link_libraries(booklab_bookcmp PRIVATE regicide_core)
+add_executable(booklab_pinwalk tools/booklab/pinwalk.cpp)
+target_link_libraries(booklab_pinwalk PRIVATE regicide_core)
 
 add_executable(truth tools/truth.cpp)
 target_link_libraries(truth PRIVATE regicide_core)

@@ -3,7 +3,8 @@
 
   wp10_report.py --results ~/regicide-match/results --runs RUN... --changed changed_positions.tsv
                  --manifest experiments/holdout/manifest.json --replay booklab_replay --scan booklab_dbscan
-                 --egdb DIR --out-md report.md --out-tsv games.tsv [--pair EB:O --pair EB:E ...]
+                 --pinwalk booklab_pinwalk --book book_r10.bin --egdb DIR --out-md report.md --out-tsv games.tsv
+                 [--pair EB:O --pair EB:E ...]   (--changed: changed_entries.txt, one FEN per line)
 
 Run names: bl-w10-b<B>-<CFG>-<opp>-<part> (part H1, H2, H3_0, H2x_1, ...), bl-f4-<opp>-<half> (EBN on acf156),
 bl-f1-<opp>-<run>-<half> (final validation, EB with book r8 = r10 in play).
@@ -43,13 +44,15 @@ def main():
     ap.add_argument("--changed", required=True)
     ap.add_argument("--manifest", required=True)
     ap.add_argument("--replay", required=True)
+    ap.add_argument("--pinwalk", required=True)
+    ap.add_argument("--book", required=True, help="any of the books (eligibility does not depend on it)")
     ap.add_argument("--scan", required=True)
     ap.add_argument("--egdb", required=True)
     ap.add_argument("--out-md", required=True)
     ap.add_argument("--out-tsv", required=True)
     ap.add_argument("--pair", action="append", default=[])
     a = ap.parse_args()
-    changed = {l.split("\t")[0] for l in open(a.changed) if l.rstrip().endswith("DIFFER")}
+    changed = {l.strip() for l in open(a.changed) if l.strip() and not l.startswith("#")}
     man = json.load(open(a.manifest))
     tier = {o["moves"]: o["tier"] for o in man["panels"]["h2x_touched156.txt"]["openings"]}
     games = []
@@ -70,26 +73,24 @@ def main():
             if panel == "H2x":
                 pn = f"H2x-t{tier.get(om, '?')}"
             games.append(dict(run=run, block=block, cfg=cfg, opp=opp, panel=pn, opening=om, col=col, res=r,
-                              term=tags.get("Termination", ""), file=gfile, fen=tags.get("FEN", ""),
+                              term=tags.get("Termination", ""), file=gfile, fen=tags.get("FEN", ""), nopen=nopen,
                               moves=[m for m, _ in moves]))
-    # exposure
+    # exposure (rule of experiments/holdout/EXPOSURE.md): before one of our engine moves after the dealt prefix, the
+    # position's book entry list differs between the books (--changed: one FEN per line, 975 positions), and the
+    # engine would consult its book there (reversible-ply count 0 reconstructed from the whole record incl. the dealt
+    # moves; not a database win/loss). booklab_pinwalk reports exactly those roots. Ply: one-based, incl. the prefix.
     inp = "".join(f"{i}\t{g['fen']}\t{' '.join(g['moves'])}\n" for i, g in enumerate(games))
-    out = subprocess.run([a.replay], input=inp, capture_output=True, text=True, check=True).stdout
-    fen_of = {}
-    for l in out.splitlines():
-        p = l.split("\t")
-        if p[0] == "F":
-            fen_of[p[1]] = p[2]
+    pin_in = "".join(f"{i}\t{g['fen']}\t{g['col']}\t{g['nopen']}\t{' '.join(g['moves'])}\n" for i, g in enumerate(games))
+    out = subprocess.run([a.pinwalk, a.book, a.egdb], input=pin_in, capture_output=True, text=True, check=True).stdout
     for g in games:
         g["exposed"] = -1
     for l in out.splitlines():
         p = l.split("\t")
-        if p[0] != "P":
-            continue
-        g = games[int(p[1])]
-        fen = fen_of[p[3]]
-        if g["exposed"] < 0 and fen[0].upper() == g["col"] and fen in changed:
-            g["exposed"] = int(p[2])
+        if p[1] == "ERR":
+            sys.exit(f"pinwalk: {l}")
+        g = games[int(p[0])]
+        if g["exposed"] < 0 and p[4] == "1" and p[2] in changed:
+            g["exposed"] = int(p[1]) + 1
     # database wins in play
     out = subprocess.run([a.scan, a.egdb, "1024", "quiet"], input=inp, capture_output=True, text=True,
                          check=True).stdout
