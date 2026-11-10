@@ -440,7 +440,7 @@ bool ambiguous_capture(const Position& pos, const std::string& text) {
     for (std::size_t i = 0; i < list.size(); ++i) {
         const std::vector<int> v = squares(move_to_string(list[i]));
         if (v.size() < 2 || v.front() != sq[0] || v.back() != sq[1]) continue;
-        if (v.size() == 2 && list[i].is_capture()) return false;  // the single jump itself is legal
+        if (popcount(list[i].captures) == 1) return false;  // the single jump itself is legal
         if (std::find(taken.begin(), taken.end(), list[i].captures) == taken.end()) taken.push_back(list[i].captures);
     }
     return taken.size() > 1;
