@@ -94,7 +94,8 @@ double play_game(const Position& start, Engine& black, Engine& white, const Conf
         SearchResult r = e.go(cfg.limits);
 
         // Adjudicate when both sides agree the game is decided for several plies.
-        const int black_view = pos.side_to_move() == BLACK ? r.score : -r.score;
+        const int score = r.sound_score();
+        const int black_view = pos.side_to_move() == BLACK ? score : -score;
         const int sign = black_view >= cfg.adjudicate_score ? 1 : black_view <= -cfg.adjudicate_score ? -1 : 0;
         decisive_run = sign != 0 && sign == last_sign ? decisive_run + 1 : sign != 0;
         last_sign = sign;

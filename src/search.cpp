@@ -333,7 +333,8 @@ Score Worker::search(Position& pos, Score alpha, Score beta, int depth, int ply,
     }
 
     // With the no-progress draw inside the remaining search the static eval says little about the outcome, so the
-    // pruning rules that rely on it stand down. Extensions can add a ply at every node below, hence twice the depth.
+    // pruning rules that rely on it, and the shortcuts that rely on a shallower search (ProbCut, the singular
+    // verification), stand down. Extensions can add a ply at every node below, hence twice the depth.
     const bool limit_near = pos.reversible_plies() + 2 * std::max(depth, 1) + 2 >= NO_PROGRESS_PLIES;
 
     // Razoring: far below alpha at low depth, check whether the horizon search agrees.
@@ -374,7 +375,8 @@ Score Worker::search(Position& pos, Score alpha, Score beta, int depth, int ply,
     }
 
     // ProbCut: if a shallower search clears beta by a margin, the full-depth search very likely clears beta.
-    if (!pv_node && !excluding && !forced_capture && !conversion && depth >= P.probcut_depth && !is_decisive(beta)) {
+    if (!pv_node && !excluding && !forced_capture && !conversion && !limit_near && depth >= P.probcut_depth &&
+        !is_decisive(beta)) {
         const Score pb = beta + P.probcut_margin;
         const Score s = search(pos, pb - 1, pb, depth - P.probcut_reduction, ply, cut_node, qext);
         if (stopped()) return 0;
@@ -387,8 +389,9 @@ Score Worker::search(Position& pos, Score alpha, Score beta, int depth, int ply,
     // Singular extension: if every alternative to the hash move fails well below its score, the hash move is
     // forced in all but name and gets one extra ply. If an alternative also beats beta, cut (multi-cut).
     int tt_move_ext = 0;
-    if (!is_root && !excluding && depth >= P.se_depth && tt_hit && tte.move.valid() && (tte.bound & BOUND_LOWER) &&
-        tte.depth >= depth - 3 && !is_decisive(tt_score) && moves.size() > 1) {
+    // Not with the no-progress draw inside the remaining search: the reduced verification search stops short of it.
+    if (!is_root && !excluding && !limit_near && depth >= P.se_depth && tt_hit && tte.move.valid() &&
+        (tte.bound & BOUND_LOWER) && tte.depth >= depth - 3 && !is_decisive(tt_score) && moves.size() > 1) {
         const int tt_i = find_move(moves, tte.move);
         if (tt_i >= 0) {
             const Score sb = tt_score - P.se_margin * depth / 8;
