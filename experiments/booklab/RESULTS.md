@@ -136,6 +136,27 @@ the WP9 test runs (`bl-wp9*`, they start from won positions) and can restrict th
   1,011 of 1,017; KingsRow 226 of 248; GuiNN 347 of 352. Opponent vs opponent: 90 reached, 66 converted (the new games
   are other agents' runs). The scan now also records the longest no-progress run per game.
 
+## Book hand-over checks (round 9)
+
+- **Reachability check in the build** (`tools/booklab/reach.cpp` → `booklab_reach`, `reach_check.py`, run by
+  `scripts/make_book.sh`): for each decision, games of the theory table that reach its position from an ACF ballot are
+  replayed against the book being built (wherever our side is to move and the book has a move, the game must play
+  it); one consistent game proves the decision reachable. The rest go to an exhaustive search from the decision's
+  ballot (our side: the book's move where it has one, else any legal move; opponent: any legal move; pruned by piece
+  counts and men only moving forward; node limit), which proves unreachability or reports "unknown".
+- **r8 (991 decisions):** 818 reachable (814 by a witness game), **3 proved unreachable** (exactly the reviewer's
+  three: r8 lines 633 #59, 846 #62, 1160 #10), 170 unknown. All 170 unknown, and #34 line 853, have every known line
+  to them cut by one of our own forced moves earlier in the same defence tree (e.g. 44 decisions of the #59 tree lie
+  under 11-16 at ply 6, where the book forces 14-18): minority branches of defence trees, never reached in any recorded
+  game under this book. Line 853 (#34, ply 44): its only line went through 7x16 at ply 4, which the book no longer
+  plays (8x15 since r5); dropped.
+- **Round 9 = r8 minus those 173** (`removed_decisions.txt`: FEN | move | reason | original evidence; assemble.sh leaves
+  these positions out): **818 decisions, all 818 proved reachable**; `book_booklab.bin` = book_r9. The final
+  validation (bl-final1) runs with the r8 book; r9 differs from it only in the 173 positions that no recorded game
+  reaches under this book.
+- **assemble.sh** now fails on a conflict (two rounds give different moves for the same position: both rows printed),
+  and still drops same-move duplicates (39) silently but counts them; r9 assembles with 0 conflicts.
+
 ## Database-lost positions entered by Regicide in step 4: answer (b), an artefact (`wp9/entered_losses.md`)
 
 Question: "KingsRow had a database win in 16 games against bl-conv3 and converted one" — real (a) or artefact (b)?

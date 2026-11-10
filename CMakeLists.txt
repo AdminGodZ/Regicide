@@ -137,6 +137,8 @@ add_executable(booklab_show tools/booklab/bookshow.cpp)
 target_link_libraries(booklab_show PRIVATE regicide_core)
 add_executable(booklab_dbscan tools/booklab/dbscan.cpp)
 target_link_libraries(booklab_dbscan PRIVATE regicide_core)
+add_executable(booklab_reach tools/booklab/reach.cpp)
+target_link_libraries(booklab_reach PRIVATE regicide_core)
 
 # Endgame database: library, generator and tests (self-contained; depends only on types.hpp).
 add_library(regicide_egdb STATIC
