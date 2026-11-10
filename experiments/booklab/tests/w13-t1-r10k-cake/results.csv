@@ -1,0 +1,21 @@
+game,pair,opening,black,white,result,score_a,termination,engine_plies
+11,6,"/home/admingod/regicide-jobs/booklab/wp13/test_deck_4.txt:6","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",89
+13,7,"/home/admingod/regicide-jobs/booklab/wp13/test_deck_4.txt:7","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",55
+9,5,"/home/admingod/regicide-jobs/booklab/wp13/test_deck_4.txt:5","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",55
+5,3,"/home/admingod/regicide-jobs/booklab/wp13/test_deck_4.txt:3","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",96
+1,1,"/home/admingod/regicide-jobs/booklab/wp13/test_deck_4.txt:1","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",96
+3,2,"/home/admingod/regicide-jobs/booklab/wp13/test_deck_4.txt:2","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",96
+7,4,"/home/admingod/regicide-jobs/booklab/wp13/test_deck_4.txt:4","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",96
+17,9,"/home/admingod/regicide-jobs/booklab/wp13/test_deck_4.txt:9","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",72
+15,8,"/home/admingod/regicide-jobs/booklab/wp13/test_deck_4.txt:8","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",111
+21,11,"/home/admingod/regicide-jobs/booklab/wp13/test_deck_4.txt:11","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",76
+19,10,"/home/admingod/regicide-jobs/booklab/wp13/test_deck_4.txt:10","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",76
+23,12,"/home/admingod/regicide-jobs/booklab/wp13/test_deck_4.txt:12","Regicide 0.2","Cake 1.89f",0-1,0,"no legal moves",91
+29,15,"/home/admingod/regicide-jobs/booklab/wp13/test_deck_4.txt:15","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",120
+25,13,"/home/admingod/regicide-jobs/booklab/wp13/test_deck_4.txt:13","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",129
+27,14,"/home/admingod/regicide-jobs/booklab/wp13/test_deck_4.txt:14","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",145
+35,18,"/home/admingod/regicide-jobs/booklab/wp13/test_deck_4.txt:18","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",159
+31,16,"/home/admingod/regicide-jobs/booklab/wp13/test_deck_4.txt:16","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",135
+37,19,"/home/admingod/regicide-jobs/booklab/wp13/test_deck_4.txt:19","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",161
+39,20,"/home/admingod/regicide-jobs/booklab/wp13/test_deck_4.txt:20","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",117
+33,17,"/home/admingod/regicide-jobs/booklab/wp13/test_deck_4.txt:17","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",184

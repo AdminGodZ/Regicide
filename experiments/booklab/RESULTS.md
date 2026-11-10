@@ -119,11 +119,36 @@ KingsRow mode 3's book plays 16-19 too (−1/35; 11-15 −4/28); our search pref
 agree, so 16-19 is forced with the new action `force-unavoid` of `booklab_apply`, which removes exactly that one avoid
 entry and reports it (r10 still rebuilds byte-identically with the changed tool).
 
-**Book r10k** = r10 + these decisions: 1,081 decisions, sha256
-`0477f837c110855c590d11184f32d8be3e2cd0eedd60e72a7f5bdae345a22554`; reachability 891 reachable, 0 unreachable, 190
-unknown at the node limit (r10: 822 / 0 / 165); DLL `bl-456e9b2-r10k` (bench unchanged: 7,677,736 / 8,055,287).
-Targeted test (Regicide as Black on the five ballots, 10 games against KingsRow mode 3, 4 each against Cake and GuiNN):
-running.
+**Try 1** (`wp13/book_r10k_t1.bin`, sha256 `0477f837…`, 1,081 decisions, DLL `bl-456e9b2-r10k`): Regicide as Black on
+the five ballots, 10 games each against KingsRow mode 3, 4 each against Cake and GuiNN:
+
+| Opponent | W / D / L | per ballot |
+|---|---|---|
+| KingsRow mode 3 | 0 / 50 / 0 | all drawn |
+| GuiNN | 0 / 20 / 0 | all drawn |
+| Cake | 0 / 19 / **1** | **#34 lost** (round 12.1), others drawn |
+
+The #34 repair itself lost: with 7x16 at ply 5 Regicide enters Cake's White book (22-18, 23x16, 18-14, …) and its
+own score falls from −32 (ply 13) to −101 (ply 25); with r10's 8x15 at ply 5 it drew #34 against Cake in both
+final-validation runs. **Try 2 for #34 (one step deeper on the same line):** 8x15 at ply 5 stays, and the repair
+moves to the next position where our move leaves KingsRow mode 3's moves on that line (our moves equal KingsRow's
+book from ply 7 to 17): **ply 19, 1-6 instead of 1-5** (KingsRow mode 3 book 1-6 −1/4 against 1-5 −338/6; our search
+1-6 −24 against 1-5 −79; Cake has no game on this line). One force, `wp13/rep_t2/`. Test of #34 with try 2: KingsRow
+mode 3 0 / 10 / 0, Cake 0 / 4 / 0, GuiNN 0 / 4 / 0. The other three lines are unchanged from try 1 and accepted with it.
+
+Were the repairs really met? Games of the tests that reached the repaired position and played the repair move:
+against KingsRow mode 3 #60 10/10, #71 8/10, #141 10/10, #9 10/10, #34 (try 2) 10/10; against Cake #141 4/4 and #9 4/4
+(the other lines leave earlier against Cake and GuiNN, where r10's own moves stay in force); all those games drawn.
+
+**Book r10k (accepted) = try 2:** r10 + the repairs of #60, #71, #141/#9 (try 1) + #34 (try 2): 1,059 decisions, sha256
+**`229de021de9982b809b73ba104f78890a728a7022ad24c13fa185ef358449b9b`** (`wp13/book_r10k.bin`, `wp13/decisions_r10k.txt`);
+reachability 873 reachable, 0 unreachable, 186 unknown at the node limit (r10: 822 / 0 / 165); one base avoid entry
+removed (force-unavoid above); DLL `bl-456e9b2-r10k2` (bench unchanged: 7,677,736 / 8,055,287). Validation (two
+production-deck runs against KingsRow mode 3, one each against Cake and GuiNN): running.
+
+**Census, Cake against KingsRow in book mode 3** (production deck, 312 games, final-validation runner, both engines
+`set book 3` read back): **Cake 1 / 311 / 0** (the one win: ACF #119, 11-15 22-17 15-19, Cake Black,
+`bl-c3-cake-kingsrow-h2` round 28.1). With KingsRow in mode 1 the census had 13 / 299 / 0.
 
 ## WP1 census (`census/census.md`, `census/decisive.csv`, `census/instant_by_ballot.csv`); every KingsRow game here is KingsRow in book mode 1
 
