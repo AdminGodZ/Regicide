@@ -5,14 +5,16 @@
 // stdin, one game per line: GID <TAB> FEN (empty = start) <TAB> moves (PDN notation)
 // stdout, one line per game:
 //   GID <TAB> first_win_ply <TAB> winner (B/W) <TAB> pieces <TAB> fen <TAB> throw_ply <TAB> throw_move <TAB> throw_fen
-//       <TAB> throws <TAB> final_value <TAB> final_pieces <TAB> plies <TAB> max_quiet <TAB> first_b <TAB> first_w
+//       <TAB> throws <TAB> final_value <TAB> final_pieces <TAB> plies <TAB> max_quiet <TAB> first_b <TAB> first_w <TAB> traj
 // first_win_ply: first position (ply index, 0 = the game's first position) with at most max_pieces() pieces where the
 // database says the side to move wins or loses (then the side that just moved wins); -1 if none. winner: that side.
 // throw_ply: first later ply where the winner, to move in a won position, played a move after which the position is
 // no longer lost for the opponent (-1 if never); throws: how many such moves. final_value: database value of the last
 // position from Black's view (B = Black wins, W = White wins, D = draw, - = more than max_pieces pieces).
 // max_quiet: the longest run of plies without a capture or man move (the 40-move rule draws at 79).
-// first_b, first_w (last two columns): the first ply at which Black / White has a database win (-1: never).
+// first_b, first_w: the first ply at which Black / White has a database win (-1: never); traj (last column): the
+// database value of every position of the game, one character per ply from Black's view (B, W, D, - = not in the
+// database), lower case when the side to move has a capture pending.
 // A game with a move that does not parse to exactly one legal move gets the row "GID <TAB> ERR <TAB> ply <TAB> token"
 // instead (rejected, never scanned as a prefix).
 #include <algorithm>
@@ -85,7 +87,9 @@ int main(int argc, char** argv) {
         char winner = 0;
         std::string first_fen, throw_move, throw_fen, bad;
         char v = value(pos);
+        std::string traj;  // database value of every position (Black's view), lower case when a capture is pending
         for (std::size_t i = 0;; ++i) {
+            traj += (v != '-' && has_capture(pos)) ? char(v - 'A' + 'a') : v;
             // A won position counts only if the game went on from it: the final position of a game drawn by rule
             // (often reached by the move that completed the repetition or the 40-move limit) was never played.
             if (i < toks.size() && (v == 'B' || v == 'W') && (!quiet_only || !has_capture(pos))) {
@@ -123,7 +127,7 @@ int main(int argc, char** argv) {
                   << (first_fen.empty() ? "-" : first_fen) << '\t' << throw_ply << '\t'
                   << (throw_move.empty() ? "-" : throw_move) << '\t' << (throw_fen.empty() ? "-" : throw_fen) << '\t'
                   << throws << '\t' << v << '\t' << pos.piece_count() << '\t' << ply << '\t' << max_quiet << '\t'
-                  << first_b << '\t' << first_w << '\n';
+                  << first_b << '\t' << first_w << '\t' << traj << '\n';
     }
     return 0;
 }

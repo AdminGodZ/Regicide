@@ -76,14 +76,37 @@ in r5 (sweep dropped; 11-15 forced at ply 44, harmless if not reached).
 
 ## WP6 validation
 
-| Round | DLL | Opponent | Run a | Run b |
+| Round | DLL (engine + book, bench) | Opponent | Run a | Run b |
 |---|---|---|---|---|
-| 1 | bl-r4 | Cake | 0 / 311 / 1 (#34 B, the rejected sweep) | stopped (r4 superseded) |
+| 1 | bl-r4 (fcf6acb engine + book_r4, 7,712,020) | Cake | 0 / 311 / 1 (#34 B, the rejected sweep) | stopped (r4 superseded) |
 | 1 | bl-r4 | KingsRow | 1 / 311 / 0 (win #147 B) | stopped |
 | 1 | bl-r4 | GuiNN | 3 / 309 / 0 (wins #9 W, #111 B, #141 W) | stopped |
-| 2 | bl-r5 | Cake | **0 / 312 / 0** | queued |
-| 2 | bl-r5 | KingsRow | **0 / 312 / 0** | queued |
-| 2 | bl-r5 | GuiNN | 0 / 311 / 1 (#96 Skull-Cracker B, new) | queued |
+| 2 | bl-r5 (fcf6acb engine + book_r5, 7,712,020) | Cake | **0 / 312 / 0** | not run (replaced by the final validation on master) |
+| 2 | bl-r5 | KingsRow | **0 / 312 / 0** | h1 0 / 156 / 0; h2 not run (replaced) |
+| 2 | bl-r5 | GuiNN | 0 / 311 / 1 (#96 Skull-Cracker B, new) | not run (replaced) |
+
+**All builds** (`BUILD.txt` of each DLL; "engine commit" for bl-r1…bl-r6, bl-master, bl-w1 is the booklab branch
+commit the DLL was built from, whose engine sources were master fcf6acb's unchanged, hence bench 7,712,020):
+
+| DLL | Engine commit | Book (sha256 prefix) | bench (book on / off) |
+|---|---|---|---|
+| bl-r1, bl-r2, bl-r3 | e5b4bc6 | book_r1 cccdb3b7…, book_r2 2af35aaa…, book_r3 b14c83ef… | 7,712,020 / 8,089,571 |
+| bl-r4, bl-r5 | 157c876 | book_r4 6b6f5318…, book_r5 84feba1b… | 7,712,020 / 8,089,571 |
+| bl-r6 | fc5018d | book_r6 cd2d24da… | 7,712,020 / 8,089,571 |
+| bl-w1 | 57bbc2f | book_w1 9ff60d7d… | 7,712,020 / 8,089,571 |
+| bl-master | 661c576 | book_master (= book_deep2b) e72e384f… | 7,712,020 / 8,089,571 |
+| bl-conv1 | f86fda2 (engine 714502c) | book_r6 cd2d24da… | 7,677,736 / 8,055,287 |
+| bl-conv2 | 25fb1ed | book_r6 cd2d24da… | 7,677,736 / 8,055,287 |
+| bl-conv3 | 2156359 | book_r6 cd2d24da… | 7,677,736 / 8,055,287 |
+| bl-m6002 | 6002841 | book_r6 cd2d24da… | 7,677,736 / 8,055,287 |
+| bl-m11e | 11e19b4 | book_r6 cd2d24da… | 7,677,736 / 8,055,287 |
+| bl-r7c | 2156359 | book_r7 d93ed246… | 7,677,736 / 8,055,287 |
+| bl-r8c | 2156359 | book_r8 63e7fd19… | 7,677,736 / 8,055,287 |
+| **bl-final1** | **2efe11a** | **book_r8 63e7fd19…** | **7,677,736 / 8,055,287** |
+| bl-fcf6acb-deep2b (WP10 config 1) | fcf6acb | book_master e72e384f… | 7,712,020 / 8,089,571 |
+| bl-456e9b2-deep2b (WP10 config 2) | 456e9b2 | book_master e72e384f… | 7,677,736 / 8,055,287 |
+| bl-456e9b2-r10 (WP10 config 3) | 456e9b2 | book_r10 cb4e2bb2… | 7,677,736 / 8,055,287 |
+| 6bb8c6c-deep2b-egdb8 ("before") | 6bb8c6c (= fcf6acb engine) | book_deep2b e72e384f… | 7,712,020 / 8,089,571 |
 
 **Skull-Cracker (#96, B) vs GuiNN, validation 2:** Regicide followed Cake's and KingsRow's moves through ply 20 and
 left them at ply 22 with 7-11 (Cake there: 12-16, 21 draws in 21). The repair keyed on GuiNN's own moves is weak here
@@ -98,15 +121,28 @@ tests, validation, pt-*, tr-*), Regicide vs Cake/KingsRow/GuiNN plus the games a
 removed. Each game replayed (`booklab_dbscan`, `tools/booklab/dbscan.cpp`) and every position with ≤ 8 pieces probed
 in Regicide's 2–8-piece WLD database.
 
-| Games | Scanned | Reached a database win | Winning side won | Not won |
+**Current numbers (corpus as of 2026-11-10 07:50, scanner after all corrections: a database win counts only in a
+position from which the game went on; games without a final result skipped (0); unparsable games rejected (0)).
+Per-game rows: `wp8/dbscan_games.tsv.gz`; table: `wp8/dbscan.md`.**
+
+| Games | Scanned | Reached a database win in play | Winning side won | Not won |
 |---|---|---|---|---|
-| Regicide vs Cake/KingsRow/GuiNN | 21,013 | 1,925 | 1,554 | 371 |
-| Opponent vs opponent | 2,564 | 73 | 63 | 10 |
+| Regicide vs Cake/KingsRow/GuiNN | 21,013 | 1,914 | 1,553 | 361 |
+| Opponent vs opponent | 2,444 | 66 | 62 | 4 |
 
-**Conversion by the side that had the database win: Regicide 37 of 399; Cake 1,011 of 1,017; KingsRow 223 of 231;
-GuiNN 346 of 351.**
+**Conversion by the side that had the database win: Regicide 37 of 389; Cake 1,011 of 1,017; KingsRow 222 of 224;
+GuiNN 345 of 350.** Table 1 (Regicide had a database win and did not win): **352 games, 339 distinct first-won
+boards** (`missed_wins.txt`); 336 at 8 pieces, 16 at 7, none at ≤ 6; 243 ended still database-won (312 of the 352 by
+threefold repetition, 40 by the 40-move rule), in 109 Regicide later moved into a non-won position. Table 2 (an
+opponent had a database win against Regicide and did not win): 9. Table 3 (opponent vs opponent): 4.
 
-- **Table 1, Regicide had a database win and did not win: 362 games.** In every one the first won position had 7 or 8
+*Superseded first report (kept for the record; reason: the scanner then also counted the final position of a game
+drawn by rule, where the move that completed the draw left a capture, as a reached win (10 Regicide rows, 2 census
+rows), and the opponent-vs-opponent corpus differed by other agents' runs):* 21,013 / 1,925 / 1,554 / 371 and
+2,564 / 73 / 63 / 10; Regicide 37 of 399, KingsRow 223 of 231, GuiNN 346 of 351; 362 missed. The bullets below were
+written for that report; their counts of the 362 include the 10 artefact rows.
+
+- **Table 1 (first report: 362 games).** In every one the first won position had 7 or 8
   pieces (346 at 8, 16 at 7; none at ≤ 6, where the database has distance information). 253 ended still
   database-won (the rules ran out: 312 of all 362 by threefold repetition, 50 by the 40-move rule); in 109 Regicide
   later moved into a non-won position. It happens in every version, including the current book:
@@ -136,6 +172,18 @@ the WP9 test runs (`bl-wp9*`, they start from won positions) and can restrict th
   1,011 of 1,017; KingsRow 226 of 248; GuiNN 347 of 352. Opponent vs opponent: 90 reached, 66 converted (the new games
   are other agents' runs). The scan now also records the longest no-progress run per game.
 
+## Data behind the numbers (`data/`)
+
+| File | Contents | Re-derives |
+|---|---|---|
+| `raw_games_manifest.tsv` | every games.pdn used (run, games, bytes, sha256, location on Win11-AdminGod) | — (raw PDNs stay on that machine, ~21 MB gzipped) |
+| `census_games.csv.gz`, `census_determinism.csv`, `../census/*` | per census game: pairing, run, round, ballot, colours, result, plies, leading instant / book-marked moves per side; per repeated game: identical or first differing ply | WP1 tables, book depth, determinism |
+| `s4_dbscan_games.tsv.gz`, `f1_dbscan_games.tsv.gz` | per step-4 / final-validation game: result, termination, first in-play database win per side, per-ply database trajectory | step-4 in-play conversion counts (11/11, 20/20, 0/13, 5/21) and the entered-loss table |
+| `../wp8/dbscan_games.tsv.gz` | per scanned game of the WP8 corpus (as of 07:50) | WP8 tables, 352 missed wins |
+| `book_equiv_r10_positions.tsv.gz` | every position with Regicide to move in the r6–r8 games, with r8's and r10's book move | r8 = r10 on all of them |
+| `nps_won_roots.log` | timing log of the speed check | WP9 step 2 speed note |
+| `../deep_reach_r8.tsv`, `../reach_r8_v2.txt`, `../book_r10.reach.txt` | reachability verdicts | merge-candidate checks |
+
 ## MERGE CANDIDATE: round 10 (`decisions.txt`, `book_booklab.bin`)
 
 **book_r10.bin, sha256 `cb4e2bb2aea4d6de6bc789513baa8b49ae70b06d5d37b064adbf1a6018197a1e`, 987 decisions** = the
@@ -149,9 +197,11 @@ Checks:
 - Reachability under book_r10 (engine's eligibility, witnesses + exhaustive search): 822 proved reachable, **0
   unreachable**, 165 unknown (kept, per the lead's rule). The 20M-node search on the 170 earlier unknowns proved 8
   reachable and none unreachable beyond the 3.
-- **Same play as r8:** every position with Regicide to move in the 3,046 games played with the r6/r7/r8 books (WP9
-  steps 3–4, the re-tests, the final validation so far) probed in both books: **110,157 positions, 0 differ**; none of
-  the 4 removed positions occurred. (`book_equiv_r10.md`; re-run when the final validation ends.)
+- **Same play as r8:** every position with Regicide to move in the games played with the r6/r7/r8 books (WP9
+  steps 3–4, the re-tests, the final validation so far) probed in both books: first 3,046 games / 110,157 positions,
+  re-run at 14:46 on **3,534 games / 124,038 positions: 0 differ**; none of the 4 removed positions occurred.
+  (`book_equiv_r10.md`; every position with both books' moves: `data/book_equiv_r10_positions.tsv.gz`; re-run again
+  when the final validation ends.)
 - r8 reproduces byte-identically from the repair files with the current assemble.sh.
 
 ## Pre-merge review fixes (branch merged with master 456e9b2: ctest 27/27, bench 7,677,736)
@@ -169,17 +219,21 @@ Checks:
 
 ## FINAL VALIDATION: bl-final1 = master 2efe11a + round-8 book
 
-(a) The same 100 missed-win positions as bl-conv3: **converted 100 of 100** (Cake 3/3, GuiNN 59/59, KingsRow 38/38;
-`wp9/report-wp9final1.md`); plies to the win median 112, quartiles 93–130, max 180; highest no-progress count median 26,
-max 53 (2 games ≥ 40, none ≥ 60); no game left the won region.
+(a) Regression check on the same 100 missed-win positions as bl-conv3 (a re-use of the same roots, 98 distinct boards,
+96 after removing the 2 final-position artefacts; not an independent confirmation): **converted 100 of 100** (Cake
+3/3, GuiNN 59/59, KingsRow 38/38; `wp9/report-wp9final1.md`); plies to the win median 112, quartiles 93–130, max 180;
+highest no-progress count median 26, max 53 (2 games ≥ 40, none ≥ 60); no game left the won region.
 
-(b) Two full acf156 runs against each opponent (`scripts/chain_final.sh`; runs `tests/f1-<opp>-<a|b>-<half>`):
+(b) Two full acf156 runs against each opponent (`scripts/chain_final.sh`; runs `tests/f1-<opp>-<a|b>-<half>`).
+Builds: **bl-final1** = engine 2efe11a + book_r8 (sha256 63e7fd19…e022), bench 7,677,736 (8,055,287 book off);
+**before** = the 6bb8c6c-deep2b-egdb8 DLL = engine 6bb8c6c with book_deep2b, i.e. master fcf6acb's engine and book,
+bench 7,712,020 (8,089,571 book off).
 
-| Opponent | Run a | Run b | master fcf6acb (before) |
-|---|---|---|---|
-| Cake | **0 / 312 / 0** | running | 0 / 307 / 5 |
-| KingsRow | **12 / 300 / 0** | queued | 0 / 312 / 0 |
-| GuiNN | **17 / 295 / 0** | queued | 1 / 309 / 2 |
+| Opponent | bl-final1 run a | bl-final1 run b | before (fcf6acb engine+book) | before: run |
+|---|---|---|---|---|
+| Cake | **0 / 312 / 0** | running | 0 / 307 / 5 | ba-deep2b-full-cake (2026-11-09) |
+| KingsRow | **12 / 300 / 0** | queued | 0 / 312 / 0 | ba-deep2b-full-kingsrow (2026-11-09) |
+| GuiNN | **17 / 295 / 0** | queued | 1 / 309 / 2 | census c-reg-guinn (2026-11-09/10) |
 
 Repairs during the final validation: none so far.
 
@@ -256,10 +310,14 @@ of its sample (2 of its 100 were dropped ones, both won), the old engine 1 of 55
 
 ## WP9 step 4: full runs with the conversion fix (`wp9/s4_scan.md` tables)
 
-Full acf156 runs (312 games each) with **bl-conv3** (engine 2156359 + round-6 book) and **bl-m11e** (its master base
-11e19b4 + the same book, no conversion fix), interleaved by half (`scripts/chain_wp9.sh`, `chain_final.sh`). (bl-conv2
-was built, ctest 17/17, but no run was started with it, per the switch to bl-conv3.) "In play": a database win in a
-position from which the game went on (`s4_report.sh`, no dedup).
+Full acf156 runs (312 games each) with **bl-conv3** (engine 2156359 + book_r6, bench 7,677,736) and **bl-m11e**
+(engine 11e19b4 + the same book_r6, bench 7,677,736), interleaved by half (`scripts/chain_wp9.sh`, `chain_final.sh`).
+The two builds are not "fix vs no fix" alone: 11e19b4..2156359 contains 714502c (the conversion search), f86fda2
+(measurements only), f2315a5 (merge), 25fb1ed (review round A2: draw-limit handling, book and claims) and 2156359
+(review round A3: avoid list at decided roots, extensions near the draw limit, count-keyed conversion hash, partial
+losses in the tools). (bl-conv2 was built, ctest 17/17, but no run was started with it.) "In play": a database win in
+a position from which the game went on (`s4_report.sh`, no dedup). Per-game rows with per-ply database trajectories:
+`data/s4_dbscan_games.tsv.gz`.
 
 | Opponent | bl-conv3 W / D / L | Elo | bl-m11e (no fix) W / D / L | Regicide's in-play db wins converted: conv3 / m11e | Opponent's in-play db wins vs conv3 (converted) |
 |---|---|---|---|---|---|
@@ -284,11 +342,11 @@ Every position of `missed_wins.txt` played once from that position, Regicide (en
 database win, against the opponent of the original game with its usual 8-piece database; 0.5 s/move, threefold
 repetition and the 40-move rule, timing lock per deck of ≤ 40 positions (`scripts/wp9_run.sh`).
 
-| DLL | Positions | Converted | Cake | GuiNN | KingsRow | 7 pieces | 8 pieces | Left the won region |
+| DLL (engine commit + book, bench) | Positions | Converted | Cake | GuiNN | KingsRow | 7 pieces | 8 pieces | Left the won region |
 |---|---|---|---|---|---|---|---|---|
-| bl-r6 (before: engine fcf6acb, round-6 book) | random 60 | **1 (1.7%)** | 0/1 | 0/35 | 1/24 | 0/3 | 1/57 | 26 games |
-| **bl-conv1** (engine 714502c + round-6 book) | all 362 | **362 (100%)** | 6/6 | 198/198 | 158/158 | 16/16 | 346/346 | **0** |
-| **bl-conv3** (2156359 + round-6 book) | random 100 of the 362 (seed 13; bl-conv1 failed none) | **100 (100%)** | 3/3 | 59/59 | 38/38 | 8/8 | 92/92 | **0** |
+| bl-r6 (before: fcf6acb + book_r6, 7,712,020) | random 60 (60 distinct boards; 5 later found to be final-position artefacts) | **1 (1.7%)** | 0/1 | 0/35 | 1/24 | 0/3 | 1/57 | 26 games |
+| **bl-conv1** (714502c + book_r6, 7,677,736) | all 362 (349 distinct boards; 352 / 339 after the correction) | **362 (100%)** | 6/6 | 198/198 | 158/158 | 16/16 | 346/346 | **0** |
+| **bl-conv3** (2156359 + book_r6, 7,677,736) | regression check: 100 of the same 362 (seed 13; 98 distinct boards) | **100 (100%)** | 3/3 | 59/59 | 38/38 | 8/8 | 92/92 | **0** |
 
 - bl-conv3: plies to the win median 114, quartiles 93–129, max 235; no-progress maximum median 27, max 41 (2 games
   ≥ 40, none ≥ 60). Report: `wp9/report-wp9conv3.md`.
@@ -313,8 +371,10 @@ The two 7-piece failures (no-progress draws after 142 and 177 plies; MTC-optimal
 
 **Speed in won 7–8-piece roots:** the CLI from the same tree, `go nodes 3000000` with the 8-piece database: 4.3M nodes/s
 (score +10107, the conversion score) and 5.2M nodes/s in two won/lost 8-piece positions, against 2.9M in the start
-position, all measured while matches and the four test processes ran. So the database probe at every node does not
-slow the search down here; it is faster than in the middlegame.
+position, all measured while matches and the four test processes ran (first measurement, read from the terminal; not
+logged). **Logged re-measurement** (`data/nps_won_roots.log`, bl-conv3 tree, load average 10): 6.1M and 5.2M nodes/s in
+the same two positions against 3.0M in the start position. So the database probe at every node does not slow the
+search down here; it is faster than in the middlegame.
 
 ## WP9: conversion test harness
 

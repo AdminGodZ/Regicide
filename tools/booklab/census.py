@@ -102,6 +102,7 @@ def main():
     md.append("| Pairing (A vs B) | Games | A: W / D / L | Elo of A [95% CI] | Decisive games (ballot, winner as colour) |")
     md.append("|---|---|---|---|---|")
     decisive_all = []
+    per_game, det_rows = [], []
     for p in a.pairings:
         name, tags = p.split("=", 1)
         gs = games_of(a.results, tags.split(","))
@@ -137,6 +138,8 @@ def main():
             for col, nm in (("B", b), ("W", wh)):
                 inst[(family(nm), bmoves, col)].append(li[col])
                 book[(family(nm), bmoves, col)].append(lb[col])
+            per_game.append((name, t, tg.get("Round", ""), bname, bmoves, family(b), family(wh), res, len(moves),
+                             li["B"], li["W"], lb["B"], lb["W"]))
         full = [sum(v) for v in pairs.values() if len(v) == 2]
         unpaired = sum(len(v) for v in pairs.values() if len(v) != 2)
         elo_txt = "n/a (no complete pair)"
@@ -194,9 +197,11 @@ def main():
             s1, s2 = [x[0] for x in m1], [x[0] for x in m2]
             if s1 == s2:
                 same += 1
+                det_rows.append((name, t1, t2, k[0], k[1], "identical", "", len(s1), len(s2)))
                 continue
             i = next((i for i in range(min(len(s1), len(s2))) if s1[i] != s2[i]), min(len(s1), len(s2)))
             diffs.append(i - ballot_of(k[0])[2])
+            det_rows.append((name, t1, t2, k[0], k[1], "differ", i - ballot_of(k[0])[2], len(s1), len(s2)))
         n = same + len(diffs)
         md.append(f"**Determinism, {name}** ({t1} vs {t2}, {n} games with the same ballot and colours): "
                   f"{same} identical ({100 * same / max(1, n):.0f}%); the others first differ at a median of "
@@ -209,6 +214,16 @@ def main():
         cw = csv.writer(f)
         cw.writerow(["pairing", "ballot", "winner", "winner_colour", "run", "round"])
         cw.writerows(decisive_all)
+    with open(os.path.join(a.out, "games.csv"), "w", newline="") as f:  # per-game data behind every census table
+        cw = csv.writer(f)
+        cw.writerow(["pairing", "run", "round", "ballot", "ballot_moves", "black", "white", "result", "plies",
+                     "lead_instant_black", "lead_instant_white", "lead_book_black", "lead_book_white"])
+        cw.writerows(per_game)
+    with open(os.path.join(a.out, "determinism.csv"), "w", newline="") as f:
+        cw = csv.writer(f)
+        cw.writerow(["repeat", "run1", "run2", "opening", "black", "verdict", "first_difference_after_ballot",
+                     "plies1", "plies2"])
+        cw.writerows(det_rows)
     open(os.path.join(a.out, "census.md"), "w").write("\n".join(md) + "\n")
     print("\n".join(md))
 

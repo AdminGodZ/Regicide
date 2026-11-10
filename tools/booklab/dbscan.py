@@ -96,7 +96,7 @@ def main():
                 continue
             g.update(first=int(f[1]), winner=f[2], pieces=int(f[3]), wfen=f[4], throw=int(f[5]), tmove=f[6],
                      tfen=f[7], throws=int(f[8]), final=f[9], fpieces=int(f[10]), plies=int(f[11]),
-                     max_quiet=int(f[12]), first_b=int(f[13]), first_w=int(f[14]))
+                     max_quiet=int(f[12]), first_b=int(f[13]), first_w=int(f[14]), traj=f[15] if len(f) > 15 else "")
         if p.wait() != 0:
             sys.exit(f"scanner exited with status {p.returncode}")
     if rows != len(games):
@@ -193,7 +193,7 @@ def main():
             fo.write(f"{g['wfen']} | {g['pieces']} | {g['run']} {g['round']} {g['ballot']} | {g['term']}; {how(g)}\n")
     with open(os.path.join(a.out, "dbscan_games.tsv"), "w") as fo:
         keys = ["run", "round", "ballot", "bf", "wf", "res", "term", "first", "winner", "pieces", "throw", "throws",
-                "final", "fpieces", "plies", "max_quiet", "first_b", "first_w", "wfen"]
+                "final", "fpieces", "plies", "max_quiet", "first_b", "first_w", "wfen", "traj"]
         fo.write("\t".join(keys) + "\n")
         for g in games:
             fo.write("\t".join(str(g[k]) for k in keys) + "\n")

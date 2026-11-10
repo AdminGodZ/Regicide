@@ -289,3 +289,5 @@ BL start f1-guinn-a-h2 regicide:bl-final1 vs guinn; bg: datagen-eb1037c:T bash:S
 BL end f1-guinn-a-h2 rc=0 A: +9 =147 -0   score 82.5/156 = 52.88%   draw rate 94.2% Elo (pentanomial, pairs): +20.1 [+7.7, +32.5] 95% CI, score 0.5288 +- 0.0177, LOS 99.93% 2026-11-10T14:29:10+01:00
 BL wait-lock f1-cake-b-h1 regicide:bl-final1 vs cake deck /mnt/c/regicide-match/jobs/booklab/acf156_h1.txt mt 0.5 c 8 2026-11-10T14:29:10+01:00
 BL start f1-cake-b-h1 regicide:bl-final1 vs cake; bg: datagen-eb1037c:T bash:S datagen-tr5:S bash:S datagen-tr6:S  2026-11-10T14:29:10+01:00
+BL end f1-cake-b-h1 rc=0 A: +0 =156 -0   score 78.0/156 = 50.00%   draw rate 100.0% Elo (pentanomial, pairs): -0.0 [-0.0, -0.0] 95% CI, score 0.5000 +- 0.0000, LOS 50.00% 2026-11-10T14:35:19+01:00
+BL wait-lock f1-kingsrow-b-h1 regicide:bl-final1 vs kingsrow deck /mnt/c/regicide-match/jobs/booklab/acf156_h1.txt mt 0.5 c 8 2026-11-10T14:35:19+01:00

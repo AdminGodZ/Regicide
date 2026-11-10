@@ -24,6 +24,7 @@ def main():
     ap.add_argument("--book-a")
     ap.add_argument("--book-b")
     ap.add_argument("--out", required=True)
+    ap.add_argument("--dump", help="TSV of every compared position with both books' moves")
     a = ap.parse_args()
     lines, reg_col, ngames = [], {}, 0
     for d in a.runs:
@@ -60,13 +61,20 @@ def main():
         md.append(f"- {n}x `{r[0]}` | {r[1]} | {r[3][:100]}")
     md.append("")
     if a.book_a and a.book_b:
-        res = subprocess.run([a.cmp, a.book_a, a.book_b], input="\n".join(occ) + "\n", capture_output=True, text=True,
-                             check=True).stdout.splitlines()
+        res = subprocess.run([a.cmp, a.book_a, a.book_b, "all"], input="\n".join(occ) + "\n", capture_output=True,
+                             text=True, check=True).stdout.splitlines()
+        if a.dump:  # every position: FEN, occurrences, move of A, move of B, same/DIFFER
+            with open(a.dump, "w") as fo:
+                fo.write("fen\toccurrences\tmove_a\tmove_b\tverdict\n")
+                for l in res[:-1]:
+                    f = l.split("\t")
+                    fo.write(f"{f[0]}\t{occ[f[0]]}\t{f[1]}\t{f[2]}\t{f[3]}\n")
         md.append(f"**{os.path.basename(a.book_a)} vs {os.path.basename(a.book_b)}: {res[-1]}** (each position with "
                   f"Regicide to move in these games probed in both books).")
         for l in res[:-1]:
             f = l.split("\t")
-            md.append(f"- `{f[0]}`: {f[1]} vs {f[2]} ({occ[f[0]]}x)")
+            if f[3] == "DIFFER":
+                md.append(f"- `{f[0]}`: {f[1]} vs {f[2]} ({occ[f[0]]}x)")
         md.append("")
     open(a.out, "w").write("\n".join(md) + "\n")
     print("\n".join(md[:12]))

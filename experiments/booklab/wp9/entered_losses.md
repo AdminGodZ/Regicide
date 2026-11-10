@@ -8,7 +8,7 @@ Scan of the step-4 runs with `dbscan.py --quiet --no-dedup`: a database win is c
 | conv3 | GuiNN | 312 | 0 | 0 | 20 | 20 |
 | conv3 | KingsRow | 312 | 1 | 1 | 11 | 11 |
 | m11e | Cake | 312 | 0 | 0 | 0 | 0 |
-| m11e | GuiNN | 156 | 0 | 0 | 12 | 3 |
+| m11e | GuiNN | 312 | 0 | 0 | 21 | 5 |
 | m11e | KingsRow | 312 | 0 | 0 | 13 | 0 |
 
 ## Every game in which the opponent had a database win against conv3
