@@ -1,6 +1,6 @@
 # booklab decisions: FEN | move | force|avoid | evidence
 # Built by assemble.sh from repair outputs (theory.py repair: the opponent's own non-losing defence from the first
-# position where Regicide's move left it). First decision per position wins. 2026-11-10T05:00:35+01:00
+# position where Regicide's move left it). First decision per position wins. 2026-11-10T08:12:54+01:00
 
 # === repairs_r1/ACF_153_Black_Widow_W_cake
 # game 33473 regicide-match/results/ba-deep2b-full-cake/games.pdn: ACF #153 Black Widow (ACF #153 Black Widow: 11-16 23-19 16x23), regicide as W, result B, opponent cake
@@ -851,3 +851,142 @@ B:W19,21,22,23,24,25,26,27,29,30,31,32:B1,2,3,4,5,6,8,9,10,11,12,14 | 11-16 | fo
 # defence for 18 moves, then 8-11 at ply 40 (Cake 28-24, 2 games); deep analysis (blk-bookgen, 100M nodes per move,
 # 2-8 egdb, 2 GB hash) scores 8-11 / 28-24 / 28-32 all 0 there. The score fell at ply 44: 2-7 (0.92 s, own score -6).
 B:WK5,20,21,29,30,31:B2,9,11,13,14,K24 | 11-15 | force | ACF #34 Twilight Zone regicide B ply 44: deep analysis 100M nodes/move, 8-piece egdb, 2 GB hash: 11-15 0 (d34), 2-7 -94 (d36), 24-19 -98 (d36), rest lost; regicide played 2-7 and lost (gid 45640, bl-v1-cake-a-h1); at ply 46 the best move then scores -96
+
+# === repairs_v2/ACF_96_Skull_Cracker_B_guinn
+# game 48476 regicide-match/results/bl-v2-guinn-a-h2/games.pdn: ACF #96 Skull-Cracker (/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:7: 10-15 22-17 15-19), regicide as B, result W, opponent cake
+#   ply 4 11x18: cake 11x18 37x 0/36/1
+#   ply 6 9x18: cake 9x18 37x 0/36/1
+#   ply 8 6-9: cake 6-9 34x 0/33/1
+#   ply 10 9x18: cake 9x18 34x 0/33/1
+#   ply 12 5-9: cake 5-9 27x 0/26/1
+#   ply 14 1-5: cake 1-5 24x 0/24/0, 9-13 2x 0/1/1
+#   ply 16 9-13: cake 9-13 21x 0/21/0
+#   ply 18 13x22: cake 13x22 21x 0/21/0
+#   ply 20 2-6: cake 2-6 21x 0/21/0
+# DEVIATION ply 22 (19 after the ballot): regicide played 7-11; cake: 12-16 21x w/d/l 0/21/0
+#   FEN B:W14,17,21,25,27,28,31,32:B3,4,5,6,7,8,12,18
+# cake's defence: 21 non-lost games from the deviation position, 124 positions of our side within 40 plies (stop at <= 8 pieces)
+B:W14,17,21,25,27,28,31,32:B3,4,5,6,7,8,12,18 | 12-16 | force | ACF #96 Skull-Cracker regicide B ply 22: cake defence: 12-16 in 21 of 21 non-lost cake games from here (theory 21x w/d/l 0/21/0); regicide played 7-11 here and lost (gid 48476, bl-v2-guinn-a-h2)
+B:W14,17,21,24,25,27,31,32:B3,4,5,6,7,8,16,18 | 8-11 | force | ACF #96 Skull-Cracker regicide B ply 24: cake defence: 8-11 in 21 of 21 non-lost cake games from here (theory 21x w/d/l 0/21/0)
+B:W13,14,21,24,25,27,31,32:B3,4,5,6,7,11,16,18 | 4-8 | force | ACF #96 Skull-Cracker regicide B ply 26: cake defence: 4-8 in 21 of 21 non-lost cake games from here (theory 21x w/d/l 0/21/0)
+B:W13,14,19,21,25,27,31,32:B3,5,6,7,8,11,16,18 | 16x23 | force | ACF #96 Skull-Cracker regicide B ply 28: cake defence: 16x23 in 18 of 18 non-lost cake games from here (theory 18x w/d/l 0/18/0)
+B:W13,14,21,22,24,27,31,32:B3,5,6,7,8,11,16,18 | 18x25 | force | ACF #96 Skull-Cracker regicide B ply 28: cake defence: 18x25 in 2 of 2 non-lost cake games from here (theory 2x w/d/l 0/2/0)
+B:W9,13,21,24,25,27,31,32:B3,5,6,7,8,11,16,18 | 5x14 | force | ACF #96 Skull-Cracker regicide B ply 28: cake defence: 5x14 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:W9,13,21,25,27,31,32:B3,5,6,7,8,11,18,23 | 5x14 | force | ACF #96 Skull-Cracker regicide B ply 30: cake defence: 5x14 in 18 of 18 non-lost cake games from here (theory 18x w/d/l 0/18/0)
+B:W9,13,21,24,27,31,32:B3,5,6,7,8,11,16,25 | 5x14 | force | ACF #96 Skull-Cracker regicide B ply 30: cake defence: 5x14 in 2 of 2 non-lost cake games from here (theory 2x w/d/l 0/2/0)
+B:W13,21,22,24,27,31,32:B3,6,7,8,11,14,16,18 | 18x25 | force | ACF #96 Skull-Cracker regicide B ply 30: cake defence: 18x25 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:W13,21,22,27,31,32:B3,6,7,8,11,14,18,23 | 18x25 | force | ACF #96 Skull-Cracker regicide B ply 32: cake defence: 18x25 in 18 of 18 non-lost cake games from here (theory 18x w/d/l 0/18/0)
+B:W13,19,21,27,31,32:B3,6,7,8,11,14,16,25 | 16x23 | force | ACF #96 Skull-Cracker regicide B ply 32: cake defence: 16x23 in 3 of 3 non-lost cake games from here (theory 3x w/d/l 0/3/0)
+B:WK2,13,21,31,32:B3,7,8,11,25 | 25-30 | force | ACF #96 Skull-Cracker regicide B ply 34: cake defence: 25-30 in 20 of 21 non-lost cake games from here (theory 20x w/d/l 0/20/0); also 8-12 1x
+B:WK2,9,21,31,32:B3,7,8,11,K30 | 30-25 | force | ACF #96 Skull-Cracker regicide B ply 36: cake defence: 30-25 in 10 of 20 non-lost cake games from here (theory 10x w/d/l 0/10/0); also 8-12 10x
+B:WK2,9,21,31,32:B3,7,11,12,25 | 25-30 | force | ACF #96 Skull-Cracker regicide B ply 36: cake defence: 25-30 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK2,5,21,31,32:B3,7,8,11,K25 | 8-12 | force | ACF #96 Skull-Cracker regicide B ply 38: cake defence: 8-12 in 6 of 6 non-lost cake games from here (theory 6x w/d/l 0/6/0)
+B:WK2,5,21,31,32:B3,7,11,12,K30 | 30-25 | force | ACF #96 Skull-Cracker regicide B ply 38: cake defence: 30-25 in 5 of 8 non-lost cake games from here (theory 5x w/d/l 0/5/0); also 7-10 3x
+B:WK2,6,21,31,32:B3,7,11,12,K30 | 30-25 | force | ACF #96 Skull-Cracker regicide B ply 38: cake defence: 30-25 in 2 of 3 non-lost cake games from here (theory 2x w/d/l 0/2/0); also 7-10 1x
+B:WK2,6,21,31,32:B3,7,8,11,K25 | 8-12 | force | ACF #96 Skull-Cracker regicide B ply 38: cake defence: 8-12 in 3 of 3 non-lost cake games from here (theory 3x w/d/l 0/3/0)
+B:WK2,9,21,27,32:B3,7,8,11,K25 | 8-12 | force | ACF #96 Skull-Cracker regicide B ply 38: cake defence: 8-12 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK1,K2,21,31,32:B3,7,11,12,K25 | 7-10 | force | ACF #96 Skull-Cracker regicide B ply 40: cake defence: 7-10 in 14 of 14 non-lost cake games from here (theory 14x w/d/l 0/14/0)
+B:WK1,K2,21,31,32:B3,10,11,12,K30 | 30-25 | force | ACF #96 Skull-Cracker regicide B ply 40: cake defence: 30-25 in 4 of 4 non-lost cake games from here (theory 4x w/d/l 0/4/0)
+B:WK2,5,21,27,32:B3,7,11,12,K25 | 7-10 | force | ACF #96 Skull-Cracker regicide B ply 40: cake defence: 7-10 in 3 of 3 non-lost cake games from here (theory 3x w/d/l 0/3/0)
+B:WK1,K2,17,31,32:B3,10,11,12,K25 | 3-8 | force | ACF #96 Skull-Cracker regicide B ply 42: cake defence: 3-8 in 8 of 8 non-lost cake games from here (theory 8x w/d/l 0/8/0)
+B:WK2,K5,21,31,32:B3,10,11,12,K25 | 10-15 | force | ACF #96 Skull-Cracker regicide B ply 42: cake defence: 10-15 in 3 of 3 non-lost cake games from here (theory 3x w/d/l 0/3/0)
+B:WK1,K2,21,27,31:B3,10,11,12,K25 | 10-15 | force | ACF #96 Skull-Cracker regicide B ply 42: cake defence: 10-15 in 4 of 6 non-lost cake games from here (theory 4x w/d/l 0/4/0); also 25-22 2x
+B:WK2,5,21,24,32:B3,10,11,12,K25 | 10-15 | force | ACF #96 Skull-Cracker regicide B ply 42: cake defence: 10-15 in 3 of 3 non-lost cake games from here (theory 3x w/d/l 0/3/0)
+B:WK1,K2,21,28,31:B3,10,11,12,K25 | 10-15 | force | ACF #96 Skull-Cracker regicide B ply 42: cake defence: 10-15 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK1,K2,13,31,32:B8,10,11,12,K25 | 25-22 | force | ACF #96 Skull-Cracker regicide B ply 44: cake defence: 25-22 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK5,K6,21,31,32:B3,11,12,15,K25 | 15-18 | force | ACF #96 Skull-Cracker regicide B ply 44: cake defence: 15-18 in 2 of 2 non-lost cake games from here (theory 2x w/d/l 0/2/0)
+B:WK1,K2,21,24,31:B3,10,11,12,K22 | 3-8 | force | ACF #96 Skull-Cracker regicide B ply 44: cake defence: 3-8 in 2 of 2 non-lost cake games from here (theory 2x w/d/l 0/2/0)
+B:WK1,K2,21,24,31:B3,11,12,15,K25 | 3-8 | force | ACF #96 Skull-Cracker regicide B ply 44: cake defence: 3-8 in 4 of 5 non-lost cake games from here (theory 4x w/d/l 0/4/0); also 11-16 1x
+B:WK2,K5,17,31,32:B8,10,11,12,K25 | 25-21 | force | ACF #96 Skull-Cracker regicide B ply 44: cake defence: 25-21 in 7 of 7 non-lost cake games from here (theory 7x w/d/l 0/7/0)
+B:WK2,K9,21,31,32:B3,11,12,15,K25 | 15-18 | force | ACF #96 Skull-Cracker regicide B ply 44: cake defence: 15-18 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:W5,K6,21,24,32:B3,11,12,15,K25 | 25-22 | force | ACF #96 Skull-Cracker regicide B ply 44: cake defence: 25-22 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK1,K2,21,24,32:B3,11,12,15,K25 | 11-16 | force | ACF #96 Skull-Cracker regicide B ply 44: cake defence: 11-16 in 2 of 2 non-lost cake games from here (theory 2x w/d/l 0/2/0)
+B:WK1,K2,9,31,32:B8,10,11,12,K22 | 22-17 | force | ACF #96 Skull-Cracker regicide B ply 46: cake defence: 22-17 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK5,K10,21,31,32:B3,11,12,18,K25 | 12-16 | force | ACF #96 Skull-Cracker regicide B ply 46: cake defence: 12-16 in 2 of 2 non-lost cake games from here (theory 2x w/d/l 0/2/0)
+B:WK1,K2,20,21,31:B8,10,11,12,K22 | 10-15 | force | ACF #96 Skull-Cracker regicide B ply 46: cake defence: 10-15 in 2 of 2 non-lost cake games from here (theory 2x w/d/l 0/2/0)
+B:WK1,K2,20,21,31:B3,12,15,16,K25 | 16-19 | force | ACF #96 Skull-Cracker regicide B ply 46: cake defence: 16-19 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK1,K2,20,21,31:B8,11,12,15,K25 | 25-22 | force | ACF #96 Skull-Cracker regicide B ply 46: cake defence: 25-22 in 4 of 4 non-lost cake games from here (theory 4x w/d/l 0/4/0)
+B:WK2,K5,13,31,32:B8,10,11,12,K21 | 21-17 | force | ACF #96 Skull-Cracker regicide B ply 46: cake defence: 21-17 in 7 of 7 non-lost cake games from here (theory 7x w/d/l 0/7/0)
+B:WK2,K9,17,31,32:B3,11,12,18,K25 | 18-23 | force | ACF #96 Skull-Cracker regicide B ply 46: cake defence: 18-23 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK1,K6,21,24,32:B3,11,12,15,K22 | 22-18 | force | ACF #96 Skull-Cracker regicide B ply 46: cake defence: 22-18 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK1,K2,20,21,32:B3,12,15,16,K25 | 16-19 | force | ACF #96 Skull-Cracker regicide B ply 46: cake defence: 16-19 in 2 of 2 non-lost cake games from here (theory 2x w/d/l 0/2/0)
+B:WK1,K2,6,31,32:B8,10,11,12,K17 | 10-15 | force | ACF #96 Skull-Cracker regicide B ply 48: cake defence: 10-15 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK5,K10,17,31,32:B3,11,16,18,K25 | 18-23 | force | ACF #96 Skull-Cracker regicide B ply 48: cake defence: 18-23 in 2 of 2 non-lost cake games from here (theory 2x w/d/l 0/2/0)
+B:WK2,K5,20,21,31:B8,11,12,15,K22 | 15-19 | force | ACF #96 Skull-Cracker regicide B ply 48: cake defence: 15-19 in 3 of 3 non-lost cake games from here (theory 3x w/d/l 0/3/0)
+B:WK2,K6,20,21,31:B3,12,15,19,K25 | 19-23 | force | ACF #96 Skull-Cracker regicide B ply 48: cake defence: 19-23 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK2,K6,20,21,31:B8,11,12,15,K22 | 15-19 | force | ACF #96 Skull-Cracker regicide B ply 48: cake defence: 15-19 in 3 of 3 non-lost cake games from here (theory 3x w/d/l 0/3/0)
+B:WK2,K9,13,31,32:B8,10,11,12,K17 | 10-15 | force | ACF #96 Skull-Cracker regicide B ply 48: cake defence: 10-15 in 3 of 3 non-lost cake games from here (theory 3x w/d/l 0/3/0)
+B:WK2,K5,9,31,32:B8,10,11,12,K17 | 10-15 | force | ACF #96 Skull-Cracker regicide B ply 48: cake defence: 10-15 in 4 of 4 non-lost cake games from here (theory 4x w/d/l 0/4/0)
+B:WK2,K9,13,31,32:B3,11,12,23,K25 | 25-22 | force | ACF #96 Skull-Cracker regicide B ply 48: cake defence: 25-22 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK1,K6,17,24,32:B3,11,12,15,K18 | 11-16 | force | ACF #96 Skull-Cracker regicide B ply 48: cake defence: 11-16 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK2,K6,20,21,32:B3,12,15,19,K25 | 19-23 | force | ACF #96 Skull-Cracker regicide B ply 48: cake defence: 19-23 in 2 of 2 non-lost cake games from here (theory 2x w/d/l 0/2/0)
+B:WK1,K2,6,26,32:B8,11,12,15,K17 | 15-18 | force | ACF #96 Skull-Cracker regicide B ply 50: cake defence: 15-18 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK5,K10,13,31,32:B3,11,16,23,K25 | 25-22 | force | ACF #96 Skull-Cracker regicide B ply 50: cake defence: 25-22 in 2 of 2 non-lost cake games from here (theory 2x w/d/l 0/2/0)
+B:WK1,K2,20,21,31:B8,11,12,19,K22 | 19-24 | force | ACF #96 Skull-Cracker regicide B ply 50: cake defence: 19-24 in 6 of 6 non-lost cake games from here (theory 6x w/d/l 0/6/0)
+B:WK2,K6,17,20,31:B3,12,15,23,K25 | 3-8 | force | ACF #96 Skull-Cracker regicide B ply 50: cake defence: 3-8 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK2,K9,13,27,31:B8,11,12,15,K17 | 17-14 | force | ACF #96 Skull-Cracker regicide B ply 50: cake defence: 17-14 in 3 of 3 non-lost cake games from here (theory 3x w/d/l 0/3/0)
+B:WK2,K5,9,27,31:B8,11,12,15,K17 | 17-22 | force | ACF #96 Skull-Cracker regicide B ply 50: cake defence: 17-22 in 1 of 2 non-lost cake games from here (theory 1x w/d/l 0/1/0); also 17-14 1x
+B:WK2,K5,6,31,32:B8,11,12,15,K17 | 15-18 | force | ACF #96 Skull-Cracker regicide B ply 50: cake defence: 15-18 in 2 of 2 non-lost cake games from here (theory 2x w/d/l 0/2/0)
+B:WK2,13,K14,31,32:B3,11,12,K22,23 | 23-26 | force | ACF #96 Skull-Cracker regicide B ply 50: cake defence: 23-26 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK1,K6,17,20,32:B3,12,15,16,K18 | 16-19 | force | ACF #96 Skull-Cracker regicide B ply 50: cake defence: 16-19 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK2,K6,20,21,28:B3,12,15,23,K25 | 23-26 | force | ACF #96 Skull-Cracker regicide B ply 50: cake defence: 23-26 in 2 of 2 non-lost cake games from here (theory 2x w/d/l 0/2/0)
+B:WK2,K5,6,26,32:B8,11,12,K17,18 | 11-16 | force | ACF #96 Skull-Cracker regicide B ply 52: cake defence: 11-16 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK9,K10,13,31,32:B3,11,16,K22,23 | 23-26 | force | ACF #96 Skull-Cracker regicide B ply 52: cake defence: 23-26 in 2 of 2 non-lost cake games from here (theory 2x w/d/l 0/2/0)
+B:WK2,K5,20,21,31:B8,11,12,K22,24 | 24-28 | force | ACF #96 Skull-Cracker regicide B ply 52: cake defence: 24-28 in 6 of 6 non-lost cake games from here (theory 6x w/d/l 0/6/0)
+B:WK2,K10,17,20,31:B8,12,15,23,K25 | 15-19 | force | ACF #96 Skull-Cracker regicide B ply 52: cake defence: 15-19 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK2,13,K18,27,31:B8,11,12,15 | 15x22 | force | ACF #96 Skull-Cracker regicide B ply 52: cake defence: 15x22 in 3 of 3 non-lost cake games from here (theory 3x w/d/l 0/3/0)
+B:WK2,K5,6,27,31:B8,11,12,15,K22 | 15-19 | force | ACF #96 Skull-Cracker regicide B ply 52: cake defence: 15-19 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK2,K5,6,27,31:B8,11,12,K14,15 | 15-18 | force | ACF #96 Skull-Cracker regicide B ply 52: cake defence: 15-18 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK1,K2,K5,31,32:B8,11,12,K17,18 | 11-15 | force | ACF #96 Skull-Cracker regicide B ply 52: cake defence: 11-15 in 2 of 2 non-lost cake games from here (theory 2x w/d/l 0/2/0)
+B:WK2,9,K14,31,32:B3,11,12,K22,26 | 12-16 | force | ACF #96 Skull-Cracker regicide B ply 52: cake defence: 12-16 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK5,K6,17,20,32:B3,12,15,K18,19 | 18-22 | force | ACF #96 Skull-Cracker regicide B ply 52: cake defence: 18-22 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK2,K10,20,21,28:B3,12,15,K25,26 | 15-18 | force | ACF #96 Skull-Cracker regicide B ply 52: cake defence: 15-18 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK2,K6,17,20,28:B3,12,15,K25,26 | 25-22 | force | ACF #96 Skull-Cracker regicide B ply 52: cake defence: 25-22 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK1,K2,K5,26,32:B8,12,16,K17,18 | 18-23 | force | ACF #96 Skull-Cracker regicide B ply 54: cake defence: 18-23 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK9,K10,13,27,32:B3,11,16,K22,26 | 3-8 | force | ACF #96 Skull-Cracker regicide B ply 54: cake defence: 3-8 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK9,K10,13,27,31:B3,11,16,K22,26 | 22-17 | force | ACF #96 Skull-Cracker regicide B ply 54: cake defence: 22-17 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK1,K2,20,21,31:B8,11,12,K22,28 | 28-32 | force | ACF #96 Skull-Cracker regicide B ply 54: cake defence: 28-32 in 2 of 4 non-lost cake games from here (theory 2x w/d/l 0/2/0); also 11-15 2x
+B:WK7,K10,17,20,31:B8,12,19,23,K25 | 25-22 | force | ACF #96 Skull-Cracker regicide B ply 54: cake defence: 25-22 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK1,K2,K5,27,31:B8,11,12,19,K22 | 19-23 | force | ACF #96 Skull-Cracker regicide B ply 54: cake defence: 19-23 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK2,K5,6,23,31:B8,11,12,K14,18 | 18x27 | force | ACF #96 Skull-Cracker regicide B ply 54: cake defence: 18x27 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK1,K2,K9,31,32:B8,12,15,K17,18 | 17-14 | force | ACF #96 Skull-Cracker regicide B ply 54: cake defence: 17-14 in 2 of 2 non-lost cake games from here (theory 2x w/d/l 0/2/0)
+B:WK2,9,K14,28,31:B3,11,16,K22,26 | 3-8 | force | ACF #96 Skull-Cracker regicide B ply 54: cake defence: 3-8 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK5,K6,13,20,32:B3,12,15,19,K22 | 3-7 | force | ACF #96 Skull-Cracker regicide B ply 54: cake defence: 3-7 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK5,K6,20,21,31:B8,11,12,K22,28 | 28-32 | force | ACF #96 Skull-Cracker regicide B ply 54: cake defence: 28-32 in 2 of 2 non-lost cake games from here (theory 2x w/d/l 0/2/0)
+B:WK2,K10,17,20,28:B3,12,18,K25,26 | 18-22 | force | ACF #96 Skull-Cracker regicide B ply 54: cake defence: 18-22 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK2,K6,13,20,28:B3,12,15,K22,26 | 22-18 | force | ACF #96 Skull-Cracker regicide B ply 54: cake defence: 22-18 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK1,K2,K5,19,32:B8,12,16,K17 | 16x23 | force | ACF #96 Skull-Cracker regicide B ply 56: cake defence: 16x23 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK10,13,K14,27,32:B8,11,16,K22,26 | 26-30 | force | ACF #96 Skull-Cracker regicide B ply 56: cake defence: 26-30 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK9,K10,13,22,27:B3,11,16,K17 | 17x26 | force | ACF #96 Skull-Cracker regicide B ply 56: cake defence: 17x26 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK1,K6,20,21,31:B8,11,12,K22,K32 | 32-28 | force | ACF #96 Skull-Cracker regicide B ply 56: cake defence: 32-28 in 3 of 3 non-lost cake games from here (theory 3x w/d/l 0/3/0)
+B:WK7,K10,13,20,31:B8,12,19,K22,23 | 23-26 | force | ACF #96 Skull-Cracker regicide B ply 56: cake defence: 23-26 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK2,K6,20,21,31:B8,12,15,K22,28 | 8-11 | force | ACF #96 Skull-Cracker regicide B ply 56: cake defence: 8-11 in 1 of 2 non-lost cake games from here (theory 1x w/d/l 0/1/0); also 28-32 1x
+B:WK1,K2,K5,18,31:B8,11,12,K22 | 22x15 | force | ACF #96 Skull-Cracker regicide B ply 56: cake defence: 22x15 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK2,K5,K9,31,32:B8,12,K14,15,18 | 8-11 | force | ACF #96 Skull-Cracker regicide B ply 56: cake defence: 8-11 in 2 of 2 non-lost cake games from here (theory 2x w/d/l 0/2/0)
+B:WK2,9,K14,24,31:B8,11,16,K22,26 | 8-12 | force | ACF #96 Skull-Cracker regicide B ply 56: cake defence: 8-12 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK5,K6,13,16,32:B7,12,15,19,K22 | 15-18 | force | ACF #96 Skull-Cracker regicide B ply 56: cake defence: 15-18 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK2,K10,13,20,28:B3,12,22,K25,26 | 26-31 | force | ACF #96 Skull-Cracker regicide B ply 56: cake defence: 26-31 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK5,K10,20,21,31:B8,11,12,K22,K32 | 32-28 | force | ACF #96 Skull-Cracker regicide B ply 56: cake defence: 32-28 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK2,K10,13,20,28:B3,12,15,K18,26 | 15-19 | force | ACF #96 Skull-Cracker regicide B ply 56: cake defence: 15-19 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK9,K10,13,27,32:B8,11,16,K22,K30 | 30-26 | force | ACF #96 Skull-Cracker regicide B ply 58: cake defence: 30-26 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK1,K10,20,21,31:B8,11,12,K22,K28 | 28-24 | force | ACF #96 Skull-Cracker regicide B ply 58: cake defence: 28-24 in 4 of 4 non-lost cake games from here (theory 4x w/d/l 0/4/0)
+B:WK6,K7,13,20,31:B8,12,19,K22,26 | 19-24 | force | ACF #96 Skull-Cracker regicide B ply 58: cake defence: 19-24 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK2,K10,20,21,31:B11,12,15,K22,28 | 15-19 | force | ACF #96 Skull-Cracker regicide B ply 58: cake defence: 15-19 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK5,K6,K9,31,32:B11,12,K14,15,18 | 14-10 | force | ACF #96 Skull-Cracker regicide B ply 58: cake defence: 14-10 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK6,9,K14,24,31:B11,12,16,K22,26 | 26-30 | force | ACF #96 Skull-Cracker regicide B ply 58: cake defence: 26-30 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK2,K5,13,16,32:B7,12,18,19,K22 | 7-10 | force | ACF #96 Skull-Cracker regicide B ply 58: cake defence: 7-10 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK2,K5,K9,27,32:B11,12,K14,15,18 | 14-10 | force | ACF #96 Skull-Cracker regicide B ply 58: cake defence: 14-10 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK2,K10,20,21,31:B8,12,15,K22,K32 | 15-19 | force | ACF #96 Skull-Cracker regicide B ply 58: cake defence: 15-19 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK2,K10,13,20,24:B3,12,22,K25,K31 | 31-27 | force | ACF #96 Skull-Cracker regicide B ply 58: cake defence: 31-27 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK2,9,K10,20,28:B3,12,K18,19,26 | 19-23 | force | ACF #96 Skull-Cracker regicide B ply 58: cake defence: 19-23 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK6,K10,13,27,32:B8,11,16,K22,K26 | 8-12 | force | ACF #96 Skull-Cracker regicide B ply 60: cake defence: 8-12 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK1,K7,20,21,31:B8,11,12,K22,K24 | 24-28 | force | ACF #96 Skull-Cracker regicide B ply 60: cake defence: 24-28 in 4 of 4 non-lost cake games from here (theory 4x w/d/l 0/4/0)
+B:WK1,K7,13,20,31:B8,12,K22,24,26 | 22-25 | force | ACF #96 Skull-Cracker regicide B ply 60: cake defence: 22-25 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK2,K7,20,21,31:B11,12,19,K22,28 | 19-24 | force | ACF #96 Skull-Cracker regicide B ply 60: cake defence: 19-24 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK5,K6,K9,26,32:BK10,11,12,15,18 | 10x1 | force | ACF #96 Skull-Cracker regicide B ply 60: cake defence: 10x1 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:W9,K10,K14,24,31:B11,12,16,K22,K30 | 11-15 | force | ACF #96 Skull-Cracker regicide B ply 60: cake defence: 11-15 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK2,K5,11,13,32:B10,12,18,19,K22 | 18-23 | force | ACF #96 Skull-Cracker regicide B ply 60: cake defence: 18-23 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK2,K5,K9,24,32:BK10,11,12,15,18 | 18-23 | force | ACF #96 Skull-Cracker regicide B ply 60: cake defence: 18-23 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK6,K10,20,21,31:B8,12,19,K22,K32 | 32-28 | force | ACF #96 Skull-Cracker regicide B ply 60: cake defence: 32-28 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK2,K10,13,19,20:B3,12,22,K25,K27 | 27-23 | force | ACF #96 Skull-Cracker regicide B ply 60: cake defence: 27-23 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK2,5,K10,20,28:B3,12,K18,23,26 | 26-31 | force | ACF #96 Skull-Cracker regicide B ply 60: cake defence: 26-31 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
