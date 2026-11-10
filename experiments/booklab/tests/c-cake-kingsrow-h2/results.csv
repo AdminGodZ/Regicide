@@ -1,0 +1,157 @@
+game,pair,opening,black,white,result,score_a,termination,engine_plies
+3,2,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:2","Cake 1.89f","Kingsrow(x64)[2] 1.20",1/2-1/2,0.5,"repetition",75
+5,3,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:3","Cake 1.89f","Kingsrow(x64)[5] 1.20",1/2-1/2,0.5,"repetition",144
+8,4,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:4","Kingsrow(x64)[7] 1.20","Cake 1.89f",1/2-1/2,0.5,"no progress",317
+4,2,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:2","Kingsrow(x64)[4] 1.20","Cake 1.89f",1/2-1/2,0.5,"repetition",91
+1,1,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:1","Cake 1.89f","Kingsrow(x64)[1] 1.20",1/2-1/2,0.5,"no progress",203
+7,4,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:4","Cake 1.89f","Kingsrow(x64) 1.20",1/2-1/2,0.5,"repetition",98
+2,1,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:1","Kingsrow(x64)[6] 1.20","Cake 1.89f",1/2-1/2,0.5,"repetition",126
+9,5,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:5","Cake 1.89f","Kingsrow(x64)[2] 1.20",1/2-1/2,0.5,"repetition",83
+6,3,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:3","Kingsrow(x64)[3] 1.20","Cake 1.89f",1/2-1/2,0.5,"repetition",101
+12,6,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:6","Kingsrow(x64)[4] 1.20","Cake 1.89f",1/2-1/2,0.5,"repetition",120
+13,7,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:7","Cake 1.89f","Kingsrow(x64)[1] 1.20",1/2-1/2,0.5,"repetition",75
+11,6,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:6","Cake 1.89f","Kingsrow(x64)[7] 1.20",1/2-1/2,0.5,"no progress",154
+10,5,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:5","Kingsrow(x64)[5] 1.20","Cake 1.89f",1/2-1/2,0.5,"no progress",201
+16,8,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:8","Kingsrow(x64)[2] 1.20","Cake 1.89f",1/2-1/2,0.5,"no progress",221
+15,8,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:8","Cake 1.89f","Kingsrow(x64)[6] 1.20",1/2-1/2,0.5,"no progress",166
+17,9,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:9","Cake 1.89f","Kingsrow(x64)[3] 1.20",1/2-1/2,0.5,"repetition",65
+21,11,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:11","Cake 1.89f","Kingsrow(x64)[5] 1.20",1/2-1/2,0.5,"no progress",203
+18,9,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:9","Kingsrow(x64)[4] 1.20","Cake 1.89f",1/2-1/2,0.5,"no progress",166
+14,7,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:7","Kingsrow(x64) 1.20","Cake 1.89f",1/2-1/2,0.5,"no progress",216
+23,12,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:12","Cake 1.89f","Kingsrow(x64)[6] 1.20",1/2-1/2,0.5,"no progress",179
+24,12,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:12","Kingsrow(x64)[3] 1.20","Cake 1.89f",1/2-1/2,0.5,"no progress",167
+22,11,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:11","Kingsrow(x64)[2] 1.20","Cake 1.89f",1/2-1/2,0.5,"no progress",173
+25,13,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:13","Cake 1.89f","Kingsrow(x64)[5] 1.20",1/2-1/2,0.5,"repetition",85
+27,14,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:14","Cake 1.89f","Kingsrow(x64) 1.20",1/2-1/2,0.5,"no progress",237
+26,13,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:13","Kingsrow(x64)[4] 1.20","Cake 1.89f",1/2-1/2,0.5,"repetition",117
+28,14,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:14","Kingsrow(x64)[6] 1.20","Cake 1.89f",1/2-1/2,0.5,"no progress",166
+19,10,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:10","Cake 1.89f","Kingsrow(x64)[1] 1.20",1/2-1/2,0.5,"repetition",188
+31,16,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:16","Cake 1.89f","Kingsrow(x64)[5] 1.20",1/2-1/2,0.5,"no progress",198
+32,16,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:16","Kingsrow(x64) 1.20","Cake 1.89f",1/2-1/2,0.5,"repetition",178
+30,15,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:15","Kingsrow(x64)[2] 1.20","Cake 1.89f",1/2-1/2,0.5,"repetition",131
+29,15,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:15","Cake 1.89f","Kingsrow(x64)[3] 1.20",1/2-1/2,0.5,"repetition",69
+36,18,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:18","Kingsrow(x64)[5] 1.20","Cake 1.89f",1/2-1/2,0.5,"no progress",188
+20,10,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:10","Kingsrow(x64)[7] 1.20","Cake 1.89f",0-1,1,"no legal moves",161
+35,18,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:18","Cake 1.89f","Kingsrow(x64)[1] 1.20",1/2-1/2,0.5,"repetition",132
+38,19,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:19","Kingsrow(x64)[2] 1.20","Cake 1.89f",1/2-1/2,0.5,"no progress",176
+34,17,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:17","Kingsrow(x64)[6] 1.20","Cake 1.89f",1/2-1/2,0.5,"no progress",193
+33,17,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:17","Cake 1.89f","Kingsrow(x64)[4] 1.20",1/2-1/2,0.5,"no progress",243
+41,21,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:21","Cake 1.89f","Kingsrow(x64)[7] 1.20",1/2-1/2,0.5,"repetition",169
+37,19,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:19","Cake 1.89f","Kingsrow(x64) 1.20",1/2-1/2,0.5,"repetition",189
+40,20,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:20","Kingsrow(x64)[5] 1.20","Cake 1.89f",1/2-1/2,0.5,"repetition",112
+39,20,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:20","Cake 1.89f","Kingsrow(x64)[3] 1.20",1/2-1/2,0.5,"repetition",111
+42,21,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:21","Kingsrow(x64)[1] 1.20","Cake 1.89f",1/2-1/2,0.5,"repetition",142
+43,22,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:22","Cake 1.89f","Kingsrow(x64)[2] 1.20",1/2-1/2,0.5,"no progress",156
+45,23,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:23","Cake 1.89f","Kingsrow(x64)[4] 1.20",1/2-1/2,0.5,"no progress",152
+44,22,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:22","Kingsrow(x64)[6] 1.20","Cake 1.89f",1/2-1/2,0.5,"no progress",251
+47,24,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:24","Cake 1.89f","Kingsrow(x64) 1.20",1/2-1/2,0.5,"no progress",186
+49,25,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:25","Cake 1.89f","Kingsrow(x64)[3] 1.20",1/2-1/2,0.5,"no progress",207
+46,23,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:23","Kingsrow(x64)[7] 1.20","Cake 1.89f",1/2-1/2,0.5,"no progress",173
+50,25,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:25","Kingsrow(x64)[1] 1.20","Cake 1.89f",1/2-1/2,0.5,"repetition",64
+52,26,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:26","Kingsrow(x64)[4] 1.20","Cake 1.89f",1/2-1/2,0.5,"repetition",146
+51,26,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:26","Cake 1.89f","Kingsrow(x64)[2] 1.20",1/2-1/2,0.5,"repetition",85
+53,27,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:27","Cake 1.89f","Kingsrow(x64)[6] 1.20",1/2-1/2,0.5,"repetition",140
+48,24,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:24","Kingsrow(x64)[5] 1.20","Cake 1.89f",1/2-1/2,0.5,"no progress",256
+54,27,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:27","Kingsrow(x64) 1.20","Cake 1.89f",1/2-1/2,0.5,"no progress",180
+56,28,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:28","Kingsrow(x64)[7] 1.20","Cake 1.89f",1/2-1/2,0.5,"repetition",155
+57,29,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:29","Cake 1.89f","Kingsrow(x64)[1] 1.20",1/2-1/2,0.5,"no progress",188
+60,30,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:30","Kingsrow(x64)[6] 1.20","Cake 1.89f",1/2-1/2,0.5,"repetition",70
+55,28,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:28","Cake 1.89f","Kingsrow(x64)[3] 1.20",1/2-1/2,0.5,"no progress",188
+59,30,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:30","Cake 1.89f","Kingsrow(x64)[2] 1.20",1/2-1/2,0.5,"no progress",169
+62,31,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:31","Kingsrow(x64) 1.20","Cake 1.89f",1/2-1/2,0.5,"no progress",173
+58,29,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:29","Kingsrow(x64)[4] 1.20","Cake 1.89f",1/2-1/2,0.5,"repetition",108
+64,32,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:32","Kingsrow(x64)[1] 1.20","Cake 1.89f",1/2-1/2,0.5,"repetition",108
+61,31,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:31","Cake 1.89f","Kingsrow(x64)[5] 1.20",1/2-1/2,0.5,"repetition",61
+68,34,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:34","Kingsrow(x64) 1.20","Cake 1.89f",1/2-1/2,0.5,"no progress",165
+66,33,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:33","Kingsrow(x64)[3] 1.20","Cake 1.89f",1/2-1/2,0.5,"no progress",176
+67,34,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:34","Cake 1.89f","Kingsrow(x64)[2] 1.20",1/2-1/2,0.5,"repetition",89
+65,33,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:33","Cake 1.89f","Kingsrow(x64)[6] 1.20",1/2-1/2,0.5,"no progress",161
+63,32,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:32","Cake 1.89f","Kingsrow(x64)[7] 1.20",1/2-1/2,0.5,"repetition",158
+70,35,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:35","Kingsrow(x64)[1] 1.20","Cake 1.89f",1/2-1/2,0.5,"repetition",143
+71,36,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:36","Cake 1.89f","Kingsrow(x64)[5] 1.20",1/2-1/2,0.5,"no progress",157
+69,35,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:35","Cake 1.89f","Kingsrow(x64)[4] 1.20",1/2-1/2,0.5,"repetition",159
+76,38,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:38","Kingsrow(x64)[7] 1.20","Cake 1.89f",1/2-1/2,0.5,"no progress",188
+72,36,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:36","Kingsrow(x64) 1.20","Cake 1.89f",1/2-1/2,0.5,"no progress",179
+75,38,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:38","Cake 1.89f","Kingsrow(x64)[6] 1.20",1/2-1/2,0.5,"no progress",170
+77,39,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:39","Cake 1.89f","Kingsrow(x64)[1] 1.20",1/2-1/2,0.5,"no progress",146
+73,37,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:37","Cake 1.89f","Kingsrow(x64)[3] 1.20",1/2-1/2,0.5,"repetition",89
+78,39,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:39","Kingsrow(x64)[5] 1.20","Cake 1.89f",1/2-1/2,0.5,"no progress",158
+79,40,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:40","Cake 1.89f","Kingsrow(x64)[4] 1.20",1/2-1/2,0.5,"repetition",119
+80,40,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:40","Kingsrow(x64)[7] 1.20","Cake 1.89f",1/2-1/2,0.5,"no progress",183
+81,41,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:41","Cake 1.89f","Kingsrow(x64) 1.20",1/2-1/2,0.5,"no progress",172
+83,42,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:42","Cake 1.89f","Kingsrow(x64)[1] 1.20",1/2-1/2,0.5,"no progress",180
+84,42,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:42","Kingsrow(x64)[3] 1.20","Cake 1.89f",1/2-1/2,0.5,"no progress",194
+82,41,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:41","Kingsrow(x64)[6] 1.20","Cake 1.89f",1/2-1/2,0.5,"no progress",193
+85,43,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:43","Cake 1.89f","Kingsrow(x64)[5] 1.20",1/2-1/2,0.5,"no progress",161
+88,44,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:44","Kingsrow(x64) 1.20","Cake 1.89f",1/2-1/2,0.5,"repetition",117
+86,43,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:43","Kingsrow(x64)[4] 1.20","Cake 1.89f",1/2-1/2,0.5,"repetition",86
+89,45,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:45","Cake 1.89f","Kingsrow(x64)[1] 1.20",1/2-1/2,0.5,"repetition",78
+87,44,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:44","Cake 1.89f","Kingsrow(x64)[7] 1.20",1/2-1/2,0.5,"no progress",290
+91,46,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:46","Cake 1.89f","Kingsrow(x64)[6] 1.20",1/2-1/2,0.5,"repetition",75
+90,45,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:45","Kingsrow(x64)[3] 1.20","Cake 1.89f",1/2-1/2,0.5,"repetition",75
+74,37,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:37","Kingsrow(x64)[2] 1.20","Cake 1.89f",0-1,1,"no legal moves",163
+96,48,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:48","Kingsrow(x64)[7] 1.20","Cake 1.89f",1/2-1/2,0.5,"repetition",78
+92,46,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:46","Kingsrow(x64)[5] 1.20","Cake 1.89f",1/2-1/2,0.5,"repetition",130
+94,47,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:47","Kingsrow(x64)[4] 1.20","Cake 1.89f",1/2-1/2,0.5,"no progress",229
+98,49,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:49","Kingsrow(x64)[3] 1.20","Cake 1.89f",1/2-1/2,0.5,"repetition",157
+97,49,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:49","Cake 1.89f","Kingsrow(x64)[6] 1.20",1/2-1/2,0.5,"repetition",71
+101,51,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:51","Cake 1.89f","Kingsrow(x64)[5] 1.20",1/2-1/2,0.5,"no progress",155
+95,48,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:48","Cake 1.89f","Kingsrow(x64)[1] 1.20",1/2-1/2,0.5,"no progress",218
+99,50,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:50","Cake 1.89f","Kingsrow(x64)[2] 1.20",1/2-1/2,0.5,"no progress",198
+104,52,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:52","Kingsrow(x64)[6] 1.20","Cake 1.89f",1/2-1/2,0.5,"repetition",307
+100,50,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:50","Kingsrow(x64)[7] 1.20","Cake 1.89f",1/2-1/2,0.5,"repetition",99
+102,51,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:51","Kingsrow(x64)[4] 1.20","Cake 1.89f",1/2-1/2,0.5,"repetition",155
+105,53,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:53","Cake 1.89f","Kingsrow(x64)[5] 1.20",1/2-1/2,0.5,"no progress",190
+107,54,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:54","Cake 1.89f","Kingsrow(x64)[2] 1.20",1/2-1/2,0.5,"no progress",173
+103,52,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:52","Cake 1.89f","Kingsrow(x64)[3] 1.20",1/2-1/2,0.5,"repetition",60
+109,55,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:55","Cake 1.89f","Kingsrow(x64)[7] 1.20",1/2-1/2,0.5,"no progress",175
+106,53,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:53","Kingsrow(x64)[1] 1.20","Cake 1.89f",1/2-1/2,0.5,"repetition",257
+93,47,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:47","Cake 1.89f","Kingsrow(x64) 1.20",1-0,1,"no legal moves",152
+110,55,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:55","Kingsrow(x64)[4] 1.20","Cake 1.89f",1/2-1/2,0.5,"no progress",174
+108,54,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:54","Kingsrow(x64)[6] 1.20","Cake 1.89f",1/2-1/2,0.5,"repetition",103
+114,57,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:57","Kingsrow(x64)[7] 1.20","Cake 1.89f",1/2-1/2,0.5,"repetition",106
+112,56,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:56","Kingsrow(x64)[2] 1.20","Cake 1.89f",1/2-1/2,0.5,"repetition",107
+113,57,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:57","Cake 1.89f","Kingsrow(x64)[3] 1.20",1/2-1/2,0.5,"no progress",170
+118,59,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:59","Kingsrow(x64)[6] 1.20","Cake 1.89f",1/2-1/2,0.5,"repetition",107
+111,56,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:56","Cake 1.89f","Kingsrow(x64)[5] 1.20",1/2-1/2,0.5,"no progress",155
+116,58,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:58","Kingsrow(x64) 1.20","Cake 1.89f",1/2-1/2,0.5,"no progress",176
+117,59,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:59","Cake 1.89f","Kingsrow(x64)[4] 1.20",1/2-1/2,0.5,"no progress",188
+120,60,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:60","Kingsrow(x64)[2] 1.20","Cake 1.89f",1/2-1/2,0.5,"no progress",209
+119,60,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:60","Cake 1.89f","Kingsrow(x64)[7] 1.20",1/2-1/2,0.5,"no progress",154
+121,61,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:61","Cake 1.89f","Kingsrow(x64)[3] 1.20",1/2-1/2,0.5,"no progress",168
+126,63,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:63","Kingsrow(x64)[2] 1.20","Cake 1.89f",1/2-1/2,0.5,"repetition",115
+127,64,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:64","Cake 1.89f","Kingsrow(x64)[7] 1.20",1/2-1/2,0.5,"repetition",104
+125,63,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:63","Cake 1.89f","Kingsrow(x64)[4] 1.20",1/2-1/2,0.5,"no progress",171
+115,58,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:58","Cake 1.89f","Kingsrow(x64)[1] 1.20",1-0,1,"no legal moves",124
+132,66,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:66","Kingsrow(x64)[1] 1.20","Cake 1.89f",1/2-1/2,0.5,"repetition",93
+129,65,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:65","Cake 1.89f","Kingsrow(x64)[2] 1.20",1/2-1/2,0.5,"no progress",184
+130,65,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:65","Kingsrow(x64)[7] 1.20","Cake 1.89f",1/2-1/2,0.5,"repetition",113
+128,64,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:64","Kingsrow(x64)[3] 1.20","Cake 1.89f",1/2-1/2,0.5,"repetition",54
+131,66,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:66","Cake 1.89f","Kingsrow(x64)[4] 1.20",1/2-1/2,0.5,"repetition",89
+134,67,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:67","Kingsrow(x64)[2] 1.20","Cake 1.89f",1/2-1/2,0.5,"repetition",143
+133,67,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:67","Cake 1.89f","Kingsrow(x64)[1] 1.20",1/2-1/2,0.5,"no progress",177
+136,68,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:68","Kingsrow(x64)[3] 1.20","Cake 1.89f",1/2-1/2,0.5,"no progress",173
+124,62,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:62","Kingsrow(x64) 1.20","Cake 1.89f",1/2-1/2,0.5,"repetition",124
+122,61,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:61","Kingsrow(x64)[6] 1.20","Cake 1.89f",0-1,1,"no legal moves",173
+123,62,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:62","Cake 1.89f","Kingsrow(x64)[5] 1.20",1-0,1,"no legal moves",162
+138,69,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:69","Kingsrow(x64)[2] 1.20","Cake 1.89f",1/2-1/2,0.5,"repetition",101
+135,68,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:68","Cake 1.89f","Kingsrow(x64)[7] 1.20",1/2-1/2,0.5,"repetition",139
+142,71,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:71","Kingsrow(x64)[6] 1.20","Cake 1.89f",1/2-1/2,0.5,"no progress",158
+137,69,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:69","Cake 1.89f","Kingsrow(x64)[4] 1.20",1/2-1/2,0.5,"no progress",220
+140,70,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:70","Kingsrow(x64)[3] 1.20","Cake 1.89f",1/2-1/2,0.5,"repetition",94
+139,70,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:70","Cake 1.89f","Kingsrow(x64)[1] 1.20",1/2-1/2,0.5,"repetition",207
+143,72,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:72","Cake 1.89f","Kingsrow(x64)[5] 1.20",1/2-1/2,0.5,"no progress",201
+148,74,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:74","Kingsrow(x64)[3] 1.20","Cake 1.89f",1/2-1/2,0.5,"no progress",176
+145,73,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:73","Cake 1.89f","Kingsrow(x64)[7] 1.20",1/2-1/2,0.5,"no progress",177
+149,75,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:75","Cake 1.89f","Kingsrow(x64)[1] 1.20",1/2-1/2,0.5,"no progress",153
+141,71,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:71","Cake 1.89f","Kingsrow(x64) 1.20",1/2-1/2,0.5,"repetition",85
+146,73,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:73","Kingsrow(x64)[6] 1.20","Cake 1.89f",1/2-1/2,0.5,"repetition",98
+147,74,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:74","Cake 1.89f","Kingsrow(x64)[4] 1.20",1/2-1/2,0.5,"repetition",155
+150,75,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:75","Kingsrow(x64)[5] 1.20","Cake 1.89f",1/2-1/2,0.5,"repetition",91
+152,76,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:76","Kingsrow(x64)[7] 1.20","Cake 1.89f",1/2-1/2,0.5,"repetition",118
+151,76,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:76","Cake 1.89f","Kingsrow(x64)[3] 1.20",1/2-1/2,0.5,"repetition",103
+154,77,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:77","Kingsrow(x64) 1.20","Cake 1.89f",1/2-1/2,0.5,"no progress",173
+156,78,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:78","Kingsrow(x64)[4] 1.20","Cake 1.89f",1/2-1/2,0.5,"repetition",62
+155,78,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:78","Cake 1.89f","Kingsrow(x64)[6] 1.20",1/2-1/2,0.5,"no progress",172
+144,72,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:72","Kingsrow(x64)[2] 1.20","Cake 1.89f",0-1,1,"no legal moves",151
+153,77,"/mnt/c/regicide-match/jobs/booklab/acf156_h2.txt:77","Cake 1.89f","Kingsrow(x64)[1] 1.20",1/2-1/2,0.5,"no progress",229

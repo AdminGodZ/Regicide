@@ -6,8 +6,8 @@ M=$1; BOOK=${2:-}
 J=/mnt/c/regicide-match/jobs/booklab; L=~/regicide-jobs/booklab; W=~/regicide-booklab; E=$W/experiments/booklab
 bash $J/install_src.sh > /dev/null
 mkdir -p $E/scripts $E/census $E/tests $E/repairs
-cp $J/src/experiments/booklab/README.md $E/
-for f in bl_run.sh bl_target.sh bl_build_dll.sh census_wp1.sh make_book.sh assemble.sh publish.sh wait.sh survey.sh theory_build.sh patch_bookgen.py install_src.sh commit.sh acf156_h1.txt acf156_h2.txt; do
+cp $J/src/experiments/booklab/README.md $J/src/experiments/booklab/RESULTS.md $E/
+for f in census_report.sh deep1.sh wait_next.sh v_run.sh bl_run.sh bl_target.sh bl_build_dll.sh census_wp1.sh make_book.sh assemble.sh publish.sh wait.sh survey.sh theory_build.sh patch_bookgen.py install_src.sh commit.sh acf156_h1.txt acf156_h2.txt; do
   [ -f $J/$f ] && cp $J/$f $E/scripts/
 done
 for f in $J/t_*.sh $J/v_*.sh; do [ -f "$f" ] && cp "$f" $E/scripts/; done

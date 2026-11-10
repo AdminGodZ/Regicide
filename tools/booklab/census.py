@@ -15,6 +15,7 @@ import collections
 import csv
 import math
 import os
+import re
 import statistics
 import sys
 
@@ -22,6 +23,18 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from theory import parse_pdn, family, ballot_of, TIME, is_book  # noqa: E402
 
 NAMES = {"cake": "Cake", "kingsrow": "KingsRow", "guinn": "GuiNN", "regicide": "Regicide"}
+
+
+def norm(name):
+    return re.sub(r"\[\d+\]", "", name).strip()
+
+
+def a_name(results, tag):
+    """Engine A of a run, from its summary.txt ("Match: A = X, B = Y")."""
+    for line in open(os.path.join(results, tag, "summary.txt")):
+        if line.startswith("Match: A = "):
+            return norm(line[len("Match: A = "):].rsplit(", B = ", 1)[0])
+    return None
 
 
 def games_of(results, tags):
@@ -100,10 +113,8 @@ def main():
         dec = []
         for t, tg, moves in gs:
             b, wh = tg.get("Black", ""), tg.get("White", "")
-            if an is None:
-                ev = tg.get("Event", "")
-                an = ev.split(" vs ")[0] if " vs " in ev else b
-            a_col = "B" if b == an else "W"
+            an = a_name(a.results, t)
+            a_col = "B" if norm(b) == an else "W"
             res = tg.get("Result", "")
             bname, bmoves, nopen = ballot_of(tg.get("Opening", ""))
             ballots[bmoves] = bname

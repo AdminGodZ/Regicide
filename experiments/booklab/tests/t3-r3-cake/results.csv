@@ -1,0 +1,57 @@
+game,pair,opening,black,white,result,score_a,termination,engine_plies
+2,1,"/home/admingod/regicide-jobs/booklab/decks/t3-r3-cake.txt:1","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",88
+6,3,"/home/admingod/regicide-jobs/booklab/decks/t3-r3-cake.txt:3","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",88
+8,4,"/home/admingod/regicide-jobs/booklab/decks/t3-r3-cake.txt:4","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",92
+4,2,"/home/admingod/regicide-jobs/booklab/decks/t3-r3-cake.txt:2","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",92
+10,5,"/home/admingod/regicide-jobs/booklab/decks/t3-r3-cake.txt:5","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",67
+7,4,"/home/admingod/regicide-jobs/booklab/decks/t3-r3-cake.txt:4","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",121
+1,1,"/home/admingod/regicide-jobs/booklab/decks/t3-r3-cake.txt:1","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",121
+12,6,"/home/admingod/regicide-jobs/booklab/decks/t3-r3-cake.txt:6","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",67
+3,2,"/home/admingod/regicide-jobs/booklab/decks/t3-r3-cake.txt:2","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",91
+5,3,"/home/admingod/regicide-jobs/booklab/decks/t3-r3-cake.txt:3","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",91
+16,8,"/home/admingod/regicide-jobs/booklab/decks/t3-r3-cake.txt:8","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",98
+14,7,"/home/admingod/regicide-jobs/booklab/decks/t3-r3-cake.txt:7","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",93
+9,5,"/home/admingod/regicide-jobs/booklab/decks/t3-r3-cake.txt:5","Regicide 0.2","Cake 1.89f",0-1,0,"no legal moves",95
+18,9,"/home/admingod/regicide-jobs/booklab/decks/t3-r3-cake.txt:9","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",75
+13,7,"/home/admingod/regicide-jobs/booklab/decks/t3-r3-cake.txt:7","Regicide 0.2","Cake 1.89f",0-1,0,"no legal moves",87
+11,6,"/home/admingod/regicide-jobs/booklab/decks/t3-r3-cake.txt:6","Regicide 0.2","Cake 1.89f",0-1,0,"no legal moves",107
+15,8,"/home/admingod/regicide-jobs/booklab/decks/t3-r3-cake.txt:8","Regicide 0.2","Cake 1.89f",0-1,0,"no legal moves",99
+19,10,"/home/admingod/regicide-jobs/booklab/decks/t3-r3-cake.txt:10","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",85
+20,10,"/home/admingod/regicide-jobs/booklab/decks/t3-r3-cake.txt:10","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",71
+17,9,"/home/admingod/regicide-jobs/booklab/decks/t3-r3-cake.txt:9","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",97
+21,11,"/home/admingod/regicide-jobs/booklab/decks/t3-r3-cake.txt:11","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",104
+22,11,"/home/admingod/regicide-jobs/booklab/decks/t3-r3-cake.txt:11","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",75
+26,13,"/home/admingod/regicide-jobs/booklab/decks/t3-r3-cake.txt:13","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",73
+23,12,"/home/admingod/regicide-jobs/booklab/decks/t3-r3-cake.txt:12","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",99
+28,14,"/home/admingod/regicide-jobs/booklab/decks/t3-r3-cake.txt:14","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",73
+24,12,"/home/admingod/regicide-jobs/booklab/decks/t3-r3-cake.txt:12","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",75
+25,13,"/home/admingod/regicide-jobs/booklab/decks/t3-r3-cake.txt:13","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",96
+27,14,"/home/admingod/regicide-jobs/booklab/decks/t3-r3-cake.txt:14","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",102
+30,15,"/home/admingod/regicide-jobs/booklab/decks/t3-r3-cake.txt:15","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",73
+32,16,"/home/admingod/regicide-jobs/booklab/decks/t3-r3-cake.txt:16","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",73
+29,15,"/home/admingod/regicide-jobs/booklab/decks/t3-r3-cake.txt:15","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",96
+34,17,"/home/admingod/regicide-jobs/booklab/decks/t3-r3-cake.txt:17","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",65
+36,18,"/home/admingod/regicide-jobs/booklab/decks/t3-r3-cake.txt:18","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",65
+35,18,"/home/admingod/regicide-jobs/booklab/decks/t3-r3-cake.txt:18","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",76
+31,16,"/home/admingod/regicide-jobs/booklab/decks/t3-r3-cake.txt:16","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",96
+37,19,"/home/admingod/regicide-jobs/booklab/decks/t3-r3-cake.txt:19","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",88
+38,19,"/home/admingod/regicide-jobs/booklab/decks/t3-r3-cake.txt:19","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",65
+39,20,"/home/admingod/regicide-jobs/booklab/decks/t3-r3-cake.txt:20","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",76
+43,22,"/home/admingod/regicide-jobs/booklab/decks/t3-r3-cake.txt:22","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",80
+33,17,"/home/admingod/regicide-jobs/booklab/decks/t3-r3-cake.txt:17","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",69
+44,22,"/home/admingod/regicide-jobs/booklab/decks/t3-r3-cake.txt:22","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",81
+40,20,"/home/admingod/regicide-jobs/booklab/decks/t3-r3-cake.txt:20","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",75
+41,21,"/home/admingod/regicide-jobs/booklab/decks/t3-r3-cake.txt:21","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",66
+42,21,"/home/admingod/regicide-jobs/booklab/decks/t3-r3-cake.txt:21","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",96
+45,23,"/home/admingod/regicide-jobs/booklab/decks/t3-r3-cake.txt:23","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",64
+47,24,"/home/admingod/regicide-jobs/booklab/decks/t3-r3-cake.txt:24","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",92
+46,23,"/home/admingod/regicide-jobs/booklab/decks/t3-r3-cake.txt:23","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",97
+48,24,"/home/admingod/regicide-jobs/booklab/decks/t3-r3-cake.txt:24","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",85
+50,25,"/home/admingod/regicide-jobs/booklab/decks/t3-r3-cake.txt:25","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",80
+52,26,"/home/admingod/regicide-jobs/booklab/decks/t3-r3-cake.txt:26","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",80
+49,25,"/home/admingod/regicide-jobs/booklab/decks/t3-r3-cake.txt:25","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",73
+53,27,"/home/admingod/regicide-jobs/booklab/decks/t3-r3-cake.txt:27","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",113
+54,27,"/home/admingod/regicide-jobs/booklab/decks/t3-r3-cake.txt:27","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",80
+56,28,"/home/admingod/regicide-jobs/booklab/decks/t3-r3-cake.txt:28","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",80
+55,28,"/home/admingod/regicide-jobs/booklab/decks/t3-r3-cake.txt:28","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",73
+51,26,"/home/admingod/regicide-jobs/booklab/decks/t3-r3-cake.txt:26","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",114
