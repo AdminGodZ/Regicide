@@ -84,6 +84,7 @@ std::atomic<bool> g_searching{false};
 // queued, or the game history is being sent), so it is remembered by the go's number and honoured on entry.
 std::atomic<long> g_go_read{0};   // `go` lines read so far
 std::atomic<long> g_stop_for{0};  // number of the go the last `stop` was meant for
+std::atomic<bool> g_shutdown{false};  // `quit` or end of input was read: every go still to come starts stopped
 
 std::mutex g_queue_mutex;
 std::condition_variable g_queue_cv;
@@ -98,7 +99,10 @@ void reader_thread() {
             if (g_searching) g_playnow = 1;
             continue;
         }
-        if (line == "quit" && g_searching) g_playnow = 1;
+        if (line == "quit") {  // also ends the search of every go that is still queued or being prepared
+            g_shutdown = true;
+            if (g_searching) g_playnow = 1;
+        }
         std::istringstream words(line);
         std::string first;
         if (words >> first && first == "go") ++g_go_read;
@@ -106,6 +110,7 @@ void reader_thread() {
         g_queue.push_back(line);
         g_queue_cv.notify_one();
     }
+    g_shutdown = true;  // end of input: as `quit`
     g_playnow = 1;
     std::lock_guard lock(g_queue_mutex);
     g_queue.push_back("quit");
@@ -272,7 +277,8 @@ int run(Engine& eng, bool send_hist) {
             char str[4096] = {0};  // CB promises 1024; extra slack for sloppy engines
             g_playnow = 0;
             g_searching = true;
-            if (g_stop_for == go_number) g_playnow = 1;  // stopped while this go was queued or being prepared
+            // stopped while this go was queued or being prepared, or the host is shutting down
+            if (g_shutdown || g_stop_for == go_number) g_playnow = 1;
             auto t0 = std::chrono::steady_clock::now();
             int r = eng.getmove(board8, before.stm == Color::Black ? CB_BLACK : CB_WHITE, maxtime, str,
                                 const_cast<int*>(&g_playnow), info, moreinfo, &cbm);
