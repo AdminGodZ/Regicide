@@ -142,6 +142,7 @@ std::vector<Position> sample(int n, int count, std::mt19937_64& rng, Kind kind =
         Position p;
         p.set(side[BLACK], side[WHITE], kings, Color(rng() & 1));
         if (has_capture(p, p.side_to_move()) || (kind != ANY_KIND && kind_of(p) != kind)) continue;
+        if (!quiet_targets(p, p.side_to_move())) continue;  // the game is already over
         const Wld r = probe(p);
         if (r != Wld::Win && r != Wld::Loss) continue;
         const Color winner = r == Wld::Win ? p.side_to_move() : ~p.side_to_move();

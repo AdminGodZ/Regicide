@@ -1,10 +1,12 @@
 #include "nnue.hpp"
 
+#include <algorithm>
 #include <array>
 #include <bit>
 #include <chrono>
 #include <cstring>
 #include <iomanip>
+#include <limits>
 #include <numeric>
 #include <ostream>
 #include <random>
@@ -303,6 +305,8 @@ std::shared_ptr<const Network> Network::load(const unsigned char* data, std::siz
     if (size != arch.file_bytes())
         return fail(what + "size " + std::to_string(size) + ", expected " + std::to_string(arch.file_bytes()));
 
+    if (read_u32(data + 40) > 1u << 24) return fail(what + "output scale out of range");
+
     auto net = std::make_shared<Network>();
     net->arch_ = arch;
     net->out_scale_ = int(read_u32(data + 40));
@@ -353,6 +357,15 @@ std::shared_ptr<const Network> Network::load(const unsigned char* data, std::siz
     take_weights(net->l2_weight_.get(), l1, l2, identity.data());
     take(net->out_bias_.get(), 4 * std::size_t(arch.buckets));
     take(net->out_weight_.get(), 2 * std::size_t(arch.buckets) * l2);
+
+    // The hidden layers sum in 32 bits: a bias that the largest possible weighted sum could push past the limit
+    // is refused (activations are at most QH, weights at most 128 in size).
+    auto roomy = [](const std::int32_t* bias, std::size_t count, int inputs) {
+        const std::int64_t room = std::numeric_limits<std::int32_t>::max() - std::int64_t(inputs) * QH * 128;
+        return std::all_of(bias, bias + count, [&](std::int32_t b) { return b <= room && b >= -room; });
+    };
+    if (!roomy(net->l1_bias_.get(), std::size_t(hb) * l1, n1) || !roomy(net->l2_bias_.get(), std::size_t(hb) * l2, l1))
+        return fail(what + "hidden bias out of range");
     return net;
 }
 

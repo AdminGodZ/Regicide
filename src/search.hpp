@@ -125,11 +125,18 @@ public:
         tt_.clear();
     }
     // Probe the (process-wide, already initialised) endgame database in positions with at most n pieces; 0 = off.
-    void set_egdb_pieces(int n) { egdb_pieces_ = n; }
+    // A change clears the hash table: scores and evals of database positions depend on it.
+    void set_egdb_pieces(int n) {
+        if (n != egdb_pieces_) tt_.clear();
+        egdb_pieces_ = n;
+    }
     int egdb_pieces() const { return egdb_pieces_; }
     // Use moves-to-conversion only in positions with at most n pieces (default: wherever the database has it).
     // Lets tests stand in small generated tables for the real database's WLD-only range.
-    void set_egdb_mtc_pieces(int n) { egdb_mtc_pieces_ = n; }
+    void set_egdb_mtc_pieces(int n) {
+        if (n != egdb_mtc_pieces_) tt_.clear();
+        egdb_mtc_pieces_ = n;
+    }
     // nullptr disables the book. `margin` > 0 picks randomly among book moves within margin of the best.
     void set_book(std::shared_ptr<const Book> b, int margin = 0) {
         book_ = std::move(b);

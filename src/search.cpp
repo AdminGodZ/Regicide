@@ -446,7 +446,8 @@ Score Worker::search(Position& pos, Score alpha, Score beta, int depth, int ply,
 
         // Shallow pruning of late quiet moves.
         if (!pv_node && quiet && n > 0 && best > -SCORE_KNOWN_WIN) {
-            if (depth <= P.lmp_depth && int(quiets.size()) >= P.lmp_base + depth * depth) continue;
+            // Not in the conversion search: the one move that keeps a win can come late in the list.
+            if (depth <= P.lmp_depth && !conversion && int(quiets.size()) >= P.lmp_base + depth * depth) continue;
             if (depth <= P.fut_depth && !conversion && !limit_near && eval + P.fut_margin * depth <= alpha) continue;
         }
 
