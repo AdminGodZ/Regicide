@@ -197,6 +197,7 @@ GoResult Engine::go(const std::string& position, const std::string& go_cmd, Cloc
                     Clock::time_point kill_at) {
     GoResult r;
     std::string line;
+    const auto entered = Clock::now();
     if (!proc_.send(position)) {
         r.status = GoResult::Status::Crash;
         r.detail = "engine process is gone";
@@ -224,6 +225,9 @@ GoResult Engine::go(const std::string& position, const std::string& go_cmd, Cloc
     }
 
     auto t0 = Clock::now();
+    // The caller set the deadlines before the position was sent, but the engine is charged from here on.
+    stop_at += t0 - entered;
+    kill_at += t0 - entered;
     if (!proc_.send(go_cmd)) {
         r.status = GoResult::Status::Crash;
         r.detail = "engine process is gone";
