@@ -465,6 +465,24 @@ int main(int argc, char** argv) {
     if (cmd == "census") return census(files);
     if (cmd == "relabel") return relabel(in, out);
     if (cmd == "pilot") return pilot(files, n, lo, hi, budgets, threads, seed, out);
+    if (cmd == "fens") {  // --in F --min A --max B --n K --seed S: random records as "FEN database-value(stm)"
+        std::FILE* f = std::fopen(in.c_str(), "rb");
+        if (!f) return std::cerr << "cannot open " << in << '\n', 1;
+        std::fseek(f, 0, SEEK_END);
+        const long count = std::ftell(f) / 16;
+        std::mt19937_64 rng(seed);
+        for (long got = 0, tries = 0; got < n && tries < 1000 * n; ++tries) {
+            DataRecord r;
+            std::fseek(f, long(rng() % std::uint64_t(count)) * 16, SEEK_SET);
+            if (std::fread(&r, 16, 1, f) != 1 || r.pieces() < lo || r.pieces() > hi) continue;
+            const egdb::Wld w = egdb::probe(r.black, r.white, r.kings, r.color());
+            std::printf("%s %s\n", r.position().fen().c_str(),
+                        w == egdb::Wld::Win ? "win" : w == egdb::Wld::Loss ? "loss" : w == egdb::Wld::Draw ? "draw" : "unknown");
+            ++got;
+        }
+        std::fclose(f);
+        return 0;
+    }
     if (cmd == "probe") {  // database value (side to move) of each FEN
         for (const auto& fen : files) {
             Position p;
