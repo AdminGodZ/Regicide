@@ -1,0 +1,96 @@
+{
+  "arms": {
+    "E": {
+      "book_sha256": "e72e384f425f9d5839fb3da45bc132dcd09866a297508235594f571fee0e14d0",
+      "engine_commit": "c4d0ded90930c0587849568aaafdbf863cdfb6b1",
+      "meaning": "new engine, old book"
+    },
+    "EB": {
+      "book_sha256": "cb4e2bb2aea4d6de6bc789513baa8b49ae70b06d5d37b064adbf1a6018197a1e",
+      "engine_commit": "c4d0ded90930c0587849568aaafdbf863cdfb6b1",
+      "meaning": "new engine, new candidate book"
+    },
+    "O": {
+      "book_sha256": "e72e384f425f9d5839fb3da45bc132dcd09866a297508235594f571fee0e14d0",
+      "engine_commit": "fcf6acbce2bf3c0e211c6da27eea59b446cf6b51",
+      "meaning": "old engine, its old book"
+    }
+  },
+  "blocks": {
+    "arm_orders": [
+      [
+        "O",
+        "E",
+        "EB"
+      ],
+      [
+        "E",
+        "EB",
+        "O"
+      ],
+      [
+        "EB",
+        "O",
+        "E"
+      ],
+      [
+        "O",
+        "EB",
+        "E"
+      ]
+    ],
+    "unit": "panel/opponent/repetition, containing all three arms"
+  },
+  "constant": {
+    "background": "same concurrency, no competing training/generation within a timed block",
+    "book_enabled": true,
+    "book_margin": 0,
+    "database": "same verified 2-8-piece WLD and 2-6-piece MTC files",
+    "hash_mb": 128,
+    "movetime_seconds": 0.5,
+    "net_sha256": "6b335193073ef5f076e28b98407f75da194902705e9cf35b85f43155d29efc5e",
+    "ponder": false,
+    "runner_commit": "456e9b224a380771c50a1b0da9360757c16aa62e",
+    "search_threads_per_engine": 1,
+    "time_mode": "CheckerBoard banking mode"
+  },
+  "frozen_manifest_sha256": "75d16d898ebea054ac95d6ff6363d87d6b46151f15da110823f94b152982fa42",
+  "inference": "resample final-position opening clusters, retaining both colours, all arms/opponents and repetitions together; repetition is not a new opening",
+  "material_margin_score": 0.007195081709051365,
+  "opponents": [
+    "Cake",
+    "KingsRow",
+    "GuiNN"
+  ],
+  "panels": {
+    "h1_barred.txt": {
+      "games_four_repetitions_per_config_opponent": 144,
+      "games_per_repetition": 36,
+      "openings": 18,
+      "sha256": "08e43c588a9c1a1344c1e8be8135c663db2cdf8c122261b0c3524b7c2d7bddcf"
+    },
+    "h2_holdout156.txt": {
+      "games_four_repetitions_per_config_opponent": 152,
+      "games_per_repetition": 38,
+      "openings": 19,
+      "sha256": "a0a44ecd02917e4bced5d10cc5049ad7f318f3522d98ae21c20b631167f61a08"
+    },
+    "h2x_touched156.txt": {
+      "games_four_repetitions_per_config_opponent": 1248,
+      "games_per_repetition": 312,
+      "openings": 156,
+      "sha256": "a02e80d98777b53950b463d65196cd24c5f85ab151bf749505212e3e2f3d2266"
+    }
+  },
+  "playing_core_equivalent_panel_build_master": "456e9b224a380771c50a1b0da9360757c16aa62e",
+  "primary": "mean opening-paired book increment EB-E on H2, equal weighting of the three fixed opponents",
+  "repetitions_per_panel_config_opponent": 4,
+  "schema": 1,
+  "scope": "H2 has fewer than 156 certified roots at this cap. Treat it as a pilot; wider carryover claims may require more certified independent roots, not just repetitions.",
+  "secondary": [
+    "engine increment E-O",
+    "total increment EB-O",
+    "book increment on each H2x tier separately",
+    "H2x-minus-H2 book interaction"
+  ]
+}
