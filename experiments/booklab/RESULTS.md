@@ -254,7 +254,48 @@ which every drawn game also passes; the measure is not reliable at captures.
 
 Under the README's rule (adopt 100 only if the paired difference's 95 % interval is above zero, or if it is at least
 +3 points and a second repeat has the same sign), repeat a gives **no measurable effect**: +2.5 points with an interval
-that includes zero against Cake, −1.0 against KingsRow mode 3. The decision is the lead's.
+that includes zero against Cake, −1.0 against KingsRow mode 3. **Lead's decision (04:00): tm_soft stays at 60; T1
+closed, no second repeat.** The per-move logging runner is kept for later tests, not used in validation runs.
+
+## Book r11b: r10k5 + pins from the validated games (2026-11-11 04:00)
+
+Pins from the non-lost games (exactly one side named Regicide, against Cake, KingsRow or GuiNN) of the validated runs
+with r10 (final validation `bl-f1-*`, KingsRow mode 3 `bl-k3-*`), r10k (`bl-v13-kingsrow-*`), r10k4 (`bl-v13k4-*`) and
+T1's tm_soft-60 arm (`bl-t1a-60-*`), 4,992 games, on top of r10k5; rule: a move is pinned only if no game through that
+position with that move was lost (`tools/booklab/pins.py`, `wp11b/pins_r11b.md`):
+
+- positions with Regicide to move from the end of the ballot to 8 pieces: 55,127; already in r10k5: 1,346; not
+  consulted by the engine (run of king moves, database root): 5,980;
+- left out because every move played there has a lost game through it: 1,894 (mostly H3 lines of T1's Cake games, a
+  panel with many lost openings); moves dropped for a lost game in positions that keep another move: 1,903;
+- **45,907 pins**; 177 positions still tie after worst result, frequency and run a (frozen input order decides);
+- **book r11b**: 46,969 decisions (1,062 of r10k5 + 45,907 pins), sha256
+  `5ec671dd…` (full value in `wp11b/book_r11b.sha256`), rebuilds byte-identically; reachability: running
+  (witnesses from a theory table of the same games, `wp11b/book_r11b.reach.txt`).
+
+DLLs from master **60e593e** (base commit change; engine as 141a025 apart from PR #57's `set dbpath` check, which no
+job uses with Regicide): `bl-60e593e-r11b` (net n6c, bench 7,677,736 / 8,055,287) and `bl-60e593e-r11b-n8q` (net n8q
+embedded from bd1c5c0, `src/weights/net.bin` sha256 681549690f…, bench 7,833,556 / 8,241,422 as in that commit).
+
+Every loss since r10 against r11b: the own move where the lost game left the non-lost games of its opening and
+colour (`tools/booklab/lost_vs_book.py`; pool: all validated runs and targeted tests), what r11b plays there, and where
+r11b first leaves the lost line:
+
+| Lost game | Regicide | leaving move (lost / non-lost games) | r11b there | own positions before it now pinned | r11b first leaves the lost line |
+|---|---|---|---|---|---|
+| #60 (k3 a 52.1, k3 b 52.1) | B | ply 11: 7-11 / 7-10 | 7-10 (WP13 decision) | 0 of 3 | ply 11 (decision) |
+| #71 (k3 a 63.1, k3 b 63.1) | B | ply 13: 2-7 / 3-7 | 3-7 (decision) | 2 of 4 | **ply 9: 3-7 instead of 14-18 (pin)** |
+| #141 (k3 a 49.1) | B | none: every move of the lost game was also played in non-lost games | — | 0 of 48 | ply 7: 6-9 (decision) |
+| #9 (k3 b 8.1) | B | none (as #141) | — | 0 of 43 | ply 7: 6-9 (decision) |
+| #34 (k3 b 31.1) | B | ply 19: 1-5 / 1-6 | 1-6 (decision) | 1 of 7 | **ply 13: 8-11 instead of 16-19 (pin)** |
+| #62 (v13 b 54.1) | B | ply 17: 16-20 / 4-8 | 4-8 (decision) | 0 of 6 | ply 17 (decision) |
+| #93 (v13 b 5.1) | B | none (as #141; the loss followed KingsRow's variation at ply 20) | — | 0 of 53 | ply 19: 2-7 (decision) |
+| #53 (v13k4 Cake a 45.2) | W | ply 6: 22-18 / 22-17 | 22-17 (decision) | 0 of 1 | ply 6 (decision) |
+| #55 (v13k4 a 47.2) | W | none (the loss followed KingsRow's variation at ply 45) | — | 1 of 66 | **ply 12: 32-28 instead of 22-17 (pin)** |
+| #34 (T1 100 arm, h1 31.1) | B | ply 25: 10-15 / 19-24 | **19-24 (pin)** | 3 of 10 | ply 13: 8-11 instead of 16-19 (pin) |
+
+Validation of r11b (n6c, then n8q; five runs each; after a targeted test of the repaired lines on the new base):
+running.
 
 **New pins (CPU only, for the next r11).** From the 4,368 games of the validated full runs with r10 (final
 validation; k3), r10k (v13) and r10k4 (v13k4) against all three opponents, KingsRow mode 3 included, on top of r10k5;

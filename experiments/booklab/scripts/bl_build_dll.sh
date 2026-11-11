@@ -15,6 +15,8 @@ mkdir -p $B; rm -rf $B/build $B/build-linux
 git -C $W fetch -q origin
 git -C $W worktree add --quiet --detach $B/src $REF
 cp $BOOK $B/src/src/weights/book.bin
+# NET (optional): a net file embedded instead of the REF's src/weights/net.bin (e.g. n8q from bd1c5c0)
+[ -n "${NET:-}" ] && cp $NET $B/src/src/weights/net.bin
 TC=$W/tools/windows/mingw-clang.cmake   # committed on t3/booklab (tools/windows/README.md)
 export LLVM_MINGW=$(ls -d $RM/toolchain/llvm-mingw-*-ucrt-* | sort | tail -1)
 cmake -S $B/src -B $B/build -G Ninja -DCMAKE_BUILD_TYPE=Release -DCMAKE_TOOLCHAIN_FILE=$TC > $B/cmake.log 2>&1
@@ -35,6 +37,7 @@ if [ ! -e $D/egdb ]; then
 fi
 ls $D/egdb | wc -l
 { echo "booklab: engine $(git -C $B/src rev-parse --short HEAD) ($REF); book.bin = $(basename $BOOK) sha256 $(sha256sum $BOOK | cut -c1-16)"
+  echo "net.bin = ${NET:-the net of REF} sha256 $(sha256sum $B/src/src/weights/net.bin | cut -c1-16)"
   echo "built $(date -Is) with $($LLVM_MINGW/bin/x86_64-w64-mingw32-clang++ --version | head -1)"
   echo "egdb: junction to ..\\6bb8c6c-deep2b-egdb8\\egdb (2-8 pieces)"; } > $D/BUILD.txt
 cat $D/BUILD.txt

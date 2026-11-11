@@ -1,0 +1,6 @@
+# r11b: base book_master.bin sha256 e72e384f425f9d5839fb3da45bc132dcd09866a297508235594f571fee0e14d0
+# decisions decisions_r11b.txt sha256 d98b6dea79510b539ca3fdc8f81c407ac111d2720b427b144628074a19754607
+# output book_r11b.bin sha256 5ec671dddf47b41737c1625acd0720222a9c07e35eb39fc4f2651a6b59c96475
+line 47269: force 30x23 in W:WK6,7,9,14,30:B4,13,K18,21,26; base book moves: (none)
+line 47270: force 24x15 in W:W18,21,22,24,25,26,28,29,30,31,32:B1,2,3,4,5,6,9,10,12,16,19; base book moves: (none)
+decisions: 46969 force, 0 avoid; output book_r11b.bin: 81052 entries, 5 avoid entries; verify ok

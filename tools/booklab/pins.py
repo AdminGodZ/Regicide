@@ -41,9 +41,9 @@ def main():
     # Input order is frozen: runs sorted by name, games in file order. It decides the remaining ties (after worst
     # result, frequency and run a, the first move met wins).
     for d in sorted(a.runs):
-        run = os.path.basename(d.rstrip("/"))  # bl-f1-cake-a-h1
-        p = run.split("-")
-        opp, ra = p[2], p[3]
+        run = os.path.basename(d.rstrip("/"))  # bl-f1-cake-a-h1, bl-v13k4-cake-a-h2, bl-t1a-60-cake-H3_0
+        # run letter for the tie-break "run a" from the name (-a- / -b-); the opponent from the player tags below
+        ra = "a" if "-a-" in run else ("b" if "-b-" in run else "-")
         for tags, moves in parse_pdn(open(os.path.join(d, "games.pdn"), errors="replace").read()):
             # exactly one side Regicide, the other a known opponent (review 2026-11-11: an opponent-only file must
             # not turn the opponent's moves into Regicide pins); anything else is skipped and counted
@@ -56,6 +56,7 @@ def main():
                 not_regicide += 1
                 continue
             col = "B" if rb else "W"
+            opp = family(other)
             res = tags.get("Result", "").strip()
             r = {"1-0": "W" if col == "B" else "L", "0-1": "W" if col == "W" else "L", "1/2-1/2": "D"}.get(res)
             if r is None:  # unfinished or interrupted: no pins from it
