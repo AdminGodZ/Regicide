@@ -1,0 +1,316 @@
+# Regicide holdout panel: h4_unresolved156.txt
+# Actual openings: 156 of 612 unresolved; each is played with both colours.
+# Not certified clean: the strict contact check was capped. No contact with the book work is known.
+# seed=20261110; order = ascending rank_sha256 of opening_audit.tsv; no static-evaluation filtering.
+# source openings4 line 200
+9-13 24-20 12-16 27-24
+# source openings4 line 239
+9-14 22-17 12-16 17-13
+# source openings4 line 158
+9-13 24-19 10-14 21-17
+# source openings4 line 268
+9-14 23-19 5-9 19-15
+# source openings4 line 723
+11-16 23-18 10-14 24-20
+# source openings4 line 476
+10-15 21-17 12-16 23-18
+# source openings4 line 694
+11-16 22-18 7-11 25-22
+# source openings4 line 266
+9-14 23-18 14x23 26x19
+# source openings4 line 805
+12-16 24-20 16-19 23x16
+# source openings4 line 630
+11-15 24-19 15x24 27x20
+# source openings4 line 349
+10-14 21-17 14x21 22-17
+# source openings4 line 545
+10-15 23-19 7-10 24-20
+# source openings4 line 671
+11-16 22-17 7-11 23-19
+# source openings4 line 321
+9-14 24-20 5-9 27-24
+# source openings4 line 510
+10-15 22-17 12-16 17-14
+# source openings4 line 581
+11-15 21-17 12-16 22-18
+# source openings4 line 286
+9-14 23-19 11-15 27-23
+# source openings4 line 320
+9-14 24-20 5-9 23-18
+# source openings4 line 532
+10-15 23-18 12-16 18-14
+# source openings4 line 594
+11-15 22-17 8-11 23-19
+# source openings4 line 648
+11-16 21-17 8-11 17-13
+# source openings4 line 201
+9-13 24-20 12-16 28-24
+# source openings4 line 460
+10-15 21-17 7-10 23-19
+# source openings4 line 112
+9-13 23-18 12-16 24-20
+# source openings4 line 277
+9-14 23-19 6-9 24-20
+# source openings4 line 550
+10-15 23-19 12-16 19x12
+# source openings4 line 216
+9-14 22-17 5-9 26-22
+# source openings4 line 70
+9-13 22-18 11-16 23-19
+# source openings4 line 448
+10-15 21-17 6-10 17-13
+# source openings4 line 363
+10-14 22-17 11-15 17x10
+# source openings4 line 238
+9-14 22-17 11-16 26-22
+# source openings4 line 680
+11-16 22-17 8-11 24-20
+# source openings4 line 455
+10-15 21-17 6-10 25-21
+# source openings4 line 760
+12-16 21-17 16-20 23-19
+# source openings4 line 668
+11-16 22-17 7-11 17-13
+# source openings4 line 140
+9-13 23-19 11-15 27-23
+# source openings4 line 260
+9-14 22-18 6-9 26-22
+# source openings4 line 543
+10-15 23-19 7-10 19-16
+# source openings4 line 739
+11-16 24-19 16-20 19-16
+# source openings4 line 107
+9-13 23-18 11-16 27-23
+# source openings4 line 108
+9-13 23-18 12-16 18-14
+# source openings4 line 387
+10-14 22-18 12-16 25-22
+# source openings4 line 711
+11-16 23-18 7-11 18-15
+# source openings4 line 183
+9-13 24-20 10-14 22-18
+# source openings4 line 132
+9-13 23-19 10-14 26-23
+# source openings4 line 799
+12-16 24-19 10-15 19x12
+# source openings4 line 28
+9-13 21-17 11-15 24-20
+# source openings4 line 432
+10-14 24-20 11-15 22-18
+# source openings4 line 649
+11-16 21-17 8-11 17-14
+# source openings4 line 250
+9-14 22-18 5-9 24-19
+# source openings4 line 494
+10-15 22-17 7-10 23-18
+# source openings4 line 24
+9-13 21-17 11-15 22-18
+# source openings4 line 488
+10-15 22-17 6-10 23-19
+# source openings4 line 473
+10-15 21-17 12-16 17-13
+# source openings4 line 704
+11-16 22-18 16-19 24x15
+# source openings4 line 167
+9-13 24-19 11-15 23-18
+# source openings4 line 332
+9-14 24-20 10-15 23-19
+# source openings4 line 192
+9-13 24-20 11-15 22-17
+# source openings4 line 314
+9-14 24-19 11-16 23-18
+# source openings4 line 589
+11-15 21-17 15-19 23x16
+# source openings4 line 209
+9-14 21-17 14x21 24-20
+# source openings4 line 31
+9-13 21-17 11-16 22-18
+# source openings4 line 651
+11-16 21-17 8-11 23-18
+# source openings4 line 706
+11-16 22-18 16-20 23-19
+# source openings4 line 162
+9-13 24-19 10-14 28-24
+# source openings4 line 484
+10-15 21-17 15-19 24x15
+# source openings4 line 247
+9-14 22-18 5-9 18-15
+# source openings4 line 377
+10-14 22-18 11-16 23-19
+# source openings4 line 559
+10-15 24-20 7-10 27-24
+# source openings4 line 165
+9-13 24-19 11-15 22-17
+# source openings4 line 440
+10-14 24-20 12-16 23-18
+# source openings4 line 684
+11-16 22-17 16-20 17-13
+# source openings4 line 222
+9-14 22-17 6-9 25-22
+# source openings4 line 571
+11-15 21-17 8-11 23-19
+# source openings4 line 789
+12-16 23-18 10-14 24-19
+# source openings4 line 478
+10-15 21-17 12-16 24-19
+# source openings4 line 148
+9-13 24-19 5-9 19-15
+# source openings4 line 101
+9-13 23-18 11-15 18x11
+# source openings4 line 263
+9-14 22-18 11-15 18x11
+# source openings4 line 401
+10-14 23-19 11-16 22-17
+# source openings4 line 185
+9-13 24-20 10-14 27-24
+# source openings4 line 767
+12-16 22-17 16-19 24x15
+# source openings4 line 311
+9-14 24-19 11-16 19-15
+# source openings4 line 584
+11-15 21-17 12-16 24-19
+# source openings4 line 466
+10-15 21-17 11-16 17-14
+# source openings4 line 342
+9-14 24-20 12-16 22-18
+# source openings4 line 508
+10-15 22-17 11-16 26-22
+# source openings4 line 490
+10-15 22-17 6-10 24-20
+# source openings4 line 436
+10-14 24-20 11-15 28-24
+# source openings4 line 632
+11-15 24-20 8-11 20-16
+# source openings4 line 304
+9-14 24-19 6-9 28-24
+# source openings4 line 207
+9-14 21-17 14x21 23-19
+# source openings4 line 574
+11-15 21-17 8-11 25-21
+# source openings4 line 408
+10-14 23-19 14-18 22x15
+# source openings4 line 429
+10-14 24-20 11-15 20-16
+# source openings4 line 438
+10-14 24-20 12-16 21-17
+# source openings4 line 164
+9-13 24-19 11-15 19-16
+# source openings4 line 745
+11-16 24-20 8-11 23-19
+# source openings4 line 456
+10-15 21-17 7-10 17-13
+# source openings4 line 415
+10-14 24-19 11-16 19-15
+# source openings4 line 175
+9-13 24-20 5-9 22-17
+# source openings4 line 17
+9-13 21-17 10-15 22-18
+# source openings4 line 177
+9-13 24-20 5-9 28-24
+# source openings4 line 340
+9-14 24-20 11-16 20x11
+# source openings4 line 273
+9-14 23-19 5-9 27-23
+# source openings4 line 748
+12-16 21-17 9-14 17-13
+# source openings4 line 586
+11-15 21-17 12-16 25-21
+# source openings4 line 296
+9-14 24-19 5-9 19-16
+# source openings4 line 462
+10-15 21-17 7-10 24-20
+# source openings4 line 336
+9-14 24-20 11-15 22-18
+# source openings4 line 451
+10-15 21-17 6-10 23-18
+# source openings4 line 189
+9-13 24-20 10-15 23-19
+# source openings4 line 687
+11-16 22-17 16-20 23-19
+# source openings4 line 275
+9-14 23-19 6-9 19-16
+# source openings4 line 463
+10-15 21-17 7-10 25-21
+# source openings4 line 144
+9-13 23-19 11-16 27-23
+# source openings4 line 302
+9-14 24-19 6-9 21-17
+# source openings4 line 126
+9-13 23-19 10-14 19-15
+# source openings4 line 718
+11-16 23-18 8-11 24-20
+# source openings4 line 243
+9-14 22-17 12-16 24-20
+# source openings4 line 104
+9-13 23-18 11-16 22-17
+# source openings4 line 776
+12-16 22-18 10-15 25-22
+# source openings4 line 215
+9-14 22-17 5-9 25-22
+# source openings4 line 230
+9-14 22-17 11-15 25-22
+# source openings4 line 800
+12-16 24-19 11-15 19x12
+# source openings4 line 244
+9-14 22-17 12-16 25-22
+# source openings4 line 116
+9-13 23-19 5-9 19-16
+# source openings4 line 12
+9-13 21-17 6-9 24-19
+# source openings4 line 380
+10-14 22-18 11-16 25-22
+# source openings4 line 105
+9-13 23-18 11-16 24-19
+# source openings4 line 182
+9-13 24-20 10-14 22-17
+# source openings4 line 434
+10-14 24-20 11-15 23-19
+# source openings4 line 226
+9-14 22-17 11-15 23-18
+# source openings4 line 485
+10-15 22-17 6-10 17-13
+# source openings4 line 509
+10-15 22-17 12-16 17-13
+# source openings4 line 6
+9-13 21-17 5-9 24-20
+# source openings4 line 278
+9-14 23-19 6-9 26-23
+# source openings4 line 546
+10-15 23-19 7-10 26-23
+# source openings4 line 322
+9-14 24-20 5-9 28-24
+# source openings4 line 282
+9-14 23-19 11-15 21-17
+# source openings4 line 152
+9-13 24-19 6-9 19-15
+# source openings4 line 777
+12-16 22-18 11-15 18x11
+# source openings4 line 48
+9-13 22-18 5-9 23-19
+# source openings4 line 335
+9-14 24-20 11-15 21-17
+# source openings4 line 276
+9-14 23-19 6-9 21-17
+# source openings4 line 67
+9-13 22-18 11-15 18x11
+# source openings4 line 279
+9-14 23-19 6-9 27-23
+# source openings4 line 397
+10-14 23-19 7-10 27-23
+# source openings4 line 747
+11-16 24-20 8-11 28-24
+# source openings4 line 583
+11-15 21-17 12-16 23-19
+# source openings4 line 327
+9-14 24-20 10-15 20-16
+# source openings4 line 294
+9-14 23-19 14-18 22x15
+# source openings4 line 693
+11-16 22-18 7-11 24-20
+# source openings4 line 253
+9-14 22-18 5-9 26-22
+# source openings4 line 625
+11-15 23-19 8-11 24-20
+# source openings4 line 709
+11-16 22-18 16-20 26-22
