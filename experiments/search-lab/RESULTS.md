@@ -258,3 +258,74 @@ protocol is identical. The chain had started M7 at 06:21 on the 456e9b2 engine; 
 (The restart first failed to launch: `runner2.sh` had lost its execute bit when it was rewritten for the strict
 validation; fixed with chmod.)
 | M7 n9h vs n8q (master cc29fc9 engine; interim at 402 pairs was +3.9 [-1.0, +8.7]) | on | 270 / 1084 / 256 | [0, 26, 739, 40, 0] | **+3.0 [-0.4, +6.5]** | 95.8% | 0.269 / 0.269 s | 33.33 / 33.17 | none |
+
+# Experiment Q: forcing quiet moves exempt from shallow pruning (`prune_forcing`)
+
+Base: t3/search-lab with master ddd25fc merged (n8q built in), `regicide bench` 7,833,556 with the switch at 0.
+In `Worker::search`, late-move pruning and futility pruning skip a quiet move before its child exists, so they never
+see that the move forces the opponent to capture (the usual start of a checkers combination); the capture search
+below cannot bring such a move back.
+- `prune_forcing=1`: when LMP or futility would skip a quiet move, the child is made first, and the move is not pruned
+  if the opponent has a capture there. `2`: such moves are also exempt from LMR (no reduction).
+  `-1`: statistics only (same tree as 0).
+- Statistics per search (`Engine::prune_stats`, printed by posbench): moves each rule applied to and how many the
+  exemption kept.
+
+## Cost at fixed depth
+
+`regicide bench` (fixed depth): 0 → 7,833,556 nodes; 1 → 12,823,262 (×1.64); 2 → 19,596,151 (×2.50); −1 → 7,833,556.
+
+posbench, 50 middlegame positions (`books/mid50.txt`), depth 20, 1 thread, 64 MB hash, database on, all on one
+E-core (`q/q_posbench_pf*.txt`):
+
+| prune_forcing | nodes to depth 20 | time to depth 20 | LMP applied / kept | futility applied / kept | LMR applied / exempt |
+|---|---|---|---|---|---|
+| 0 | 68,484,463 | 105.5 s | 3,968,137 / — | 30,864,623 / — | 7,974,708 / — |
+| −1 (stats only) | 68,484,463 | 107.8 s (+2%) | 3,968,137 / *2,374,909 forcing* | 30,864,623 / *16,954,964 forcing* | 7,974,708 / *4,615,806 forcing* |
+| 1 | 129,159,582 (×1.89) | 177.2 s (×1.68) | 7,051,660 / 4,609,326 | 40,027,398 / 22,076,310 | 8,594,052 / — |
+| 2 | 208,407,530 (×3.04) | 293.0 s (×2.78) | 9,624,647 / 6,347,382 | 65,133,189 / 36,075,413 | 14,286,811 / 9,465,155 |
+
+**60% of the quiet moves LMP prunes and 55% of those futility prunes are forcing** in these middlegames: in checkers a
+large share of quiet moves hand the opponent a capture. So the exemption is broad and expensive, not a narrow fix.
+
+## Position test (64 positions from lost games)
+
+**Positions** (`q/q64.tsv`, `q/select.py`): decisive games from Book Lab PDNs on origin/t3/booklab (f1, f4, k3, v11c-n8q,
+v11d, v13, w10-b3 runs; replayed with the new `tools/pdnfens`). From each game, the last position with 10–14 pieces
+in which the eventual loser is to move and has at least 2 legal moves; for the f1 games, before the ply where Book Lab's
+`f1_dbscan_games` table first shows a database decision (4 positions), otherwise the last such position in the game
+(60). 32 positions come from Regicide's losses and 32 from the opponents' losses, round-robin over runs, unique FENs.
+Each is searched single-threaded from a fresh hash with the 2–7 database at 1M, 20M and 100M nodes with
+prune_forcing 0 and 1 (the 100M runs are the references, one per setting; `q/out/`).
+
+| | 1M nodes | 20M nodes | 100M nodes |
+|---|---|---|---|
+| time for 64 positions (E-core), pf0 / pf1 | 108 / 98 s | 2,036 / 1,861 s | 9,146 / 5,724 s |
+| mean depth pf0 / pf1 | 26.11 / 25.62 | 35.03 / 35.00 | 39.78 / 39.78 |
+| positions where pf0 and pf1 choose a different move | 10 | 11 | 10 |
+
+In these 10–14-piece positions the exemption costs little at fixed nodes (same depth at 20M/100M).
+
+Positions where the chosen move differs (score in centipawns, side to move; ±19,9xx = database loss, ±29,9xx = forced
+loss):
+
+| # | from | pieces | pf0 1M / 20M | pf1 1M / 20M | reference 100M pf0 | reference 100M pf1 | reading |
+|---|---|---|---|---|---|---|---|
+| 5 | Regicide loss | 10 | 20-24 / 20-24 (−19993) | 12-16 / 12-16 (−19993) | 20-24 (−19993) | 12-16 (−19993) | already lost, equal score |
+| 14 | Regicide loss | 10 | 1-5 (−19991) | 1-6 (−19991) | 1-5 | 1-6 | already lost, equal score |
+| 15 | Regicide loss | 10 | 13-9 (−19993) | 8-4 (−19993) | 13-9 | 8-4 | already lost, equal score |
+| 17 | Regicide loss | 10 | 24-19 (−19993) | 20-16 (−19993) | 24-19 | 20-16 | already lost, equal score |
+| 24 | Regicide loss | 11 | 10-6 (−29984) | 10-7 (−29984) | 10-6 | 10-7 | already lost, equal score |
+| 36 | opponent loss | 11 | 24-27 (−19987) | 31-27 (−19987) | 24-27 | 31-27 | already lost, equal score |
+| 48 | opponent loss | 11 | 18-15 (−19991) | 31-27 (−19991) | 18-15 | 31-27 | already lost, equal score |
+| 59 | opponent loss | 13 | 17x10 (−19992) | 24x15 (−19992) | 17x10 | 24x15 | already lost, equal score |
+| 29 | Regicide loss | 11 | 24-28 (−183 / −189) | 12-16 (−189 / −198) | 24-28 (−199) | 12-16 (−201) | equal within 2; neutral |
+| 52 | opponent loss | 10 | 22-26 (−187) at 1M; 12-16 at 20M | 12-16 (−184) | 12-16 (−186) | 12-16 (−187) | **pf1 finds the reference move at 1M**, pf0 by 20M |
+| 11 | Regicide loss | 11 | 6-10 (−512) at 20M | 32-27 (−666) at 20M | 6-10 (−19961) | 6-10 (−19961) | lost; at 20M **pf0** matches the references, pf1 does not |
+| 27 | Regicide loss | 11 | 22-26 (−19963) at 20M | 5-9 (−19959) at 20M | 22-26 (**−233**) | 5-9 (**−19963**) | the references disagree on the outcome: see below |
+
+Reading so far: in 8 of the 12 differing positions both settings already see a loss and only pick a different losing
+move (equal scores). Of the rest, one point each way (#52 for pf1, #11 for pf0), #29 is neutral, and #27 is open:
+at 100M the default thinks 22-26 holds at −233, while the exemption sees a database loss. That is the kind of case
+the idea is about (an opponent shot behind a forcing quiet move that the default prunes). It is being re-searched at
+500M nodes with both settings.
