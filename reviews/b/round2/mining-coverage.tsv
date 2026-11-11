@@ -1,0 +1,37 @@
+rank	node	opponent	opening	colour	ply	games	losing_game_moves	drawing_game_moves	status
+1	881.24	kingsrow	ACF #71 Diabolical Denny	W	25	5	10-14	5-9	complete
+2	315.6	guinn	ACF #10	W	7	3	10-15	10-15,16-20	not searched
+3	319.6	guinn	ACF #101	W	7	3	9-14	6-10	not searched
+4	338.3	guinn	ACF #111	B	4	3	25-21	17-13	not searched
+5	346.3	guinn	ACF #116	B	4	3	25-22	17-14	not searched
+6	349.6	guinn	ACF #117	W	7	3	15-18	8-11	not searched
+7	354.3	guinn	ACF #12	B	4	3	24-20	26-23,27-23	not searched
+8	365.6	guinn	ACF #124	W	7	3	9-14	7-11	not searched
+9	374.23	guinn	ACF #129	B	24	3	27-24	31-26	not searched
+10	385.14	guinn	ACF #134	W	15	3	14-17,7-10	7-10	not searched
+11	397.10	guinn	ACF #140	W	11	3	11-16	12-16	not searched
+12	399.12	guinn	ACF #141	W	13	3	16-20,4-8	11-15	not searched
+13	422.17	guinn	ACF #153 Black Widow	B	18	3	17-14,32-27	29-25	not searched
+14	435.8	guinn	ACF #16 Wilderness II	W	9	3	1-6	7-11	not searched
+15	441.12	guinn	ACF #162	W	13	3	6x13x22	5x14,6x13x22	not searched
+16	463.10	guinn	ACF #174 Skunk	W	11	3	9-14	10-15	not searched
+17	477.4	guinn	ACF #23	W	5	3	10-14	11-15	not searched
+18	480.3	guinn	ACF #25	B	4	3	22-18	27-24	not searched
+19	481.14	guinn	ACF #25	W	15	3	4-8	9-13	not searched
+20	497.12	guinn	ACF #34 Twilight Zone	W	13	3	9-14	7-11	not searched
+21	525.10	guinn	ACF #50	W	11	3	2-7	8-11	not searched
+22	543.8	guinn	ACF #6 Inferno	W	9	3	11-16	7-10	not searched
+23	545.18	guinn	ACF #60 Black Hole	W	19	3	11-15	4-8	not searched
+24	549.10	guinn	ACF #62 Gemini I	W	11	3	1-6	3-7	not searched
+25	553.4	guinn	ACF #64	W	5	3	1-6	11-15	not searched
+26	557.8	guinn	ACF #66	W	9	3	4-8	7-11	not searched
+27	569.8	guinn	ACF #71 Diabolical Denny	W	9	3	12-16	3-7	not searched
+28	581.4	guinn	ACF #78	W	5	3	7-10	6-10	not searched
+29	601.10	guinn	ACF #87 Tyne	W	11	3	4-8	6-10	not searched
+30	605.6	guinn	ACF #9 Wilderness I	W	7	3	6-9	16-20,6-9	not searched
+31	610.3	guinn	ACF #92	B	4	3	17-14,24-20	25-22	not searched
+32	617.14	guinn	ACF #96 Skull-Cracker	W	15	3	1-5	9-13	not searched
+33	315.16	guinn	ACF #10	W	17	2	4-8	1-6	not searched
+34	385.16	guinn	ACF #134	W	17	2	14-17	1-5	not searched
+35	441.18	guinn	ACF #162	W	19	2	4-8	11-15	not searched
+36	605.12	guinn	ACF #9 Wilderness I	W	13	2	4-8	11-15	not searched

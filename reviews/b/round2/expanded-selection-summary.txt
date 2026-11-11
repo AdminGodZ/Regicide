@@ -1,0 +1,26 @@
+Added 3120 archived duplicate identities 0 corpus 7944 selected 116
+By opponent {'kingsrow': 48, 'cake': 68}
+1 R4102 bl-v11d-n6c-kingsrow-a-h1 14.1 ACF #16 Wilderness II B first 105 214 peak 214
+2 R2794 bl-v11c-n8q-kingsrow-a-h2 68.2 ACF #162 W first 46 186 peak 186
+3 R4329 bl-v11d-n6c-kingsrow-a-h2 57.2 ACF #150 W first 30 84 peak 177
+4 R1762 bl-v11c-n8q-cake-a-h2 20.2 ACF #110 W first 32 53 peak 174
+5 R946 bl-v11c-n6c-kingsrow-a-h1 4.1 ACF #5 Dreaded Edinburgh B first 57 169 peak 169
+6 R3710 bl-v11d-n6c-cake-b-h2 59.1 ACF #152 B first 35 152 peak 152
+7 R6637 bl-v11d-n8q-cake-a-h2 46.1 ACF #138 B first 39 143 peak 143
+8 R7895 bl-v11d-n8q-kingsrow-b-h2 55.1 ACF #148 B first 37 90 peak 140
+9 R3312 bl-v11d-n6c-cake-a-h2 13.1 ACF #102 B first 49 139 peak 139
+10 R6368 mo-kingsrow-b-h2 74.1 ACF #169 B first 33 138 peak 138
+11 R513 bl-v11c-n6c-cake-b-h2 20.2 ACF #110 W first 32 72 peak 138
+12 R1855 bl-v11c-n8q-cake-a-h2 66.2 ACF #160 W first 42 111 peak 121
+13 R4515 bl-v11d-n6c-kingsrow-b-h1 71.2 ACF #80 W first 40 121 peak 121
+14 R1336 bl-v11c-n6c-kingsrow-b-h1 42.2 ACF #49 W first 52 118 peak 118
+15 R1713 bl-v11c-n8q-cake-a-h1 78.1 ACF #87 Tyne B first 25 117 peak 117
+16 R3319 bl-v11d-n6c-cake-a-h2 20.2 ACF #110 W first 38 114 peak 114
+17 R5087 mo-cake-a-h2 54.2 ACF #147 W first 44 112 peak 112
+18 R5403 mo-cake-b-h2 54.2 ACF #147 W first 44 112 peak 112
+19 R6649 bl-v11d-n8q-cake-a-h2 54.2 ACF #147 W first 44 112 peak 112
+20 R7614 bl-v11d-n8q-kingsrow-a-h2 63.2 ACF #157 W first 48 111 peak 111
+21 R134 bl-v11c-n6c-cake-a-h1 64.1 ACF #72 B first 37 98 peak 98
+22 R6143 mo-kingsrow-b-h1 32.2 ACF #36 W first 30 43 peak 90
+23 R7398 bl-v11d-n8q-kingsrow-a-h1 14.2 ACF #16 Wilderness II W first 42 46 peak 88
+24 R245 bl-v11c-n6c-cake-a-h2 47.1 ACF #139 B first 25 88 peak 88

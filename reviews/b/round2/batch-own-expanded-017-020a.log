@@ -1,0 +1,20 @@
+own:R5087:44:32x23 only legal move
+own:R5087:46:18-14 20M chooses played move
+own:R5087:48:14-9 20M chooses played move
+own:R5087:50:17x10 only legal move
+own:R5403:44:32x23 only legal move
+own:R5403:46:18-14 20M chooses played move
+own:R5403:48:14-9 20M chooses played move
+own:R5403:50:17x10 only legal move
+own:R6649:44:32x23 only legal move
+own:R6649:46:18-14 20M chooses played move
+own:R6649:48:14-9 20M chooses played move
+own:R6649:50:17x10 only legal move
+own:R7614:48:16x7 only legal move
+own:R7614:50:7-2 20M chooses played move
+own:R7614:52:2-7 does not qualify at both references played 2-7 alt 3-7 pairs 35 0 0 42 0 0 proven False both False
+own:R7614:54:7-10 20M chooses played move
+own:R7614:56:10-14 20M chooses played move
+own:R7614:58:27x18 only legal move
+own:R7614:60:28-24 20M chooses played move
+BATCH RANGE DONE own 17 20

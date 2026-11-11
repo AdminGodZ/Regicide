@@ -1,0 +1,29 @@
+own:R6637:39:6x15 only legal move
+own:R6637:41:24-28 20M chooses played move
+own:R6637:43:19-24 20M chooses played move
+own:R6637:45:15-19 20M chooses played move
+own:R6637:47:18-23 20M chooses played move
+own:R6637:49:19-23 20M chooses played move
+own:R6637:51:2x9 only legal move
+own:R6637:53:24-27 20M chooses played move
+own:R6637:55:20x27 only legal move
+own:R6637:57:27-31 20M chooses played move
+own:R6637:59:31-26 20M chooses played move
+own:R6637:61:16-20 20M chooses played move
+own:R6637:63:23-27 20M chooses played move
+own:R6637:65:26x19 only legal move
+own:R6637:67:1x10 only legal move
+own:R6637:69:19-15 20M chooses played move
+own:R7895:37:15x22 only legal move
+own:R7895:39:2x11 only legal move
+own:R7895:41:22-25 20M chooses played move
+own:R7895:43:19x26 only legal move
+own:R7895:45:4-8 does not qualify at both references played 4-8 alt 25-30 pairs 127 0 0 127 0 0 proven False both False
+own:R7895:47:25-29 does not qualify at both references played 25-29 alt 25-30 pairs 127 0 0 127 0 0 proven False both False
+own:R7895:49:5x14 only legal move
+own:R6368:33:14x21 only legal move
+own:R6368:35:19x26 20M chooses played move
+own:R6368:37:21x30 only legal move
+own:R6368:39:15-18 does not qualify at both references played 15-18 alt 8-12 pairs 64 0 0 76 0 0 proven False both False
+own:R6368:41:18-22 20M chooses played move
+BATCH RANGE DONE own 1 16

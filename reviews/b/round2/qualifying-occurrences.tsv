@@ -1,0 +1,8 @@
+point	game	source	run	round	opening	ours	opponent	result	ply	rev	move
+Q001	R1057	wp11c/games/bl-v11c-n6c-kingsrow-a-h1.pdn.gz	bl-v11c-n6c-kingsrow-a-h1	63.2	ACF #71 Diabolical Denny	W	kingsrow	1/2-1/2	25	0	5-9
+Q001	R1376	wp11c/games/bl-v11c-n6c-kingsrow-b-h1.pdn.gz	bl-v11c-n6c-kingsrow-b-h1	63.2	ACF #71 Diabolical Denny	W	kingsrow	1/2-1/2	25	0	5-9
+Q001	R2621	wp11c/games/bl-v11c-n8q-kingsrow-a-h1.pdn.gz	bl-v11c-n8q-kingsrow-a-h1	63.2	ACF #71 Diabolical Denny	W	kingsrow	1/2-1/2	25	0	5-9
+Q001	R2932	wp11c/games/bl-v11c-n8q-kingsrow-b-h1.pdn.gz	bl-v11c-n8q-kingsrow-b-h1	63.2	ACF #71 Diabolical Denny	W	kingsrow	1/2-1/2	25	0	5-9
+Q001	R4523	wp11d/games/bl-v11d-n6c-kingsrow-b-h1.pdn.gz	bl-v11d-n6c-kingsrow-b-h1	63.2	ACF #71 Diabolical Denny	W	kingsrow	0-1	25	0	10-14
+Q001	R7445	tests/v11d-n8q-kingsrow-a-h1/games.pdn.gz	bl-v11d-n8q-kingsrow-a-h1	63.2	ACF #71 Diabolical Denny	W	kingsrow	1/2-1/2	25	0	5-9
+Q001	R7760	tests/v11d-n8q-kingsrow-b-h1/games.pdn.gz	bl-v11d-n8q-kingsrow-b-h1	63.2	ACF #71 Diabolical Denny	W	kingsrow	1/2-1/2	25	0	5-9

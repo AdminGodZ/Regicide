@@ -1,0 +1,7 @@
+previous:1:R4102:104:3-7 does not qualify at both references played 3-7 alt 10-15 pairs 28 0 0 33 0 0 proven False both False
+previous:2:R2794:45:13-17 20M chooses played move
+previous:3:R4329:29:12-16 does not qualify at both references played 12-16 alt 24-28 pairs 26 -8 -7 31 0 -8 proven False both False
+previous:4:R1762:31:19-23 20M chooses played move
+previous:5:R946:56:23-19 does not qualify at both references played 23-19 alt 21-17 pairs 35 0 0 39 0 0 proven False both False
+previous:6:R3710:34:17-13 20M chooses played move
+BATCH RANGE DONE previous 1 6

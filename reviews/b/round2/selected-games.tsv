@@ -1,0 +1,117 @@
+rank	id	source	round	opening	ours	opponent	first40ply	first40score	peak
+1	R4102	wp11d/games/bl-v11d-n6c-kingsrow-a-h1.pdn.gz	14.1	ACF #16 Wilderness II	B	kingsrow	105	214	214
+2	R2794	wp11c/games/bl-v11c-n8q-kingsrow-a-h2.pdn.gz	68.2	ACF #162	W	kingsrow	46	186	186
+3	R4329	wp11d/games/bl-v11d-n6c-kingsrow-a-h2.pdn.gz	57.2	ACF #150	W	kingsrow	30	84	177
+4	R1762	wp11c/games/bl-v11c-n8q-cake-a-h2.pdn.gz	20.2	ACF #110	W	cake	32	53	174
+5	R946	wp11c/games/bl-v11c-n6c-kingsrow-a-h1.pdn.gz	4.1	ACF #5 Dreaded Edinburgh	B	kingsrow	57	169	169
+6	R3710	wp11d/games/bl-v11d-n6c-cake-b-h2.pdn.gz	59.1	ACF #152	B	cake	35	152	152
+7	R6637	tests/v11d-n8q-cake-a-h2/games.pdn.gz	46.1	ACF #138	B	cake	39	143	143
+8	R7895	tests/v11d-n8q-kingsrow-b-h2/games.pdn.gz	55.1	ACF #148	B	kingsrow	37	90	140
+9	R3312	wp11d/games/bl-v11d-n6c-cake-a-h2.pdn.gz	13.1	ACF #102	B	cake	49	139	139
+10	R6368	tests/mo-kingsrow-b-h2/games.pdn.gz	74.1	ACF #169	B	kingsrow	33	138	138
+11	R513	wp11c/games/bl-v11c-n6c-cake-b-h2.pdn.gz	20.2	ACF #110	W	cake	32	72	138
+12	R1855	wp11c/games/bl-v11c-n8q-cake-a-h2.pdn.gz	66.2	ACF #160	W	cake	42	111	121
+13	R4515	wp11d/games/bl-v11d-n6c-kingsrow-b-h1.pdn.gz	71.2	ACF #80	W	kingsrow	40	121	121
+14	R1336	wp11c/games/bl-v11c-n6c-kingsrow-b-h1.pdn.gz	42.2	ACF #49	W	kingsrow	52	118	118
+15	R1713	wp11c/games/bl-v11c-n8q-cake-a-h1.pdn.gz	78.1	ACF #87 Tyne	B	cake	25	117	117
+16	R3319	wp11d/games/bl-v11d-n6c-cake-a-h2.pdn.gz	20.2	ACF #110	W	cake	38	114	114
+17	R5087	tests/mo-cake-a-h2/games.pdn.gz	54.2	ACF #147	W	cake	44	112	112
+18	R5403	tests/mo-cake-b-h2/games.pdn.gz	54.2	ACF #147	W	cake	44	112	112
+19	R6649	tests/v11d-n8q-cake-a-h2/games.pdn.gz	54.2	ACF #147	W	cake	44	112	112
+20	R7614	tests/v11d-n8q-kingsrow-a-h2/games.pdn.gz	63.2	ACF #157	W	kingsrow	48	111	111
+21	R134	wp11c/games/bl-v11c-n6c-cake-a-h1.pdn.gz	64.1	ACF #72	B	cake	37	98	98
+22	R6143	tests/mo-kingsrow-b-h1/games.pdn.gz	32.2	ACF #36	W	kingsrow	30	43	90
+23	R7398	tests/v11d-n8q-kingsrow-a-h1/games.pdn.gz	14.2	ACF #16 Wilderness II	W	kingsrow	42	46	88
+24	R245	wp11c/games/bl-v11c-n6c-cake-a-h2.pdn.gz	47.1	ACF #139	B	cake	25	88	88
+25	R2080	wp11c/games/bl-v11c-n8q-cake-b-h2.pdn.gz	22.2	ACF #112	W	cake	32	61	88
+26	R2519	wp11c/games/bl-v11c-n8q-kingsrow-a-h1.pdn.gz	8.2	ACF #9 Wilderness I	W	kingsrow	68	87	87
+27	R154	wp11c/games/bl-v11c-n6c-cake-a-h1.pdn.gz	78.1	ACF #87 Tyne	B	cake	25	77	85
+28	R7683	tests/v11d-n8q-kingsrow-b-h1/games.pdn.gz	27.1	ACF #30	B	kingsrow	29	84	84
+29	R101	wp11c/games/bl-v11c-n6c-cake-a-h1.pdn.gz	50.2	ACF #58	W	cake	34	83	83
+30	R3156	wp11d/games/bl-v11d-n6c-cake-a-h1.pdn.gz	8.1	ACF #9 Wilderness I	B	cake	109	82	82
+31	R6986	tests/v11d-n8q-cake-b-h2/games.pdn.gz	51.1	ACF #143	B	cake	77	81	81
+32	R6171	tests/mo-kingsrow-b-h1/games.pdn.gz	47.1	ACF #55	B	kingsrow	35	79	79
+33	R1073	wp11c/games/bl-v11c-n6c-kingsrow-a-h1.pdn.gz	66.1	ACF #74	B	kingsrow	27	79	79
+34	R1384	wp11c/games/bl-v11c-n6c-kingsrow-b-h1.pdn.gz	66.1	ACF #74	B	kingsrow	27	79	79
+35	R5836	tests/mo-kingsrow-a-h1/games.pdn.gz	14.2	ACF #16 Wilderness II	W	kingsrow	42	77	77
+36	R6015	tests/mo-kingsrow-a-h2/games.pdn.gz	43.2	ACF #134	W	kingsrow	38	77	77
+37	R6326	tests/mo-kingsrow-b-h2/games.pdn.gz	43.2	ACF #134	W	kingsrow	38	77	77
+38	R6332	tests/mo-kingsrow-b-h2/games.pdn.gz	50.2	ACF #142	W	kingsrow	44	77	77
+39	R5121	tests/mo-cake-a-h2/games.pdn.gz	66.2	ACF #160	W	cake	42	75	75
+40	R1524	wp11c/games/bl-v11c-n6c-kingsrow-b-h2.pdn.gz	57.2	ACF #150	W	kingsrow	38	75	75
+41	R2172	wp11c/games/bl-v11c-n8q-cake-b-h2.pdn.gz	69.2	ACF #163	W	cake	54	75	75
+42	R4116	wp11d/games/bl-v11d-n6c-kingsrow-a-h1.pdn.gz	32.2	ACF #36	W	kingsrow	34	75	75
+43	R533	wp11c/games/bl-v11c-n6c-cake-b-h2.pdn.gz	34.2	ACF #125	W	cake	20	74	74
+44	R1693	wp11c/games/bl-v11c-n8q-cake-a-h1.pdn.gz	67.2	ACF #75	W	cake	30	72	72
+45	R2136	wp11c/games/bl-v11c-n8q-cake-b-h2.pdn.gz	54.1	ACF #147	B	cake	39	72	72
+46	R2744	wp11c/games/bl-v11c-n8q-kingsrow-a-h2.pdn.gz	43.2	ACF #134	W	kingsrow	34	72	72
+47	R5975	tests/mo-kingsrow-a-h2/games.pdn.gz	30.2	ACF #121	W	kingsrow	30	71	71
+48	R93	wp11c/games/bl-v11c-n6c-cake-a-h1.pdn.gz	46.2	ACF #54	W	cake	32	46	71
+49	R3293	wp11d/games/bl-v11d-n6c-cake-a-h2.pdn.gz	10.1	ACF #99	B	cake	35	70	70
+50	R3604	wp11d/games/bl-v11d-n6c-cake-b-h2.pdn.gz	10.1	ACF #99	B	cake	35	70	70
+51	R5131	tests/mo-cake-a-h2/games.pdn.gz	77.1	ACF #173	B	cake	25	67	67
+52	R3373	wp11d/games/bl-v11d-n6c-cake-a-h2.pdn.gz	50.2	ACF #142	W	cake	24	44	67
+53	R7346	tests/v11d-n8q-kingsrow-a-h1/games.pdn.gz	13.1	ACF #15	B	kingsrow	35	66	66
+54	R7360	tests/v11d-n8q-kingsrow-a-h1/games.pdn.gz	15.1	ACF #17	B	kingsrow	75	66	66
+55	R7601	tests/v11d-n8q-kingsrow-a-h2/games.pdn.gz	63.1	ACF #157	B	kingsrow	29	66	66
+56	R1801	wp11c/games/bl-v11c-n8q-cake-a-h2.pdn.gz	41.2	ACF #132	W	cake	32	66	66
+57	R7852	tests/v11d-n8q-kingsrow-b-h2/games.pdn.gz	24.2	ACF #115	W	kingsrow	38	65	65
+58	R1903	wp11c/games/bl-v11c-n8q-cake-b-h1.pdn.gz	17.2	ACF #19	W	cake	34	65	65
+59	R83	wp11c/games/bl-v11c-n6c-cake-a-h1.pdn.gz	43.2	ACF #50	W	cake	26	64	64
+60	R396	wp11c/games/bl-v11c-n6c-cake-b-h1.pdn.gz	43.2	ACF #50	W	cake	26	64	64
+61	R4581	wp11d/games/bl-v11d-n6c-kingsrow-b-h2.pdn.gz	24.2	ACF #115	W	kingsrow	38	63	63
+62	R382	wp11c/games/bl-v11c-n6c-cake-b-h1.pdn.gz	30.2	ACF #33	W	cake	36	62	62
+63	R4621	wp11d/games/bl-v11d-n6c-kingsrow-b-h2.pdn.gz	50.2	ACF #142	W	kingsrow	32	62	62
+64	R5248	tests/mo-cake-b-h1/games.pdn.gz	47.2	ACF #55	W	cake	20	61	61
+65	R6795	tests/v11d-n8q-cake-b-h1/games.pdn.gz	47.2	ACF #55	W	cake	20	61	61
+66	R1330	wp11c/games/bl-v11c-n6c-kingsrow-b-h1.pdn.gz	14.2	ACF #16 Wilderness II	W	kingsrow	42	49	61
+67	R285	wp11c/games/bl-v11c-n6c-cake-a-h2.pdn.gz	66.2	ACF #160	W	cake	28	59	59
+68	R596	wp11c/games/bl-v11c-n6c-cake-b-h2.pdn.gz	66.2	ACF #160	W	cake	28	59	59
+69	R1089	wp11c/games/bl-v11c-n6c-kingsrow-a-h1.pdn.gz	75.1	ACF #84	B	kingsrow	41	59	59
+70	R1852	wp11c/games/bl-v11c-n8q-cake-a-h2.pdn.gz	69.2	ACF #163	W	cake	46	59	59
+71	R2750	wp11c/games/bl-v11c-n8q-kingsrow-a-h2.pdn.gz	47.2	ACF #139	W	kingsrow	24	58	58
+72	R7577	tests/v11d-n8q-kingsrow-a-h2/games.pdn.gz	47.2	ACF #139	W	kingsrow	52	57	57
+73	R3179	wp11d/games/bl-v11d-n6c-cake-a-h1.pdn.gz	28.2	ACF #31	W	cake	26	57	57
+74	R527	wp11c/games/bl-v11c-n6c-cake-b-h2.pdn.gz	27.2	ACF #118	W	cake	30	55	55
+75	R1106	wp11c/games/bl-v11c-n6c-kingsrow-a-h2.pdn.gz	8.2	ACF #97	W	kingsrow	34	55	55
+76	R4831	tests/mo-cake-a-h1/games.pdn.gz	1.2	ACF #1	W	cake	24	54	54
+77	R5143	tests/mo-cake-b-h1/games.pdn.gz	1.2	ACF #1	W	cake	24	54	54
+78	R566	wp11c/games/bl-v11c-n6c-cake-b-h2.pdn.gz	50.1	ACF #142	B	cake	25	54	54
+79	R2660	wp11c/games/bl-v11c-n8q-kingsrow-a-h2.pdn.gz	4.1	ACF #92	B	kingsrow	41	54	54
+80	R2972	wp11c/games/bl-v11c-n8q-kingsrow-b-h2.pdn.gz	4.1	ACF #92	B	kingsrow	41	54	54
+81	R5072	tests/mo-cake-a-h2/games.pdn.gz	43.2	ACF #134	W	cake	20	53	53
+82	R5378	tests/mo-cake-b-h2/games.pdn.gz	43.2	ACF #134	W	cake	20	53	53
+83	R6625	tests/v11d-n8q-cake-a-h2/games.pdn.gz	43.2	ACF #134	W	cake	20	53	53
+84	R6938	tests/v11d-n8q-cake-b-h2/games.pdn.gz	43.2	ACF #134	W	cake	20	53	53
+85	R1327	wp11c/games/bl-v11c-n6c-kingsrow-b-h1.pdn.gz	41.2	ACF #47	W	kingsrow	34	52	52
+86	R3640	wp11d/games/bl-v11d-n6c-cake-b-h2.pdn.gz	26.2	ACF #117	W	cake	24	51	51
+87	R3340	wp11d/games/bl-v11d-n6c-cake-a-h2.pdn.gz	31.2	ACF #122	W	cake	34	50	50
+88	R540	wp11c/games/bl-v11c-n6c-cake-b-h2.pdn.gz	37.2	ACF #128	W	cake	32	49	49
+89	R1005	wp11c/games/bl-v11c-n6c-kingsrow-a-h1.pdn.gz	14.2	ACF #16 Wilderness II	W	kingsrow	42	49	49
+90	R1897	wp11c/games/bl-v11c-n8q-cake-b-h1.pdn.gz	13.2	ACF #15	W	cake	26	49	49
+91	R4095	wp11d/games/bl-v11d-n6c-kingsrow-a-h1.pdn.gz	14.2	ACF #16 Wilderness II	W	kingsrow	42	49	49
+92	R1058	wp11c/games/bl-v11c-n6c-kingsrow-a-h1.pdn.gz	61.1	ACF #69	B	kingsrow	25	48	48
+93	R1824	wp11c/games/bl-v11c-n8q-cake-a-h2.pdn.gz	49.2	ACF #141	W	cake	66	48	48
+94	R1859	wp11c/games/bl-v11c-n8q-cake-a-h2.pdn.gz	61.1	ACF #154	B	cake	61	47	47
+95	R3023	wp11c/games/bl-v11c-n8q-kingsrow-b-h2.pdn.gz	29.2	ACF #120	W	kingsrow	34	47	47
+96	R3363	wp11d/games/bl-v11d-n6c-cake-a-h2.pdn.gz	43.2	ACF #134	W	cake	20	47	47
+97	R3672	wp11d/games/bl-v11d-n6c-cake-b-h2.pdn.gz	43.2	ACF #134	W	cake	20	47	47
+98	R7679	tests/v11d-n8q-kingsrow-b-h1/games.pdn.gz	14.2	ACF #16 Wilderness II	W	kingsrow	42	46	46
+99	R2551	wp11c/games/bl-v11c-n8q-kingsrow-a-h1.pdn.gz	14.2	ACF #16 Wilderness II	W	kingsrow	42	46	46
+100	R6898	tests/v11d-n8q-cake-b-h2/games.pdn.gz	25.1	ACF #116	B	cake	21	45	45
+101	R2616	wp11c/games/bl-v11c-n8q-kingsrow-a-h1.pdn.gz	62.1	ACF #70	B	kingsrow	33	45	45
+102	R3214	wp11d/games/bl-v11d-n6c-cake-a-h1.pdn.gz	43.2	ACF #50	W	cake	42	45	45
+103	R523	wp11c/games/bl-v11c-n6c-cake-b-h2.pdn.gz	27.1	ACF #118	B	cake	33	44	44
+104	R3542	wp11d/games/bl-v11d-n6c-cake-b-h1.pdn.gz	47.2	ACF #55	W	cake	22	44	44
+105	R3686	wp11d/games/bl-v11d-n6c-cake-b-h2.pdn.gz	50.2	ACF #142	W	cake	24	44	44
+106	R5191	tests/mo-cake-b-h1/games.pdn.gz	28.2	ACF #31	W	cake	26	43	43
+107	R7512	tests/v11d-n8q-kingsrow-a-h2/games.pdn.gz	18.1	ACF #107	B	kingsrow	35	43	43
+108	R7822	tests/v11d-n8q-kingsrow-b-h2/games.pdn.gz	18.1	ACF #107	B	kingsrow	35	43	43
+109	R3194	wp11d/games/bl-v11d-n6c-cake-a-h1.pdn.gz	39.1	ACF #43	B	cake	33	43	43
+110	R3507	wp11d/games/bl-v11d-n6c-cake-b-h1.pdn.gz	39.1	ACF #43	B	cake	33	43	43
+111	R1216	wp11c/games/bl-v11c-n6c-kingsrow-a-h2.pdn.gz	60.2	ACF #153 Black Widow	W	kingsrow	54	42	42
+112	R1944	wp11c/games/bl-v11c-n8q-cake-b-h1.pdn.gz	30.2	ACF #33	W	cake	36	42	42
+113	R457	wp11c/games/bl-v11c-n6c-cake-b-h1.pdn.gz	73.2	ACF #82	W	cake	28	41	41
+114	R4999	tests/mo-cake-a-h2/games.pdn.gz	5.2	ACF #93	W	cake	34	40	40
+115	R5309	tests/mo-cake-b-h2/games.pdn.gz	5.2	ACF #93	W	cake	34	40	40
+116	R456	wp11c/games/bl-v11c-n6c-cake-b-h1.pdn.gz	73.1	ACF #82	B	cake	21	40	40

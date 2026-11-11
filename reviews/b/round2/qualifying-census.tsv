@@ -1,0 +1,3 @@
+point	kind	fen	all_distinct_games	all_visits	move	games_playing_move	visits_playing_move	our_wins	our_draws	our_losses
+Q001	mining	B:W18,23,24,25,27,31,32:B1,5,8,10,11,12,13	7	7	10-14	1	1	1	0	0
+Q001	mining	B:W18,23,24,25,27,31,32:B1,5,8,10,11,12,13	7	7	5-9	6	6	0	6	0

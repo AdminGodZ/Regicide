@@ -1,0 +1,4 @@
+All 53 source PDN files exist on the reviewed booklab commit and match their Git blob hashes.
+All 7944 game identities are unique and have finished results.
+Current master src/ and built-in assets are byte-identical to the compiled 1c6e997 core.
+Results {'1/2-1/2': 7819, '0-1': 104, '1-0': 21}

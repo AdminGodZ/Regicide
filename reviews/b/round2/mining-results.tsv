@@ -1,0 +1,2 @@
+rank	node	opponent	opening	our_colour	ply	fen	losing_game_move	alternative	alternative_observed_in_draw	root20	root100	pair20	pair100	qualifies	proven_alternative	both_moves_win	root_consistent
+1	881.24	kingsrow	ACF #71 Diabolical Denny	W	25	B:W18,23,24,25,27,31,32:B1,5,8,10,11,12,13	10-14	5-9	True	5-9 / -12 / d27	5-9 / 0 / d32	-188 / -3 at d27 (gain 185)	-186 / 0 at d32 (gain 186)	True	False	False	True

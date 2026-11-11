@@ -1,0 +1,5 @@
+# root B:W8,9,17,22,26,28:B5,10,13,19 rev 0 pieces 10 dbcap 8 db 0
+# child 5x14x21 db 2 drawnow 0 terminal 0
+depth	score	move	nodes	tbhits	pv
+1	0	5x14x21	2	1	5x14x21 
+# final depth 1 completed 0 score 0 move 5x14x21 partial 0 nodes 2 ms 0

@@ -1,0 +1,26 @@
+own:7:R3312:49:26x19 only legal move
+own:7:R3312:51:15-18 20M chooses played move
+own:7:R3312:53:19-24 does not qualify at both references played 19-24 alt 19-23 pairs 39 0 0 41 0 0 proven False both False
+own:7:R3312:55:9-14 20M chooses played move
+own:7:R3312:57:14-18 20M chooses played move
+own:7:R3312:59:18x27 only legal move
+own:7:R3312:61:10-15 20M chooses played move
+own:7:R3312:63:28-32 20M chooses played move
+own:7:R3312:65:32-27 20M chooses played move
+own:7:R3312:67:27x18 only legal move
+own:8:R513:32:26x19 only legal move
+own:8:R513:34:17-13 20M chooses played move
+own:8:R513:36:30-26 20M chooses played move
+own:8:R513:38:31-27 20M chooses played move
+own:8:R513:40:16x7 only legal move
+own:8:R513:42:26-22 20M chooses played move
+own:8:R513:44:27x18 only legal move
+own:8:R513:46:28-24 does not qualify at both references played 28-24 alt 21-17 pairs 35 0 0 41 0 0 proven False both False
+own:8:R513:48:20-16 20M chooses played move
+own:8:R513:50:16-11 20M chooses played move
+own:8:R513:52:19x10x1 only legal move
+own:9:R1855:42:31x24 only legal move
+own:9:R1855:44:30x23 only legal move
+own:9:R1855:46:29-25 does not qualify at both references played 29-25 alt 16-11 pairs 33 0 0 37 0 0 proven False both False
+own:9:R1855:48:25-21 does not qualify at both references played 25-21 alt 24-20 pairs 32 0 0 37 0 0 proven False both False
+BATCH TIME CHECKPOINT own 7 12 25
