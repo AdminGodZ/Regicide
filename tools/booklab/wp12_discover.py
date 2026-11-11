@@ -251,15 +251,17 @@ def main():
             c["deck"] = f"{a.out}/{c['name']}.txt"
             with open(c["deck"], "w") as fo:
                 fo.write(f"| {ballot_moves(c['run'], c['round'])} | A={c['colour']}\n")
-        ok_a, ra = readback(dll(chunk[0]["name"]), ["set hashsize 128", "set threads 1"])
-        ok_b, rb = readback(f"{E}\\cake\\cake_189f.dll", CAKE_OPTS)
-        if not (ok_a and ok_b):
-            st(f"W12 refused: book read-back differs: A {ra}; B {rb}")
-            sys.exit(3)
         names = f"{chunk[0]['name']}..{chunk[-1]['name']}"
         st(f"BL wait-lock w12-discovery {names} ({len(chunk)} single games vs cake)")
         with open(LOCK, "w") as lk:
             fcntl.flock(lk, fcntl.LOCK_EX)
+            # read-backs under the lock (review 2026-11-11, as bl_run_w.sh): loading a DLL maps its database
+            ok_a, ra = readback(dll(chunk[0]["name"]), ["set hashsize 128", "set threads 1"])
+            ok_b, rb = readback(f"{E}\\cake\\cake_189f.dll", CAKE_OPTS)
+            if not (ok_a and ok_b):
+                fcntl.flock(lk, fcntl.LOCK_UN)
+                st(f"W12 refused: book read-back differs: A {ra}; B {rb}")
+                sys.exit(3)
             mem = ensure_memory()
             st(f"BL start w12-discovery {names}; A {ra}; B {rb}; {mem}; runner {MATCH}; host {CB}")
             queue, running = list(chunk), []

@@ -150,14 +150,16 @@ def stage2(a, outdir):
         for b in range(1, a.blocks + 1):
             if all(complete(dirs[(b, arm)], a.per_block) for arm in arms):
                 continue
-            oks = [readback(regdll(a.cand_dll), REG_OPTS), readback(regdll(a.base_dll), REG_OPTS),
-                   readback(f"{E}\\cake\\cake_189f.dll", CAKE_OPTS)]
-            if not all(ok for ok, _ in oks):
-                st(f"W12S2 {a.tag} refused: book read-back: {' / '.join(t for _, t in oks)}")
-                sys.exit(3)
             st(f"BL wait-lock w12s2-{a.tag}-b{b} (candidate and control, {a.per_block} games each vs cake)")
             with open(LOCK, "w") as lk:
                 fcntl.flock(lk, fcntl.LOCK_EX)
+                # read-backs under the lock (review 2026-11-11, as bl_run_w.sh): loading a DLL maps its database
+                oks = [readback(regdll(a.cand_dll), REG_OPTS), readback(regdll(a.base_dll), REG_OPTS),
+                       readback(f"{E}\\cake\\cake_189f.dll", CAKE_OPTS)]
+                if not all(ok for ok, _ in oks):
+                    fcntl.flock(lk, fcntl.LOCK_UN)
+                    st(f"W12S2 {a.tag} refused: book read-back: {' / '.join(t for _, t in oks)}")
+                    sys.exit(3)
                 mem = ensure_memory()
                 st(f"BL start w12s2-{a.tag}-b{b}; {mem}; runner {MATCH}; host {CB}; fresh {int(a.fresh_engines)}")
                 procs = []
