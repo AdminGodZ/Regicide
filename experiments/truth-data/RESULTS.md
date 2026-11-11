@@ -854,7 +854,12 @@ Per-game rows: `logs/lossreport_final.md`; raw output: `logs/losswalk/lw_*.tsv`.
 - The n4c rows are the older built-in net's book-off runs (`ba-off-769*`, `ba-tm-off`).
 - "in-game score 99999" in the rows marks a move without an in-game score.
 
-**Summary by opponent and net**
+**Summary by opponent and net** (horizon column corrected 2026-11-11, review r17)
+
+**Correction:** the first version of this table treated an in-game score of exactly 0 as missing, so 9 rows were left
+out of the horizon count. The affected cells changed: Cake/n4c 3 → 5, Cake/n6c 6 → 9, Cake/n8bn 3 → 6, GuiNN/n6c 1 → 2.
+What this changes in the conclusion: more of the big drops were invisible to the in-game search than first reported,
+25 of 31 rows instead of 16.
 
 Turning moves whose deep score drops by 100 or more are classed as:
 - 'horizon' if Regicide's in-game score for the move stayed above −50;
@@ -862,13 +867,13 @@ Turning moves whose deep score drops by 100 or more are classed as:
 
 | opponent | net | lost games | proven lost: median pieces | already ≤ −50 at Regicide's first decision | turn: games at 20–24 / 17–19 / 13–16 / 9–12 / ≤ 8 pieces (others) | drops ≥ 100 at the turn | of which horizon / eval |
 |---|---|---|---|---|---|---|---|
-| Cake | n4c | 41 | 9 | 0 | 25 / 10 / 4 / 2 / 0 | 6 | 3 / 2 |
-| Cake | n6c | 62 | 11.0 | 0 | 30 / 14 / 15 / 3 / 0 | 10 | 6 / 0 |
-| Cake | n8bn | 15 | 12 | 0 | 8 / 6 / 1 / 0 / 0 | 8 | 3 / 0 |
+| Cake | n4c | 41 | 9 | 0 | 25 / 10 / 4 / 2 / 0 | 6 | 5 / 2 |
+| Cake | n6c | 62 | 11.0 | 0 | 30 / 14 / 15 / 3 / 0 | 10 | 9 / 0 |
+| Cake | n8bn | 15 | 12 | 0 | 8 / 6 / 1 / 0 / 0 | 8 | 6 / 0 |
 | Cake | n8c | 5 | 11 | 0 | 5 / 0 / 0 / 0 / 0 | 1 | 1 / 0 |
 | Cake | n8q | 5 | 12 | 0 | 1 / 4 / 0 / 0 / 0 | 1 | 1 / 0 |
 | GuiNN | n4c | 5 | 9 | 0 | 3 / 1 / 1 / 0 / 0 | 0 | 0 / 0 |
-| GuiNN | n6c | 8 | 9.0 | 0 | 6 / 0 / 2 / 0 / 0 | 4 | 1 / 0 |
+| GuiNN | n6c | 8 | 9.0 | 0 | 6 / 0 / 2 / 0 / 0 | 4 | 2 / 0 |
 | GuiNN | n8bn | 2 | 9.5 | 0 | 1 / 0 / 1 / 0 / 0 | 1 | 1 / 0 |
 | GuiNN | n8c | 2 | 12.0 | 0 | 2 / 0 / 0 / 0 / 0 | 0 | 0 / 0 |
 
@@ -888,7 +893,7 @@ pieces in 39 / 16 / 14 / 4 / 0 games; they are proven lost at a median of 10 pie
   the search is nearly error-free one step beyond the database.
 - The losses are made in the opening and early middle game, and the picture is the same for every net (n4c to n8q).
 - Most turns are small drops (−20 … −60 cm) that only become visible later. Large drops at the turn are few: 17 of
-  about 73 distinct games. In about half of these (16 of 31 rows) the in-game search did not see the drop ('horizon'), and the net's static
+  about 73 distinct games. In 25 of the 31 rows the in-game search did not see the drop ('horizon'), and the net's static
   eval was positive after the move only for n4c (2 games).
 - This matches the KingsRow k3 lines below: search depth at 14–24 pieces, not the endgame, decides these games.
 

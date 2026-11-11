@@ -58,6 +58,14 @@ def i(x):
         return None
 
 
+def ingame(r):
+    """Regicide's in-game score at the turning move, or None if the game has none there. Tested for None explicitly:
+    a real score of 0 is a score (review r17: `or -9999` had turned 0 into "missing"). truth losswalk writes 99999
+    when the move's comment holds no score."""
+    s = i(r["turn_ingame_score"])
+    return None if s is None or s == 99999 else s
+
+
 print("### Lost games, one row each\n")
 print("| run | net | opp | ballot | Regicide | proven lost: move (pieces) | turn: pieces | deep score before → after | in-game score | static eval before → after |")
 print("|---|---|---|---|---|---|---|---|---|---|")
@@ -90,7 +98,7 @@ for opp in ("Cake", "GuiNN"):
         turn = [int(r["turn_pieces"]) for r in sel if i(r["turn_pieces"]) is not None and r not in early]
         drops = [r for r in sel if i(r["turn_deep_before"]) is not None and i(r["turn_deep_after"]) is not None
                  and i(r["turn_deep_before"]) - i(r["turn_deep_after"]) >= 100]
-        hor = sum(1 for r in drops if (i(r["turn_ingame_score"]) or -9999) > -50)
+        hor = sum(1 for r in drops if ingame(r) is not None and ingame(r) > -50)
         evm = sum(1 for r in drops if evals.get(id(r), (None, -1))[1] is not None and evals[id(r)][1] >= 0)
         print("| %s | %s | %d | %s | %d | %s | %d | %d / %d |" % (opp, net, len(sel), statistics.median(proven), len(early), bins(turn),
                                                          len(drops), hor, evm))

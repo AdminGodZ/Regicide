@@ -154,13 +154,13 @@ Turning moves whose deep score drops by 100 or more: 'horizon' if Regicide's in-
 
 | opponent | net | lost games | proven lost: median pieces | already ≤ −50 at Regicide's first decision | turn: games at 20–24 / 17–19 / 13–16 / 9–12 / ≤ 8 pieces (others) | drops ≥ 100 at the turn | of which horizon / eval |
 |---|---|---|---|---|---|---|---|
-| Cake | n4c | 41 | 9 | 0 | 25 / 10 / 4 / 2 / 0 | 6 | 3 / 2 |
-| Cake | n6c | 62 | 11.0 | 0 | 30 / 14 / 15 / 3 / 0 | 10 | 6 / 0 |
-| Cake | n8bn | 15 | 12 | 0 | 8 / 6 / 1 / 0 / 0 | 8 | 3 / 0 |
+| Cake | n4c | 41 | 9 | 0 | 25 / 10 / 4 / 2 / 0 | 6 | 5 / 2 |
+| Cake | n6c | 62 | 11.0 | 0 | 30 / 14 / 15 / 3 / 0 | 10 | 9 / 0 |
+| Cake | n8bn | 15 | 12 | 0 | 8 / 6 / 1 / 0 / 0 | 8 | 6 / 0 |
 | Cake | n8c | 5 | 11 | 0 | 5 / 0 / 0 / 0 / 0 | 1 | 1 / 0 |
 | Cake | n8q | 5 | 12 | 0 | 1 / 4 / 0 / 0 / 0 | 1 | 1 / 0 |
 | GuiNN | n4c | 5 | 9 | 0 | 3 / 1 / 1 / 0 / 0 | 0 | 0 / 0 |
-| GuiNN | n6c | 8 | 9.0 | 0 | 6 / 0 / 2 / 0 / 0 | 4 | 1 / 0 |
+| GuiNN | n6c | 8 | 9.0 | 0 | 6 / 0 / 2 / 0 / 0 | 4 | 2 / 0 |
 | GuiNN | n8bn | 2 | 9.5 | 0 | 1 / 0 / 1 / 0 / 0 | 1 | 1 / 0 |
 | GuiNN | n8c | 2 | 12.0 | 0 | 2 / 0 / 0 / 0 / 0 | 0 | 0 / 0 |
 
