@@ -7,7 +7,7 @@ Kept by the lead. Both reviewers read this before starting a round and again bef
 listed here as fixed, declined or handed on is not reported again unless the fix itself is wrong (then say so and
 name the fix commit). Always test against the current `origin/master` (run `git fetch origin` first).
 
-Current master: see `git rev-parse origin/master` (PR #67 merged 2026-11-11; built-in net n8q, built-in book r11c). bench 7,833,556. ctest 50/50.
+Current master: see `git rev-parse origin/master` (PR #73 merged 2026-11-11; built-in net n8q, built-in book r11d 7692986c...). bench 7,833,556. ctest 51/51.
 
 ## Fixed on master
 
@@ -347,4 +347,25 @@ own clone under `~/regicide-review-*`, lowest priority, at most 2 threads, and w
   worse move in our won games: ACF 43 ply 23 8-12 (8-11), ACF 71 ply 25 10-14 or 13-17 (5-9), ACF 134 ply 37 20-24
   (11-16); Cake ACF 163 ply 51 26-30 (24-27). 24 of 67 won games analysed; the rest (H3 panel games against Cake)
   is not pursued. Hand-over files: branch t3/review-handover, experiments/review-handover/b14/.
+
+## Reviewers on the Windows machine, rounds A1 to A3 and B1 (2026-11-11)
+
+Reports: branch `t3/review-reports`, `reviews/a/roundN/` and `reviews/b/roundN/`.
+
+- Fixed on master: PR #71 (two findings of A1, see the table above). PR #73 (`--pairs-together`) checked in A3:
+  no defect.
+- Accepted: stale option read-back after an allocation failure during publication (A1; same as reviewer B
+  round 14).
+- Handed to Book Lab and fixed there (33e8910): wp12_chain.sh completeness guard accepted a short run with
+  exit_status 0; wp12_confirm.py and wp12_discover.py loaded engines before taking the timing lock (A2).
+- Handed to the search-lab owner: prune statistics kept across a `go` answered from the tables (A2).
+- Settled, not defects: `Book::probe` at margin 0 (book mode 3) always returns one fixed move, score ties included;
+  the seed is not used there. Our own play inside one configuration: book moves never differ between games,
+  searched moves differ in 9 of 17,083 comparable pairs (A3). The plain-int stop flag and the time-based search
+  remain the known sources of difference.
+- Verified: PR #60, #61, #65, #66, #71; `truth relabel` / `labelcheck` fix on truth-data (B1); the two hand-over
+  items (avoided move inside a king run in pins.py; wins_vs_book.py replay and FEN) are fixed on booklab (B1).
+- Analysis (opinions of our search with n8q and the 8-piece database, B1): KingsRow's moves 9-14 (ACF 16 ply 41),
+  8-12 (ACF 43 ply 23), 10-14 / 13-17 (ACF 71 ply 25) and 20-24 (ACF 134 ply 37) are worse than the alternative by
+  94 to 226 hundredths at 100M nodes; Cake's 20-24 and 10-15 on ACF 163 do not pass the 30 threshold.
 
