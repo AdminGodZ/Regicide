@@ -418,3 +418,7 @@ pairs, the other 800 positions of the UHO set (`--skip 800`).
 |---|---|---|---|---|---|---|---|---|
 | LMR lmr_base=80 confirmation, 600 ms, other half (--skip 800) | 650 / 313 / 637 | 19.6% | +2.8 [-2.4, +8.1] | 0 69 650 80 1 | 800 | ±5.2 | +1.05 | 523.1 / 522.7 ms, d 17.21 / 17.01 |
 | LMR lmr_base=120 confirmation, 600 ms, other half (--skip 800) | 649 / 316 / 635 | 19.8% | +3.0 [-2.0, +8.1] | 0 63 660 77 0 | 800 | ±5.0 | +1.16 | 522.3 / 521.9 ms, d 17.70 / 16.98 |
+
+**LMR outcome: neither candidate is confirmed** (600 ms, other half of the UHO set; the lower bounds are below 0):
+lmr_base 80 +2.8 [−2.4, +8.1], lmr_base 120 +3.0 [−2.0, +8.1]. Both stay positive but shrink by more than half
+from the screen (+6.7, +8.7), as expected for the best two of nine screens. Defaults (lmr_base 60, lmr_mult 45) stay.
