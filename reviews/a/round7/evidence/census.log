@@ -1,0 +1,19 @@
+{'opponent': 'cake', 'games': 312, 'claim_games': 312, 'no_claim_games': 0, 'first_min': 26, 'first_median': 45.0, 'first_max': 112, 'first_1_20': 0, 'first_21_40': 87, 'first_41_60': 196, 'first_61_80': 20, 'first_81_100': 5, 'first_101_plus': 4, 'board_W': 1, 'board_D': 311, 'board_L': 0, 'cb_W': 1, 'cb_D': 311, 'cb_L': 0, 'first_disagrees': 0}
+{'opponent': 'kingsrow', 'games': 312, 'claim_games': 306, 'no_claim_games': 6, 'first_min': 41, 'first_median': 51.0, 'first_max': 137, 'first_1_20': 0, 'first_21_40': 0, 'first_41_60': 262, 'first_61_80': 38, 'first_81_100': 3, 'first_101_plus': 3, 'board_W': 3, 'board_D': 309, 'board_L': 0, 'cb_W': 3, 'cb_D': 309, 'cb_L': 0, 'first_disagrees': 0}
+{'opponent': 'guinn', 'games': 312, 'claim_games': 311, 'no_claim_games': 1, 'first_min': 28, 'first_median': 43, 'first_max': 128, 'first_1_20': 0, 'first_21_40': 104, 'first_41_60': 184, 'first_61_80': 13, 'first_81_100': 3, 'first_101_plus': 7, 'board_W': 22, 'board_D': 290, 'board_L': 0, 'cb_W': 22, 'cb_D': 290, 'cb_L': 0, 'first_disagrees': 0}
+side/kind
+{'opponent': 'cake', 'actor': 'Regicide', 'side': 'B', 'kind': 'win', 'games': 1, 'events': 41, 'first_claims': 1}
+{'opponent': 'cake', 'actor': 'cake', 'side': 'B', 'kind': 'draw', 'games': 156, 'events': 2693, 'first_claims': 156}
+{'opponent': 'cake', 'actor': 'cake', 'side': 'W', 'kind': 'draw', 'games': 155, 'events': 3289, 'first_claims': 155}
+{'opponent': 'cake', 'actor': 'cake', 'side': 'W', 'kind': 'loss', 'games': 1, 'events': 34, 'first_claims': 0}
+{'opponent': 'guinn', 'actor': 'Regicide', 'side': 'B', 'kind': 'win', 'games': 4, 'events': 212, 'first_claims': 4}
+{'opponent': 'guinn', 'actor': 'Regicide', 'side': 'W', 'kind': 'win', 'games': 18, 'events': 943, 'first_claims': 12}
+{'opponent': 'guinn', 'actor': 'guinn', 'side': 'B', 'kind': 'draw', 'games': 138, 'events': 2382, 'first_claims': 138}
+{'opponent': 'guinn', 'actor': 'guinn', 'side': 'B', 'kind': 'loss', 'games': 18, 'events': 1188, 'first_claims': 6}
+{'opponent': 'guinn', 'actor': 'guinn', 'side': 'W', 'kind': 'draw', 'games': 151, 'events': 2856, 'first_claims': 151}
+{'opponent': 'guinn', 'actor': 'guinn', 'side': 'W', 'kind': 'loss', 'games': 4, 'events': 216, 'first_claims': 0}
+{'opponent': 'kingsrow', 'actor': 'Regicide', 'side': 'W', 'kind': 'win', 'games': 3, 'events': 158, 'first_claims': 1}
+{'opponent': 'kingsrow', 'actor': 'kingsrow', 'side': 'B', 'kind': 'draw', 'games': 153, 'events': 7474, 'first_claims': 153}
+{'opponent': 'kingsrow', 'actor': 'kingsrow', 'side': 'B', 'kind': 'loss', 'games': 3, 'events': 211, 'first_claims': 2}
+{'opponent': 'kingsrow', 'actor': 'kingsrow', 'side': 'W', 'kind': 'draw', 'games': 150, 'events': 7382, 'first_claims': 150}
+focus games 26 mismatches 0 moves independently replayed 101794 decisive opponent draw claims 0

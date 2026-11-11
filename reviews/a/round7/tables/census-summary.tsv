@@ -1,0 +1,4 @@
+opponent	games	claim_games	no_claim_games	first_min	first_median	first_max	first_1_20	first_21_40	first_41_60	first_61_80	first_81_100	first_101_plus	board_W	board_D	board_L	cb_W	cb_D	cb_L	first_disagrees
+cake	312	312	0	26	45.0	112	0	87	196	20	5	4	1	311	0	1	311	0	0
+kingsrow	312	306	6	41	51.0	137	0	0	262	38	3	3	3	309	0	3	309	0	0
+guinn	312	311	1	28	43	128	0	104	184	13	3	7	22	290	0	22	290	0	0

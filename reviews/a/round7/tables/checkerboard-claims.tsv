@@ -1,0 +1,9 @@
+early	return	2piece_end	2piece_PDN	24piece_end	24piece_PDN	White2piece_end	White2piece_PDN
+0	0	1	1/2-1/2	1	1/2-1/2	1	1/2-1/2
+0	1	0	not written	0	not written	0	not written
+0	2	0	not written	0	not written	0	not written
+0	3	0	not written	0	not written	0	not written
+1	0	1	1/2-1/2	1	1/2-1/2	1	1/2-1/2
+1	1	1	1-0	1	1-0	1	0-1
+1	2	1	0-1	1	0-1	1	1-0
+1	3	0	not written	0	not written	0	not written

@@ -1,0 +1,47 @@
+FAIL: a draw claim on the fourth move does not count: status 0
+game,pair,opening,black,white,result,score_a,termination,engine_plies,first_claim
+1,1,"/home/admingod/regicide-review-a/reports/round7/tmp/regicide-claims-draw-734533/opening.txt:1","A","B",*,,"move limit",4,"none"
+2,1,"/home/admingod/regicide-review-a/reports/round7/tmp/regicide-claims-draw-734533/opening.txt:1","B","A",1/2-1/2,0.5,"draw claim",4,"ply 4 W draw"
+Match: A = A, B = B
+Openings: /home/admingod/regicide-review-a/reports/round7/tmp/regicide-claims-draw-734533/opening.txt (1 openings x 1 rounds, each played with both colours)
+Time control: 0.1s/move (CheckerBoard match rules); no-progress rule: 40 moves
+Games: 1 of 2 scheduled
+
+A: +0 =1 -0   score 0.5/1 = 50.00%   draw rate 100.0%
+A as black: +0 =0 -0   A as white: +0 =1 -0
+By colour: black won 0, white won 0, drawn 1
+Pairs: 0   pentanomial [LL LD DD/WL WD WW] = [0 0 0 0 0]
+Elo (trinomial, games):   -0.0 [-0.0, -0.0] 95% CI, LOS 50.00%
+Terminations: draw claim 1;
+Unfinished (move limit): 1
+A A: 4 moves, avg 0.000s/move, max 0.000s
+B B: 4 moves, avg 0.000s/move, max 0.000s
+      * | move limit, no result | none | w0 l0 d0 | w0 l0 d0
+      1/2-1/2 | draw claimed by A | ply 4 W draw | w0 l0 d1 | w0 l0 d0
+FAIL: one game drawn by a claim, one stopped: status 0
+game,pair,opening,black,white,result,score_a,termination,engine_plies,first_claim
+1,1,"/home/admingod/regicide-review-a/reports/round7/tmp/regicide-claims-draw-734533/opening.txt:1","A","B",1/2-1/2,0.5,"draw claim",3,"ply 3 B draw"
+2,1,"/home/admingod/regicide-review-a/reports/round7/tmp/regicide-claims-draw-734533/opening.txt:1","B","A",1/2-1/2,0.5,"draw claim",4,"ply 4 W draw"
+Match: A = A, B = B
+Openings: /home/admingod/regicide-review-a/reports/round7/tmp/regicide-claims-draw-734533/opening.txt (1 openings x 1 rounds, each played with both colours)
+Time control: 0.1s/move (CheckerBoard match rules); no-progress rule: 40 moves
+Games: 2 of 2 scheduled
+
+A: +0 =2 -0   score 1.0/2 = 50.00%   draw rate 100.0%
+A as black: +0 =1 -0   A as white: +0 =1 -0
+By colour: black won 0, white won 0, drawn 2
+Pairs: 1   pentanomial [LL LD DD/WL WD WW] = [0 0 1 0 0]
+Elo (pentanomial, pairs): -0.0 [-0.0, -0.0] 95% CI, score 0.5000 +- 0.0000, LOS 50.00%
+Elo (trinomial, games):   -0.0 [-0.0, -0.0] 95% CI, LOS 50.00%
+Terminations: draw claim 2;
+Unfinished (move limit): 0
+A A: 4 moves, avg 0.000s/move, max 0.000s
+B B: 3 moves, avg 0.000s/move, max 0.000s
+      1/2-1/2 | draw claimed by A | ply 3 B draw | w0 l0 d1 | w0 l0 d0
+      1/2-1/2 | draw claimed by A | ply 4 W draw | w0 l0 d1 | w0 l0 d0
+FAIL: White without a move after 1-5, --cb-move-limit 1: expected *, status 0
+game,pair,opening,black,white,result,score_a,termination,engine_plies,first_claim
+1,1,"/home/admingod/regicide-review-a/reports/round7/tmp/regicide-claims-unknown-734533/opening.txt:1","A","B",1-0,1,"no legal moves",1,"none"
+2,1,"/home/admingod/regicide-review-a/reports/round7/tmp/regicide-claims-unknown-734533/opening.txt:1","B","A",1-0,0,"no legal moves",1,"none"
+      1-0 | white has no legal moves | none | w0 l0 d0 | w0 l0 d0
+      1-0 | white has no legal moves | none | w0 l0 d0 | w0 l0 d0

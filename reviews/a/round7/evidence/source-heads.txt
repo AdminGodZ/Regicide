@@ -1,0 +1,9 @@
+Final fetch checked: 2026-11-11T12:06:21.948167+00:00
+origin/master 8d76ba665956b1c5fc8d0a6b86bb1eb40becfd76
+origin/t3/booklab e4d79083b307617691da34fb6c606bd5ffc47847
+origin/t3/claim-soundness e252fd0db300776815dc5d32b990a8a5dd9c3b6f
+origin/t3/review-reports eb5d5614c5866b9628de80b9b13802af67f85cac
+CheckerBoard reference 32f194f840f208f0aff86a07026f788c01c819ce
+Claims census: six cl-* PDN/CSV pairs, 936 games, independently replayed.
+Strict near-miss sources: ten mo-/mo1- PDNs, 1872 games; hashes equal round-6 replay inputs.
+No real opponent engine run.

@@ -1,0 +1,3 @@
+game,pair,opening,black,white,result,score_a,termination,engine_plies,first_claim
+1,1,"/home/admingod/regicide-review-a/reports/round7/runner-fixtures/terminal-win-limit1-repeat.deck:1","Review fixture","Review fixture",*,,"move limit",1,"ply 1 B win"
+2,1,"/home/admingod/regicide-review-a/reports/round7/runner-fixtures/terminal-win-limit1-repeat.deck:1","Review fixture","Review fixture",*,,"move limit",1,"ply 1 B win"
