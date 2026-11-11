@@ -71,7 +71,8 @@ bash /mnt/c/regicide-match/jobs/truth/launch.sh n9a_trigger.sh     # if n9a is n
 
 - **Training data:**
   - `~/regicide-data/train/*.bin`: original gen1…gen5c;
-  - `~/regicide-data/truth/*_e2.bin`: database-relabelled;
+  - `~/regicide-data/truth/*_e2.bin`: database-relabelled with the defective rule (n8q, n9h);
+  - `~/regicide-data/truth/*_e2f.bin`: relabelled with the fixed rule (2026-11-11; n9a, n9a0);
   - `*_e3.bin`: rescored gen5a, gen4a (E3 is dropped);
   - `gen6a/gen6b_n50k_egdb.bin`: E5;
   - `e5_n9h/`: if created;
