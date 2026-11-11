@@ -1133,3 +1133,4 @@ MO3 cake done 2026-11-11T15:44:20+01:00
 BL end mo3-guinn rc=0 Games: 312 of 312 scheduled A: +23 =289 -0   score 167.5/312 = 53.69%   draw rate 92.6% Elo (pentanomial, pairs): +25.7 [+16.0, +35.4] 95% CI, score 0.5369 +- 0.0139, LOS 100.00% 2026-11-11T15:47:34+01:00
 MO3 guinn done 2026-11-11T15:47:34+01:00
 V11F done (c2 scoring resumed) 2026-11-11T15:47:49+01:00
+W12C2 stopped for the night (batch boundary reached: no; cached move scores 3442 -> 3442); resume: launch.sh c2 c2_chain.sh 2026-11-11T17:01:19+01:00

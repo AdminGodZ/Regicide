@@ -1,4 +1,34 @@
-# booklab results (state 2026-11-10 06:40 CET; updated after every validation run)
+# booklab results (state 2026-11-11 17:05 CET; updated after every validation run)
+
+## RESUME (wind-down 2026-11-11 17:05, owner ends work for today)
+
+**Finished**
+- r11d validated in match order and as CheckerBoard plays a match: **mo2** (master 8de39d0, concurrency 1, pairs
+  together, kept processes, `--cb-claims --cb-move-limit 200`): KingsRow mode 3 1/311/0, Cake 0/312/0, GuiNN 19/293/0;
+  claims census (a): no claim disagrees with the board.
+- **r11f** = r11d + the #6 Black repair (8-11 at ply 17) + 149 pins, sha256
+  `a4c90ab6ff083480ad9858fd2a1217b3fb4427dab6539ecbe13546855b0e188f` (`wp11f/`, rebuild: `scripts/build_r11f.sh`).
+  Validated on master fdd154e (DLL `bl-fdd154e-r11f`): a) #6 Black against KingsRow mode 3 0/72/0; b) **mo3**
+  (exactly as mo2): KingsRow 1/311/0, Cake 0/312/0, GuiNN 23/289/0, no loss, no unfinished game.
+- WP14 closed (no further candidate; `wp14/dips.tsv`: 13 forced-move positions with depth-1 game scores).
+- Opponent options checked (`cl/opponent_options.md`).
+
+**Stopped (resumable)**
+- WP12 pilot, Cake arm, campaign c2 (key `8f5621a2f60d29fe`, base 1c6e997 = r11d): slot 1 complete (candidate 0 = the
+  known point 8-12 at #163/#165 ply 5, and 296 slot-1 candidates, `wp12/c2/candidates.tsv`); stopped at 17:01 during the
+  first slot-2 batch, whose ~33 min of scores were lost (no batch boundary within 15 min); 3,442 move scores of c2 are in
+  `~/regicide-jobs/booklab/wp12/cache.tsv`. **Resume:** `bash /mnt/c/regicide-match/jobs/booklab/launch.sh c2
+  /mnt/c/regicide-match/jobs/booklab/c2_chain.sh` (recomputes the same 5,686 points, uses every cached score, continues
+  with slots 2 and 3; 6 threads, only when no timed run of booklab plays).
+
+**Not running**: no booklab process, engine, host, watcher or affinity keeper; no lock held.
+
+**Next**
+1. r11f into master after the lead's check (the integrator builds it).
+2. The final strict run (as mo2/mo3) on the release commit with r11f built in.
+3. WP12 pilot: finish c2's slots 2-3; discovery in match order (`wp12_discover.py --pairs`, full pair, our Black game
+   first, only the candidate's colour judged); open question to the lead: discovery against the r11d base DLL
+   (`bl-fdd154e`), stage 4 on r11f.
 
 Settings everywhere: acf156, 0.5 s/move (CheckerBoard rules), `-c 8`, hash 128, opponents with their own books and the
 KingsRow 8-piece WLD db, Regicide with its 2–8-piece db, PDN comments on. Each 312-game run = two halves of 78 ballots
