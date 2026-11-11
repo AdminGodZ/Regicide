@@ -1,0 +1,60 @@
+ply	fen	pieces	played	root20_move_score_depth	root100_move_score_depth	pair20_played_alt	pair100_played_alt	root400_move_score_depth	direct_wld_from_mover	verdict
+17	B:W19,21,22,23,27,28,30,31,32:B2,4,5,6,7,8,12,13,14	18	6-10	6-10 / -84 / d25	8-11 / -27 / d29	-74 / -42 at d25 (alternative minus played 32)	-87 / -26 at d29 (alternative minus played 61)	8-11 / -10 / d34	Unknown (>8 pieces)	draw-like search opinion
+19	B:W19,21,22,23,24,27,30,31,32:B2,4,5,7,8,10,12,13,14	18	14-17	-	14-17 / -69 / d31	-	-	-	Unknown (>8 pieces)	negative search opinion
+21	B:W14,19,22,23,24,27,30,31,32:B2,4,5,7,8,10,12,13	17	10x17x26	-	10x17x26 / -10 / d1	-	-	-	Unknown (>8 pieces)	only legal move; shallow shortcut
+23	B:W19,22,23,24,27,30,32:B2,4,5,7,8,12,13	14	7-10	-	7-10 / -75 / d33	-	-	-	Unknown (>8 pieces)	negative search opinion
+25	B:W18,19,22,24,27,30,32:B2,4,5,8,10,12,13	14	10-14	-	10-14 / -95 / d35	-	-	-	Unknown (>8 pieces)	negative search opinion
+27	B:W9,19,22,24,27,30,32:B2,4,5,8,12,13	13	5x14	-	5x14 / -75 / d1	-	-	-	Unknown (>8 pieces)	only legal move; shallow shortcut
+29	B:W19,22,23,24,30,32:B2,4,8,12,13,14	12	14-17	-	14-17 / -114 / d35	-	-	-	Unknown (>8 pieces)	negative search opinion
+31	B:W18,19,23,24,30,32:B2,4,8,12,13,17	12	17-22	-	17-22 / -105 / d35	-	-	-	Unknown (>8 pieces)	negative search opinion
+33	B:W14,19,23,24,30,32:B2,4,8,12,13,22	12	13-17	-	13-17 / -109 / d34	-	-	-	Unknown (>8 pieces)	negative search opinion
+35	B:W9,19,23,24,30,32:B2,4,8,12,17,22	12	17-21	-	17-21 / -108 / d34	-	-	-	Unknown (>8 pieces)	negative search opinion
+37	B:W5,19,23,24,30,32:B2,4,8,12,21,22	12	2-7	-	2-7 / -108 / d34	-	-	-	Unknown (>8 pieces)	negative search opinion
+39	B:W5,18,19,24,30,32:B4,7,8,12,21,22	12	22-25	-	22-25 / -129 / d35	-	-	-	Unknown (>8 pieces)	negative search opinion
+41	B:W5,15,18,24,30,32:B4,7,8,12,21,25	12	7-11	-	7-11 / -114 / d34	-	-	-	Unknown (>8 pieces)	negative search opinion
+43	B:W5,10,18,24,30,32:B4,8,11,12,21,25	12	11-16	-	11-16 / -130 / d33	-	-	-	Unknown (>8 pieces)	negative search opinion
+45	B:W5,7,18,24,30,32:B4,8,12,16,21,25	12	25-29	-	16-20 / -135 / d32	-	-	-	Unknown (>8 pieces)	negative search opinion
+47	B:W5,7,14,24,30,32:B4,8,12,16,21,K29	12	16-20	-	16-20 / -94 / d32	-	-	-	Unknown (>8 pieces)	negative search opinion
+49	B:W5,7,14,19,30,32:B4,8,12,20,21,K29	12	29-25	-	29-25 / -80 / d31	-	-	-	Unknown (>8 pieces)	negative search opinion
+50	W:W5,7,14,19,30,32:B4,8,12,20,21,K25	12	19-15	-	-	-	-	-	Unknown (>8 pieces)	not yet searched
+51	B:W5,7,14,15,30,32:B4,8,12,20,21,K25	12	25-22	-	25-22 / -83 / d32	-	-	25-22 / -106 / d36	Unknown (>8 pieces)	negative search opinion
+53	B:W5,7,10,14,30,32:B4,8,12,20,21,K22	12	8-11	-	8-11 / -24 / d31	-	-	-	Unknown (>8 pieces)	draw-like search opinion
+55	B:WK1,7,10,14,30,32:B4,11,12,20,21,K22	12	11-15	-	-	-	-	-	Unknown (>8 pieces)	not yet searched
+57	B:WK1,K3,10,14,30,32:B4,12,15,20,21,K22	12	15-19	-	-	-	-	-	Unknown (>8 pieces)	not yet searched
+59	B:WK1,K3,7,14,30,32:B4,12,19,20,21,K22	12	12-16	-	-	-	-	-	Unknown (>8 pieces)	not yet searched
+61	B:WK1,K3,7,9,30,32:B4,16,19,20,21,K22	12	22-26	-	-	-	-	-	Unknown (>8 pieces)	not yet searched
+63	B:WK1,K3,7,9,23,32:B4,16,19,20,21	11	19x26	-	-	-	-	-	Unknown (>8 pieces)	not yet searched
+65	B:WK1,K2,K3,9,32:B4,16,20,21,26	10	26-30	-	-	-	-	-	Unknown (>8 pieces)	not yet searched
+67	B:WK1,K3,K7,9,32:B4,16,20,21,K30	10	20-24	-	30-26 / -18 / d31	-	-	30-26 / -17 / d37	Unknown (>8 pieces)	draw-like search opinion
+69	B:WK1,K3,9,K11,32:B4,16,21,24,K30	10	16-19	-	16-19 / -200 / d34	-	-	-	Unknown (>8 pieces)	negative search opinion
+71	B:WK1,K3,9,K15,32:B4,19,21,24,K30	10	19-23	-	19-23 / -155 / d33	-	-	-	Unknown (>8 pieces)	negative search opinion
+73	B:WK1,K3,9,K18,32:B4,21,23,24,K30	10	23-26	-	-	-	-	-	Unknown (>8 pieces)	not yet searched
+75	B:WK1,K3,9,K23,32:B4,21,24,26,K30	10	24-28	-	-	-	-	-	Unknown (>8 pieces)	not yet searched
+77	B:WK3,K6,9,K23,32:B4,21,26,28,K30	10	26-31	-	-	-	-	-	Unknown (>8 pieces)	not yet searched
+79	B:WK6,K7,9,K23,32:B4,21,28,K30,K31	10	4-8	-	-	-	-	-	Unknown (>8 pieces)	not yet searched
+81	B:WK7,9,K10,K23,32:B8,21,28,K30,K31	10	21-25	-	-	-	-	-	Unknown (>8 pieces)	not yet searched
+83	B:WK7,9,K15,K23,32:B8,25,28,K30,K31	10	25-29	-	-	-	-	-	Unknown (>8 pieces)	not yet searched
+85	B:WK7,9,K15,K19,32:B8,28,K29,K30,K31	10	31-26	-	-	-	-	-	Unknown (>8 pieces)	not yet searched
+87	B:W9,K11,K15,K19,32:B8,K26,28,K29,K30	10	8-12	-	-	-	-	-	Unknown (>8 pieces)	not yet searched
+89	B:W9,K11,K18,K19,32:B12,K26,28,K29,K30	10	29-25	-	-	-	-	-	Unknown (>8 pieces)	not yet searched
+91	B:W9,K11,K18,K24,32:B12,K25,K26,28,K30	10	26-22	-	-	-	-	-	Unknown (>8 pieces)	not yet searched
+93	B:W9,K15,K18,K24,32:B12,K22,K25,28,K30	10	22-17	-	-	-	-	-	Unknown (>8 pieces)	not yet searched
+95	B:W6,K15,K18,K24,32:B12,K17,K25,28,K30	10	25-21	-	-	-	-	-	Unknown (>8 pieces)	not yet searched
+97	B:WK2,K15,K18,K24,32:B12,K17,K21,28,K30	10	30-25	-	-	-	-	-	Unknown (>8 pieces)	not yet searched
+99	B:WK7,K15,K18,K24,32:B12,K17,K21,K25,28	10	17-13	-	-	-	-	-	Unknown (>8 pieces)	not yet searched
+101	B:WK10,K15,K18,K24,32:B12,K13,K21,K25,28	10	13-9	-	-	-	-	-	Unknown (>8 pieces)	not yet searched
+103	B:WK14,K15,K18,K24,32:BK9,12,K21,K25,28	10	9-13	-	-	-	-	-	Unknown (>8 pieces)	not yet searched
+105	B:WK14,K15,K18,K19,32:B12,K13,K21,K25,28	10	25-29	-	-	-	-	-	Unknown (>8 pieces)	not yet searched
+107	B:WK14,K15,K19,K22,32:B12,K13,K21,28,K29	10	21-25	-	-	-	-	-	Unknown (>8 pieces)	not yet searched
+109	B:WK14,K18,K19,K22,32:B12,K13,K25,28,K29	10	25-21	-	-	-	-	-	Unknown (>8 pieces)	not yet searched
+111	B:WK14,K15,K18,K22,32:B12,K13,K21,28,K29	10	21-25	-	-	-	-	-	Unknown (>8 pieces)	not yet searched
+113	B:WK11,K14,K18,K22,32:B12,K13,K25,28,K29	10	25-21	-	-	-	-	-	Unknown (>8 pieces)	not yet searched
+115	B:WK11,K14,K15,K22,32:B12,K13,K21,28,K29	10	12-16	-	-	-	-	-	Unknown (>8 pieces)	not yet searched
+117	B:WK14,K15,K20,K22,32:BK13,K21,28,K29	9	21-25	-	-	-	-	-	Unknown (>8 pieces)	not yet searched
+119	B:WK14,K18,K20,K22,32:BK13,K25,28,K29	9	25-21	-	-	-	-	-	Unknown (>8 pieces)	not yet searched
+121	B:WK14,K16,K18,K22,32:BK13,K21,28,K29	9	21-25	-	-	-	-	-	Unknown (>8 pieces)	not yet searched
+123	B:WK11,K14,K18,K22,32:BK13,K25,28,K29	9	25-21	-	-	-	-	-	Unknown (>8 pieces)	not yet searched
+125	B:WK7,K14,K18,K22,32:BK13,K21,28,K29	9	21-25	-	-	-	-	-	Unknown (>8 pieces)	not yet searched
+127	B:WK2,K14,K18,K22,32:BK13,K25,28,K29	9	25-21	-	-	-	-	-	Unknown (>8 pieces)	not yet searched
+129	B:WK2,K9,K18,K22,32:BK13,K21,28,K29	9	13x6	-	-	-	-	-	Unknown (>8 pieces)	not yet searched
+131	B:WK9,K18,K22,32:BK21,28,K29	7	21-25	-	-	-	-	-	3	not yet searched

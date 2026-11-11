@@ -1,0 +1,4 @@
+QUERY 17 20000000 - 127 => 6-10 -84 d25
+QUERY 17 100000000 6-10 29 => 6-10 -87 d29
+QUERY 17 100000000 8-11 29 => 8-11 -26 d29
+COMPARED 17:6-10:8-11 {'depth': 25, 'played': -74, 'alternative': -42, 'gain': 32, 'played_path': 'reports/round3/queries/P017-100000000-force-6-10-d29.tsv', 'alternative_path': 'reports/round3/queries/P017-100000000-force-8-11-d29.tsv'} {'depth': 29, 'played': -87, 'alternative': -26, 'gain': 61, 'played_path': 'reports/round3/queries/P017-100000000-force-6-10-d29.tsv', 'alternative_path': 'reports/round3/queries/P017-100000000-force-8-11-d29.tsv'}
