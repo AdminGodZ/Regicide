@@ -630,6 +630,27 @@ here (it ends the games earlier). In none of our 26 wins (KingsRow #16, #43, #13
 `cl-cake-h2` 51.1; GuiNN 22) had the opponent claimed a draw before; in each the opponent's first claim is a loss claim
 or comes after our win claim. No losses. Our DLL claims only wins (3 / 1 / 22 games, all won); no draw or loss claims.
 
+**(b) THE RESULT: three concurrency-1 runs as CheckerBoard plays a match** (lead 11:57; master 8de39d0 as committed,
+DLL `bl-8de39d0`; `--pairs-together`, processes kept, the production deck in ACF order, `--cb-claims` (CheckerBoard's
+claim handling, early adjudication) and `--cb-move-limit 200`; one game at a time per run, each pinned to its own core;
+started 12:33, all rc 0, 312 of 312; `mo2/`):
+
+| Opponent | W / D / L | how games ended | unfinished (move limit) |
+|---|---|---|---|
+| KingsRow mode 3 | **1 / 311 / 0** | draw claim 306, repetition 5, our win claim 1 | 0 |
+| Cake | **0 / 312 / 0** | draw claim 312 | 0 |
+| GuiNN | **19 / 293 / 0** | draw claim 292, repetition 1, our win claim 12, GuiNN's loss claim 7 | 0 |
+
+**No loss in 936 games.** No claim on search 201 (no game reached the limit). Every first claim agrees with the
+result the game had on the board when it ended (`mo2/claims.md`). The KingsRow win is #43 as White (game 78, both
+processes 77 games old; KingsRow's 8-12 at ply 23, ended by our win claim at ply 128). Known points: KingsRow #16
+32-28 (age 27, D), #43 8-12 (age 77, W), #71 5-9 (age 125, D), #134 11-16 (age 241, D); Cake #163 4-8 at ply 15 (age
+293, D). **#6 Black (game 9, age 8)**: KingsRow left the lost mo1 game at ply 40 (5-1 instead of 19-15), played 19-15
+at ply 50 in a different position, and the game was drawn by its draw claim at ply 102 — the loss did not recur.
+Clock (`mo2/clock.md`): the opponents' mean time per move is higher than in the runs without claims (KingsRow 0.364 s,
+Cake 0.439 s, GuiNN 0.425 s against 0.13–0.26 s), because the games end at the first draw claim, before the
+database-resolved endings where moves are instant; per searched move 0.82–1.18 s, as before.
+
 **Test bed for the #6 Black repair** (lead 12:35; `cl/tb6.md`, `tb_compare.py`): the deck prefix to #6 (games 1-10)
 six times with mo1-kingsrow's DLL, runner and settings (concurrency 1, pairs together, processes kept, new processes
 at each start), pinned to core 20 beside the (b) runs. All 60 games drawn. **The prefix does not reproduce:** KingsRow

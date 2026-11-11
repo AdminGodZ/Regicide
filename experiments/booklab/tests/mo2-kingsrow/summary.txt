@@ -1,0 +1,15 @@
+Match: A = Regicide 0.2, B = Kingsrow(x64) 1.20
+Openings: /mnt/c/regicide-match/jobs/booklab/acf156_all.txt (156 openings x 1 rounds, each played with both colours)
+Time control: 0.5s/move (CheckerBoard match rules); no-progress rule: 40 moves
+Games: 312 of 312 scheduled
+
+A: +1 =311 -0   score 156.5/312 = 50.16%   draw rate 99.7%
+A as black: +0 =156 -0   A as white: +1 =155 -0
+By colour: black won 0, white won 1, drawn 311
+Pairs: 156   pentanomial [LL LD DD/WL WD WW] = [0 0 155 1 0]
+Elo (pentanomial, pairs): +1.1 [-1.1, +3.3] 95% CI, score 0.5016 +- 0.0031, LOS 84.21%
+Elo (trinomial, games):   +1.1 [-1.1, +3.3] 95% CI, LOS 84.17%
+Terminations: draw claim 306; repetition 5; win claim 1;
+Unfinished (move limit): 0
+A Regicide 0.2: 7837 moves, avg 0.075s/move, max 3.746s
+B Kingsrow(x64) 1.20: 7992 moves, avg 0.365s/move, max 11.122s
