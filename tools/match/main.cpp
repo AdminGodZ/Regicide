@@ -283,7 +283,10 @@ void play_game(const Config& cfg, Engine* eng[2], GameRecord& g) {
         g.moves.push_back(pdn);
         if (cfg.pdn_comments) {
             std::snprintf(buf, sizeof buf, "%.2fs", r.elapsed);
-            g.comments.push_back(std::string(buf) + (r.info.empty() ? "" : " " + r.info));
+            std::string info = r.info;  // free text of the engine: a brace in it would end the PDN comment
+            std::ranges::replace(info, '{', '(');
+            std::ranges::replace(info, '}', ')');
+            g.comments.push_back(std::string(buf) + (info.empty() ? "" : " " + info));
         }
         const bool conversion = b.is_conversion(*m);
         b = b.after(*m);
