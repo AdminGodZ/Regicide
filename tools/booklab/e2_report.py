@@ -22,11 +22,19 @@ from theory import parse_pdn, ballot_of  # noqa: E402
 
 
 def dn(c):
-    d = re.search(r"depth (\d+)", c or "")
-    n = re.search(r"nodes (\d+)", c or "")
-    if "book" in (c or "") and not d:
+    """depth/nodes from an engine's PDN comment. Cake and Regicide write 'nodes N'; KingsRow (book mode 3) writes
+    'value=V, depth D/..., T s, R kN/s' without nodes: then value and ~R x T thousand nodes."""
+    c = c or ""
+    d = re.search(r"depth (\d+)", c)
+    n = re.search(r"nodes (\d+)", c)
+    if "book" in c and not d:
         return "book"
-    return f"d{d.group(1) if d else '?'}/{n.group(1) if n else '?'}"
+    if not n:
+        v = re.search(r"value=(-?\d+)", c)
+        k = re.search(r", ([\d.]+)s, (\d+) kN/s", c)
+        nn = f"~{float(k.group(1)) * int(k.group(2)):.0f}k" if k else "?"
+        return f"d{d.group(1) if d else '?'}/{nn}" + (f" v{v.group(1)}" if v else "")
+    return f"d{d.group(1) if d else '?'}/{n.group(1)}"
 
 
 def counters(tags):
