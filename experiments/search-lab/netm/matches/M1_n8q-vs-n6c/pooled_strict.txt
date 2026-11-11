@@ -1,0 +1,2 @@
+dirs 6  W/D/L 265/1096/249  pairs 805  pentanomial [LL LD DD/WL WD WW] = [0, 23, 743, 39, 0]
+Elo +3.5 [+0.1, +6.8] 95% CI (pentanomial, pairs), score 0.5050 +- 0.0048, LOS 97.9%

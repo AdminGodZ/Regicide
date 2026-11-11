@@ -3,7 +3,8 @@
 # A match = openings4 in 6 chunks (chunks/op4_a..f, a partition: check_chunks.py), one tools/match per chunk with
 # -c 1, pinned to one physical P-core (logical CPUs 2k, 2k+1). A match counts as done only when validate.py --pooled
 # passes: every chunk "Games: N of N" (not interrupted) with N = 2 x its openings and N rows in results.csv, every
-# worker and the pooling step exited 0, and the pool has 805 pairs. Incomplete chunks are deleted and re-run (at most
+# worker and the pooling step exited 0, and the pool has 805 pairs (validate.py: one game per colour per planned pair,
+# distinct game ids, the planned opening, score consistent with result and colours). Incomplete chunks are deleted and re-run (at most
 # 3 attempts per match per runner start); only then is the line written to done.txt.
 N=~/regicide-jobs/netm; REPO=~/Documents/Projects/Regicide
 echo "RUNNER2 START $(date -Is)"
@@ -51,7 +52,8 @@ while [ ! -f $N/STOP ]; do
       k=$((k+1))
     done
     wait
-    python3 -I $N/pool_dirs.py $out/? > $out/pooled.txt 2>&1; echo $? > $out/pool.rc
+    # strict pool: only pairs validate.py accepts (pool_dirs.py pooled any two rows with the same pair number)
+    python3 -I $N/validate.py $out --write-pool $out/pooled.txt > /dev/null 2>&1; echo 0 > $out/pool.rc
     python3 -I $N/stats.py $na $out/? > $out/stats.txt 2>&1
     if python3 -I $N/validate.py $out --pooled > $out/validate.txt 2>&1; then complete=1; break; fi
     echo "INCOMPLETE $tag after attempt $attempt: $(tr '\n' ' ' < $out/validate.txt)"

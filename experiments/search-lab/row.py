@@ -12,6 +12,11 @@ for name in sys.argv[1:]:
     g = m[-1]
     n, w, d, l = map(int, g[:4]); elo, lo, hi = map(float, g[6:9]); p = list(map(int, g[9:]))
     pairs = sum(p)
+    # planned pairs from selfplay's header; anything short of a final report over all of them is labelled partial
+    hp = re.search(r'^openings \d+, pairs (\d+)', t, re.M)
+    planned = int(hp.group(1)) if hp else None
+    if tag or planned is None or pairs != planned or n != 2 * pairs:
+        tag = f' (partial: {pairs} of {planned if planned else "?"} pairs)'
     half = (hi - lo) / 2
     # error bar scaled to 800 pairs; t = elo / se
     se = half / 1.96

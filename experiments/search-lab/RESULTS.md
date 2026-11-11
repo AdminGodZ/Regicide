@@ -212,6 +212,16 @@ pool has exactly 805 pairs. Incomplete chunks are deleted and re-run. The first 
 statuses; its chunks carry an explicit `unrecorded` marker, written only for chunks whose summary shows every game
 played, and the validator prints that.
 
+**Strict validation (second review, 2026-11-11):** `netm/validate.py` now checks every planned pair: exactly two
+rows with distinct game ids, the planned opening (`op4_<c>:<pair>`), one game per colour (A black / B white and the
+reverse), a score consistent with the result and A's colour, no duplicate or unplanned rows. The pool counts
+validated pairs only (`--write-pool`, same formula and format as `pool_dirs.py`, which accepted any two rows with the
+same pair number). `netpost.sh` runs this check itself and posts from that pool. Re-validated: **M5 and M1 are
+unchanged** (805/805 valid pairs each, identical W/D/L, pentanomial and Elo; `netm/matches/M?_*/validate.txt`). A
+tampered copy of M1 (a losing row replaced by its pair's winning row; a duplicated row; a draw scored 1) is rejected
+in each case. Sweep runner: a line counts as done only on exit 0 with a final report over all queued pairs; failed
+attempts keep their log and go to `failed.txt`. `row.py` labels anything shorter "(partial: X of P pairs)".
+
 **Intervals:** Elo and its 95% interval in the net-match table come from truth-data's `pool_dirs.py` (pairs, n−1
 variance, symmetric interval in Elo via the delta method). `tools/match`'s own summaries (population variance,
 transformed endpoints) differ slightly.
