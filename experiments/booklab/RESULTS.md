@@ -651,6 +651,18 @@ Clock (`mo2/clock.md`): the opponents' mean time per move is higher than in the 
 Cake 0.439 s, GuiNN 0.425 s against 0.13–0.26 s), because the games end at the first draw claim, before the
 database-resolved endings where moves are instant; per searched move 0.82–1.18 s, as before.
 
+## WP12 pilot, Cake arm: campaign c2 (scoring)
+
+Base: master 1c6e997 as committed (built-in r11d, n8q). Points from the match-order Cake runs (`mo-cake-{a,b}`): 5,686;
+contexts from 23 complete runs (v11d-n8q, mo, mo1); protected = r10k5's decisions; scoring `blk-multiscore-1c6e` (b5c38a20…,
+engine 1c6e997 + n8q), 20M nodes, book off, cleared hash per move; campaign key `8f5621a2f60d29fe`; `wp12/c2/`. Paused
+while the timed runs of WP14 and the r11f validation played. **Slot 1 done (16:4x): the known point and 296 slot-1
+candidates** (one per line). The known point passes the margin: at the shared ply-5 position of #163/#165 (Black) the
+pinned 11-15 scores +4, the alternative 8-12 −1, so it is candidate 0 and counts on its lines. Of 657 points
+considered so far: 297 kept, 147 with fewer than two non-avoided moves, 54 protected decisions, the rest spacing or
+margin. Alternative − pinned over the 296: −15 … +20, median 0 (273 at least equal). Slots 2 and 3 scoring; the pilot's
+first 300 = candidate 0, the 296, and the first three of slot 2 in deck order.
+
 ## WP14: preventive repairs from the near-miss list (lead 2026-11-11 13:30)
 
 Source: Review A round 7, `near-miss-games.tsv` (13 drawn strict games, Regicide Black, own 0.5 s search down to −56 …
