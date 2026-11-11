@@ -255,9 +255,9 @@ CB_EXPORT int WINAPI getmove(Board8x8 board, int color, double maxtime, char str
     s.after_our_move.make_move(r.best);
     s.have_after = true;
 
-    // A losing score from an iteration that was cut short covers only the root moves searched so far: no claim.
+    // A known win is claimed; a known loss is not. Under CheckerBoard's early adjudication (its default) a loss claim
+    // concedes the game at once, also against an opponent that might fail to win it: the game is played out instead.
     if (r.score >= SCORE_KNOWN_WIN) return CB_WIN;
-    if (r.score <= -SCORE_KNOWN_WIN && !r.partial) return CB_LOSS;
     return CB_UNKNOWN;
 }
 
