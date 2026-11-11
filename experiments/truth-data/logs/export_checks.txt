@@ -1,0 +1,75 @@
+== n8a export check (100k positions of the shared validation set), final net_e040.nnue
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 5.31, max 47.92 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK
+== n8b export check (100k positions of the shared validation set), final net_e040.nnue
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 4.68, max 57.44 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK
+== n8bk export check (100k positions of the shared validation set), final net_e040.nnue
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 4.72, max 60.53 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK
+== n8ak export check (100k positions of the shared validation set), final net_e040.nnue
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 6.93, max 53.79 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK
+== n8bn export check (100k positions of the shared validation set), final net_e040.nnue
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 13.11, max 96.84 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK
+== n8bk130 export check (100k positions of the shared validation set), final net_e040.nnue
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 6.98, max 69.54 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK
+== n8bl6 export check (100k positions of the shared validation set), final net_e040.nnue
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 7.29, max 70.75 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK
+== n8bl7 export check (100k positions of the shared validation set), final net_e040.nnue
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 9.65, max 83.99 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK
+== n8p export check (100k positions of the shared validation set), final net_e040.nnue
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 6.77, max 78.26 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK
+== n8p2 export check (100k positions of the shared validation set), final net_e040.nnue, rc=0
+positions 100000  distinct engine scores 1384  range [-717, 732]
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 6.01, max 88.25 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK
+== n8c export check (100k positions of the shared validation set), final net_e040.nnue, rc=0
+positions 100000  distinct engine scores 1482  range [-814, 760]
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 9.62, max 82.54 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK
+== w2032 export check (100k positions of the shared validation set), final net_e040.nnue, rc=0
+positions 100000  distinct engine scores 1343  range [-705, 643]
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 6.47, max 74.33 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK
+== w1064 export check (100k positions of the shared validation set), final net_e040.nnue, rc=0
+positions 100000  distinct engine scores 1450  range [-720, 783]
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 6.09, max 64.02 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK
+== w2064 export check (100k positions of the shared validation set), final net_e040.nnue, rc=0
+positions 100000  distinct engine scores 1402  range [-716, 738]
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 8.86, max 95.55 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK

@@ -1,0 +1,2 @@
+old: cpu 1547 s, records 73472 (170929/cpu-h), >=9 pieces 31856 (74111/cpu-h), proven 0, <=8 41616
+new: cpu 1547 s, records 66304 (154342/cpu-h), >=9 pieces 66304 (154342/cpu-h), proven 6829, <=8 0

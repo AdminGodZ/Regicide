@@ -1,0 +1,14 @@
+Match: A = Regicide 0.2, B = Cake 1.89f
+Openings: /home/admingod/regicide-jobs/booklab/decks/t7-r7c-cake.txt (2 openings x 1 rounds, each played with both colours)
+Time control: 0.5s/move (CheckerBoard match rules); no-progress rule: 40 moves
+Games: 4 of 4 scheduled
+
+A: +0 =4 -0   score 2.0/4 = 50.00%   draw rate 100.0%
+A as black: +0 =2 -0   A as white: +0 =2 -0
+By colour: black won 0, white won 0, drawn 4
+Pairs: 2   pentanomial [LL LD DD/WL WD WW] = [0 0 2 0 0]
+Elo (pentanomial, pairs): -0.0 [-0.0, -0.0] 95% CI, score 0.5000 +- 0.0000, LOS 50.00%
+Elo (trinomial, games):   -0.0 [-0.0, -0.0] 95% CI, LOS 50.00%
+Terminations: repetition 4;
+A Regicide 0.2: 193 moves, avg 0.232s/move, max 3.448s
+B Cake 1.89f: 192 moves, avg 0.250s/move, max 2.332s

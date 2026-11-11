@@ -233,6 +233,16 @@ void play_game(const Config& cfg, Engine* eng[2], GameRecord& g) {
             for (const auto& m : history) position += " " + m;
         }
         GoResult r = e.go(position, go, stop_at, kill_at);
+        if (r.status != GoResult::Status::Ok) {
+            // An interrupt of the whole process group ends the engines too. Their exit is not a result: give the
+            // runner's own signal a moment to arrive, and leave the game undecided.
+            if (!g_interrupted) std::this_thread::sleep_for(std::chrono::milliseconds(50));
+            if (g_interrupted) {
+                g.winner = Winner::Aborted;
+                g.termination = "interrupted";
+                return;
+            }
+        }
         g.time_used[side] += r.elapsed;
         g.max_time[side] = std::max(g.max_time[side], r.elapsed);
         g.moves_made[side]++;
@@ -255,12 +265,14 @@ void play_game(const Config& cfg, Engine* eng[2], GameRecord& g) {
         }
 
         if (cfg.time_mode == TimeMode::CbMatch) {
-            c.remaining -= r.elapsed;
+            c.remaining -= r.charged();
         } else if (cfg.time_mode == TimeMode::Incremental) {
+            // As in CheckerBoard, the clock runs while the engine thinks, not while the host prepares the call.
+            const double used = r.charged();
             double before = c.remaining;
-            c.remaining += cfg.tc_increment - r.elapsed;
-            if (cfg.time_forfeit && r.elapsed > before + cfg.grace) {
-                std::snprintf(buf, sizeof buf, " lost on time (%.3fs used, %.3fs left)", r.elapsed, before);
+            c.remaining += cfg.tc_increment - used;
+            if (cfg.time_forfeit && used > before + cfg.grace) {
+                std::snprintf(buf, sizeof buf, " lost on time (%.3fs used, %.3fs left)", used, before);
                 lose(b.stm, e.name() + buf, "time forfeit");
                 return;
             }
@@ -271,7 +283,10 @@ void play_game(const Config& cfg, Engine* eng[2], GameRecord& g) {
         g.moves.push_back(pdn);
         if (cfg.pdn_comments) {
             std::snprintf(buf, sizeof buf, "%.2fs", r.elapsed);
-            g.comments.push_back(std::string(buf) + (r.info.empty() ? "" : " " + r.info));
+            std::string info = r.info;  // free text of the engine: a brace in it would end the PDN comment
+            std::ranges::replace(info, '{', '(');
+            std::ranges::replace(info, '}', ')');
+            g.comments.push_back(std::string(buf) + (info.empty() ? "" : " " + info));
         }
         const bool conversion = b.is_conversion(*m);
         b = b.after(*m);
@@ -405,8 +420,15 @@ struct Match {
 
     const Opening& opening_for(long game) const { return openings[(game / 2) % openings.size()]; }
 
+    // Openings with a fixed colour for A (file field A=B / A=W) play only that leg (0: A black, 1: A white).
+    bool skipped(long task) const {
+        const char c = opening_for(task).a_colour;
+        return c && (task % 2) != (c == 'B' ? 0 : 1);
+    }
+
     std::optional<long> take_task() {
         std::lock_guard lock(mu);
+        while (next_task < total_games && skipped(next_task)) ++next_task;
         if (stop_scheduling || g_interrupted || next_task >= total_games) return std::nullopt;
         return next_task++;
     }
@@ -650,7 +672,9 @@ Openings:
 
 Time control (CheckerBoard semantics, passed through getmove's maxtime/info/moreinfo):
   --movetime S             fixed time per move (default 0.1). Unused time is banked and
-                           maxtime computed as in CheckerBoard engine matches.
+                           maxtime computed as in CheckerBoard engine matches. The bank is
+                           charged the time the engine reports for its search (cbhost: the
+                           getmove call), or the runner's wall time if it reports none.
   --movetime-mode cb|plain|exact
                            cb (default, as above); plain: maxtime = S every move;
                            exact: maxtime = S with CB_EXACT_TIME

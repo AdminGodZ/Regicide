@@ -1,0 +1,14 @@
+Match: A = guinn-A, B = guinn-B
+Openings: /mnt/c/regicide-match/jobs/booklab/acf156_h1.txt (78 openings x 1 rounds, each played with both colours)
+Time control: 0.5s/move (CheckerBoard match rules); no-progress rule: 40 moves
+Games: 156 of 156 scheduled
+
+A: +3 =150 -3   score 78.0/156 = 50.00%   draw rate 96.2%
+A as black: +2 =75 -1   A as white: +1 =75 -2
+By colour: black won 4, white won 2, drawn 150
+Pairs: 78   pentanomial [LL LD DD/WL WD WW] = [0 1 76 1 0]
+Elo (pentanomial, pairs): -0.0 [-6.2, +6.2] 95% CI, score 0.5000 +- 0.0089, LOS 50.00%
+Elo (trinomial, games):   -0.0 [-10.7, +10.7] 95% CI, LOS 50.00%
+Terminations: no legal moves 6; repetition 150;
+A guinn-A: 5100 moves, avg 0.268s/move, max 5.232s
+B guinn-B: 5097 moves, avg 0.263s/move, max 6.817s

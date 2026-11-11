@@ -1,0 +1,1 @@
+reachability: 818 decisions checked: 818 reachable (814 by a witness game), 0 unreachable, 0 unknown (node limit 200000)

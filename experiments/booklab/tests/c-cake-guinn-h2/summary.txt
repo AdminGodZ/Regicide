@@ -1,0 +1,14 @@
+Match: A = Cake 1.89f, B = GuiNN Checkers 2.06 avx2
+Openings: /mnt/c/regicide-match/jobs/booklab/acf156_h2.txt (78 openings x 1 rounds, each played with both colours)
+Time control: 0.5s/move (CheckerBoard match rules); no-progress rule: 40 moves
+Games: 156 of 156 scheduled
+
+A: +8 =146 -2   score 81.0/156 = 51.92%   draw rate 93.6%
+A as black: +4 =74 -0   A as white: +4 =72 -2
+By colour: black won 6, white won 4, drawn 146
+Pairs: 78   pentanomial [LL LD DD/WL WD WW] = [0 2 68 8 0]
+Elo (pentanomial, pairs): +13.4 [-0.1, +26.9] 95% CI, score 0.5192 +- 0.0194, LOS 97.40%
+Elo (trinomial, games):   +13.4 [-0.3, +27.1] 95% CI, LOS 97.25%
+Terminations: no legal moves 10; repetition 146;
+A Cake 1.89f: 6064 moves, avg 0.286s/move, max 3.919s
+B GuiNN Checkers 2.06 avx2: 6044 moves, avg 0.292s/move, max 3.276s

@@ -1,0 +1,14 @@
+Match: A = Kingsrow(x64)[5] 1.20, B = GuiNN Checkers 2.06 avx2
+Openings: /mnt/c/regicide-match/jobs/booklab/acf156_h2.txt (78 openings x 1 rounds, each played with both colours)
+Time control: 0.5s/move (CheckerBoard match rules); no-progress rule: 40 moves
+Games: 156 of 156 scheduled
+
+A: +2 =147 -7   score 75.5/156 = 48.40%   draw rate 94.2%
+A as black: +0 =75 -3   A as white: +2 =72 -4
+By colour: black won 4, white won 5, drawn 147
+Pairs: 78   pentanomial [LL LD DD/WL WD WW] = [0 7 69 2 0]
+Elo (pentanomial, pairs): -11.1 [-24.0, +1.7] 95% CI, score 0.4840 +- 0.0185, LOS 4.48%
+Elo (trinomial, games):   -11.1 [-24.2, +1.8] 95% CI, LOS 4.63%
+Terminations: no legal moves 9; no progress 74; repetition 73;
+A Kingsrow(x64)[5] 1.20: 12418 moves, avg 0.166s/move, max 5.790s
+B GuiNN Checkers 2.06 avx2: 12417 moves, avg 0.158s/move, max 2.902s

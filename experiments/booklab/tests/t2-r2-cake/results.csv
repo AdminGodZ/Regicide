@@ -1,0 +1,17 @@
+game,pair,opening,black,white,result,score_a,termination,engine_plies
+1,1,"/home/admingod/regicide-jobs/booklab/decks/t2-r2-cake.txt:1","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",80
+5,3,"/home/admingod/regicide-jobs/booklab/decks/t2-r2-cake.txt:3","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",80
+3,2,"/home/admingod/regicide-jobs/booklab/decks/t2-r2-cake.txt:2","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",80
+7,4,"/home/admingod/regicide-jobs/booklab/decks/t2-r2-cake.txt:4","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",80
+2,1,"/home/admingod/regicide-jobs/booklab/decks/t2-r2-cake.txt:1","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",75
+8,4,"/home/admingod/regicide-jobs/booklab/decks/t2-r2-cake.txt:4","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",75
+4,2,"/home/admingod/regicide-jobs/booklab/decks/t2-r2-cake.txt:2","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",75
+6,3,"/home/admingod/regicide-jobs/booklab/decks/t2-r2-cake.txt:3","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",75
+11,6,"/home/admingod/regicide-jobs/booklab/decks/t2-r2-cake.txt:6","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",116
+9,5,"/home/admingod/regicide-jobs/booklab/decks/t2-r2-cake.txt:5","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",116
+13,7,"/home/admingod/regicide-jobs/booklab/decks/t2-r2-cake.txt:7","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",116
+15,8,"/home/admingod/regicide-jobs/booklab/decks/t2-r2-cake.txt:8","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",116
+12,6,"/home/admingod/regicide-jobs/booklab/decks/t2-r2-cake.txt:6","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",78
+10,5,"/home/admingod/regicide-jobs/booklab/decks/t2-r2-cake.txt:5","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",78
+14,7,"/home/admingod/regicide-jobs/booklab/decks/t2-r2-cake.txt:7","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",78
+16,8,"/home/admingod/regicide-jobs/booklab/decks/t2-r2-cake.txt:8","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",78

@@ -204,6 +204,10 @@ public:
         ks_ = 0;
         ++q2_;
         if (++mo_ == d_.no) mo_ = 0, ++ms_;
+        if (ms_ == d_.ns) {  // stepped past the last entry: there is no men configuration to read
+            valid = false;
+            return;
+        }
         men();
     }
 

@@ -231,13 +231,14 @@ bool finish(Opening& o, std::string& err) {
 // Strip PDN comments, variations and move numbers' trailing dots are handled by play_moves().
 std::string clean_movetext(const std::string& s) {
     std::string r;
-    int brace = 0, paren = 0;
+    bool comment = false;  // inside { }: PDN comments do not nest, and their text is not looked at
+    int paren = 0;
     for (char c : s) {
-        if (c == '{') ++brace;
-        else if (c == '}') --brace;
+        if (comment) comment = c != '}';
+        else if (c == '{') comment = true;
         else if (c == '(') ++paren;
-        else if (c == ')') --paren;
-        else if (brace == 0 && paren == 0) r += c;
+        else if (c == ')') paren -= paren > 0;
+        else if (paren == 0) r += c;
     }
     return r;
 }
@@ -262,6 +263,7 @@ std::vector<Opening> load_pdn(const std::string& text, const std::string& path, 
     };
     bool in_tags = false;
     while (std::getline(in, line)) {
+        if (!line.empty() && line[0] == '%') continue;  // PDN: a line starting with '%' is a comment
         std::string t = trim(line);
         if (!t.empty() && t[0] == '[') {
             if (!in_tags && in_game && !flush()) return {};
@@ -308,9 +310,16 @@ std::vector<Opening> load_openings(const std::string& deck, std::string& err) {
     std::stringstream ss;
     ss << f.rdbuf();
     std::string text = ss.str();
-    for (char c : text) {
-        if (c == '[') return load_pdn(text, deck, err);
-        if (!std::isspace(static_cast<unsigned char>(c))) break;
+    {  // PDN if the first thing in the file, after any '%' comment lines, is a tag
+        std::istringstream probe(text);
+        std::string first;
+        while (std::getline(probe, first)) {
+            if (!first.empty() && first[0] == '%') continue;
+            first = trim(first);
+            if (first.empty()) continue;
+            if (first[0] == '[') return load_pdn(text, deck, err);
+            break;
+        }
     }
 
     std::istringstream in(text);
@@ -328,6 +337,16 @@ std::vector<Opening> load_openings(const std::string& deck, std::string& err) {
         if (bar != std::string::npos) {
             o.fen = trim(line.substr(0, bar));
             o.moves = trim(line.substr(bar + 1));
+            if (auto bar2 = o.moves.find('|'); bar2 != std::string::npos) {
+                const std::string side = trim(o.moves.substr(bar2 + 1));
+                o.moves = trim(o.moves.substr(0, bar2));
+                if (side == "A=B" || side == "A=W") {
+                    o.a_colour = side[2];
+                } else {
+                    err = deck + ":" + std::to_string(lineno) + ": third field must be A=B or A=W";
+                    return {};
+                }
+            }
         } else if (looks_like_fen(line)) {
             o.fen = line;
         } else {

@@ -45,4 +45,58 @@ if(NOT WIN32)
   target_link_libraries(engine_process_test PRIVATE cbt_common Threads::Threads)
   add_test(NAME match_rejected_options COMMAND engine_process_test rejected)
   add_test(NAME match_deadline COMMAND engine_process_test deadline)
+
+  # cbhost with a scripted CheckerBoard engine: a stop during the host's preparation, and what the bank is charged.
+  add_library(cbhost_mock_engine MODULE cbhost/mock_engine.cpp)
+  target_link_libraries(cbhost_mock_engine PRIVATE cbt_common)
+  add_executable(cbhost_test cbhost/cbhost_test.cpp match/engine_process.cpp)
+  target_include_directories(cbhost_test PRIVATE match)
+  target_link_libraries(cbhost_test PRIVATE cbt_common Threads::Threads)
+  add_dependencies(cbhost_test cbhost cbhost_mock_engine match)
+  add_test(NAME cbhost_stop_pending COMMAND cbhost_test stop $<TARGET_FILE:cbhost> $<TARGET_FILE:cbhost_mock_engine>)
+  add_test(NAME cbhost_stop_each COMMAND cbhost_test stops $<TARGET_FILE:cbhost> $<TARGET_FILE:cbhost_mock_engine>)
+  add_test(NAME cbhost_quit_pending COMMAND cbhost_test quit $<TARGET_FILE:cbhost> $<TARGET_FILE:cbhost_mock_engine>)
+  add_test(NAME match_charged_time COMMAND cbhost_test charged $<TARGET_FILE:cbhost> $<TARGET_FILE:cbhost_mock_engine>)
+  add_test(NAME match_incremental_charged COMMAND cbhost_test incremental $<TARGET_FILE:cbhost>
+           $<TARGET_FILE:cbhost_mock_engine> $<TARGET_FILE:match>)
+
+  # The runner's adjudication, through the match executable with two scripted engines.
+  add_executable(terminal_before_draw_test match/terminal_before_draw_test.cpp match/engine_process.cpp)
+  target_include_directories(terminal_before_draw_test PRIVATE match)
+  target_link_libraries(terminal_before_draw_test PRIVATE Threads::Threads)
+  add_test(NAME match_terminal_before_draw COMMAND terminal_before_draw_test $<TARGET_FILE:match>)
+
+  # The opening loader, and an interrupt of the runner together with its engines (scripted: this executable).
+  add_executable(runner_test match/runner_test.cpp match/openings.cpp)
+  target_include_directories(runner_test PRIVATE match)
+  target_link_libraries(runner_test PRIVATE cbt_common Threads::Threads)
+  add_test(NAME match_opening_comment COMMAND runner_test comment)
+  add_test(NAME match_pdn_status_braces COMMAND runner_test braces $<TARGET_FILE:match>)
+  add_test(NAME match_interrupted_game COMMAND runner_test interrupt $<TARGET_FILE:match>)
+
+  # bookgen, run as a process on a prepared book (needs the engine library: not in the standalone tools build).
+  if(TARGET regicide_core AND TARGET bookgen)
+    foreach(name bookgen_frontier bookgen_sound_score)
+      add_executable(${name}_test ${CMAKE_SOURCE_DIR}/tests/${name}_test.cpp match/engine_process.cpp)
+      target_include_directories(${name}_test PRIVATE match ${CMAKE_SOURCE_DIR}/tests)
+      target_link_libraries(${name}_test PRIVATE regicide_core Threads::Threads)
+      add_test(NAME ${name} COMMAND ${name}_test $<TARGET_FILE:bookgen>)
+    endforeach()
+  endif()
+  # datagen, run as a process for one seeded game.
+  if(TARGET regicide_core AND TARGET datagen)
+    add_executable(datagen_partial_loss_test ${CMAKE_SOURCE_DIR}/tests/datagen_partial_loss_test.cpp
+                   match/engine_process.cpp)
+    target_include_directories(datagen_partial_loss_test PRIVATE match ${CMAKE_SOURCE_DIR}/tests)
+    target_link_libraries(datagen_partial_loss_test PRIVATE regicide_core Threads::Threads)
+    add_test(NAME datagen_partial_loss COMMAND datagen_partial_loss_test $<TARGET_FILE:datagen>)
+  endif()
+  # lossprobe, run as a process on a one-move game.
+  if(TARGET regicide_core AND TARGET lossprobe)
+    add_executable(lossprobe_partial_loss_test ${CMAKE_SOURCE_DIR}/tests/lossprobe_partial_loss_test.cpp
+                   match/engine_process.cpp)
+    target_include_directories(lossprobe_partial_loss_test PRIVATE match ${CMAKE_SOURCE_DIR}/tests)
+    target_link_libraries(lossprobe_partial_loss_test PRIVATE regicide_core Threads::Threads)
+    add_test(NAME lossprobe_partial_loss COMMAND lossprobe_partial_loss_test $<TARGET_FILE:lossprobe>)
+  endif()
 endif()

@@ -13,13 +13,15 @@ struct Opening {
     std::string fen;              // empty = standard start position
     cbt::Board start;             // position after `moves`: where the engines take over
     std::vector<cbt::Move> played;  // `moves`, parsed
+    char a_colour = 0;            // 'B' or 'W': engine A plays only this colour here (file field "A=B"/"A=W")
 };
 
 // Deck names: "acf156" (ACF 3-move deck without the 18 barred ballots: 144 cross-board + 12
 // mail-play; the usual tournament set), "acf174" (all ballots including barred), "acf144"
 // (cross-board only; CheckerBoard's default), or a path to a file. A file may contain
 //  - one opening per line: a FEN ("B:W21-32:B1-12"), a move sequence from the start
-//    position ("9-13 22-18 6-9"), or "FEN | moves"; '#' starts a comment;
+//    position ("9-13 22-18 6-9"), or "FEN | moves", or "FEN | moves | A=B" (or A=W: engine A plays only that
+//    colour in this opening; the game with colours reversed is not played); '#' starts a comment;
 //  - or PDN games: each game's FEN tag (if any) and movetext form one opening.
 std::vector<Opening> load_openings(const std::string& deck, std::string& err);
 

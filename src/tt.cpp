@@ -51,12 +51,23 @@ TTData TranspositionTable::unpack(std::uint64_t data) {
 
 TranspositionTable::~TranspositionTable() { free_aligned(buckets_); }
 
+// The old table is freed first, so the two never exist together. If the new size cannot be had, a table of the old
+// size (or, failing that, of one bucket) is put back before the error is reported: the table is always usable.
 void TranspositionTable::resize(std::size_t mb) {
+    const std::size_t old = count_;
     free_aligned(buckets_);
-    count_ = std::max<std::size_t>(1, mb * 1024 * 1024 / sizeof(Bucket));
-    buckets_ = static_cast<Bucket*>(alloc_aligned(64, count_ * sizeof(Bucket)));
-    if (!buckets_) throw std::bad_alloc();
+    buckets_ = nullptr;
+    bool ok = true;
+    for (std::size_t count : {std::max<std::size_t>(1, mb * 1024 * 1024 / sizeof(Bucket)), old, std::size_t(1)}) {
+        if (count == 0) continue;
+        count_ = count;
+        buckets_ = static_cast<Bucket*>(alloc_aligned(64, count_ * sizeof(Bucket)));
+        if (buckets_) break;
+        ok = false;
+    }
+    if (!buckets_) std::abort();  // not even 64 bytes
     clear();
+    if (!ok) throw std::bad_alloc();
 }
 
 void TranspositionTable::clear() {

@@ -1,0 +1,51 @@
+# game 29700 regicide-match/results/ba-d2bt6-cake/games.pdn: /home/admingod/regicide-jobs/deep2/target_openings.txt:15 (/home/admingod/regicide-jobs/deep2/target_openings.txt:15: 9-13 22-18 10-15), regicide as B, result W, opponent cake
+#   ply 4 6-10: cake 6-10 192x 0/192/0
+#   ply 6 11-16: cake 11-16 106x 0/106/0
+#   ply 8 16x23: cake 16x23 106x 0/106/0
+#   ply 10 8x15: cake 8x15 106x 0/106/0
+#   ply 12 7x16: cake 7x16 106x 0/106/0
+#   ply 14 4-8: cake 4-8 105x 0/105/0
+#   ply 16 10x19: cake 10x19 99x 0/99/0
+#   ply 18 5-9: cake 5-9 99x 0/99/0
+#   ply 20 16-19: cake 16-19 69x 0/69/0
+# DEVIATION ply 22 (19 after the ballot): regicide played 2-7; cake: 3-7 65x w/d/l 0/65/0
+#   FEN B:W15,21,24,26,28,29,30,31:B1,2,3,8,9,12,13,19
+# cake's defence: 65 non-lost games from the deviation position, 38 positions of our side within 40 plies (stop at <= 8 pieces)
+B:W15,21,24,26,28,29,30,31:B1,2,3,8,9,12,13,19 | 3-7 | force | /home/admingod/regicide-jobs/deep2/target_openings.txt:15 regicide B ply 22: cake defence: 3-7 in 65 of 65 non-lost cake games from here (theory 65x w/d/l 0/65/0); regicide played 2-7 here and lost (gid 29700, ba-d2bt6-cake)
+B:W15,21,24,25,26,28,30,31:B1,2,7,8,9,12,13,19 | 1-6 | force | /home/admingod/regicide-jobs/deep2/target_openings.txt:15 regicide B ply 24: cake defence: 1-6 in 65 of 65 non-lost cake games from here (theory 65x w/d/l 0/65/0)
+B:W15,21,22,24,26,28,30,31:B2,6,7,8,9,12,13,19 | 8-11 | force | /home/admingod/regicide-jobs/deep2/target_openings.txt:15 regicide B ply 26: cake defence: 8-11 in 65 of 65 non-lost cake games from here (theory 65x w/d/l 0/65/0)
+B:W8,21,22,24,26,28,30,31:B2,6,7,9,12,13,19 | 7-11 | force | /home/admingod/regicide-jobs/deep2/target_openings.txt:15 regicide B ply 28: cake defence: 7-11 in 65 of 65 non-lost cake games from here (theory 65x w/d/l 0/65/0)
+B:W8,15,21,22,26,28,30,31:B2,6,9,11,12,13 | 11x25 | force | /home/admingod/regicide-jobs/deep2/target_openings.txt:15 regicide B ply 30: cake defence: 11x25 in 65 of 65 non-lost cake games from here (theory 65x w/d/l 0/65/0)
+B:W8,21,22,28,30,31:B2,6,9,12,13,25 | 9-14 | force | /home/admingod/regicide-jobs/deep2/target_openings.txt:15 regicide B ply 32: cake defence: 9-14 in 57 of 58 non-lost cake games from here (theory 57x w/d/l 0/57/0); also 6-10 1x
+B:WK3,21,26,28,30,31:B2,6,9,12,13,25 | 6-10 | force | /home/admingod/regicide-jobs/deep2/target_openings.txt:15 regicide B ply 32: cake defence: 6-10 in 5 of 7 non-lost cake games from here (theory 5x w/d/l 0/5/0); also 9-14 2x
+B:W8,21,22,26,28,30:B2,6,12,13,14,25 | 25-29 | force | /home/admingod/regicide-jobs/deep2/target_openings.txt:15 regicide B ply 34: cake defence: 25-29 in 55 of 57 non-lost cake games from here (theory 55x w/d/l 0/55/0); also 6-10 2x
+B:WK3,21,22,28,30,31:B2,9,10,12,13,25 | 25-29 | force | /home/admingod/regicide-jobs/deep2/target_openings.txt:15 regicide B ply 34: cake defence: 25-29 in 4 of 5 non-lost cake games from here (theory 4x w/d/l 0/4/0); also 9-14 1x
+B:W8,18,21,28,30,31:B2,9,10,12,13,25 | 25-29 | force | /home/admingod/regicide-jobs/deep2/target_openings.txt:15 regicide B ply 34: cake defence: 25-29 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK8,21,26,28,30,31:B2,6,12,13,14,25 | 6-10 | force | /home/admingod/regicide-jobs/deep2/target_openings.txt:15 regicide B ply 34: cake defence: 6-10 in 2 of 2 non-lost cake games from here (theory 2x w/d/l 0/2/0)
+B:W8,18,21,26,28,30:B2,6,12,13,14,K29 | 14x23 | force | /home/admingod/regicide-jobs/deep2/target_openings.txt:15 regicide B ply 36: cake defence: 14x23 in 55 of 55 non-lost cake games from here (theory 55x w/d/l 0/55/0)
+B:WK3,18,21,28,30,31:B2,9,10,12,13,K29 | 29-25 | force | /home/admingod/regicide-jobs/deep2/target_openings.txt:15 regicide B ply 36: cake defence: 29-25 in 4 of 4 non-lost cake games from here (theory 4x w/d/l 0/4/0)
+B:W8,18,21,26,28,30:B2,9,10,12,13,K29 | 29-25 | force | /home/admingod/regicide-jobs/deep2/target_openings.txt:15 regicide B ply 36: cake defence: 29-25 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK4,21,22,26,28,30:B2,10,12,13,14,25 | 25-29 | force | /home/admingod/regicide-jobs/deep2/target_openings.txt:15 regicide B ply 36: cake defence: 25-29 in 2 of 2 non-lost cake games from here (theory 2x w/d/l 0/2/0)
+B:WK8,21,24,26,30,31:B2,10,12,13,14,25 | 25-29 | force | /home/admingod/regicide-jobs/deep2/target_openings.txt:15 regicide B ply 36: cake defence: 25-29 in 2 of 2 non-lost cake games from here (theory 2x w/d/l 0/2/0)
+B:WK3,21,22,26,28,30:B2,10,12,13,14,25 | 25-29 | force | /home/admingod/regicide-jobs/deep2/target_openings.txt:15 regicide B ply 36: cake defence: 25-29 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:W8,19,21,28,30:B2,6,12,13,K29 | 29-25 | force | /home/admingod/regicide-jobs/deep2/target_openings.txt:15 regicide B ply 38: cake defence: 29-25 in 55 of 55 non-lost cake games from here (theory 55x w/d/l 0/55/0)
+B:WK3,18,21,26,28,30:B2,9,10,12,13,K25 | 10-14 | force | /home/admingod/regicide-jobs/deep2/target_openings.txt:15 regicide B ply 38: cake defence: 10-14 in 4 of 4 non-lost cake games from here (theory 4x w/d/l 0/4/0)
+B:WK4,18,21,26,28,30:B2,9,10,12,13,K25 | 25-22 | force | /home/admingod/regicide-jobs/deep2/target_openings.txt:15 regicide B ply 38: cake defence: 25-22 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK4,21,22,23,28,30:B2,10,12,13,14,K29 | 10-15 | force | /home/admingod/regicide-jobs/deep2/target_openings.txt:15 regicide B ply 38: cake defence: 10-15 in 2 of 2 non-lost cake games from here (theory 2x w/d/l 0/2/0)
+B:WK8,19,21,26,30,31:B2,10,12,13,14,K29 | 29-25 | force | /home/admingod/regicide-jobs/deep2/target_openings.txt:15 regicide B ply 38: cake defence: 29-25 in 2 of 2 non-lost cake games from here (theory 2x w/d/l 0/2/0)
+B:WK3,21,22,23,28,30:B2,10,12,13,14,K29 | 10-15 | force | /home/admingod/regicide-jobs/deep2/target_openings.txt:15 regicide B ply 38: cake defence: 10-15 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:W8,17,19,28,30:B2,6,12,13,K25 | 13x22 | force | /home/admingod/regicide-jobs/deep2/target_openings.txt:15 regicide B ply 40: cake defence: 13x22 in 55 of 55 non-lost cake games from here (theory 55x w/d/l 0/55/0)
+B:WK8,18,21,26,28,30:B2,9,12,13,14,K25 | 14x23 | force | /home/admingod/regicide-jobs/deep2/target_openings.txt:15 regicide B ply 40: cake defence: 14x23 in 4 of 4 non-lost cake games from here (theory 4x w/d/l 0/4/0)
+B:WK4,17,18,21,28,30:B2,9,10,12,13 | 13x22 | force | /home/admingod/regicide-jobs/deep2/target_openings.txt:15 regicide B ply 40: cake defence: 13x22 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK8,21,22,23,28,30:B2,12,13,14,15,K29 | 29-25 | force | /home/admingod/regicide-jobs/deep2/target_openings.txt:15 regicide B ply 40: cake defence: 29-25 in 3 of 3 non-lost cake games from here (theory 3x w/d/l 0/3/0)
+B:WK3,19,21,26,30,31:B2,10,12,13,14,K25 | 25-29 | force | /home/admingod/regicide-jobs/deep2/target_openings.txt:15 regicide B ply 40: cake defence: 25-29 in 2 of 2 non-lost cake games from here (theory 2x w/d/l 0/2/0)
+B:WK8,19,21,28,30:B2,9,12,13,K25 | 25-22 | force | /home/admingod/regicide-jobs/deep2/target_openings.txt:15 regicide B ply 42: cake defence: 25-22 in 4 of 4 non-lost cake games from here (theory 4x w/d/l 0/4/0)
+B:WK4,18,21,24,30:B2,9,10,12,22 | 22-25 | force | /home/admingod/regicide-jobs/deep2/target_openings.txt:15 regicide B ply 42: cake defence: 22-25 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK11,21,22,23,28,30:B2,12,13,14,15,K25 | 25x27 | force | /home/admingod/regicide-jobs/deep2/target_openings.txt:15 regicide B ply 42: cake defence: 25x27 in 3 of 3 non-lost cake games from here (theory 3x w/d/l 0/3/0)
+B:WK3,15,21,26,30,31:B2,10,12,13,14,K29 | 10x19 | force | /home/admingod/regicide-jobs/deep2/target_openings.txt:15 regicide B ply 42: cake defence: 10x19 in 2 of 2 non-lost cake games from here (theory 2x w/d/l 0/2/0)
+B:WK11,19,21,28,30:B2,9,12,13,K22 | 22-18 | force | /home/admingod/regicide-jobs/deep2/target_openings.txt:15 regicide B ply 44: cake defence: 22-18 in 4 of 4 non-lost cake games from here (theory 4x w/d/l 0/4/0)
+B:WK4,17,18,24,30:B2,9,10,12,25 | 9-13 | force | /home/admingod/regicide-jobs/deep2/target_openings.txt:15 regicide B ply 44: cake defence: 9-13 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK3,21,25,26,31:B2,12,13,14,19,K29 | 29x22 | force | /home/admingod/regicide-jobs/deep2/target_openings.txt:15 regicide B ply 44: cake defence: 29x22 in 2 of 2 non-lost cake games from here (theory 2x w/d/l 0/2/0)
+B:WK11,15,21,28,30:B2,9,12,13,K18 | 2-7 | force | /home/admingod/regicide-jobs/deep2/target_openings.txt:15 regicide B ply 46: cake defence: 2-7 in 4 of 4 non-lost cake games from here (theory 4x w/d/l 0/4/0)
+B:WK4,17,18,21,24:B2,10,12,13 | 13x22 | force | /home/admingod/regicide-jobs/deep2/target_openings.txt:15 regicide B ply 46: cake defence: 13x22 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK2,15,21,28,30:B9,12,13,K18 | 18x11 | force | /home/admingod/regicide-jobs/deep2/target_openings.txt:15 regicide B ply 48: cake defence: 18x11 in 4 of 4 non-lost cake games from here (theory 4x w/d/l 0/4/0)
