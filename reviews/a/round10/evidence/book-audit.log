@@ -1,0 +1,7 @@
+all previously reachable now unreachable 37
+records 24656 plies 2652707 distinct FENs 824221 drawn searched candidates 239861
+entries 88344 avoids 5 missing FEN 0 illegal 0 forced 54261 multi forced 0
+diff added 150 removed 1 modified 0 avoid identical 1
+engine samples 150 bad 0
+old recorded keys 77 other 28734 old-only 77 reachable r11f 0
+reach visits 126274,126368,104463

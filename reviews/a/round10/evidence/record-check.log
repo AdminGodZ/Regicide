@@ -1,0 +1,18 @@
+{'run': 'v11f-c6-fresh', 'games': 24, 'W': 0, 'D': 24, 'L': 0, 'U': 0}
+{'run': 'v11f-c6-kept', 'games': 24, 'W': 0, 'D': 24, 'L': 0, 'U': 0}
+{'run': 'v11f-c6-natural', 'games': 48, 'W': 0, 'D': 48, 'L': 0, 'U': 0}
+{'run': 'mo3-cake', 'games': 312, 'W': 0, 'D': 312, 'L': 0, 'U': 0}
+{'run': 'mo3-kingsrow', 'games': 312, 'W': 1, 'D': 311, 'L': 0, 'U': 0}
+{'run': 'mo3-guinn', 'games': 312, 'W': 23, 'D': 289, 'L': 0, 'U': 0}
+{'run': 'w14c6-kingsrow-fresh', 'games': 24, 'W': 0, 'D': 24, 'L': 0, 'U': 0}
+{'run': 'w14c6-kingsrow-kept', 'games': 24, 'W': 0, 'D': 24, 'L': 0, 'U': 0}
+{'run': 'mo3-cake', 'termination': 'draw claim', 'claim_actor': 'Cake 1.89f', 'claim_kind': 'draw', 'games': 312}
+{'run': 'mo3-kingsrow', 'termination': 'draw claim', 'claim_actor': 'Kingsrow(x64) 1.20', 'claim_kind': 'draw', 'games': 304}
+{'run': 'mo3-kingsrow', 'termination': 'loss claim', 'claim_actor': 'Kingsrow(x64) 1.20', 'claim_kind': 'loss', 'games': 1}
+{'run': 'mo3-kingsrow', 'termination': 'repetition', 'claim_actor': '-', 'claim_kind': '-', 'games': 7}
+{'run': 'mo3-guinn', 'termination': 'draw claim', 'claim_actor': 'GuiNN Checkers 2.06 avx2', 'claim_kind': 'draw', 'games': 288}
+{'run': 'mo3-guinn', 'termination': 'loss claim', 'claim_actor': 'GuiNN Checkers 2.06 avx2', 'claim_kind': 'loss', 'games': 8}
+{'run': 'mo3-guinn', 'termination': 'repetition', 'claim_actor': '-', 'claim_kind': '-', 'games': 1}
+{'run': 'mo3-guinn', 'termination': 'win claim', 'claim_actor': 'Regicide', 'claim_kind': 'win', 'games': 15}
+replayed games 1080 moves 65185
+ACF6 Black mo3 [('mo3-cake', 9, 31, '9x18', 0), ('mo3-kingsrow', 9, 61, '12-16', 0), ('mo3-guinn', 9, 43, '32-27', 0)]
