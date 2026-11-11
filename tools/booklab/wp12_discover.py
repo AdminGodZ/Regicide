@@ -22,6 +22,7 @@ crash, time-out, illegal move or engine that did not start).
 import argparse
 import fcntl
 import hashlib
+import json
 import os
 import subprocess
 import sys
@@ -146,9 +147,21 @@ def main():
     ap.add_argument("--per-lock", type=int, default=48)
     ap.add_argument("--out", required=True)
     ap.add_argument("--replay", nargs="*", default=[], help="ranks whose saved game is archived and played again")
+    ap.add_argument("--base-dll", default="bl-456e9b2-r11k", help="engine folder of the baseline (r11) DLL")
+    ap.add_argument("--base-book", default=f"{L}/book_r11k.bin", help="the baseline book embedded in that DLL")
     a = ap.parse_args()
     os.makedirs(a.out, exist_ok=True)
     csha = sha(a.candidates)
+    camp = open(a.candidates).readline().strip()
+    if not camp.startswith("# campaign "):
+        sys.exit(f"{a.candidates}: first line must be '# campaign KEY' (wp12_select.py)")
+    camp8 = camp.split()[2][:8]
+    base_dll = f"/mnt/c/regicide-match/engines/regicide/{a.base_dll}/regicide_cb.dll"
+    # what every saved game of this campaign must have been played with (checked before a saved game is imported)
+    manifest = dict(campaign=camp.split()[2], candidates_sha256=csha, base_dll=a.base_dll, base_dll_sha256=sha(base_dll),
+                    base_book_sha256=sha(a.base_book), runner_sha256=sha(MATCH), host_sha256=sha(CB),
+                    cake_sha256=sha("/mnt/c/regicide-match/engines/cake/cake_189f.dll"))
+    os.environ["W12_BASE_DLL"], os.environ["W12_BASE_BOOK"] = a.base_dll, a.base_book
     hdr, cands = None, []
     for l in open(a.candidates):
         if l.startswith("#"):
@@ -160,9 +173,11 @@ def main():
         c = dict(zip(hdr, f))
         if int(c["rank"]) >= a.first:
             continue
-        c["name"] = f"c{int(c['rank']):03d}"
+        # results, candidate books and DLLs carry the campaign key (review 2026-11-11 A1), so a new campaign can never
+        # meet the saved games of an older one under the same name
+        c["name"] = f"{camp8}-c{int(c['rank']):03d}"
         c["alt"] = c["alternative"]
-        c["outdir"] = f"{RESULTS}/bl-w12-d-{c['name']}"
+        c["outdir"] = f"{RESULTS}/bl-w12-{c['name']}"
         cands.append(c)
     tsv, qtsv = f"{a.out}/discovery.tsv", f"{a.out}/quarantine.tsv"
     if os.path.exists(tsv):
@@ -202,15 +217,29 @@ def main():
             arch = f"{c['outdir']}.replaced-{time.strftime('%Y%m%dT%H%M%S')}"
             os.rename(c["outdir"], arch)
             st(f"W12 replay of {c['name']} requested: saved game archived as {arch}")
-    # games played before but not analysed (quarantined, or interrupted after play): analyse again, never replay
-    saved = [c for c in cands if c["rank"] not in done and os.path.exists(f"{c['outdir']}/games.pdn")
-             and os.path.exists(f"{c['outdir']}/summary.txt")]
+    # games played before but not analysed (quarantined, or interrupted after play): analyse again, never replay; a
+    # saved game is imported only if its manifest matches this campaign (baseline, engine, runner, host, deck)
+    saved, foreign = [], []
+    for c in cands:
+        if c["rank"] in done or not (os.path.exists(f"{c['outdir']}/games.pdn") and os.path.exists(f"{c['outdir']}/summary.txt")):
+            continue
+        want = dict(manifest, rank=c["rank"], fen=c["fen"], alternative=c["alt"])
+        mpath = f"{c['outdir']}/w12_manifest.json"
+        have = json.load(open(mpath)) if os.path.exists(mpath) else None
+        if have is not None and {k: have.get(k) for k in want} == want:
+            saved.append(c)
+        else:
+            foreign.append(c)
+    if foreign:
+        st(f"W12 {len(foreign)} saved games under this campaign's names have no matching manifest; kept, not imported, "
+           f"not replayed (first: {foreign[0]['outdir']})")
     record(saved)
+    held_foreign = {c["rank"] for c in foreign}
     held = {c["rank"] for c in saved if c["rank"] not in done}  # analysis still failing: kept, not in the play queue
     if held:
         st(f"W12 {len(held)} saved games still fail analysis and stay out of the play queue (quarantine.tsv; "
            f"resolve, or replay explicitly with --replay RANK)")
-    todo = [c for c in cands if c["rank"] not in done and c["rank"] not in held]
+    todo = [c for c in cands if c["rank"] not in done and c["rank"] not in held and c["rank"] not in held_foreign]
     print(f"{len(todo)} candidates to play", flush=True)
     while todo:
         chunk, todo = todo[:a.per_lock], todo[a.per_lock:]
@@ -237,9 +266,12 @@ def main():
                     c = queue.pop(0)
                     if os.path.exists(c["outdir"]):  # an unfinished earlier attempt (no summary): archived, not deleted
                         os.rename(c["outdir"], f"{c['outdir']}.partial-{time.strftime('%Y%m%dT%H%M%S')}")
-                    logf = open(f"{RESULTS}/bl-w12-d-{c['name']}.log", "w")
+                    logf = open(f"{RESULTS}/bl-w12-{c['name']}.log", "w")
                     p = subprocess.Popen(match_cmd(c["name"], c["deck"], c["outdir"]), stdout=logf,
                                          stderr=subprocess.STDOUT, stdin=subprocess.DEVNULL)
+                    c["manifest"] = dict(manifest, rank=c["rank"], fen=c["fen"], alternative=c["alt"],
+                                         deck=open(c["deck"]).read().strip(),
+                                         dll_sha256=sha(f"/mnt/c/regicide-match/engines/regicide/bl-w12-{c['name']}/regicide_cb.dll"))
                     running.append((p, c, logf))
                 time.sleep(2)
                 for p, c, logf in list(running):
@@ -247,6 +279,8 @@ def main():
                         logf.close()
                         running.remove((p, c, logf))
                         c["rc"] = p.returncode
+                        os.makedirs(c["outdir"], exist_ok=True)
+                        json.dump(c["manifest"], open(f"{c['outdir']}/w12_manifest.json", "w"), indent=1)
             fcntl.flock(lk, fcntl.LOCK_UN)
         st(f"BL end w12-discovery {names}")
         record(chunk)

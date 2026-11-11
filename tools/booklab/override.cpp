@@ -77,30 +77,32 @@ int main(int argc, char** argv) {
     std::memcpy(&version, base.data() + 4, 4);
     std::memcpy(&count, base.data() + 8, 4);
     const std::size_t header = version == 2 ? 16 : 12;
-    auto entry_at = [&](std::vector<unsigned char>& d, std::size_t i) {
-        return reinterpret_cast<Book::Entry*>(d.data() + header + i * sizeof(Book::Entry));
-    };
+    // Entries are copied out with memcpy (a version-1 book has a 12-byte header, so the records are not 8-byte aligned
+    // in the file image; review 2026-11-11 A2) and copied back after the change.
+    std::vector<Book::Entry> es(count);
+    std::memcpy(es.data(), base.data() + header, std::size_t(count) * sizeof(Book::Entry));
+    auto entry_at = [&](std::size_t i) { return &es[i]; };
     std::vector<unsigned char> out = base;
     const Book::Entry want = Book::make_entry(pos, mv, 0, 0);
     std::vector<std::size_t> idx;
     for (std::size_t i = 0; i < count; ++i)
-        if (entry_at(out, i)->key == pos.key()) idx.push_back(i);
+        if (entry_at(i)->key == pos.key()) idx.push_back(i);
     if (idx.empty()) {
         std::cerr << "no entry for the key\n";
         return 1;
     }
     int best = -32768;
-    for (auto i : idx) best = std::max(best, int(entry_at(out, i)->score));
+    for (auto i : idx) best = std::max(best, int(entry_at(i)->score));
     auto same = [](const Book::Entry& a, const Book::Entry& b) { return a.from == b.from && a.to == b.to && a.disc == b.disc; };
     Book::Entry* target = nullptr;
     if (idx.size() == 1) {
-        target = entry_at(out, idx[0]);
+        target = entry_at(idx[0]);
     } else {
         for (auto i : idx)
-            if (same(*entry_at(out, i), want)) target = entry_at(out, i);
+            if (same(*entry_at(i), want)) target = entry_at(i);
         if (!target)
             for (auto i : idx)
-                if (auto m = Book::to_move(pos, *entry_at(out, i)); m && *m == *before) target = entry_at(out, i);
+                if (auto m = Book::to_move(pos, *entry_at(i)); m && *m == *before) target = entry_at(i);
         if (!target) {
             std::cerr << "cannot find the entry of the current book move\n";
             return 1;
@@ -116,12 +118,13 @@ int main(int argc, char** argv) {
     // order. Re-sort the key's run with the same order as Book::finalize: (key, from, to, disc).
     if (idx.size() > 1) {
         std::vector<Book::Entry> run;
-        for (auto i : idx) run.push_back(*entry_at(out, i));
+        for (auto i : idx) run.push_back(*entry_at(i));
         std::sort(run.begin(), run.end(), [](const Book::Entry& a, const Book::Entry& b) {
             return std::tie(a.from, a.to, a.disc) < std::tie(b.from, b.to, b.disc);
         });
-        for (std::size_t j = 0; j < idx.size(); ++j) *entry_at(out, idx[j]) = run[j];
+        for (std::size_t j = 0; j < idx.size(); ++j) *entry_at(idx[j]) = run[j];
     }
+    std::memcpy(out.data() + header, es.data(), std::size_t(count) * sizeof(Book::Entry));
     {
         std::ofstream f(argv[2], std::ios::binary);
         f.write(reinterpret_cast<const char*>(out.data()), std::streamsize(out.size()));
@@ -133,10 +136,9 @@ int main(int argc, char** argv) {
         std::cerr << "check failed: size or load\n";
         return 1;
     }
-    std::vector<unsigned char> b2 = base;
     for (std::size_t i = 0; i < count; ++i) {
-        const auto* x = entry_at(b2, i);
-        const auto* y = reinterpret_cast<const Book::Entry*>(back.data() + header + i * sizeof(Book::Entry));
+        const unsigned char* x = base.data() + header + i * sizeof(Book::Entry);
+        const unsigned char* y = back.data() + header + i * sizeof(Book::Entry);
         if (std::find(idx.begin(), idx.end(), i) == idx.end() && std::memcmp(x, y, sizeof(Book::Entry)) != 0) {
             std::cerr << "check failed: entry " << i << " of another key changed\n";
             return 1;

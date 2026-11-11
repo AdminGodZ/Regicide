@@ -31,7 +31,7 @@ def shim_rows(d, played=None):
             t = float(t)
             if direc == ">" and line.startswith("position"):
                 t_pos = t
-                pos = line.split(" moves ", 1)[1] if " moves " in line else ("" if line.strip() == "position startpos" else line)
+                pos = position_key(line)
             elif direc == ">" and line.startswith("go"):
                 t_go = t
             elif direc == "<" and line.startswith("bestmove") and t_go is not None:
@@ -42,17 +42,29 @@ def shim_rows(d, played=None):
     return rows
 
 
+def position_key(line):
+    """(initial board, move sequence) of a host 'position' command: 'position startpos [moves ...]' or
+    'position fen FEN [moves ...]' (review 2026-11-11 A3: games started from a FEN without ballot moves)."""
+    rest = line.strip()[len("position"):].strip()
+    head, _, moves = (rest + " ").partition(" moves ")
+    head = head.strip()
+    board = "start" if head in ("startpos", "") else (head[4:].strip() if head.startswith("fen ") else head)
+    return board, moves.strip()
+
+
 def played_positions(run_dir):
-    """Move-list prefixes of every position where an engine (not the ballot) moved, in the run's games."""
+    """(initial board, move sequence) of every position where an engine (not a dealt ballot move) moved in the
+    run's games; the initial board is the game's FEN tag, or the start position."""
     out = set()
     for tags, moves in parse_pdn(open(os.path.join(run_dir, "games.pdn"), errors="replace").read()):
         mv = [m for m, _ in moves]
+        board = tags.get("FEN", "").strip() or "start"
         nopen = 0
         o = tags.get("Opening", "")
         if ": " in o:
             nopen = len(o.rsplit(": ", 1)[1].split())
         for i in range(nopen, len(mv)):
-            out.add(" ".join(mv[:i]))
+            out.add((board, " ".join(mv[:i])))
     return out
 
 

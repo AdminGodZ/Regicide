@@ -4,11 +4,12 @@
 #   wp12_dll.sh NAME FEN MOVE   ->  C:\regicide-match\engines\regicide\bl-w12-NAME\regicide_cb.dll (+ egdb junction)
 set -euo pipefail
 NAME=$1; FEN=$2; MOVE=$3
-L=~/regicide-jobs/booklab; BASE=/mnt/c/regicide-match/engines/regicide/bl-456e9b2-r11
+L=~/regicide-jobs/booklab; BASE=/mnt/c/regicide-match/engines/regicide/${W12_BASE_DLL:-bl-456e9b2-r11}
+BASEBOOK=${W12_BASE_BOOK:-$L/book_r11.bin}   # wp12_discover.py sets both (the baseline r11 DLL and its book)
 D=/mnt/c/regicide-match/engines/regicide/bl-w12-$NAME; T=$L/wp12/books; mkdir -p $T
-$L/bin/blk-override $L/book_r11.bin $T/$NAME.bin "$FEN" "$MOVE" > $T/$NAME.txt
+$L/bin/blk-override $BASEBOOK $T/$NAME.bin "$FEN" "$MOVE" > $T/$NAME.txt
 mkdir -p $D
-python3 - $BASE/regicide_cb.dll $L/book_r11.bin $T/$NAME.bin $D/regicide_cb.dll <<'PY'
+python3 - $BASE/regicide_cb.dll $BASEBOOK $T/$NAME.bin $D/regicide_cb.dll <<'PY'
 import sys
 dll, old, new = (open(p, 'rb').read() for p in sys.argv[1:4])
 assert len(old) == len(new) and dll.count(old) == 1, 'base book not found exactly once or size changed'

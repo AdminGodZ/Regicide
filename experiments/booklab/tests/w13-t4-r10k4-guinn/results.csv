@@ -1,0 +1,5 @@
+game,pair,opening,black,white,result,score_a,termination,engine_plies
+3,2,"/home/admingod/regicide-jobs/booklab/wp13/test_deck_4_4.txt:2","Regicide 0.2","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",76
+7,4,"/home/admingod/regicide-jobs/booklab/wp13/test_deck_4_4.txt:4","Regicide 0.2","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",76
+5,3,"/home/admingod/regicide-jobs/booklab/wp13/test_deck_4_4.txt:3","Regicide 0.2","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",76
+1,1,"/home/admingod/regicide-jobs/booklab/wp13/test_deck_4_4.txt:1","Regicide 0.2","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",76
