@@ -196,6 +196,8 @@ add_test(NAME lmr_isolation COMMAND lmr_isolation_test)
 add_test(NAME hash_clear_evaluator COMMAND hash_clear_test evaluator)
 add_test(NAME hash_clear_egdb COMMAND hash_clear_test egdb)
 add_test(NAME hash_resize_refused COMMAND hash_clear_test resize)
+# Under the address checker the allocator has to hand the refusal back instead of stopping the process.
+set_tests_properties(hash_resize_refused PROPERTIES ENVIRONMENT "ASAN_OPTIONS=allocator_may_return_null=1")
 add_test(NAME threads_refused COMMAND hash_clear_test threads)
 add_test(NAME book_king_run COMMAND book_king_run_test)
 add_test(NAME egdb_root COMMAND egdb_root_test)

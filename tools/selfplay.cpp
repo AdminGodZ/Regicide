@@ -106,6 +106,10 @@ double play_game(const Position& start, Engine& black, Engine& white, const Conf
         history.push_back(pos);
         pos.make_move(r.best);
     }
+    // The ply limit is a draw, unless the last move ended the game.
+    MoveList list;
+    generate_moves(pos, list);
+    if (list.empty()) return pos.side_to_move() == BLACK ? 0.0 : 1.0;
     return 0.5;
 }
 
@@ -225,7 +229,7 @@ int main(int argc, char** argv) {
         eb.set_threads(cfg.threads_b);
         if (!ea.params.set_all(cfg.a) || !eb.params.set_all(cfg.b)) {
             std::cerr << "bad parameter spec\n";
-            std::exit(2);
+            std::_Exit(2);  // from a worker thread: no static destructors under the other workers
         }
         for (int i; (i = next_pair++) < pairs;) {
             const Position& open = openings[i % openings.size()];
