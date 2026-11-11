@@ -266,8 +266,9 @@ CB_EXPORT int WINAPI enginecommand(const char* command, char reply[1024]) try {
     if (cmd == "set") {
         std::lock_guard lock(s.mutex);
         if (p1 == "hashsize") {
-            s.hash_mb = std::max(1, std::atoi(p2.c_str()));
-            s.engine->set_hash_mb(s.hash_mb);
+            const int mb = std::max(1, std::atoi(p2.c_str()));
+            s.engine->set_hash_mb(mb);  // throws if the memory cannot be had; the old size then stays in force
+            s.hash_mb = mb;
             return answer(std::to_string(s.hash_mb), 1);
         }
         if (p1 == "dbpath") {

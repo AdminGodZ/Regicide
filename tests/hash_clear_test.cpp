@@ -4,7 +4,9 @@
 //   hash_clear_test evaluator   after Engine::set_evaluator, a search scores like a fresh engine with the new
 //                               evaluator, not with the scores the old one left in the table
 //   hash_clear_test egdb        Engine::set_egdb_pieces and set_egdb_mtc_pieces empty a warm table
+//   hash_clear_test resize      a hash size that cannot be allocated is refused and leaves a usable table
 #include <iostream>
+#include <new>
 #include <string>
 
 #include "position.hpp"
@@ -70,14 +72,33 @@ void egdb_change() {
     check(!e.hash().probe(p.key(), d), "a change of MTC pieces clears the table");
 }
 
+void failed_resize() {
+    Engine e;
+    e.set_hash_mb(1);
+    const Position p;
+    bool refused = false;
+    try {
+        e.set_hash_mb(std::size_t(1) << 42);  // 2^62 bytes
+    } catch (const std::bad_alloc&) {
+        refused = true;
+    }
+    check(refused, "a hash size beyond the address space is refused");
+    e.new_game();  // clears the table: it has to exist
+    e.set_position(p);
+    const SearchResult r = e.go(to_depth(4));
+    TTData d;
+    check(r.best != Move{} && e.hash().probe(p.key(), d), "the engine searches and stores after the refused size");
+}
+
 }  // namespace
 
 int main(int argc, char** argv) {
     const std::string what = argc > 1 ? argv[1] : "";
     if (what == "evaluator") evaluator_change();
     else if (what == "egdb") egdb_change();
+    else if (what == "resize") failed_resize();
     else {
-        std::cerr << "usage: hash_clear_test evaluator|egdb\n";
+        std::cerr << "usage: hash_clear_test evaluator|egdb|resize\n";
         return 2;
     }
     return failures == 0 ? 0 : 1;

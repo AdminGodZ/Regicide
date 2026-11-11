@@ -49,6 +49,11 @@ int comment() {
         if (!good) std::cerr << "FAIL: " << o.name << ": " << o.played.size() << " moves, " << o.start.fen() << '\n';
         ok = ok && good;
     }
+    // The referee's move reader: 4294967305 is 9 modulo 2^32.
+    if (cbt::parse_move(cbt::Board::start(), "4294967305-13") || !cbt::parse_move(cbt::Board::start(), "9-13")) {
+        std::cerr << "FAIL: a square number out of range is rejected, however long\n";
+        ok = false;
+    }
     if (openings.size() != 4) std::cerr << "FAIL: " << openings.size() << " openings loaded (" << err << ")\n";
     return ok ? 0 : 1;
 }
