@@ -8,6 +8,8 @@
 //                                 --fresh-engines each game is the first of new engine processes
 //   runner_test pairs MATCH       with --pairs-together the two games of an opening pair are played one after the
 //                                 other by the same worker
+//   runner_test restart MATCH     when one engine dies and is restarted, only its own game counter (EngineGamesA or
+//                                 EngineGamesB) starts again from 0
 //   runner_test interrupt MATCH   an interrupt of the whole process group (Ctrl-C in a terminal) ends the engines
 //                                 too; the game they were playing is left out of the results, not scored as a loss
 //                                 by "crash". MATCH is the match executable; the engines are this executable run
@@ -106,6 +108,29 @@ int fake_braces() {
     return 0;
 }
 
+// The scripted engine for `restart`: plays as fake_braces does (without the status text) and exits, as a crash, at
+// the first search of its second game (the warm-up's newgame counts as the first).
+int fake_dies() {
+    std::cout << "id name dying fixture\nready\n" << std::flush;
+    int newgames = 0;
+    bool moved = false;
+    std::string line;
+    while (std::getline(std::cin, line)) {
+        if (line == "quit") break;
+        if (line == "newgame") {
+            ++newgames;
+            std::cout << "ok\n" << std::flush;
+        } else if (line.rfind("position ", 0) == 0) {
+            moved = line.find(" moves ") != std::string::npos;
+            std::cout << "ok\n" << std::flush;
+        } else if (line.rfind("go ", 0) == 0) {
+            if (newgames == 3) return 0;
+            std::cout << "bestmove " << (moved ? "22-18" : "11-15") << " result unknown time 0\n" << std::flush;
+        }
+    }
+    return 0;
+}
+
 int braces(const char* self, const char* match_exe) {
     const fs::path dir = scratch("braces");
     std::ofstream(dir / "opening.txt") << "B:W21-32:B1-12\n";
@@ -193,6 +218,37 @@ int pairs(const char* self, const char* match_exe) {
     return ok ? 0 : 1;
 }
 
+// One opening, two rounds, one worker: engine A dies in the second game of each of its processes (games 1.2 and
+// 2.2) while engine B lives through the match. A's counter starts again from 0 after its restart, B's goes on:
+// EngineGamesA / EngineGamesB are 0/0, 1/1, 0/2, 1/3.
+int restart(const char* self, const char* match_exe) {
+    const fs::path dir = scratch("restart");
+    std::ofstream(dir / "opening.txt") << "B:W21-32:B1-12\n";
+    const std::string dies = "exec:\"" + std::string(self) + "\" --fake-dies";
+    const std::string lives = "exec:\"" + std::string(self) + "\" --fake-braces";
+    const std::string command = "\"" + std::string(match_exe) + "\" -a '" + dies + "' -b '" + lives +
+                                "' --openings \"" + (dir / "opening.txt").string() +
+                                "\" --rounds 2 --max-plies 2 -c 1 -o \"" + (dir / "out").string() + "\" > /dev/null 2>&1";
+    const int status = std::system(command.c_str());
+    std::ifstream in(dir / "out" / "games.pdn");
+    std::string line, found;
+    int crashes = 0;
+    while (std::getline(in, line)) {
+        if (line.rfind("[Round ", 0) == 0 || line.rfind("[EngineGames", 0) == 0) found += line;
+        else if (line.rfind("[Termination ", 0) == 0 && line.find(" crashed") != std::string::npos) ++crashes;
+    }
+    fs::remove_all(dir);
+    const std::string expected = "[Round \"1.1\"][EngineGamesA \"0\"][EngineGamesB \"0\"]"
+                                 "[Round \"1.2\"][EngineGamesA \"1\"][EngineGamesB \"1\"]"
+                                 "[Round \"2.1\"][EngineGamesA \"0\"][EngineGamesB \"2\"]"
+                                 "[Round \"2.2\"][EngineGamesA \"1\"][EngineGamesB \"3\"]";
+    const bool ok = status == 0 && crashes == 2 && found == expected;
+    if (!ok)
+        std::cerr << "FAIL: status " << status << ", " << crashes << " games lost by a crash (2 expected), tags:\n      "
+                  << found << "\n      expected:\n      " << expected << '\n';
+    return ok ? 0 : 1;
+}
+
 int interrupt(const char* self, const char* match_exe) {
     const fs::path dir = scratch("interrupt");
     std::ofstream(dir / "opening.txt") << "11-15 22-18\n";
@@ -239,11 +295,13 @@ int main(int argc, char** argv) {
     const std::string what = argc > 1 ? argv[1] : "";
     if (argc == 3 && what == "--fake") return fake(argv[2]);
     if (argc == 2 && what == "--fake-braces") return fake_braces();
+    if (argc == 2 && what == "--fake-dies") return fake_dies();
     if (argc == 3 && what == "braces") return braces(argv[0], argv[2]);
     if (argc == 3 && what == "fresh") return fresh(argv[0], argv[2]);
     if (argc == 3 && what == "pairs") return pairs(argv[0], argv[2]);
+    if (argc == 3 && what == "restart") return restart(argv[0], argv[2]);
     if (argc == 2 && what == "comment") return comment();
     if (argc == 3 && what == "interrupt") return interrupt(argv[0], argv[2]);
-    std::cerr << "usage: runner_test comment | braces MATCH | fresh MATCH | pairs MATCH | interrupt MATCH\n";
+    std::cerr << "usage: runner_test comment | braces MATCH | fresh MATCH | pairs MATCH | restart MATCH | interrupt MATCH\n";
     return 2;
 }
