@@ -84,9 +84,15 @@ struct State {
     };
     Shown shown;
     std::mutex shown_mutex;
-    void publish() {
-        std::lock_guard lock(shown_mutex);
-        shown = {hash_mb, threads, book_mode, engine->egdb_pieces(), egdb_dir, evalfile, avoidfile, avoid};
+    // Never throws: it also runs while a refused setting is being reported, when memory may be short. If the copy
+    // cannot be made, the last published values stay (a refused setting has changed none of them).
+    void publish() noexcept {
+        try {
+            Shown fresh{hash_mb, threads, book_mode, engine->egdb_pieces(), egdb_dir, evalfile, avoidfile, avoid};
+            std::lock_guard lock(shown_mutex);
+            std::swap(shown, fresh);
+        } catch (...) {
+        }
     }
 };
 
