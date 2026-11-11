@@ -1,0 +1,2 @@
+# WP11 pins: the moves of the final validation (bl-final1, runs a and b) in positions without a book move, until 8 pieces.
+# FEN | move | force | evidence (opponent, ballot, colour, ply, games, results)

@@ -1,0 +1,2 @@
+id	net	mode	budget	target	depth	score	actual_score	partial	move	actual_move	nodes	ms	tbhits	static	pv	derived_from
+R1926	n6c	force	100000000	27	27	-268	-268	0	24-19	24-19	87797211	0	0	0	24-19 6-9 28-24 16-20 22-18 9-13 29-25 2-6 25-22 6-9 32-28 10-14 22-17 13x22 26x17x10 7x14 31-26 11-16 26-22 3-7 22-17 7-10 19-15 10x19x26 30x23 21-25 17x10 25-30 10-7 30-25 18-15 25-22 15-10 9-14 7-3 14-17 10-7 17-21 7-2 22-17 3-7 17-14	/private/tmp/regicide-review-r1.tQRfyf/round14/wins/searches/R1926-n6c-100000000-force-28-24_19.tsv.iterations.tsv

@@ -1,0 +1,2 @@
+id	net	mode	budget	target	depth	score	actual_score	partial	move	actual_move	nodes	ms	tbhits	static	pv
+R1065	n6c	root	20000000	127	24	-287	-299	1	11-16	11-16	20000770	5548	42063	-190	11-16 20x11 7x16x23 27x18x9 5x14 26-23 10-15 31-27 3-7 28-24 7-10 30-25 1-5 22-18 15x22 25x18x9 5x14 13-9 2-7 9-6 14-17 21x14 10x17 6-2 7-11 32-28 11-16 2-7 17-22 7-10 22-26 29-25 16-20

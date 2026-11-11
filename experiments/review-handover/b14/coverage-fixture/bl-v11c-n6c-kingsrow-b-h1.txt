@@ -1,0 +1,3 @@
+| Won game | Opponent | Regicide | own positions walked | r11 follows to the end? | where the book leaves it | evidence (won move; book move) |
+|---|---|---|---|---|---|---|
+| ACF #43 (bl-v11c-n6c-kingsrow-b-h1 39.2) | kingsrow | W | 65 | yes | — | — |

@@ -1,0 +1,8 @@
+[Black "Regicide"]
+[White "Cake"]
+[Result "0-1"]
+[Round "2.1"]
+[Opening "fixture"]
+[FEN "B:W21,K22,23,24,25,26,27,28,29,30,31,32:B1,2,3,4,K5,9"]
+[Termination "Black has no legal moves"]
+1. 9-13 24-20 5-9 20-16 13-17 21x14x5 3-8 16-12 2-6 12x3 4-8 3x12 6-9 12-8 1-6 5-1 9-14 1x10x17 0-1

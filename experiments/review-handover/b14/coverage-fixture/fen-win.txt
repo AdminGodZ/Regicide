@@ -1,0 +1,3 @@
+| Won game | Opponent | Regicide | own positions walked | r11 follows to the end? | where the book leaves it | evidence (won move; book move) |
+|---|---|---|---|---|---|---|
+| fixture (fen-win 2.1) | cake | W | 0 | yes | — | — |

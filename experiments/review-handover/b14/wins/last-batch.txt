@@ -1,0 +1,7 @@
+('R1530', 'root', '-', 20000000, '31', '-104', '20000769', '4746')
+('R35', 'root', '-', 20000000, '33', '-119', '20000769', '4044')
+Traceback (most recent call last):
+  File "/private/tmp/regicide-review-r1.tQRfyf/round14/win_batch.py", line 20, in <module>
+    assert p.returncode in (0,8),(p.returncode,p.stderr)
+           ^^^^^^^^^^^^^^^^^^^^^
+AssertionError: (-9, '')

@@ -1,0 +1,2 @@
+id	net	mode	budget	target	depth	score	actual_score	partial	move	actual_move	nodes	ms	tbhits	static	pv
+R395	n6c	force	100000000	23	23	-34	-34	0	2-7	2-7	13701282	3885	61092	-29	2-7 25-22 7-10 27-24 10x19 24x15 8-11 15x8 4x11 28-24 6-10 26-23 3-7 22-18 9-13 18x9 5x14 29-25 1-6 24-19 11-15 25-22 15x24 22-18 14-17 21x14 10x17 18-14 6-10 14-9 7-11 9-6 24-28 6-1 10-14 1-6

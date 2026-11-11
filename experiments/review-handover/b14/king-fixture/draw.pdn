@@ -1,0 +1,8 @@
+[Black "Regicide"]
+[White "Cake"]
+[Result "1/2-1/2"]
+[Round "1.1"]
+[Opening "fixture"]
+[FEN "B:W21,K22,23,24,25,26,27,28,29,30,31,32:B1,2,3,4,K5,9"]
+[Termination "adjudicated draw after 3 plies (max plies)"]
+1. 9-13 22-18 5-9 1/2-1/2
