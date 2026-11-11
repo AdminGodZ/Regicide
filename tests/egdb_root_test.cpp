@@ -1,5 +1,6 @@
 // A root the endgame database decides is played from the database, past the book and the avoid list: a book move
 // that throws the win is not taken, and the avoid list does not push the engine off the move it would choose.
+// The same for a root the database knows as a draw: neither a book move nor the avoid list makes it a loss.
 // Builds a 2..3-piece database (WLD and MTC) in a temporary directory; the engine uses only its WLD values.
 #include <iostream>
 #include <memory>
@@ -79,6 +80,49 @@ int main() {
         e.new_game();
         e.set_position(p);
         check(e.go(l).best == chosen, "a database-decided root ignores the avoid list");
+    }
+
+    // A drawn root with a move that loses at once (10-14 is captured, and Black has no piece left).
+    Position d;
+    check(d.set_fen("B:WK18:BK10"), "set_fen");
+    check(probe(d) == Wld::Draw, "the second root is a database draw");
+    std::vector<Move> drawing, losing;
+    moves.clear();
+    generate_moves(d, moves);
+    for (const Move& m : moves) {
+        Position q = d;
+        q.make_move(m);
+        (probe(q) == Wld::Draw ? drawing : losing).push_back(m);
+    }
+    check(!drawing.empty() && !losing.empty(), "some moves keep the draw and one does not");
+    if (failures == 0) {
+        Engine e;
+        e.set_hash_mb(1);
+        e.set_evaluator(Evaluator::hce());
+        e.set_egdb_pieces(3);
+        e.set_egdb_mtc_pieces(0);
+        Limits l;
+        l.depth = 5;
+        auto keeps = [&](const char* what) {
+            e.new_game();
+            e.set_position(d);
+            Position q = d;
+            q.make_move(e.go(l).best);
+            check(probe(q) == Wld::Draw, what);
+        };
+
+        auto book = std::make_shared<Book>();
+        book->add(Book::make_entry(d, losing[0], 0, 20));
+        book->finalize();
+        e.set_book(book);
+        keeps("a database draw is not lost by a book move");
+
+        e.set_book(nullptr);
+        auto avoid = std::make_shared<Book>();
+        for (const Move& m : drawing) avoid->add_avoid(Book::make_entry(d, m, 0, 20));
+        avoid->finalize();
+        e.set_avoid(avoid);
+        keeps("a database draw is not lost by an avoid list that names every drawing move");
     }
 
     test_egdb::remove(dir);

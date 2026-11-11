@@ -292,7 +292,8 @@ std::optional<Move> parse_move(const Board& b, std::string_view text, std::strin
             continue;
         }
         int v = 0;
-        while (i < text.size() && std::isdigit(static_cast<unsigned char>(text[i]))) v = v * 10 + (text[i++] - '0');
+        while (i < text.size() && std::isdigit(static_cast<unsigned char>(text[i])) && v <= 32)
+            v = v * 10 + (text[i++] - '0');  // stops at the first value out of range: no overflow on long numbers
         if (v < 1 || v > 32) {
             if (err) *err = "square out of range in '" + std::string(text) + "'";
             return std::nullopt;

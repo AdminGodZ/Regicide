@@ -76,6 +76,7 @@ bool parse_move(const Position& pos, const std::string& text, Move& out) {
     for (char ch : text + '-') {
         if (std::isdigit(static_cast<unsigned char>(ch))) {
             n = (n < 0 ? 0 : n * 10) + (ch - '0');
+            if (n > 32) return false;  // also keeps a long run of digits from overflowing
         } else if (ch == '-' || ch == 'x' || ch == 'X' || ch == ':') {
             if (n < 1 || n > 32) return false;
             path.push_back(from_pdn(n));

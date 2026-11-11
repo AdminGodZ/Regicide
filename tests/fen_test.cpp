@@ -46,6 +46,10 @@ int main() {
     Move m;
     check(parse_move(opening, "11-15", m), "11-15 is a move");
     check(!parse_move(opening, "11x1x15", m) && !parse_move(opening, "11-1-15", m), "impossible paths are rejected");
+    // 4294967305 is 9 modulo 2^32: a square number is checked before it can overflow.
+    check(!parse_move(opening, "4294967305-13", m) && !parse_move(opening, "9-4294967309", m) &&
+              !parse_move(opening, "33-13", m) && parse_move(opening, "09-13", m),
+          "square numbers out of range are rejected, however long");
     Position diamond;
     check(diamond.set_fen("B:W6,7,14,15,32:B2"), "set_fen");
     Move left, right;
