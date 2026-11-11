@@ -334,6 +334,35 @@ the idea is about (an opponent shot behind a forcing quiet move that the default
 pf1: 5-9, −19963, depth 47). The position is lost; pf1 saw it at 100M, pf0 needed 500M. So #27 counts for pf1 in
 seeing the loss earlier, not in finding a better move.
 
+## Variant prune_forcing=3 (cheap filter) and a review fix
+
+- **Review fix (e1a73be):** the Q statistics were reset only in `Worker::setup`, so a `go` answered from the tables,
+  the book or with no legal move kept the previous search's counts; they are now reset at the start of `Engine::go`.
+  No posbench total above is affected: all 586 position lines were searched (none table-answered; posbench loads no
+  book, and every position has ≥ 10 pieces).
+- **`prune_forcing=3`:** a forcing quiet move is exempt from LMP/futility only if the forced exchange wins material
+  at once. For each capture the opponent can choose after our move: (pieces our best immediate capture reply takes)
+  − (pieces their capture takes); exempt only if the minimum over their choices is > 0 (`forcing_gain`, a few capture
+  generations, no search). A plain one-for-one exchange stays prunable. No LMR change. (My first build also applied the
+  mode-2 LMR exemption to mode 3; caught in the statistics and fixed before any measurement reported here.)
+- **Cost:** bench 8,028,164 (×1.025). Middlegame set, depth 20, one E-core, measured back to back under the same load:
+  mode 0 68,484,463 nodes / 173.3 s; **mode 3 63,895,559 nodes (−6.7%) / 171.6 s (−1%)**. It keeps 0.5% of the pruned
+  moves (LMP 17,433 of 3,551,281; futility 119,703 of 28,311,780) against 55–65% for mode 1.
+
+| mode | nodes to depth 20 (mid50) | time to depth 20 | 64 positions: moves differing from mode 0 at 1M / 20M / 100M | mean depth at 1M / 20M / 100M |
+|---|---|---|---|---|
+| 0 | 68.5M | 105.5 s (core 13) / 173.3 s (core 19, loaded) | — | 26.11 / 35.03 / 39.78 |
+| 1 | 129.2M (×1.89) | 177.2 s (×1.68, core 13) | 10 / 11 / 10 | 25.62 / 35.00 / 39.78 |
+| 2 | 208.4M (×3.04) | 293.0 s (×2.78, core 13) | — | — |
+| 3 | 63.9M (×0.93) | 171.6 s (×0.99, core 19, loaded) | 4 / 5 / 4 | 26.00 / 34.91 / 39.62 |
+
+Mode 3 position test (`q/out/pf3_*`), differences from mode 0:
+- #36, #48 (1M/20M/100M): already lost, equal scores (as mode 1).
+- #29 (1M), #30 (1M, 100M): within 3 cp of the default's move.
+- #43 (20M): mode 3 plays 15-10 (−226), but both 100M references play the default's 2-6. A point against mode 3.
+- **#27 (20M and 100M): mode 3 sees the database loss at 100M (5-9, −19963) like mode 1, where the default's 100M
+  says −233.** The cheap filter keeps the move that matters there.
+
 ## Q screens (UHO set, 800 pairs, 2–7 database, `selfplay --threads 16`)
 
 A = the switch on, B = defaults. 300 ms is exact time per move (master PR #37 semantics). The equal-nodes runs use

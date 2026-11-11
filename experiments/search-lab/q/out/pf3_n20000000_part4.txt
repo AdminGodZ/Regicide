@@ -1,0 +1,10 @@
+0 W:WK7,K9,K20,21:B4,13,14,K18,K25,K30 depth 31 score -19985 nodes 20000769 ms 40843 move 21-17 legal 9
+1 B:WK3,K15,K18,22,31:B4,9,K20,28,K32 depth 34 score -119 nodes 20000769 ms 33649 move 32-27 legal 6
+2 B:WK9,K14,23,26,28:B13,19,20,K21,K29 depth 29 score -174 nodes 20000769 ms 44127 move 19-24 legal 6
+3 B:WK6,K15,K19,20,K23,28:B12,K24,K29,K30,K31 depth 31 score -19987 nodes 20000769 ms 37737 move 12-16 legal 7
+4 W:WK7,K8,19,29,31:B1,12,13,17,22,K23 depth 29 score -19983 nodes 20000769 ms 47783 move 29-25 legal 12
+5 W:W17,20,22,25:B6,10,13,15,18,19 depth 43 score -19989 nodes 20000769 ms 39275 move 20-16 legal 3
+6 B:WK6,15,K16,19,21,31:B9,12,13,K23,24 depth 29 score -19979 nodes 20000769 ms 50843 move 23-27 legal 7
+7 B:WK3,K18,K19,22,31:B4,13,K20,28,K32 depth 38 score -115 nodes 20000769 ms 31420 move 32-27 legal 5
+positions 8 threads 1 params "prune_forcing=3": nodes 160006152 ms 325677 nps 491303 mean_depth 33.00 mean_ms 40709.6 tbhits 11628303
+prune stats: lmp 13992872 kept 12176  fut 85620083 kept 68036  lmr 27493458 exempt 0
