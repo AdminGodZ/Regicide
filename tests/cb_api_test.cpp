@@ -257,10 +257,20 @@ int main(int argc, char** argv) {
             "21-17 26-31 6-1 31-27 1-5 27-23 17-21 23-26 21-25 26-31 5-1 31-27 25-21 27-23 21-17 23-19 17-14 19-15 "
             "14-17 15-10 1-5 10-7 17-13 7-10 13-9 10-15 5-1 15-10 9-5 10-7 5-9 7-3 1-6 3-7 9-5 7-3 5-1 3-7 6-2 7-3";
         const int late = claim("B:WK3:BK1,K2", hist77), fresh = claim("B:WK3:BK1,K2", "");
+        // B:WK10,K30:BK1,K6 has four pieces, outside the tables; its only move 6x15 reaches a 3-piece table win
+        // (score SCORE_DB_WIN - 1, no distance). Claimed after 4 king moves; not after 38, which with that ply
+        // reach half the no-progress window (38 + 1 >= 79 / 2).
+        const int searched = claim("B:WK10,K30:BK1,K6", "B:WK3,K30:BK1,K6 1-5 3-7 5-1 7-10", "6x15");
+        const int searched_late = claim(
+            "B:WK10,K30:BK1,K6",
+            "B:WK5,K21:BK6,K7 6-1 5-9 7-10 9-5 1-6 5-1 6-2 21-25 2-6 1-5 6-2 5-9 10-6 9-5 6-1 5-9 1-5 9-14 5-1 14-10 "
+            "2-6 10-7 1-5 7-3 5-1 3-8 1-5 8-4 5-1 25-30 1-5 4-8 5-1 8-3 1-5 3-7 5-1 7-10",
+            "6x15");
         test_egdb::remove(dir);
         std::cout << "table win claims: after 77 king moves " << late << " (not 1), without history " << fresh
-                  << " (1)\n";
-        if (late == 1 || fresh != 1) return 1;
+                  << " (1); searched table win after 4 king moves " << searched << " (1), after 38 " << searched_late
+                  << " (not 1)\n";
+        if (late == 1 || fresh != 1 || searched != 1 || searched_late == 1) return 1;
     }
     return 0;
 }

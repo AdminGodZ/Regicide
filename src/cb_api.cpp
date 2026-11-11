@@ -256,7 +256,7 @@ CB_EXPORT int WINAPI getmove(Board8x8 board, int color, double maxtime, char str
 
     // CheckerBoard ends a match game on a draw claim, and with its early adjudication (the default) on a win or loss
     // claim, without checking it: claim only what holds under the game rules with the history it gave us (a draw
-    // completed by this move, a win that arrives before the no-progress limit; Engine::claim). A known loss is not
+    // completed by this move, a win the no-progress count leaves standing; Engine::claim). A known loss is not
     // claimed: that would concede the game at once, also against an opponent that might fail to win it.
     switch (s.engine->claim(r)) {
         case Engine::Claim::Draw: return CB_DRAW;

@@ -770,23 +770,22 @@ Engine::Claim Engine::claim(const SearchResult& r) const {
     // The plies the game must go on before the win is in hand, each of which may be a king move (no progress):
     // - a mate score is SCORE_WIN - d, d the plies up to and including the move that leaves the opponent without a
     //   move;
-    // - a database score with a distance is SCORE_DB_WIN - ply - mtc: ply plies to the table position, then mtc plies
-    //   (egdb::probe_mtc) before the converting move, a capture or man move that starts the count again. Scores of
-    //   that form come only from a conversion search of a won root in the MTC tables (Worker::search,
-    //   egdb_root_move); elsewhere a database win is SCORE_DB_WIN - ply, which does not say when the conversion
-    //   comes: no claim.
+    // - from a won root in the database (a conversion search: egdb_root_move, Worker::search) a database score is
+    //   SCORE_DB_WIN - ply - mtc: ply plies to the table position, then mtc plies (egdb::probe_mtc) before the
+    //   converting move, a capture or man move that starts the count again. The same holds at a root in the WLD
+    //   tables outside the MTC tables (7 or 8 pieces): its search scores table positions inside the MTC tables with
+    //   their distance and the others with the conversion eval, below SCORE_KNOWN_WIN, so its database wins carry
+    //   the distance too and the root gets this rule.
     // The win is sure when none of those plies can reach the limit: rev + plies < NO_PROGRESS_PLIES.
-    int plies;
-    if (r.score > SCORE_MATE_BOUND) {
-        plies = SCORE_WIN - r.score;
-    } else if (conversion_ > 0 &&
-               root_.piece_count() <= std::min({egdb_pieces_, egdb::max_mtc_pieces(), egdb_mtc_pieces_}) &&
-               egdb::probe_mtc(root_.pieces(BLACK), root_.pieces(WHITE), root_.kings(), root_.side_to_move()) >= 0) {
-        plies = SCORE_DB_WIN - r.score;
-    } else {
-        return Claim::None;
-    }
-    return rev + plies < NO_PROGRESS_PLIES ? Claim::Win : Claim::None;
+    if (r.score > SCORE_MATE_BOUND) return rev + (SCORE_WIN - r.score) < NO_PROGRESS_PLIES ? Claim::Win : Claim::None;
+    if (r.score > SCORE_DB_WIN) return Claim::None;  // no such score comes from the search or the tables
+    if (conversion_ > 0) return rev + (SCORE_DB_WIN - r.score) < NO_PROGRESS_PLIES ? Claim::Win : Claim::None;
+    // Any other root (outside the database) reaches the tables in the search: a database win is SCORE_DB_WIN - ply,
+    // ply the plies to the table position, without the distance to the conversion. The table's win is then taken as
+    // every engine's database win claim is, not as a proof that the conversion comes before the no-progress limit,
+    // and refused when the count already runs high: rev + ply < NO_PROGRESS_PLIES / 2 leaves at least half the
+    // window after the table position.
+    return rev + (SCORE_DB_WIN - r.score) < NO_PROGRESS_PLIES / 2 ? Claim::Win : Claim::None;
 }
 
 SearchResult Engine::go(const Limits& limits, InfoFn on_info) {

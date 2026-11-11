@@ -122,7 +122,7 @@ public:
     SearchResult go(const Limits& limits, InfoFn on_info = {});
     // What the game rules let the engine claim for the move r.best of the last go() (CheckerBoard's getmove result),
     // with the history given to set_position: Draw when that move completes a draw (third occurrence, no-progress
-    // limit), Win when r.score is a win that arrives before the no-progress limit, else None.
+    // limit), Win when r.score is a win and the no-progress count leaves it standing (see there), else None.
     enum class Claim { None, Win, Draw };
     Claim claim(const SearchResult& r) const;
     void stop() { stop_.store(true, std::memory_order_relaxed); }
