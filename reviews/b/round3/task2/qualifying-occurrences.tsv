@@ -16,3 +16,22 @@ Q003	R5756	tests/mo-guinn-a-h2/games.pdn.gz	mo-guinn-a-h2	78.2	ACF #174 Skunk	W	
 Q003	R7319	tests/v11d-n8q-guinn-a-h2/games.pdn.gz	bl-v11d-n8q-guinn-a-h2	78.2	ACF #174 Skunk	W	guinn	0-1	11	0	9-14	round2	original run			
 Q003	R935	wp11c/games/bl-v11c-n6c-guinn-a-h2.pdn.gz	bl-v11c-n6c-guinn-a-h2	78.2	ACF #174 Skunk	W	guinn	1/2-1/2	11	0	10-15	round2	original run			
 Q003	R8567	tests/mo1-guinn/games.pdn.gz	mo1-guinn	156.2	ACF #174 Skunk	W	guinn	0-1	11	0	10-15	mo1	1	0	311	311
+Q004	R2254	wp11c/games/bl-v11c-n8q-guinn-a-h1.pdn.gz	bl-v11c-n8q-guinn-a-h1	23.2	ACF #25	W	guinn	0-1	15	0	4-8	round2	original run			
+Q004	R3797	wp11d/games/bl-v11d-n6c-guinn-a-h1.pdn.gz	bl-v11d-n6c-guinn-a-h1	23.2	ACF #25	W	guinn	0-1	15	0	4-8	round2	original run			
+Q004	R3807	wp11d/games/bl-v11d-n6c-guinn-a-h1.pdn.gz	bl-v11d-n6c-guinn-a-h1	21.2	ACF #23	W	guinn	0-1	15	0	4-8	round2	original run			
+Q004	R5515	tests/mo-guinn-a-h1/games.pdn.gz	mo-guinn-a-h1	21.2	ACF #23	W	guinn	0-1	15	0	4-8	round2	original run	0	5	5
+Q004	R5517	tests/mo-guinn-a-h1/games.pdn.gz	mo-guinn-a-h1	23.2	ACF #25	W	guinn	0-1	15	0	4-8	round2	original run	5	9	9
+Q004	R666	wp11c/games/bl-v11c-n6c-guinn-a-h1.pdn.gz	bl-v11c-n6c-guinn-a-h1	23.2	ACF #25	W	guinn	1/2-1/2	15	0	9-13	round2	original run			
+Q004	R705	wp11c/games/bl-v11c-n6c-guinn-a-h1.pdn.gz	bl-v11c-n6c-guinn-a-h1	21.2	ACF #23	W	guinn	0-1	15	0	4-8	round2	original run			
+Q004	R7094	tests/v11d-n8q-guinn-a-h1/games.pdn.gz	bl-v11d-n8q-guinn-a-h1	23.2	ACF #25	W	guinn	0-1	15	0	4-8	round2	original run			
+Q004	R8301	tests/mo1-guinn/games.pdn.gz	mo1-guinn	23.2	ACF #25	W	guinn	0-1	15	0	4-8	mo1	1	0	45	45
+Q005	R2266	wp11c/games/bl-v11c-n8q-guinn-a-h1.pdn.gz	bl-v11c-n8q-guinn-a-h1	31.2	ACF #34 Twilight Zone	W	guinn	0-1	13	0	9-14	round2	original run			
+Q005	R3809	wp11d/games/bl-v11d-n6c-guinn-a-h1.pdn.gz	bl-v11d-n6c-guinn-a-h1	31.2	ACF #34 Twilight Zone	W	guinn	1/2-1/2	13	0	7-11	round2	original run			
+Q005	R703	wp11c/games/bl-v11c-n6c-guinn-a-h1.pdn.gz	bl-v11c-n6c-guinn-a-h1	31.2	ACF #34 Twilight Zone	W	guinn	0-1	13	0	9-14	round2	original run			
+Q005	R7084	tests/v11d-n8q-guinn-a-h1/games.pdn.gz	bl-v11d-n8q-guinn-a-h1	31.2	ACF #34 Twilight Zone	W	guinn	0-1	13	0	9-14	round2	original run			
+Q005	R8317	tests/mo1-guinn/games.pdn.gz	mo1-guinn	31.2	ACF #34 Twilight Zone	W	guinn	0-1	13	0	9-14	mo1	1	0	61	61
+Q006	R2266	wp11c/games/bl-v11c-n8q-guinn-a-h1.pdn.gz	bl-v11c-n8q-guinn-a-h1	31.2	ACF #34 Twilight Zone	W	guinn	0-1	13	0	9-14	round2	original run			
+Q006	R3809	wp11d/games/bl-v11d-n6c-guinn-a-h1.pdn.gz	bl-v11d-n6c-guinn-a-h1	31.2	ACF #34 Twilight Zone	W	guinn	1/2-1/2	13	0	7-11	round2	original run			
+Q006	R703	wp11c/games/bl-v11c-n6c-guinn-a-h1.pdn.gz	bl-v11c-n6c-guinn-a-h1	31.2	ACF #34 Twilight Zone	W	guinn	0-1	13	0	9-14	round2	original run			
+Q006	R7084	tests/v11d-n8q-guinn-a-h1/games.pdn.gz	bl-v11d-n8q-guinn-a-h1	31.2	ACF #34 Twilight Zone	W	guinn	0-1	13	0	9-14	round2	original run			
+Q006	R8317	tests/mo1-guinn/games.pdn.gz	mo1-guinn	31.2	ACF #34 Twilight Zone	W	guinn	0-1	13	0	9-14	mo1	1	0	61	61

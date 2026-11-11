@@ -1,0 +1,53 @@
+diff --git a/src/search.cpp b/src/search.cpp
+index b8ce55c..dad82bd 100644
+--- a/src/search.cpp
++++ b/src/search.cpp
+@@ -794,17 +794,20 @@ Engine::Claim Engine::claim(const SearchResult& r) const {
+             if (!ours.empty() && rule_draw(g, before)) return Claim::None;
+         }
+     }
+-    // The plies the game must go on before the win is in hand, each of which may be a king move (no progress):
++    // The plies the game must go on before the win is in hand, each of which may be a king move (no progress); the
++    // win is sure when none of them can reach the limit:
+     // - a mate score is SCORE_WIN - d, d the plies up to and including the move that leaves the opponent without a
+-    //   move;
++    //   move. That last move wins whatever the count says (the referee, draws_at_once), so only the d - 1 plies
++    //   before it count: rev + d - 1 < NO_PROGRESS_PLIES;
+     // - from a won root in the database (a conversion search: egdb_root_move, Worker::search) a database score is
+     //   SCORE_DB_WIN - ply - mtc: ply plies to the table position, then mtc plies (egdb::probe_mtc) before the
+-    //   converting move, a capture or man move that starts the count again. The same holds at a root in the WLD
+-    //   tables outside the MTC tables (7 or 8 pieces): its search scores table positions inside the MTC tables with
+-    //   their distance and the others with the conversion eval, below SCORE_KNOWN_WIN, so its database wins carry
+-    //   the distance too and the root gets this rule.
+-    // The win is sure when none of those plies can reach the limit: rev + plies < NO_PROGRESS_PLIES.
+-    if (r.score > SCORE_MATE_BOUND) return rev + (SCORE_WIN - r.score) < NO_PROGRESS_PLIES ? Claim::Win : Claim::None;
++    //   converting move, a capture or man move that starts the count again. All ply + mtc plies come before that
++    //   move: rev + ply + mtc < NO_PROGRESS_PLIES. The same holds at a root in the WLD tables outside the MTC tables
++    //   (7 or 8 pieces): its search scores table positions inside the MTC tables with their distance and the others
++    //   with the conversion eval, below SCORE_KNOWN_WIN, so its database wins carry the distance too and the root
++    //   gets this rule.
++    if (r.score > SCORE_MATE_BOUND)
++        return rev + (SCORE_WIN - r.score) - 1 < NO_PROGRESS_PLIES ? Claim::Win : Claim::None;
+     if (r.score > SCORE_DB_WIN) return Claim::None;  // no such score comes from the search or the tables
+     if (conversion_ > 0) return rev + (SCORE_DB_WIN - r.score) < NO_PROGRESS_PLIES ? Claim::Win : Claim::None;
+     // Any other root (outside the database) reaches the tables in the search: a database win is SCORE_DB_WIN - ply,
+@@ -906,6 +909,19 @@ SearchResult Engine::go(const Limits& limits, InfoFn on_info) {
+         }
+         if (!winning.empty()) root_moves = std::move(winning);
+     }
++    // A drawn root keeps the draw. A completed search does not play into a database loss, but one stopped before it
++    // has scored a move plays the first root move: leave out the moves whose child the database gives as a win for
++    // the opponent, unless none would remain. A child the database does not know (its probe failed) is kept.
++    if (db_root && conversion_ == 0 && !analysis && !limits.infinite) {
++        std::vector<Move> holding;
++        for (const Move& m : root_moves) {
++            Position c = root_;
++            c.make_move(m);
++            if (egdb::probe(c.pieces(BLACK), c.pieces(WHITE), c.kings(), c.side_to_move()) != egdb::Wld::Win)
++                holding.push_back(m);
++        }
++        if (!holding.empty()) root_moves = std::move(holding);
++    }
+ 
+     // Avoid list: drop excluded root moves, unless that would leave none. Not from a root the database knows:
+     // there it could leave only a winning move that repeats the position for the third time, or only moves that

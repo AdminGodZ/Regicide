@@ -1,0 +1,46 @@
+{
+  "old": {
+    "kind": "own",
+    "rank": 22,
+    "game": "R6143",
+    "ply": 46,
+    "context": "C0919",
+    "fen": "W:W5,17,30,32:B9,16,21,23",
+    "pieces": 8,
+    "played": "17-13",
+    "node": null,
+    "done": true,
+    "root20": {
+      "depth": "127",
+      "score": "0",
+      "move": "17-13",
+      "nodes": "1017",
+      "tbhits": "890",
+      "pv": "17-13 "
+    },
+    "root20_path": "reports/round3/task2/queries/C0919-20000000-root-d127.tsv",
+    "status": "20M chooses played move"
+  },
+  "refreshed": {
+    "kind": "own",
+    "rank": 22,
+    "game": "R6143",
+    "ply": 46,
+    "context": "C0919",
+    "fen": "W:W5,17,30,32:B9,16,21,23",
+    "pieces": 8,
+    "played": "17-13",
+    "node": null,
+    "done": true,
+    "root20": {
+      "depth": "127",
+      "score": "0",
+      "move": "17-13",
+      "nodes": "508",
+      "tbhits": "381",
+      "pv": "17-13 "
+    },
+    "root20_path": "reports/round3/task2/queries/C0919-20000000-root-d127.tsv",
+    "status": "20M chooses played move"
+  }
+}

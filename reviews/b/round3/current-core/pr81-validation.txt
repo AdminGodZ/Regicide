@@ -1,0 +1,1 @@
+Master 7f3ac69 includes PR81. Rebuilt core and both drivers. Full ply67 100M trace matches fdd154e row for row, including completed depth, score, move, nodes, table hits and PV. Worker search and iteration unchanged byte for byte; claims unused; new root filter only applies to table-drawn normal roots. The one such task2 cache entry is refreshed separately.

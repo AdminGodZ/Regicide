@@ -1,0 +1,5 @@
+17 477.4 choices ['10-14', '11-15'] qualified []
+18 480.3 choices ['22-18', '27-24'] qualified []
+19 481.14 choices ['4-8', '9-13'] qualified [('4-8', '9-13', 94, 120, True)]
+20 497.12 choices ['15-19', '7-11', '9-14'] qualified [('9-14', '15-19', 47, 165, True), ('9-14', '7-11', 103, 81, True)]
+BATCH TIME CHECKPOINT mining 17 36

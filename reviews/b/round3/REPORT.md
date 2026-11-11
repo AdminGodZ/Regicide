@@ -1,6 +1,6 @@
 # Reviewer B, round 3
 
-2026-11-11 14:27 UTC
+2026-11-11 15:07 UTC
 
 Status: task1 and task3 complete; task2 continuing from rank21/mining13, current checkpoint includes the two newly supported GuiNN boards.
 
@@ -10,7 +10,7 @@ Master 8de39d0ca7db3d586cf92b56df25b06a4ae21d81; booklab e2c16559a72eccd17488d2f
 
 All searches are sequential, nice -n 19, one thread, new Engine and cleared 128 MiB hash per query, book and avoid off, full record history replayed. WLD coverage is eight pieces; MTC coverage six. Ordinary queries use at most 100M actual nodes; the lead explicitly authorized 400M for the decisive positions this round. Caps of 100M and 400M are reduced by 1024 internally to avoid node-poll overshoot. Each query has a separate 780-second ceiling; no command is allowed beyond 840 seconds. No match, opponent program, protected directory/process/lock or writable access to the shared database is used.
 
-Latest fetch: master fdd154e17db15edd92dea51be3d332eccf8f2078, booklab 3be313a2c7d91f5e79035b8897483a1e6f97d4ed. The specified mo1 PDNs remain unchanged. The claims-only update and current stopped-call path were inspected, and the latest ledger was read.
+Latest fetch: master fa1fc5718b8642aa0a9796a06d49837bb6475ad1, booklab 7ca6c27198ea0cc89f315744448fdc005ea81423. The specified mo1 PDNs remain unchanged. The claims update and PR #81 stopped-call fix were inspected, and the latest ledger was read. PR #81 changes the table-drawn normal-root filter, outside the task-1 measured roots; Worker search remains byte-identical. After rebuilding on 7f3ac69, the full ply67 100M trace again matched row for row. Task2 refreshes its one affected table-drawn endpoint; exact source provenance is retained.
 
 ## Task 1: strict-run loss
 
@@ -145,17 +145,17 @@ At ply 65, the played 26-30 and the alternative 20-24 both score -18 at equal de
 
 ## Task2 continuation
 
-The frequency pool is now **8880 games**, including **936 concurrency1 mo1 games** with validated worker/process-age tags. The original116-game rank order is retained. Own-game coverage is through rank **22** (first20 completed in B2); this round has **34 own positions** and **3 predecessors** completed. Mining coverage is through entry **16/36**, with **4 entries** completed this round. New supported contexts: own **0**, predecessors **0**, mining boards **2**.
+The frequency pool is now **8880 games**, including **936 concurrency1 mo1 games** with validated worker/process-age tags. The original116-game rank order is retained. Own-game coverage is through rank **22** (first20 completed in B2); this round has **53 own positions** and **3 predecessors** completed. Mining coverage is through entry **24/36**, with **12 entries** completed this round. New supported contexts: own **0**, predecessors **0**, mining boards **4**.
 
 The [task2 report](task2/REPORT.md) contains the complete new comparisons, updated transposition census including the identifiable C1 subset, reused/new trace manifest and exact remaining queue. Accepted prior points are referenced without another nomination.
 
 ## Task 3: stopped-call fallback, reading only
 
-Reading only, current master fdd154e: generate_moves supplies root_moves (search.cpp:847-857); Worker::setup keeps that order (:145), and Engine::go returns main.roots[0] (:951) with a default zero if no move was scored (:952-954).
+At fdd154e, an unscored stopped call returns main.roots[0].move (src/search.cpp:951), initialized in generated root order by Worker::setup; egdb_root_move declines drawn roots and only won roots were filtered, explaining the A6 first-move 25-21 at B:WK30:BK25,K26.
 
-A drawn root has no egdb_root_move shortcut (:702-717), while only won roots get the value-preserving child filter (:896-907), so the first generated 25-21 can remain the stopped fallback in A's B:WK30:BK25,K26 fixture; the new claim methods do not change that move selection.
+The smallest targeted change removes moves whose child is WLD Win for the opponent at a table-drawn ordinary root before Worker::setup; current master 7f3ac69 (PR #81), src/search.cpp:915-923, now implements it, retains unknown children and keeps the list if filtering would empty it.
 
-The smallest targeted change is to mirror that filter for db_root && conversion_ == 0 && !analysis, keeping child WLD Draw moves before Worker::setup (:941), with the existing immediate rule-draw handling retained; this preserves the table draw without inferring a draw claim from score zero.
+Reading only: no stopped-call fixture or patch was run by me; the original execution belongs to A6, and the now-merged fix was checked against the source rather than nominated again.
 
 No patch or fixture execution was performed for this task; the concrete stopped-call result is reviewer A round 6’s executed fixture.
 

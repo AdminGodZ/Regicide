@@ -1,20 +1,20 @@
 # Reviewer B round3, task2 continuation
 
-2026-11-11 14:27 UTC
+2026-11-11 15:07 UTC
 
 Status: continuing checkpoint
 
-The original116-game priority queue continues at rank21, and the36-entry mining queue at entry13. Complete own-game prefix now 22/116 (first20 in B2); this round has 34 completed own positions and 3 opponent predecessors. Mining prefix is 16/36, with 4 newly completed entries. New supported contexts: own 0, predecessors 0, mining boards 2. Accepted points are referenced rather than nominated again; unstable win scores, two winning moves and unrestricted-root disagreements are separated below.
+The original116-game priority queue continues at rank21, and the36-entry mining queue at entry13. Complete own-game prefix now 22/116 (first20 in B2); this round has 53 completed own positions and 3 opponent predecessors. Mining prefix is 24/36, with 12 newly completed entries. New supported contexts: own 0, predecessors 0, mining boards 4. Accepted points are referenced rather than nominated again; unstable win scores, two winning moves and unrestricted-root disagreements are separated below.
 
-The frequency pool has8880 finished games:7944 unchanged round2 inputs plus936 newly replayed mo1 games, including6976 Cake/KingsRow games and1904 GuiNN games. All53 legacy compressed PDN hashes match current booklab; all936 new main lines replay legally. The three new runs are concurrency1 and retain their run, worker and both process ages. Their312 scheduled ages0–311 and per-run results are in mo1-validation.tsv. The original116 selected draws and their ranks stay unchanged; mo1 extends the census.
+The frequency pool has8880 finished games:7944 unchanged round2 inputs plus936 newly replayed mo1 games, including6976 Cake/KingsRow games and1904 GuiNN games. All53 legacy compressed PDN hashes match current booklab; all936 new main lines replay legally. The three new runs are concurrency1 and retain their run, worker and both process ages. Their312 scheduled ages0–311 and per-run results are in mo1-validation.tsv. The original116 selected draws and their ranks stay unchanged; mo1 extends the census. Later mo2/mo3 and repair-validation runs are outside this fixed56-file pool.
 
-All new queries use current fdd154e scoring code, built-in n8q, eight-piece WLD, one thread, nice19, fresh128MiB hash, full record replay, book and avoid off. No match or opponent program is run. Stable cache contexts include FEN, reversible count and complete reversible history trail; unchanged B2 traces are copied only when needed, marked in their headers and manifest. The current-core rebuild/source audit and an exactly matching full100M trace are documented in ../current-core/. No requested context is already a completed rule draw.
+The continuation began on fdd154e. After PR #81 merged as 7f3ac69, the core and drivers were rebuilt; Worker search is unchanged, and the new table-draw root filter does not apply to the larger qualifying boards. The one cached table-drawn endpoint was freshly queried. A full100M ply67 verification matched every completed row. Query headers/manifest distinguish the revisions; see ../current-core/pr81-validation.txt and pr81-endpoint-refresh.txt. Queries use built-in n8q, eight-piece WLD, one thread, nice19, fresh128MiB hash, full record replay, book and avoid off. No match or opponent program is run. Stable cache contexts include FEN, reversible count and complete reversible history trail; unchanged B2 traces are copied only when needed, marked in their headers and manifest. The current-core rebuild/source audit and an exactly matching full100M trace are documented in ../current-core/. No requested context is already a completed rule draw.
 
 Own/predecessor protocol:20M at each requested move; when its choice differs, run100M and compare the same alternative against the recorded move at equal completed depths. The deeper restricted trace supplies both reference depths; if either cannot reach the unrestricted reference, use their largest common completed depth. A numeric improvement is >30 at both, with the100M own/predecessor root still rejecting the played move. A20M agreement or sole legal move completes that protocol check without an extra100M query. Mining forces every supplied-evidence move and any additional root choice; forced-pair qualification and agreement of both unrestricted roots are separate.
 
 Scores are from the mover’s view. Mate/database classes are compared by value class, not distance differences counted as men. A direct winning child is probed as Loss for the opponent, with immediate rule draws and terminal priority checked. Engine-known database scores require >=15000 with table hits; a shallow score that disappears at100M is flagged unstable. Search-backed scores outside direct root-table coverage remain engine opinions, not independent proofs of a full game result.
 
-Completed trace files 66: 66 new and 0 reused. Maximum actual nodes 99,999,749; longest query 41.283s. All complete traces meet the100M actual-node and780s limits.
+Completed trace files 127: 127 new and 0 reused. Maximum actual nodes 99,999,749; longest query 41.663s. All complete traces meet the100M actual-node and780s limits.
 
 ## Coverage and stopping point
 
@@ -22,11 +22,11 @@ Completed trace files 66: 66 new and 0 reused. Maximum actual nodes 99,999,749; 
 |---|---|---|---|---|---|---|---|
 | 21 | R134/64.1 | ACF #72 | B | 98 | 12/12 | True | True |
 | 22 | R6143/32.2 | ACF #36 | W | 90 | 9/9 | True | True |
-| 23 | R7398/14.2 | ACF #16 Wilderness II | W | 88 | 13/88 | False | True |
+| 23 | R7398/14.2 | ACF #16 Wilderness II | W | 88 | 32/88 | False | True |
 
-Next own query: rank23, tests/v11d-n8q-kingsrow-a-h1/games.pdn.gz, round14.2, ACF #16 Wilderness II, oursW, ply68, played6-10; peak+88.
+Next own query: rank23, tests/v11d-n8q-kingsrow-a-h1/games.pdn.gz, round14.2, ACF #16 Wilderness II, oursW, ply106, played7-10; peak+88.
 
-Next mining entry: rank17, node477.4, ACF #23, guinn, oursW, ply5.
+Next mining entry: rank25, node553.4, ACF #64, guinn, oursW, ply5.
 
 Full116-game and36-entry backlogs are in game-coverage.tsv and mining-coverage.tsv. Each records completed prior-round work separately from this round.
 
@@ -36,6 +36,8 @@ Full116-game and36-entry backlogs are in game-coverage.tsv and mining-coverage.t
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
 | Q001,Q002 | opponent | ACF #153 Black Widow | B | guinn | W:W17,18,20,22,23,28,29,30,31,32:B1,2,3,5,7,11,12,13,15,16 | 17-14 | 5 | 2 | +2 =0 -0; 2.0/2 | 0 | 29-25; 32-27 | new supported improvement |
 | Q003 | opponent | ACF #174 Skunk | W | guinn | B:W18,20,21,23,24,25,26,28,30,31,32:B1,2,3,4,5,7,9,10,11,12,16 | 9-14 | 7 | 2 | +2 =0 -0; 2.0/2 | 0 | 10-15 | new supported improvement |
+| Q004 | opponent | ACF #25 | W | guinn | B:W17,19,21,23,24,27,29,30,31,32:B1,2,3,4,7,9,10,12,14,15 | 4-8 | 9 | 8 | +8 =0 -0; 8.0/8 | 1 | 9-13 | new supported improvement |
+| Q005,Q006 | opponent | ACF #34 Twilight Zone | W | guinn | B:W21,22,24,25,26,27,28,29,30,31:B1,2,4,6,7,9,10,12,13,15 | 9-14 | 5 | 4 | +4 =0 -0; 4.0/4 | 1 | 15-19; 7-11 | new supported improvement |
 
 ## Qualifying comparisons
 
@@ -44,6 +46,9 @@ Full116-game and36-entry backlogs are in game-coverage.tsv and mining-coverage.t
 | Q001 | mining | 13 | 422.17 | ACF #153 Black Widow | B | guinn | 18 | W:W17,18,20,22,23,28,29,30,31,32:B1,2,3,5,7,11,12,13,15,16 | 17-14 | 29-25 | -215 / -9 at d24 (gain 206) | -205 / -15 at d30 (gain 190) | False | False | True | new supported improvement |
 | Q002 | mining | 13 | 422.17 | ACF #153 Black Widow | B | guinn | 18 | W:W17,18,20,22,23,28,29,30,31,32:B1,2,3,5,7,11,12,13,15,16 | 17-14 | 32-27 | -215 / -51 at d24 (gain 164) | -205 / -40 at d30 (gain 165) | False | False | True | new supported improvement |
 | Q003 | mining | 16 | 463.10 | ACF #174 Skunk | W | guinn | 11 | B:W18,20,21,23,24,25,26,28,30,31,32:B1,2,3,4,5,7,9,10,11,12,16 | 9-14 | 10-15 | -193 / -29 at d24 (gain 164) | -197 / -16 at d27 (gain 181) | False | False | True | new supported improvement |
+| Q004 | mining | 19 | 481.14 | ACF #25 | W | guinn | 15 | B:W17,19,21,23,24,27,29,30,31,32:B1,2,3,4,7,9,10,12,14,15 | 4-8 | 9-13 | -94 / 0 at d27 (gain 94) | -120 / 0 at d30 (gain 120) | False | False | True | new supported improvement |
+| Q005 | mining | 20 | 497.12 | ACF #34 Twilight Zone | W | guinn | 13 | B:W21,22,24,25,26,27,28,29,30,31:B1,2,4,6,7,9,10,12,13,15 | 9-14 | 15-19 | -145 / -98 at d23 (gain 47) | -186 / -21 at d27 (gain 165) | False | False | True | new supported improvement |
+| Q006 | mining | 20 | 497.12 | ACF #34 Twilight Zone | W | guinn | 13 | B:W21,22,24,25,26,27,28,29,30,31:B1,2,4,6,7,9,10,12,13,15 | 9-14 | 7-11 | -145 / -42 at d23 (gain 103) | -186 / -105 at d27 (gain 81) | False | False | True | new supported improvement |
 
 ## Frequencies at qualifying boards
 
@@ -59,6 +64,13 @@ Full FEN matching counts move-order transpositions across openings. Own points u
 | Q002 | W:W17,18,20,22,23,28,29,30,31,32:B1,2,3,5,7,11,12,13,15,16 | 5 | 5 | 32-27 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1.0 | 1 |
 | Q003 | B:W18,20,21,23,24,25,26,28,30,31,32:B1,2,3,4,5,7,9,10,11,12,16 | 7 | 7 | 10-15 | 5 | 5 | 2 | 3 | 0 | 1 | 1 | 3.5 | 5 |
 | Q003 | B:W18,20,21,23,24,25,26,28,30,31,32:B1,2,3,4,5,7,9,10,11,12,16 | 7 | 7 | 9-14 | 2 | 2 | 2 | 0 | 0 | 0 | 0 | 2.0 | 2 |
+| Q004 | B:W17,19,21,23,24,27,29,30,31,32:B1,2,3,4,7,9,10,12,14,15 | 9 | 9 | 4-8 | 8 | 8 | 8 | 0 | 0 | 1 | 1 | 8.0 | 8 |
+| Q004 | B:W17,19,21,23,24,27,29,30,31,32:B1,2,3,4,7,9,10,12,14,15 | 9 | 9 | 9-13 | 1 | 1 | 0 | 1 | 0 | 0 | 0 | 0.5 | 1 |
+| Q005 | B:W21,22,24,25,26,27,28,29,30,31:B1,2,4,6,7,9,10,12,13,15 | 5 | 5 | 15-19 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | 0 |
+| Q005 | B:W21,22,24,25,26,27,28,29,30,31:B1,2,4,6,7,9,10,12,13,15 | 5 | 5 | 7-11 | 1 | 1 | 0 | 1 | 0 | 0 | 0 | 0.5 | 1 |
+| Q005 | B:W21,22,24,25,26,27,28,29,30,31:B1,2,4,6,7,9,10,12,13,15 | 5 | 5 | 9-14 | 4 | 4 | 4 | 0 | 0 | 1 | 1 | 4.0 | 4 |
+| Q006 | B:W21,22,24,25,26,27,28,29,30,31:B1,2,4,6,7,9,10,12,13,15 | 5 | 5 | 7-11 | 1 | 1 | 0 | 1 | 0 | 0 | 0 | 0.5 | 1 |
+| Q006 | B:W21,22,24,25,26,27,28,29,30,31:B1,2,4,6,7,9,10,12,13,15 | 5 | 5 | 9-14 | 4 | 4 | 4 | 0 | 0 | 1 | 1 | 4.0 | 4 |
 
 ## All completed own and predecessor checks
 
@@ -100,6 +112,25 @@ Full FEN matching counts move-order transpositions across openings. Own points u
 | 23 | R7398/62 | 18-14 | 18-14 / 74 / d32 | - | - | - | 20M chooses played move |
 | 23 | R7398/64 | 26-22 | 26-22 / 69 / d33 | - | - | - | 20M chooses played move |
 | 23 | R7398/66 | 22-17 | 6-10 / 46 / d32 | 6-10 / 39 / d38 | 48 / 55 at d32 (gain 7) | 33 / 39 at d36 (gain 6) | does not qualify at both references |
+| 23 | R7398/68 | 6-10 | 6-10 / 58 / d31 | - | - | - | 20M chooses played move |
+| 23 | R7398/70 | 17-13 | 17-13 / 43 / d32 | - | - | - | 20M chooses played move |
+| 23 | R7398/72 | 30-25 | 30-26 / 43 / d34 | 30-26 / 29 / d39 | 38 / 31 at d34 (gain -7) | 33 / 31 at d38 (gain -2) | does not qualify at both references |
+| 23 | R7398/74 | 25-22 | 25-22 / 28 / d34 | - | - | - | 20M chooses played move |
+| 23 | R7398/76 | 22-18 | 22-18 / 28 / d35 | - | - | - | 20M chooses played move |
+| 23 | R7398/78 | 13-9 | 13-9 / 32 / d35 | - | - | - | 20M chooses played move |
+| 23 | R7398/80 | 9-6 | 9-6 / 28 / d34 | - | - | - | 20M chooses played move |
+| 23 | R7398/82 | 6-1 | 6-1 / 29 / d33 | - | - | - | 20M chooses played move |
+| 23 | R7398/84 | 1-6 | 1-6 / 28 / d31 | - | - | - | 20M chooses played move |
+| 23 | R7398/86 | 6-9 | 6-9 / 28 / d31 | - | - | - | 20M chooses played move |
+| 23 | R7398/88 | 9-13 | 9-13 / 28 / d31 | - | - | - | 20M chooses played move |
+| 23 | R7398/90 | 14-17 | 14-17 / 26 / d30 | - | - | - | 20M chooses played move |
+| 23 | R7398/92 | 18-14 | 18-14 / 24 / d29 | - | - | - | 20M chooses played move |
+| 23 | R7398/94 | 17-22 | 17-22 / 25 / d29 | - | - | - | 20M chooses played move |
+| 23 | R7398/96 | 13-17 | 13-17 / 25 / d28 | - | - | - | 20M chooses played move |
+| 23 | R7398/98 | 17-13 | 17-13 / 21 / d28 | - | - | - | 20M chooses played move |
+| 23 | R7398/100 | 10-7 | 10-7 / 23 / d27 | - | - | - | 20M chooses played move |
+| 23 | R7398/102 | 22-17 | 7-11 / 23 / d26 | 7-11 / 18 / d30 | 25 / 24 at d26 (gain -1) | 19 / 22 at d30 (gain 3) | does not qualify at both references |
+| 23 | R7398/104 | 17-21 | 7-11 / 21 / d27 | 7-11 / 18 / d31 | 23 / 19 at d27 (gain -4) | 19 / 17 at d30 (gain -2) | does not qualify at both references |
 
 ### Opponent immediately before first+40
 
@@ -130,8 +161,17 @@ All negative checks retain FEN, record and colour in own-results.tsv/predecessor
 | 14 | 435.8 | ACF #16 Wilderness II | guinn | W | 9 | B:W14,18,24,25,26,27,28,29,30,31,32:B1,2,3,4,5,7,8,9,12,13,16 | 1-6 | 7-11 | True | 7-11 / -54 / d23 | 1-6 / -53 / d28 | -46 / -27 at d23 (gain 19) | -29 / -84 at d28 (gain -55) | False | False | False | False | False |  |
 | 15 | 441.12 | ACF #162 | guinn | W | 13 | B:W9,17,21,26,27,28,29,30,31,32:B1,2,3,4,5,6,8,10,20 | 6x13x22 | 5x14 | True | 6x13x22 / -11 / d24 | 6x13x22 / 0 / d29 | -7 / -6 at d24 (gain 1) | 0 / 0 at d28 (gain 0) | False | False | False | False | False |  |
 | 16 | 463.10 | ACF #174 Skunk | guinn | W | 11 | B:W18,20,21,23,24,25,26,28,30,31,32:B1,2,3,4,5,7,9,10,11,12,16 | 9-14 | 10-15 | True | 10-15 / -41 / d24 | 10-15 / -6 / d30 | -193 / -29 at d24 (gain 164) | -197 / -16 at d27 (gain 181) | True | True | False | False | False |  |
+| 17 | 477.4 | ACF #23 | guinn | W | 5 | B:W19,21,22,23,24,25,26,27,29,30,31,32:B1,2,3,4,6,7,8,9,10,11,12,13 | 10-14 | 11-15 | True | 11-15 / -13 / d26 | 11-15 / -28 / d31 | -11 / -8 at d26 (gain 3) | -10 / -7 at d31 (gain 3) | False | True | False | False | False |  |
+| 18 | 480.3 | ACF #25 | guinn | B | 4 | W:W19,21,22,23,25,26,27,28,29,30,31,32:B1,2,3,4,5,6,7,8,11,12,13,14 | 22-18 | 27-24 | True | 22-18 / 20 / d25 | 22-18 / 18 / d29 | 16 / 15 at d25 (gain -1) | 6 / 0 at d29 (gain -6) | False | False | False | False | False |  |
+| 19 | 481.14 | ACF #25 | guinn | W | 15 | B:W17,19,21,23,24,27,29,30,31,32:B1,2,3,4,7,9,10,12,14,15 | 4-8 | 9-13 | True | 9-13 / 0 / d27 | 9-13 / 0 / d31 | -94 / 0 at d27 (gain 94) | -120 / 0 at d30 (gain 120) | True | True | False | False | False |  |
+| 20 | 497.12 | ACF #34 Twilight Zone | guinn | W | 13 | B:W21,22,24,25,26,27,28,29,30,31:B1,2,4,6,7,9,10,12,13,15 | 9-14 | 15-19 | False | 15-19 / -37 / d23 | 7-11 / -39 / d27 | -145 / -98 at d23 (gain 47) | -186 / -21 at d27 (gain 165) | True | True | False | False | False |  |
+| 20 | 497.12 | ACF #34 Twilight Zone | guinn | W | 13 | B:W21,22,24,25,26,27,28,29,30,31:B1,2,4,6,7,9,10,12,13,15 | 9-14 | 7-11 | True | 15-19 / -37 / d23 | 7-11 / -39 / d27 | -145 / -42 at d23 (gain 103) | -186 / -105 at d27 (gain 81) | True | True | False | False | False |  |
+| 21 | 525.10 | ACF #50 | guinn | W | 11 | B:W17,19,24,25,27,28,29,30,31,32:B1,2,3,4,5,6,8,10,12,18 | 2-7 | 8-11 | True | 8-11 / -6 / d23 | 8-11 / 0 / d29 | -17 / 0 at d23 (gain 17) | -11 / 0 at d29 (gain 11) | False | True | False | False | False |  |
+| 22 | 543.8 | ACF #6 Inferno | guinn | W | 9 | B:W18,21,23,24,25,27,28,29,30,31,32:B1,2,3,4,7,8,9,11,12,13,14 | 11-16 | 7-10 | True | 7-10 / -45 / d25 | 7-10 / -45 / d29 | -86 / -32 at d25 (gain 54) | -54 / -33 at d29 (gain 21) | False | True | False | False | False |  |
+| 23 | 545.18 | ACF #60 Black Hole | guinn | W | 19 | B:W14,21,22,27,29,30,31,32:B2,3,4,5,7,11,12,13 | 11-15 | 4-8 | True | 4-8 / -10 / d23 | 4-8 / -7 / d29 | -24 / -13 at d23 (gain 11) | -22 / -6 at d29 (gain 16) | False | True | False | False | False |  |
+| 24 | 549.10 | ACF #62 Gemini I | guinn | W | 11 | B:W18,21,24,25,26,27,28,30,31,32:B1,2,3,4,5,8,9,10,12,16 | 1-6 | 3-7 | True | 3-7 / -47 / d23 | 1-6 / -65 / d27 | -68 / -43 at d23 (gain 25) | -38 / -39 at d27 (gain -1) | False | False | False | False | False |  |
 
-The result contrast in the supplied list crosses books/nets. Updated8880-game frequencies for every completed entry are in mining-census.tsv; they remain descriptive and are distinct from the input priority counts. Input moves are not silently expanded from new census results.
+The result contrast in the supplied list crosses books/nets. In ACF34 the20M and100M unrestricted choices differ; both reject9-14, and both forced alternatives exceed the relative30 threshold. Their absolute scores vary strongly with search restriction and depth, so this does not certify a drawing alternative. Updated8880-game frequencies for every completed entry are in mining-census.tsv; they remain descriptive and are distinct from the input priority counts. Input moves are not silently expanded from new census results.
 
 ## What ran and what was reused
 
@@ -283,6 +323,7 @@ def query(cid,b,move='-',depth=127):
  c=ctx[cid];token='root' if move=='-' else 'force-'+move.replace('x','_')
  # Reuse only identical stable history contexts from the accepted round-2 cache.
  for old in Path('reports/round2/queries').glob(f'{cid}-{b}-{token}-d*.tsv'):
+  if move=='-' and c['pieces']<=8:continue  # refresh table roots after PR81
   dest=D/old.name
   if not dest.exists():
    read(old)
@@ -302,6 +343,7 @@ def query(cid,b,move='-',depth=127):
   except (AssertionError,IndexError):raise RuntimeError('Incomplete query file '+str(p))
  tmp=p.with_suffix('.running')
  with tmp.open('w') as f:
+  f.write('# core_revision '+(P/'current-core.txt').read_text().strip()+'\n');f.flush()
   subprocess.run(['nice','-n','19','work/round3/task2/replay','query','work/round3/task2/games.tsv',c['game'],str(c['ply']),str(b),str(depth),move,'8'],stdout=f,check=True,timeout=790)
  read(tmp);tmp.replace(p)
  return read(p)
