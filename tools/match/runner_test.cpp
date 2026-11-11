@@ -6,6 +6,8 @@
 //                                 game reads back as the moves that were played
 //   runner_test fresh MATCH       every game carries the tags Worker, EngineGamesA and EngineGamesB; with
 //                                 --fresh-engines each game is the first of new engine processes
+//   runner_test pairs MATCH       with --pairs-together the two games of an opening pair are played one after the
+//                                 other by the same worker
 //   runner_test interrupt MATCH   an interrupt of the whole process group (Ctrl-C in a terminal) ends the engines
 //                                 too; the game they were playing is left out of the results, not scored as a loss
 //                                 by "crash". MATCH is the match executable; the engines are this executable run
@@ -20,6 +22,7 @@
 #include <fstream>
 #include <iostream>
 #include <iterator>
+#include <map>
 #include <string>
 #include <thread>
 
@@ -151,6 +154,45 @@ int fresh(const char* self, const char* match_exe) {
     return ok ? 0 : 1;
 }
 
+// Two openings, two workers, --pairs-together: both games of a pair carry the same Worker tag, and EngineGamesA of
+// the second game is one more than of the first (the same engine process played them in a row). The scripted
+// engine keeps no state, so the test cannot show that an engine carries anything from one game into the next; nor
+// that the order is unchanged without the option (which worker takes which game is then a race).
+int pairs(const char* self, const char* match_exe) {
+    const fs::path dir = scratch("pairs");
+    std::ofstream(dir / "openings.txt") << "B:W21-32:B1-12\nB:W21-31:B1-12\n";
+    const std::string engine = "exec:\"" + std::string(self) + "\" --fake-braces";
+    const std::string command = "\"" + std::string(match_exe) + "\" -a '" + engine + "' -b '" + engine +
+                                "' --openings \"" + (dir / "openings.txt").string() +
+                                "\" --max-plies 2 -c 2 --pairs-together -o \"" + (dir / "out").string() +
+                                "\" > /dev/null 2>&1";
+    const int status = std::system(command.c_str());
+    // Round "pair.leg" -> (Worker, EngineGamesA) of that game.
+    std::map<std::string, std::pair<std::string, int>> games;
+    std::ifstream in(dir / "out" / "games.pdn");
+    std::string line, round;
+    auto value = [&] { return line.substr(line.find('"') + 1, line.rfind('"') - line.find('"') - 1); };
+    while (std::getline(in, line)) {
+        if (line.rfind("[Round ", 0) == 0) round = value();
+        else if (line.rfind("[Worker ", 0) == 0) games[round].first = value();
+        else if (line.rfind("[EngineGamesA ", 0) == 0) games[round].second = std::stoi(value());
+    }
+    fs::remove_all(dir);
+    const std::size_t played = games.size();
+    bool ok = status == 0 && played == 4;
+    for (const char* pair : {"1", "2"}) {
+        const auto& first = games[pair + std::string(".1")];
+        const auto& second = games[pair + std::string(".2")];
+        const bool same = !first.first.empty() && first.first == second.first && second.second == first.second + 1;
+        if (!same)
+            std::cerr << "FAIL: pair " << pair << ": worker " << first.first << " / " << second.first
+                      << ", EngineGamesA " << first.second << " / " << second.second << '\n';
+        ok = ok && same;
+    }
+    if (status != 0 || played != 4) std::cerr << "FAIL: match status " << status << ", " << played << " games\n";
+    return ok ? 0 : 1;
+}
+
 int interrupt(const char* self, const char* match_exe) {
     const fs::path dir = scratch("interrupt");
     std::ofstream(dir / "opening.txt") << "11-15 22-18\n";
@@ -199,8 +241,9 @@ int main(int argc, char** argv) {
     if (argc == 2 && what == "--fake-braces") return fake_braces();
     if (argc == 3 && what == "braces") return braces(argv[0], argv[2]);
     if (argc == 3 && what == "fresh") return fresh(argv[0], argv[2]);
+    if (argc == 3 && what == "pairs") return pairs(argv[0], argv[2]);
     if (argc == 2 && what == "comment") return comment();
     if (argc == 3 && what == "interrupt") return interrupt(argv[0], argv[2]);
-    std::cerr << "usage: runner_test comment | braces MATCH | fresh MATCH | interrupt MATCH\n";
+    std::cerr << "usage: runner_test comment | braces MATCH | fresh MATCH | pairs MATCH | interrupt MATCH\n";
     return 2;
 }

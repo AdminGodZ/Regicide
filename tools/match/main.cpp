@@ -80,6 +80,7 @@ struct Config {
     std::string cbhost;
     bool pdn_comments = false;
     bool fresh_engines = false;  // new engine processes for every game
+    bool pairs_together = false;  // a worker plays both games of an opening pair, one after the other
     bool quiet = false;
 };
 
@@ -437,7 +438,19 @@ struct Match {
         std::lock_guard lock(mu);
         while (next_task < total_games && skipped(next_task)) ++next_task;
         if (stop_scheduling || g_interrupted || next_task >= total_games) return std::nullopt;
-        return next_task++;
+        const long task = next_task++;
+        // --pairs-together: the worker that takes a pair's first game also plays its second (take_second_leg).
+        if (cfg.pairs_together && task % 2 == 0) ++next_task;
+        return task;
+    }
+
+    // --pairs-together: the second game of the pair whose first game was `task`, unless the opening has only one game
+    // or the match stops (then the pair stays incomplete, as a pair cut off by a stop always is).
+    std::optional<long> take_second_leg(long task) {
+        std::lock_guard lock(mu);
+        if (task % 2 || task + 1 >= total_games || skipped(task + 1) || stop_scheduling || g_interrupted)
+            return std::nullopt;
+        return task + 1;
     }
 
     std::string line_stats() {
@@ -590,7 +603,7 @@ void worker(Match& m, int id) {
     }
     bool launched = false;
     int engine_games[2] = {0, 0};  // by engine: games its current process has played
-    while (auto task = m.take_task()) {
+    for (auto task = m.take_task(); task;) {
         std::string err;
         if (cfg.fresh_engines && launched)
             for (auto& e : eng) e->kill();
@@ -620,6 +633,8 @@ void worker(Match& m, int id) {
         for (int e = 0; e < 2; ++e) g.engine_games[e] = engine_games[e]++;
         play_game(cfg, by_colour, g);
         m.record(std::move(g));
+        task = cfg.pairs_together ? m.take_second_leg(*task) : std::nullopt;
+        if (!task) task = m.take_task();
     }
     for (auto& e : eng) e->kill();
 }
@@ -719,6 +734,10 @@ Running:
                            carry its hash table from game to game). Every PDN has the tags Worker,
                            EngineGamesA and EngineGamesB (games that engine's process had played
                            before).
+  --pairs-together         a worker plays both games of an opening pair one after the other with
+                           its two engines before it takes the next pair, as a GUI's engine match
+                           does (default: each worker takes the next single game, so the two games
+                           of a pair are usually played by different workers)
   -q, --quiet              no per-game lines
 )");
 }
@@ -784,6 +803,7 @@ bool parse_args(int argc, char** argv, Config& cfg) {
         } else if (a == "-o" || a == "--out") cfg.out_dir = need("a directory");
         else if (a == "--pdn-comments") cfg.pdn_comments = true;
         else if (a == "--fresh-engines") cfg.fresh_engines = true;
+        else if (a == "--pairs-together") cfg.pairs_together = true;
         else if (a == "-q" || a == "--quiet") cfg.quiet = true;
         else {
             std::fprintf(stderr, "unknown option %s (see --help)\n", a.c_str());
