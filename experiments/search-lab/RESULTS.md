@@ -408,3 +408,11 @@ lmr_base 20 and 120.
 | LMR lmr_mult=35 (200 ms) | 598 / 394 / 608 | 24.6% | -2.2 [-7.9, +3.5] | 0 95 620 85 0 | 800 | ±5.7 | -0.76 | 173.6 / 174.0 ms, d 14.49 / 14.89 |
 | LMR lmr_mult=55 (200 ms) | 614 / 361 / 625 | 22.6% | -2.4 [-8.0, +3.3] | 0 93 626 80 1 | 800 | ±5.7 | -0.83 | 174.0 / 173.8 ms, d 15.20 / 14.78 |
 | LMR lmr_mult=65 (200 ms) | 612 / 387 / 601 | 24.2% | +2.4 [-3.5, +8.2] | 0 89 611 100 0 | 800 | ±5.8 | +0.80 | 174.1 / 174.3 ms, d 15.56 / 14.76 |
+
+Screens done: **lmr_base 80 (+6.7 [+0.8, +12.7]) and lmr_base 120 (+8.7 [+3.0, +14.4]) pass the screen bar**; every
+other value is within ±4.3 of the defaults. The pattern is not smooth: 100 sits between them at +0.2. With nine
+candidates, two passes at this level are what chance alone could produce, so both go to the confirmation: 600 ms, 800
+pairs, the other 800 positions of the UHO set (`--skip 800`).
+
+| confirmation | W / D / L | draws | Elo [95% CI] | penta | pairs | ± per 800 | t | time A / B |
+|---|---|---|---|---|---|---|---|---|
