@@ -113,25 +113,35 @@ def parse_pdn(text):
 
 
 def tokenize(s):
+    """Main-line moves with their comments. Variations "( ... )" are skipped, nested ones included (review
+    2026-11-11: before, their moves were read as main-line plies)."""
     out = []
-    i, n = 0, len(s)
+    i, n, depth = 0, len(s), 0
     while i < n:
         c = s[i]
         if c == "{":
             j = s.find("}", i)
             j = n if j < 0 else j
             com = s[i + 1:j].strip()
-            if out and out[-1][1] is None:
+            if depth == 0 and out and out[-1][1] is None:
                 out[-1] = (out[-1][0], com)
             i = j + 1
+        elif c == "(":
+            depth += 1
+            i += 1
+        elif c == ")":
+            depth = max(0, depth - 1)
+            i += 1
         elif c.isspace():
             i += 1
         else:
             j = i
-            while j < n and not s[j].isspace() and s[j] != "{":
+            while j < n and not s[j].isspace() and s[j] not in "{()":
                 j += 1
             tok = s[i:j]
             i = j
+            if depth > 0:
+                continue
             if tok.endswith("."):
                 continue
             if re.match(r"^\d+\.", tok):
@@ -351,7 +361,7 @@ def repair(args):
           + ", ".join(f"{r[0]} {r[1]}x w/d/l {r[2]}/{r[3]}/{r[4]}" for r in rows0))
     print(f"#   FEN {fen_of(key0)}")
     # The opponent's defence from the deviation position, over every game where it defended it without losing.
-    counts, first_ply, games_used = {}, {}, set()
+    counts, first_ply, games_used, source = {}, {}, set(), {}
     for g2, p2, fen2, res2 in db.execute(
             "SELECT p.gid, p.ply, g.fen, g.result FROM plies p JOIN games g USING(gid) WHERE p.key=? AND p.fam=?",
             (key0, opp)).fetchall():
@@ -367,14 +377,21 @@ def repair(args):
                 break
             counts.setdefault(k3, {}).setdefault(m3, 0)
             counts[k3][m3] += 1
-            first_ply[k3] = min(first_ply.get(k3, 999), p3)
+            # the position's ply in the repaired ballot (the deviation's ply plus the distance from it in the source
+            # game), not the source game's own ply, which differs after a transposition or in a FEN-started game
+            bp = ply0 + (p3 - p2)
+            if bp < first_ply.get(k3, 10 ** 6):
+                first_ply[k3] = bp
+                source[k3] = (g2, p3)
     print(f"# {opp}'s defence: {len(games_used)} non-lost games from the deviation position, "
           f"{len(counts)} positions of our side within {args.follow} plies (stop at <= {args.min_pieces} pieces)")
     out = []
     if args.pin_path:
         for ply, key, mv, rows in path:
             r = [x for x in rows if x[0] == mv]
-            if r:
+            # forced only if the opponent played this move here in at least one game it did not lose (review
+            # 2026-11-11: before, any occurrence counted, a 0/0/1 move included)
+            if r and r[0][1] - r[0][4] > 0:
                 out.append((ply, key, mv, f"{opp} played the same move {r[0][1]}x (w/d/l {r[0][2]}/{r[0][3]}/"
                                           f"{r[0][4]}) on the path to the deviation"))
     for k, mvs in sorted(counts.items(), key=lambda kv: first_ply[kv[0]]):
@@ -386,6 +403,8 @@ def repair(args):
               + (f" (theory {t[1]}x w/d/l {t[2]}/{t[3]}/{t[4]})" if t else "") + (f"; also {alts}" if alts else ""))
         if k == key0:
             ev += f"; {args.fam} played {mv0} here and lost (gid {gid}, {os.path.basename(os.path.dirname(src))})"
+        sg, sp = source[k]
+        ev += f"; source: gid {sg}, its move number {sp}"
         out.append((first_ply[k], k, best[0], ev))
     for ply, k, mv, ev in out:
         print(f"{fen_of(k)} | {mv} | force | {ballot} {args.fam} {col} ply {ply}: {ev}")

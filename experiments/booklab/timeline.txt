@@ -626,3 +626,17 @@ POST13K4 STOPPED: the r10k4 validation has 2 losses (lead decides) 2026-11-11T02
 WP13 test 5 (bl-141a025-r10k5, ballots 60,71,34,141,9,62,93,53) start 2026-11-11T02:27:18+01:00
 BL wait-lock w13-t5-r10k5-kingsrow regicide:bl-141a025-r10k5 vs kingsrow deck /home/admingod/regicide-jobs/booklab/wp13/test_deck_kingsrow_5.txt mt 0.5 c 8 2026-11-11T02:27:18+01:00
 BL start w13-t5-r10k5-kingsrow regicide:bl-141a025-r10k5 vs kingsrow; A: book read-back: 'reply 1 3' (ok) B: book read-back: 'reply 1 3' (ok); commit free 22.2 GB; bg: bash:S datagen-tr6:S bash:T datagen-tr5:T  2026-11-11T02:27:20+01:00
+BL end w13-t5-r10k5-kingsrow rc=0 Games: 80 of 160 scheduled A: +0 =80 -0   score 40.0/80 = 50.00%   draw rate 100.0%  2026-11-11T02:31:57+01:00
+BL wait-lock w13-t5-r10k5-cake regicide:bl-141a025-r10k5 vs cake deck /home/admingod/regicide-jobs/booklab/wp13/test_deck_cake_5.txt mt 0.5 c 8 2026-11-11T02:31:57+01:00
+BL start w13-t5-r10k5-cake regicide:bl-141a025-r10k5 vs cake; A: book read-back: 'reply 1 3' (ok) B: book read-back: 'reply 1 3' (ok); commit free 23 GB; bg: bash:T datagen-tr5:Z  2026-11-11T02:33:01+01:00
+BL end w13-t5-r10k5-cake rc=0 Games: 80 of 160 scheduled A: +0 =80 -0   score 40.0/80 = 50.00%   draw rate 100.0%  2026-11-11T02:38:14+01:00
+BL wait-lock w13-t5-r10k5-guinn regicide:bl-141a025-r10k5 vs guinn deck /home/admingod/regicide-jobs/booklab/wp13/test_deck_4_5.txt mt 0.5 c 8 2026-11-11T02:38:15+01:00
+BL start w13-t5-r10k5-guinn regicide:bl-141a025-r10k5 vs guinn; A: book read-back: 'reply 1 3' (ok) B: book read-back: 'reply 1 3' (ok); commit free 22.8 GB; bg: bash:S datagen-tr6:S bash:T datagen-tr5:T  2026-11-11T02:39:26+01:00
+BL end w13-t5-r10k5-guinn rc=0 Games: 32 of 64 scheduled A: +0 =32 -0   score 16.0/32 = 50.00%   draw rate 100.0%  2026-11-11T02:40:46+01:00
+WP13 test 5 (r10k5) done 2026-11-11T02:40:46+01:00
+T1 start (r10k5, master 141a025) 2026-11-11T02:40:46+01:00
+BL held t1a-60-cake-H3_0 (HOLD_TAGS) 2026-11-11T02:40:46+01:00
+T1 STOPPED at t1a-60-cake-H3_0 2026-11-11T02:40:46+01:00
+T1 start (r10k5 on 141a025; runner and host 162ecac) 2026-11-11T02:42:46+01:00
+BL wait-lock t1a-60-cake-H3_0 regicide:bl-141a025-r10k5 vs cake deck /home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt mt 0.5 c 8 2026-11-11T02:42:46+01:00
+BL start t1a-60-cake-H3_0 regicide:bl-141a025-r10k5 vs cake; A: book read-back: 'reply 1 3' (ok) B: book read-back: 'reply 1 3' (ok); param: set param tm_soft=60 -> reply 1 tm_soft=60; commit free 22.1 GB; bg: bash:S datagen-tr6:S bash:T datagen-tr5:T  2026-11-11T02:42:49+01:00

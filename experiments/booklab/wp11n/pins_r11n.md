@@ -1,11 +1,11 @@
 # WP11 pins from 4368 games
 
 - positions with Regicide to move (ballot end to 8 pieces): 48210 distinct
-- already in book r10 (decision or old-book move): 1237 (the played move differs in 9)
+- already in book book_r10k5.bin (decision or old-book move): 1237 (the played move differs in 9)
 - never consulted (inside a run of king moves / database-decided): 5100, left out
 - positions where every move played there has a lost game through it: 274, left out; moves with a lost game dropped in positions that keep another move: 280
 - **pins: 41599**; positions with different moves across games: 1084; of these, 192 still tie after worst result, frequency and run a, and the first move met in the frozen input order (runs sorted by name, games in file order) wins
-- games without a final result skipped: 0; games rejected by the full replay: 0
+- games without a final result skipped: 0; games rejected by the full replay: 0; games skipped because not exactly one side is Regicide against a known opponent: 0
 
 | Ballot | Pins |
 |---|---|

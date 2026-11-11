@@ -1,6 +1,6 @@
 # booklab decisions: FEN | move | force|avoid | evidence
 # Built by assemble.sh from repair outputs (theory.py repair: the opponent's own non-losing defence from the first
-# position where Regicide's move left it). Positions in removed_decisions.txt are left out. 2026-11-11T01:24:33+01:00
+# position where Regicide's move left it). Positions in removed_decisions.txt are left out. 2026-11-11T02:41:08+01:00
 
 # === a_r10/decisions_r10
 # booklab decisions: FEN | move | force|avoid | evidence
@@ -1344,7 +1344,7 @@ B:W13,K14,19,21,28,31:B5,11,12,22,26,K29 | 26-30 | force | ACF #71 Diabolical De
 # === b_wp13/ACF_93_B_kingsrow_t4
 # WP13, sixth line ACF #93 (10-15 22-17 9-13, Regicide Black): lost in the r10k validation (bl-v13-kingsrow-b-h2
 # round 5.1), not exposed to any r10k change; our moves equal KingsRow mode 3's non-losing book moves to ply 17.
-B:W14,21,24,25,26,27,29,31,32:B1,2,3,5,8,11,12,13,15 | 2-7 | force | ACF #93 regicide B ply 19 (WP13): KingsRow mode 3 book 2-7 (-1/16) against 2-6 (-70/2); our 20M-node search 2-7 0 (best) against 2-6 -27 (two sources); Regicide played 2-7 in the two drawn k3 games and 2-6 in the lost game (and in one drawn game where KingsRow varied at ply 20); Cake leaves this line at ply 5
+B:W14,21,24,25,26,27,29,31,32:B1,2,3,5,8,11,12,13,15 | 2-7 | force | ACF #93 regicide B ply 19 (WP13): KingsRow mode 3 book 2-7 (-1/16; its book moves here: 2-7, 12-16, 3-7, 15-18, not 2-6); our 20M-node search 2-7 0 (best) against 2-6 -27 (two sources); Regicide played 2-7 in the two drawn k3 games and 2-6 in the lost game (and in one drawn game where KingsRow varied at ply 20); Cake leaves this line at ply 5
 
 # === b_wp13/ACF_9_Wilderness_I_B_kingsrow
 # game 335 regicide-match/results/bl-k3-kingsrow-b-h1/games.pdn: ACF #9 Wilderness I (/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:8: 9-13 22-18 11-16), regicide as B, result W, opponent cake

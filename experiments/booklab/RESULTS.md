@@ -153,8 +153,8 @@ the book ends, on lines that the other mode-3 games of the same opening drew:
 
 | Line | Lost game | Drawn mode-3 games of the opening | Three sources at the repair point | Repair |
 |---|---|---|---|---|
-| ACF #62 Gemini I (10-14 22-17 11-16), B | `bl-v13-kingsrow-b-h1` 54.1: ply 17 16-20, score ≤ −100 from ply 55 | v13 a, k3 a, k3 b: 4-8 at ply 17 | Cake (census game, same position) 4-8, drawn; our 20M search 4-8 0 (best), 16-20 −42 | **4-8 at ply 17** |
-| ACF #93 (10-15 22-17 9-13), B | `bl-v13-kingsrow-b-h2` 5.1: ply 19 2-6, ply 21 12-16, ≤ −100 from ply 35 | k3 a, k3 b: 2-7 at ply 19; v13 a: 2-6, KingsRow varied at ply 20 | KingsRow mode 3 book 2-7 (−1/16), 2-6 −70; our search 2-7 0 (best), 2-6 −27; Cake leaves at ply 5 | **2-7 at ply 19** |
+| ACF #62 Gemini I (10-14 22-17 11-16), B | `bl-v13-kingsrow-b-h1` 54.1: ply 17 16-20, score ≤ −100 from ply 55 | v13 a, k3 a, k3 b: 4-8 at ply 17 | Cake (census game, same position) 4-8, drawn; our 20M search 4-8 0 (best), 16-20 −42 (`wp13/g62_score.tsv`) | **4-8 at ply 17** |
+| ACF #93 (10-15 22-17 9-13), B | `bl-v13-kingsrow-b-h2` 5.1: ply 19 2-6, ply 21 12-16, ≤ −100 from ply 35 | k3 a, k3 b: 2-7 at ply 19; v13 a: 2-6, KingsRow varied at ply 20 | KingsRow mode 3 book 2-7 (−1/16; its book moves at ply 19: 2-7, 12-16, 3-7, 15-18, not 2-6); our search 2-7 0 (best), 2-6 −27 (`wp13/g93_score.tsv`); Cake leaves at ply 5 | **2-7 at ply 19** |
 
 r10k3 = r10k + #62 (1,060 decisions, sha256 `3d5ff458…`); test 3 (#62): KingsRow mode 3 0 / 10 / 0, Cake 0 / 4 / 0,
 GuiNN 0 / 4 / 0. r10k4 = r10k3 + #93 (1,061 decisions, sha256 `df8fd5ac71c9fe5811c596b38306200833028fc59f879f4184a04ce2de2e56c5`,
@@ -192,6 +192,13 @@ fell below −11.
   candidates 0. The game is identical to two drawn games (v13 a, r10k4 b) until KingsRow varies (ply 25 or 43) and was
   lost in the middlegame/endgame. Left unrepaired; reported to the lead.
 
+The same table as for #62 and #93 (records `wp13/games/bl-v13k4-*.pdn.gz`):
+
+| Line | Lost game | Drawn mode-3 / Cake games of the opening | Three sources at the repair point | Repair |
+|---|---|---|---|---|
+| ACF #53 (9-14 24-19 11-15), W, against Cake | `bl-v13k4-cake-a-h1` 45.2: ply 6 22-18, score ≤ −100 from ply 52 | 6 drawn (f1 Cake a, b; v13 a; v13k4 a, b; k3 a): 22-17 at ply 6 | KingsRow mode 3 book 22-17 (+1/18; 22-18 +1/17); our 20M search 22-17 0, tied with 22-18 and 32-28 (`wp13/g53_score.tsv`); Cake as White leaves at ply 4 | **22-17 at ply 6** (r10k5) |
+| ACF #55 (9-14 24-20 5-9), W, against KingsRow mode 3 | `bl-v13k4-kingsrow-a-h1` 47.2: identical to the drawn games v13 a and v13k4 b to ply 32; score ≤ −100 from ply 70, lost at ply 195 | v13 a, v13 b, v13k4 b, k3 a, k3 b: drawn; they leave this game where KingsRow varies (ply 25 or 43) or where we played 32-28 (k3, ply 12) | KingsRow mode 3 book has our move among its +1 moves at every position to ply 24 and its search plays our moves from 26 to 32 (`wp13/g55_kr.tsv`); our 20M search: all candidates 0 at plies 10 and 12 (`wp13/g55_score.tsv`) | **none** (no position where our move leaves what KingsRow plays) |
+
 **r10k5** = r10k4 + #53: 1,062 decisions, sha256 `a05a82f559b8e1d6871ae5dcbd8703c3e8837b4795d7684ecaf07ad612b205d7`,
 reachability 876 / 0 / 186.
 
@@ -201,9 +208,11 @@ entries lies at a position with 8 or fewer pieces (1,059 decisions; 5 avoid entr
 whose FEN is known from replayed games; the other 1,576 are bookgen's opening positions), and the pins stop before 8
 pieces, so the books are unaffected. Engine changes 456e9b2..141a025 besides that: refused hash size leaves a usable
 table, egdb cursor bound, square range checks; bench unchanged (7,677,736 / 8,055,287). DLL `bl-141a025-r10k5`; runner
-and host for T1 from 141a025 with the per-move log (`bin/match-m141-movelog`, `bin/m141a025/cbhost.exe`). The
-targeted test of all eight repaired lines with this DLL (the five-opening check that nothing moved, plus #62, #93,
-#53; 10 games against KingsRow mode 3 and against Cake, 4 against GuiNN per line) is running; T1 follows.
+and host first built from 141a025, then (lead, PR #57) **from master 162ecac** with the per-move log: T1 is played
+with `bin/match-m162-movelog` and `bin/m162ecac/cbhost.exe` (the DLL stays on 141a025: no job sends `set dbpath` to
+Regicide). **Targeted test 5** of all eight repaired lines with `bl-141a025-r10k5` (the five-opening check that the
+new base changed nothing, plus #62, #93, #53): **KingsRow mode 3 0 / 80 / 0, Cake 0 / 80 / 0, GuiNN 0 / 32 / 0.**
+T1 started 02:42 (tm_soft read back in every start line).
 
 **New pins (CPU only, for the next r11).** From the 4,368 games of the validated full runs with r10 (final
 validation; k3), r10k (v13) and r10k4 (v13k4) against all three opponents, KingsRow mode 3 included, on top of r10k5;

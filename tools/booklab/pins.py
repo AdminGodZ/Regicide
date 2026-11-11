@@ -37,7 +37,7 @@ def main():
     ap.add_argument("--out", required=True)
     ap.add_argument("--report", required=True)
     a = ap.parse_args()
-    games, lines, unfinished = [], [], 0
+    games, lines, unfinished, not_regicide = [], [], 0, 0
     # Input order is frozen: runs sorted by name, games in file order. It decides the remaining ties (after worst
     # result, frequency and run a, the first move met wins).
     for d in sorted(a.runs):
@@ -45,7 +45,13 @@ def main():
         p = run.split("-")
         opp, ra = p[2], p[3]
         for tags, moves in parse_pdn(open(os.path.join(d, "games.pdn"), errors="replace").read()):
-            col = "B" if family(tags["Black"]) == "regicide" else "W"
+            # exactly one side Regicide, the other a known opponent (review 2026-11-11: an opponent-only file must
+            # not turn the opponent's moves into Regicide pins); anything else is skipped and counted
+            fb, fw = family(tags.get("Black", "")), family(tags.get("White", ""))
+            if sorted([fb, fw]) not in ([f, "regicide"] for f in ("cake", "guinn", "kingsrow")):
+                not_regicide += 1
+                continue
+            col = "B" if fb == "regicide" else "W"
             res = tags.get("Result", "").strip()
             r = {"1-0": "W" if col == "B" else "L", "0-1": "W" if col == "W" else "L", "1/2-1/2": "D"}.get(res)
             if r is None:  # unfinished or interrupted: no pins from it
@@ -126,7 +132,8 @@ def main():
           f"- **pins: {len(pins)}**; positions with different moves across games: {len(conflicts)}; of these, "
           f"{len(ties)} still tie after worst result, frequency and run a, and the first move met in the frozen input "
           f"order (runs sorted by name, games in file order) wins",
-          f"- games without a final result skipped: {unfinished}; games rejected by the full replay: {len(rejected)}", ""]
+          f"- games without a final result skipped: {unfinished}; games rejected by the full replay: {len(rejected)}; "
+          f"games skipped because not exactly one side is Regicide against a known opponent: {not_regicide}", ""]
     md.append("| Ballot | Pins |")
     md.append("|---|---|")
     for b, n in sorted(per_ballot.items(), key=lambda kv: -kv[1]):
@@ -172,14 +179,17 @@ def main():
                                 f"{0.5 + (bank_b - 0.5) / 2.5:.2f} s); first ply of the old line not covered by r11 at "
                                 f"ply {aft}, {bank_a:.1f} s banked if every covered move is instant (maxtime "
                                 f"{0.5 + (bank_a - 0.5) / 2.5:.2f} s)")
-    md += ["", f"**Coverage of the old line** (not r11's first own search, which only the r11 validation games show): "
-           f"first own non-book move in the old game "
-           f"mean ply {statistics.mean(before):.1f} (median {statistics.median(before):.0f}); first ply of the old game "
-           f"not covered by r11 with the old game's move: mean {statistics.mean(after):.1f} (median "
-           f"{statistics.median(after):.0f}), over {len(before)} games. Where the pin differs from the old game's move, r11 "
-           "may still answer from the book after that point, so these figures are a coverage measure; the real first "
-           "search and the bank at that point are measured in the r11 validation games.",
-           "", "Bank estimates under the same caveat (CheckerBoard banking, 0.5 s per move; pinned moves instant):"] + examples
+    if before:
+        md += ["", f"**Coverage of the old line** (not r11's first own search, which only the r11 validation games show): "
+               f"first own non-book move in the old game "
+               f"mean ply {statistics.mean(before):.1f} (median {statistics.median(before):.0f}); first ply of the old "
+               f"game not covered by r11 with the old game's move: mean {statistics.mean(after):.1f} (median "
+               f"{statistics.median(after):.0f}), over {len(before)} games. Where the pin differs from the old game's "
+               "move, r11 may still answer from the book after that point, so these figures are a coverage measure; the "
+               "real first search and the bank at that point are measured in the r11 validation games.",
+               "", "Bank estimates under the same caveat (CheckerBoard banking, 0.5 s per move; pinned moves instant):"] + examples
+    else:
+        md += ["", "**Coverage of the old line:** no usable game."]
     md += ["", "## Positions with different moves across games (chosen move first)", ""]
     for fen, best, d in conflicts:
         md.append(f"- `{fen}`: **{best}** " + "; ".join(f"{m}: {len(v)} game(s) {v[:3]}" for m, v in d.items()))
