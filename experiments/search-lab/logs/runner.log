@@ -522,3 +522,5 @@ DONE lmr_base20 rc=0 secs=1150 2026-11-11T11:45:45+01:00 :: final games 1600  A:
 BEGIN lmr_base40 bin=selfplay-lab6 a="lmr_base=40" b="" mt=200 pairs=800 extra="--egdb /home/admingod/regicide-data/egdb --book books/uho1600.txt" 2026-11-11T11:45:45+01:00
 DONE lmr_base40 rc=0 secs=1120 2026-11-11T12:04:25+01:00 :: final games 1600  A: +611 =388 -601  score 0.5031  draws 24.2%  elo +2.2 [-4.1, +8.4]  penta [0 103 584 113 0]
 BEGIN lmr_base80 bin=selfplay-lab6 a="lmr_base=80" b="" mt=200 pairs=800 extra="--egdb /home/admingod/regicide-data/egdb --book books/uho1600.txt" 2026-11-11T12:04:25+01:00
+DONE lmr_base80 rc=0 secs=1109 2026-11-11T12:22:54+01:00 :: final games 1600  A: +629 =373 -598  score 0.5097  draws 23.3%  elo +6.7 [+0.8, +12.7]  penta [0 82 605 113 0]
+BEGIN lmr_base100 bin=selfplay-lab6 a="lmr_base=100" b="" mt=200 pairs=800 extra="--egdb /home/admingod/regicide-data/egdb --book books/uho1600.txt" 2026-11-11T12:22:54+01:00
