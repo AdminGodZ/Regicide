@@ -13,6 +13,8 @@ NAME=$1; BIN=$2; SEED=$3; TH=$4; PARITY=${5:-}; OTHER=${6:-}
 EXTRA="--avoid $HOME/regicide-data/truth/$NAME.bin"
 [ -n "$OTHER" ] && EXTRA="$EXTRA --avoid $HOME/regicide-data/truth/$OTHER.bin"
 [ -n "$PARITY" ] && EXTRA="$EXTRA --start-parity $PARITY"
+# RANDOM_PLIES=A-B (environment, optional): random plies of the random-opening half (datagen's default 4-12)
+[ -n "${RANDOM_PLIES:-}" ] && EXTRA="$EXTRA --random-min ${RANDOM_PLIES%-*} --random-max ${RANDOM_PLIES#*-}"
 if [ -n "${EXPECT_SHA:-}" ]; then
   # use the binary already in $J/bin, only if its sha256 starts with EXPECT_SHA (no copy)
   sha=$(sha256sum $J/bin/$BIN | cut -c1-64)
@@ -24,7 +26,7 @@ elif ! cp ~/regicide-truth/build/datagen $J/bin/$BIN; then
   st "e5 $NAME NOT started: cannot copy datagen to $J/bin/$BIN"
   exit 1
 fi
-st "e5 $NAME start ($BIN sha256 $(sha256sum $J/bin/$BIN | cut -c1-16), branch $(git -C ~/regicide-truth rev-parse --short HEAD), seed $SEED, $TH threads, parity ${PARITY:-any}, avoid $NAME${OTHER:+ + $OTHER})"
+st "e5 $NAME start ($BIN sha256 $(sha256sum $J/bin/$BIN | cut -c1-16), branch $(git -C ~/regicide-truth rev-parse --short HEAD), seed $SEED, $TH threads, parity ${PARITY:-any}, avoid $NAME${OTHER:+ + $OTHER}, random plies ${RANDOM_PLIES:-4-12}, from record $(( $(stat -c %s ~/regicide-data/truth/$NAME.bin) / 16 )))"
 $J/bin/$BIN --games 5000000 --nodes 50000 --threads $TH --seed $SEED --egdb ~/regicide-data/egdb $EXTRA \
   --seeds ~/regicide-data/truth/seeds_real_6_30.txt --seed-frac 0.5 --seed-plies 2-4 \
   --out ~/regicide-data/truth/$NAME.bin >> $J/e5_$NAME.log 2>&1

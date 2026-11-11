@@ -1,0 +1,4 @@
+seeds 227871, seed plies 2-4, distinct starts 5430
+/tmp/tmp.GSuRloPuNu/r412.bin: starts 2383, seeded 897 (37.6%), random openings 1486 (62.4%)
+/tmp/tmp.GSuRloPuNu/r616.bin: starts 2460, seeded 985 (40.0%), random openings 1475 (60.0%)
+/tmp/tmp.GSuRloPuNu/s.bin: starts 738, seeded 738 (100.0%), random openings 0 (0.0%)

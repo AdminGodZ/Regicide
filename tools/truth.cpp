@@ -34,6 +34,7 @@
 #include <set>
 #include <string>
 #include <thread>
+#include <unordered_map>
 #include <vector>
 
 #include "datafile.hpp"
@@ -637,10 +638,98 @@ int split(const std::string& in, const std::string& out, int lo, int hi, bool pr
 
 }  // namespace
 
+// startkinds --seeds FILE [--seed-plies A-B] [--threads N] DATA...: which game starts (GAME_START records) of each DATA
+// file are reachable from a seed position in A-B random plies (datagen's --seed-plies, default 2-4), followed by any
+// captures (a start with a capture due is stored at its first quiet position): datagen's seeded starts. The others
+// count as random openings (from the initial position). A random opening that happens to be reachable from a seed is
+// counted as seeded. Per file: starts, seeded, other.
+int startkinds(const std::vector<std::string>& files, const std::string& seeds_file, int pmin, int pmax, int threads) {
+    struct K {
+        std::uint32_t b, w, k;
+        std::uint8_t s;
+        bool operator==(const K&) const = default;
+    };
+    struct H {
+        std::size_t operator()(const K& x) const {
+            const std::uint64_t h = ((std::uint64_t(x.b) << 32) | x.w) * 0x9E3779B97F4A7C15ull ^
+                                    ((std::uint64_t(x.k) << 1) | x.s) * 0xC2B2AE3D27D4EB4Full;
+            return std::size_t(h ^ (h >> 29));
+        }
+    };
+    auto key_of = [](const DataRecord& r) { return K{r.black, r.white, r.kings, std::uint8_t(r.stm & 1)}; };
+    std::unordered_map<K, std::size_t, H> index;
+    std::vector<std::vector<std::size_t>> per_file;
+    for (const auto& f : files) {
+        std::FILE* in = std::fopen(f.c_str(), "rb");
+        if (!in) return std::cerr << "cannot open " << f << '\n', 1;
+        per_file.emplace_back();
+        std::vector<DataRecord> buf(1 << 16);
+        for (std::size_t n; (n = std::fread(buf.data(), sizeof(DataRecord), buf.size(), in)) > 0;)
+            for (std::size_t i = 0; i < n; ++i)
+                if (buf[i].game_start())
+                    per_file.back().push_back(index.emplace(key_of(buf[i]), index.size()).first->second);
+        std::fclose(in);
+    }
+    std::vector<Position> seeds;
+    {
+        std::ifstream in(seeds_file);
+        for (std::string line; std::getline(in, line);) {
+            Position p;
+            if (!line.empty() && line[0] != '#' && p.set_fen(line)) seeds.push_back(p);
+        }
+    }
+    if (seeds.empty()) return std::cerr << "no seed positions in " << seeds_file << '\n', 1;
+    std::vector<std::atomic<char>> seeded(index.size());
+    std::atomic<std::size_t> next{0};
+    auto work = [&] {
+        auto mark = [&](const Position& p) {
+            const auto it = index.find(key_of(DataRecord::make(p, 0)));
+            if (it != index.end()) seeded[it->second].store(1, std::memory_order_relaxed);
+        };
+        auto first_quiet = [&](auto& self, const Position& p, int left) -> void {  // p, or after captures
+            MoveList list;
+            generate_moves(p, list);
+            if (list.empty()) return;
+            if (!list[0].is_capture()) return mark(p);
+            if (left == 0) return;
+            for (const auto& m : list) {
+                Position q = p;
+                q.make_move(m);
+                self(self, q, left - 1);
+            }
+        };
+        auto walk = [&](auto& self, const Position& p, int depth) -> void {
+            if (depth >= pmin) first_quiet(first_quiet, p, 8);
+            if (depth >= pmax) return;
+            MoveList list;
+            generate_moves(p, list);
+            for (const auto& m : list) {
+                Position q = p;
+                q.make_move(m);
+                self(self, q, depth + 1);
+            }
+        };
+        for (std::size_t i; (i = next++) < seeds.size();) walk(walk, seeds[i], 0);
+    };
+    std::vector<std::thread> pool;
+    for (int t = 0; t < std::max(1, threads); ++t) pool.emplace_back(work);
+    for (auto& t : pool) t.join();
+    std::printf("seeds %zu, seed plies %d-%d, distinct starts %zu\n", seeds.size(), pmin, pmax, index.size());
+    for (std::size_t f = 0; f < files.size(); ++f) {
+        std::size_t s = 0;
+        for (std::size_t i : per_file[f]) s += seeded[i].load() != 0;
+        const std::size_t n = per_file[f].size();
+        std::printf("%s: starts %zu, seeded %zu (%.1f%%), random openings %zu (%.1f%%)\n", files[f].c_str(), n, s,
+                    n ? 100.0 * double(s) / double(n) : 0.0, n - s, n ? 100.0 * double(n - s) / double(n) : 0.0);
+    }
+    return 0;
+}
+
 int main(int argc, char** argv) {
     if (argc < 2) return std::cerr << "usage: truth census|relabel|pilot|split ...\n", 2;
     const std::string cmd = argv[1];
-    std::string egdb_dir, in, out = "pilot.csv", opponents;
+    std::string egdb_dir, in, out = "pilot.csv", opponents, seeds_file;
+    int seed_pmin = 2, seed_pmax = 4;
     std::vector<std::string> files;
     std::vector<std::uint64_t> budgets{10000, 50000, 200000};
     long n = 200000, from = 0;
@@ -661,6 +750,13 @@ int main(int argc, char** argv) {
         else if (k == "--seed") seed = std::stoull(next());
         else if (k == "--proven") proven = true;
         else if (k == "--opponents") opponents = lower(next());
+        else if (k == "--seeds") seeds_file = next();
+        else if (k == "--seed-plies") {
+            const std::string s = next();
+            const std::size_t d = s.find('-');
+            seed_pmin = std::stoi(s.substr(0, d));
+            seed_pmax = d == std::string::npos ? seed_pmin : std::stoi(s.substr(d + 1));
+        }
         else if (k == "--nodes") {
             budgets.clear();
             std::string s = next();
@@ -682,6 +778,7 @@ int main(int argc, char** argv) {
             }
         return 0;
     }
+    if (cmd == "startkinds") return startkinds(files, seeds_file, seed_pmin, seed_pmax, threads);
     if (cmd == "split") return split(in, out, lo, hi, proven, from);
     if (cmd == "seeds") return seeds(files, lo, hi, opponents, out);
     if (cmd == "fens") {  // the input is checked before the database loads (tested by tests/truth_fens_test.cmake)
