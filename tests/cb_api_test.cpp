@@ -138,6 +138,27 @@ int main(int argc, char** argv) {
         command(("set book " + book).c_str(), reply);
     }
 
+    // A known loss is not conceded (CheckerBoard's early adjudication would end the game at once): B:W10:B2 loses
+    // the last black man to 10x1 or 10x3, and getmove claims nothing; without a legal move it returns the loss.
+    {
+        auto claim_from = [&](const char* fen) {
+            Position p;
+            p.set_fen(fen);
+            Board8x8 b;
+            to_board(p, b);
+            char str[1024] = "";
+            int playnow = 0;
+            unsigned char cbmove[512];
+            return getmove(b, 2, 0.1, str, &playnow, 1, 0, cbmove);
+        };
+        const int lost = claim_from("B:W10:B2"), blocked = claim_from("B:W6,7,9,10,11:B2");
+        if (lost != 3 || blocked != 2) {
+            std::cerr << "a lost position claims " << lost << " (3 = unknown), no legal move " << blocked
+                      << " (2 = loss)\n";
+            return 1;
+        }
+    }
+
     Position pos;
     int plies = 0;
     for (; plies < 200; ++plies) {
