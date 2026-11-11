@@ -725,7 +725,21 @@ Validation: **a) #6 Black against KingsRow mode 3** (`v11f-c6-*`, runner fdd154e
 fresh 0 / 24 / 0, kept 0 / 24 / 0, natural pairs 0 / 48 / 0 (our Black games 0 / 24 / 0); all 72 Black games play 8-11
 from the book at ply 17; the book now covers the line to ply 39-67 (median 59, first own searched move); **lowest
 searched score after the book: 0 in every game** (with the depth-1 scores of forced moves: −39 in most, −69 in three).
-b) `mo3-*` (three concurrency-1 runs as mo2) playing.
+**b) `mo3-*`, the reference for r11f** (three concurrency-1 runs exactly as mo2: DLL `bl-fdd154e-r11f`, runner and host
+fdd154e, pairs together, kept processes, deck order, `--cb-claims --cb-move-limit 200`, each pinned to its own core,
+14:34-15:47, nothing else of mine running; all rc 0, 312 of 312; `mo3/`):
+
+| Opponent | r11f (mo3) W / D / L | r11d (mo2) W / D / L | how mo3's games ended | unfinished |
+|---|---|---|---|---|
+| KingsRow mode 3 | **1 / 311 / 0** | 1 / 311 / 0 | draw claim 304, repetition 7, KingsRow's loss claim 1 | 0 |
+| Cake | **0 / 312 / 0** | 0 / 312 / 0 | draw claim 312 | 0 |
+| GuiNN | **23 / 289 / 0** | 19 / 293 / 0 | draw claim 288, repetition 1, our win claim 15, GuiNN's loss claim 8 | 0 |
+
+**No loss in 936 games with r11f.** No game reached the move limit; every first claim agrees with the board (`mo3/claims.md`;
+our DLL now also claims a draw once, on its own rule-draw move). The KingsRow win is #16 as White (game 28, both
+processes 27 games old; KingsRow's 9-14 at ply 41, KingsRow conceded at ply 59); #43 this time 8-11 (drawn; mo2 won it
+with KingsRow's 8-12). #6 Black (game 9): 8-11 from the book at ply 17, drawn. Known points: KingsRow #16 9-14 (W),
+#43 8-11, #71 5-9, #134 11-16; Cake #163 4-8 at ply 15 (age 293), all drawn.
 
 **WP14 closed.** Export for the search lab: `wp14/dips.tsv`, the 13 positions where our 0.5 s game score and the 100M
 root differ by 50 or more (the nine contexts and the new #6 line's two low points; FEN, legal-move count, the full move

@@ -1126,3 +1126,10 @@ BL wait-lock mo3-guinn regicide:bl-fdd154e-r11f vs guinn deck /mnt/c/regicide-ma
 BL start mo3-kingsrow regicide:bl-fdd154e-r11f vs kingsrow; NO TIMING LOCK; A: book read-back: 'reply 1 3' (ok) B: book read-back: 'reply 1 3' (ok); commit free 26.8 GB; bg: bash:S datagen-tr6:S bash:S datagen-tr5:S  2026-11-11T14:34:40+01:00
 BL start mo3-cake regicide:bl-fdd154e-r11f vs cake; NO TIMING LOCK; A: book read-back: 'reply 1 3' (ok) B: book read-back: 'reply 1 3' (ok); commit free 26.8 GB; bg: bash:S datagen-tr6:S bash:S datagen-tr5:S  2026-11-11T14:34:40+01:00
 BL start mo3-guinn regicide:bl-fdd154e-r11f vs guinn; NO TIMING LOCK; A: book read-back: 'reply 1 3' (ok) B: book read-back: 'reply 1 3' (ok); commit free 26.9 GB; bg: bash:S datagen-tr6:S bash:S datagen-tr5:S  2026-11-11T14:34:40+01:00
+BL end mo3-kingsrow rc=0 Games: 312 of 312 scheduled A: +1 =311 -0   score 156.5/312 = 50.16%   draw rate 99.7% Elo (pentanomial, pairs): +1.1 [-1.1, +3.3] 95% CI, score 0.5016 +- 0.0031, LOS 84.21% 2026-11-11T15:31:26+01:00
+MO3 kingsrow done 2026-11-11T15:31:26+01:00
+BL end mo3-cake rc=0 Games: 312 of 312 scheduled A: +0 =312 -0   score 156.0/312 = 50.00%   draw rate 100.0% Elo (pentanomial, pairs): -0.0 [-0.0, -0.0] 95% CI, score 0.5000 +- 0.0000, LOS 50.00% 2026-11-11T15:44:20+01:00
+MO3 cake done 2026-11-11T15:44:20+01:00
+BL end mo3-guinn rc=0 Games: 312 of 312 scheduled A: +23 =289 -0   score 167.5/312 = 53.69%   draw rate 92.6% Elo (pentanomial, pairs): +25.7 [+16.0, +35.4] 95% CI, score 0.5369 +- 0.0139, LOS 100.00% 2026-11-11T15:47:34+01:00
+MO3 guinn done 2026-11-11T15:47:34+01:00
+V11F done (c2 scoring resumed) 2026-11-11T15:47:49+01:00

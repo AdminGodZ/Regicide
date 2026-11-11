@@ -1,0 +1,27 @@
+== kingsrow: A: +1 =311 -0   score 156.5/312 = 50.16%; Terminations: draw claim 304; loss claim 1; repetition 7; Unfinished (move limit): 0 
+00028.pdn round 14.2 ACF #16 Wilderness II Regicide W W plies 59 ages A 27 B 27 term loss conceded by Kingsrow(x64) 1.20
+== cake: A: +0 =312 -0   score 156.0/312 = 50.00%; Terminations: draw claim 312; Unfinished (move limit): 0 
+== guinn: A: +23 =289 -0   score 167.5/312 = 53.69; Terminations: draw claim 288; loss claim 8; repetition 1; win claim 15; Unfinished (move limit): 0 
+00008.pdn round 4.2 ACF #5 Dreaded Edinburgh Regicide W W plies 40 ages A 7 B 7 term win claimed by Regicide 0.2
+00010.pdn round 5.2 ACF #6 Inferno Regicide W W plies 42 ages A 9 B 9 term win claimed by Regicide 0.2
+00016.pdn round 8.2 ACF #9 Wilderness I Regicide W W plies 44 ages A 15 B 15 term win claimed by Regicide 0.2
+00028.pdn round 14.2 ACF #16 Wilderness II Regicide W W plies 84 ages A 27 B 27 term win claimed by Regicide 0.2
+00049.pdn round 25.1 ACF #28 Regicide B W plies 55 ages A 48 B 48 term win claimed by Regicide 0.2
+00058.pdn round 29.2 ACF #32 Regicide W W plies 44 ages A 57 B 57 term win claimed by Regicide 0.2
+00062.pdn round 31.2 ACF #34 Twilight Zone Regicide W W plies 45 ages A 61 B 61 term loss conceded by GuiNN Checkers 2.06 avx2
+00078.pdn round 39.2 ACF #43 Regicide W W plies 64 ages A 77 B 77 term win claimed by Regicide 0.2
+00082.pdn round 41.2 ACF #47 Regicide W W plies 51 ages A 81 B 81 term loss conceded by GuiNN Checkers 2.06 avx2
+00086.pdn round 43.2 ACF #50 Regicide W W plies 92 ages A 85 B 85 term win claimed by Regicide 0.2
+00116.pdn round 58.2 ACF #66 Regicide W W plies 85 ages A 115 B 115 term loss conceded by GuiNN Checkers 2.06 avx2
+00126.pdn round 63.2 ACF #71 Diabolical Denny Regicide W W plies 37 ages A 125 B 125 term loss conceded by GuiNN Checkers 2.06 avx2
+00132.pdn round 66.2 ACF #74 Regicide W W plies 62 ages A 131 B 131 term win claimed by Regicide 0.2
+00154.pdn round 77.2 ACF #86 Octopus Regicide W W plies 40 ages A 153 B 153 term win claimed by Regicide 0.2
+00162.pdn round 81.2 ACF #91 Regicide W W plies 72 ages A 161 B 161 term win claimed by Regicide 0.2
+00180.pdn round 90.2 ACF #101 Regicide W W plies 58 ages A 179 B 179 term win claimed by Regicide 0.2
+00199.pdn round 100.1 ACF #112 Regicide B W plies 58 ages A 198 B 198 term loss conceded by GuiNN Checkers 2.06 avx2
+00205.pdn round 103.1 ACF #116 Regicide B W plies 47 ages A 204 B 204 term win claimed by Regicide 0.2
+00240.pdn round 120.2 ACF #133 Octopus Regicide W W plies 143 ages A 239 B 239 term loss conceded by GuiNN Checkers 2.06 avx2
+00254.pdn round 127.2 ACF #141 Regicide W W plies 44 ages A 253 B 253 term win claimed by Regicide 0.2
+00262.pdn round 131.2 ACF #146 Regicide W W plies 63 ages A 261 B 261 term loss conceded by GuiNN Checkers 2.06 avx2
+00274.pdn round 137.2 ACF #152 Regicide W W plies 57 ages A 273 B 273 term loss conceded by GuiNN Checkers 2.06 avx2
+00275.pdn round 138.1 ACF #153 Black Widow Regicide B W plies 69 ages A 274 B 274 term win claimed by Regicide 0.2
