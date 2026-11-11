@@ -332,3 +332,19 @@ Current master: see `git rev-parse origin/master` (PR #67 merged 2026-11-11; bui
 Nothing of the review runs on the lead's machine any more. Reviewers are started on the Windows machine with their
 own clone under `~/regicide-review-*`, lowest priority, at most 2 threads, and write their reports there.
 
+## Reviewer B round 14 (last round on the first machine, closed early, 2026-11-11)
+
+- Accepted (do not re-report): if the copy of the option values cannot be made after a successful `set` (allocation
+  failure inside publish), `get` reports the previous value until the next successful `set`. PR #61 keeps the
+  process alive in that case; the stale read-back under memory exhaustion is accepted.
+- Handed to Book Lab: pins.py / lost_vs_book.py count a later avoided own move as a downstream repair only at
+  book-eligible positions, although the engine applies the avoid list inside a run of king moves too;
+  wins_vs_book.py (failed replay certified, FEN tag dropped; also in round 21).
+- Verified: the built-in book r11c on master is byte-identical to the validated file; all 81,061 entries and five
+  avoid entries are legal; no position has two forced moves; through the engine 2,400 sampled pins are played at
+  depth 0 with zero nodes; king-run positions and database-known roots search instead.
+- Analysis (opinions of our search, not proofs; master 85a9fe8, n6c, 7-piece database): KingsRow's first clearly
+  worse move in our won games: ACF 43 ply 23 8-12 (8-11), ACF 71 ply 25 10-14 or 13-17 (5-9), ACF 134 ply 37 20-24
+  (11-16); Cake ACF 163 ply 51 26-30 (24-27). 24 of 67 won games analysed; the rest (H3 panel games against Cake)
+  is not pursued. Hand-over files: branch t3/review-handover, experiments/review-handover/b14/.
+
