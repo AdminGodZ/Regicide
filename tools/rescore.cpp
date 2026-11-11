@@ -17,6 +17,7 @@
 #include <condition_variable>
 #include <cstdint>
 #include <cstdio>
+#include <cstdlib>
 #include <iostream>
 #include <map>
 #include <mutex>
@@ -145,8 +146,10 @@ int main(int argc, char** argv) {
                 buf.resize(std::size_t(n));
                 std::fseek(fin, first * 16, SEEK_SET);
                 if (std::fread(buf.data(), 16, buf.size(), fin) != buf.size()) {
+                    // Not std::exit: it would destroy the database tables under the other workers' searches.
+                    // What is on disk stays; a rerun truncates a partial record and continues from there.
                     std::cerr << "read error\n";
-                    std::exit(1);
+                    std::_Exit(1);
                 }
             }
             engine.new_game();
