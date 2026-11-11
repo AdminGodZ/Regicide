@@ -34,3 +34,4 @@ lmr_mult35|selfplay-lab6|lmr_mult=35|200|800||--egdb /home/admingod/regicide-dat
 lmr_mult55|selfplay-lab6|lmr_mult=55|200|800||--egdb /home/admingod/regicide-data/egdb --book books/uho1600.txt
 lmr_mult65|selfplay-lab6|lmr_mult=65|200|800||--egdb /home/admingod/regicide-data/egdb --book books/uho1600.txt
 lmr_base80_conf600|selfplay-lab6|lmr_base=80|600|800||--egdb /home/admingod/regicide-data/egdb --book books/uho1600.txt --skip 800
+lmr_base120_conf600|selfplay-lab6|lmr_base=120|600|800||--egdb /home/admingod/regicide-data/egdb --book books/uho1600.txt --skip 800
