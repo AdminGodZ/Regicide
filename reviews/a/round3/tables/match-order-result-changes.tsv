@@ -1,0 +1,31 @@
+run	opponent	opening	our_colour	new_result	old_reported_result	new_game	pair	first_different_ply	first_different_mover	engine_plies
+mo-guinn-a-h1	guinn	ACF #6 Inferno	W	D	W	10	5	unavailable: PDNs not committed	unavailable: PDNs not committed	91
+mo-guinn-a-h1	guinn	ACF #9 Wilderness I	W	D	W	16	8	unavailable: PDNs not committed	unavailable: PDNs not committed	95
+mo-guinn-a-h1	guinn	ACF #5 Dreaded Edinburgh	W	W	D	8	4	unavailable: PDNs not committed	unavailable: PDNs not committed	173
+mo-guinn-a-h1	guinn	ACF #24	W	D	W	44	22	unavailable: PDNs not committed	unavailable: PDNs not committed	77
+mo-guinn-a-h1	guinn	ACF #16 Wilderness II	W	W	D	28	14	unavailable: PDNs not committed	unavailable: PDNs not committed	187
+mo-guinn-a-h1	guinn	ACF #10	W	W	D	18	9	unavailable: PDNs not committed	unavailable: PDNs not committed	191
+mo-guinn-a-h1	guinn	ACF #31	W	W	D	56	28	unavailable: PDNs not committed	unavailable: PDNs not committed	157
+mo-guinn-a-h1	guinn	ACF #23	W	W	D	42	21	unavailable: PDNs not committed	unavailable: PDNs not committed	205
+mo-guinn-a-h1	guinn	ACF #65 Fraser's Inferno	W	D	W	114	57	unavailable: PDNs not committed	unavailable: PDNs not committed	79
+mo-guinn-a-h1	guinn	ACF #55	W	W	D	94	47	unavailable: PDNs not committed	unavailable: PDNs not committed	159
+mo-guinn-a-h1	guinn	ACF #64	W	W	D	112	56	unavailable: PDNs not committed	unavailable: PDNs not committed	157
+mo-guinn-a-h1	guinn	ACF #74	W	D	W	132	66	unavailable: PDNs not committed	unavailable: PDNs not committed	72
+mo-guinn-a-h1	guinn	ACF #60 Black Hole	W	W	D	104	52	unavailable: PDNs not committed	unavailable: PDNs not committed	227
+mo-guinn-a-h1	guinn	ACF #71 Diabolical Denny	W	W	D	126	63	unavailable: PDNs not committed	unavailable: PDNs not committed	179
+mo-guinn-a-h1	guinn	ACF #75	W	W	D	134	67	unavailable: PDNs not committed	unavailable: PDNs not committed	207
+mo-guinn-a-h1	guinn	ACF #87 Tyne	W	W	D	156	78	unavailable: PDNs not committed	unavailable: PDNs not committed	159
+mo-guinn-a-h2	guinn	ACF #92	B	D	W	7	4	unavailable: PDNs not committed	unavailable: PDNs not committed	72
+mo-guinn-a-h2	guinn	ACF #90	W	D	W	4	2	unavailable: PDNs not committed	unavailable: PDNs not committed	88
+mo-guinn-a-h2	guinn	ACF #92	W	D	W	8	4	unavailable: PDNs not committed	unavailable: PDNs not committed	82
+mo-guinn-a-h2	guinn	ACF #101	W	D	W	24	12	unavailable: PDNs not committed	unavailable: PDNs not committed	78
+mo-guinn-a-h2	guinn	ACF #96 Skull-Cracker	W	W	D	14	7	unavailable: PDNs not committed	unavailable: PDNs not committed	219
+mo-guinn-a-h2	guinn	ACF #117	W	W	D	52	26	unavailable: PDNs not committed	unavailable: PDNs not committed	137
+mo-guinn-a-h2	guinn	ACF #112	B	W	D	43	22	unavailable: PDNs not committed	unavailable: PDNs not committed	198
+mo-guinn-a-h2	guinn	ACF #121	B	W	D	59	30	unavailable: PDNs not committed	unavailable: PDNs not committed	142
+mo-guinn-a-h2	guinn	ACF #131	W	D	W	80	40	unavailable: PDNs not committed	unavailable: PDNs not committed	78
+mo-guinn-a-h2	guinn	ACF #153 Black Widow	B	W	D	119	60	unavailable: PDNs not committed	unavailable: PDNs not committed	124
+mo-guinn-a-h2	guinn	ACF #141	W	D	W	98	49	unavailable: PDNs not committed	unavailable: PDNs not committed	134
+mo-guinn-a-h2	guinn	ACF #133 Octopus	W	W	D	84	42	unavailable: PDNs not committed	unavailable: PDNs not committed	233
+mo-guinn-a-h2	guinn	ACF #167	B	W	D	145	73	unavailable: PDNs not committed	unavailable: PDNs not committed	172
+mo-kingsrow-b-h1	kingsrow	ACF #16 Wilderness II	W	W	D	28	14	unavailable: PDNs not committed	unavailable: PDNs not committed	217

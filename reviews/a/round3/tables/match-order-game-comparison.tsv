@@ -467,6 +467,474 @@ mo-cake-b-h1	cake	ACF #87 Tyne	W	D	D	156	78	unavailable: PDNs not committed	unav
 mo-cake-b-h1	cake	ACF #86 Octopus	W	D	D	154	77	unavailable: PDNs not committed	unavailable: PDNs not committed	76
 mo-cake-b-h1	cake	ACF #84	W	D	D	150	75	unavailable: PDNs not committed	unavailable: PDNs not committed	77
 mo-cake-b-h1	cake	ACF #85	W	D	D	152	76	unavailable: PDNs not committed	unavailable: PDNs not committed	82
+mo-cake-b-h2	cake	ACF #95	B	D	D	11	6	unavailable: PDNs not committed	unavailable: PDNs not committed	106
+mo-cake-b-h2	cake	ACF #97	B	D	D	15	8	unavailable: PDNs not committed	unavailable: PDNs not committed	65
+mo-cake-b-h2	cake	ACF #90	B	D	D	3	2	unavailable: PDNs not committed	unavailable: PDNs not committed	123
+mo-cake-b-h2	cake	ACF #95	W	D	D	12	6	unavailable: PDNs not committed	unavailable: PDNs not committed	61
+mo-cake-b-h2	cake	ACF #92	B	D	D	7	4	unavailable: PDNs not committed	unavailable: PDNs not committed	155
+mo-cake-b-h2	cake	ACF #91	B	D	D	5	3	unavailable: PDNs not committed	unavailable: PDNs not committed	104
+mo-cake-b-h2	cake	ACF #97	W	D	D	16	8	unavailable: PDNs not committed	unavailable: PDNs not committed	76
+mo-cake-b-h2	cake	ACF #90	W	D	D	4	2	unavailable: PDNs not committed	unavailable: PDNs not committed	96
+mo-cake-b-h2	cake	ACF #96 Skull-Cracker	B	D	D	13	7	unavailable: PDNs not committed	unavailable: PDNs not committed	77
+mo-cake-b-h2	cake	ACF #92	W	D	D	8	4	unavailable: PDNs not committed	unavailable: PDNs not committed	76
+mo-cake-b-h2	cake	ACF #93	B	D	D	9	5	unavailable: PDNs not committed	unavailable: PDNs not committed	127
+mo-cake-b-h2	cake	ACF #98	B	D	D	17	9	unavailable: PDNs not committed	unavailable: PDNs not committed	95
+mo-cake-b-h2	cake	ACF #99	B	D	D	19	10	unavailable: PDNs not committed	unavailable: PDNs not committed	92
+mo-cake-b-h2	cake	ACF #101	B	D	D	23	12	unavailable: PDNs not committed	unavailable: PDNs not committed	75
+mo-cake-b-h2	cake	ACF #89	B	D	D	1	1	unavailable: PDNs not committed	unavailable: PDNs not committed	125
+mo-cake-b-h2	cake	ACF #91	W	D	D	6	3	unavailable: PDNs not committed	unavailable: PDNs not committed	96
+mo-cake-b-h2	cake	ACF #99	W	D	D	20	10	unavailable: PDNs not committed	unavailable: PDNs not committed	86
+mo-cake-b-h2	cake	ACF #93	W	D	D	10	5	unavailable: PDNs not committed	unavailable: PDNs not committed	79
+mo-cake-b-h2	cake	ACF #101	W	D	D	24	12	unavailable: PDNs not committed	unavailable: PDNs not committed	65
+mo-cake-b-h2	cake	ACF #89	W	D	D	2	1	unavailable: PDNs not committed	unavailable: PDNs not committed	70
+mo-cake-b-h2	cake	ACF #100	B	D	D	21	11	unavailable: PDNs not committed	unavailable: PDNs not committed	130
+mo-cake-b-h2	cake	ACF #98	W	D	D	18	9	unavailable: PDNs not committed	unavailable: PDNs not committed	84
+mo-cake-b-h2	cake	ACF #96 Skull-Cracker	W	D	D	14	7	unavailable: PDNs not committed	unavailable: PDNs not committed	82
+mo-cake-b-h2	cake	ACF #103	B	D	D	27	14	unavailable: PDNs not committed	unavailable: PDNs not committed	73
+mo-cake-b-h2	cake	ACF #106	B	D	D	33	17	unavailable: PDNs not committed	unavailable: PDNs not committed	88
+mo-cake-b-h2	cake	ACF #104	B	D	D	29	15	unavailable: PDNs not committed	unavailable: PDNs not committed	75
+mo-cake-b-h2	cake	ACF #105 Gemini II	B	D	D	31	16	unavailable: PDNs not committed	unavailable: PDNs not committed	77
+mo-cake-b-h2	cake	ACF #108	B	D	D	37	19	unavailable: PDNs not committed	unavailable: PDNs not committed	88
+mo-cake-b-h2	cake	ACF #107	B	D	D	35	18	unavailable: PDNs not committed	unavailable: PDNs not committed	133
+mo-cake-b-h2	cake	ACF #103	W	D	D	28	14	unavailable: PDNs not committed	unavailable: PDNs not committed	102
+mo-cake-b-h2	cake	ACF #105 Gemini II	W	D	D	32	16	unavailable: PDNs not committed	unavailable: PDNs not committed	79
+mo-cake-b-h2	cake	ACF #106	W	D	D	34	17	unavailable: PDNs not committed	unavailable: PDNs not committed	65
+mo-cake-b-h2	cake	ACF #104	W	D	D	30	15	unavailable: PDNs not committed	unavailable: PDNs not committed	86
+mo-cake-b-h2	cake	ACF #110	B	D	D	39	20	unavailable: PDNs not committed	unavailable: PDNs not committed	70
+mo-cake-b-h2	cake	ACF #100	W	D	D	22	11	unavailable: PDNs not committed	unavailable: PDNs not committed	71
+mo-cake-b-h2	cake	ACF #107	W	D	D	36	18	unavailable: PDNs not committed	unavailable: PDNs not committed	75
+mo-cake-b-h2	cake	ACF #108	W	D	D	38	19	unavailable: PDNs not committed	unavailable: PDNs not committed	81
+mo-cake-b-h2	cake	ACF #102	B	D	D	25	13	unavailable: PDNs not committed	unavailable: PDNs not committed	96
+mo-cake-b-h2	cake	ACF #112	B	D	D	43	22	unavailable: PDNs not committed	unavailable: PDNs not committed	68
+mo-cake-b-h2	cake	ACF #115	B	D	D	47	24	unavailable: PDNs not committed	unavailable: PDNs not committed	80
+mo-cake-b-h2	cake	ACF #113	B	D	D	45	23	unavailable: PDNs not committed	unavailable: PDNs not committed	92
+mo-cake-b-h2	cake	ACF #116	B	D	D	49	25	unavailable: PDNs not committed	unavailable: PDNs not committed	61
+mo-cake-b-h2	cake	ACF #102	W	D	D	26	13	unavailable: PDNs not committed	unavailable: PDNs not committed	78
+mo-cake-b-h2	cake	ACF #117	B	D	D	51	26	unavailable: PDNs not committed	unavailable: PDNs not committed	75
+mo-cake-b-h2	cake	ACF #111	B	D	D	41	21	unavailable: PDNs not committed	unavailable: PDNs not committed	80
+mo-cake-b-h2	cake	ACF #110	W	D	D	40	20	unavailable: PDNs not committed	unavailable: PDNs not committed	83
+mo-cake-b-h2	cake	ACF #116	W	D	D	50	25	unavailable: PDNs not committed	unavailable: PDNs not committed	71
+mo-cake-b-h2	cake	ACF #118	B	D	D	53	27	unavailable: PDNs not committed	unavailable: PDNs not committed	70
+mo-cake-b-h2	cake	ACF #119	B	D	D	55	28	unavailable: PDNs not committed	unavailable: PDNs not committed	71
+mo-cake-b-h2	cake	ACF #117	W	D	D	52	26	unavailable: PDNs not committed	unavailable: PDNs not committed	98
+mo-cake-b-h2	cake	ACF #113	W	D	D	46	23	unavailable: PDNs not committed	unavailable: PDNs not committed	63
+mo-cake-b-h2	cake	ACF #120	B	D	D	57	29	unavailable: PDNs not committed	unavailable: PDNs not committed	76
+mo-cake-b-h2	cake	ACF #118	W	D	D	54	27	unavailable: PDNs not committed	unavailable: PDNs not committed	69
+mo-cake-b-h2	cake	ACF #112	W	D	D	44	22	unavailable: PDNs not committed	unavailable: PDNs not committed	87
+mo-cake-b-h2	cake	ACF #111	W	D	D	42	21	unavailable: PDNs not committed	unavailable: PDNs not committed	63
+mo-cake-b-h2	cake	ACF #119	W	D	D	56	28	unavailable: PDNs not committed	unavailable: PDNs not committed	81
+mo-cake-b-h2	cake	ACF #121	B	D	D	59	30	unavailable: PDNs not committed	unavailable: PDNs not committed	95
+mo-cake-b-h2	cake	ACF #123	B	D	D	63	32	unavailable: PDNs not committed	unavailable: PDNs not committed	94
+mo-cake-b-h2	cake	ACF #122	B	D	D	61	31	unavailable: PDNs not committed	unavailable: PDNs not committed	62
+mo-cake-b-h2	cake	ACF #124	B	D	D	65	33	unavailable: PDNs not committed	unavailable: PDNs not committed	77
+mo-cake-b-h2	cake	ACF #126	B	D	D	69	35	unavailable: PDNs not committed	unavailable: PDNs not committed	103
+mo-cake-b-h2	cake	ACF #126	W	D	D	70	35	unavailable: PDNs not committed	unavailable: PDNs not committed	73
+mo-cake-b-h2	cake	ACF #123	W	D	D	64	32	unavailable: PDNs not committed	unavailable: PDNs not committed	62
+mo-cake-b-h2	cake	ACF #120	W	D	D	58	29	unavailable: PDNs not committed	unavailable: PDNs not committed	63
+mo-cake-b-h2	cake	ACF #121	W	D	D	60	30	unavailable: PDNs not committed	unavailable: PDNs not committed	82
+mo-cake-b-h2	cake	ACF #125	B	D	D	67	34	unavailable: PDNs not committed	unavailable: PDNs not committed	81
+mo-cake-b-h2	cake	ACF #124	W	D	D	66	33	unavailable: PDNs not committed	unavailable: PDNs not committed	73
+mo-cake-b-h2	cake	ACF #115	W	D	D	48	24	unavailable: PDNs not committed	unavailable: PDNs not committed	105
+mo-cake-b-h2	cake	ACF #127	B	D	D	71	36	unavailable: PDNs not committed	unavailable: PDNs not committed	69
+mo-cake-b-h2	cake	ACF #122	W	D	D	62	31	unavailable: PDNs not committed	unavailable: PDNs not committed	86
+mo-cake-b-h2	cake	ACF #125	W	D	D	68	34	unavailable: PDNs not committed	unavailable: PDNs not committed	69
+mo-cake-b-h2	cake	ACF #132	B	D	D	81	41	unavailable: PDNs not committed	unavailable: PDNs not committed	92
+mo-cake-b-h2	cake	ACF #131	B	D	D	79	40	unavailable: PDNs not committed	unavailable: PDNs not committed	78
+mo-cake-b-h2	cake	ACF #127	W	D	D	72	36	unavailable: PDNs not committed	unavailable: PDNs not committed	70
+mo-cake-b-h2	cake	ACF #128	B	D	D	73	37	unavailable: PDNs not committed	unavailable: PDNs not committed	141
+mo-cake-b-h2	cake	ACF #129	B	D	D	75	38	unavailable: PDNs not committed	unavailable: PDNs not committed	62
+mo-cake-b-h2	cake	ACF #133 Octopus	B	D	D	83	42	unavailable: PDNs not committed	unavailable: PDNs not committed	72
+mo-cake-b-h2	cake	ACF #135	B	D	D	87	44	unavailable: PDNs not committed	unavailable: PDNs not committed	80
+mo-cake-b-h2	cake	ACF #134	B	D	D	85	43	unavailable: PDNs not committed	unavailable: PDNs not committed	78
+mo-cake-b-h2	cake	ACF #130	B	D	D	77	39	unavailable: PDNs not committed	unavailable: PDNs not committed	106
+mo-cake-b-h2	cake	ACF #128	W	D	D	74	37	unavailable: PDNs not committed	unavailable: PDNs not committed	85
+mo-cake-b-h2	cake	ACF #133 Octopus	W	D	D	84	42	unavailable: PDNs not committed	unavailable: PDNs not committed	78
+mo-cake-b-h2	cake	ACF #129	W	D	D	76	38	unavailable: PDNs not committed	unavailable: PDNs not committed	93
+mo-cake-b-h2	cake	ACF #135	W	D	D	88	44	unavailable: PDNs not committed	unavailable: PDNs not committed	49
+mo-cake-b-h2	cake	ACF #132	W	D	D	82	41	unavailable: PDNs not committed	unavailable: PDNs not committed	88
+mo-cake-b-h2	cake	ACF #130	W	D	D	78	39	unavailable: PDNs not committed	unavailable: PDNs not committed	92
+mo-cake-b-h2	cake	ACF #134	W	D	D	86	43	unavailable: PDNs not committed	unavailable: PDNs not committed	69
+mo-cake-b-h2	cake	ACF #131	W	D	D	80	40	unavailable: PDNs not committed	unavailable: PDNs not committed	81
+mo-cake-b-h2	cake	ACF #140	B	D	D	95	48	unavailable: PDNs not committed	unavailable: PDNs not committed	72
+mo-cake-b-h2	cake	ACF #136	B	D	D	89	45	unavailable: PDNs not committed	unavailable: PDNs not committed	96
+mo-cake-b-h2	cake	ACF #142	B	D	D	99	50	unavailable: PDNs not committed	unavailable: PDNs not committed	64
+mo-cake-b-h2	cake	ACF #144	B	D	D	103	52	unavailable: PDNs not committed	unavailable: PDNs not committed	93
+mo-cake-b-h2	cake	ACF #140	W	D	D	96	48	unavailable: PDNs not committed	unavailable: PDNs not committed	73
+mo-cake-b-h2	cake	ACF #139	B	D	D	93	47	unavailable: PDNs not committed	unavailable: PDNs not committed	106
+mo-cake-b-h2	cake	ACF #136	W	D	D	90	45	unavailable: PDNs not committed	unavailable: PDNs not committed	73
+mo-cake-b-h2	cake	ACF #138	B	D	D	91	46	unavailable: PDNs not committed	unavailable: PDNs not committed	96
+mo-cake-b-h2	cake	ACF #139	W	D	D	94	47	unavailable: PDNs not committed	unavailable: PDNs not committed	78
+mo-cake-b-h2	cake	ACF #146	B	D	D	105	53	unavailable: PDNs not committed	unavailable: PDNs not committed	107
+mo-cake-b-h2	cake	ACF #144	W	D	D	104	52	unavailable: PDNs not committed	unavailable: PDNs not committed	77
+mo-cake-b-h2	cake	ACF #142	W	D	D	100	50	unavailable: PDNs not committed	unavailable: PDNs not committed	84
+mo-cake-b-h2	cake	ACF #147	B	D	D	107	54	unavailable: PDNs not committed	unavailable: PDNs not committed	77
+mo-cake-b-h2	cake	ACF #138	W	D	D	92	46	unavailable: PDNs not committed	unavailable: PDNs not committed	68
+mo-cake-b-h2	cake	ACF #148	B	D	D	109	55	unavailable: PDNs not committed	unavailable: PDNs not committed	88
+mo-cake-b-h2	cake	ACF #149	B	D	D	111	56	unavailable: PDNs not committed	unavailable: PDNs not committed	86
+mo-cake-b-h2	cake	ACF #146	W	D	D	106	53	unavailable: PDNs not committed	unavailable: PDNs not committed	79
+mo-cake-b-h2	cake	ACF #149	W	D	D	112	56	unavailable: PDNs not committed	unavailable: PDNs not committed	69
+mo-cake-b-h2	cake	ACF #150	B	D	D	113	57	unavailable: PDNs not committed	unavailable: PDNs not committed	54
+mo-cake-b-h2	cake	ACF #141	B	D	D	97	49	unavailable: PDNs not committed	unavailable: PDNs not committed	106
+mo-cake-b-h2	cake	ACF #152	B	D	D	117	59	unavailable: PDNs not committed	unavailable: PDNs not committed	71
+mo-cake-b-h2	cake	ACF #148	W	D	D	110	55	unavailable: PDNs not committed	unavailable: PDNs not committed	87
+mo-cake-b-h2	cake	ACF #151	B	D	D	115	58	unavailable: PDNs not committed	unavailable: PDNs not committed	80
+mo-cake-b-h2	cake	ACF #147	W	D	D	108	54	unavailable: PDNs not committed	unavailable: PDNs not committed	73
+mo-cake-b-h2	cake	ACF #143	B	D	D	101	51	unavailable: PDNs not committed	unavailable: PDNs not committed	142
+mo-cake-b-h2	cake	ACF #150	W	D	D	114	57	unavailable: PDNs not committed	unavailable: PDNs not committed	88
+mo-cake-b-h2	cake	ACF #152	W	D	D	118	59	unavailable: PDNs not committed	unavailable: PDNs not committed	86
+mo-cake-b-h2	cake	ACF #153 Black Widow	B	D	D	119	60	unavailable: PDNs not committed	unavailable: PDNs not committed	77
+mo-cake-b-h2	cake	ACF #151	W	D	D	116	58	unavailable: PDNs not committed	unavailable: PDNs not committed	77
+mo-cake-b-h2	cake	ACF #141	W	D	D	98	49	unavailable: PDNs not committed	unavailable: PDNs not committed	86
+mo-cake-b-h2	cake	ACF #155	B	D	D	123	62	unavailable: PDNs not committed	unavailable: PDNs not committed	138
+mo-cake-b-h2	cake	ACF #143	W	D	D	102	51	unavailable: PDNs not committed	unavailable: PDNs not committed	67
+mo-cake-b-h2	cake	ACF #160	B	D	D	131	66	unavailable: PDNs not committed	unavailable: PDNs not committed	89
+mo-cake-b-h2	cake	ACF #158	B	D	D	127	64	unavailable: PDNs not committed	unavailable: PDNs not committed	76
+mo-cake-b-h2	cake	ACF #159	B	D	D	129	65	unavailable: PDNs not committed	unavailable: PDNs not committed	112
+mo-cake-b-h2	cake	ACF #157	B	D	D	125	63	unavailable: PDNs not committed	unavailable: PDNs not committed	87
+mo-cake-b-h2	cake	ACF #161	B	D	D	133	67	unavailable: PDNs not committed	unavailable: PDNs not committed	70
+mo-cake-b-h2	cake	ACF #155	W	D	D	124	62	unavailable: PDNs not committed	unavailable: PDNs not committed	77
+mo-cake-b-h2	cake	ACF #153 Black Widow	W	D	D	120	60	unavailable: PDNs not committed	unavailable: PDNs not committed	87
+mo-cake-b-h2	cake	ACF #160	W	D	D	132	66	unavailable: PDNs not committed	unavailable: PDNs not committed	85
+mo-cake-b-h2	cake	ACF #159	W	D	D	130	65	unavailable: PDNs not committed	unavailable: PDNs not committed	122
+mo-cake-b-h2	cake	ACF #157	W	D	D	126	63	unavailable: PDNs not committed	unavailable: PDNs not committed	79
+mo-cake-b-h2	cake	ACF #162	B	D	D	135	68	unavailable: PDNs not committed	unavailable: PDNs not committed	70
+mo-cake-b-h2	cake	ACF #161	W	D	D	134	67	unavailable: PDNs not committed	unavailable: PDNs not committed	76
+mo-cake-b-h2	cake	ACF #163	B	D	D	137	69	unavailable: PDNs not committed	unavailable: PDNs not committed	108
+mo-cake-b-h2	cake	ACF #164	B	D	D	139	70	unavailable: PDNs not committed	unavailable: PDNs not committed	89
+mo-cake-b-h2	cake	ACF #158	W	D	D	128	64	unavailable: PDNs not committed	unavailable: PDNs not committed	75
+mo-cake-b-h2	cake	ACF #167	B	D	D	145	73	unavailable: PDNs not committed	unavailable: PDNs not committed	82
+mo-cake-b-h2	cake	ACF #166	B	D	D	143	72	unavailable: PDNs not committed	unavailable: PDNs not committed	61
+mo-cake-b-h2	cake	ACF #169	B	D	D	147	74	unavailable: PDNs not committed	unavailable: PDNs not committed	83
+mo-cake-b-h2	cake	ACF #165	B	D	D	141	71	unavailable: PDNs not committed	unavailable: PDNs not committed	74
+mo-cake-b-h2	cake	ACF #163	W	D	D	138	69	unavailable: PDNs not committed	unavailable: PDNs not committed	77
+mo-cake-b-h2	cake	ACF #162	W	D	D	136	68	unavailable: PDNs not committed	unavailable: PDNs not committed	78
+mo-cake-b-h2	cake	ACF #164	W	D	D	140	70	unavailable: PDNs not committed	unavailable: PDNs not committed	75
+mo-cake-b-h2	cake	ACF #169	W	D	D	148	74	unavailable: PDNs not committed	unavailable: PDNs not committed	90
+mo-cake-b-h2	cake	ACF #167	W	D	D	146	73	unavailable: PDNs not committed	unavailable: PDNs not committed	77
+mo-cake-b-h2	cake	ACF #170	B	D	D	149	75	unavailable: PDNs not committed	unavailable: PDNs not committed	63
+mo-cake-b-h2	cake	ACF #172	B	D	D	151	76	unavailable: PDNs not committed	unavailable: PDNs not committed	63
+mo-cake-b-h2	cake	ACF #165	W	D	D	142	71	unavailable: PDNs not committed	unavailable: PDNs not committed	75
+mo-cake-b-h2	cake	ACF #173	B	D	D	153	77	unavailable: PDNs not committed	unavailable: PDNs not committed	89
+mo-cake-b-h2	cake	ACF #166	W	D	D	144	72	unavailable: PDNs not committed	unavailable: PDNs not committed	75
+mo-cake-b-h2	cake	ACF #174 Skunk	B	D	D	155	78	unavailable: PDNs not committed	unavailable: PDNs not committed	72
+mo-cake-b-h2	cake	ACF #170	W	D	D	150	75	unavailable: PDNs not committed	unavailable: PDNs not committed	77
+mo-cake-b-h2	cake	ACF #172	W	D	D	152	76	unavailable: PDNs not committed	unavailable: PDNs not committed	77
+mo-cake-b-h2	cake	ACF #154	B	D	D	121	61	unavailable: PDNs not committed	unavailable: PDNs not committed	168
+mo-cake-b-h2	cake	ACF #173	W	D	D	154	77	unavailable: PDNs not committed	unavailable: PDNs not committed	78
+mo-cake-b-h2	cake	ACF #154	W	D	D	122	61	unavailable: PDNs not committed	unavailable: PDNs not committed	71
+mo-cake-b-h2	cake	ACF #174 Skunk	W	D	D	156	78	unavailable: PDNs not committed	unavailable: PDNs not committed	80
+mo-guinn-a-h1	guinn	ACF #7	B	D	D	11	6	unavailable: PDNs not committed	unavailable: PDNs not committed	69
+mo-guinn-a-h1	guinn	ACF #4	B	D	D	5	3	unavailable: PDNs not committed	unavailable: PDNs not committed	83
+mo-guinn-a-h1	guinn	ACF #2	B	D	D	3	2	unavailable: PDNs not committed	unavailable: PDNs not committed	60
+mo-guinn-a-h1	guinn	ACF #5 Dreaded Edinburgh	B	D	D	7	4	unavailable: PDNs not committed	unavailable: PDNs not committed	66
+mo-guinn-a-h1	guinn	ACF #6 Inferno	B	D	D	9	5	unavailable: PDNs not committed	unavailable: PDNs not committed	65
+mo-guinn-a-h1	guinn	ACF #1	B	D	D	1	1	unavailable: PDNs not committed	unavailable: PDNs not committed	82
+mo-guinn-a-h1	guinn	ACF #2	W	D	D	4	2	unavailable: PDNs not committed	unavailable: PDNs not committed	73
+mo-guinn-a-h1	guinn	ACF #9 Wilderness I	B	D	D	15	8	unavailable: PDNs not committed	unavailable: PDNs not committed	59
+mo-guinn-a-h1	guinn	ACF #7	W	D	D	12	6	unavailable: PDNs not committed	unavailable: PDNs not committed	71
+mo-guinn-a-h1	guinn	ACF #4	W	D	D	6	3	unavailable: PDNs not committed	unavailable: PDNs not committed	69
+mo-guinn-a-h1	guinn	ACF #1	W	D	D	2	1	unavailable: PDNs not committed	unavailable: PDNs not committed	75
+mo-guinn-a-h1	guinn	ACF #10	B	D	D	17	9	unavailable: PDNs not committed	unavailable: PDNs not committed	110
+mo-guinn-a-h1	guinn	ACF #8 Edinburgh Single	B	D	D	13	7	unavailable: PDNs not committed	unavailable: PDNs not committed	81
+mo-guinn-a-h1	guinn	ACF #11	B	D	D	19	10	unavailable: PDNs not committed	unavailable: PDNs not committed	66
+mo-guinn-a-h1	guinn	ACF #12	B	D	D	21	11	unavailable: PDNs not committed	unavailable: PDNs not committed	67
+mo-guinn-a-h1	guinn	ACF #6 Inferno	W	D	W	10	5	unavailable: PDNs not committed	unavailable: PDNs not committed	91
+mo-guinn-a-h1	guinn	ACF #8 Edinburgh Single	W	D	D	14	7	unavailable: PDNs not committed	unavailable: PDNs not committed	90
+mo-guinn-a-h1	guinn	ACF #9 Wilderness I	W	D	W	16	8	unavailable: PDNs not committed	unavailable: PDNs not committed	95
+mo-guinn-a-h1	guinn	ACF #11	W	D	D	20	10	unavailable: PDNs not committed	unavailable: PDNs not committed	73
+mo-guinn-a-h1	guinn	ACF #15	B	D	D	25	13	unavailable: PDNs not committed	unavailable: PDNs not committed	71
+mo-guinn-a-h1	guinn	ACF #12	W	D	D	22	11	unavailable: PDNs not committed	unavailable: PDNs not committed	87
+mo-guinn-a-h1	guinn	ACF #16 Wilderness II	B	D	D	27	14	unavailable: PDNs not committed	unavailable: PDNs not committed	90
+mo-guinn-a-h1	guinn	ACF #17	B	D	D	29	15	unavailable: PDNs not committed	unavailable: PDNs not committed	88
+mo-guinn-a-h1	guinn	ACF #18	B	D	D	31	16	unavailable: PDNs not committed	unavailable: PDNs not committed	58
+mo-guinn-a-h1	guinn	ACF #14	B	D	D	23	12	unavailable: PDNs not committed	unavailable: PDNs not committed	53
+mo-guinn-a-h1	guinn	ACF #19	B	D	D	33	17	unavailable: PDNs not committed	unavailable: PDNs not committed	66
+mo-guinn-a-h1	guinn	ACF #18	W	D	D	32	16	unavailable: PDNs not committed	unavailable: PDNs not committed	63
+mo-guinn-a-h1	guinn	ACF #19	W	D	D	34	17	unavailable: PDNs not committed	unavailable: PDNs not committed	73
+mo-guinn-a-h1	guinn	ACF #15	W	D	D	26	13	unavailable: PDNs not committed	unavailable: PDNs not committed	85
+mo-guinn-a-h1	guinn	ACF #14	W	D	D	24	12	unavailable: PDNs not committed	unavailable: PDNs not committed	67
+mo-guinn-a-h1	guinn	ACF #17	W	D	D	30	15	unavailable: PDNs not committed	unavailable: PDNs not committed	72
+mo-guinn-a-h1	guinn	ACF #20	B	D	D	35	18	unavailable: PDNs not committed	unavailable: PDNs not committed	96
+mo-guinn-a-h1	guinn	ACF #21	B	D	D	37	19	unavailable: PDNs not committed	unavailable: PDNs not committed	78
+mo-guinn-a-h1	guinn	ACF #20	W	D	D	36	18	unavailable: PDNs not committed	unavailable: PDNs not committed	65
+mo-guinn-a-h1	guinn	ACF #5 Dreaded Edinburgh	W	W	D	8	4	unavailable: PDNs not committed	unavailable: PDNs not committed	173
+mo-guinn-a-h1	guinn	ACF #23	B	D	D	41	21	unavailable: PDNs not committed	unavailable: PDNs not committed	111
+mo-guinn-a-h1	guinn	ACF #24	B	D	D	43	22	unavailable: PDNs not committed	unavailable: PDNs not committed	66
+mo-guinn-a-h1	guinn	ACF #22	B	D	D	39	20	unavailable: PDNs not committed	unavailable: PDNs not committed	92
+mo-guinn-a-h1	guinn	ACF #22	W	D	D	40	20	unavailable: PDNs not committed	unavailable: PDNs not committed	65
+mo-guinn-a-h1	guinn	ACF #24	W	D	W	44	22	unavailable: PDNs not committed	unavailable: PDNs not committed	77
+mo-guinn-a-h1	guinn	ACF #21	W	D	D	38	19	unavailable: PDNs not committed	unavailable: PDNs not committed	83
+mo-guinn-a-h1	guinn	ACF #25	B	D	D	45	23	unavailable: PDNs not committed	unavailable: PDNs not committed	97
+mo-guinn-a-h1	guinn	ACF #16 Wilderness II	W	W	D	28	14	unavailable: PDNs not committed	unavailable: PDNs not committed	187
+mo-guinn-a-h1	guinn	ACF #28	B	D	D	49	25	unavailable: PDNs not committed	unavailable: PDNs not committed	90
+mo-guinn-a-h1	guinn	ACF #30	B	D	D	53	27	unavailable: PDNs not committed	unavailable: PDNs not committed	66
+mo-guinn-a-h1	guinn	ACF #10	W	W	D	18	9	unavailable: PDNs not committed	unavailable: PDNs not committed	191
+mo-guinn-a-h1	guinn	ACF #31	B	D	D	55	28	unavailable: PDNs not committed	unavailable: PDNs not committed	72
+mo-guinn-a-h1	guinn	ACF #27	B	D	D	47	24	unavailable: PDNs not committed	unavailable: PDNs not committed	89
+mo-guinn-a-h1	guinn	ACF #30	W	D	D	54	27	unavailable: PDNs not committed	unavailable: PDNs not committed	77
+mo-guinn-a-h1	guinn	ACF #32	B	D	D	57	29	unavailable: PDNs not committed	unavailable: PDNs not committed	96
+mo-guinn-a-h1	guinn	ACF #28	W	D	D	50	25	unavailable: PDNs not committed	unavailable: PDNs not committed	85
+mo-guinn-a-h1	guinn	ACF #33	B	D	D	59	30	unavailable: PDNs not committed	unavailable: PDNs not committed	64
+mo-guinn-a-h1	guinn	ACF #27	W	D	D	48	24	unavailable: PDNs not committed	unavailable: PDNs not committed	82
+mo-guinn-a-h1	guinn	ACF #29	B	D	D	51	26	unavailable: PDNs not committed	unavailable: PDNs not committed	101
+mo-guinn-a-h1	guinn	ACF #34 Twilight Zone	B	D	D	61	31	unavailable: PDNs not committed	unavailable: PDNs not committed	64
+mo-guinn-a-h1	guinn	ACF #32	W	D	D	58	29	unavailable: PDNs not committed	unavailable: PDNs not committed	79
+mo-guinn-a-h1	guinn	ACF #36	B	D	D	63	32	unavailable: PDNs not committed	unavailable: PDNs not committed	90
+mo-guinn-a-h1	guinn	ACF #37	B	D	D	65	33	unavailable: PDNs not committed	unavailable: PDNs not committed	101
+mo-guinn-a-h1	guinn	ACF #33	W	D	D	60	30	unavailable: PDNs not committed	unavailable: PDNs not committed	73
+mo-guinn-a-h1	guinn	ACF #37	W	D	D	66	33	unavailable: PDNs not committed	unavailable: PDNs not committed	73
+mo-guinn-a-h1	guinn	ACF #29	W	D	D	52	26	unavailable: PDNs not committed	unavailable: PDNs not committed	69
+mo-guinn-a-h1	guinn	ACF #38	B	D	D	67	34	unavailable: PDNs not committed	unavailable: PDNs not committed	107
+mo-guinn-a-h1	guinn	ACF #38	W	D	D	68	34	unavailable: PDNs not committed	unavailable: PDNs not committed	83
+mo-guinn-a-h1	guinn	ACF #39	B	D	D	69	35	unavailable: PDNs not committed	unavailable: PDNs not committed	77
+mo-guinn-a-h1	guinn	ACF #31	W	W	D	56	28	unavailable: PDNs not committed	unavailable: PDNs not committed	157
+mo-guinn-a-h1	guinn	ACF #40	B	D	D	71	36	unavailable: PDNs not committed	unavailable: PDNs not committed	68
+mo-guinn-a-h1	guinn	ACF #42	B	D	D	75	38	unavailable: PDNs not committed	unavailable: PDNs not committed	78
+mo-guinn-a-h1	guinn	ACF #23	W	W	D	42	21	unavailable: PDNs not committed	unavailable: PDNs not committed	205
+mo-guinn-a-h1	guinn	ACF #39	W	D	D	70	35	unavailable: PDNs not committed	unavailable: PDNs not committed	75
+mo-guinn-a-h1	guinn	ACF #25	W	W	W	46	23	unavailable: PDNs not committed	unavailable: PDNs not committed	199
+mo-guinn-a-h1	guinn	ACF #41	B	D	D	73	37	unavailable: PDNs not committed	unavailable: PDNs not committed	87
+mo-guinn-a-h1	guinn	ACF #40	W	D	D	72	36	unavailable: PDNs not committed	unavailable: PDNs not committed	69
+mo-guinn-a-h1	guinn	ACF #42	W	D	D	76	38	unavailable: PDNs not committed	unavailable: PDNs not committed	73
+mo-guinn-a-h1	guinn	ACF #47	B	D	D	81	41	unavailable: PDNs not committed	unavailable: PDNs not committed	72
+mo-guinn-a-h1	guinn	ACF #46 Double Cross	B	D	D	79	40	unavailable: PDNs not committed	unavailable: PDNs not committed	99
+mo-guinn-a-h1	guinn	ACF #43	B	D	D	77	39	unavailable: PDNs not committed	unavailable: PDNs not committed	60
+mo-guinn-a-h1	guinn	ACF #49	B	D	D	83	42	unavailable: PDNs not committed	unavailable: PDNs not committed	92
+mo-guinn-a-h1	guinn	ACF #41	W	D	D	74	37	unavailable: PDNs not committed	unavailable: PDNs not committed	71
+mo-guinn-a-h1	guinn	ACF #47	W	D	D	82	41	unavailable: PDNs not committed	unavailable: PDNs not committed	63
+mo-guinn-a-h1	guinn	ACF #51	B	D	D	87	44	unavailable: PDNs not committed	unavailable: PDNs not committed	71
+mo-guinn-a-h1	guinn	ACF #49	W	D	D	84	42	unavailable: PDNs not committed	unavailable: PDNs not committed	77
+mo-guinn-a-h1	guinn	ACF #53	B	D	D	89	45	unavailable: PDNs not committed	unavailable: PDNs not committed	88
+mo-guinn-a-h1	guinn	ACF #51	W	D	D	88	44	unavailable: PDNs not committed	unavailable: PDNs not committed	97
+mo-guinn-a-h1	guinn	ACF #54	B	D	D	91	46	unavailable: PDNs not committed	unavailable: PDNs not committed	109
+mo-guinn-a-h1	guinn	ACF #50	B	D	D	85	43	unavailable: PDNs not committed	unavailable: PDNs not committed	126
+mo-guinn-a-h1	guinn	ACF #46 Double Cross	W	D	D	80	40	unavailable: PDNs not committed	unavailable: PDNs not committed	103
+mo-guinn-a-h1	guinn	ACF #53	W	D	D	90	45	unavailable: PDNs not committed	unavailable: PDNs not committed	81
+mo-guinn-a-h1	guinn	ACF #34 Twilight Zone	W	W	W	62	31	unavailable: PDNs not committed	unavailable: PDNs not committed	223
+mo-guinn-a-h1	guinn	ACF #54	W	D	D	92	46	unavailable: PDNs not committed	unavailable: PDNs not committed	77
+mo-guinn-a-h1	guinn	ACF #43	W	W	W	78	39	unavailable: PDNs not committed	unavailable: PDNs not committed	177
+mo-guinn-a-h1	guinn	ACF #57	B	D	D	97	49	unavailable: PDNs not committed	unavailable: PDNs not committed	94
+mo-guinn-a-h1	guinn	ACF #56	B	D	D	95	48	unavailable: PDNs not committed	unavailable: PDNs not committed	70
+mo-guinn-a-h1	guinn	ACF #55	B	D	D	93	47	unavailable: PDNs not committed	unavailable: PDNs not committed	126
+mo-guinn-a-h1	guinn	ACF #58	B	D	D	99	50	unavailable: PDNs not committed	unavailable: PDNs not committed	88
+mo-guinn-a-h1	guinn	ACF #59	B	D	D	101	51	unavailable: PDNs not committed	unavailable: PDNs not committed	80
+mo-guinn-a-h1	guinn	ACF #57	W	D	D	98	49	unavailable: PDNs not committed	unavailable: PDNs not committed	75
+mo-guinn-a-h1	guinn	ACF #36	W	D	D	64	32	unavailable: PDNs not committed	unavailable: PDNs not committed	237
+mo-guinn-a-h1	guinn	ACF #56	W	D	D	96	48	unavailable: PDNs not committed	unavailable: PDNs not committed	75
+mo-guinn-a-h1	guinn	ACF #60 Black Hole	B	D	D	103	52	unavailable: PDNs not committed	unavailable: PDNs not committed	66
+mo-guinn-a-h1	guinn	ACF #59	W	D	D	102	51	unavailable: PDNs not committed	unavailable: PDNs not committed	71
+mo-guinn-a-h1	guinn	ACF #61	B	D	D	105	53	unavailable: PDNs not committed	unavailable: PDNs not committed	60
+mo-guinn-a-h1	guinn	ACF #58	W	D	D	100	50	unavailable: PDNs not committed	unavailable: PDNs not committed	71
+mo-guinn-a-h1	guinn	ACF #64	B	D	D	111	56	unavailable: PDNs not committed	unavailable: PDNs not committed	90
+mo-guinn-a-h1	guinn	ACF #62 Gemini I	B	D	D	107	54	unavailable: PDNs not committed	unavailable: PDNs not committed	58
+mo-guinn-a-h1	guinn	ACF #61	W	D	D	106	53	unavailable: PDNs not committed	unavailable: PDNs not committed	71
+mo-guinn-a-h1	guinn	ACF #63	B	D	D	109	55	unavailable: PDNs not committed	unavailable: PDNs not committed	87
+mo-guinn-a-h1	guinn	ACF #65 Fraser's Inferno	B	D	D	113	57	unavailable: PDNs not committed	unavailable: PDNs not committed	80
+mo-guinn-a-h1	guinn	ACF #66	B	D	D	115	58	unavailable: PDNs not committed	unavailable: PDNs not committed	78
+mo-guinn-a-h1	guinn	ACF #63	W	D	D	110	55	unavailable: PDNs not committed	unavailable: PDNs not committed	79
+mo-guinn-a-h1	guinn	ACF #65 Fraser's Inferno	W	D	W	114	57	unavailable: PDNs not committed	unavailable: PDNs not committed	79
+mo-guinn-a-h1	guinn	ACF #62 Gemini I	W	D	D	108	54	unavailable: PDNs not committed	unavailable: PDNs not committed	73
+mo-guinn-a-h1	guinn	ACF #66	W	D	D	116	58	unavailable: PDNs not committed	unavailable: PDNs not committed	71
+mo-guinn-a-h1	guinn	ACF #67	B	D	D	117	59	unavailable: PDNs not committed	unavailable: PDNs not committed	63
+mo-guinn-a-h1	guinn	ACF #69	B	D	D	121	61	unavailable: PDNs not committed	unavailable: PDNs not committed	72
+mo-guinn-a-h1	guinn	ACF #55	W	W	D	94	47	unavailable: PDNs not committed	unavailable: PDNs not committed	159
+mo-guinn-a-h1	guinn	ACF #70	B	D	D	123	62	unavailable: PDNs not committed	unavailable: PDNs not committed	60
+mo-guinn-a-h1	guinn	ACF #71 Diabolical Denny	B	D	D	125	63	unavailable: PDNs not committed	unavailable: PDNs not committed	57
+mo-guinn-a-h1	guinn	ACF #69	W	D	D	122	61	unavailable: PDNs not committed	unavailable: PDNs not committed	65
+mo-guinn-a-h1	guinn	ACF #50	W	W	W	86	43	unavailable: PDNs not committed	unavailable: PDNs not committed	201
+mo-guinn-a-h1	guinn	ACF #70	W	D	D	124	62	unavailable: PDNs not committed	unavailable: PDNs not committed	83
+mo-guinn-a-h1	guinn	ACF #64	W	W	D	112	56	unavailable: PDNs not committed	unavailable: PDNs not committed	157
+mo-guinn-a-h1	guinn	ACF #68 White Doctor	B	D	D	119	60	unavailable: PDNs not committed	unavailable: PDNs not committed	102
+mo-guinn-a-h1	guinn	ACF #74	B	D	D	131	66	unavailable: PDNs not committed	unavailable: PDNs not committed	75
+mo-guinn-a-h1	guinn	ACF #73	B	D	D	129	65	unavailable: PDNs not committed	unavailable: PDNs not committed	64
+mo-guinn-a-h1	guinn	ACF #72	B	D	D	127	64	unavailable: PDNs not committed	unavailable: PDNs not committed	108
+mo-guinn-a-h1	guinn	ACF #67	W	D	D	118	59	unavailable: PDNs not committed	unavailable: PDNs not committed	91
+mo-guinn-a-h1	guinn	ACF #75	B	D	D	133	67	unavailable: PDNs not committed	unavailable: PDNs not committed	94
+mo-guinn-a-h1	guinn	ACF #74	W	D	W	132	66	unavailable: PDNs not committed	unavailable: PDNs not committed	72
+mo-guinn-a-h1	guinn	ACF #60 Black Hole	W	W	D	104	52	unavailable: PDNs not committed	unavailable: PDNs not committed	227
+mo-guinn-a-h1	guinn	ACF #78	B	D	D	137	69	unavailable: PDNs not committed	unavailable: PDNs not committed	63
+mo-guinn-a-h1	guinn	ACF #73	W	D	D	130	65	unavailable: PDNs not committed	unavailable: PDNs not committed	70
+mo-guinn-a-h1	guinn	ACF #72	W	D	D	128	64	unavailable: PDNs not committed	unavailable: PDNs not committed	75
+mo-guinn-a-h1	guinn	ACF #68 White Doctor	W	D	D	120	60	unavailable: PDNs not committed	unavailable: PDNs not committed	97
+mo-guinn-a-h1	guinn	ACF #76	B	D	D	135	68	unavailable: PDNs not committed	unavailable: PDNs not committed	87
+mo-guinn-a-h1	guinn	ACF #79	B	D	D	139	70	unavailable: PDNs not committed	unavailable: PDNs not committed	79
+mo-guinn-a-h1	guinn	ACF #81	B	D	D	143	72	unavailable: PDNs not committed	unavailable: PDNs not committed	76
+mo-guinn-a-h1	guinn	ACF #82	B	D	D	145	73	unavailable: PDNs not committed	unavailable: PDNs not committed	67
+mo-guinn-a-h1	guinn	ACF #76	W	D	D	136	68	unavailable: PDNs not committed	unavailable: PDNs not committed	66
+mo-guinn-a-h1	guinn	ACF #71 Diabolical Denny	W	W	D	126	63	unavailable: PDNs not committed	unavailable: PDNs not committed	179
+mo-guinn-a-h1	guinn	ACF #80	B	D	D	141	71	unavailable: PDNs not committed	unavailable: PDNs not committed	89
+mo-guinn-a-h1	guinn	ACF #83	B	D	D	147	74	unavailable: PDNs not committed	unavailable: PDNs not committed	118
+mo-guinn-a-h1	guinn	ACF #79	W	D	D	140	70	unavailable: PDNs not committed	unavailable: PDNs not committed	81
+mo-guinn-a-h1	guinn	ACF #81	W	D	D	144	72	unavailable: PDNs not committed	unavailable: PDNs not committed	90
+mo-guinn-a-h1	guinn	ACF #84	B	D	D	149	75	unavailable: PDNs not committed	unavailable: PDNs not committed	72
+mo-guinn-a-h1	guinn	ACF #80	W	D	D	142	71	unavailable: PDNs not committed	unavailable: PDNs not committed	73
+mo-guinn-a-h1	guinn	ACF #83	W	D	D	148	74	unavailable: PDNs not committed	unavailable: PDNs not committed	65
+mo-guinn-a-h1	guinn	ACF #82	W	D	D	146	73	unavailable: PDNs not committed	unavailable: PDNs not committed	99
+mo-guinn-a-h1	guinn	ACF #78	W	W	W	138	69	unavailable: PDNs not committed	unavailable: PDNs not committed	129
+mo-guinn-a-h1	guinn	ACF #84	W	D	D	150	75	unavailable: PDNs not committed	unavailable: PDNs not committed	77
+mo-guinn-a-h1	guinn	ACF #86 Octopus	B	D	D	153	77	unavailable: PDNs not committed	unavailable: PDNs not committed	78
+mo-guinn-a-h1	guinn	ACF #87 Tyne	B	D	D	155	78	unavailable: PDNs not committed	unavailable: PDNs not committed	125
+mo-guinn-a-h1	guinn	ACF #85	B	D	D	151	76	unavailable: PDNs not committed	unavailable: PDNs not committed	70
+mo-guinn-a-h1	guinn	ACF #85	W	D	D	152	76	unavailable: PDNs not committed	unavailable: PDNs not committed	81
+mo-guinn-a-h1	guinn	ACF #75	W	W	D	134	67	unavailable: PDNs not committed	unavailable: PDNs not committed	207
+mo-guinn-a-h1	guinn	ACF #87 Tyne	W	W	D	156	78	unavailable: PDNs not committed	unavailable: PDNs not committed	159
+mo-guinn-a-h1	guinn	ACF #86 Octopus	W	W	W	154	77	unavailable: PDNs not committed	unavailable: PDNs not committed	195
+mo-guinn-a-h2	guinn	ACF #97	B	D	D	15	8	unavailable: PDNs not committed	unavailable: PDNs not committed	76
+mo-guinn-a-h2	guinn	ACF #91	B	D	D	5	3	unavailable: PDNs not committed	unavailable: PDNs not committed	83
+mo-guinn-a-h2	guinn	ACF #93	B	D	D	9	5	unavailable: PDNs not committed	unavailable: PDNs not committed	58
+mo-guinn-a-h2	guinn	ACF #90	B	D	D	3	2	unavailable: PDNs not committed	unavailable: PDNs not committed	79
+mo-guinn-a-h2	guinn	ACF #95	B	D	D	11	6	unavailable: PDNs not committed	unavailable: PDNs not committed	86
+mo-guinn-a-h2	guinn	ACF #92	B	D	W	7	4	unavailable: PDNs not committed	unavailable: PDNs not committed	72
+mo-guinn-a-h2	guinn	ACF #97	W	D	D	16	8	unavailable: PDNs not committed	unavailable: PDNs not committed	75
+mo-guinn-a-h2	guinn	ACF #96 Skull-Cracker	B	D	D	13	7	unavailable: PDNs not committed	unavailable: PDNs not committed	119
+mo-guinn-a-h2	guinn	ACF #89	B	D	D	1	1	unavailable: PDNs not committed	unavailable: PDNs not committed	84
+mo-guinn-a-h2	guinn	ACF #90	W	D	W	4	2	unavailable: PDNs not committed	unavailable: PDNs not committed	88
+mo-guinn-a-h2	guinn	ACF #98	B	D	D	17	9	unavailable: PDNs not committed	unavailable: PDNs not committed	74
+mo-guinn-a-h2	guinn	ACF #92	W	D	W	8	4	unavailable: PDNs not committed	unavailable: PDNs not committed	82
+mo-guinn-a-h2	guinn	ACF #89	W	D	D	2	1	unavailable: PDNs not committed	unavailable: PDNs not committed	81
+mo-guinn-a-h2	guinn	ACF #99	B	D	D	19	10	unavailable: PDNs not committed	unavailable: PDNs not committed	70
+mo-guinn-a-h2	guinn	ACF #100	B	D	D	21	11	unavailable: PDNs not committed	unavailable: PDNs not committed	84
+mo-guinn-a-h2	guinn	ACF #98	W	D	D	18	9	unavailable: PDNs not committed	unavailable: PDNs not committed	77
+mo-guinn-a-h2	guinn	ACF #99	W	D	D	20	10	unavailable: PDNs not committed	unavailable: PDNs not committed	76
+mo-guinn-a-h2	guinn	ACF #95	W	D	D	12	6	unavailable: PDNs not committed	unavailable: PDNs not committed	75
+mo-guinn-a-h2	guinn	ACF #103	B	D	D	27	14	unavailable: PDNs not committed	unavailable: PDNs not committed	80
+mo-guinn-a-h2	guinn	ACF #100	W	D	D	22	11	unavailable: PDNs not committed	unavailable: PDNs not committed	79
+mo-guinn-a-h2	guinn	ACF #91	W	D	D	6	3	unavailable: PDNs not committed	unavailable: PDNs not committed	91
+mo-guinn-a-h2	guinn	ACF #104	B	D	D	29	15	unavailable: PDNs not committed	unavailable: PDNs not committed	62
+mo-guinn-a-h2	guinn	ACF #102	B	D	D	25	13	unavailable: PDNs not committed	unavailable: PDNs not committed	59
+mo-guinn-a-h2	guinn	ACF #104	W	D	D	30	15	unavailable: PDNs not committed	unavailable: PDNs not committed	81
+mo-guinn-a-h2	guinn	ACF #106	B	D	D	33	17	unavailable: PDNs not committed	unavailable: PDNs not committed	108
+mo-guinn-a-h2	guinn	ACF #101	B	D	D	23	12	unavailable: PDNs not committed	unavailable: PDNs not committed	88
+mo-guinn-a-h2	guinn	ACF #105 Gemini II	B	D	D	31	16	unavailable: PDNs not committed	unavailable: PDNs not committed	58
+mo-guinn-a-h2	guinn	ACF #106	W	D	D	34	17	unavailable: PDNs not committed	unavailable: PDNs not committed	85
+mo-guinn-a-h2	guinn	ACF #107	B	D	D	35	18	unavailable: PDNs not committed	unavailable: PDNs not committed	96
+mo-guinn-a-h2	guinn	ACF #103	W	D	D	28	14	unavailable: PDNs not committed	unavailable: PDNs not committed	75
+mo-guinn-a-h2	guinn	ACF #110	B	D	D	39	20	unavailable: PDNs not committed	unavailable: PDNs not committed	68
+mo-guinn-a-h2	guinn	ACF #110	W	D	D	40	20	unavailable: PDNs not committed	unavailable: PDNs not committed	66
+mo-guinn-a-h2	guinn	ACF #105 Gemini II	W	D	D	32	16	unavailable: PDNs not committed	unavailable: PDNs not committed	60
+mo-guinn-a-h2	guinn	ACF #101	W	D	W	24	12	unavailable: PDNs not committed	unavailable: PDNs not committed	78
+mo-guinn-a-h2	guinn	ACF #111	B	D	D	41	21	unavailable: PDNs not committed	unavailable: PDNs not committed	58
+mo-guinn-a-h2	guinn	ACF #108	B	D	D	37	19	unavailable: PDNs not committed	unavailable: PDNs not committed	74
+mo-guinn-a-h2	guinn	ACF #107	W	D	D	36	18	unavailable: PDNs not committed	unavailable: PDNs not committed	82
+mo-guinn-a-h2	guinn	ACF #113	B	D	D	45	23	unavailable: PDNs not committed	unavailable: PDNs not committed	66
+mo-guinn-a-h2	guinn	ACF #102	W	D	D	26	13	unavailable: PDNs not committed	unavailable: PDNs not committed	75
+mo-guinn-a-h2	guinn	ACF #111	W	D	D	42	21	unavailable: PDNs not committed	unavailable: PDNs not committed	69
+mo-guinn-a-h2	guinn	ACF #108	W	D	D	38	19	unavailable: PDNs not committed	unavailable: PDNs not committed	76
+mo-guinn-a-h2	guinn	ACF #113	W	D	D	46	23	unavailable: PDNs not committed	unavailable: PDNs not committed	81
+mo-guinn-a-h2	guinn	ACF #117	B	D	D	51	26	unavailable: PDNs not committed	unavailable: PDNs not committed	64
+mo-guinn-a-h2	guinn	ACF #116	B	D	D	49	25	unavailable: PDNs not committed	unavailable: PDNs not committed	76
+mo-guinn-a-h2	guinn	ACF #115	B	D	D	47	24	unavailable: PDNs not committed	unavailable: PDNs not committed	58
+mo-guinn-a-h2	guinn	ACF #119	B	D	D	55	28	unavailable: PDNs not committed	unavailable: PDNs not committed	68
+mo-guinn-a-h2	guinn	ACF #93	W	D	D	10	5	unavailable: PDNs not committed	unavailable: PDNs not committed	190
+mo-guinn-a-h2	guinn	ACF #118	B	D	D	53	27	unavailable: PDNs not committed	unavailable: PDNs not committed	68
+mo-guinn-a-h2	guinn	ACF #115	W	D	D	48	24	unavailable: PDNs not committed	unavailable: PDNs not committed	67
+mo-guinn-a-h2	guinn	ACF #119	W	D	D	56	28	unavailable: PDNs not committed	unavailable: PDNs not committed	83
+mo-guinn-a-h2	guinn	ACF #120	B	D	D	57	29	unavailable: PDNs not committed	unavailable: PDNs not committed	64
+mo-guinn-a-h2	guinn	ACF #118	W	D	D	54	27	unavailable: PDNs not committed	unavailable: PDNs not committed	80
+mo-guinn-a-h2	guinn	ACF #122	B	D	D	61	31	unavailable: PDNs not committed	unavailable: PDNs not committed	73
+mo-guinn-a-h2	guinn	ACF #116	W	D	D	50	25	unavailable: PDNs not committed	unavailable: PDNs not committed	81
+mo-guinn-a-h2	guinn	ACF #123	B	D	D	63	32	unavailable: PDNs not committed	unavailable: PDNs not committed	78
+mo-guinn-a-h2	guinn	ACF #96 Skull-Cracker	W	W	D	14	7	unavailable: PDNs not committed	unavailable: PDNs not committed	219
+mo-guinn-a-h2	guinn	ACF #123	W	D	D	64	32	unavailable: PDNs not committed	unavailable: PDNs not committed	79
+mo-guinn-a-h2	guinn	ACF #120	W	D	D	58	29	unavailable: PDNs not committed	unavailable: PDNs not committed	80
+mo-guinn-a-h2	guinn	ACF #124	B	D	D	65	33	unavailable: PDNs not committed	unavailable: PDNs not committed	104
+mo-guinn-a-h2	guinn	ACF #122	W	D	D	62	31	unavailable: PDNs not committed	unavailable: PDNs not committed	77
+mo-guinn-a-h2	guinn	ACF #117	W	W	D	52	26	unavailable: PDNs not committed	unavailable: PDNs not committed	137
+mo-guinn-a-h2	guinn	ACF #125	B	D	D	67	34	unavailable: PDNs not committed	unavailable: PDNs not committed	109
+mo-guinn-a-h2	guinn	ACF #127	B	D	D	71	36	unavailable: PDNs not committed	unavailable: PDNs not committed	76
+mo-guinn-a-h2	guinn	ACF #126	B	D	D	69	35	unavailable: PDNs not committed	unavailable: PDNs not committed	86
+mo-guinn-a-h2	guinn	ACF #128	B	D	D	73	37	unavailable: PDNs not committed	unavailable: PDNs not committed	72
+mo-guinn-a-h2	guinn	ACF #125	W	D	D	68	34	unavailable: PDNs not committed	unavailable: PDNs not committed	84
+mo-guinn-a-h2	guinn	ACF #129	B	D	D	75	38	unavailable: PDNs not committed	unavailable: PDNs not committed	98
+mo-guinn-a-h2	guinn	ACF #112	B	W	D	43	22	unavailable: PDNs not committed	unavailable: PDNs not committed	198
+mo-guinn-a-h2	guinn	ACF #129	W	D	D	76	38	unavailable: PDNs not committed	unavailable: PDNs not committed	83
+mo-guinn-a-h2	guinn	ACF #127	W	D	D	72	36	unavailable: PDNs not committed	unavailable: PDNs not committed	69
+mo-guinn-a-h2	guinn	ACF #130	B	D	D	77	39	unavailable: PDNs not committed	unavailable: PDNs not committed	80
+mo-guinn-a-h2	guinn	ACF #124	W	D	D	66	33	unavailable: PDNs not committed	unavailable: PDNs not committed	73
+mo-guinn-a-h2	guinn	ACF #121	B	W	D	59	30	unavailable: PDNs not committed	unavailable: PDNs not committed	142
+mo-guinn-a-h2	guinn	ACF #128	W	D	D	74	37	unavailable: PDNs not committed	unavailable: PDNs not committed	67
+mo-guinn-a-h2	guinn	ACF #132	B	D	D	81	41	unavailable: PDNs not committed	unavailable: PDNs not committed	77
+mo-guinn-a-h2	guinn	ACF #130	W	D	D	78	39	unavailable: PDNs not committed	unavailable: PDNs not committed	71
+mo-guinn-a-h2	guinn	ACF #126	W	D	D	70	35	unavailable: PDNs not committed	unavailable: PDNs not committed	101
+mo-guinn-a-h2	guinn	ACF #121	W	D	D	60	30	unavailable: PDNs not committed	unavailable: PDNs not committed	76
+mo-guinn-a-h2	guinn	ACF #112	W	D	D	44	22	unavailable: PDNs not committed	unavailable: PDNs not committed	67
+mo-guinn-a-h2	guinn	ACF #131	B	D	D	79	40	unavailable: PDNs not committed	unavailable: PDNs not committed	82
+mo-guinn-a-h2	guinn	ACF #133 Octopus	B	D	D	83	42	unavailable: PDNs not committed	unavailable: PDNs not committed	88
+mo-guinn-a-h2	guinn	ACF #134	B	D	D	85	43	unavailable: PDNs not committed	unavailable: PDNs not committed	74
+mo-guinn-a-h2	guinn	ACF #136	B	D	D	89	45	unavailable: PDNs not committed	unavailable: PDNs not committed	83
+mo-guinn-a-h2	guinn	ACF #135	B	D	D	87	44	unavailable: PDNs not committed	unavailable: PDNs not committed	92
+mo-guinn-a-h2	guinn	ACF #132	W	D	D	82	41	unavailable: PDNs not committed	unavailable: PDNs not committed	75
+mo-guinn-a-h2	guinn	ACF #135	W	D	D	88	44	unavailable: PDNs not committed	unavailable: PDNs not committed	66
+mo-guinn-a-h2	guinn	ACF #139	B	D	D	93	47	unavailable: PDNs not committed	unavailable: PDNs not committed	86
+mo-guinn-a-h2	guinn	ACF #134	W	D	D	86	43	unavailable: PDNs not committed	unavailable: PDNs not committed	77
+mo-guinn-a-h2	guinn	ACF #136	W	D	D	90	45	unavailable: PDNs not committed	unavailable: PDNs not committed	71
+mo-guinn-a-h2	guinn	ACF #138	B	D	D	91	46	unavailable: PDNs not committed	unavailable: PDNs not committed	74
+mo-guinn-a-h2	guinn	ACF #140	B	D	D	95	48	unavailable: PDNs not committed	unavailable: PDNs not committed	60
+mo-guinn-a-h2	guinn	ACF #139	W	D	D	94	47	unavailable: PDNs not committed	unavailable: PDNs not committed	71
+mo-guinn-a-h2	guinn	ACF #142	B	D	D	99	50	unavailable: PDNs not committed	unavailable: PDNs not committed	80
+mo-guinn-a-h2	guinn	ACF #131	W	D	W	80	40	unavailable: PDNs not committed	unavailable: PDNs not committed	78
+mo-guinn-a-h2	guinn	ACF #141	B	D	D	97	49	unavailable: PDNs not committed	unavailable: PDNs not committed	92
+mo-guinn-a-h2	guinn	ACF #143	B	D	D	101	51	unavailable: PDNs not committed	unavailable: PDNs not committed	70
+mo-guinn-a-h2	guinn	ACF #144	B	D	D	103	52	unavailable: PDNs not committed	unavailable: PDNs not committed	117
+mo-guinn-a-h2	guinn	ACF #146	B	D	D	105	53	unavailable: PDNs not committed	unavailable: PDNs not committed	64
+mo-guinn-a-h2	guinn	ACF #142	W	D	D	100	50	unavailable: PDNs not committed	unavailable: PDNs not committed	68
+mo-guinn-a-h2	guinn	ACF #143	W	D	D	102	51	unavailable: PDNs not committed	unavailable: PDNs not committed	59
+mo-guinn-a-h2	guinn	ACF #147	B	D	D	107	54	unavailable: PDNs not committed	unavailable: PDNs not committed	64
+mo-guinn-a-h2	guinn	ACF #138	W	D	D	92	46	unavailable: PDNs not committed	unavailable: PDNs not committed	75
+mo-guinn-a-h2	guinn	ACF #149	B	D	D	111	56	unavailable: PDNs not committed	unavailable: PDNs not committed	66
+mo-guinn-a-h2	guinn	ACF #148	B	D	D	109	55	unavailable: PDNs not committed	unavailable: PDNs not committed	82
+mo-guinn-a-h2	guinn	ACF #147	W	D	D	108	54	unavailable: PDNs not committed	unavailable: PDNs not committed	91
+mo-guinn-a-h2	guinn	ACF #150	B	D	D	113	57	unavailable: PDNs not committed	unavailable: PDNs not committed	43
+mo-guinn-a-h2	guinn	ACF #149	W	D	D	112	56	unavailable: PDNs not committed	unavailable: PDNs not committed	55
+mo-guinn-a-h2	guinn	ACF #140	W	W	W	96	48	unavailable: PDNs not committed	unavailable: PDNs not committed	149
+mo-guinn-a-h2	guinn	ACF #148	W	D	D	110	55	unavailable: PDNs not committed	unavailable: PDNs not committed	81
+mo-guinn-a-h2	guinn	ACF #150	W	D	D	114	57	unavailable: PDNs not committed	unavailable: PDNs not committed	84
+mo-guinn-a-h2	guinn	ACF #151	B	D	D	115	58	unavailable: PDNs not committed	unavailable: PDNs not committed	116
+mo-guinn-a-h2	guinn	ACF #152	B	D	D	117	59	unavailable: PDNs not committed	unavailable: PDNs not committed	82
+mo-guinn-a-h2	guinn	ACF #154	B	D	D	121	61	unavailable: PDNs not committed	unavailable: PDNs not committed	112
+mo-guinn-a-h2	guinn	ACF #152	W	D	D	118	59	unavailable: PDNs not committed	unavailable: PDNs not committed	74
+mo-guinn-a-h2	guinn	ACF #144	W	D	D	104	52	unavailable: PDNs not committed	unavailable: PDNs not committed	117
+mo-guinn-a-h2	guinn	ACF #153 Black Widow	B	W	D	119	60	unavailable: PDNs not committed	unavailable: PDNs not committed	124
+mo-guinn-a-h2	guinn	ACF #155	B	D	D	123	62	unavailable: PDNs not committed	unavailable: PDNs not committed	83
+mo-guinn-a-h2	guinn	ACF #141	W	D	W	98	49	unavailable: PDNs not committed	unavailable: PDNs not committed	134
+mo-guinn-a-h2	guinn	ACF #133 Octopus	W	W	D	84	42	unavailable: PDNs not committed	unavailable: PDNs not committed	233
+mo-guinn-a-h2	guinn	ACF #154	W	D	D	122	61	unavailable: PDNs not committed	unavailable: PDNs not committed	88
+mo-guinn-a-h2	guinn	ACF #155	W	D	D	124	62	unavailable: PDNs not committed	unavailable: PDNs not committed	77
+mo-guinn-a-h2	guinn	ACF #160	B	D	D	131	66	unavailable: PDNs not committed	unavailable: PDNs not committed	98
+mo-guinn-a-h2	guinn	ACF #158	B	D	D	127	64	unavailable: PDNs not committed	unavailable: PDNs not committed	72
+mo-guinn-a-h2	guinn	ACF #159	B	D	D	129	65	unavailable: PDNs not committed	unavailable: PDNs not committed	60
+mo-guinn-a-h2	guinn	ACF #157	B	D	D	125	63	unavailable: PDNs not committed	unavailable: PDNs not committed	86
+mo-guinn-a-h2	guinn	ACF #160	W	D	D	132	66	unavailable: PDNs not committed	unavailable: PDNs not committed	63
+mo-guinn-a-h2	guinn	ACF #159	W	D	D	130	65	unavailable: PDNs not committed	unavailable: PDNs not committed	77
+mo-guinn-a-h2	guinn	ACF #146	W	W	W	106	53	unavailable: PDNs not committed	unavailable: PDNs not committed	203
+mo-guinn-a-h2	guinn	ACF #151	W	D	D	116	58	unavailable: PDNs not committed	unavailable: PDNs not committed	115
+mo-guinn-a-h2	guinn	ACF #157	W	D	D	126	63	unavailable: PDNs not committed	unavailable: PDNs not committed	63
+mo-guinn-a-h2	guinn	ACF #158	W	D	D	128	64	unavailable: PDNs not committed	unavailable: PDNs not committed	65
+mo-guinn-a-h2	guinn	ACF #161	B	D	D	133	67	unavailable: PDNs not committed	unavailable: PDNs not committed	96
+mo-guinn-a-h2	guinn	ACF #153 Black Widow	W	D	D	120	60	unavailable: PDNs not committed	unavailable: PDNs not committed	90
+mo-guinn-a-h2	guinn	ACF #162	B	D	D	135	68	unavailable: PDNs not committed	unavailable: PDNs not committed	102
+mo-guinn-a-h2	guinn	ACF #165	B	D	D	141	71	unavailable: PDNs not committed	unavailable: PDNs not committed	80
+mo-guinn-a-h2	guinn	ACF #164	B	D	D	139	70	unavailable: PDNs not committed	unavailable: PDNs not committed	62
+mo-guinn-a-h2	guinn	ACF #169	B	D	D	147	74	unavailable: PDNs not committed	unavailable: PDNs not committed	99
+mo-guinn-a-h2	guinn	ACF #163	B	D	D	137	69	unavailable: PDNs not committed	unavailable: PDNs not committed	96
+mo-guinn-a-h2	guinn	ACF #169	W	D	D	148	74	unavailable: PDNs not committed	unavailable: PDNs not committed	79
+mo-guinn-a-h2	guinn	ACF #165	W	D	D	142	71	unavailable: PDNs not committed	unavailable: PDNs not committed	73
+mo-guinn-a-h2	guinn	ACF #164	W	D	D	140	70	unavailable: PDNs not committed	unavailable: PDNs not committed	75
+mo-guinn-a-h2	guinn	ACF #161	W	D	D	134	67	unavailable: PDNs not committed	unavailable: PDNs not committed	75
+mo-guinn-a-h2	guinn	ACF #162	W	D	D	136	68	unavailable: PDNs not committed	unavailable: PDNs not committed	65
+mo-guinn-a-h2	guinn	ACF #173	B	D	D	153	77	unavailable: PDNs not committed	unavailable: PDNs not committed	117
+mo-guinn-a-h2	guinn	ACF #166	B	D	D	143	72	unavailable: PDNs not committed	unavailable: PDNs not committed	123
+mo-guinn-a-h2	guinn	ACF #172	B	D	D	151	76	unavailable: PDNs not committed	unavailable: PDNs not committed	89
+mo-guinn-a-h2	guinn	ACF #174 Skunk	B	D	D	155	78	unavailable: PDNs not committed	unavailable: PDNs not committed	101
+mo-guinn-a-h2	guinn	ACF #166	W	D	D	144	72	unavailable: PDNs not committed	unavailable: PDNs not committed	63
+mo-guinn-a-h2	guinn	ACF #170	B	D	D	149	75	unavailable: PDNs not committed	unavailable: PDNs not committed	84
+mo-guinn-a-h2	guinn	ACF #163	W	D	D	138	69	unavailable: PDNs not committed	unavailable: PDNs not committed	76
+mo-guinn-a-h2	guinn	ACF #172	W	D	D	152	76	unavailable: PDNs not committed	unavailable: PDNs not committed	71
+mo-guinn-a-h2	guinn	ACF #170	W	D	D	150	75	unavailable: PDNs not committed	unavailable: PDNs not committed	67
+mo-guinn-a-h2	guinn	ACF #174 Skunk	W	W	W	156	78	unavailable: PDNs not committed	unavailable: PDNs not committed	121
+mo-guinn-a-h2	guinn	ACF #167	B	W	D	145	73	unavailable: PDNs not committed	unavailable: PDNs not committed	172
+mo-guinn-a-h2	guinn	ACF #167	W	D	D	146	73	unavailable: PDNs not committed	unavailable: PDNs not committed	71
+mo-guinn-a-h2	guinn	ACF #173	W	D	D	154	77	unavailable: PDNs not committed	unavailable: PDNs not committed	257
 mo-kingsrow-a-h1	kingsrow	ACF #8 Edinburgh Single	B	D	D	13	7	unavailable: PDNs not committed	unavailable: PDNs not committed	243
 mo-kingsrow-a-h1	kingsrow	ACF #8 Edinburgh Single	W	D	D	14	7	unavailable: PDNs not committed	unavailable: PDNs not committed	141
 mo-kingsrow-a-h1	kingsrow	ACF #7	B	D	D	11	6	unavailable: PDNs not committed	unavailable: PDNs not committed	193

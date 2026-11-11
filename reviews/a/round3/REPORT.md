@@ -4,13 +4,13 @@
 
 No scheduling defect was found in PR #73 at master **1c6e99715299a5fbbbd407b1b9361e3c299e91e6**. The proposed asymmetric-restart regression below passes master and fails a mutation restoring the shared-counter reset.
 
-The move map covers the available committed records at Book Lab **33e89103ce91773eacf7fc6bce001be02f043e2b**: **4,824 games, 543,888 legally replayed plies, 936 opening/colour/opponent contexts, and 68,905 shared-prefix positions**. Complete tables accompany the report as text files, each below 1 MB.
+The move map covers the available committed records at Book Lab **0d742efe9b6f27c1d044f4ae5f09f9c5e9b3a91f**: **4,824 games, 543,888 legally replayed plies, 936 opening/colour/opponent contexts, and 68,905 shared-prefix positions**. Complete tables accompany the report as text files, each below 1 MB.
 
 Within a recorded configuration, Regicide's searched choices differ at **six prefix decisions**: nine disagreeing game pairs out of 17,083 comparable searched-move pairs. Its zero-node choices never differ: **0 of 40,540 pairs**. Opponents differ in **1,883 of 58,649 comparable pairs**. These are conditional pair-exposure counts, not independent games or future error probabilities.
 
 Three KingsRow branches have both move variation and different results within a configuration: Regicide White on **#16 at ply 41, #43 at ply 23, and #71 at ply 21**. The complete mining list has 39 positions; the other 36 require a fixed-configuration check because their outcome contrast is supported only by pooled configurations.
 
-The match-order CSV recount is KingsRow a 0/312/0, KingsRow b 1/311/0, Cake a 0/312/0, and the available Cake b half 0/156/0. The decisive new record is **#16 White, mo-kingsrow-b-h1, game 28**. However, neither the tagged E2 PDNs nor the matching old/new match-order PDNs are committed. Process-age association and the first different move are therefore unavailable, not zero.
+The completed match-order CSV recount is KingsRow a 0/312/0, KingsRow b 1/311/0, Cake a and b both 0/312/0, and GuiNN a 27/285/0. The KingsRow win is **#16 White, mo-kingsrow-b-h1, game 28**. However, neither the tagged E2 PDNs nor the matching old/new match-order PDNs are committed. Process-age association and the first different move are therefore unavailable, not zero.
 
 ## Definitions that affect interpretation
 
@@ -391,16 +391,59 @@ These counts come from individual committed CSV rows, with unique game and pair/
 | mo-cake-a-h1 | 156 | 0 | 156 | 0 |
 | mo-cake-a-h2 | 156 | 0 | 156 | 0 |
 | mo-cake-b-h1 | 156 | 0 | 156 | 0 |
+| mo-cake-b-h2 | 156 | 0 | 156 | 0 |
+| mo-guinn-a-h1 | 156 | 17 | 139 | 0 |
+| mo-guinn-a-h2 | 156 | 10 | 146 | 0 |
 | mo-kingsrow-a-h1 | 156 | 0 | 156 | 0 |
 | mo-kingsrow-a-h2 | 156 | 0 | 156 | 0 |
 | mo-kingsrow-b-h1 | 156 | 1 | 155 | 0 |
 | mo-kingsrow-b-h2 | 156 | 0 | 156 | 0 |
 
-There are 1,092 committed rows: one win, 1,091 draws and no losses. KingsRow has both full repeats; Cake a is complete, but Cake b has only h1. There is no committed completed GuiNN match-order result file here. Seven half-runs must not be labelled a completed three-opponent validation.
+The final push contains all ten match-order half-runs: **1,560 unique game rows, 28 wins, 1,532 draws, no losses**. All half-runs have 156 rows, and every opening/colour appears exactly once per full repeat. The new counts independently agree with the committed mo_report.md headline.
 
-The win is **mo-kingsrow-b-h1, game 28, pair 14, #16 Wilderness II, Regicide White**, 217 engine plies after the ballot, no legal moves. The opening was mapped through the 156 unique half-file/row-to-ballot mappings in older PDN Opening tags; there were no conflicting mappings.
+The KingsRow win is **mo-kingsrow-b-h1, game 28, pair 14, #16 Wilderness II, Regicide White**, 217 engine plies after the ballot, no legal moves. The opening was mapped through the 156 unique half-file/row-to-ballot mappings in older PDN Opening tags; there were no conflicting mappings.
 
-The earlier same-book/same-net comparison is r11d/n8q. Committed RESULTS.md and wp11d/v11d_n8q_report.md report 0/312/0 for each KingsRow and Cake repeat. Against that **reported** all-draw baseline, #16 White is the one result change in the available new rows. This is not an independently recounted old/new game join: the old r11d/n8q raw PDNs and CSVs are absent from these committed locations.
+The earlier same-book/same-net comparison is r11d/n8q. Committed wp11d/v11d_n8q_report.md reports KingsRow and Cake 0/312/0 in both repeats, and GuiNN 20/292/0. The newly committed mo/order_compare.md supplies the changed opening/colour outcomes. I joined those reported old outcomes to the independently recounted new CSV keys and checked their new side against the CSVs. This yields **30 changed contexts: 29 GuiNN and one KingsRow**, with no Cake change. GuiNN has 18 draw-to-win and 11 win-to-draw changes (18 - 11 = +7 wins); the other nine old GuiNN wins stay wins. The KingsRow change is #16 White in repeat b.
+
+This remains a **reported-old versus independently-recounted-new** comparison, not a raw old/new replay: old r11d/n8q PDNs/CSVs are absent. For GuiNN contexts not listed as changed in the comparison report, the table carries its reported unchanged result; it does not invent a separately read old game. Reconstructed old/new totals reconcile to 20/292/0 and 27/285/0. The first-divergence fields are unavailable for all 1,560 rows.
+
+The following table names every changed context. Old outcomes come from the comparison report; new outcomes were checked against CSV.
+
+| Opponent | Opening | Our colour | Reported old | Recounted new | New run / game |
+|---|---|---|---|---|---|
+| guinn | ACF #6 Inferno | W | W | D | mo-guinn-a-h1 / 10 |
+| guinn | ACF #9 Wilderness I | W | W | D | mo-guinn-a-h1 / 16 |
+| guinn | ACF #5 Dreaded Edinburgh | W | D | W | mo-guinn-a-h1 / 8 |
+| guinn | ACF #24 | W | W | D | mo-guinn-a-h1 / 44 |
+| guinn | ACF #16 Wilderness II | W | D | W | mo-guinn-a-h1 / 28 |
+| guinn | ACF #10 | W | D | W | mo-guinn-a-h1 / 18 |
+| guinn | ACF #31 | W | D | W | mo-guinn-a-h1 / 56 |
+| guinn | ACF #23 | W | D | W | mo-guinn-a-h1 / 42 |
+| guinn | ACF #65 Fraser's Inferno | W | W | D | mo-guinn-a-h1 / 114 |
+| guinn | ACF #55 | W | D | W | mo-guinn-a-h1 / 94 |
+| guinn | ACF #64 | W | D | W | mo-guinn-a-h1 / 112 |
+| guinn | ACF #74 | W | W | D | mo-guinn-a-h1 / 132 |
+| guinn | ACF #60 Black Hole | W | D | W | mo-guinn-a-h1 / 104 |
+| guinn | ACF #71 Diabolical Denny | W | D | W | mo-guinn-a-h1 / 126 |
+| guinn | ACF #75 | W | D | W | mo-guinn-a-h1 / 134 |
+| guinn | ACF #87 Tyne | W | D | W | mo-guinn-a-h1 / 156 |
+| guinn | ACF #92 | B | W | D | mo-guinn-a-h2 / 7 |
+| guinn | ACF #90 | W | W | D | mo-guinn-a-h2 / 4 |
+| guinn | ACF #92 | W | W | D | mo-guinn-a-h2 / 8 |
+| guinn | ACF #101 | W | W | D | mo-guinn-a-h2 / 24 |
+| guinn | ACF #96 Skull-Cracker | W | D | W | mo-guinn-a-h2 / 14 |
+| guinn | ACF #117 | W | D | W | mo-guinn-a-h2 / 52 |
+| guinn | ACF #112 | B | D | W | mo-guinn-a-h2 / 43 |
+| guinn | ACF #121 | B | D | W | mo-guinn-a-h2 / 59 |
+| guinn | ACF #131 | W | W | D | mo-guinn-a-h2 / 80 |
+| guinn | ACF #153 Black Widow | B | D | W | mo-guinn-a-h2 / 119 |
+| guinn | ACF #141 | W | W | D | mo-guinn-a-h2 / 98 |
+| guinn | ACF #133 Octopus | W | D | W | mo-guinn-a-h2 / 84 |
+| guinn | ACF #167 | B | D | W | mo-guinn-a-h2 / 145 |
+| kingsrow | ACF #16 Wilderness II | W | D | W | mo-kingsrow-b-h1 / 28 |
+
+
+[match-order-result-changes.tsv](tables/match-order-result-changes.tsv) gives the same changed-context rows. The committed mo_report.md identifies KingsRow's ply-41 9-14 versus 32-28 in drawn games for the new #16 win. That is a reported first differing **opponent move against the drawn-game pool**, not an independently verified first difference between matched old/new games; it is not substituted for the requested comparison.
 
 The available earlier r11d PDNs use n6c. They were not substituted for n8q. [match-order-game-comparison.tsv](tables/match-order-game-comparison.tsv) lists every new row and labels the old result as reported. First differing ply and mover remain explicitly unavailable because the matching old/new PDNs are absent. They were not guessed from game length or a summary.
 
@@ -441,4 +484,4 @@ No search or real-engine match was used for the map. Runner tests used only scri
 
 Only this report and its text tables, each under 1 MB, are intended for the shared reports branch. Source extracts, scripts, binaries, fixtures and databases remain local.
 
-Source paths in the tables are relative to [experiments/booklab at the reviewed commit](https://github.com/AdminGodZ/Regicide/tree/33e89103ce91773eacf7fc6bce001be02f043e2b/experiments/booklab).
+Source paths are relative to [experiments/booklab at the final reviewed commit](https://github.com/AdminGodZ/Regicide/tree/0d742efe9b6f27c1d044f4ae5f09f9c5e9b3a91f/experiments/booklab). The move-record corpus is unchanged by this final result-only push.
