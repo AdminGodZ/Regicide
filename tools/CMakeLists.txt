@@ -74,6 +74,7 @@ if(NOT WIN32)
   add_test(NAME match_pdn_status_braces COMMAND runner_test braces $<TARGET_FILE:match>)
   add_test(NAME match_fresh_engines COMMAND runner_test fresh $<TARGET_FILE:match>)
   add_test(NAME match_pairs_together COMMAND runner_test pairs $<TARGET_FILE:match>)
+  add_test(NAME match_engine_restart_counters COMMAND runner_test restart $<TARGET_FILE:match>)
   add_test(NAME match_interrupted_game COMMAND runner_test interrupt $<TARGET_FILE:match>)
 
   # bookgen, run as a process on a prepared book (needs the engine library: not in the standalone tools build).
