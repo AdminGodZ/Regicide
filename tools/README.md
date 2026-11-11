@@ -64,8 +64,12 @@ the important ones:
 - Adjudication: no legal moves loses; threefold repetition draws; `--no-progress 40` draws
   after 40 moves by one side and 39 by the other with no capture or man move (CheckerBoard's
   rule); `--max-plies 1000`. Engine result claims are ignored unless `--accept-draw-claims`
-  (CheckerBoard ends engine-match games on a draw claim). `Adjudicator` in `match/main.cpp`
-  is the hook for endgame-database adjudication.
+  (CheckerBoard ends engine-match games on a draw claim) or `--cb-claims` (CheckerBoard with
+  its default early adjudication: a draw, win or loss claim ends the game after its move);
+  they are always recorded (PDN tags `FirstClaim`, `ClaimsA`, `ClaimsB`, results.csv
+  `first_claim`). `--cb-move-limit N` ends a game still running after N engine moves with
+  result `*`, not scored (CheckerBoard: 200 with early adjudication). `Adjudicator` in
+  `match/main.cpp` is the hook for endgame-database adjudication.
 - Robustness: every move is validated by the referee (identified by from/to/captured set,
   so multi-jump paths are never ambiguous). Illegal moves lose. An engine that does not answer
   gets `stop` after `--stop-factor` x maxtime + `--grace` (fixed time) or its remaining clock

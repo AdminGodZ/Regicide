@@ -10,6 +10,12 @@
 //                                 other by the same worker
 //   runner_test restart MATCH     when one engine dies and is restarted, only its own game counter (EngineGamesA or
 //                                 EngineGamesB) starts again from 0
+//   runner_test claims MATCH      an engine's draw, win and loss claims are recorded (PDN tags, results.csv, move
+//                                 comments) and change nothing without --cb-claims
+//   runner_test cbclaims MATCH    with --cb-claims a draw, win or loss claim ends the game after its move with that
+//                                 result, for either colour
+//   runner_test movelimit MATCH   --cb-move-limit ends a game with result * that is not scored; its pair is not
+//                                 counted
 //   runner_test interrupt MATCH   an interrupt of the whole process group (Ctrl-C in a terminal) ends the engines
 //                                 too; the game they were playing is left out of the results, not scored as a loss
 //                                 by "crash". MATCH is the match executable; the engines are this executable run
@@ -25,8 +31,10 @@
 #include <iostream>
 #include <iterator>
 #include <map>
+#include <sstream>
 #include <string>
 #include <thread>
+#include <vector>
 
 #include "openings.hpp"
 
@@ -126,6 +134,37 @@ int fake_dies() {
         } else if (line.rfind("go ", 0) == 0) {
             if (newgames == 3) return 0;
             std::cout << "bestmove " << (moved ? "22-18" : "11-15") << " result unknown time 0\n" << std::flush;
+        }
+    }
+    return 0;
+}
+
+// The scripted engine for the claim tests, on the opening B:WK32:BK1: Black's king plays 1-5 and 5-1 in turn, White's
+// 32-28 and 28-32 (a threefold repetition after 8 plies). From ply FROM of the game on (the ply of the move it
+// makes, 1-based) it returns CLAIM with its move, before that "unknown". The warm-up search plays 11-15.
+int fake_claims(const std::string& claim, int from) {
+    std::cout << "id name claims fixture\nready\n" << std::flush;
+    int played = 0;  // moves of the game before the search
+    bool warmup = false;
+    std::string line;
+    while (std::getline(std::cin, line)) {
+        if (line == "quit") break;
+        if (line == "newgame") std::cout << "ok\n" << std::flush;
+        else if (line.rfind("position ", 0) == 0) {
+            warmup = line == "position startpos";
+            played = 0;
+            if (const auto at = line.find(" moves "); at != std::string::npos) {
+                std::istringstream moves(line.substr(at + 7));
+                for (std::string m; moves >> m;) ++played;
+            }
+            std::cout << "ok\n" << std::flush;
+        } else if (line.rfind("go ", 0) == 0) {
+            const char* move = warmup            ? "11-15"
+                               : played % 2 == 0 ? (played / 2 % 2 == 0 ? "1-5" : "5-1")
+                                                 : ((played - 1) / 2 % 2 == 0 ? "32-28" : "28-32");
+            std::cout << "bestmove " << move << " result " << (!warmup && played + 1 >= from ? claim : "unknown")
+                      << " time 0\n"
+                      << std::flush;
         }
     }
     return 0;
@@ -249,6 +288,145 @@ int restart(const char* self, const char* match_exe) {
     return ok ? 0 : 1;
 }
 
+// One pair on B:WK32:BK1 with -c 1: engine A (named A) returns CLAIM from ply FROM on, engine B never claims.
+struct ClaimRun {
+    int status = -1;
+    std::vector<std::map<std::string, std::string>> games;  // by game in the order played: PDN tags, and "moves"
+    std::string csv, summary;
+};
+
+ClaimRun claim_run(const char* self, const char* match_exe, const std::string& claim, int from,
+                   const std::string& options) {
+    const fs::path dir = scratch(("claims-" + claim).c_str());
+    std::ofstream(dir / "opening.txt") << "B:WK32:BK1\n";
+    const std::string a = "exec:\"" + std::string(self) + "\" --fake-claims " + claim + " " + std::to_string(from);
+    const std::string b = "exec:\"" + std::string(self) + "\" --fake-claims unknown 1";
+    const std::string command = "\"" + std::string(match_exe) + "\" -a '" + a + "' -b '" + b +
+                                "' --name-a A --name-b B --openings \"" + (dir / "opening.txt").string() + "\" -c 1 " +
+                                options + " -o \"" + (dir / "out").string() + "\" > /dev/null 2>&1";
+    ClaimRun run;
+    run.status = std::system(command.c_str());
+    std::ifstream in(dir / "out" / "games.pdn");
+    for (std::string line; std::getline(in, line);) {
+        if (line.rfind("[Event ", 0) == 0) run.games.emplace_back();
+        if (run.games.empty() || line.empty()) continue;
+        if (line[0] == '[') {
+            const auto space = line.find(' '), first = line.find('"'), last = line.rfind('"');
+            run.games.back()[line.substr(1, space - 1)] = line.substr(first + 1, last - first - 1);
+        } else {
+            run.games.back()["moves"] += line + " ";
+        }
+    }
+    auto read = [&](const char* name) {
+        std::ifstream f(dir / "out" / name);
+        return std::string((std::istreambuf_iterator<char>(f)), {});
+    };
+    run.csv = read("results.csv");
+    run.summary = read("summary.txt");
+    fs::remove_all(dir);
+    return run;
+}
+
+// A game's result, termination and claim tags in one line, for comparisons and failure messages.
+std::string outcome(std::map<std::string, std::string>& g) {
+    return g["Result"] + " | " + g["Termination"] + " | " + g["FirstClaim"] + " | " + g["ClaimsA"] + " | " +
+           g["ClaimsB"];
+}
+
+int count(const std::string& text, const std::string& what) {
+    int n = 0;
+    for (std::size_t at = 0; (at = text.find(what, at)) != std::string::npos; at += what.size()) ++n;
+    return n;
+}
+
+// Without --cb-claims every claim is recorded and both games end in the repetition after 8 plies. A claims from ply 3
+// on: as Black at plies 3, 5, 7, as White at plies 4, 6, 8.
+int claims(const char* self, const char* match_exe) {
+    bool ok = true;
+    for (const std::string claim : {"draw", "win", "loss"}) {
+        ClaimRun run = claim_run(self, match_exe, claim, 3, "--pdn-comments");
+        const std::string counts = claim == "win" ? "w3 l0 d0" : claim == "loss" ? "w0 l3 d0" : "w0 l0 d3";
+        const std::string want[2] = {"1/2-1/2 | threefold repetition | ply 3 B " + claim + " | " + counts + " | w0 l0 d0",
+                                     "1/2-1/2 | threefold repetition | ply 4 W " + claim + " | " + counts + " | w0 l0 d0"};
+        bool good = run.status == 0 && run.games.size() == 2 &&
+                    run.csv.find(",first_claim\n") != std::string::npos &&
+                    run.csv.find(",8,\"ply 3 B " + claim + "\"\n") != std::string::npos &&
+                    run.csv.find(",8,\"ply 4 W " + claim + "\"\n") != std::string::npos;
+        for (std::size_t i = 0; i < run.games.size() && i < 2; ++i) {
+            const bool same = outcome(run.games[i]) == want[i] && count(run.games[i]["moves"], "claim=" + claim) == 3;
+            if (!same)
+                std::cerr << "FAIL: " << claim << " game " << i + 1 << ": " << outcome(run.games[i]) << ", "
+                          << count(run.games[i]["moves"], "claim=" + claim) << " move comments\n      expected: "
+                          << want[i] << ", 3 move comments\n";
+            good = good && same;
+        }
+        if (!good) std::cerr << "FAIL: " << claim << ": status " << run.status << ", results.csv:\n" << run.csv;
+        ok = ok && good;
+    }
+    return ok ? 0 : 1;
+}
+
+// With --cb-claims A's claim from ply 3 on ends each game after A's first move from there: as Black at ply 3, as White
+// at ply 4.
+int cbclaims(const char* self, const char* match_exe) {
+    bool ok = true;
+    for (const std::string claim : {"draw", "win", "loss"}) {
+        ClaimRun run = claim_run(self, match_exe, claim, 3, "--cb-claims");
+        const std::string ends = claim == "draw" ? "draw claimed by A" : claim == "win" ? "win claimed by A"
+                                                                                        : "loss conceded by A";
+        const std::string as_black = claim == "draw" ? "1/2-1/2" : claim == "win" ? "1-0" : "0-1";
+        const std::string as_white = claim == "draw" ? "1/2-1/2" : claim == "win" ? "0-1" : "1-0";
+        const std::string counts = claim == "win" ? "w1 l0 d0" : claim == "loss" ? "w0 l1 d0" : "w0 l0 d1";
+        const std::string want[2] = {as_black + " | " + ends + " | ply 3 B " + claim + " | " + counts + " | w0 l0 d0",
+                                     as_white + " | " + ends + " | ply 4 W " + claim + " | " + counts + " | w0 l0 d0"};
+        const std::string score = claim == "draw" ? "A: +0 =2 -0" : claim == "win" ? "A: +2 =0 -0" : "A: +0 =0 -2";
+        bool good = run.status == 0 && run.games.size() == 2 && run.summary.find(score) != std::string::npos &&
+                    run.csv.find(",3,\"ply 3 B") != std::string::npos && run.csv.find(",4,\"ply 4 W") != std::string::npos;
+        for (std::size_t i = 0; i < run.games.size() && i < 2; ++i) {
+            if (outcome(run.games[i]) != want[i]) {
+                std::cerr << "FAIL: " << claim << " game " << i + 1 << ": " << outcome(run.games[i])
+                          << "\n      expected: " << want[i] << '\n';
+                good = false;
+            }
+        }
+        if (!good) std::cerr << "FAIL: " << claim << ": status " << run.status << ", results.csv:\n" << run.csv << run.summary;
+        ok = ok && good;
+    }
+    return ok ? 0 : 1;
+}
+
+// --cb-move-limit 3: a game is stopped before its fifth engine move with result *, written out but not scored. In the
+// second run A claims a draw from ply 4 on with --cb-claims: the game with A as White ends by the claim at ply 4, the
+// other is stopped; the pair is incomplete and not counted.
+int movelimit(const char* self, const char* match_exe) {
+    ClaimRun run = claim_run(self, match_exe, "unknown", 1, "--cb-move-limit 3");
+    const std::string stopped = "* | move limit, no result | none | w0 l0 d0 | w0 l0 d0";
+    bool ok = run.status == 0 && run.games.size() == 2 && count(run.csv, ",*,,\"move limit\",4,\"none\"\n") == 2 &&
+              run.summary.find("Games: 0 of 2") != std::string::npos &&
+              run.summary.find("Unfinished (move limit): 2") != std::string::npos &&
+              run.summary.find("Pairs: 0 ") != std::string::npos;
+    for (auto& g : run.games) ok = ok && outcome(g) == stopped;
+    if (!ok) {
+        std::cerr << "FAIL: both games stopped by the move limit: status " << run.status << '\n' << run.csv << run.summary;
+        for (auto& g : run.games) std::cerr << "      " << outcome(g) << '\n';
+    }
+
+    ClaimRun mixed = claim_run(self, match_exe, "draw", 4, "--cb-claims --cb-move-limit 3");
+    const bool one = mixed.status == 0 && mixed.games.size() == 2 &&
+                     outcome(mixed.games[0]) == "* | move limit, no result | none | w0 l0 d0 | w0 l0 d0" &&
+                     outcome(mixed.games[1]) == "1/2-1/2 | draw claimed by A | ply 4 W draw | w0 l0 d1 | w0 l0 d0" &&
+                     mixed.summary.find("Games: 1 of 2") != std::string::npos &&
+                     mixed.summary.find("A: +0 =1 -0") != std::string::npos &&
+                     mixed.summary.find("Unfinished (move limit): 1") != std::string::npos &&
+                     mixed.summary.find("Pairs: 0   pentanomial [LL LD DD/WL WD WW] = [0 0 0 0 0]") != std::string::npos;
+    if (!one) {
+        std::cerr << "FAIL: one game stopped, one drawn by a claim: status " << mixed.status << '\n'
+                  << mixed.csv << mixed.summary;
+        for (auto& g : mixed.games) std::cerr << "      " << outcome(g) << '\n';
+    }
+    return ok && one ? 0 : 1;
+}
+
 int interrupt(const char* self, const char* match_exe) {
     const fs::path dir = scratch("interrupt");
     std::ofstream(dir / "opening.txt") << "11-15 22-18\n";
@@ -296,12 +474,17 @@ int main(int argc, char** argv) {
     if (argc == 3 && what == "--fake") return fake(argv[2]);
     if (argc == 2 && what == "--fake-braces") return fake_braces();
     if (argc == 2 && what == "--fake-dies") return fake_dies();
+    if (argc == 4 && what == "--fake-claims") return fake_claims(argv[2], std::atoi(argv[3]));
     if (argc == 3 && what == "braces") return braces(argv[0], argv[2]);
     if (argc == 3 && what == "fresh") return fresh(argv[0], argv[2]);
     if (argc == 3 && what == "pairs") return pairs(argv[0], argv[2]);
     if (argc == 3 && what == "restart") return restart(argv[0], argv[2]);
+    if (argc == 3 && what == "claims") return claims(argv[0], argv[2]);
+    if (argc == 3 && what == "cbclaims") return cbclaims(argv[0], argv[2]);
+    if (argc == 3 && what == "movelimit") return movelimit(argv[0], argv[2]);
     if (argc == 2 && what == "comment") return comment();
     if (argc == 3 && what == "interrupt") return interrupt(argv[0], argv[2]);
-    std::cerr << "usage: runner_test comment | braces MATCH | fresh MATCH | pairs MATCH | restart MATCH | interrupt MATCH\n";
+    std::cerr << "usage: runner_test comment | braces MATCH | fresh MATCH | pairs MATCH | restart MATCH | claims MATCH | cbclaims MATCH |"
+                 " movelimit MATCH | interrupt MATCH\n";
     return 2;
 }

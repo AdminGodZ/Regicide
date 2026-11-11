@@ -72,6 +72,10 @@ struct Config {
     int no_progress = 40;
     int max_plies = 1000;
     bool accept_draw_claims = false;
+    // CheckerBoard's engine match with its default "early adjudication": a draw, win or loss claim ends the game, and
+    // a game still running after cb_move_limit engine moves (0 = off) has no result.
+    bool cb_claims = false;
+    int cb_move_limit = 0;
 
     bool sprt = false;
     SprtConfig sprt_cfg;
@@ -107,7 +111,8 @@ Adjudicator* g_adjudicator = nullptr;
 // ---------------------------------------------------------------------------------------------
 // Games
 
-enum class Winner { Black, White, Draw, Aborted };
+// Unfinished: stopped by --cb-move-limit; recorded with result * but not scored. Aborted: interrupted, not recorded.
+enum class Winner { Black, White, Draw, Unfinished, Aborted };
 
 struct GameRecord {
     long index = 0;  // 0-based game number
@@ -122,6 +127,8 @@ struct GameRecord {
     std::vector<std::string> comments;
     int worker = 0;        // which worker played it
     int engine_games[2] = {0, 0};  // by engine (A, B): games its current process had played before this one
+    std::string first_claim = "none";  // "ply P C CLAIM": the game's first win, loss or draw claim of an engine
+    int claims[2][3] = {};             // by engine (A, B): its win, loss and draw claims
     double time_used[2] = {0, 0};  // by colour
     int moves_made[2] = {0, 0};
     double max_time[2] = {0, 0};
@@ -186,6 +193,13 @@ void play_game(const Config& cfg, Engine* eng[2], GameRecord& g) {
         auto legal = b.legal_moves();
         if (legal.empty()) {
             lose(b.stm, std::string(cbt::color_name(b.stm)) + " has no legal moves", "no legal moves");
+            return;
+        }
+        // CheckerBoard: a game still running after its move limit is recorded as unknown, not as a draw.
+        if (cfg.cb_move_limit > 0 && ply > cfg.cb_move_limit) {
+            g.winner = Winner::Unfinished;
+            g.termination = "move limit, no result";
+            g.category = "move limit";
             return;
         }
         if (ply >= cfg.max_plies) {
@@ -285,12 +299,20 @@ void play_game(const Config& cfg, Engine* eng[2], GameRecord& g) {
         const std::string pdn = cbt::move_to_pdn(*m);
         history.push_back(pdn);
         g.moves.push_back(pdn);
+        // The engine's claim (getmove's return value) with the move, whatever the runner does with it.
+        const int kind = r.claim == "win" ? 0 : r.claim == "loss" ? 1 : r.claim == "draw" ? 2 : -1;
+        if (kind >= 0) {
+            ++g.claims[(side == 0) == g.a_is_black() ? 0 : 1][kind];
+            if (g.first_claim == "none")
+                g.first_claim = "ply " + std::to_string(history.size()) + (side == 0 ? " B " : " W ") + r.claim;
+        }
         if (cfg.pdn_comments) {
             std::snprintf(buf, sizeof buf, "%.2fs", r.elapsed);
             std::string info = r.info;  // free text of the engine: a brace in it would end the PDN comment
             std::ranges::replace(info, '{', '(');
             std::ranges::replace(info, '}', ')');
-            g.comments.push_back(std::string(buf) + (info.empty() ? "" : " " + info));
+            g.comments.push_back(std::string(buf) + (info.empty() ? "" : " " + info) +
+                                 (kind >= 0 ? " claim=" + r.claim : ""));
         }
         const bool conversion = b.is_conversion(*m);
         b = b.after(*m);
@@ -316,6 +338,19 @@ void play_game(const Config& cfg, Engine* eng[2], GameRecord& g) {
                 g.category = "no progress";
                 return;
             }
+        }
+        // --cb-claims: the claim ends the game after its move, unless the move left the opponent without a move (the
+        // board's result, next turn of the loop).
+        if (cfg.cb_claims && kind >= 0 && !b.legal_moves().empty()) {
+            const Color mover = side == 0 ? Color::Black : Color::White;
+            if (kind == 0) lose(cbt::opposite(mover), "win claimed by " + e.name(), "win claim");
+            else if (kind == 1) lose(mover, "loss conceded by " + e.name(), "loss claim");
+            else {
+                g.winner = Winner::Draw;
+                g.termination = "draw claimed by " + e.name();
+                g.category = "draw claim";
+            }
+            return;
         }
         if (cfg.accept_draw_claims && r.claim == "draw") {
             g.winner = Winner::Draw;
@@ -361,6 +396,11 @@ std::string pdn_text(const Config& cfg, const GameRecord& g) {
     // and how many games each engine's process had played before.
     o << "[Worker \"" << g.worker << "\"]\n[EngineGamesA \"" << g.engine_games[0] << "\"]\n[EngineGamesB \""
       << g.engine_games[1] << "\"]\n";
+    // The engines' claims (getmove's return values): the first one, and how many of each kind each engine made.
+    o << "[FirstClaim \"" << g.first_claim << "\"]\n";
+    for (int e = 0; e < 2; ++e)
+        o << "[Claims" << (e == 0 ? "A" : "B") << " \"w" << g.claims[e][0] << " l" << g.claims[e][1] << " d"
+          << g.claims[e][2] << "\"]\n";
 
     std::vector<std::string> all;
     for (const auto& m : op.played) all.push_back(cbt::move_to_pdn(m));
@@ -417,6 +457,7 @@ struct Match {
     long a_black[3] = {0, 0, 0}, a_white[3] = {0, 0, 0};  // W, D, L for A by colour
     long black_wins = 0, white_wins = 0, draws_total = 0;
     std::map<std::string, long> terminations;
+    long unfinished = 0;  // games stopped by --cb-move-limit
     std::map<long, std::pair<int, double>> pair_partial;  // pair -> (games done, A score)
     double engine_time[2] = {0, 0};
     long engine_moves[2] = {0, 0};
@@ -472,22 +513,29 @@ struct Match {
     void record(GameRecord g) {
         std::lock_guard lock(mu);
         if (g.winner == Winner::Aborted) return;
+        // An unfinished game has no score: it is written out but left out of the results, and its pair stays
+        // incomplete (not in the pentanomial count), as a pair cut off by a stop does.
+        const bool scored = g.winner != Winner::Unfinished;
         const double s = g.a_score();
-        if (s == 1) ++stats.wins;
-        else if (s == 0) ++stats.losses;
-        else ++stats.draws;
-        long* bycol = g.a_is_black() ? a_black : a_white;
-        ++bycol[s == 1 ? 0 : s == 0 ? 2 : 1];
-        if (g.winner == Winner::Black) ++black_wins;
-        else if (g.winner == Winner::White) ++white_wins;
-        else ++draws_total;
-        ++terminations[g.category];
-        auto& pp = pair_partial[g.pair];
-        pp.first++;
-        pp.second += s;
-        if (pp.first == 2) {
-            ++stats.penta[int(std::lround(pp.second * 2))];
-            pair_partial.erase(g.pair);
+        if (scored) {
+            if (s == 1) ++stats.wins;
+            else if (s == 0) ++stats.losses;
+            else ++stats.draws;
+            long* bycol = g.a_is_black() ? a_black : a_white;
+            ++bycol[s == 1 ? 0 : s == 0 ? 2 : 1];
+            if (g.winner == Winner::Black) ++black_wins;
+            else if (g.winner == Winner::White) ++white_wins;
+            else ++draws_total;
+            ++terminations[g.category];
+            auto& pp = pair_partial[g.pair];
+            pp.first++;
+            pp.second += s;
+            if (pp.first == 2) {
+                ++stats.penta[int(std::lround(pp.second * 2))];
+                pair_partial.erase(g.pair);
+            }
+        } else {
+            ++unfinished;
         }
         for (int c = 0; c < 2; ++c) {
             int engine = (c == 0) == g.a_is_black() ? 0 : 1;
@@ -503,8 +551,9 @@ struct Match {
         std::ofstream(fs::path(cfg.out_dir) / "games" / name) << text;
         all_pdn << text << std::flush;
         csv << g.index + 1 << ',' << g.pair + 1 << ",\"" << g.opening->name << "\",\"" << g.black << "\",\"" << g.white
-            << "\"," << pdn_result(g.winner) << ',' << s << ",\"" << g.category << "\"," << g.moves.size() << '\n'
-            << std::flush;
+            << "\"," << pdn_result(g.winner) << ',';
+        if (scored) csv << s;  // an unfinished game has no score
+        csv << ",\"" << g.category << "\"," << g.moves.size() << ",\"" << g.first_claim << "\"\n" << std::flush;
 
         if (!cfg.quiet) {
             std::printf("[%4ld/%ld] %-22.22s %s-%s %-7s %-18.18s | %s\n", done, total_games, g.opening->name.c_str(),
@@ -584,6 +633,7 @@ struct Match {
         o << "Terminations:";
         for (const auto& [k, v] : terminations) o << " " << k << " " << v << ";";
         o << "\n";
+        if (cfg.cb_move_limit > 0) o << "Unfinished (move limit): " << unfinished << "\n";
         for (int e = 0; e < 2; ++e) {
             std::snprintf(buf, sizeof buf, "%s %s: %ld moves, avg %.3fs/move, max %.3fs\n", e == 0 ? "A" : "B",
                           names[e].c_str(), engine_moves[e], engine_time[e] / std::max(1L, engine_moves[e]), engine_max[e]);
@@ -718,6 +768,16 @@ Adjudication:
   --max-plies N            adjudicate a draw after N plies (default 1000)
   --accept-draw-claims     end the game when the engine to move claims a draw (CheckerBoard
                            engine-match behaviour; off by default)
+  --cb-claims              CheckerBoard's claim handling with its default early adjudication:
+                           after its move, an engine's draw claim ends the game as a draw, its
+                           win claim as a win and its loss claim as a loss for it (a move that
+                           leaves the opponent without a move keeps the board's result). Without
+                           it claims change nothing; they are always recorded (PDN tags
+                           FirstClaim, ClaimsA, ClaimsB; results.csv first_claim; with
+                           --pdn-comments claim=... in the move's comment)
+  --cb-move-limit N        a game still running after N engine moves (opening moves not counted)
+                           ends with result * and no score, as in CheckerBoard (200 with early
+                           adjudication); its pair is left out of the pair statistics
 
 Running:
   -c, --concurrency N      games in parallel (default 6; 2 processes each)
@@ -787,6 +847,8 @@ bool parse_args(int argc, char** argv, Config& cfg) {
         else if (a == "--no-progress") cfg.no_progress = std::atoi(need("N").c_str());
         else if (a == "--max-plies") cfg.max_plies = std::atoi(need("N").c_str());
         else if (a == "--accept-draw-claims") cfg.accept_draw_claims = true;
+        else if (a == "--cb-claims") cfg.cb_claims = true;
+        else if (a == "--cb-move-limit") cfg.cb_move_limit = std::max(0, std::atoi(need("N").c_str()));
         else if (a == "-c" || a == "--concurrency") cfg.concurrency = std::max(1, std::atoi(need("N").c_str()));
         else if (a == "--sprt") {
             std::string s = need("ELO0,ELO1[,ALPHA,BETA]");
@@ -860,7 +922,7 @@ int main(int argc, char** argv) {
     fs::create_directories(fs::path(cfg.out_dir) / "logs");
     m.all_pdn.open(fs::path(cfg.out_dir) / "games.pdn");
     m.csv.open(fs::path(cfg.out_dir) / "results.csv");
-    m.csv << "game,pair,opening,black,white,result,score_a,termination,engine_plies\n";
+    m.csv << "game,pair,opening,black,white,result,score_a,termination,engine_plies,first_claim\n";
 
     std::printf("match: %ld games (%zu openings from %s), %s, concurrency %d, output %s\n", m.total_games,
                 m.openings.size(), cfg.deck.c_str(), tc_description(cfg).c_str(), cfg.concurrency, cfg.out_dir.c_str());
