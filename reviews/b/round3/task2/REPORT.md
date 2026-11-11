@@ -1,10 +1,10 @@
 # Reviewer B round3, task2 continuation
 
-2026-11-11 15:07 UTC
+2026-11-11 15:26 UTC
 
 Status: continuing checkpoint
 
-The original116-game priority queue continues at rank21, and the36-entry mining queue at entry13. Complete own-game prefix now 22/116 (first20 in B2); this round has 53 completed own positions and 3 opponent predecessors. Mining prefix is 24/36, with 12 newly completed entries. New supported contexts: own 0, predecessors 0, mining boards 4. Accepted points are referenced rather than nominated again; unstable win scores, two winning moves and unrestricted-root disagreements are separated below.
+The original116-game priority queue continues at rank21, and the36-entry mining queue at entry13. Complete own-game prefix now 22/116 (first20 in B2); predecessor prefix 23/116; this round has 68 completed own positions and 3 opponent predecessors. Mining prefix is 28/36, with 16 newly completed entries. New supported contexts: own 0, predecessors 0, mining boards 5. Accepted points are referenced rather than nominated again; unstable win scores, two winning moves and unrestricted-root disagreements are separated below.
 
 The frequency pool has8880 finished games:7944 unchanged round2 inputs plus936 newly replayed mo1 games, including6976 Cake/KingsRow games and1904 GuiNN games. All53 legacy compressed PDN hashes match current booklab; all936 new main lines replay legally. The three new runs are concurrency1 and retain their run, worker and both process ages. Their312 scheduled ages0–311 and per-run results are in mo1-validation.tsv. The original116 selected draws and their ranks stay unchanged; mo1 extends the census. Later mo2/mo3 and repair-validation runs are outside this fixed56-file pool.
 
@@ -14,7 +14,7 @@ Own/predecessor protocol:20M at each requested move; when its choice differs, ru
 
 Scores are from the mover’s view. Mate/database classes are compared by value class, not distance differences counted as men. A direct winning child is probed as Loss for the opponent, with immediate rule draws and terminal priority checked. Engine-known database scores require >=15000 with table hits; a shallow score that disappears at100M is flagged unstable. Search-backed scores outside direct root-table coverage remain engine opinions, not independent proofs of a full game result.
 
-Completed trace files 127: 127 new and 0 reused. Maximum actual nodes 99,999,749; longest query 41.663s. All complete traces meet the100M actual-node and780s limits.
+Completed trace files 175: 175 new and 0 reused. Maximum actual nodes 99,999,749; longest query 47.450s. All complete traces meet the100M actual-node and780s limits.
 
 ## Coverage and stopping point
 
@@ -22,11 +22,11 @@ Completed trace files 127: 127 new and 0 reused. Maximum actual nodes 99,999,749
 |---|---|---|---|---|---|---|---|
 | 21 | R134/64.1 | ACF #72 | B | 98 | 12/12 | True | True |
 | 22 | R6143/32.2 | ACF #36 | W | 90 | 9/9 | True | True |
-| 23 | R7398/14.2 | ACF #16 Wilderness II | W | 88 | 32/88 | False | True |
+| 23 | R7398/14.2 | ACF #16 Wilderness II | W | 88 | 47/88 | False | True |
 
-Next own query: rank23, tests/v11d-n8q-kingsrow-a-h1/games.pdn.gz, round14.2, ACF #16 Wilderness II, oursW, ply106, played7-10; peak+88.
+Next own query: rank23, tests/v11d-n8q-kingsrow-a-h1/games.pdn.gz, round14.2, ACF #16 Wilderness II, oursW, ply136, played6-2; peak+88.
 
-Next mining entry: rank25, node553.4, ACF #64, guinn, oursW, ply5.
+Next mining entry: rank29, node601.10, ACF #87 Tyne, guinn, oursW, ply11.
 
 Full116-game and36-entry backlogs are in game-coverage.tsv and mining-coverage.tsv. Each records completed prior-round work separately from this round.
 
@@ -38,6 +38,7 @@ Full116-game and36-entry backlogs are in game-coverage.tsv and mining-coverage.t
 | Q003 | opponent | ACF #174 Skunk | W | guinn | B:W18,20,21,23,24,25,26,28,30,31,32:B1,2,3,4,5,7,9,10,11,12,16 | 9-14 | 7 | 2 | +2 =0 -0; 2.0/2 | 0 | 10-15 | new supported improvement |
 | Q004 | opponent | ACF #25 | W | guinn | B:W17,19,21,23,24,27,29,30,31,32:B1,2,3,4,7,9,10,12,14,15 | 4-8 | 9 | 8 | +8 =0 -0; 8.0/8 | 1 | 9-13 | new supported improvement |
 | Q005,Q006 | opponent | ACF #34 Twilight Zone | W | guinn | B:W21,22,24,25,26,27,28,29,30,31:B1,2,4,6,7,9,10,12,13,15 | 9-14 | 5 | 4 | +4 =0 -0; 4.0/4 | 1 | 15-19; 7-11 | new supported improvement |
+| Q007,Q008,Q009 | opponent | ACF #71 Diabolical Denny | W | guinn | B:W15,21,25,26,27,28,29,30,31,32:B1,2,3,4,5,6,8,9,12,14 | 12-16 | 6 | 3 | +3 =0 -0; 3.0/3 | 0 | 14-18; 2-7; 3-7 | new supported improvement |
 
 ## Qualifying comparisons
 
@@ -49,6 +50,9 @@ Full116-game and36-entry backlogs are in game-coverage.tsv and mining-coverage.t
 | Q004 | mining | 19 | 481.14 | ACF #25 | W | guinn | 15 | B:W17,19,21,23,24,27,29,30,31,32:B1,2,3,4,7,9,10,12,14,15 | 4-8 | 9-13 | -94 / 0 at d27 (gain 94) | -120 / 0 at d30 (gain 120) | False | False | True | new supported improvement |
 | Q005 | mining | 20 | 497.12 | ACF #34 Twilight Zone | W | guinn | 13 | B:W21,22,24,25,26,27,28,29,30,31:B1,2,4,6,7,9,10,12,13,15 | 9-14 | 15-19 | -145 / -98 at d23 (gain 47) | -186 / -21 at d27 (gain 165) | False | False | True | new supported improvement |
 | Q006 | mining | 20 | 497.12 | ACF #34 Twilight Zone | W | guinn | 13 | B:W21,22,24,25,26,27,28,29,30,31:B1,2,4,6,7,9,10,12,13,15 | 9-14 | 7-11 | -145 / -42 at d23 (gain 103) | -186 / -105 at d27 (gain 81) | False | False | True | new supported improvement |
+| Q007 | mining | 27 | 569.8 | ACF #71 Diabolical Denny | W | guinn | 9 | B:W15,21,25,26,27,28,29,30,31,32:B1,2,3,4,5,6,8,9,12,14 | 12-16 | 14-18 | -74 / -31 at d23 (gain 43) | -67 / -36 at d27 (gain 31) | False | False | True | new supported improvement |
+| Q008 | mining | 27 | 569.8 | ACF #71 Diabolical Denny | W | guinn | 9 | B:W15,21,25,26,27,28,29,30,31,32:B1,2,3,4,5,6,8,9,12,14 | 12-16 | 2-7 | -74 / -25 at d23 (gain 49) | -67 / -36 at d27 (gain 31) | False | False | True | new supported improvement |
+| Q009 | mining | 27 | 569.8 | ACF #71 Diabolical Denny | W | guinn | 9 | B:W15,21,25,26,27,28,29,30,31,32:B1,2,3,4,5,6,8,9,12,14 | 12-16 | 3-7 | -74 / -20 at d23 (gain 54) | -67 / -32 at d27 (gain 35) | False | False | True | new supported improvement |
 
 ## Frequencies at qualifying boards
 
@@ -71,6 +75,14 @@ Full FEN matching counts move-order transpositions across openings. Own points u
 | Q005 | B:W21,22,24,25,26,27,28,29,30,31:B1,2,4,6,7,9,10,12,13,15 | 5 | 5 | 9-14 | 4 | 4 | 4 | 0 | 0 | 1 | 1 | 4.0 | 4 |
 | Q006 | B:W21,22,24,25,26,27,28,29,30,31:B1,2,4,6,7,9,10,12,13,15 | 5 | 5 | 7-11 | 1 | 1 | 0 | 1 | 0 | 0 | 0 | 0.5 | 1 |
 | Q006 | B:W21,22,24,25,26,27,28,29,30,31:B1,2,4,6,7,9,10,12,13,15 | 5 | 5 | 9-14 | 4 | 4 | 4 | 0 | 0 | 1 | 1 | 4.0 | 4 |
+| Q007 | B:W15,21,25,26,27,28,29,30,31,32:B1,2,3,4,5,6,8,9,12,14 | 6 | 6 | 12-16 | 3 | 3 | 3 | 0 | 0 | 0 | 0 | 3.0 | 3 |
+| Q007 | B:W15,21,25,26,27,28,29,30,31,32:B1,2,3,4,5,6,8,9,12,14 | 6 | 6 | 14-18 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | 0 |
+| Q007 | B:W15,21,25,26,27,28,29,30,31,32:B1,2,3,4,5,6,8,9,12,14 | 6 | 6 | 3-7 | 3 | 3 | 0 | 3 | 0 | 1 | 1 | 1.5 | 3 |
+| Q008 | B:W15,21,25,26,27,28,29,30,31,32:B1,2,3,4,5,6,8,9,12,14 | 6 | 6 | 12-16 | 3 | 3 | 3 | 0 | 0 | 0 | 0 | 3.0 | 3 |
+| Q008 | B:W15,21,25,26,27,28,29,30,31,32:B1,2,3,4,5,6,8,9,12,14 | 6 | 6 | 2-7 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | 0 |
+| Q008 | B:W15,21,25,26,27,28,29,30,31,32:B1,2,3,4,5,6,8,9,12,14 | 6 | 6 | 3-7 | 3 | 3 | 0 | 3 | 0 | 1 | 1 | 1.5 | 3 |
+| Q009 | B:W15,21,25,26,27,28,29,30,31,32:B1,2,3,4,5,6,8,9,12,14 | 6 | 6 | 12-16 | 3 | 3 | 3 | 0 | 0 | 0 | 0 | 3.0 | 3 |
+| Q009 | B:W15,21,25,26,27,28,29,30,31,32:B1,2,3,4,5,6,8,9,12,14 | 6 | 6 | 3-7 | 3 | 3 | 0 | 3 | 0 | 1 | 1 | 1.5 | 3 |
 
 ## All completed own and predecessor checks
 
@@ -131,6 +143,21 @@ Full FEN matching counts move-order transpositions across openings. Own points u
 | 23 | R7398/100 | 10-7 | 10-7 / 23 / d27 | - | - | - | 20M chooses played move |
 | 23 | R7398/102 | 22-17 | 7-11 / 23 / d26 | 7-11 / 18 / d30 | 25 / 24 at d26 (gain -1) | 19 / 22 at d30 (gain 3) | does not qualify at both references |
 | 23 | R7398/104 | 17-21 | 7-11 / 21 / d27 | 7-11 / 18 / d31 | 23 / 19 at d27 (gain -4) | 19 / 17 at d30 (gain -2) | does not qualify at both references |
+| 23 | R7398/106 | 7-10 | 7-11 / 23 / d25 | 7-11 / 17 / d32 | 21 / 22 at d25 (gain 1) | 17 / 18 at d30 (gain 1) | does not qualify at both references |
+| 23 | R7398/108 | 21-25 | 21-25 / 21 / d27 | - | - | - | 20M chooses played move |
+| 23 | R7398/110 | 10-15 | 10-15 / 27 / d27 | - | - | - | 20M chooses played move |
+| 23 | R7398/112 | 14-10 | 14-10 / 26 / d27 | - | - | - | 20M chooses played move |
+| 23 | R7398/114 | 13-17 | 13-17 / 25 / d29 | - | - | - | 20M chooses played move |
+| 23 | R7398/116 | 25-21 | 25-21 / 24 / d29 | - | - | - | 20M chooses played move |
+| 23 | R7398/118 | 10-7 | 17-14 / 27 / d29 | 17-14 / 22 / d34 | 22 / 26 at d29 (gain 4) | 22 / 25 at d33 (gain 3) | does not qualify at both references |
+| 23 | R7398/120 | 15-10 | 15-10 / 25 / d29 | - | - | - | 20M chooses played move |
+| 23 | R7398/122 | 7-3 | 7-3 / 23 / d27 | - | - | - | 20M chooses played move |
+| 23 | R7398/124 | 17-14 | 17-14 / 22 / d27 | - | - | - | 20M chooses played move |
+| 23 | R7398/126 | 3-7 | 3-7 / 22 / d28 | - | - | - | 20M chooses played move |
+| 23 | R7398/128 | 21-25 | 21-25 / 23 / d27 | - | - | - | 20M chooses played move |
+| 23 | R7398/130 | 10-6 | 7-2 / 21 / d27 | 7-2 / 17 / d31 | 24 / 18 at d27 (gain -6) | 22 / 16 at d31 (gain -6) | does not qualify at both references |
+| 23 | R7398/132 | 7-10 | 7-10 / 18 / d26 | - | - | - | 20M chooses played move |
+| 23 | R7398/134 | 25-30 | 14-17 / 19 / d26 | 25-30 / 16 / d33 | 16 / 12 at d26 (gain -4) | 16 / 9 at d32 (gain -7) | does not qualify at both references |
 
 ### Opponent immediately before first+40
 
@@ -170,8 +197,16 @@ All negative checks retain FEN, record and colour in own-results.tsv/predecessor
 | 22 | 543.8 | ACF #6 Inferno | guinn | W | 9 | B:W18,21,23,24,25,27,28,29,30,31,32:B1,2,3,4,7,8,9,11,12,13,14 | 11-16 | 7-10 | True | 7-10 / -45 / d25 | 7-10 / -45 / d29 | -86 / -32 at d25 (gain 54) | -54 / -33 at d29 (gain 21) | False | True | False | False | False |  |
 | 23 | 545.18 | ACF #60 Black Hole | guinn | W | 19 | B:W14,21,22,27,29,30,31,32:B2,3,4,5,7,11,12,13 | 11-15 | 4-8 | True | 4-8 / -10 / d23 | 4-8 / -7 / d29 | -24 / -13 at d23 (gain 11) | -22 / -6 at d29 (gain 16) | False | True | False | False | False |  |
 | 24 | 549.10 | ACF #62 Gemini I | guinn | W | 11 | B:W18,21,24,25,26,27,28,30,31,32:B1,2,3,4,5,8,9,10,12,16 | 1-6 | 3-7 | True | 3-7 / -47 / d23 | 1-6 / -65 / d27 | -68 / -43 at d23 (gain 25) | -38 / -39 at d27 (gain -1) | False | False | False | False | False |  |
+| 25 | 553.4 | ACF #64 | guinn | W | 5 | B:W18,21,22,23,24,26,27,28,29,30,31,32:B1,2,3,4,5,7,8,9,10,11,12,14 | 1-6 | 11-15 | True | 11-15 / -43 / d26 | 11-15 / -23 / d30 | -29 / -19 at d26 (gain 10) | -18 / -18 at d30 (gain 0) | False | True | False | False | False |  |
+| 26 | 557.8 | ACF #66 | guinn | W | 9 | B:W19,21,23,25,26,27,29,30,31,32:B1,2,3,4,5,6,7,9,12,14 | 4-8 | 7-11 | True | 4-8 / -10 / d24 | 4-8 / 0 / d29 | 0 / -2 at d24 (gain -2) | 0 / 0 at d29 (gain 0) | False | False | False | False | False |  |
+| 27 | 569.8 | ACF #71 Diabolical Denny | guinn | W | 9 | B:W15,21,25,26,27,28,29,30,31,32:B1,2,3,4,5,6,8,9,12,14 | 12-16 | 14-18 | False | 2-7 / -32 / d23 | 14-18 / -25 / d27 | -74 / -31 at d23 (gain 43) | -67 / -36 at d27 (gain 31) | True | True | False | False | False |  |
+| 27 | 569.8 | ACF #71 Diabolical Denny | guinn | W | 9 | B:W15,21,25,26,27,28,29,30,31,32:B1,2,3,4,5,6,8,9,12,14 | 12-16 | 2-7 | False | 2-7 / -32 / d23 | 14-18 / -25 / d27 | -74 / -25 at d23 (gain 49) | -67 / -36 at d27 (gain 31) | True | True | False | False | False |  |
+| 27 | 569.8 | ACF #71 Diabolical Denny | guinn | W | 9 | B:W15,21,25,26,27,28,29,30,31,32:B1,2,3,4,5,6,8,9,12,14 | 12-16 | 3-7 | True | 2-7 / -32 / d23 | 14-18 / -25 / d27 | -74 / -20 at d23 (gain 54) | -67 / -32 at d27 (gain 35) | True | True | False | False | False |  |
+| 28 | 581.4 | ACF #78 | guinn | W | 5 | B:W19,21,22,23,24,25,26,27,29,30,31,32:B1,2,3,4,5,6,7,8,9,12,14,16 | 7-10 | 6-10 | True | 7-10 / -15 / d26 | 7-10 / -17 / d31 | -13 / -32 at d26 (gain -19) | 0 / -21 at d30 (gain -21) | False | False | False | False | False |  |
 
 The result contrast in the supplied list crosses books/nets. In ACF34 the20M and100M unrestricted choices differ; both reject9-14, and both forced alternatives exceed the relative30 threshold. Their absolute scores vary strongly with search restriction and depth, so this does not certify a drawing alternative. Updated8880-game frequencies for every completed entry are in mining-census.tsv; they remain descriptive and are distinct from the input priority counts. Input moves are not silently expanded from new census results.
+
+The GuiNN ACF71 ply9 result passes narrowly: the observed3-7 alternative gains54 at the20M depth reference and35 at the100M reference; the two extra root alternatives gain31 at the deeper reference. These finite scores meet the requested strict >30 threshold and do not solve the position.
 
 ## What ran and what was reused
 

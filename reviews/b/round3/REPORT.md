@@ -1,16 +1,16 @@
 # Reviewer B, round 3
 
-2026-11-11 15:07 UTC
+2026-11-11 15:26 UTC
 
-Status: task1 and task3 complete; task2 continuing from rank21/mining13, current checkpoint includes the two newly supported GuiNN boards.
+Status: task1 and task3 complete; task2 continuing checkpoint, with exact coverage and remaining queries in task2/REPORT.md.
 
 ## Inputs and execution
 
-Master 8de39d0ca7db3d586cf92b56df25b06a4ae21d81; booklab e2c16559a72eccd17488d2f23c930f5b919a42bf. Read the master ledger before work. The original queries reused the unchanged scoring core compiled at 1c6e997. After the lead’s fdd154e claims-only update, the current core and driver were rebuilt. Worker search, table selection, evaluation, move generation, TT, net/book and build definitions are unchanged; new claim methods are unused by this driver. The extracted immediate-rule-draw helper is outside the path of these task-1 roots, which all exceed eight pieces. The full ply-67 100M trace was rerun on the current core and every completed row matched exactly. Remaining forced queries use fdd154e; the query manifest distinguishes the earlier cached traces. See current-core/source-audit.txt and current-core/validation.txt. Built-in n8q SHA-256: 681549690f165eed94edafd958b06f2f76cf44ab5fba6654c82eab183efe9a24.
+Requested input master 8de39d0ca7db3d586cf92b56df25b06a4ae21d81; booklab e2c16559a72eccd17488d2f23c930f5b919a42bf. The original task-1 queries use the unchanged scoring path compiled at 1c6e997. After the fdd154e and 7f3ac69 updates, the core and drivers were freshly rebuilt. Worker search/iteration, evaluation, move generation, TT, EGDB and the net are unchanged; the added claim methods are not called by this driver, and the PR #81 table-drawn-root filter is outside the task-1 roots, which all exceed eight pieces. Full100M ply67 verification on each new build matches every completed row, including nodes, table hits and PV. Query manifests preserve the earlier measurement revisions; new task2 queries carry their core revision in a header. The one cached table-drawn task2 endpoint was refreshed. See current-core/source-audit.txt, validation.txt, pr81-validation.txt and pr81-endpoint-refresh.txt. Built-in n8q SHA-256: 681549690f165eed94edafd958b06f2f76cf44ab5fba6654c82eab183efe9a24.
 
-All searches are sequential, nice -n 19, one thread, new Engine and cleared 128 MiB hash per query, book and avoid off, full record history replayed. WLD coverage is eight pieces; MTC coverage six. Ordinary queries use at most 100M actual nodes; the lead explicitly authorized 400M for the decisive positions this round. Caps of 100M and 400M are reduced by 1024 internally to avoid node-poll overshoot. Each query has a separate 780-second ceiling; no command is allowed beyond 840 seconds. No match, opponent program, protected directory/process/lock or writable access to the shared database is used.
+All searches are sequential, nice -n 19, one thread, new Engine and cleared 128 MiB hash per query, book and avoid off, full record history replayed. WLD coverage is eight pieces; MTC coverage six. Ordinary queries use at most100M actual nodes; the lead explicitly authorized400M for the decisive positions this round. Caps of100M and400M are reduced by1024 internally to avoid node-poll overshoot. Each query has a separate780-second ceiling; each foreground command is limited to840seconds. No match, opponent program, protected directory/process/lock or writable access to the shared database is used.
 
-Latest fetch: master fa1fc5718b8642aa0a9796a06d49837bb6475ad1, booklab 7ca6c27198ea0cc89f315744448fdc005ea81423. The specified mo1 PDNs remain unchanged. The claims update and PR #81 stopped-call fix were inspected, and the latest ledger was read. PR #81 changes the table-drawn normal-root filter, outside the task-1 measured roots; Worker search remains byte-identical. After rebuilding on 7f3ac69, the full ply67 100M trace again matched row for row. Task2 refreshes its one affected table-drawn endpoint; exact source provenance is retained.
+Latest fetch: master 7f3ac697bc6dc69630b3b55bad92ad00e428aa4c, booklab bfce8b08a4d186e9b198cc80e437ecb42e44ec35. The specified mo1 PDNs remain unchanged. The claims update and PR #81 stopped-call fix were inspected, and the latest ledger was read. PR #81 changes the table-drawn normal-root filter, outside the task-1 measured roots; Worker search remains byte-identical. After rebuilding on 7f3ac69, the full ply67 100M trace again matched row for row. Task2 refreshes its one affected table-drawn endpoint; exact source provenance is retained.
 
 ## Task 1: strict-run loss
 
@@ -145,7 +145,7 @@ At ply 65, the played 26-30 and the alternative 20-24 both score -18 at equal de
 
 ## Task2 continuation
 
-The frequency pool is now **8880 games**, including **936 concurrency1 mo1 games** with validated worker/process-age tags. The original116-game rank order is retained. Own-game coverage is through rank **22** (first20 completed in B2); this round has **53 own positions** and **3 predecessors** completed. Mining coverage is through entry **24/36**, with **12 entries** completed this round. New supported contexts: own **0**, predecessors **0**, mining boards **4**.
+The frequency pool is now **8880 games**, including **936 concurrency1 mo1 games** with validated worker/process-age tags. The original116-game rank order is retained. Own-game coverage is through rank **22** (first20 completed in B2); this round has **68 own positions** and **3 predecessors** completed. Mining coverage is through entry **28/36**, with **16 entries** completed this round. New supported contexts: own **0**, predecessors **0**, mining boards **5**.
 
 The [task2 report](task2/REPORT.md) contains the complete new comparisons, updated transposition census including the identifiable C1 subset, reused/new trace manifest and exact remaining queue. Accepted prior points are referenced without another nomination.
 

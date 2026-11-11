@@ -23,10 +23,10 @@ rank	node	opening	opponent	ours	ply	input_games	losing_moves	drawing_moves	statu
 22	543.8	ACF #6 Inferno	guinn	W	9	3	11-16	7-10	B3 complete
 23	545.18	ACF #60 Black Hole	guinn	W	19	3	11-15	4-8	B3 complete
 24	549.10	ACF #62 Gemini I	guinn	W	11	3	1-6	3-7	B3 complete
-25	553.4	ACF #64	guinn	W	5	3	1-6	11-15	not searched
-26	557.8	ACF #66	guinn	W	9	3	4-8	7-11	not searched
-27	569.8	ACF #71 Diabolical Denny	guinn	W	9	3	12-16	3-7	not searched
-28	581.4	ACF #78	guinn	W	5	3	7-10	6-10	not searched
+25	553.4	ACF #64	guinn	W	5	3	1-6	11-15	B3 complete
+26	557.8	ACF #66	guinn	W	9	3	4-8	7-11	B3 complete
+27	569.8	ACF #71 Diabolical Denny	guinn	W	9	3	12-16	3-7	B3 complete
+28	581.4	ACF #78	guinn	W	5	3	7-10	6-10	B3 complete
 29	601.10	ACF #87 Tyne	guinn	W	11	3	4-8	6-10	not searched
 30	605.6	ACF #9 Wilderness I	guinn	W	7	3	6-9	16-20,6-9	not searched
 31	610.3	ACF #92	guinn	B	4	3	17-14,24-20	25-22	not searched

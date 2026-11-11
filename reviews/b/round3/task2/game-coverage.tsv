@@ -21,7 +21,7 @@ rank	game	source	round	opening	ours	opponent	peak	first40ply	own_done	own_reques
 20	R7614	tests/v11d-n8q-kingsrow-a-h2/games.pdn.gz	63.2	ACF #157	W	kingsrow	111	48	7	7	True	True	B2
 21	R134	wp11c/games/bl-v11c-n6c-cake-a-h1.pdn.gz	64.1	ACF #72	B	cake	98	37	12	12	True	True	B3
 22	R6143	tests/mo-kingsrow-b-h1/games.pdn.gz	32.2	ACF #36	W	kingsrow	90	30	9	9	True	True	B3
-23	R7398	tests/v11d-n8q-kingsrow-a-h1/games.pdn.gz	14.2	ACF #16 Wilderness II	W	kingsrow	88	42	32	88	False	True	B3
+23	R7398	tests/v11d-n8q-kingsrow-a-h1/games.pdn.gz	14.2	ACF #16 Wilderness II	W	kingsrow	88	42	47	88	False	True	B3
 24	R245	wp11c/games/bl-v11c-n6c-cake-a-h2.pdn.gz	47.1	ACF #139	B	cake	88	25	0	5	False	False	B3
 25	R2080	wp11c/games/bl-v11c-n8q-cake-b-h2.pdn.gz	22.2	ACF #112	W	cake	88	32	0	12	False	False	B3
 26	R2519	wp11c/games/bl-v11c-n8q-kingsrow-a-h1.pdn.gz	8.2	ACF #9 Wilderness I	W	kingsrow	87	68	0	8	False	False	B3
