@@ -1062,7 +1062,7 @@ named wins: 3 kings vs 1 is +542 / −517, where n8q gives +519 / −467.
 - Whether n9h plays better is for the laptop match against n8q. The net is on the branch:
   `experiments/truth-data/n9h.nnue`.
 
-**Validation loss on seeded-start games only** (lead, 06:xx). Records: the seed-reachable games
+**Validation loss on seeded-start games only** (lead, 2026-11-11 morning). Records: the seed-reachable games
 (`truth startkinds --out`) of n9h's held-out E5 tails: gen6a from record 10,559,953 and gen6b from 4,273,689 of the
 deduplicated files. That is 245,902 records in 10,623 games, none with ≤ 8 pieces (E5 stops there). Loss as in
 training (K 102.4, λ 0.5, proven records against their result); `logs/seeded_loss_n9h.md`.

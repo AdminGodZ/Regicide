@@ -9,6 +9,7 @@
 | E5 `gen6a_n50k_egdb` | 11-11 04:15 | `datagen-tr6`, seed 620, parity 0, `--avoid` both files, **random plies 6–16**, 6 threads (base budget), sha256 a99a1334887d2434… |
 | E5 `gen6b_n50k_egdb` | 11-11 04:15 | `datagen-tr5`, seed 621, parity 1, `--avoid` both files, random plies 6–16, 6 threads (yield group), same binary |
 | `n9a_trigger.sh` | 11-11 01:06 | runs `n9.sh n9a` (n9h is done) once 30M game-deduplicated (exact check from 33M raw, every 20 min) |
+| `n9a_variant.sh` | 11-11 06:50 | after "n9a DONE": trains n9a0 (n9a without the 6–16-ply data), then draw proxy, seeded-start loss, start kinds |
 
 - n9h is done (61e9802), and the loss analysis is done.
 - Seeds used so far: gen6a 611, 614, 616, 618, 620; gen6b 612, 613, 615, 617, 619, 621. Next free seeds: 622, 623.
