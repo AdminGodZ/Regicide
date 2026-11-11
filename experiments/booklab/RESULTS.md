@@ -707,6 +707,38 @@ from the ballot, concurrency 8, runner and host from fdd154e (`w14c6-*`, all rc 
   paths need our engine to choose non-book moves at plies 7-15 / 9-17 (no book entry there), so no book line
   transposes into it; 13 ballots are proven unreachable, 140 unknown at the node limit.
 - Not built into any book: the lead decides on the table.
+- **Correction (14:50): the −108 / −76 are depth-1 scores of forced moves.** Every one of these low points is a
+  position with a single legal move (a forced capture), which our engine plays at once with a depth-1 score; that score
+  is what the PDN comment holds (`wp14/dips.tsv`, below). Counting only searched moves (depth > 1,
+  `wp14/c6_table_searched.md`): **new 8-11 line −53 in all 48 KingsRow games**; old 6-10 line −78 / −56 (median) / −39
+  and the loss.
+
+**r11f accepted by the lead (14:32) on the 100M scores and built** (`build_r11f.sh`, `wp11f/`): r11d with the ply-17 pin
+6-10 replaced by 8-11 (B:W19,21,22,23,27,28,30,31,32:B2,4,5,6,7,8,12,13,14) plus **149 pins** from the 48 drawn
+KingsRow games of w14c6 (wins first, no move from a lost game; 5 positions with different moves, 2 ties); 54,261
+decisions (r11d 54,112), **sha256 `a4c90ab6ff083480ad9858fd2a1217b3fb4427dab6539ecbe13546855b0e188f`**, rebuilds
+byte-identically. In the 48 games, 977 of the 991 own positions where the book is consulted (ply 17 to 8 pieces) are
+now book moves equal to the game's move (14 where the games differ and the pin took one move). **82 r11d entries lay
+only on the old 6-10 line** (met only after 6-10 at ply 17 in the records) and are now unreachable; they stay in the
+file. DLL `bl-fdd154e-r11f` = master fdd154e with book.bin replaced (nothing else differs), bench 7,833,556 / 8,241,422.
+Validation playing: a) #6 Black against KingsRow mode 3, 24 fresh, 24 kept, 24 natural pairs; b) `mo3-*`, three
+concurrency-1 runs as mo2.
+
+**WP14 closed.** Export for the search lab: `wp14/dips.tsv`, the 13 positions where our 0.5 s game score and the 100M
+root differ by 50 or more (the nine contexts and the new #6 line's two low points; FEN, legal-move count, the full move
+history from the start, game score and depth, 100M score, best move and depth, opponent, opening, games). **All 13 are
+positions with one legal move**, played at once with a depth-1 score (−56 … −136; +69 once), where the 100M root says 0
+(−2 and −8 on the #6 line). The near-miss criterion of the game records (and "lowest own score" in our reports) should
+leave out forced moves; our tables from now on do (`wp14_line_report.py --searched-only`).
+
+**Opponent options** (lead item 4; `cl/opponent_options.md`, each line sent through the fdd154e host and read back with
+`get`): KingsRow 1.20 and GuiNN 2.06 accept every line of our recipe (dbpath, enable_wld 1, dbmbytes 512,
+max_dbpieces 8, hashsize 128, KingsRow searchthreads 1, book 3), effective at once. Cake 1.89f accepts dbpath,
+dbmbytes, hashsize and book, and answers `reply 0` to `set enable_wld 1` and `set max_dbpieces 8` ("You must restart
+Cake for the change to take effect"); Cake keeps its settings in `HKCU\Software\Martin Fierz\Cake`, where our values
+are stored (Maxpieces 8, Enable WLD 1, our DBpath, Hashsize 128, DBcachesize 512, Use Book 3), and every Cake process
+of our runs is a new load, so they were in effect. In a CheckerBoard match the user sets them in the engine options;
+Cake's database settings take effect only after Cake is loaded again.
 
 **Test bed for the #6 Black repair** (lead 12:35; `cl/tb6.md`, `tb_compare.py`): the deck prefix to #6 (games 1-10)
 six times with mo1-kingsrow's DLL, runner and settings (concurrency 1, pairs together, processes kept, new processes

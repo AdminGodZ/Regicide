@@ -19,10 +19,16 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from theory import parse_pdn, ballot_of  # noqa: E402
 
 
+SKIP_FORCED = False  # --searched-only: leave out depth-1 scores (a forced move, played at once; WP14 dips.tsv)
+
+
 def lowest(moves, col):
     best = None
     for i, (_, c) in enumerate(moves):
         if (i % 2 == 0) == (col == "B"):
+            d = re.search(r"\bdepth (\d+)", c or "")
+            if SKIP_FORCED and d and int(d.group(1)) <= 1:
+                continue
             s = re.search(r"\bscore (-?\d+)", c or "")
             if s:
                 v = int(s.group(1))
@@ -38,7 +44,11 @@ def main():
     ap.add_argument("--from-ply", type=int, default=17)
     ap.add_argument("--to-ply", type=int, default=40)
     ap.add_argument("--md")
+    ap.add_argument("--searched-only", action="store_true",
+                    help="leave out depth-1 scores (forced moves played at once, whose PDN score is a depth-1 score)")
     a = ap.parse_args()
+    global SKIP_FORCED
+    SKIP_FORCED = a.searched_only
     out = [f"| Group | games | W / D / L | lowest own score: min / q1 / median / q3 / max | ≤ −100 | −99 … −60 | −59 … −30 | > −30 | "
            f"distinct lines, plies {a.from_ply}-{a.to_ply} |", "|---|---|---|---|---|---|---|---|---|"]
     for spec in a.group:
