@@ -4,6 +4,8 @@
 //
 // Each position is searched from a cleared hash table (new_game). Prints one line per position with -v and totals.
 #include <array>
+#include <fstream>
+#include <sstream>
 #include <cstdio>
 #include <iostream>
 #include <string>
@@ -17,7 +19,7 @@
 using namespace regicide;
 
 int main(int argc, char** argv) {
-    std::string fens, params;
+    std::string fens, params, tsv;  // --tsv: tab file with columns fen and moves_from_start (Book Lab wp14)
     int count = 0, threads = 1;
     std::size_t hash_mb = 64;
     bool verbose = false;
@@ -28,6 +30,7 @@ int main(int argc, char** argv) {
         std::string k = argv[i];
         auto next = [&]() -> std::string { return i + 1 < argc ? argv[++i] : ""; };
         if (k == "--fens") fens = next();
+        else if (k == "--tsv") tsv = next();
         else if (k == "--count") count = std::stoi(next());
         else if (k == "--threads") threads = std::stoi(next());
         else if (k == "--hash") hash_mb = std::stoull(next());
@@ -49,17 +52,59 @@ int main(int argc, char** argv) {
         }
     }
     std::vector<Position> list;
-    std::FILE* f = std::fopen(fens.c_str(), "r");
-    if (!f) return 1;
+    std::vector<std::vector<Position>> hist;  // --tsv: game history before each position (repetitions)
+    if (!tsv.empty()) {
+        std::ifstream in(tsv);
+        std::string row;
+        int cf = -1, cm = -1;
+        while (std::getline(in, row)) {
+            std::vector<std::string> col;
+            std::stringstream ls(row);
+            for (std::string c; std::getline(ls, c, '\t');) col.push_back(c);
+            if (cf < 0) {
+                for (std::size_t j = 0; j < col.size(); ++j) {
+                    if (col[j] == "fen") cf = int(j);
+                    if (col[j] == "moves_from_start") cm = int(j);
+                }
+                if (cf < 0 || cm < 0) {
+                    std::cerr << "tsv needs columns fen and moves_from_start\n";
+                    return 2;
+                }
+                continue;
+            }
+            Position p;
+            std::vector<Position> h;
+            std::stringstream ms(col[std::size_t(cm)]);
+            for (std::string t; ms >> t;) {
+                Move m;
+                if (!parse_move(p, t, m)) {
+                    std::cerr << "bad move " << t << '\n';
+                    return 2;
+                }
+                h.push_back(p);
+                p.make_move(m);
+            }
+            Position want;
+            if (!want.set_fen(col[std::size_t(cf)]) || want.fen() != p.fen()) {
+                std::cerr << "replay does not reach " << col[std::size_t(cf)] << " (got " << p.fen() << ")\n";
+                return 2;
+            }
+            list.push_back(p);
+            hist.push_back(std::move(h));
+            if (count && int(list.size()) >= count) break;
+        }
+    }
+    std::FILE* f = tsv.empty() ? std::fopen(fens.c_str(), "r") : nullptr;
+    if (!f && tsv.empty()) return 1;
     char line[512];
-    while (std::fgets(line, sizeof line, f)) {
+    while (f && std::fgets(line, sizeof line, f)) {
         std::string fen = line;
         fen = fen.substr(0, fen.find_first_of(" \t\r\n"));
         Position p;
         if (!fen.empty() && p.set_fen(fen)) list.push_back(p);
         if (count && int(list.size()) >= count) break;
     }
-    std::fclose(f);
+    if (f) std::fclose(f);
 
     Engine e;
     e.set_hash_mb(hash_mb);
@@ -75,7 +120,8 @@ int main(int argc, char** argv) {
     std::array<std::uint64_t, 6> qs{};
     for (std::size_t i = 0; i < list.size(); ++i) {
         e.new_game();
-        e.set_position(list[i]);
+        if (hist.empty()) e.set_position(list[i]);
+        else e.set_position(list[i], hist[i]);
         std::uint64_t tb = 0;
         bool reached = false;
         SearchInfo snap;  // --ttd: the report of the iteration that completed the target depth
