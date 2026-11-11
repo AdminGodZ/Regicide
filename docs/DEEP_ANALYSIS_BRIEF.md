@@ -19,8 +19,8 @@ wins without distance values. It plays under CheckerBoard as a DLL (`src/cb_api.
 Beat, not only hold, the three strongest available programs: Cake 1.89f, KingsRow 1.20 and GuiNN 2.06. Fixed
 conditions: the 156 ACF three-move ballots, both colours (312 games per run), 0.5 s per move with CheckerBoard's
 time bank, every engine with its own book and an 8-piece database, one thread. Decisions that stand: no 9-piece
-database; more threads and pondering are allowed but not used so far; book lines learned from games against these
-opponents are allowed. The engine cannot know which opponent it faces, so the book is keyed by position only.
+database; more threads and pondering are allowed (tested, see below, and not used); book lines learned from games
+against these opponents are allowed. The engine cannot know which opponent it faces, so the book is keyed by position only.
 
 ## Where we stand (wins/draws/losses for Regicide)
 
@@ -68,8 +68,15 @@ by the opening itself.
   better. Wider feature transformers were slower and not stronger at short time. None of these nets changes a
   result against the three opponents, and a different net after the same book once lost 5 of 312 to Cake, because
   the zero-loss result rests on the moves the net chooses after the book.
-- Search parameters: several sweeps (late-move reductions, pruning margins, singular extensions) at fixed nodes and
-  at fixed time found nothing above the noise of 800-pair matches.
+- Search ideas (`t3/search-lab`, `experiments/search-lab/RESULTS.md`): seven switches (hash-first database
+  probes, a leaf evaluation cache, correction history, an extension change, double and negative singular
+  extensions, the stored evaluation from the hash table) screened in self-play at 300 ms over 800 pairs from an
+  unbalanced opening set were all within 3.5 Elo of zero; a node-based time rule passed the screen at +5.0 and
+  failed its confirmation. Earlier late-move-reduction results were void (one table shared by both engines of a
+  process, since fixed); that sweep is being redone.
+- Threads and pondering: at 4 threads the search reaches the same depth 2.8 times faster; three ways of combining
+  the threads' results did not beat the plain scheme; and 4 threads plus pondering gave no gain against Cake in
+  1,248 games.
 
 ## What the wins look like
 
