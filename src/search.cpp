@@ -659,10 +659,13 @@ Engine::Engine() {
 
 Engine::~Engine() = default;
 
+// The new workers are built before the old ones go: if that fails, the engine keeps what it had.
 void Engine::set_threads(int n) {
-    threads_ = std::max(1, n);
-    workers_.clear();
-    for (int i = 0; i < threads_; ++i) workers_.push_back(std::make_unique<Worker>(*this, i));
+    n = std::max(1, n);
+    std::vector<std::unique_ptr<Worker>> fresh;
+    for (int i = 0; i < n; ++i) fresh.push_back(std::make_unique<Worker>(*this, i));
+    workers_ = std::move(fresh);
+    threads_ = n;
 }
 
 void Engine::set_hash_mb(std::size_t mb) { tt_.resize(mb); }

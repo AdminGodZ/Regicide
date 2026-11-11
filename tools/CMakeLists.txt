@@ -71,6 +71,7 @@ if(NOT WIN32)
   target_include_directories(runner_test PRIVATE match)
   target_link_libraries(runner_test PRIVATE cbt_common Threads::Threads)
   add_test(NAME match_opening_comment COMMAND runner_test comment)
+  add_test(NAME match_pdn_status_braces COMMAND runner_test braces $<TARGET_FILE:match>)
   add_test(NAME match_interrupted_game COMMAND runner_test interrupt $<TARGET_FILE:match>)
 
   # bookgen, run as a process on a prepared book (needs the engine library: not in the standalone tools build).
