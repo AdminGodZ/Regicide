@@ -46,6 +46,9 @@ program, and what still differs. Source: reviewer A, rounds 5 and 8 (`reviews/a/
   `stop` after 4 × maxtime + 0.25 s and kills the engine 2 s (or maxtime, if longer) later; that game is lost.
 - **Time arguments.** The time policy is the same (a bank per colour and game, the same maxtime formula), but the
   runner passes maxtime as text with four decimals, and both measure elapsed time with their own clocks.
+- **A draw or loss claim on a winning last move.** When a move leaves the opponent without a move and its engine
+  returns a draw (or loss) claim with it, CheckerBoard ends the game by the claim; the runner keeps the board's
+  result, a win. No engine in our records does this; a win claim on such a move gives a win in both.
 
 These are accepted; no setting removes them. The runner and CheckerBoard also differ in process layout (separate
 host processes against both DLLs in one program) and working directory, which matters only for engines that read
