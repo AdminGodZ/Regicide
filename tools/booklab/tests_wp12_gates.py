@@ -126,5 +126,18 @@ class Rules(unittest.TestCase):
             self.assertFalse(G.on_board(t), t)
 
 
+class Pairs(unittest.TestCase):
+    def test_split_line(self):
+        import wp12_confirm as C
+        self.assertEqual(C.split_line("| 12-16  21-17 16-20 | A=W"), ("12-16 21-17 16-20", "W"))
+
+    def test_pair_filter(self):
+        import wp12_confirm as C
+        recs = [dict(run="r1", colour="B", off_board=False, term="t"), dict(run="r1", colour="W", off_board=False, term="t"),
+                dict(run="r2", colour="B", off_board=True, term="Cake crashed"), dict(run="r2", colour="W", off_board=False, term="t")]
+        out = C.pair_filter(recs, "W")
+        self.assertEqual([(r["run"], r["off_board"]) for r in out], [("r1", False), ("r2", True)])
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=1)

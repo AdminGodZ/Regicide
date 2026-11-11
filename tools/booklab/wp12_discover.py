@@ -70,11 +70,19 @@ def dll(name):
     return f"{E}\\regicide\\bl-w12-{name}\\regicide_cb.dll"
 
 
+# Match order (lead 2026-11-11, --pairs): every candidate plays the full pair of its ballot, one runner with
+# --pairs-together and -c 1, so both games are played by the same two engine processes, our Black game first as in a
+# CheckerBoard match with Regicide as engine 1; only the game of the candidate's colour is judged, the other game must
+# also end on the board (else the pair is not counted).
+PAIRS = False
+
+
 def match_cmd(name, deck, out):
     opts = ["--option-a", "set hashsize 128", "--option-a", "set threads 1", "--option-a", "set book 3"]
     for o in CAKE_OPTS + ["set book 3"]:
         opts += ["--option-b", o]
-    return [MATCH, "--allow-rejected-options", "-a", f'exec:{CB} "{dll(name)}"',
+    return [MATCH, "--allow-rejected-options"] + (["--pairs-together"] if PAIRS else []) + [
+        "-a", f'exec:{CB} "{dll(name)}"',
             "-b", f'exec:{CB} "{E}\\cake\\cake_189f.dll"'] + opts + [
         "--openings", deck, "--movetime", "0.5", "-c", "1", "--pdn-comments", "-o", out]
 
@@ -113,7 +121,17 @@ def ensure_memory(minimum=14.0):
 def analyse(c, out):
     """Full analysis or an exception (the caller quarantines)."""
     games = G.load_games(f"{out}/games.pdn")
-    if len(games) != 1:
+    other_off = False
+    if PAIRS:
+        if len(games) != 2 or sorted(g["col"] for g in games) != ["B", "W"]:
+            raise ValueError(f"{len(games)} games in {out}, not one pair")
+        first = min(games, key=lambda g: g["tags"].get("Round", ""))
+        if first["col"] != "B":
+            raise ValueError("the pair did not start with our Black game")
+        other = next(g for g in games if g["col"] != c["colour"])
+        other_off = not G.on_board(other["term"]) or other["res"] is None
+        games = [next(g for g in games if g["col"] == c["colour"])]
+    elif len(games) != 1:
         raise ValueError(f"{len(games)} games in {out}")
     g = games[0]
     if g["col"] != c["colour"]:
@@ -129,7 +147,8 @@ def analyse(c, out):
     # on the board (finding 4): only the runner's on-board termination texts count
     off = not G.on_board(g["term"])
     return dict(result=g["res"], reached=reached, consulted=consulted, plies=len(g["moves"]),
-                term=(g["term"] or "-") + ("; NOT ON THE BOARD" if off else ""), off_board=off)
+                term=(g["term"] or "-") + ("; NOT ON THE BOARD" if off else "")
+                + ("; THE PAIR'S OTHER GAME NOT ON THE BOARD" if other_off else ""), off_board=off or other_off)
 
 
 def main():
@@ -142,7 +161,10 @@ def main():
     ap.add_argument("--replay", nargs="*", default=[], help="ranks whose saved game is archived and played again")
     ap.add_argument("--base-dll", default="bl-456e9b2-r11k", help="engine folder of the baseline (r11) DLL")
     ap.add_argument("--base-book", default=f"{L}/book_r11k.bin", help="the baseline book embedded in that DLL")
+    ap.add_argument("--pairs", action="store_true", help="match order: play the full pair, judge the candidate's colour")
     a = ap.parse_args()
+    global PAIRS
+    PAIRS = a.pairs
     os.makedirs(a.out, exist_ok=True)
     csha = sha(a.candidates)
     camp = open(a.candidates).readline().strip()
@@ -153,7 +175,7 @@ def main():
     # what every saved game of this campaign must have been played with (checked before a saved game is imported)
     manifest = dict(campaign=camp.split()[2], candidates_sha256=csha, base_dll=a.base_dll, base_dll_sha256=sha(base_dll),
                     base_book_sha256=sha(a.base_book), runner_sha256=sha(MATCH), host_sha256=sha(CB),
-                    cake_sha256=sha("/mnt/c/regicide-match/engines/cake/cake_189f.dll"))
+                    cake_sha256=sha("/mnt/c/regicide-match/engines/cake/cake_189f.dll"), pairs=PAIRS)
     os.environ["W12_BASE_DLL"], os.environ["W12_BASE_BOOK"] = a.base_dll, a.base_book
     hdr, cands = None, []
     for l in open(a.candidates):
@@ -250,7 +272,8 @@ def main():
                            stdout=subprocess.DEVNULL)
             c["deck"] = f"{a.out}/{c['name']}.txt"
             with open(c["deck"], "w") as fo:
-                fo.write(f"| {ballot_moves(c['run'], c['round'])} | A={c['colour']}\n")
+                bm = ballot_moves(c["run"], c["round"])
+                fo.write(f"{bm}\n" if PAIRS else f"| {bm} | A={c['colour']}\n")
         names = f"{chunk[0]['name']}..{chunk[-1]['name']}"
         st(f"BL wait-lock w12-discovery {names} ({len(chunk)} single games vs cake)")
         with open(LOCK, "w") as lk:

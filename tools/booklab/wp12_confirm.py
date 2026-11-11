@@ -104,13 +104,31 @@ def regdll(d):
     return f"{E}\\regicide\\{d}\\regicide_cb.dll"
 
 
-def match_cmd(dll, deck, out, conc, fresh):
+def split_line(line):
+    """'| moves | A=W' -> ('moves', 'W')"""
+    moves, colour = line.strip().strip("|").rsplit("|", 1)
+    return " ".join(moves.split()), colour.strip()[-1]
+
+
+def pair_filter(recs, colour):
+    """Match order (--pairs): keep the games of the candidate's colour; a pair whose other game did not end on the
+    board is not counted either (the kept game of that match is marked off the board)."""
+    off_runs = {r["run"] for r in recs if r["off_board"]}
+    out = [r for r in recs if r["colour"] == colour]
+    for r in out:
+        if r["run"] in off_runs and not r["off_board"]:
+            r["off_board"], r["term"] = True, r["term"] + "; a game of the same match off the board"
+    return out
+
+
+def match_cmd(dll, deck, out, conc, fresh, pairs=False):
     opts = []
     for o in REG_OPTS + ["set book 3"]:
         opts += ["--option-a", o]
     for o in CAKE_OPTS + ["set book 3"]:
         opts += ["--option-b", o]
-    return [MATCH, "--allow-rejected-options"] + (["--fresh-engines"] if fresh else []) + [
+    return [MATCH, "--allow-rejected-options"] + (["--fresh-engines"] if fresh else []) + (
+        ["--pairs-together"] if pairs else []) + [
         "-a", f'exec:{CB} "{dll}"', "-b", f'exec:{CB} "{E}\\cake\\cake_189f.dll"'] + opts + [
         "--openings", deck, "--movetime", "0.5", "-c", str(conc), "--pdn-comments", "-o", out]
 
@@ -142,13 +160,17 @@ def write_report(path, title, recs, verdict, why, counts, cols):
 
 def stage2(a, outdir):
     deck = f"{outdir}/stage2_deck.txt"
+    moves, colour = split_line(a.deck)
+    # --pairs (match order): PER-BLOCK full pairs per arm and block, our Black game first; only the candidate's
+    # colour is judged; n = games per match
+    n = 2 * a.per_block if a.pairs else a.per_block
     with open(deck, "w") as fo:
-        fo.write((a.deck.strip() + "\n") * a.per_block)
+        fo.write(((moves if a.pairs else a.deck.strip()) + "\n") * a.per_block)
     arms = dict(cand=(a.cand_dll, a.cand_book, a.alt), ctrl=(a.base_dll, a.base_book, a.pinned))
     dirs = {(b, arm): f"{RESULTS}/bl-w12s2-{a.tag}-b{b}-{arm}" for b in range(1, a.blocks + 1) for arm in arms}
     if not a.eval_only:
         for b in range(1, a.blocks + 1):
-            if all(complete(dirs[(b, arm)], a.per_block) for arm in arms):
+            if all(complete(dirs[(b, arm)], n) for arm in arms):
                 continue
             st(f"BL wait-lock w12s2-{a.tag}-b{b} (candidate and control, {a.per_block} games each vs cake)")
             with open(LOCK, "w") as lk:
@@ -168,7 +190,8 @@ def stage2(a, outdir):
                     if os.path.exists(out):
                         os.rename(out, f"{out}.partial-{time.strftime('%Y%m%dT%H%M%S')}")
                     logf = open(f"{out}.log", "w")
-                    procs.append((subprocess.Popen(match_cmd(regdll(dll), deck, out, a.per_block, a.fresh_engines),
+                    procs.append((subprocess.Popen(match_cmd(regdll(dll), deck, out, a.per_block, a.fresh_engines,
+                                                             a.pairs),
                                                    stdout=logf, stderr=subprocess.STDOUT, stdin=subprocess.DEVNULL),
                                   out, logf))
                 for p, out, logf in procs:
@@ -177,7 +200,7 @@ def stage2(a, outdir):
                     os.makedirs(out, exist_ok=True)
                     open(f"{out}/exit_status", "w").write(f"{rc}\n")
                 fcntl.flock(lk, fcntl.LOCK_UN)
-            bad = [out for _, out, _ in procs if not complete(out, a.per_block)]
+            bad = [out for _, out, _ in procs if not complete(out, n)]
             if bad:
                 for out in bad:
                     os.rename(out, f"{out}.failed-{time.strftime('%Y%m%dT%H%M%S')}")
@@ -186,11 +209,12 @@ def stage2(a, outdir):
             st(f"BL end w12s2-{a.tag}-b{b}")
     recs = []
     for (b, arm), out in sorted(dirs.items()):
-        if not complete(out, a.per_block):
+        if not complete(out, n):
             continue
         _, book, exp = arms[arm]
-        recs += G.analyse_run(f"{out}/games.pdn", PINWALK, book, EGDB, a.fen, exp, arm=arm, block=f"b{b}",
-                              run=os.path.basename(out))
+        rr = G.analyse_run(f"{out}/games.pdn", PINWALK, book, EGDB, a.fen, exp, arm=arm, block=f"b{b}",
+                           run=os.path.basename(out))
+        recs += pair_filter(rr, colour) if a.pairs else rr
     v, why, c = G.eval_stage2(recs)
     write_report(f"{outdir}/stage2", f"WP12 stage 2, {a.tag}: {a.alt} instead of {a.pinned} at {a.fen}", recs, v, why,
                  c, ["arm", "block", "run", "round", "result", "reached", "consulted", "key_ply", "plies", "term"])
@@ -204,10 +228,7 @@ def stage3(a, outdir):
     if a.nominating not in ctx:
         sys.exit(f"nominating context {a.nominating} is not among --context")
     plan = G.stage3_plan(list(ctx), a.nominating)
-    by_line = {}
-    for name, line in ctx.items():
-        moves, colour = line.strip().strip("|").rsplit("|", 1)
-        by_line[(" ".join(moves.split()), colour.strip()[-1])] = name
+    by_line = {split_line(line): name for name, line in ctx.items()}
     recs = []
     for opp in ("cake", "kingsrow", "guinn"):
         names = [c for o, c in plan if o == opp]
@@ -216,11 +237,12 @@ def stage3(a, outdir):
         deck = f"{outdir}/stage3_{opp}.txt"
         with open(deck, "w") as fo:
             for n in names:
-                fo.write((ctx[n].strip() + "\n") * G.S3_GAMES)
+                fo.write(((split_line(ctx[n])[0] if a.pairs else ctx[n].strip()) + "\n") * G.S3_GAMES)
         tag = f"w12s3-{a.tag}-{opp}"
         if not a.eval_only:
             env = dict(os.environ, MATCH=MATCH, CBHOST=CB,
-                       EXTRA_ARGS="--allow-rejected-options" + (" --fresh-engines" if a.fresh_engines else ""))
+                       EXTRA_ARGS="--allow-rejected-options" + (" --fresh-engines" if a.fresh_engines else "")
+                       + (" --pairs-together" if a.pairs else ""))
             rc = subprocess.run(["bash", f"{J}/bl_run_w.sh", f"regicide:{a.cand_dll}", opp, tag, deck, "0.5", "8"],
                                 env=env, stdin=subprocess.DEVNULL).returncode
             if rc != 0:
@@ -229,9 +251,14 @@ def stage3(a, outdir):
         pdn = f"{RESULTS}/bl-{tag}/games.pdn"
         if not os.path.exists(pdn):
             continue
-        for r, g in zip(G.analyse_run(pdn, PINWALK, a.cand_book, EGDB, a.fen, a.alt, run=f"bl-{tag}"),
-                        G.load_games(pdn)):
+        rr = G.analyse_run(pdn, PINWALK, a.cand_book, EGDB, a.fen, a.alt, run=f"bl-{tag}")
+        off = any(r["off_board"] for r in rr)  # a pair's other game off the board: the run is not counted
+        for r, g in zip(rr, G.load_games(pdn)):
             r["context"] = by_line.get((" ".join(ballot_of(g["tags"]["Opening"])[1].split()), g["col"]), "?")
+            if a.pairs and r["context"] == "?":
+                continue  # the pair's other-colour game (not a planned context)
+            if off and not r["off_board"]:
+                r["off_board"], r["term"] = True, r["term"] + "; a game of the same match off the board"
             recs.append(r)
     v, why, per = G.eval_stage3(recs, plan)
     write_report(f"{outdir}/stage3", f"WP12 stage 3, {a.tag}: {a.alt} at {a.fen}", recs, v, why,
@@ -258,13 +285,15 @@ def main():
     ap.add_argument("--context", nargs="*", default=[])
     ap.add_argument("--nominating")
     ap.add_argument("--fresh-engines", action="store_true")
+    ap.add_argument("--pairs", action="store_true", help="match order: full pairs with --pairs-together, our Black "
+                    "game first; only the candidate's (context's) colour is judged")
     ap.add_argument("--eval-only", action="store_true")
     a = ap.parse_args()
     outdir = f"{L}/wp12/confirm/{a.tag}"
     os.makedirs(outdir, exist_ok=True)
     man = dict(stage=a.stage, cand_dll=a.cand_dll, cand_dll_sha256=sha(f"{EW}/regicide/{a.cand_dll}/regicide_cb.dll"),
                cand_book_sha256=sha(a.cand_book), runner_sha256=sha(MATCH), host_sha256=sha(CB), fen=a.fen, alt=a.alt,
-               fresh_engines=a.fresh_engines, cake_sha256=sha(f"{EW}/cake/cake_189f.dll"))
+               fresh_engines=a.fresh_engines, pairs=a.pairs, cake_sha256=sha(f"{EW}/cake/cake_189f.dll"))
     if a.stage == "stage2":
         if not (a.base_dll and a.base_book and a.pinned and a.deck):
             sys.exit("stage2 needs --base-dll, --base-book, --pinned and --deck")
