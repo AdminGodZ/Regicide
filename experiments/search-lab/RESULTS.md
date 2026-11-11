@@ -247,3 +247,4 @@ transformer at 1024 and rejected w2064 (FT 2048): `set evalfile` → "ft must be
 match tool refused to start (exit 1), and the runner logged 0 of 1,610 games and put the line in `failed.txt`. Re-run
 on a second build of the same master 456e9b2 with `-DREGICIDE_NNUE_MAX_FT=2048` (as truth-data's `rft2048.so`).
 Both sides use it. bench 7,677,736 (unchanged); it loads w2064 and n8bn; database 7 pieces. Engine dir `netm/eng2048`.
+| M6a w2064 vs n8bn (FT-2048 build of 456e9b2, both sides) | on | 262 / 1071 / 277 | [0, 35, 750, 20, 0] | **-3.2 [-6.4, -0.1]** | 2.1% | 0.271 / 0.270 s | 31.96 / 33.38 | none |

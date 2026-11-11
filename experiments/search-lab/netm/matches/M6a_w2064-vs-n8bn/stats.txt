@@ -1,0 +1,4 @@
+A: moves 86365 mean 0.271 s/move, mean depth first 20 searched moves 31.96, all searched moves 52.49
+B: moves 86379 mean 0.270 s/move, mean depth first 20 searched moves 33.38, all searched moves 53.32
+terminations: {'white has no legal moves': 391, 'threefold repetition': 1069, 'black has no legal moves': 148, '40-move rule (no capture or man move)': 2}
+forfeits/illegal: none
