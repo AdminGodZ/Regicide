@@ -444,7 +444,33 @@ Under r11d every won game is followed to its end except the three places where t
 plies 44 and 50; `wp11d/wins_r11d.md`). The lost-game table is unchanged from r11c (`wp11d/r11d_lost.md`).
 
 DLL `bl-a18042f-r11d` from master a18042f (engine as 85a9fe8; PR #61's interface fix; bench 7,677,736 / 8,055,287).
-Validation with n6c (KingsRow mode 3 ×2, Cake ×2, GuiNN ×1, after a targeted test of the repaired lines): running.
+
+**Validation of r11d with n6c** (the last n6c validation; targeted test 8 of the repaired lines first: KingsRow mode 3
+0 / 80 / 0, Cake 0 / 32 / 0, GuiNN 0 / 32 / 0; read-out `wp11d/v11d_n6c_report.md`):
+
+| Opponent | Run | W / D / L | identical to the earlier run |
+|---|---|---|---|
+| KingsRow mode 3 | a | 1 / 311 / 0 | — |
+| KingsRow mode 3 | b | 4 / 308 / 0 | 9 |
+| Cake | a | 0 / 312 / 0 | — |
+| Cake | b | 0 / 312 / 0 | 133 |
+| GuiNN | a | 25 / 287 / 0 | — |
+
+**No loss; 5 wins against KingsRow mode 3 in 624 games (r11c with n6c: 1).** Each win against KingsRow, with KingsRow's
+first move not played in its draws, and whether it repeats an earlier win:
+
+| Opening | Regicide | Game | KingsRow's first different move | repeats an earlier win? |
+|---|---|---|---|---|
+| ACF #134 | W | v11d-n6c a 43.2 | none (all its moves also in draws) | not move for move; follows k3 a 43.2 (won) to ply 46 |
+| ACF #134 | W | v11d-n6c b 43.2 | none | follows the win of run a to ply 52 |
+| ACF #16 Wilderness II | W | v11d-n6c b 14.2 | ply 41: 9-14 (32-28 in draws) | follows v11c-n8q b 14.2 (won) to ply 62 |
+| ACF #43 | W | v11d-n6c b 39.2 | ply 23: 8-12 (8-11 in draws) | follows v11c-n6c b 39.2 (won) to ply 73 |
+| ACF #71 Diabolical Denny | W | v11d-n6c b 63.2 | ply 25: 10-14 (5-9 in draws) | follows v13 b 63.2 (won) to ply 46 |
+
+The known wins come back: #134 (the opening the wins-first rule changed, pin 29-25 at ply 12) twice, #16, #43 and #71
+once each, every one following an earlier won game far into the middlegame; none is identical move for move (they
+part late, mostly where KingsRow varies). The n8q runs (DLL `bl-5c433dc-r11d`, master 5c433dc with n8q built in) and
+then the Cake census (4 × 312) are playing.
 
 **New pins (CPU only, for the next r11).** From the 4,368 games of the validated full runs with r10 (final
 validation; k3), r10k (v13) and r10k4 (v13k4) against all three opponents, KingsRow mode 3 included, on top of r10k5;

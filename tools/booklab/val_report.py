@@ -96,6 +96,12 @@ def main():
            "|---|---|---|---|---|---|"]
     earlier = collections.defaultdict(dict)  # (net, opp) -> (opening, colour) -> [move lists]
     losses, wins = [], []
+    # earlier won games (pool first, then the runs in order) for "repeats an earlier won game move for move"
+    won_before = collections.defaultdict(list)  # (opening, colour, opp) -> [(moves, ref)]
+    for g in pool:
+        if g["res"] == "W":
+            won_before[(g["ballot"][1], g["col"], g["opp"])].append(
+                (g["moves"], f"{os.path.basename(os.path.dirname(g['src']))} {g['rnd']}"))
     for net, opp, letter, gs in runs:
         c = collections.Counter(g["res"] for g in gs)
         same = sum(1 for g in gs if g["moves"] in earlier[(net, opp)].get((g["ballot"][1], g["col"]), []))
@@ -120,13 +126,26 @@ def main():
                             if i >= g["ballot"][2] and (i % 2 == 0) != (g["col"] == "B") and i in g["keys"]
                             and ref.get(g["keys"][i]) and mv not in ref[g["keys"][i]]),
                            "none (each of its moves was also played in drawn games)")
-                wins.append(f"| {net} | {opp} | {g['ballot'][0]} | {g['col']} | {tag} | {dev} |")
+                prev = won_before[oc + (opp,)]
+                rep = next((r for m, r in prev if m == g["moves"]), None)
+                if rep:
+                    repeat = f"yes, move for move: {rep}"
+                elif prev:
+                    p = max(prev, key=lambda mr: next((i for i in range(min(len(mr[0]), len(g["moves"])))
+                                                       if mr[0][i] != g["moves"][i]), min(len(mr[0]), len(g["moves"]))))
+                    k = next((i for i in range(min(len(p[0]), len(g["moves"]))) if p[0][i] != g["moves"][i]), None)
+                    repeat = f"no; closest earlier win {p[1]}, first difference ply {k + 1 if k is not None else '—'}"
+                else:
+                    repeat = "no earlier win of this opening and colour"
+                wins.append(f"| {net} | {opp} | {g['ballot'][0]} | {g['col']} | {tag} | {dev} | {repeat} |")
+                won_before[oc + (opp,)].append((g["moves"], tag))
     out += ["", "Losses (leaving move: the lost game's own move / the moves of the non-lost games in that position):", "",
             "| Net | Opening | Regicide | Game | leaving move | first own score < −100 (not at a capture) | plies |",
             "|---|---|---|---|---|---|---|"] + (losses or ["| — | | | | | | |"])
     out += ["", "Wins against Cake and KingsRow (the opponent's first move not played by it in drawn games of the same "
-            "opening and colour):", "", "| Net | Opponent | Opening | Regicide | Game | opponent's first different move |",
-            "|---|---|---|---|---|---|"] + (wins or ["| — | | | | | |"])
+            "opening and colour; and whether the game repeats an earlier won game, of the pool or of an earlier run, move "
+            "for move):", "", "| Net | Opponent | Opening | Regicide | Game | opponent's first different move | repeats an earlier win? |",
+            "|---|---|---|---|---|---|---|"] + (wins or ["| — | | | | | | |"])
     text = "\n".join(out)
     print(text)
     if a.md:
