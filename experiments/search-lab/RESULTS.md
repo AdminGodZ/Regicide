@@ -386,3 +386,16 @@ unchanged.**
 - Mode 2 (LMR exemption too) was not screened: ×3.0 nodes to depth, and mode 1 already loses.
 - The exemption idea does not show a measurable gain at these time controls. Mode 3 stays in the code as a cheap
   candidate for long time controls or analysis, where missing one combination matters more than depth.
+
+# LMR sweep (valid after master PR #31: per-engine LMR table)
+
+`selfplay-lab6` (branch with master ddd25fc merged: n8q built in, `prune_forcing` 0), **200 ms exact per move**
+(with master PR #37 `--movetime` uses the full time; the old "300 ms" runs averaged ~200 ms per move, so 200 ms keeps
+their depth and wall time), 800 pairs, UHO set (first 800 of the shuffled 1,600), 2–7 database, 16 games at once.
+A = the value, B = defaults (lmr_base 60, lmr_mult 45). Nine candidates, so a single significant screen means
+little: any value ≥ +5 with the lower bound > 0 is confirmed at 600 ms on the other half of the set (`--skip 800`)
+before any default changes. Self-check (above): with the per-engine table, mean depth differs clearly between
+lmr_base 20 and 120.
+
+| test | W / D / L | draws | Elo [95% CI] | penta | pairs | ± per 800 | t | time A / B |
+|---|---|---|---|---|---|---|---|---|
