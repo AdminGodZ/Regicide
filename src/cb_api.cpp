@@ -73,6 +73,21 @@ struct State {
     std::string avoidfile = "builtin";
     std::shared_ptr<const Book> avoid_list = Book::builtin();
     std::mutex mutex;
+
+    // What `get` answers. A query does not wait for a running search (which holds `mutex`), so it reads this copy
+    // under its own lock; it is refreshed after the set-up and after every `set`.
+    struct Shown {
+        std::size_t hash_mb = 0;
+        int threads = 0, book_mode = 0, egdb_pieces = 0;
+        std::string egdb_dir, evalfile, avoidfile;
+        bool avoid = false;
+    };
+    Shown shown;
+    std::mutex shown_mutex;
+    void publish() {
+        std::lock_guard lock(shown_mutex);
+        shown = {hash_mb, threads, book_mode, engine->egdb_pieces(), egdb_dir, evalfile, avoidfile, avoid};
+    }
 };
 
 // Directory containing this engine library (where an "egdb" folder is looked for by default).
@@ -101,15 +116,18 @@ void load_egdb(State& s, const std::string& dir, std::size_t cache_mb) {
     }
 }
 
+// The engine is set up once, completely, also when the first calls arrive from several threads at the same time.
 State& state() {
     static State s;
-    if (!s.engine) {
+    static std::once_flag once;
+    std::call_once(once, [] {
         s.engine = std::make_unique<Engine>();
         s.engine->set_hash_mb(s.hash_mb);
         s.engine->set_book(Book::builtin());
         s.engine->set_avoid(s.avoid_list);
         load_egdb(s, library_dir() + "/egdb", s.egdb_cache_mb);
-    }
+        s.publish();
+    });
     return s;
 }
 
@@ -255,17 +273,22 @@ CB_EXPORT int WINAPI enginecommand(const char* command, char reply[1024]) try {
     if (cmd == "get") {
         if (p1 == "protocolversion") return answer("2", 1);
         if (p1 == "gametype") return answer("21", 1);
-        if (p1 == "hashsize") return answer(std::to_string(s.hash_mb), 1);
-        if (p1 == "threads") return answer(std::to_string(s.threads), 1);
-        if (p1 == "book") return answer(std::to_string(s.book_mode), 1);
-        if (p1 == "dbpath") return answer(s.egdb_dir, 1);
-        if (p1 == "dbpieces") return answer(std::to_string(s.engine->egdb_pieces()), 1);
-        if (p1 == "evalfile") return answer(s.evalfile, 1);
-        if (p1 == "avoid") return answer(s.avoid ? "1" : "0", 1);
-        if (p1 == "avoidfile") return answer(s.avoidfile, 1);
+        std::lock_guard shown(s.shown_mutex);
+        if (p1 == "hashsize") return answer(std::to_string(s.shown.hash_mb), 1);
+        if (p1 == "threads") return answer(std::to_string(s.shown.threads), 1);
+        if (p1 == "book") return answer(std::to_string(s.shown.book_mode), 1);
+        if (p1 == "dbpath") return answer(s.shown.egdb_dir, 1);
+        if (p1 == "dbpieces") return answer(std::to_string(s.shown.egdb_pieces), 1);
+        if (p1 == "evalfile") return answer(s.shown.evalfile, 1);
+        if (p1 == "avoid") return answer(s.shown.avoid ? "1" : "0", 1);
+        if (p1 == "avoidfile") return answer(s.shown.avoidfile, 1);
     }
     if (cmd == "set") {
         std::lock_guard lock(s.mutex);
+        struct Publish {  // on every way out, also by an exception, while `mutex` is still held
+            State& s;
+            ~Publish() { s.publish(); }
+        } publish{s};
         if (p1 == "hashsize") {
             const int mb = std::max(1, std::atoi(p2.c_str()));
             s.engine->set_hash_mb(mb);  // throws if the memory cannot be had; the old size then stays in force

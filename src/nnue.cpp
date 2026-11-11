@@ -1,6 +1,7 @@
 #include "nnue.hpp"
 
 #include <algorithm>
+#include <functional>
 #include <array>
 #include <bit>
 #include <chrono>
@@ -366,6 +367,28 @@ std::shared_ptr<const Network> Network::load(const unsigned char* data, std::siz
     };
     if (!roomy(net->l1_bias_.get(), std::size_t(hb) * l1, n1) || !roomy(net->l2_bias_.get(), std::size_t(hb) * l2, l1))
         return fail(what + "hidden bias out of range");
+
+    // The accumulator is 16 bits wide: a feature-transformer unit whose bias plus weights could leave that range on
+    // some board is refused. A square holds at most one piece and a board at most 24, so the largest sum is at most
+    // the bias plus the 24 largest per-square maxima (the smallest likewise). The trainer's clipping (weights up to
+    // 5 * 255, bias up to 8 * 255) stays inside: 24 * 1275 + 2040 = 32640.
+    for (int i = 0; i < ft; ++i) {
+        int high[32], low[32];
+        for (int sq = 0; sq < 32; ++sq) {
+            high[sq] = low[sq] = 0;
+            for (int kind = 0; kind < INPUTS / 32; ++kind) {
+                const int w = net->ft_row(kind * 32 + sq)[i];
+                high[sq] = std::max(high[sq], w);
+                low[sq] = std::min(low[sq], w);
+            }
+        }
+        std::sort(high, high + 32, std::greater<>());
+        std::sort(low, low + 32);
+        const int bias = net->ft_bias_[i];
+        if (bias + std::accumulate(high, high + 24, 0) > std::numeric_limits<std::int16_t>::max() ||
+            bias + std::accumulate(low, low + 24, 0) < std::numeric_limits<std::int16_t>::min())
+            return fail(what + "feature-transformer weights out of range");
+    }
     return net;
 }
 
