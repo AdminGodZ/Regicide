@@ -4,6 +4,8 @@
 //                                 belong to the opening; a line starting with '%' is a comment
 //   runner_test braces MATCH      an engine's status text with braces in it stays inside its PDN comment: the saved
 //                                 game reads back as the moves that were played
+//   runner_test fresh MATCH       every game carries the tags Worker and EngineGames; with --fresh-engines each
+//                                 game is the first of new engine processes
 //   runner_test interrupt MATCH   an interrupt of the whole process group (Ctrl-C in a terminal) ends the engines
 //                                 too; the game they were playing is left out of the results, not scored as a loss
 //                                 by "crash". MATCH is the match executable; the engines are this executable run
@@ -122,6 +124,30 @@ int braces(const char* self, const char* match_exe) {
     return ok ? 0 : 1;
 }
 
+// Two games (one opening, both colours) by one worker, with and without --fresh-engines: the EngineGames tags.
+int fresh(const char* self, const char* match_exe) {
+    const fs::path dir = scratch("fresh");
+    std::ofstream(dir / "opening.txt") << "B:W21-32:B1-12\n";
+    const std::string engine = "exec:\"" + std::string(self) + "\" --fake-braces";
+    auto tags = [&](const char* option, const char* out) {
+        const std::string command = "\"" + std::string(match_exe) + "\" -a '" + engine + "' -b '" + engine +
+                                    "' --openings \"" + (dir / "opening.txt").string() + "\" --max-plies 2 -c 1 " +
+                                    option + " -o \"" + (dir / out).string() + "\" > /dev/null 2>&1";
+        if (std::system(command.c_str()) != 0) return std::string("match failed");
+        std::ifstream in(dir / out / "games.pdn");
+        std::string line, found;
+        while (std::getline(in, line))
+            if (line.rfind("[EngineGames ", 0) == 0 || line.rfind("[Worker ", 0) == 0) found += line;
+        return found;
+    };
+    const std::string kept = tags("", "kept"), renewed = tags("--fresh-engines", "renewed");
+    fs::remove_all(dir);
+    const bool ok = kept == "[Worker \"0\"][EngineGames \"0\"][Worker \"0\"][EngineGames \"1\"]" &&
+                    renewed == "[Worker \"0\"][EngineGames \"0\"][Worker \"0\"][EngineGames \"0\"]";
+    if (!ok) std::cerr << "FAIL: tags without the option: " << kept << "\n      with --fresh-engines: " << renewed << '\n';
+    return ok ? 0 : 1;
+}
+
 int interrupt(const char* self, const char* match_exe) {
     const fs::path dir = scratch("interrupt");
     std::ofstream(dir / "opening.txt") << "11-15 22-18\n";
@@ -169,8 +195,9 @@ int main(int argc, char** argv) {
     if (argc == 3 && what == "--fake") return fake(argv[2]);
     if (argc == 2 && what == "--fake-braces") return fake_braces();
     if (argc == 3 && what == "braces") return braces(argv[0], argv[2]);
+    if (argc == 3 && what == "fresh") return fresh(argv[0], argv[2]);
     if (argc == 2 && what == "comment") return comment();
     if (argc == 3 && what == "interrupt") return interrupt(argv[0], argv[2]);
-    std::cerr << "usage: runner_test comment | braces MATCH | interrupt MATCH\n";
+    std::cerr << "usage: runner_test comment | braces MATCH | fresh MATCH | interrupt MATCH\n";
     return 2;
 }
