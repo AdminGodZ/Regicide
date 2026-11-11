@@ -342,12 +342,14 @@ std::vector<PdnGame> read_pdn(const std::string& path) {
             }
             token.clear();
         };
-        if (comment && !g.comments.empty()) g.comments.back() += ' ';  // a comment continued from the previous line
+        // a comment continued from the previous line (main line only, as below)
+        if (comment && !variation && !g.comments.empty()) g.comments.back() += ' ';
         for (char c : line) {
             if (c == '{') ++comment;
             else if (c == '}') comment = std::max(0, comment - 1);
             else if (comment) {
-                if (!g.comments.empty()) g.comments.back() += c;
+                // only main-line comments belong to the last main-line move; a comment inside a (variation) does not
+                if (!variation && !g.comments.empty()) g.comments.back() += c;
                 continue;
             }
             else if (c == '(') ++variation;
@@ -669,6 +671,16 @@ int main(int argc, char** argv) {
             }
         } else if (!k.empty() && k[0] == '-') return std::cerr << "unknown option " << k << '\n', 2;
         else files.push_back(k);
+    }
+    if (cmd == "pdn") {  // FILE...: the PDN reader's view, one "game ply move {comment}" line per move (tests/truth_pdn_test.cmake)
+        int gi = 0;
+        for (const auto& file : files)
+            for (const auto& g : read_pdn(file)) {
+                ++gi;
+                for (std::size_t p = 0; p < g.moves.size(); ++p)
+                    std::cout << gi << ' ' << p + 1 << ' ' << g.moves[p] << " {" << g.comments[p] << "}\n";
+            }
+        return 0;
     }
     if (cmd == "split") return split(in, out, lo, hi, proven, from);
     if (cmd == "seeds") return seeds(files, lo, hi, opponents, out);
