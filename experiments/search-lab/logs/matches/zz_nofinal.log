@@ -1,0 +1,3 @@
+openings 1600, pairs 800, A="hash_first_db=90" B=""
+      games 40  A: +17 =6 -17  score 0.5000  draws 15.0%  elo -0.0 [-41.9, +41.9]  penta [0 3 14 3 0]
+      games 80  A: +35 =10 -35  score 0.5000  draws 12.5%  elo -0.0 [-24.1, +24.1]  penta [0 4 32 4 0]
