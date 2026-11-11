@@ -4,8 +4,8 @@
 //                                 belong to the opening; a line starting with '%' is a comment
 //   runner_test braces MATCH      an engine's status text with braces in it stays inside its PDN comment: the saved
 //                                 game reads back as the moves that were played
-//   runner_test fresh MATCH       every game carries the tags Worker and EngineGames; with --fresh-engines each
-//                                 game is the first of new engine processes
+//   runner_test fresh MATCH       every game carries the tags Worker, EngineGamesA and EngineGamesB; with
+//                                 --fresh-engines each game is the first of new engine processes
 //   runner_test interrupt MATCH   an interrupt of the whole process group (Ctrl-C in a terminal) ends the engines
 //                                 too; the game they were playing is left out of the results, not scored as a loss
 //                                 by "crash". MATCH is the match executable; the engines are this executable run
@@ -124,7 +124,8 @@ int braces(const char* self, const char* match_exe) {
     return ok ? 0 : 1;
 }
 
-// Two games (one opening, both colours) by one worker, with and without --fresh-engines: the EngineGames tags.
+// Two games (one opening, both colours) by one worker, with and without --fresh-engines: the EngineGamesA and
+// EngineGamesB tags.
 int fresh(const char* self, const char* match_exe) {
     const fs::path dir = scratch("fresh");
     std::ofstream(dir / "opening.txt") << "B:W21-32:B1-12\n";
@@ -137,13 +138,15 @@ int fresh(const char* self, const char* match_exe) {
         std::ifstream in(dir / out / "games.pdn");
         std::string line, found;
         while (std::getline(in, line))
-            if (line.rfind("[EngineGames ", 0) == 0 || line.rfind("[Worker ", 0) == 0) found += line;
+            if (line.rfind("[EngineGames", 0) == 0 || line.rfind("[Worker ", 0) == 0) found += line;
         return found;
     };
     const std::string kept = tags("", "kept"), renewed = tags("--fresh-engines", "renewed");
     fs::remove_all(dir);
-    const bool ok = kept == "[Worker \"0\"][EngineGames \"0\"][Worker \"0\"][EngineGames \"1\"]" &&
-                    renewed == "[Worker \"0\"][EngineGames \"0\"][Worker \"0\"][EngineGames \"0\"]";
+    const bool ok = kept == "[Worker \"0\"][EngineGamesA \"0\"][EngineGamesB \"0\"]"
+                            "[Worker \"0\"][EngineGamesA \"1\"][EngineGamesB \"1\"]" &&
+                    renewed == "[Worker \"0\"][EngineGamesA \"0\"][EngineGamesB \"0\"]"
+                               "[Worker \"0\"][EngineGamesA \"0\"][EngineGamesB \"0\"]";
     if (!ok) std::cerr << "FAIL: tags without the option: " << kept << "\n      with --fresh-engines: " << renewed << '\n';
     return ok ? 0 : 1;
 }

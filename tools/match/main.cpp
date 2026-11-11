@@ -120,7 +120,7 @@ struct GameRecord {
     std::vector<std::string> moves;  // engine moves (after the opening), PDN
     std::vector<std::string> comments;
     int worker = 0;        // which worker played it
-    int engine_games = 0;  // games its engine processes had played before this one
+    int engine_games[2] = {0, 0};  // by engine (A, B): games its current process had played before this one
     double time_used[2] = {0, 0};  // by colour
     int moves_made[2] = {0, 0};
     double max_time[2] = {0, 0};
@@ -357,8 +357,9 @@ std::string pdn_text(const Config& cfg, const GameRecord& g) {
     o << "[TimeControl \"" << tc_description(cfg) << "\"]\n";
     o << "[Termination \"" << g.termination << "\"]\n";
     // An engine may carry its hash table or other state from one game to the next: which worker played the game
-    // and how many games its engine processes had played before.
-    o << "[Worker \"" << g.worker << "\"]\n[EngineGames \"" << g.engine_games << "\"]\n";
+    // and how many games each engine's process had played before.
+    o << "[Worker \"" << g.worker << "\"]\n[EngineGamesA \"" << g.engine_games[0] << "\"]\n[EngineGamesB \""
+      << g.engine_games[1] << "\"]\n";
 
     std::vector<std::string> all;
     for (const auto& m : op.played) all.push_back(cbt::move_to_pdn(m));
@@ -588,16 +589,14 @@ void worker(Match& m, int id) {
         eng[e] = std::make_unique<Engine>(cfg.spec[e], log);
     }
     bool launched = false;
-    int engine_games = 0;
+    int engine_games[2] = {0, 0};  // by engine: games its current process has played
     while (auto task = m.take_task()) {
         std::string err;
-        if (cfg.fresh_engines && launched) {
+        if (cfg.fresh_engines && launched)
             for (auto& e : eng) e->kill();
-            engine_games = 0;
-        }
         for (int e = 0; e < 2; ++e) {
             if (eng[e]->alive()) continue;
-            engine_games = 0;  // a new process (the first, a fresh one, or one that replaces a dead engine)
+            engine_games[e] = 0;  // a new process (the first, a fresh one, or one that replaces a dead engine)
             if (!(launched ? eng[e]->restart(err) : eng[e]->launch(err))) {
                 m.set_fatal("worker " + std::to_string(id) + ": " + err);
                 return;
@@ -618,7 +617,7 @@ void worker(Match& m, int id) {
         g.black = by_colour[0]->name();
         g.white = by_colour[1]->name();
         g.worker = id;
-        g.engine_games = engine_games++;
+        for (int e = 0; e < 2; ++e) g.engine_games[e] = engine_games[e]++;
         play_game(cfg, by_colour, g);
         m.record(std::move(g));
     }
@@ -717,8 +716,9 @@ Running:
   --pdn-comments           add per-move time and engine output to the PDN
   --fresh-engines          start new engine processes for every game (default: each worker keeps
                            its two engines for all its games, as a GUI does; an engine may then
-                           carry its hash table from game to game). Every PDN has the tags Worker
-                           and EngineGames (games its engines had played before).
+                           carry its hash table from game to game). Every PDN has the tags Worker,
+                           EngineGamesA and EngineGamesB (games that engine's process had played
+                           before).
   -q, --quiet              no per-game lines
 )");
 }

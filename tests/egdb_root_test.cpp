@@ -153,6 +153,18 @@ int main() {
         l.depth = 4;
         const SearchResult r = e.go(l);
         check(r.best == repeat && r.score == SCORE_DRAW, "a lost root takes the draw by a third occurrence");
+        // The draw is a fact about the game, so it holds for a restricted move list too, and another move given
+        // alone keeps the table's loss.
+        Move other;
+        check(parse_move(g, "10-6", other), "10-6 is legal");
+        l.searchmoves = {repeat};
+        const SearchResult only_repeat = e.go(l);
+        check(only_repeat.best == repeat && only_repeat.score == SCORE_DRAW,
+              "searchmoves 10-15: the third occurrence is a draw");
+        l.searchmoves = {other};
+        const SearchResult only_other = e.go(l);
+        check(only_other.best == other && only_other.score < -SCORE_KNOWN_WIN, "searchmoves 10-6: the table's loss");
+        l.searchmoves.clear();
         e.new_game();
         e.set_position(g);  // the same board without its history: the table move
         check(e.go(l).best != repeat, "without the history the longest defence is played");
