@@ -69,7 +69,9 @@ def main():
             opp, letter = spec.split()
             gs = []
             for h in ("h1", "h2"):
-                p = os.path.join(a.results, f"bl-{a.prefix}-{net}-{opp}-{letter}-{h}", "games.pdn")
+                # --nets "-": run names without a net part (bl-mo-<opp>-<run>-<half>, the match-order runs)
+                name = "-".join(x for x in ("bl", a.prefix, net if net != "-" else "", opp, letter, h) if x)
+                p = os.path.join(a.results, name, "games.pdn")
                 if os.path.exists(p):
                     gs += load(p)
             runs.append((net, opp, letter, gs))

@@ -540,12 +540,18 @@ pins for simplech, `tools/opponents/simplech`; it is also the repository's curre
   instead of one CheckerBoard process (no effect on the engines' own state).
 
 **Runs in match order** (lead 2026-11-11; runner, host and DLL from master 1c6e997: `bin/match-1c6e` sha256
-`26a16d9a…`, DLL `bl-1c6e997` built from the unmodified commit, built-in book r11d `7692986c…`, net n8q `68154969…`,
+`3f828034…`, host `bin/1c6e/cbhost.exe` `26a16d9a…`, DLL `bl-1c6e997` (`7f909a98…`) built from the unmodified commit, built-in book r11d `7692986c…`, net n8q `68154969…`,
 bench 7,833,556 / 8,241,422 as the r11d DLL; the DLL differs from `bl-5c433dc-r11d` by the engine changes since,
 PRs #65 and #71): 2b (`mo-<opp>-<run>-<half>`, pairs together, concurrency 8: KingsRow mode 3 a, b; Cake a, b; GuiNN
 a), then 2c (`mo1-cake`, concurrency 1, whole deck, no timing lock: one game at a time) and 2d (Cake #163 natural
-pairs; KingsRow mode 3 #71, #43, #134, #16 as White, 24 games fresh, 24 kept, 24 natural pairs each), after
-experiment 2's deck arm.
+pairs; KingsRow mode 3 #71, #43, #134, #16 as White, 24 games fresh, 24 kept, 24 natural pairs each).
+
+**Incident 08:58** (my error): experiment 2's chain died at `e2c-kept-2-h2`. I had replaced `bl_run_w.sh` by `mv` (to add
+NOLOCK) while an instance was running; on /mnt/c the running bash lost its script ("error reading input file: No data
+available") after the match had played its 156 games, so the half-run has no exit_status and is not counted
+(archived as `bl-e2c-kept-2-h2.wrapper-died-0858`). The match-order chain took the stop as its start signal, so 2b
+began at 08:59 (before d, as ordered); the deck arm resumes after 2b with that half-run replayed (`e2c_resume.sh`).
+Rule from now on: a script with a running instance is never replaced; changes go to a new file name.
 
 ## Review of the WP12 tools at fa0c887 (2026-11-11): fixes
 
