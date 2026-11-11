@@ -721,8 +721,11 @@ byte-identically. In the 48 games, 977 of the 991 own positions where the book i
 now book moves equal to the game's move (14 where the games differ and the pin took one move). **82 r11d entries lay
 only on the old 6-10 line** (met only after 6-10 at ply 17 in the records) and are now unreachable; they stay in the
 file. DLL `bl-fdd154e-r11f` = master fdd154e with book.bin replaced (nothing else differs), bench 7,833,556 / 8,241,422.
-Validation playing: a) #6 Black against KingsRow mode 3, 24 fresh, 24 kept, 24 natural pairs; b) `mo3-*`, three
-concurrency-1 runs as mo2.
+Validation: **a) #6 Black against KingsRow mode 3** (`v11f-c6-*`, runner fdd154e, concurrency 8; `wp11f/v11f_a*.md`):
+fresh 0 / 24 / 0, kept 0 / 24 / 0, natural pairs 0 / 48 / 0 (our Black games 0 / 24 / 0); all 72 Black games play 8-11
+from the book at ply 17; the book now covers the line to ply 39-67 (median 59, first own searched move); **lowest
+searched score after the book: 0 in every game** (with the depth-1 scores of forced moves: −39 in most, −69 in three).
+b) `mo3-*` (three concurrency-1 runs as mo2) playing.
 
 **WP14 closed.** Export for the search lab: `wp14/dips.tsv`, the 13 positions where our 0.5 s game score and the 100M
 root differ by 50 or more (the nine contexts and the new #6 line's two low points; FEN, legal-move count, the full move
