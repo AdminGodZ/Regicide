@@ -390,10 +390,17 @@ built-in book** (`wp11c/book_r11c.bin`, sha256 `14bc3e77…`; on master as 85a9f
 
 **Repetition test of our first win against Cake** (ACF #163, Regicide White, `bl-v13k4-cake-a-h2` 69.2; WP12 known
 point): 20 games with r11c (DLL `bl-cc29fc9-r11c`, runner and host from cc29fc9), `bl-w12-known163`: **Regicide 6 / 14 /
-0.** Cake never repeats the won game: it leaves it at ply 19 (15-18 instead of 7-10, 10 games, all drawn), ply 17 (8-12
-instead of 10-15, 1 game, drawn) or **ply 15 (10-15 instead of 4-8, 9 games: 6 won by us, 3 drawn)**. The original
-game is not a replayable line (as the reviewer found: Cake's first clearly worse move there is at ply 51), but the
-opening has a repeatable winning chance through Cake's 10-15 at ply 15. The WP12 pilot waits for r11d (below).
+0.** Cake never repeats the won game: it leaves it at ply 19 (15-18 instead of 7-10, 11 games, all drawn), ply 17 (8-12
+instead of 10-15, 1 game, drawn) or **ply 15 (10-15 instead of 4-8, 8 games: 6 won by us, 2 drawn)** (corrected from
+"9 games, 3 drawn"). The original game is not a replayable line (the reviewer: Cake's first clearly worse move there
+is at ply 51), but the opening has a repeatable winning chance through Cake's 10-15 at ply 15. **The six wins follow
+one line:** all 8 games after Cake's 10-15 are identical to ply 36; at **ply 37 Cake plays 20-24 in all six wins and
+14-18 in both draws**; after that the wins part only late (Cake at plies 55, 57, 71, 73; our move once at ply 66).
+
+**Book r11e** = r11d's pool plus these 20 games (lead: the book holds the winning replies after Cake's 10-15): 53,115
+pins (65 new, 1 changed, all on ACF #163 as White), sha256 `d2ea68853622ebd02768df80fa1771377a3ec0891298cd0eba3537067e16ddf7`
+(`wp11e/`). The changed pin (ply 43, 11-8 → 26-23) is in the drawn branch after Cake's 15-18 at ply 19, where both moves
+have draws only (2 against 9). Not yet played; the census below uses the validated r11d as ordered.
 
 ## Pin rule: avoided moves, and wins first (lead 2026-11-11 07:00)
 
