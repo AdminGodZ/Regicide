@@ -20,8 +20,7 @@ for d in $R/bl-v11c-* $R/bl-v13k4-* $R/bl-v13-kingsrow-* $R/bl-k3-kingsrow-* $R/
   # complete = the summary says every scheduled game was played (all these runs are full decks, both colours), AND
   # exit_status 0 where it exists (review 2026-11-11: exit_status alone is written before bl_run_w.sh's own
   # completeness check); the final-validation runs (bl-f1-*) predate exit_status and are judged by the summary only
-  { [ ! -f $d/exit_status ] || [ "$(cat $d/exit_status)" = 0 ]; } && grep -Eq "^Games: ([0-9]+) of \1 scheduled" $d/summary.txt \
-    || { st "W12 not started: $d not complete"; exit 1; }
+  bash $J/run_complete.sh $d || { st "W12 not started: $d not complete"; exit 1; }
 done
 st "W12 candidates start"
 mkdir -p $L/wp12/c1; cd $L/wp12/c1

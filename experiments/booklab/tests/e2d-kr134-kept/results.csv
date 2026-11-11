@@ -1,0 +1,25 @@
+game,pair,opening,black,white,result,score_a,termination,engine_plies
+6,3,"/home/admingod/regicide-jobs/booklab/e2d/w134.txt:3","Kingsrow(x64)[1] 1.20","Regicide 0.2",1/2-1/2,0.5,"repetition",88
+10,5,"/home/admingod/regicide-jobs/booklab/e2d/w134.txt:5","Kingsrow(x64)[7] 1.20","Regicide 0.2",1/2-1/2,0.5,"repetition",88
+14,7,"/home/admingod/regicide-jobs/booklab/e2d/w134.txt:7","Kingsrow(x64)[6] 1.20","Regicide 0.2",1/2-1/2,0.5,"repetition",88
+4,2,"/home/admingod/regicide-jobs/booklab/e2d/w134.txt:2","Kingsrow(x64)[4] 1.20","Regicide 0.2",1/2-1/2,0.5,"repetition",88
+2,1,"/home/admingod/regicide-jobs/booklab/e2d/w134.txt:1","Kingsrow(x64)[5] 1.20","Regicide 0.2",1/2-1/2,0.5,"repetition",88
+12,6,"/home/admingod/regicide-jobs/booklab/e2d/w134.txt:6","Kingsrow(x64)[3] 1.20","Regicide 0.2",1/2-1/2,0.5,"repetition",92
+16,8,"/home/admingod/regicide-jobs/booklab/e2d/w134.txt:8","Kingsrow(x64)[8] 1.20","Regicide 0.2",1/2-1/2,0.5,"repetition",92
+8,4,"/home/admingod/regicide-jobs/booklab/e2d/w134.txt:4","Kingsrow(x64)[2] 1.20","Regicide 0.2",1/2-1/2,0.5,"no progress",190
+24,12,"/home/admingod/regicide-jobs/booklab/e2d/w134.txt:12","Kingsrow(x64)[4] 1.20","Regicide 0.2",1/2-1/2,0.5,"repetition",88
+32,16,"/home/admingod/regicide-jobs/booklab/e2d/w134.txt:16","Kingsrow(x64)[2] 1.20","Regicide 0.2",1/2-1/2,0.5,"repetition",92
+20,10,"/home/admingod/regicide-jobs/booklab/e2d/w134.txt:10","Kingsrow(x64)[7] 1.20","Regicide 0.2",1/2-1/2,0.5,"no progress",226
+22,11,"/home/admingod/regicide-jobs/booklab/e2d/w134.txt:11","Kingsrow(x64)[6] 1.20","Regicide 0.2",1/2-1/2,0.5,"no progress",226
+26,13,"/home/admingod/regicide-jobs/booklab/e2d/w134.txt:13","Kingsrow(x64)[5] 1.20","Regicide 0.2",1/2-1/2,0.5,"no progress",226
+18,9,"/home/admingod/regicide-jobs/booklab/e2d/w134.txt:9","Kingsrow(x64)[1] 1.20","Regicide 0.2",1/2-1/2,0.5,"no progress",348
+36,18,"/home/admingod/regicide-jobs/booklab/e2d/w134.txt:18","Kingsrow(x64)[2] 1.20","Regicide 0.2",1/2-1/2,0.5,"repetition",88
+34,17,"/home/admingod/regicide-jobs/booklab/e2d/w134.txt:17","Kingsrow(x64)[4] 1.20","Regicide 0.2",1/2-1/2,0.5,"repetition",133
+38,19,"/home/admingod/regicide-jobs/booklab/e2d/w134.txt:19","Kingsrow(x64)[7] 1.20","Regicide 0.2",1/2-1/2,0.5,"repetition",88
+42,21,"/home/admingod/regicide-jobs/booklab/e2d/w134.txt:21","Kingsrow(x64)[5] 1.20","Regicide 0.2",1/2-1/2,0.5,"repetition",88
+44,22,"/home/admingod/regicide-jobs/booklab/e2d/w134.txt:22","Kingsrow(x64)[1] 1.20","Regicide 0.2",1/2-1/2,0.5,"repetition",88
+40,20,"/home/admingod/regicide-jobs/booklab/e2d/w134.txt:20","Kingsrow(x64)[6] 1.20","Regicide 0.2",1/2-1/2,0.5,"no progress",168
+30,15,"/home/admingod/regicide-jobs/booklab/e2d/w134.txt:15","Kingsrow(x64)[8] 1.20","Regicide 0.2",0-1,1,"no legal moves",177
+46,23,"/home/admingod/regicide-jobs/booklab/e2d/w134.txt:23","Kingsrow(x64)[2] 1.20","Regicide 0.2",1/2-1/2,0.5,"no progress",176
+48,24,"/home/admingod/regicide-jobs/booklab/e2d/w134.txt:24","Kingsrow(x64)[4] 1.20","Regicide 0.2",1/2-1/2,0.5,"no progress",208
+28,14,"/home/admingod/regicide-jobs/booklab/e2d/w134.txt:14","Kingsrow(x64)[3] 1.20","Regicide 0.2",0-1,1,"no legal moves",177

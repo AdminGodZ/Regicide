@@ -289,6 +289,10 @@ def main():
                     "game first; only the candidate's (context's) colour is judged")
     ap.add_argument("--eval-only", action="store_true")
     a = ap.parse_args()
+    if a.pairs and a.fresh_engines:
+        # review 2026-11-11: with new processes for every game the judged game of a pair is no longer preceded by the
+        # pair's other game in the same processes, which is the match order the protocol asks for
+        sys.exit("--pairs and --fresh-engines together are refused (not match order; run that as its own experiment)")
     outdir = f"{L}/wp12/confirm/{a.tag}"
     os.makedirs(outdir, exist_ok=True)
     man = dict(stage=a.stage, cand_dll=a.cand_dll, cand_dll_sha256=sha(f"{EW}/regicide/{a.cand_dll}/regicide_cb.dll"),
