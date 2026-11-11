@@ -159,6 +159,50 @@ int main(int argc, char** argv) {
         }
     }
 
+    // Claims hold under the game rules with the history CheckerBoard sends (review A round 6). getmove from FEN after
+    // "set gamehist HIST" (none if empty); the return value, or -1 if the move played is not WANT (when given).
+    auto claim = [&](const char* fen, const std::string& hist, const char* want = nullptr) {
+        Position p;
+        p.set_fen(fen);
+        if (!hist.empty() && command(("set gamehist " + hist).c_str(), reply) != 1) return -1;
+        Board8x8 b, expected;
+        to_board(p, b);
+        char str[1024] = "";
+        int playnow = 0;
+        unsigned char cbmove[512];
+        const int c = getmove(b, p.side_to_move() == WHITE ? 1 : 2, 0.1, str, &playnow, 1, 0, cbmove);
+        Move m;
+        if (want) {
+            if (!parse_move(p, want, m)) return -1;
+            p.make_move(m);
+            to_board(p, expected);
+            if (std::memcmp(b, expected, sizeof(Board8x8)) != 0) return -1;
+        }
+        return c;
+    };
+    // Evaluation, book and avoid list as in the review (HCE, both off), set back afterwards.
+    {
+        if (command("get book", reply) != 1) return 1;
+        const std::string book = reply;
+        command("set evalfile hce", reply);
+        command("set book 0", reply);
+        command("set avoid 0", reply);
+        // An immediate win is claimed (1).
+        const int win = claim("B:W10:B6", "", "6x15");
+        // The root is the third occurrence of the position: a draw already, no win claim, although the search
+        // scores a win from the board.
+        const std::string cycle = "W:WK2,K8,K12,K18,K20,K28,K29:BK13,K30 28-24 13-17 24-28 17-13 28-24 13-17 24-28";
+        const int drawn_root = claim("W:WK2,K8,K12,K18,K20,K28,K29:BK13,K30", cycle + " 17-13");
+        // One ply earlier, 17-13 makes that third occurrence: a draw claim (0).
+        const int draw = claim("B:WK2,K8,K12,K18,K20,K28,K29:BK17,K30", cycle, "17-13");
+        command("set evalfile builtin", reply);
+        command(("set book " + book).c_str(), reply);
+        command("set avoid 1", reply);
+        std::cout << "claims: immediate win " << win << " (1), third-occurrence root " << drawn_root
+                  << " (not 1), 17-13 completing it " << draw << " (0)\n";
+        if (win != 1 || drawn_root == 1 || draw != 0) return 1;
+    }
+
     Position pos;
     int plies = 0;
     for (; plies < 200; ++plies) {
@@ -194,17 +238,43 @@ int main(int argc, char** argv) {
     // Database path: the first directory loads; the same directory under another spelling is accepted again; a
     // different one is refused (the tables of a running engine stay), and `get dbpath` still names the first.
     {
-        const std::string dir = test_egdb::build("cb-api-test", 2);
+        const std::string dir = test_egdb::build("cb-api-test", 3);
         const std::string other = (std::filesystem::temp_directory_path() / "regicide-no-such-egdb").string();
-        const bool ok = !dir.empty() && command(("set dbpath " + dir).c_str(), reply) == 1 && std::string(reply) == "2" &&
+        const bool ok = !dir.empty() && command(("set dbpath " + dir).c_str(), reply) == 1 && std::string(reply) == "3" &&
                         command(("set dbpath " + dir + "/.").c_str(), reply) == 1 &&
                         command(("set dbpath " + other).c_str(), reply) == 0 && command("get dbpath", reply) == 1 &&
-                        std::string(reply) == dir && command("get dbpieces", reply) == 1 && std::string(reply) == "2";
-        test_egdb::remove(dir);
+                        std::string(reply) == dir && command("get dbpieces", reply) == 1 && std::string(reply) == "3";
         if (!ok) {
+            test_egdb::remove(dir);
             std::cerr << "set dbpath failed: " << reply << '\n';
             return 1;
         }
+        // B:WK3:BK1,K2 is a table win with MTC 6 (score 19994). After the 77 king moves of review A round 6 the
+        // conversion comes too late for the no-progress limit: no win claim. Without that history it is claimed.
+        const std::string hist77 =
+            "W:WK23:BK1,K2 23-19 2-6 19-15 6-2 15-18 1-5 18-15 2-6 15-11 6-1 11-16 5-9 16-19 1-5 19-23 5-1 23-18 1-5 "
+            "18-22 9-6 22-26 6-9 26-30 9-6 30-25 6-2 25-22 5-9 22-25 9-14 25-30 14-17 30-26 17-21 26-23 2-6 23-26 "
+            "21-17 26-31 6-1 31-27 1-5 27-23 17-21 23-26 21-25 26-31 5-1 31-27 25-21 27-23 21-17 23-19 17-14 19-15 "
+            "14-17 15-10 1-5 10-7 17-13 7-10 13-9 10-15 5-1 15-10 9-5 10-7 5-9 7-3 1-6 3-7 9-5 7-3 5-1 3-7 6-2 7-3";
+        const int late = claim("B:WK3:BK1,K2", hist77), fresh = claim("B:WK3:BK1,K2", "");
+        // B:WK10,K30:BK1,K6 has four pieces, outside the tables; its only move 6x15 reaches a 3-piece table win
+        // (score SCORE_DB_WIN - 1, no distance). Claimed after 4 king moves; not after 38, which with that ply
+        // reach half the no-progress window (38 + 1 >= 79 / 2).
+        const int searched = claim("B:WK10,K30:BK1,K6", "B:WK3,K30:BK1,K6 1-5 3-7 5-1 7-10", "6x15");
+        const int searched_late = claim(
+            "B:WK10,K30:BK1,K6",
+            "B:WK5,K21:BK6,K7 6-1 5-9 7-10 9-5 1-6 5-1 6-2 21-25 2-6 1-5 6-2 5-9 10-6 9-5 6-1 5-9 1-5 9-14 5-1 14-10 "
+            "2-6 10-7 1-5 7-3 5-1 3-8 1-5 8-4 5-1 25-30 1-5 4-8 5-1 8-3 1-5 3-7 5-1 7-10",
+            "6x15");
+        // Review A round 7: B:WK3:BK1,K2 for the second time; after 1-5 White's 3-8 makes B:WK8:BK2,K5 for the
+        // third time, a draw: no win claim (and 1-5 is still the move played).
+        const int reply_draw = claim("B:WK3:BK1,K2", "B:WK8:BK2,K5 5-1 8-3 1-5 3-8 5-1 8-3", "1-5");
+        test_egdb::remove(dir);
+        std::cout << "table win claims: after 77 king moves " << late << " (not 1), without history " << fresh
+                  << " (1); searched table win after 4 king moves " << searched << " (1), after 38 " << searched_late
+                  << " (not 1); the reply can repeat a third time " << reply_draw << " (not 1, not -1)\n";
+        if (late == 1 || fresh != 1 || searched != 1 || searched_late == 1 || reply_draw == 1 || reply_draw == -1)
+            return 1;
     }
     return 0;
 }
