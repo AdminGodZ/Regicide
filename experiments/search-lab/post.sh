@@ -8,7 +8,7 @@ raw=$(python3 -I $J/row.py "$1"); rc=$?
 [ $rc = 0 ] || { echo "post.sh: row.py failed (exit $rc) for $1" >&2; exit 1; }
 [ "$(printf '%s\n' "$raw" | /usr/bin/grep -c '^| ')" = 1 ] && [ "$(printf '%s' "$raw" | wc -l)" = 0 ] \
   || { echo "post.sh: row.py did not return exactly one row for $1: '$raw'" >&2; exit 1; }
-row=$(printf '%s\n' "$raw" | sed "s/^| $1 /| $2 /")
+row=$(python3 -I -c 'import sys; n, l, r = sys.argv[1:4]; print(r.replace("| " + n + " ", "| " + l + " ", 1) if r.startswith("| " + n + " ") else "")' "$1" "$2" "$raw")
 [ -n "$row" ] || { echo "post.sh: empty row" >&2; exit 1; }
 case "$row" in *"(partial"*) [ "$4" = --partial ] || { echo "post.sh: $1 is partial; refusing without --partial: $row" >&2; exit 1; } ;; esac
 echo "$row" >> $W/experiments/search-lab/RESULTS.md
