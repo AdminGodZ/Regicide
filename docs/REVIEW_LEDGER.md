@@ -369,3 +369,31 @@ Reports: branch `t3/review-reports`, `reviews/a/roundN/` and `reviews/b/roundN/`
   8-12 (ACF 43 ply 23), 10-14 / 13-17 (ACF 71 ply 25) and 20-24 (ACF 134 ply 37) are worse than the alternative by
   94 to 226 hundredths at 100M nodes; Cake's 20-24 and 10-15 on ACF 163 do not pass the 30 threshold.
 
+
+## Reviewers on the Windows machine, rounds A4 to A6 and B2 (2026-11-11)
+
+- Fixed on master: PR #75 (regression test for the per-engine game counters after a restart), PR #76 (A5: the
+  runner ignored and did not record engine claims; now always recorded, `--cb-claims` and `--cb-move-limit` follow
+  a CheckerBoard engine match), PR #77 (A5: our DLL conceded a known loss; under CheckerBoard's early adjudication
+  that ends the game at once). A6 checked #77: complete, its test fails on the code before it.
+- Handed to Book Lab and fixed there (b9a0f35): wp12_confirm.py combined fresh processes with pairs (A4).
+- Open, assigned to the integrator (branch t3/claim-soundness), all four checked against the code (A6):
+  1. a table win is claimed although the no-progress limit arrives before the conversion (B:WK3:BK1,K2 after 77
+     reversible plies: 1-5, score 19994, CB_WIN; the game is a draw);
+  2. a search win is claimed at a root that is already a third occurrence; and no draw is claimed when our own move
+     completes a rule draw, which CheckerBoard's detector can miss at its window boundary;
+  3. `--cb-move-limit N`: a claim made by search N+1 is scored, CheckerBoard records unknown;
+  4. `--cb-claims` with `--accept-draw-claims` turns a capture that leaves the opponent without pieces into a draw.
+- Accepted differences to CheckerBoard (A5): the repetition window boundary differs by one ply, one 0.1 s warm-up
+  search per engine is not reproduced, time-out policy. Base profile for a comparable match: concurrency 1,
+  full deck in order, pairs together, processes kept, `--cb-claims --cb-move-limit 200`.
+- Under reading (B3): with the stop already requested before the call, the fallback move at a table-drawn root
+  can leave the draw (B:WK30:BK25,K26: 25-21). Not reachable in an engine match (no stop before the call).
+- Settled, not defects (A6): static and conversion scores cannot reach the win-claim threshold; a stopped child
+  never writes a root score; the built-in book r11d has score range -650..191, no book-derived claim possible.
+- Records (A6, recount of Book Lab e2c1655): the three concurrency-1 runs on 1c6e997 are Cake 0/312/0,
+  KingsRow 1/310/1 (loss: ACF 6 as Black, game 9, both processes 8 games old), GuiNN 21/291/0; both process
+  counters equal game number minus one in all 936 games. All 6 fresh and 6 kept Cake decks: 3,744 draws.
+- Analysis (B2; opinions of our search, n8q, 8-piece database): in the 20 drawn games with our highest scores no
+  missed win of ours and no opponent error before it; mining list entries 1 to 12: besides the known ACF 71 point,
+  GuiNN's 16-20 and 4-8 on ACF 141 ply 13 are worse than 11-15 by 130 at 100M nodes.
