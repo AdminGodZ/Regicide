@@ -1,0 +1,30 @@
+[ 99%] Linking CXX executable datagen_partial_loss_test
+[ 99%] Built target bookgen_sound_score_test
+[ 99%] Built target datagen_partial_loss_test
+[100%] Linking CXX executable lossprobe_partial_loss_test
+[100%] Built target lossprobe_partial_loss_test
+      Start 46: match_terminal_before_draw
+43/54 Test #46: match_terminal_before_draw .......   Passed    0.01 sec
+      Start 47: match_opening_comment
+44/54 Test #47: match_opening_comment ............   Passed    0.00 sec
+      Start 48: match_pdn_status_braces
+45/54 Test #48: match_pdn_status_braces ..........   Passed    0.01 sec
+      Start 49: match_fresh_engines
+46/54 Test #49: match_fresh_engines ..............   Passed    0.01 sec
+      Start 50: match_interrupted_game
+47/54 Test #50: match_interrupted_game ...........   Passed    0.02 sec
+      Start 51: bookgen_frontier
+48/54 Test #51: bookgen_frontier .................   Passed    0.16 sec
+      Start 52: bookgen_sound_score
+49/54 Test #52: bookgen_sound_score ..............   Passed    0.19 sec
+      Start 53: datagen_partial_loss
+50/54 Test #53: datagen_partial_loss .............   Passed    0.17 sec
+      Start 54: lossprobe_partial_loss
+51/54 Test #54: lossprobe_partial_loss ...........   Passed    0.22 sec
+52/54 Test #45: match_incremental_charged ........   Passed    1.06 sec
+53/54 Test #34: conversion_lmp_disabled ..........   Passed    3.06 sec
+54/54 Test #20: conversion .......................   Passed    8.02 sec
+
+100% tests passed out of 54
+
+Total Test time (real) =  11.29 sec

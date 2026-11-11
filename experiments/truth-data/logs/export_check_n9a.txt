@@ -1,0 +1,6 @@
+== n9a export check (100k positions of the shared validation set), final net_e040.nnue, rc=0
+positions 100000  distinct engine scores 1464  range [-746, 783]
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 9.04, max 57.70 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK

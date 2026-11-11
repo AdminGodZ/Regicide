@@ -1,0 +1,62 @@
+groups 2-8, 9-24: training records [174825465, 212398282], batch split [1638, 14746]
+validation records 192860  /home/admingod/regicide-data/truth/gen1_n10k_e2f.bin
+validation records 596350  /home/admingod/regicide-data/truth/gen1b_n10k_e2f.bin
+validation records 596330  /home/admingod/regicide-data/truth/gen1c_n10k_e2f.bin
+validation records 601219  /home/admingod/regicide-data/truth/gen2a_n10k_e2f.bin
+validation records 590326  /home/admingod/regicide-data/truth/gen2b_n10k_e2f.bin
+validation records 600661  /home/admingod/regicide-data/truth/gen3a_n10k_e2f.bin
+validation records 587990  /home/admingod/regicide-data/truth/gen3b_n10k_e2f.bin
+validation records 573601  /home/admingod/regicide-data/truth/gen3c_n10k_e2f.bin
+validation records 571989  /home/admingod/regicide-data/truth/gen3d_n10k_e2f.bin
+validation records 561664  /home/admingod/regicide-data/truth/gen4a_n10k_e2f.bin
+validation records 208702  /home/admingod/regicide-data/truth/gen5a_n50k_e2f.bin
+validation records 460419  /home/admingod/regicide-data/truth/e5_n9a/gen6a_n50k_egdb_dedup.bin
+validation records 140705  /home/admingod/regicide-data/truth/e5_n9a/gen6b_n50k_egdb_dedup.bin
+net v1 1024 -> 32 -> 32 -> 1, 8 buckets  train 387223747  valid 1000000  K 102.4  lambda 0.50  min pieces 2  device cuda  6103 steps/epoch
+epoch   1  lr 9.99e-04  train 0.421256  valid 0.419494  valid(int) 0.420196  2912818 pos/s
+epoch   2  lr 9.94e-04  train 0.411885  valid 0.417464  valid(int) 0.418118  3419709 pos/s
+epoch   3  lr 9.87e-04  train 0.409801  valid 0.416606  valid(int) 0.417301  3486955 pos/s
+epoch   4  lr 9.76e-04  train 0.408600  valid 0.415859  valid(int) 0.416488  3079657 pos/s
+epoch   5  lr 9.63e-04  train 0.407859  valid 0.415487  valid(int) 0.416137  3227974 pos/s
+epoch   6  lr 9.47e-04  train 0.407284  valid 0.415021  valid(int) 0.415876  3429306 pos/s
+epoch   7  lr 9.28e-04  train 0.406869  valid 0.414973  valid(int) 0.415960  3272984 pos/s
+epoch   8  lr 9.06e-04  train 0.406592  valid 0.414712  valid(int) 0.414975  3450102 pos/s
+epoch   9  lr 8.82e-04  train 0.406348  valid 0.414542  valid(int) 0.415142  3596949 pos/s
+epoch  10  lr 8.56e-04  train 0.406131  valid 0.414498  valid(int) 0.415001  3447891 pos/s
+epoch  11  lr 8.27e-04  train 0.405899  valid 0.414335  valid(int) 0.415388  3471886 pos/s
+epoch  12  lr 7.97e-04  train 0.405765  valid 0.414285  valid(int) 0.414773  3449954 pos/s
+epoch  13  lr 7.64e-04  train 0.405631  valid 0.414152  valid(int) 0.414596  3594748 pos/s
+epoch  14  lr 7.30e-04  train 0.405488  valid 0.413998  valid(int) 0.414490  3538616 pos/s
+epoch  15  lr 6.95e-04  train 0.405378  valid 0.413989  valid(int) 0.414620  3479777 pos/s
+epoch  16  lr 6.59e-04  train 0.405285  valid 0.413854  valid(int) 0.414263  3282454 pos/s
+epoch  17  lr 6.21e-04  train 0.405215  valid 0.413869  valid(int) 0.414255  3349806 pos/s
+epoch  18  lr 5.83e-04  train 0.405127  valid 0.413744  valid(int) 0.414396  3375680 pos/s
+epoch  19  lr 5.45e-04  train 0.404967  valid 0.413701  valid(int) 0.413980  3356082 pos/s
+epoch  20  lr 5.06e-04  train 0.404919  valid 0.413629  valid(int) 0.414009  3369881 pos/s
+epoch  21  lr 4.67e-04  train 0.404780  valid 0.413593  valid(int) 0.413894  3609508 pos/s
+epoch  22  lr 4.28e-04  train 0.404735  valid 0.413569  valid(int) 0.413918  3484154 pos/s
+epoch  23  lr 3.90e-04  train 0.404704  valid 0.413523  valid(int) 0.413858  3445391 pos/s
+epoch  24  lr 3.53e-04  train 0.404618  valid 0.413458  valid(int) 0.413860  3477621 pos/s
+epoch  25  lr 3.16e-04  train 0.404546  valid 0.413479  valid(int) 0.413880  3364283 pos/s
+epoch  26  lr 2.81e-04  train 0.404464  valid 0.413451  valid(int) 0.413610  3650993 pos/s
+epoch  27  lr 2.47e-04  train 0.404439  valid 0.413333  valid(int) 0.413671  3592381 pos/s
+epoch  28  lr 2.14e-04  train 0.404316  valid 0.413324  valid(int) 0.413682  3356749 pos/s
+epoch  29  lr 1.84e-04  train 0.404301  valid 0.413249  valid(int) 0.413728  3445493 pos/s
+epoch  30  lr 1.55e-04  train 0.404238  valid 0.413217  valid(int) 0.413825  3484500 pos/s
+epoch  31  lr 1.29e-04  train 0.404209  valid 0.413174  valid(int) 0.413897  3751252 pos/s
+epoch  32  lr 1.05e-04  train 0.404153  valid 0.413155  valid(int) 0.414042  3505534 pos/s
+epoch  33  lr 8.31e-05  train 0.404134  valid 0.413153  valid(int) 0.414302  3505090 pos/s
+epoch  34  lr 6.40e-05  train 0.404106  valid 0.413124  valid(int) 0.413989  3722364 pos/s
+epoch  35  lr 4.77e-05  train 0.404068  valid 0.413098  valid(int) 0.413814  3577919 pos/s
+epoch  36  lr 3.43e-05  train 0.404005  valid 0.413087  valid(int) 0.413752  3667036 pos/s
+epoch  37  lr 2.37e-05  train 0.404026  valid 0.413067  valid(int) 0.413816  3521791 pos/s
+epoch  38  lr 1.61e-05  train 0.403967  valid 0.413055  valid(int) 0.413787  3670045 pos/s
+epoch  39  lr 1.15e-05  train 0.404232  valid 0.413550  valid(int) 0.413343  [qat]  912036 pos/s
+epoch  40  lr 1.00e-05  train 0.404429  valid 0.413548  valid(int) 0.413426  [qat]  916184 pos/s
+wrote /home/admingod/regicide-truth-work/runs/n9a/net_e040.nnue
+== n9a export check (100k positions of the shared validation set), final net_e040.nnue, rc=0
+positions 100000  distinct engine scores 1464  range [-746, 783]
+python int vs engine: max |diff| 0, 0 positions differ
+float model vs engine: mean |diff| 9.04, max 57.70 centi-men
+simulated int (training) vs engine: max |diff| 1.00
+OK

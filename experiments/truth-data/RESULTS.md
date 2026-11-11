@@ -1,5 +1,14 @@
 # Truth data: teach the net the endgame database's results (Windows box, 2026-11-09/10)
 
+> **RESUME (stopped 2026-11-11 16:39 for the night).** Nothing of mine runs, and no locks are left. The details are in
+> `RESUME.md`.
+> - **Data:** E5 files whole: gen6a 25,111,296 and gen6b 9,334,784 records. Game-deduplicated snapshots: `e5_n9h`
+>   and `e5_n9a`. E2 files: `*_e2.bin` carry the defective relabel (n8q, n9h); the rebuilt `*_e2f.bin` carry the
+>   fixed one (n9a).
+> - **Nets:** n9a is complete (40 epochs, `runs/n9a/ckpt_e040.pt`, checks done, committed, not yet written up).
+>   n9a0 was not started.
+> - **Next:** n9a write-up, the n9a0 comparison (`n9a_variant.sh`), n9a to the laptop.
+
 **Hypothesis.** The net is trained on the wrong targets and partly on the wrong positions.
 - datagen never ran with the endgame database, so every game result and search score in the ~295M training positions
   comes from play without it;
