@@ -1,0 +1,9 @@
+a 278/278 games, 139/139 valid pairs ok
+b 278/278 games, 139/139 valid pairs ok
+c 268/268 games, 134/134 valid pairs ok
+d 262/262 games, 131/131 valid pairs ok
+e 264/264 games, 132/132 valid pairs ok
+f 260/260 games, 130/130 valid pairs ok
+strict pool: 805/805 pairs; runner pool agrees; pool exit 0 ok
+strict pool: dirs 6  W/D/L 268/1077/265  pairs 805  pentanomial [LL LD DD/WL WD WW] = [0, 38, 726, 41, 0] | Elo +0.6 [-3.1, +4.4] 95% CI (pentanomial, pairs), score 0.5009 +- 0.0054, LOS 63.2%
+COMPLETE
