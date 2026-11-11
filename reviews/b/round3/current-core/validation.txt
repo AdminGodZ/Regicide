@@ -1,0 +1,1 @@
+Current fdd154e core rebuilt, driver recompiled; ply67 100M rerun with full history. All 31 completed iteration rows match the prior trace exactly: move, score, depth, nodes, tbhits and legal PV.

@@ -1,0 +1,3 @@
+Reviewed fdd154e17db15edd92dea51be3d332eccf8f2078 against requested 8de39d0.
+The first 739 lines of search.cpp (Worker search, iteration, root table selection) are byte-identical. Evaluation, move generation, TT, EGDB, embedded net/book and core build definitions are unchanged.
+New code adds claim methods and extracts the existing immediate-rule-draw predicate from Engine::go into a method. The queried task-1 roots all exceed eight pieces, so that root-table helper path is unused; claim() is not called by this driver. Header changes add methods, not data members. Current core and driver were freshly rebuilt; the complete ply67 100M trace was independently rerun and matches.

@@ -1,0 +1,257 @@
+{
+  "17:6-10:8-11": {
+    "ply": 17,
+    "played": "6-10",
+    "alternative": "8-11",
+    "root100": {
+      "depth": "29",
+      "score": "-27",
+      "move": "8-11",
+      "nodes": "81671906",
+      "tbhits": "4545888",
+      "pv": "8-11 28-24 6-9 22-18 7-10 30-26 2-7 24-20 14-17 21x14 10x17 26-22 17x26 31x22 7-10 22-17 13x22 18-15 11x18 23x14x7 22-26 19-15 4-8 7-2 26-30 2-6 9-13 6-10 5-9 10-6 30-26 27-24 26-22 24-19 9-14 15-10 14-17 6-9 17-21 10-6 21-25 ",
+      "path": "reports/round3/queries/P017-100000000-root-d127.tsv",
+      "final": "# final depth 29 completed -27 score -27 move 8-11 partial 0 nodes 99999745 ms 43687"
+    },
+    "root20": {
+      "depth": "25",
+      "score": "-84",
+      "move": "6-10",
+      "nodes": "15521934",
+      "tbhits": "806102",
+      "pv": "6-10 28-24 14-17 21x14 10x17x26 31x22 7-10 23-18 10-14 18x9 5x14 27-23 14-17 22-18 2-7 19-15 7-11 15-10 11-16 10-7 17-22 7-3 22-26 18-15 26-31 23-18 16-20 24-19 8-11 15x8 4x11 19-15 11-16 3-8 16-19 18-14 19-23 15-10 31-27 8-11 ",
+      "path": "reports/round3/queries/P017-20000000-root-d127.tsv",
+      "final": "# final depth 25 completed -84 score -87 move 6-10 partial 1 nodes 20000769 ms 9013"
+    },
+    "pair20": {
+      "depth": 25,
+      "played": -74,
+      "alternative": -42,
+      "gain": 32,
+      "played_path": "reports/round3/queries/P017-100000000-force-6-10-d29.tsv",
+      "alternative_path": "reports/round3/queries/P017-100000000-force-8-11-d29.tsv"
+    },
+    "pair100": {
+      "depth": 29,
+      "played": -87,
+      "alternative": -26,
+      "gain": 61,
+      "played_path": "reports/round3/queries/P017-100000000-force-6-10-d29.tsv",
+      "alternative_path": "reports/round3/queries/P017-100000000-force-8-11-d29.tsv"
+    }
+  },
+  "deeprepair": {
+    "ply": 17,
+    "played": "6-10",
+    "alternative": "8-11",
+    "root400": {
+      "depth": "34",
+      "score": "-10",
+      "move": "8-11",
+      "nodes": "333015992",
+      "tbhits": "22838065",
+      "pv": "8-11 28-24 6-9 22-18 7-10 30-26 2-7 24-20 14-17 21x14 10x17 26-22 17x26 31x22 7-10 22-17 13x22 18-15 11x18 23x14x7 22-26 19-15 4-8 7-2 26-30 2-6 9-13 6-10 5-9 10-6 30-26 6-1 9-14 1-6 13-17 15-10 26-22 27-23 17-21 10-7 21-25 23-19 25-30 32-28 30-26 7-3 14-17 ",
+      "path": "reports/round3/queries/P017-400000000-root-d127.tsv",
+      "final": "# final depth 34 completed -10 score -10 move 8-11 partial 0 nodes 399998977 ms 168914"
+    },
+    "alternative400": {
+      "depth": "35",
+      "score": "-21",
+      "move": "8-11",
+      "nodes": "393822562",
+      "tbhits": "28512337",
+      "pv": "8-11 28-24 6-9 22-18 7-10 24-20 13-17 20-16 11x20 18-15 17-22 15x6 22-25 6-1 9-13 30-26 13-17 19-15 4-8 15-10 25-30 10-6 2x9 1-6 9-13 23-18 14x23 21x14 8-11 26x19 30-25 32-28 11-16 19-15 25-22 15-11 22-18 14-10 5-9 11-8 9-14 10-7 18-15 6-9 14-18 ",
+      "path": "reports/round3/queries/P017-400000000-force-8-11-d127.tsv",
+      "final": "# final depth 35 completed -21 score -21 move 8-11 partial 0 nodes 399998977 ms 170876"
+    },
+    "played400": {
+      "depth": "36",
+      "score": "-84",
+      "move": "6-10",
+      "nodes": "334381962",
+      "tbhits": "29320137",
+      "pv": "6-10 28-24 14-17 21x14 10x17x26 31x22 7-10 23-18 10-14 18x9 5x14 27-23 14-17 22-18 17-21 18-14 13-17 14-9 17-22 9-5 2-7 23-18 22-25 19-15 25-29 18-14 7-11 15-10 29-25 10-7 25-22 24-20 22-18 14-9 11-16 20x11 8x15 7-3 15-19 5-1 18-23 1-6 12-16 ",
+      "path": "reports/round3/queries/P017-400000000-force-6-10-d127.tsv",
+      "final": "# final depth 36 completed -84 score -96 move 6-10 partial 1 nodes 399998977 ms 170752"
+    },
+    "pair400": {
+      "depth": 34,
+      "played": -67,
+      "alternative": -19,
+      "gain": 48,
+      "played_path": "reports/round3/queries/P017-400000000-force-6-10-d127.tsv",
+      "alternative_path": "reports/round3/queries/P017-400000000-force-8-11-d127.tsv"
+    }
+  },
+  "white50": {
+    "ply": 50,
+    "played": "19-15",
+    "alternative": "7-3",
+    "root20": {
+      "depth": "25",
+      "score": "77",
+      "move": "5-1",
+      "nodes": "15809103",
+      "tbhits": "1001926",
+      "pv": "5-1 25-22 19-15 20-24 15-10 24-27 32x23 22-18 23-19 18x9 1-5 9-13 10-6 8-11 7-2 11-16 19-15 16-20 2-7 12-16 7-11 16-19 5-9 19-24 9-14 24-27 6-2 20-24 14-18 27-32 2-7 13-17 7-10 ",
+      "path": "reports/round3/queries/P050-20000000-root-d127.tsv",
+      "final": "# final depth 25 completed 77 score 77 move 5-1 partial 1 nodes 20000769 ms 10859"
+    },
+    "root100": {
+      "depth": "30",
+      "score": "87",
+      "move": "5-1",
+      "nodes": "82500367",
+      "tbhits": "5800758",
+      "pv": "5-1 25-22 19-15 20-24 15-10 24-27 32x23 22-18 7-3 18x27 10-7 8-11 3-8 11-16 8-11 16-20 7-2 12-16 2-7 27-23 7-10 16-19 10-15 19-24 11-16 24-28 15-19 23-27 1-6 27-24 19-15 28-32 14-10 32-28 6-9 4-8 ",
+      "path": "reports/round3/queries/P050-100000000-root-d127.tsv",
+      "final": "# final depth 30 completed 87 score 75 move 5-1 partial 1 nodes 99999746 ms 51270"
+    },
+    "pair20": {
+      "depth": 25,
+      "played": 92,
+      "alternative": 71,
+      "gain": -21,
+      "played_path": "reports/round3/queries/P050-100000000-force-19-15-d30.tsv",
+      "alternative_path": "reports/round3/queries/P050-100000000-force-7-3-d30.tsv"
+    },
+    "pair100": {
+      "depth": 29,
+      "played": 86,
+      "alternative": 46,
+      "gain": -40,
+      "played_path": "reports/round3/queries/P050-100000000-force-19-15-d30.tsv",
+      "alternative_path": "reports/round3/queries/P050-100000000-force-7-3-d30.tsv"
+    }
+  },
+  "63:19x26:19x26": {
+    "ply": 63,
+    "played": "19x26",
+    "alternative": "19x26",
+    "root100": {
+      "depth": "1",
+      "score": "-42",
+      "move": "19x26",
+      "nodes": "12",
+      "tbhits": "0",
+      "pv": "19x26 1-6 ",
+      "path": "reports/round3/queries/P063-100000000-root-d127.tsv",
+      "final": "# final depth 1 completed -42 score -42 move 19x26 partial 0 nodes 12 ms 0"
+    },
+    "forced100": {
+      "depth": "32",
+      "score": "-20",
+      "move": "19x26",
+      "nodes": "61495325",
+      "tbhits": "4111938",
+      "pv": "19x26 7-2 26-31 2-7 20-24 1-6 21-25 6-10 31-26 32-28 24-27 10-15 27-31 15-11 16-20 9-6 25-30 11-16 31-27 7-11 27-23 3-7 26-22 6-1 30-25 7-3 23-26 1-6 26-23 6-10 22-17 11-15 25-22 10-6 22-25 ",
+      "path": "reports/round3/queries/P063-100000000-force-19_26-d127.tsv",
+      "final": "# final depth 32 completed -20 score -20 move 19x26 partial 0 nodes 99999745 ms 37480"
+    }
+  },
+  "65:26-30:20-24": {
+    "ply": 65,
+    "played": "26-30",
+    "alternative": "20-24",
+    "root100": {
+      "depth": "32",
+      "score": "-20",
+      "move": "20-24",
+      "nodes": "43085423",
+      "tbhits": "2892260",
+      "pv": "20-24 2-7 26-31 1-6 31-26 32-28 24-27 6-10 27-31 10-15 21-25 15-11 16-20 9-6 25-30 3-8 26-23 8-12 31-26 12-16 26-22 6-1 30-26 1-6 26-30 16-12 22-18 6-9 30-25 12-16 18-22 9-5 25-30 16-12 ",
+      "path": "reports/round3/queries/P065-100000000-root-d127.tsv",
+      "final": "# final depth 32 completed -20 score -20 move 20-24 partial 0 nodes 99999745 ms 44209"
+    },
+    "root20": {
+      "depth": "29",
+      "score": "-20",
+      "move": "20-24",
+      "nodes": "18541901",
+      "tbhits": "1182754",
+      "pv": "20-24 2-7 26-31 1-6 31-26 32-28 24-27 6-10 27-31 10-15 21-25 15-11 16-20 11-16 31-27 9-6 25-30 7-11 27-23 3-8 26-22 6-1 30-26 8-12 23-18 1-6 18-23 11-7 26-31 16-11 22-26 ",
+      "path": "reports/round3/queries/P065-20000000-root-d127.tsv",
+      "final": "# final depth 29 completed -20 score -20 move 20-24 partial 0 nodes 20000769 ms 7719"
+    },
+    "pair20": {
+      "depth": 29,
+      "played": -19,
+      "alternative": -21,
+      "gain": -2,
+      "played_path": "reports/round3/queries/P065-100000000-force-26-30-d32.tsv",
+      "alternative_path": "reports/round3/queries/P065-100000000-force-20-24-d32.tsv"
+    },
+    "pair100": {
+      "depth": 32,
+      "played": -18,
+      "alternative": -18,
+      "gain": 0,
+      "played_path": "reports/round3/queries/P065-100000000-force-26-30-d32.tsv",
+      "alternative_path": "reports/round3/queries/P065-100000000-force-20-24-d32.tsv"
+    }
+  },
+  "67:20-24:30-26": {
+    "ply": 67,
+    "played": "20-24",
+    "alternative": "30-26",
+    "root100": {
+      "depth": "31",
+      "score": "-18",
+      "move": "30-26",
+      "nodes": "54272432",
+      "tbhits": "3735583",
+      "pv": "30-26 7-11 16-19 11-16 19-23 32-28 23-27 9-6 21-25 6-2 25-30 1-6 26-22 2-7 27-31 7-11 30-26 3-8 26-23 8-12 22-18 6-9 31-26 9-13 26-22 11-7 23-27 16-11 22-26 12-8 26-30 ",
+      "path": "reports/round3/queries/P067-100000000-root-d127.tsv",
+      "final": "# final depth 31 completed -18 score -18 move 30-26 partial 0 nodes 99999747 ms 37770"
+    },
+    "root20": {
+      "depth": "28",
+      "score": "-19",
+      "move": "30-26",
+      "nodes": "15361004",
+      "tbhits": "1108819",
+      "pv": "30-26 1-6 21-25 6-10 20-24 32-28 24-27 10-15 25-30 15-11 16-20 9-6 27-31 11-16 26-22 7-11 22-26 6-2 26-22 2-7 22-18 3-8 30-26 8-12 26-23 7-10 31-27 10-15 18-22 15-10 ",
+      "path": "reports/round3/queries/P067-20000000-root-d127.tsv",
+      "final": "# final depth 28 completed -19 score -19 move 30-26 partial 0 nodes 20000769 ms 7673"
+    },
+    "pair20": {
+      "depth": 28,
+      "played": -20,
+      "alternative": -20,
+      "gain": 0,
+      "played_path": "reports/round3/queries/P067-100000000-force-20-24-d31.tsv",
+      "alternative_path": "reports/round3/queries/P067-100000000-force-30-26-d31.tsv"
+    },
+    "pair100": {
+      "depth": 29,
+      "played": -129,
+      "alternative": -18,
+      "gain": 111,
+      "played_path": "reports/round3/queries/P067-100000000-force-20-24-d31.tsv",
+      "alternative_path": "reports/round3/queries/P067-100000000-force-30-26-d31.tsv"
+    }
+  },
+  "deep67": {
+    "ply": 67,
+    "played": "20-24",
+    "alternative": "30-26",
+    "root400": {
+      "depth": "37",
+      "score": "-17",
+      "move": "30-26",
+      "nodes": "365748971",
+      "tbhits": "24950738",
+      "pv": "30-26 32-27 21-25 1-5 25-30 9-6 16-19 27-23 19-24 23-18 24-27 6-2 20-24 7-11 26-22 18-14 27-31 14-10 24-27 2-7 31-26 10-6 30-25 11-15 27-31 5-9 31-27 7-11 26-23 9-13 25-21 3-8 27-24 6-1 24-27 ",
+      "path": "reports/round3/queries/P067-400000000-root-d127.tsv",
+      "final": "# final depth 37 completed -17 score -17 move 30-26 partial 0 nodes 399998977 ms 153350"
+    },
+    "pair400": {
+      "depth": 34,
+      "played": -210,
+      "alternative": -17,
+      "gain": 193,
+      "played_path": "reports/round3/queries/P067-400000000-force-20-24-d127.tsv",
+      "alternative_path": "reports/round3/queries/P067-400000000-force-30-26-d127.tsv"
+    }
+  }
+}

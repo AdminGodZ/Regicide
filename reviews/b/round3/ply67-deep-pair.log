@@ -1,0 +1,25 @@
+QUERY 67 400000000 30-26 127 => 30-26 -17 d34
+QUERY 67 400000000 20-24 127 => 20-24 -248 d37
+{
+  "ply": 67,
+  "played": "20-24",
+  "alternative": "30-26",
+  "root400": {
+    "depth": "37",
+    "score": "-17",
+    "move": "30-26",
+    "nodes": "365748971",
+    "tbhits": "24950738",
+    "pv": "30-26 32-27 21-25 1-5 25-30 9-6 16-19 27-23 19-24 23-18 24-27 6-2 20-24 7-11 26-22 18-14 27-31 14-10 24-27 2-7 31-26 10-6 30-25 11-15 27-31 5-9 31-27 7-11 26-23 9-13 25-21 3-8 27-24 6-1 24-27 ",
+    "path": "reports/round3/queries/P067-400000000-root-d127.tsv",
+    "final": "# final depth 37 completed -17 score -17 move 30-26 partial 0 nodes 399998977 ms 153350"
+  },
+  "pair400": {
+    "depth": 34,
+    "played": -210,
+    "alternative": -17,
+    "gain": 193,
+    "played_path": "reports/round3/queries/P067-400000000-force-20-24-d127.tsv",
+    "alternative_path": "reports/round3/queries/P067-400000000-force-30-26-d127.tsv"
+  }
+}

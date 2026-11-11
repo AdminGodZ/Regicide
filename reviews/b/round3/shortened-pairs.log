@@ -1,0 +1,10 @@
+QUERY 63 100000000 19x26 127 => 19x26 -20 d32
+COMPARED 63:19x26:19x26 None None
+QUERY 65 20000000 - 127 => 20-24 -20 d29
+QUERY 65 100000000 26-30 32 => 26-30 -18 d32
+QUERY 65 100000000 20-24 32 => 20-24 -18 d32
+COMPARED 65:26-30:20-24 {'depth': 29, 'played': -19, 'alternative': -21, 'gain': -2, 'played_path': 'reports/round3/queries/P065-100000000-force-26-30-d32.tsv', 'alternative_path': 'reports/round3/queries/P065-100000000-force-20-24-d32.tsv'} {'depth': 32, 'played': -18, 'alternative': -18, 'gain': 0, 'played_path': 'reports/round3/queries/P065-100000000-force-26-30-d32.tsv', 'alternative_path': 'reports/round3/queries/P065-100000000-force-20-24-d32.tsv'}
+QUERY 67 20000000 - 127 => 30-26 -19 d28
+QUERY 67 100000000 20-24 31 => 20-24 -138 d31
+QUERY 67 100000000 30-26 31 => 30-26 -18 d29
+COMPARED 67:20-24:30-26 {'depth': 28, 'played': -20, 'alternative': -20, 'gain': 0, 'played_path': 'reports/round3/queries/P067-100000000-force-20-24-d31.tsv', 'alternative_path': 'reports/round3/queries/P067-100000000-force-30-26-d31.tsv'} {'depth': 29, 'played': -129, 'alternative': -18, 'gain': 111, 'played_path': 'reports/round3/queries/P067-100000000-force-20-24-d31.tsv', 'alternative_path': 'reports/round3/queries/P067-100000000-force-30-26-d31.tsv'}

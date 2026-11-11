@@ -1,0 +1,45 @@
+QUERY 50 100000000 - 127 => 5-1 87 d30
+QUERY 50 20000000 - 127 => 5-1 77 d25
+QUERY 50 100000000 19-15 30 => 19-15 90 d30
+QUERY 50 100000000 7-3 30 => 7-3 46 d29
+{
+  "ply": 50,
+  "played": "19-15",
+  "alternative": "7-3",
+  "root20": {
+    "depth": "25",
+    "score": "77",
+    "move": "5-1",
+    "nodes": "15809103",
+    "tbhits": "1001926",
+    "pv": "5-1 25-22 19-15 20-24 15-10 24-27 32x23 22-18 23-19 18x9 1-5 9-13 10-6 8-11 7-2 11-16 19-15 16-20 2-7 12-16 7-11 16-19 5-9 19-24 9-14 24-27 6-2 20-24 14-18 27-32 2-7 13-17 7-10 ",
+    "path": "reports/round3/queries/P050-20000000-root-d127.tsv",
+    "final": "# final depth 25 completed 77 score 77 move 5-1 partial 1 nodes 20000769 ms 10859"
+  },
+  "root100": {
+    "depth": "30",
+    "score": "87",
+    "move": "5-1",
+    "nodes": "82500367",
+    "tbhits": "5800758",
+    "pv": "5-1 25-22 19-15 20-24 15-10 24-27 32x23 22-18 7-3 18x27 10-7 8-11 3-8 11-16 8-11 16-20 7-2 12-16 2-7 27-23 7-10 16-19 10-15 19-24 11-16 24-28 15-19 23-27 1-6 27-24 19-15 28-32 14-10 32-28 6-9 4-8 ",
+    "path": "reports/round3/queries/P050-100000000-root-d127.tsv",
+    "final": "# final depth 30 completed 87 score 75 move 5-1 partial 1 nodes 99999746 ms 51270"
+  },
+  "pair20": {
+    "depth": 25,
+    "played": 92,
+    "alternative": 71,
+    "gain": -21,
+    "played_path": "reports/round3/queries/P050-100000000-force-19-15-d30.tsv",
+    "alternative_path": "reports/round3/queries/P050-100000000-force-7-3-d30.tsv"
+  },
+  "pair100": {
+    "depth": 29,
+    "played": 86,
+    "alternative": 46,
+    "gain": -40,
+    "played_path": "reports/round3/queries/P050-100000000-force-19-15-d30.tsv",
+    "alternative_path": "reports/round3/queries/P050-100000000-force-7-3-d30.tsv"
+  }
+}
