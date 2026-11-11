@@ -377,18 +377,26 @@ Reports: branch `t3/review-reports`, `reviews/a/roundN/` and `reviews/b/roundN/`
   a CheckerBoard engine match), PR #77 (A5: our DLL conceded a known loss; under CheckerBoard's early adjudication
   that ends the game at once). A6 checked #77: complete, its test fails on the code before it.
 - Handed to Book Lab and fixed there (b9a0f35): wp12_confirm.py combined fresh processes with pairs (A4).
-- Open, assigned to the integrator (branch t3/claim-soundness), all four checked against the code (A6):
-  1. a table win is claimed although the no-progress limit arrives before the conversion (B:WK3:BK1,K2 after 77
-     reversible plies: 1-5, score 19994, CB_WIN; the game is a draw);
-  2. a search win is claimed at a root that is already a third occurrence; and no draw is claimed when our own move
-     completes a rule draw, which CheckerBoard's detector can miss at its window boundary;
-  3. `--cb-move-limit N`: a claim made by search N+1 is scored, CheckerBoard records unknown;
-  4. `--cb-claims` with `--accept-draw-claims` turns a capture that leaves the opponent without pieces into a draw.
+- Fixed on master, PR #79 (A6, four findings; A7, two findings on the fix branch; all checked against the code):
+  1. a table win was claimed although the no-progress limit arrives before the conversion (B:WK3:BK1,K2 after 77
+     reversible plies);
+  2. a search win was claimed at a root that is already a third occurrence; a draw is now claimed when our own
+     move completes a rule draw;
+  3. `--cb-move-limit N`: a claim made by search N+1 was scored, CheckerBoard records unknown;
+  4. `--cb-claims` with `--accept-draw-claims` turned a capture that leaves the opponent without pieces into a
+     draw (the pair is refused now);
+  5. (A7) a win was claimed although the opponent's reply can complete a third occurrence;
+  6. (A7) under `--cb-claims`, a win claim on the last allowed attempt, on a move that leaves the opponent without
+     a move, was recorded as unfinished.
+  Policy, not a defect (A7): a table win reached by the search from a root outside the tables is claimed while at
+  least half the no-progress window is left; it is not a proof of the conversion.
 - Accepted differences to CheckerBoard (A5): the repetition window boundary differs by one ply, one 0.1 s warm-up
   search per engine is not reproduced, time-out policy. Base profile for a comparable match: concurrency 1,
   full deck in order, pairs together, processes kept, `--cb-claims --cb-move-limit 200`.
-- Under reading (B3): with the stop already requested before the call, the fallback move at a table-drawn root
-  can leave the draw (B:WK30:BK25,K26: 25-21). Not reachable in an engine match (no stop before the call).
+- Open, assigned to the integrator (branch t3/claim-boundary): a mate in one after 78 reversible plies is not
+  claimed (A8: only the plies before the mating move count); with the stop already requested before the call, the
+  fallback move at a table-drawn root can leave the draw (A6, read by B3: B:WK30:BK25,K26 plays 25-21; fix: remove
+  root moves whose child is a table win for the opponent). Neither is reachable in an ordinary engine-match game.
 - Settled, not defects (A6): static and conversion scores cannot reach the win-claim threshold; a stopped child
   never writes a root score; the built-in book r11d has score range -650..191, no book-derived claim possible.
 - Records (A6, recount of Book Lab e2c1655): the three concurrency-1 runs on 1c6e997 are Cake 0/312/0,
@@ -397,3 +405,25 @@ Reports: branch `t3/review-reports`, `reviews/a/roundN/` and `reviews/b/roundN/`
 - Analysis (B2; opinions of our search, n8q, 8-piece database): in the 20 drawn games with our highest scores no
   missed win of ours and no opponent error before it; mining list entries 1 to 12: besides the known ACF 71 point,
   GuiNN's 16-20 and 4-8 on ACF 141 ply 13 are worse than 11-15 by 130 at 100M nodes.
+
+## Reviewers on the Windows machine, rounds A7, A8 and B3 (2026-11-11)
+
+- CheckerBoard, pinned revision (A7, A8): one engine's draw return ends an engine-match game, with early
+  adjudication on or off. The GUI sends no setter at load or match start (only `name`, `get book`,
+  `get gametype`, a `get movelist` probe and `set gamehist` before every search); a freshly loaded Regicide has
+  book 3 (margin 0), hash 128 MB, one worker, and finds its tables only in `egdb` beside the DLL. Engine options
+  are not persisted by the GUI. Time arguments in a match: bank formula, reset bit on each side's first search,
+  no exact-time bit. Setup page: docs/CHECKERBOARD_MATCH.md (with the claim-boundary branch).
+- Records, recounted independently (A7, A8): claims census on 8de39d0 (Cake 1/311/0, KingsRow 3/309/0, GuiNN
+  22/290/0; no first claim disagrees with the board); the three concurrency-1 runs with `--cb-claims
+  --cb-move-limit 200` (mo2): Cake 0/312/0, KingsRow 1/311/0, GuiNN 19/293/0, no unknown result; 930 games end
+  by a claim, 6 by repetition.
+- Near-miss list of the strict records (A7): 13 drawn games with an own score of -56 or lower, all as Black.
+  Book Lab's 100M check: nine of the ten contexts are dips of the 0.5 s search (0 at 100M); only ACF 6 as Black
+  is weak at depth.
+- Analysis (B3; opinions of our search, n8q, 8-piece database): the lost strict game (ACF 6, Black, KingsRow):
+  the book line stands at -70 to -130 from ply 19 on, every reply to 19-15 at ply 50 is below -60 at 400M nodes;
+  the latest sound point is ply 17, 8-11 instead of 6-10 (-10 at 400M). Book Lab: 0/48/0 against KingsRow with
+  8-11; candidate book r11f in validation.
+- Verified (A8): PR #79 on master: both A7 cases fixed, bench equal row by row, the draw predicate equal to an
+  independent referee on 54,516 candidate moves, no win claim in 578 cases with a drawing reply.
