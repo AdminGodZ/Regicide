@@ -195,12 +195,22 @@ int main(int argc, char** argv) {
         const int drawn_root = claim("W:WK2,K8,K12,K18,K20,K28,K29:BK13,K30", cycle + " 17-13");
         // One ply earlier, 17-13 makes that third occurrence: a draw claim (0).
         const int draw = claim("B:WK2,K8,K12,K18,K20,K28,K29:BK17,K30", cycle, "17-13");
+        // Review A round 8: 6x15 takes White's last piece, a win whatever the no-progress count, also after 78 and
+        // 77 king moves (no tables are loaded here).
+        const std::string hist78 =
+            "B:WK5:BK21,K30 30-26 5-1 26-23 1-6 23-18 6-9 21-17 9-6 17-14 6-2 14-17 2-7 17-22 7-2 18-23 2-6 23-26 6-9 "
+            "22-17 9-5 26-23 5-9 23-19 9-5 19-15 5-9 17-13 9-5 15-10 5-1 13-9 1-5 10-14 5-1 9-5 1-6 14-17 6-1 17-21 1-6 "
+            "21-25 6-2 25-22 2-6 22-18 6-10 18-23 10-14 23-19 14-17 19-15 17-21 5-9 21-25 9-5 25-22 15-10 22-25 10-6 "
+            "25-22 6-1 22-26 5-9 26-23 1-5 23-19 9-14 19-16 14-10 16-12 10-7 12-8 7-10 8-11 10-6 11-15 5-1 15-10";
+        const std::string hist77 = "W:WK5:BK21,K26" + hist78.substr(hist78.find(" 5-1"));
+        const int mate78 = claim("B:WK10:BK1,K6", hist78, "6x15"), mate77 = claim("B:WK10:BK1,K6", hist77, "6x15");
         command("set evalfile builtin", reply);
         command(("set book " + book).c_str(), reply);
         command("set avoid 1", reply);
         std::cout << "claims: immediate win " << win << " (1), third-occurrence root " << drawn_root
-                  << " (not 1), 17-13 completing it " << draw << " (0)\n";
-        if (win != 1 || drawn_root == 1 || draw != 0) return 1;
+                  << " (not 1), 17-13 completing it " << draw << " (0), mate after 78 king moves " << mate78
+                  << " (1), after 77 " << mate77 << " (1)\n";
+        if (win != 1 || drawn_root == 1 || draw != 0 || mate78 != 1 || mate77 != 1) return 1;
     }
 
     Position pos;
@@ -269,11 +279,41 @@ int main(int argc, char** argv) {
         // Review A round 7: B:WK3:BK1,K2 for the second time; after 1-5 White's 3-8 makes B:WK8:BK2,K5 for the
         // third time, a draw: no win claim (and 1-5 is still the move played).
         const int reply_draw = claim("B:WK3:BK1,K2", "B:WK8:BK2,K5 5-1 8-3 1-5 3-8 5-1 8-3", "1-5");
+        // B:WK30:BK25,K26 is a table draw. A search stopped before it has scored a move (playnow already set) plays
+        // its first root move: not one into a table win for White (the first generated, 25-21, is), and it claims
+        // nothing (3).
+        std::string stopped_move = "none";
+        int stopped = -1;
+        bool holds = false;
+        {
+            Position p;
+            p.set_fen("B:WK30:BK25,K26");
+            Board8x8 b;
+            to_board(p, b);
+            char str[1024] = "";
+            int playnow = 1;
+            unsigned char cbmove[512];
+            stopped = getmove(b, 2, 0.1, str, &playnow, 1, 0, cbmove);
+            MoveList list;
+            generate_moves(p, list);
+            for (const Move& m : list) {
+                Position c = p;
+                c.make_move(m);
+                Board8x8 nb;
+                to_board(c, nb);
+                if (std::memcmp(nb, b, sizeof(Board8x8)) != 0) continue;
+                stopped_move = move_to_string(m);
+                holds = egdb::probe(c.pieces(BLACK), c.pieces(WHITE), c.kings(), c.side_to_move()) != egdb::Wld::Win;
+            }
+        }
         test_egdb::remove(dir);
         std::cout << "table win claims: after 77 king moves " << late << " (not 1), without history " << fresh
                   << " (1); searched table win after 4 king moves " << searched << " (1), after 38 " << searched_late
-                  << " (not 1); the reply can repeat a third time " << reply_draw << " (not 1, not -1)\n";
-        if (late == 1 || fresh != 1 || searched != 1 || searched_late == 1 || reply_draw == 1 || reply_draw == -1)
+                  << " (not 1); the reply can repeat a third time " << reply_draw << " (not 1, not -1)\n"
+                  << "stopped at a table draw: " << stopped_move << (holds ? " keeps" : " gives up") << " the draw, "
+                  << stopped << " (3)\n";
+        if (late == 1 || fresh != 1 || searched != 1 || searched_late == 1 || reply_draw == 1 || reply_draw == -1 ||
+            !holds || stopped != 3)
             return 1;
     }
     return 0;
