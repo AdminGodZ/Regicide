@@ -518,3 +518,5 @@ DONE q_pf3_nodes300k rc=0 secs=2535 2026-11-11T10:58:29+01:00 :: final games 160
 BEGIN q_pf3_300 bin=selfplay-lab7 a="prune_forcing=3" b="" mt=300 pairs=800 extra="--egdb /home/admingod/regicide-data/egdb --book books/uho1600.txt" 2026-11-11T10:58:29+01:00
 DONE q_pf3_300 rc=0 secs=1686 2026-11-11T11:26:35+01:00 :: final games 1600  A: +617 =362 -621  score 0.4988  draws 22.6%  elo -0.9 [-6.4, +4.6]  penta [0 85 634 81 0]
 BEGIN lmr_base20 bin=selfplay-lab6 a="lmr_base=20" b="" mt=200 pairs=800 extra="--egdb /home/admingod/regicide-data/egdb --book books/uho1600.txt" 2026-11-11T11:26:35+01:00
+DONE lmr_base20 rc=0 secs=1150 2026-11-11T11:45:45+01:00 :: final games 1600  A: +598 =392 -610  score 0.4963  draws 24.5%  elo -2.6 [-8.8, +3.6]  penta [1 109 591 99 0]
+BEGIN lmr_base40 bin=selfplay-lab6 a="lmr_base=40" b="" mt=200 pairs=800 extra="--egdb /home/admingod/regicide-data/egdb --book books/uho1600.txt" 2026-11-11T11:45:45+01:00
