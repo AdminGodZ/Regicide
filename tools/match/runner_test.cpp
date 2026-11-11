@@ -14,8 +14,9 @@
 //                                 comments) and change nothing without --cb-claims
 //   runner_test cbclaims MATCH    with --cb-claims a draw, win or loss claim ends the game after its move with that
 //                                 result, for either colour
-//   runner_test movelimit MATCH   --cb-move-limit ends a game with result * that is not scored; its pair is not
-//                                 counted
+//   runner_test movelimit MATCH   --cb-move-limit ends a game with result * that is not scored, whatever the last
+//                                 attempt brought (a claim, the opponent's missing move); its pair is not counted
+//   runner_test claimflags MATCH  --cb-claims with --accept-draw-claims is refused
 //   runner_test interrupt MATCH   an interrupt of the whole process group (Ctrl-C in a terminal) ends the engines
 //                                 too; the game they were playing is left out of the results, not scored as a loss
 //                                 by "crash". MATCH is the match executable; the engines are this executable run
@@ -288,7 +289,8 @@ int restart(const char* self, const char* match_exe) {
     return ok ? 0 : 1;
 }
 
-// One pair on B:WK32:BK1 with -c 1: engine A (named A) returns CLAIM from ply FROM on, engine B never claims.
+// One pair on OPENING (B:WK32:BK1) with -c 1: engine A (named A) returns CLAIM from ply FROM on, engine B never
+// claims.
 struct ClaimRun {
     int status = -1;
     std::vector<std::map<std::string, std::string>> games;  // by game in the order played: PDN tags, and "moves"
@@ -296,9 +298,9 @@ struct ClaimRun {
 };
 
 ClaimRun claim_run(const char* self, const char* match_exe, const std::string& claim, int from,
-                   const std::string& options) {
+                   const std::string& options, const std::string& opening = "B:WK32:BK1") {
     const fs::path dir = scratch(("claims-" + claim).c_str());
-    std::ofstream(dir / "opening.txt") << "B:WK32:BK1\n";
+    std::ofstream(dir / "opening.txt") << opening << "\n";
     const std::string a = "exec:\"" + std::string(self) + "\" --fake-claims " + claim + " " + std::to_string(from);
     const std::string b = "exec:\"" + std::string(self) + "\" --fake-claims unknown 1";
     const std::string command = "\"" + std::string(match_exe) + "\" -a '" + a + "' -b '" + b +
@@ -395,9 +397,10 @@ int cbclaims(const char* self, const char* match_exe) {
     return ok ? 0 : 1;
 }
 
-// --cb-move-limit 3: a game is stopped before its fifth engine move with result *, written out but not scored. In the
-// second run A claims a draw from ply 4 on with --cb-claims: the game with A as White ends by the claim at ply 4, the
-// other is stopped; the pair is incomplete and not counted.
+// --cb-move-limit 3: a game is stopped after its fourth engine move with result *, written out but not scored.
+// With --cb-claims, a claim on that fourth move is recorded but does not count (CheckerBoard's update_match_stats),
+// one on the third does; a pair with one unfinished game is incomplete and not counted. On B:W13:B6,9,K1 Black's
+// 1-5 leaves White without a move: with --cb-move-limit 1 finding that is the second attempt, past the limit.
 int movelimit(const char* self, const char* match_exe) {
     ClaimRun run = claim_run(self, match_exe, "unknown", 1, "--cb-move-limit 3");
     const std::string stopped = "* | move limit, no result | none | w0 l0 d0 | w0 l0 d0";
@@ -411,20 +414,67 @@ int movelimit(const char* self, const char* match_exe) {
         for (auto& g : run.games) std::cerr << "      " << outcome(g) << '\n';
     }
 
-    ClaimRun mixed = claim_run(self, match_exe, "draw", 4, "--cb-claims --cb-move-limit 3");
+    // Review A round 6: A claims a draw from ply 4 on. Both games pass the limit with that fourth move.
+    ClaimRun last = claim_run(self, match_exe, "draw", 4, "--cb-claims --cb-move-limit 3");
+    const bool none = last.status == 0 && last.games.size() == 2 &&
+                      outcome(last.games[0]) == "* | move limit, no result | none | w0 l0 d0 | w0 l0 d0" &&
+                      outcome(last.games[1]) == "* | move limit, no result | ply 4 W draw | w0 l0 d1 | w0 l0 d0" &&
+                      last.summary.find("Games: 0 of 2") != std::string::npos &&
+                      last.summary.find("Unfinished (move limit): 2") != std::string::npos;
+    if (!none) {
+        std::cerr << "FAIL: a draw claim on the fourth move does not count: status " << last.status << '\n'
+                  << last.csv << last.summary;
+        for (auto& g : last.games) std::cerr << "      " << outcome(g) << '\n';
+    }
+
+    // A claims from ply 3 on: as Black on the third move (counted), as White first on the fourth (not counted).
+    ClaimRun mixed = claim_run(self, match_exe, "draw", 3, "--cb-claims --cb-move-limit 3");
     const bool one = mixed.status == 0 && mixed.games.size() == 2 &&
-                     outcome(mixed.games[0]) == "* | move limit, no result | none | w0 l0 d0 | w0 l0 d0" &&
-                     outcome(mixed.games[1]) == "1/2-1/2 | draw claimed by A | ply 4 W draw | w0 l0 d1 | w0 l0 d0" &&
+                     outcome(mixed.games[0]) == "1/2-1/2 | draw claimed by A | ply 3 B draw | w0 l0 d1 | w0 l0 d0" &&
+                     outcome(mixed.games[1]) == "* | move limit, no result | ply 4 W draw | w0 l0 d1 | w0 l0 d0" &&
                      mixed.summary.find("Games: 1 of 2") != std::string::npos &&
                      mixed.summary.find("A: +0 =1 -0") != std::string::npos &&
                      mixed.summary.find("Unfinished (move limit): 1") != std::string::npos &&
                      mixed.summary.find("Pairs: 0   pentanomial [LL LD DD/WL WD WW] = [0 0 0 0 0]") != std::string::npos;
     if (!one) {
-        std::cerr << "FAIL: one game stopped, one drawn by a claim: status " << mixed.status << '\n'
+        std::cerr << "FAIL: one game drawn by a claim, one stopped: status " << mixed.status << '\n'
                   << mixed.csv << mixed.summary;
         for (auto& g : mixed.games) std::cerr << "      " << outcome(g) << '\n';
     }
-    return ok && one ? 0 : 1;
+
+    // The missing move found on the second attempt: past --cb-move-limit 1, within --cb-move-limit 2.
+    bool missing = true;
+    for (const char* limit : {"1", "2"}) {
+        ClaimRun run = claim_run(self, match_exe, "unknown", 1, std::string("--cb-move-limit ") + limit, "B:W13:B6,9,K1");
+        const std::string want = limit == std::string("1") ? "*" : "1-0";
+        bool good = run.status == 0 && run.games.size() == 2;
+        for (auto& g : run.games) good = good && g["Result"] == want;
+        if (!good) {
+            std::cerr << "FAIL: White without a move after 1-5, --cb-move-limit " << limit << ": expected " << want
+                      << ", status " << run.status << '\n' << run.csv;
+            for (auto& g : run.games) std::cerr << "      " << outcome(g) << '\n';
+        }
+        missing = missing && good;
+    }
+    return ok && none && one && missing ? 0 : 1;
+}
+
+// --cb-claims with --accept-draw-claims: the runner refuses to start (exit code 2, as for other bad options), with a
+// message that says why.
+int claimflags(const char* match_exe) {
+    const fs::path dir = scratch("claimflags");
+    const std::string command = "\"" + std::string(match_exe) + "\" -a exec:true -b exec:true --cb-claims " +
+                                "--accept-draw-claims -o \"" + (dir / "out").string() + "\" > /dev/null 2> \"" +
+                                (dir / "err.txt").string() + "\"";
+    const int status = std::system(command.c_str());
+    std::ifstream in(dir / "err.txt");
+    const std::string err((std::istreambuf_iterator<char>(in)), {});
+    const bool started = fs::exists(dir / "out");
+    fs::remove_all(dir);
+    const bool ok = WIFEXITED(status) && WEXITSTATUS(status) == 2 && !started &&
+                    err.find("--cb-claims and --accept-draw-claims cannot be combined") != std::string::npos;
+    if (!ok) std::cerr << "FAIL: the two claim options together: status " << status << ", started " << started << ", " << err;
+    return ok ? 0 : 1;
 }
 
 int interrupt(const char* self, const char* match_exe) {
@@ -482,9 +532,10 @@ int main(int argc, char** argv) {
     if (argc == 3 && what == "claims") return claims(argv[0], argv[2]);
     if (argc == 3 && what == "cbclaims") return cbclaims(argv[0], argv[2]);
     if (argc == 3 && what == "movelimit") return movelimit(argv[0], argv[2]);
+    if (argc == 3 && what == "claimflags") return claimflags(argv[2]);
     if (argc == 2 && what == "comment") return comment();
     if (argc == 3 && what == "interrupt") return interrupt(argv[0], argv[2]);
     std::cerr << "usage: runner_test comment | braces MATCH | fresh MATCH | pairs MATCH | restart MATCH | claims MATCH | cbclaims MATCH |"
-                 " movelimit MATCH | interrupt MATCH\n";
+                 " movelimit MATCH | claimflags MATCH | interrupt MATCH\n";
     return 2;
 }

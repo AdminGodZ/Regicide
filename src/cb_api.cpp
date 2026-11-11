@@ -31,8 +31,7 @@ namespace {
 using namespace regicide;
 
 constexpr int CB_WHITE = 1, CB_BLACK = 2, CB_MAN = 4, CB_KING = 8;
-[[maybe_unused]] constexpr int CB_DRAW = 0;
-constexpr int CB_WIN = 1, CB_LOSS = 2, CB_UNKNOWN = 3;
+constexpr int CB_DRAW = 0, CB_WIN = 1, CB_LOSS = 2, CB_UNKNOWN = 3;
 constexpr int CB_RESET_MOVES = 1, CB_EXACT_TIME = 2, CB_INCR_TIME_SHIFT = 2;
 
 struct coor {
@@ -255,9 +254,15 @@ CB_EXPORT int WINAPI getmove(Board8x8 board, int color, double maxtime, char str
     s.after_our_move.make_move(r.best);
     s.have_after = true;
 
-    // A known win is claimed; a known loss is not. Under CheckerBoard's early adjudication (its default) a loss claim
-    // concedes the game at once, also against an opponent that might fail to win it: the game is played out instead.
-    if (r.score >= SCORE_KNOWN_WIN) return CB_WIN;
+    // CheckerBoard ends a match game on a draw claim, and with its early adjudication (the default) on a win or loss
+    // claim, without checking it: claim only what holds under the game rules with the history it gave us (a draw
+    // completed by this move, a win that arrives before the no-progress limit; Engine::claim). A known loss is not
+    // claimed: that would concede the game at once, also against an opponent that might fail to win it.
+    switch (s.engine->claim(r)) {
+        case Engine::Claim::Draw: return CB_DRAW;
+        case Engine::Claim::Win: return CB_WIN;
+        case Engine::Claim::None: break;
+    }
     return CB_UNKNOWN;
 }
 

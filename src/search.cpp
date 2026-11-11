@@ -739,6 +739,56 @@ std::optional<std::pair<Move, Score>> Engine::egdb_root_move(const Position& roo
     return std::pair{*best, winning ? SCORE_DB_WIN - root_mtc : -SCORE_DB_WIN + root_mtc};
 }
 
+// The move from the root ends the game as a draw at once, as the referee counts it: it makes the third occurrence of
+// a position or reaches the no-progress limit (a move that leaves the opponent without a move wins instead).
+bool Engine::draws_at_once(const Move& m) const {
+    Position c = root_;
+    c.make_move(m);
+    MoveList replies;
+    generate_moves(c, replies);
+    if (replies.empty()) return false;  // the move wins
+    const int rev = c.reversible_plies();
+    if (rev >= NO_PROGRESS_PLIES) return true;
+    // The positions the game can still repeat: the last rev - 1 before the root (the root has the other side
+    // to move).
+    const std::size_t window = std::min<std::size_t>(history_.size(), std::size_t(std::max(rev - 1, 0)));
+    return std::count(history_.end() - std::ptrdiff_t(window), history_.end(), c.key()) >= 2;
+}
+
+// A claim is a statement about the game, which the scores do not see in full: the search does not look at its root's
+// own rule draws, and a distance to a win says nothing about the no-progress count unless it is checked here.
+Engine::Claim Engine::claim(const SearchResult& r) const {
+    if (draws_at_once(r.best)) return Claim::Draw;
+    if (r.score < SCORE_KNOWN_WIN) return Claim::None;
+    // The root itself is already a draw: its third occurrence (the last rev positions before it are the ones it can
+    // repeat), or the no-progress limit reached.
+    const int rev = root_.reversible_plies();
+    const std::size_t window = std::min<std::size_t>(history_.size(), std::size_t(rev));
+    if (rev >= NO_PROGRESS_PLIES ||
+        std::count(history_.end() - std::ptrdiff_t(window), history_.end(), root_.key()) >= 2)
+        return Claim::None;
+    // The plies the game must go on before the win is in hand, each of which may be a king move (no progress):
+    // - a mate score is SCORE_WIN - d, d the plies up to and including the move that leaves the opponent without a
+    //   move;
+    // - a database score with a distance is SCORE_DB_WIN - ply - mtc: ply plies to the table position, then mtc plies
+    //   (egdb::probe_mtc) before the converting move, a capture or man move that starts the count again. Scores of
+    //   that form come only from a conversion search of a won root in the MTC tables (Worker::search,
+    //   egdb_root_move); elsewhere a database win is SCORE_DB_WIN - ply, which does not say when the conversion
+    //   comes: no claim.
+    // The win is sure when none of those plies can reach the limit: rev + plies < NO_PROGRESS_PLIES.
+    int plies;
+    if (r.score > SCORE_MATE_BOUND) {
+        plies = SCORE_WIN - r.score;
+    } else if (conversion_ > 0 &&
+               root_.piece_count() <= std::min({egdb_pieces_, egdb::max_mtc_pieces(), egdb_mtc_pieces_}) &&
+               egdb::probe_mtc(root_.pieces(BLACK), root_.pieces(WHITE), root_.kings(), root_.side_to_move()) >= 0) {
+        plies = SCORE_DB_WIN - r.score;
+    } else {
+        return Claim::None;
+    }
+    return rev + plies < NO_PROGRESS_PLIES ? Claim::Win : Claim::None;
+}
+
 SearchResult Engine::go(const Limits& limits, InfoFn on_info) {
     for (int d = 1; d < 64; ++d)
         for (int i = 1; i < 64; ++i)
@@ -794,22 +844,9 @@ SearchResult Engine::go(const Limits& limits, InfoFn on_info) {
     // The database tables know the board, not the game. A move that makes the third occurrence of a position, or
     // reaches the no-progress limit, ends the game as a draw whatever the tables say: a lost root takes it, and a
     // won root does not play it from the tables (the search below then looks for a winning move that does not).
-    auto draws_at_once = [&](const Move& m) {
-        Position c = root_;
-        c.make_move(m);
-        MoveList replies;
-        generate_moves(c, replies);
-        if (replies.empty()) return false;  // the move wins
-        const int rev = c.reversible_plies();
-        if (rev >= NO_PROGRESS_PLIES) return true;
-        // The positions the game can still repeat: the last rev - 1 before the root (the root has the other side
-        // to move).
-        const std::size_t window = std::min<std::size_t>(history_.size(), std::size_t(std::max(rev - 1, 0)));
-        return std::count(history_.end() - std::ptrdiff_t(window), history_.end(), c.key()) >= 2;
-    };
     auto db = limits.infinite ? std::nullopt : egdb_root_move(root_, root_moves);
     if (conversion_ < 0 && !limits.infinite) {
-        const auto draw = std::ranges::find_if(root_moves, draws_at_once);
+        const auto draw = std::ranges::find_if(root_moves, [&](const Move& m) { return draws_at_once(m); });
         if (draw != root_moves.end()) db = std::pair{*draw, Score(SCORE_DRAW)};
     } else if (db && conversion_ > 0 && draws_at_once(db->first)) {
         db.reset();

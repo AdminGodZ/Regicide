@@ -67,9 +67,10 @@ the important ones:
   (CheckerBoard ends engine-match games on a draw claim) or `--cb-claims` (CheckerBoard with
   its default early adjudication: a draw, win or loss claim ends the game after its move);
   they are always recorded (PDN tags `FirstClaim`, `ClaimsA`, `ClaimsB`, results.csv
-  `first_claim`). `--cb-move-limit N` ends a game still running after N engine moves with
-  result `*`, not scored (CheckerBoard: 200 with early adjudication). `Adjudicator` in
-  `match/main.cpp` is the hook for endgame-database adjudication.
+  `first_claim`); the two options cannot be combined. `--cb-move-limit N` ends a game that
+  passes N search attempts (engine move N + 1, or finding a side without a move) with result
+  `*`, not scored, whatever that attempt brought (CheckerBoard: 200 with early adjudication).
+  `Adjudicator` in `match/main.cpp` is the hook for endgame-database adjudication.
 - Robustness: every move is validated by the referee (identified by from/to/captured set,
   so multi-jump paths are never ambiguous). Illegal moves lose. An engine that does not answer
   gets `stop` after `--stop-factor` x maxtime + `--grace` (fixed time) or its remaining clock

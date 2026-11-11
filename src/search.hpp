@@ -120,6 +120,11 @@ public:
 
     using InfoFn = std::function<void(const SearchInfo&)>;
     SearchResult go(const Limits& limits, InfoFn on_info = {});
+    // What the game rules let the engine claim for the move r.best of the last go() (CheckerBoard's getmove result),
+    // with the history given to set_position: Draw when that move completes a draw (third occurrence, no-progress
+    // limit), Win when r.score is a win that arrives before the no-progress limit, else None.
+    enum class Claim { None, Win, Draw };
+    Claim claim(const SearchResult& r) const;
     void stop() { stop_.store(true, std::memory_order_relaxed); }
     // Polled by the main search thread; returning true aborts the search (e.g. a GUI "play now").
     void set_stop_poll(std::function<bool()> poll) { stop_poll_ = std::move(poll); }
@@ -159,6 +164,7 @@ private:
     friend struct Worker;
 
     std::optional<std::pair<Move, Score>> egdb_root_move(const Position& root, const std::vector<Move>& list) const;
+    bool draws_at_once(const Move& m) const;
 
     TranspositionTable tt_;
     // Late-move reductions by depth and move number, filled from `params` by go(). Per engine: engines with

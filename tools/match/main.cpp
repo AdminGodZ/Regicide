@@ -183,6 +183,17 @@ void play_game(const Config& cfg, Engine* eng[2], GameRecord& g) {
         g.termination = std::move(why);
         g.category = std::move(category);
     };
+    // CheckerBoard's move limit counts search attempts (AutoThreadFunc), and finding that the side to move has no move
+    // is an attempt of its own (SearchThreadFunc). Once the count passes the limit the game is recorded as unknown,
+    // whatever that attempt brought: a claim, a draw by the rules or the missing move (update_match_stats).
+    // past_limit(attempts) then ends the game as unfinished and returns true.
+    auto past_limit = [&](int attempts) {
+        if (cfg.cb_move_limit <= 0 || attempts <= cfg.cb_move_limit) return false;
+        g.winner = Winner::Unfinished;
+        g.termination = "move limit, no result";
+        g.category = "move limit";
+        return true;
+    };
 
     for (int ply = 0;; ++ply) {
         if (g_interrupted) {
@@ -192,14 +203,8 @@ void play_game(const Config& cfg, Engine* eng[2], GameRecord& g) {
         }
         auto legal = b.legal_moves();
         if (legal.empty()) {
+            if (past_limit(ply + 1)) return;
             lose(b.stm, std::string(cbt::color_name(b.stm)) + " has no legal moves", "no legal moves");
-            return;
-        }
-        // CheckerBoard: a game still running after its move limit is recorded as unknown, not as a draw.
-        if (cfg.cb_move_limit > 0 && ply > cfg.cb_move_limit) {
-            g.winner = Winner::Unfinished;
-            g.termination = "move limit, no result";
-            g.category = "move limit";
             return;
         }
         if (ply >= cfg.max_plies) {
@@ -314,6 +319,7 @@ void play_game(const Config& cfg, Engine* eng[2], GameRecord& g) {
             g.comments.push_back(std::string(buf) + (info.empty() ? "" : " " + info) +
                                  (kind >= 0 ? " claim=" + r.claim : ""));
         }
+        if (past_limit(ply + 1)) return;  // the move is recorded, its claim and the board are not looked at
         const bool conversion = b.is_conversion(*m);
         b = b.after(*m);
 
@@ -767,7 +773,7 @@ Adjudication:
                            (default 40, CheckerBoard's rule; 0 = off)
   --max-plies N            adjudicate a draw after N plies (default 1000)
   --accept-draw-claims     end the game when the engine to move claims a draw (CheckerBoard
-                           engine-match behaviour; off by default)
+                           engine-match behaviour; off by default; not with --cb-claims)
   --cb-claims              CheckerBoard's claim handling with its default early adjudication:
                            after its move, an engine's draw claim ends the game as a draw, its
                            win claim as a win and its loss claim as a loss for it (a move that
@@ -775,9 +781,11 @@ Adjudication:
                            it claims change nothing; they are always recorded (PDN tags
                            FirstClaim, ClaimsA, ClaimsB; results.csv first_claim; with
                            --pdn-comments claim=... in the move's comment)
-  --cb-move-limit N        a game still running after N engine moves (opening moves not counted)
-                           ends with result * and no score, as in CheckerBoard (200 with early
-                           adjudication); its pair is left out of the pair statistics
+  --cb-move-limit N        CheckerBoard's limit of N search attempts per game (opening moves not
+                           counted; 200 with early adjudication): once a game passes it, by the
+                           engine move N + 1 or by finding the side to move without a move, it
+                           ends with result * and no score, whatever that last attempt brought;
+                           its pair is left out of the pair statistics
 
 Running:
   -c, --concurrency N      games in parallel (default 6; 2 processes each)
@@ -874,6 +882,13 @@ bool parse_args(int argc, char** argv, Config& cfg) {
     }
     if (engine_arg[0].empty() || engine_arg[1].empty()) {
         usage();
+        return false;
+    }
+    // --accept-draw-claims takes a draw claim before the board's result, so with --cb-claims a capture that leaves the
+    // opponent without a move would become a draw.
+    if (cfg.cb_claims && cfg.accept_draw_claims) {
+        std::fprintf(stderr, "--cb-claims and --accept-draw-claims cannot be combined: --cb-claims already ends the game "
+                             "on a draw claim (after the board's result)\n");
         return false;
     }
     if (cfg.cbhost.empty()) cfg.cbhost = (fs::path(self_dir(argv[0])) / "cbhost").string();
