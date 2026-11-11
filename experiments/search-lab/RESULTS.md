@@ -241,3 +241,9 @@ gzipped PDN with per-move comments, summary per chunk) in `netm/matches/<match>/
 | M5 n8c vs n8bn | on | 262 / 1078 / 270 | [0, 41, 731, 33, 0] | **-1.7 [-5.4, +1.9]** | 17.6% | 0.271 / 0.270 s | 33.75 / 33.84 | none |
 | M1 n8q vs n6c (interim at 406 pairs was +3.9 [-1.6, +9.3]) | on | 265 / 1096 / 249 | [0, 23, 743, 39, 0] | **+3.5 [+0.1, +6.8]** | 97.9% | 0.275 / 0.275 s | 33.76 / 33.44 | none |
 | M3 n8q vs n6c, database OFF (replayed in full after the reboot stop; the stopped run had 391 games, −6.3 [−14.3, +1.7]) | off | 268 / 1077 / 265 | [0, 38, 726, 41, 0] | **+0.6 [-3.1, +4.4]** | 63.2% | 0.439 / 0.439 s | 20.71 / 20.63 | none |
+
+**M6a w2064 vs n8bn, first attempt (2026-11-11 03:54): failed before any game.** The 456e9b2 build caps the feature
+transformer at 1024 and rejected w2064 (FT 2048): `set evalfile` → "ft must be a multiple of 128 up to 1024". The
+match tool refused to start (exit 1), and the runner logged 0 of 1,610 games and put the line in `failed.txt`. Re-run
+on a second build of the same master 456e9b2 with `-DREGICIDE_NNUE_MAX_FT=2048` (as truth-data's `rft2048.so`).
+Both sides use it. bench 7,677,736 (unchanged); it loads w2064 and n8bn; database 7 pieces. Engine dir `netm/eng2048`.
