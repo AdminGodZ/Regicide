@@ -1,0 +1,15 @@
+0 B:W6,18,24,27,30,32:B1,2,10,20,23 depth 38 score 0 nodes 10000385 ms 20055 move 2x9 legal 1
+1 B:W9,13,18,20,21,25,28:B7,10,11,15,19 depth 30 score -4 nodes 10000386 ms 22820 move 15x22x29 legal 1
+2 B:W9,13,18,20,21,25,28:B7,10,11,15,19 depth 30 score -4 nodes 10000386 ms 22927 move 15x22x29 legal 1
+3 B:W16,18,19,21,23,27,30,31,32:B2,4,5,9,10,11,12,14,17 depth 23 score -21 nodes 10000385 ms 27552 move 11x20 legal 1
+4 B:WK3,15,26,27,30,31,32:B1,2,5,6,11,17,K29 depth 25 score 0 nodes 10000385 ms 27207 move 11x18 legal 1
+5 B:WK3,K5,8,21,26,32:B2,4,12,20,K25 depth 26 score -10 nodes 10000385 ms 22018 move 4x11 legal 1
+6 B:W6,18,19,21,23,27,29,30,31:B2,5,10,11,12,14,16,20 depth 27 score 0 nodes 10000385 ms 23258 move 2x9 legal 1
+7 B:W6,18,21,23,27,28,32:B2,7,11,12,14,20 depth 38 score 0 nodes 10000385 ms 21015 move 2x9 legal 1
+8 B:W10,13,17,21,24,29,31,32:B1,2,5,6,8,9,28 depth 27 score -9 nodes 10000385 ms 24311 move 6x15 legal 1
+9 B:W14,18,19,20,23,25,27,31,32:B4,5,7,9,10,11,12,13 depth 27 score -19 nodes 10000385 ms 25073 move 10x17 legal 1
+10 B:W9,12,17,21,22,27,31:B5,7,10,11,13,20 depth 31 score 0 nodes 10000385 ms 21670 move 5x14 legal 1
+11 B:W14,18,21,24,30,32:B2,5,7,10,12,16 depth 31 score -8 nodes 10000386 ms 22039 move 10x17 legal 1
+12 B:W17,18,19,21,22,27,28,31:B1,3,9,10,11,13,15,20 depth 28 score 0 nodes 10000385 ms 24839 move 15x24 legal 1
+positions 13 threads 1 params "lmr_base=80": nodes 130005008 ms 304784 nps 426548 mean_depth 29.31 mean_ms 23444.9 tbhits 9195222
+prune stats: lmp 12086180 kept 0  fut 30273472 kept 0  lmr 9578020 exempt 0

@@ -422,3 +422,45 @@ pairs, the other 800 positions of the UHO set (`--skip 800`).
 **LMR outcome: neither candidate is confirmed** (600 ms, other half of the UHO set; the lower bounds are below 0):
 lmr_base 80 +2.8 [−2.4, +8.1], lmr_base 120 +3.0 [−2.0, +8.1]. Both stay positive but shrink by more than half
 from the screen (+6.7, +8.7), as expected for the best two of nine screens. Defaults (lmr_base 60, lmr_mult 45) stay.
+
+# Dips test (Book Lab wp14, 13 positions)
+
+`experiments/booklab/wp14/dips.tsv` (origin/t3/booklab): 13 game positions, all Regicide Black, 11–18 pieces, where
+the game's 0.5 s search showed −56 to −136 (one +69) and Book Lab's 100M-node search shows about 0. Each position is
+replayed from the start with its move list (`posbench --tsv`, new: checks that the replay reaches the FEN, and searches
+with the game history so repetitions count), then searched single-threaded from a fresh 256 MB hash with the 2–7
+database at 1M, 3M and 10M nodes per configuration. Reference: Book Lab's 100M value (their 8-piece database) and this
+machine's own 100M baseline search. Engine: t3/search-lab (master ddd25fc merged, n8q built in). ✗ = more than 30
+from Book Lab's 100M value. Files in `dips/`.
+
+**Finding: none of the 13 is a search misjudgement.** Every position has exactly one legal move (a forced capture),
+and the tsv records the game score at depth 1 in all 13: the engine plays a single legal reply at once with a
+depth-1 score, and that shallow score is the "dip". Any search from 1M nodes on gives about 0. So this set cannot
+separate search settings; the configurations differ by at most one position.
+
+| # | game | pieces | game score (0.5 s) | Book Lab 100M | own 100M (baseline) | baseline 1M | baseline 3M | baseline 10M | lmr_base=80 1M | lmr_base=80 3M | lmr_base=80 10M | lmr_base=120 1M | lmr_base=120 3M | lmr_base=120 10M | prune_forcing=3 1M | prune_forcing=3 3M | prune_forcing=3 10M |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 0 | mo1-cake:128.1 ply 37 | 11 | -136 | +0 (2x9) | +0 (2x9) | +0 | +0 | +0 | +0 | +0 | +0 | +0 | +0 | +0 | +0 | +0 | +0 |
+| 1 | mo-cake-a-h1:39.1 ply 45 | 12 | -108 | +0 (15x22x29) | +0 (15x22x29) | -13 | -9 | +0 | -14 | -14 | -4 | -14 | -13 | -6 | -12 | -11 | -2 |
+| 2 | mo-cake-b-h1:39.1 ply 45 | 12 | -108 | +0 (15x22x29) | +0 (15x22x29) | -13 | -9 | +0 | -14 | -14 | -4 | -14 | -13 | -6 | -12 | -11 | -2 |
+| 3 | w14c6-kingsrow-fresh:1.1 ply 25 | 18 | -108 | -2 (11x20) | -16 (11x20) | -35 ✗ | -30 | -20 | -39 ✗ | -35 ✗ | -21 | -42 ✗ | -23 | -21 | -39 ✗ | -36 ✗ | -25 |
+| 4 | mo1-cake:7.1 ply 27 | 14 | -90 | +0 (11x18) | +0 (11x18) | +0 | +0 | +0 | -1 | +0 | +0 | +0 | +0 | +0 | +0 | +0 | +0 |
+| 5 | mo-kingsrow-a-h1:32.1 ply 55 | 11 | -87 | +0 (4x11) | -9 (4x11) | -22 | -20 | -14 | -21 | -10 | -10 | -24 | -30 | -13 | -21 | -9 | -10 |
+| 6 | mo-cake-a-h2:63.1 ply 29 | 17 | -79 | +0 (2x9) | +0 (2x9) | +0 | +0 | +0 | +0 | +0 | +0 | +3 | +0 | +0 | +0 | +0 | +0 |
+| 7 | mo1-cake:137.1 ply 33 | 13 | -74 | +0 (2x9) | +0 (2x9) | +0 | +0 | +0 | +0 | +0 | +0 | +0 | +0 | +0 | +0 | +0 | +0 |
+| 8 | mo1-cake:91.1 ply 29 | 15 | -68 | +0 (6x15) | +0 (6x15) | -7 | -12 | -10 | -12 | -10 | -9 | -12 | -11 | -4 | -7 | -10 | -10 |
+| 9 | w14c6-kingsrow-kept:9.1 ply 27 | 17 | -76 | -8 (10x17) | -12 (10x17) | -44 ✗ | -26 | -24 | -42 ✗ | -21 | -19 | -31 | -35 | -15 | -42 ✗ | -36 | -20 |
+| 10 | mo1-cake:150.1 ply 39 | 13 | -60 | +0 (5x14) | +0 (5x14) | +0 | +0 | +0 | +0 | +0 | +0 | +0 | +0 | +0 | +0 | +0 | +0 |
+| 11 | mo-kingsrow-b-h2:9.1 ply 31 | 12 | -56 | +0 (10x17) | -11 (10x17) | -12 | -12 | -13 | -13 | -9 | -8 | -12 | -12 | -11 | -12 | -13 | -12 |
+| 12 | mo1-cake:150.1 ply 31 | 16 | +69 | +0 (15x24) | +0 (15x24) | -4 | -6 | +0 | -4 | -2 | +0 | +0 | +0 | +0 | -1 | -2 | -7 |
+
+| config | within 30 of Book Lab 100M: 1M / 3M / 10M | within 30 of own 100M: 1M / 3M / 10M | mean |score − Book Lab 100M| 1M / 3M / 10M |
+|---|---|---|---|
+| baseline | 11 / 13 / 13 of 13 | 12 / 13 / 13 | 11 / 9 / 5 |
+| lmr_base=80 | 11 / 12 / 13 of 13 | 13 / 13 / 13 | 12 / 8 / 5 |
+| lmr_base=120 | 12 / 13 / 13 of 13 | 13 / 13 / 13 | 11 / 10 / 5 |
+| prune_forcing=3 | 11 / 12 / 13 of 13 | 13 / 13 / 13 | 10 / 9 / 6 |
+
+The dips themselves are a reporting artefact: the score shown with an instant forced reply. If the GUI, the book
+tools or the adjudication read that score, a short search on the forced reply (or reporting the last searched
+score) would remove them. That is a separate small change, not part of this experiment.
