@@ -353,8 +353,20 @@ of that line:
 | #93 ply 19, 2-7 | 10 / 10 | 0 / 4 | 0 / 4 |
 | #53 ply 6, 22-17 (White) | 0 / 10 (KingsRow leaves the line before) | 4 / 4 | 0 / 4 |
 
-Validation of r11c (n6c: KingsRow mode 3 ×2, Cake ×2, GuiNN ×1; then the same with n8q; final-validation runner,
-default time setting): running since 04:38.
+**Validation of r11c** (production deck, final-validation runner, default time setting tm_soft 60, `set book 3` read
+back for every engine; read-out `tools/booklab/val_report.py`, `wp11c/v11c_n6c_report.md`):
+
+| Net | Opponent | Run | W / D / L | games identical to the pairing's earlier run |
+|---|---|---|---|---|
+| n6c | KingsRow mode 3 | a | 0 / 312 / 0 | — |
+| n6c | KingsRow mode 3 | b | 1 / 311 / 0 | 14 |
+| n6c | Cake | a | 0 / 312 / 0 | — |
+| n6c | Cake | b | 0 / 312 / 0 | 117 |
+| n6c | GuiNN | a | 21 / 291 / 0 | — |
+
+**With n6c no loss in 1,560 games.** The win against KingsRow mode 3: ACF #43, Regicide White (`bl-v11c-n6c-kingsrow-b-h1`
+39.2); KingsRow's first move not played by it in the drawn games of that opening and colour is 8-12 at ply 23 (8-11 in
+the draws). The n8q runs (DLL `bl-60e593e-r11c-n8q`) are playing.
 
 **New pins (CPU only, for the next r11).** From the 4,368 games of the validated full runs with r10 (final
 validation; k3), r10k (v13) and r10k4 (v13k4) against all three opponents, KingsRow mode 3 included, on top of r10k5;
