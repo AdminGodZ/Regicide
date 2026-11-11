@@ -651,6 +651,40 @@ Clock (`mo2/clock.md`): the opponents' mean time per move is higher than in the 
 Cake 0.439 s, GuiNN 0.425 s against 0.13–0.26 s), because the games end at the first draw claim, before the
 database-resolved endings where moves are instant; per searched move 0.82–1.18 s, as before.
 
+## WP14: preventive repairs from the near-miss list (lead 2026-11-11 13:30)
+
+Source: Review A round 7, `near-miss-games.tsv` (13 drawn strict games, Regicide Black, own 0.5 s search down to −56 …
+−136); #6 left to reviewer B: 11 games = 9 openings (#43 three times). Tool `booklab_rootscore` (new): our engine's
+root at a position of a played game with the game's history replayed (repetition), book off, 8-piece database, cleared
+hash, fixed nodes, and the score of chosen moves under the same conditions (searchmoves); built on master 1c6e997
+(n8q), also as a Windows binary, run pinned to cores 0-19 (`bin/wp14/booklab_rootscore.exe` 3128fc3a…; identical
+results to the Linux build on a test position). Step 1: every own position from the end of the ballot to the game's
+lowest-score ply, 100M nodes, root and the move played (160 positions, `wp14/step1.md`, `wp14/step1_summary.md`):
+
+| Context (ordered by the game's lowest score) | game lowest (0.5 s) | 100M at that ply | lowest 100M root on the line (ply, move, depth) | own book move rejected by ≥ 30 |
+|---|---|---|---|---|
+| Cake #142 B (mo1-cake 128.1) | −136 @ 37 | 0 (d54) | 0 | none |
+| Cake #43 B (three games, the same line) | −108 @ 45 | 0 (d40) | −25 (ply 7, 16-19, d30) | none |
+| Cake #8 Edinburgh Single B (mo1-cake 7.1) | −90 @ 27 | 0 (d31) | −83 (ply 5, 8x15: our first move after the ballot) | none |
+| KingsRow #36 B (mo-kingsrow-a-h1 32.1) | −87 @ 55 | 0 (d37) | −14 (ply 35, 17-21) | none |
+| Cake #157 B (mo-cake-a-h2 63.1) | −79 @ 29 | 0 (d43) | −24 (ply 9, 9-14) | none |
+| Cake #152 B (mo1-cake 137.1) | −74 @ 33 | 0 (d51) | −24 (ply 9, 9-14) | none |
+| Cake #102 B (mo1-cake 91.1) | −68 @ 29 | 0 (d37) | −14 (ply 7, 16-20) | none |
+| Cake #166 B (mo1-cake 150.1) | −60 @ 39 | 0 (d45) | −25 (ply 9, 8-11) | none |
+| KingsRow #98 B (mo-kingsrow-b-h2 9.1) | −56 @ 31 | 0 (d47) | −20 (ply 9, 1x10) | none |
+
+**No candidate.** At 100M the root never rejects one of our book moves by 30 or more, and at the ply where each game's
+0.5 s search reached its lowest score the 100M root says 0 (depth 37–54): the dips are short-search artifacts, not
+lost or near-lost book lines. The largest 100M deficits on these lines are −14 … −25, early (plies 7–9); #8's −83 is
+the ballot itself (our first move). Steps 2 and 3 have nothing to test; no book change is proposed.
+
+**Item 0: reviewer B's #6 Black repair** (8-11 instead of 6-10 at ply 17, B:W19,21,22,23,27,28,30,31,32:B2,4,5,6,7,8,12,13,14):
+candidate DLL `bl-w12-wp14-c6-811` = master fdd154e (`bl-fdd154e`, built-in r11d, bench 7,833,556 / 8,241,422) with
+the one key overridden (book sha256 76cc9a75…, one entry changed, all others byte-identical). Playing (arms in the
+next update). The old 6-10 line from the records (#6 Black; mo, mo1, mo2, cl, v11d-n8q, e2c): KingsRow 7 games 0 / 6
+/ 1, lowest own score −78 … −39 (plus the database loss); Cake 19 games 0 / 19 / 0, lowest −39 in all; GuiNN 5 games
+0 / 5 / 0, lowest −39.
+
 **Test bed for the #6 Black repair** (lead 12:35; `cl/tb6.md`, `tb_compare.py`): the deck prefix to #6 (games 1-10)
 six times with mo1-kingsrow's DLL, runner and settings (concurrency 1, pairs together, processes kept, new processes
 at each start), pinned to core 20 beside the (b) runs. All 60 games drawn. **The prefix does not reproduce:** KingsRow

@@ -1088,3 +1088,6 @@ BL end mo2-cake rc=0 Games: 312 of 312 scheduled A: +0 =312 -0   score 156.0/312
 MO2 cake done 2026-11-11T13:46:29+01:00
 W12C2 points start (23 context runs) 2026-11-11T13:47:14+01:00
 W12C2 points done: 5686 points; scoring starts 2026-11-11T13:47:16+01:00
+W14C6 start (c2 scoring paused) 2026-11-11T14:11:52+01:00
+BL wait-lock w14c6-kingsrow-fresh regicide:bl-w12-wp14-c6-811 vs kingsrow deck /home/admingod/regicide-jobs/booklab/wp14/c6_24.txt mt 0.5 c 8 2026-11-11T14:11:52+01:00
+BL start w14c6-kingsrow-fresh regicide:bl-w12-wp14-c6-811 vs kingsrow; A: book read-back: 'reply 1 3' (ok) B: book read-back: 'reply 1 3' (ok); commit free 27.9 GB; bg: bash:S datagen-tr6:S bash:T datagen-tr5:T  2026-11-11T14:11:55+01:00
