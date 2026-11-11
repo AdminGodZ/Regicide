@@ -469,8 +469,25 @@ first move not played in its draws, and whether it repeats an earlier win:
 
 The known wins come back: #134 (the opening the wins-first rule changed, pin 29-25 at ply 12) twice, #16, #43 and #71
 once each, every one following an earlier won game far into the middlegame; none is identical move for move (they
-part late, mostly where KingsRow varies). The n8q runs (DLL `bl-5c433dc-r11d`, master 5c433dc with n8q built in) and
-then the Cake census (4 × 312) are playing.
+part late, mostly where KingsRow varies).
+
+**Validation of r11d with n8q** (DLL `bl-5c433dc-r11d`, master 5c433dc with n8q built in; runner match-747ab51; set book
+3 read back for both engines; read-out `wp11d/v11d_n8q_report.md`; all ten half-runs rc 0, 156 of 156 games, no crash,
+time-out or missing engine):
+
+| Opponent | Run | W / D / L | identical to the earlier run |
+|---|---|---|---|
+| KingsRow mode 3 | a | 0 / 312 / 0 | — |
+| KingsRow mode 3 | b | 0 / 312 / 0 | 9 |
+| Cake | a | 0 / 312 / 0 | — |
+| Cake | b | 0 / 312 / 0 | 119 |
+| GuiNN | a | 20 / 292 / 0 | — |
+
+**No loss in 1,560 games: r11d is clean with n8q** (reported to the lead at once, 2026-11-11 08:30). No win against
+KingsRow or Cake with n8q (n6c: 5 against KingsRow). **#134 W 29-25 exposure** (the pin r11d changed, ply 12;
+position key `ce79c29456f8f67e`): reached in 8 r11d games, every time 29-25 from the book — n6c: KingsRow 2 (both won),
+Cake 2 (drawn); n8q: KingsRow 2 (drawn), Cake 2 (drawn); no GuiNN game reaches it. The old Cake census (4 × 312) is
+held (HOLD_TAGS `^c4-cake-`) and replaced by experiment 2.
 
 **New pins (CPU only, for the next r11).** From the 4,368 games of the validated full runs with r10 (final
 validation; k3), r10k (v13) and r10k4 (v13k4) against all three opponents, KingsRow mode 3 included, on top of r10k5;
