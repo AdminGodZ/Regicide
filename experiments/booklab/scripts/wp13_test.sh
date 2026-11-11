@@ -10,7 +10,8 @@ st() { echo "$* $(date -Is)" >> $L/status; }
 moves() {
   case $1 in
     60) echo "10-14 22-17 9-13" ;; 71) echo "10-14 23-19 7-10" ;; 34) echo "9-13 24-20 11-16" ;;
-    141) echo "11-16 22-17 9-13" ;; 9) echo "9-13 22-18 11-16" ;; *) echo "unknown ballot $1" >&2; exit 2 ;;
+    141) echo "11-16 22-17 9-13" ;; 9) echo "9-13 22-18 11-16" ;; 62) echo "10-14 22-17 11-16" ;; 93) echo "10-15 22-17 9-13" ;;
+    *) echo "unknown ballot $1" >&2; exit 2 ;;
   esac
 }
 mk() {  # mk N FILE

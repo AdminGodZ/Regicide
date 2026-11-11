@@ -1,0 +1,44 @@
+# game 456 regicide-match/results/bl-k3-kingsrow-b-h1/games.pdn: ACF #71 Diabolical Denny (/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:63: 10-14 23-19 7-10), regicide as B, result W, opponent cake
+#   ply 4 10x19: cake 10x19 8x 0/8/0
+#   ply 6 11x18: cake 11x18 8x 0/8/0
+#   ply 8 14-18: cake 14-18 8x 0/8/0
+#   ply 10 9-14: cake 9-14 8x 0/8/0
+# DEVIATION ply 12 (9 after the ballot): regicide played 2-7; cake: 3-7 8x w/d/l 0/8/0
+#   FEN B:W15,21,23,24,25,27,29,30,31,32:B1,2,3,4,5,6,8,12,14,18
+# cake's defence: 8 non-lost games from the deviation position, 36 positions of our side within 40 plies (stop at <= 8 pieces)
+B:W15,21,23,24,25,27,29,30,31,32:B1,2,3,4,5,6,8,12,14,18 | 3-7 | force | ACF #71 Diabolical Denny regicide B ply 12: cake defence: 3-7 in 8 of 8 non-lost cake games from here (theory 8x w/d/l 0/8/0); regicide played 2-7 here and lost (gid 456, bl-k3-kingsrow-b-h1)
+B:W15,21,23,24,25,27,28,29,30,31:B1,2,4,5,6,7,8,12,14,18 | 8-11 | force | ACF #71 Diabolical Denny regicide B ply 14: cake defence: 8-11 in 8 of 8 non-lost cake games from here (theory 8x w/d/l 0/8/0)
+B:W8,21,23,24,25,27,28,29,30,31:B1,2,4,5,6,7,12,14,18 | 4x11 | force | ACF #71 Diabolical Denny regicide B ply 16: cake defence: 4x11 in 8 of 8 non-lost cake games from here (theory 8x w/d/l 0/8/0)
+B:W21,23,24,25,26,27,28,29,31:B1,2,5,6,7,11,12,14,18 | 7-10 | force | ACF #71 Diabolical Denny regicide B ply 18: cake defence: 7-10 in 8 of 8 non-lost cake games from here (theory 8x w/d/l 0/8/0)
+B:W21,22,23,24,26,27,28,29,31:B1,2,5,6,10,11,12,14,18 | 18x25 | force | ACF #71 Diabolical Denny regicide B ply 20: cake defence: 18x25 in 8 of 8 non-lost cake games from here (theory 8x w/d/l 0/8/0)
+B:W21,22,23,24,26,27,28,31:B1,2,5,6,10,11,12,14 | 10-15 | force | ACF #71 Diabolical Denny regicide B ply 22: cake defence: 10-15 in 8 of 8 non-lost cake games from here (theory 8x w/d/l 0/8/0)
+B:W17,21,23,24,26,27,28,31:B1,2,5,6,11,12,14,15 | 6-10 | force | ACF #71 Diabolical Denny regicide B ply 24: cake defence: 6-10 in 8 of 8 non-lost cake games from here (theory 8x w/d/l 0/8/0)
+B:W13,21,23,24,26,27,28,31:B1,2,5,10,11,12,14,15 | 1-6 | force | ACF #71 Diabolical Denny regicide B ply 26: cake defence: 1-6 in 8 of 8 non-lost cake games from here (theory 8x w/d/l 0/8/0)
+B:W13,21,22,23,24,27,28,31:B2,5,6,10,11,12,14,15 | 2-7 | force | ACF #71 Diabolical Denny regicide B ply 28: cake defence: 2-7 in 8 of 8 non-lost cake games from here (theory 8x w/d/l 0/8/0)
+B:W13,17,21,23,24,27,28,31:B5,6,7,10,11,12,14,15 | 15-18 | force | ACF #71 Diabolical Denny regicide B ply 30: cake defence: 15-18 in 8 of 8 non-lost cake games from here (theory 8x w/d/l 0/8/0)
+B:W13,17,19,21,24,27,28,31:B5,6,7,10,11,12,14,18 | 18-22 | force | ACF #71 Diabolical Denny regicide B ply 32: cake defence: 18-22 in 8 of 8 non-lost cake games from here (theory 8x w/d/l 0/8/0)
+B:W13,15,17,21,24,27,28,31:B5,6,7,10,11,12,14,22 | 11x18 | force | ACF #71 Diabolical Denny regicide B ply 34: cake defence: 11x18 in 8 of 8 non-lost cake games from here (theory 8x w/d/l 0/8/0)
+B:W13,17,19,21,27,28,31:B5,6,7,10,12,14,18,22 | 22-25 | force | ACF #71 Diabolical Denny regicide B ply 36: cake defence: 22-25 in 8 of 8 non-lost cake games from here (theory 8x w/d/l 0/8/0)
+B:W13,15,17,21,27,28,31:B5,6,7,10,12,14,18,25 | 10x19 | force | ACF #71 Diabolical Denny regicide B ply 38: cake defence: 10x19 in 4 of 4 non-lost cake games from here (theory 4x w/d/l 0/4/0)
+B:W13,17,19,21,24,28,31:B5,6,7,10,12,14,18,25 | 18-22 | force | ACF #71 Diabolical Denny regicide B ply 38: cake defence: 18-22 in 4 of 4 non-lost cake games from here (theory 4x w/d/l 0/4/0)
+B:WK1,13,21,27,28,31:B5,7,12,18,19,25 | 19-23 | force | ACF #71 Diabolical Denny regicide B ply 40: cake defence: 19-23 in 4 of 4 non-lost cake games from here (theory 4x w/d/l 0/4/0)
+B:W13,15,17,21,24,28,31:B5,6,7,10,12,14,22,25 | 10x19 | force | ACF #71 Diabolical Denny regicide B ply 40: cake defence: 10x19 in 3 of 3 non-lost cake games from here (theory 3x w/d/l 0/3/0)
+B:W13,16,17,21,24,28,31:B5,6,7,10,12,14,22,25 | 12x19 | force | ACF #71 Diabolical Denny regicide B ply 40: cake defence: 12x19 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK1,13,21,24,28,31:B5,7,12,18,23,25 | 25-29 | force | ACF #71 Diabolical Denny regicide B ply 42: cake defence: 25-29 in 4 of 4 non-lost cake games from here (theory 4x w/d/l 0/4/0)
+B:WK1,13,21,24,28,31:B5,7,12,19,22,25 | 19-23 | force | ACF #71 Diabolical Denny regicide B ply 42: cake defence: 19-23 in 3 of 3 non-lost cake games from here (theory 3x w/d/l 0/3/0)
+B:W13,15,17,21,28,31:B5,6,7,10,14,22,25 | 10x19 | force | ACF #71 Diabolical Denny regicide B ply 42: cake defence: 10x19 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK6,13,21,24,28,31:B5,7,12,18,23,K29 | 18-22 | force | ACF #71 Diabolical Denny regicide B ply 44: cake defence: 18-22 in 2 of 2 non-lost cake games from here (theory 2x w/d/l 0/2/0)
+B:WK6,13,21,24,28,31:B5,7,12,22,23,25 | 25-29 | force | ACF #71 Diabolical Denny regicide B ply 44: cake defence: 25-29 in 3 of 3 non-lost cake games from here (theory 3x w/d/l 0/3/0)
+B:WK1,13,21,28,31:B5,7,19,22,25 | 25-30 | force | ACF #71 Diabolical Denny regicide B ply 44: cake defence: 25-30 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK1,13,19,21,28,31:B5,7,12,18,23,K29 | 18-22 | force | ACF #71 Diabolical Denny regicide B ply 44: cake defence: 18-22 in 2 of 2 non-lost cake games from here (theory 2x w/d/l 0/2/0)
+B:WK6,13,19,21,28,31:B5,7,12,22,23,K29 | 7-11 | force | ACF #71 Diabolical Denny regicide B ply 46: cake defence: 7-11 in 5 of 5 non-lost cake games from here (theory 5x w/d/l 0/5/0)
+B:WK2,13,21,24,28,31:B5,7,12,22,23,K29 | 7-11 | force | ACF #71 Diabolical Denny regicide B ply 46: cake defence: 7-11 in 2 of 2 non-lost cake games from here (theory 2x w/d/l 0/2/0)
+B:WK6,13,21,28,31:B5,7,19,22,K30 | 30-26 | force | ACF #71 Diabolical Denny regicide B ply 46: cake defence: 30-26 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK10,13,19,21,28,31:B5,11,12,22,23,K29 | 23-26 | force | ACF #71 Diabolical Denny regicide B ply 48: cake defence: 23-26 in 4 of 5 non-lost cake games from here (theory 4x w/d/l 0/4/0); also 22-25 1x
+B:WK2,13,19,21,28,31:B5,11,12,22,23,K29 | 11-16 | force | ACF #71 Diabolical Denny regicide B ply 48: cake defence: 11-16 in 2 of 2 non-lost cake games from here (theory 2x w/d/l 0/2/0)
+B:WK6,13,21,27,28:B5,7,19,22,K26 | 7-11 | force | ACF #71 Diabolical Denny regicide B ply 48: cake defence: 7-11 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK7,13,19,21,28,31:B5,11,12,22,26,K29 | 11-16 | force | ACF #71 Diabolical Denny regicide B ply 50: cake defence: 11-16 in 2 of 2 non-lost cake games from here (theory 2x w/d/l 0/2/0)
+B:WK7,13,19,21,28,31:B5,12,16,22,23,K29 | 23-27 | force | ACF #71 Diabolical Denny regicide B ply 50: cake defence: 23-27 in 1 of 2 non-lost cake games from here (theory 1x w/d/l 0/1/0); also 29-25 1x
+B:WK10,13,21,27,28:B5,11,19,22,K26 | 22-25 | force | ACF #71 Diabolical Denny regicide B ply 50: cake defence: 22-25 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:WK7,13,19,21,28,31:B5,11,12,23,25,K29 | 11-16 | force | ACF #71 Diabolical Denny regicide B ply 50: cake defence: 11-16 in 1 of 1 non-lost cake games from here (theory 1x w/d/l 0/1/0)
+B:W13,K14,19,21,28,31:B5,11,12,22,26,K29 | 26-30 | force | ACF #71 Diabolical Denny regicide B ply 50: cake defence: 26-30 in 2 of 2 non-lost cake games from here (theory 2x w/d/l 0/2/0)

@@ -1,0 +1,4 @@
+# WP13, fifth line ACF #62 Gemini I (Regicide Black): lost in the r10k validation (bl-v13-kingsrow-b-h1 round 54.1),
+# not exposed to any r10k change; Regicide's own move at ply 17 varied (16-20 in the lost game, 4-8 in the three
+# drawn mode-3 games bl-v13-kingsrow-a-h1, bl-k3-kingsrow-a-h1, bl-k3-kingsrow-b-h1 round 54.1).
+B:W18,19,21,22,23,27,28,30,31,32:B2,4,5,6,7,9,10,11,12,16 | 4-8 | force | ACF #62 Gemini I regicide B ply 17 (WP13): Cake as Black against KingsRow mode 3 played 4-8 here and drew (bl-c3-cake-kingsrow-h1 round 54.1); our 20M-node search 4-8 0 (best) against 16-20 -42 (two sources); Regicide played 4-8 in 3 drawn mode-3 games and 16-20 in the lost one

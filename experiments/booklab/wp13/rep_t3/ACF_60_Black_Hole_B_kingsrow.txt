@@ -1,0 +1,22 @@
+# game 437 regicide-match/results/bl-k3-kingsrow-b-h1/games.pdn: ACF #60 Black Hole (/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:52: 10-14 22-17 9-13), regicide as B, result W, opponent cake
+#   ply 4 6x15: cake 6x15 8x 0/8/0
+#   ply 6 15-19: cake 15-19 8x 0/8/0
+#   ply 8 11x18x25: cake 11x18x25 8x 0/8/0
+# DEVIATION ply 10 (7 after the ballot): regicide played 7-11; cake: 7-10 8x w/d/l 0/8/0
+#   FEN B:W21,22,23,26,27,28,30,31,32:B1,2,3,4,5,7,8,12,13
+# cake's defence: 8 non-lost games from the deviation position, 15 positions of our side within 40 plies (stop at <= 8 pieces)
+B:W21,22,23,26,27,28,30,31,32:B1,2,3,4,5,7,8,12,13 | 7-10 | force | ACF #60 Black Hole regicide B ply 10: cake defence: 7-10 in 8 of 8 non-lost cake games from here (theory 8x w/d/l 0/8/0); regicide played 7-11 here and lost (gid 437, bl-k3-kingsrow-b-h1)
+B:W21,22,23,24,26,27,30,31,32:B1,2,3,4,5,8,10,12,13 | 3-7 | force | ACF #60 Black Hole regicide B ply 12: cake defence: 3-7 in 8 of 8 non-lost cake games from here (theory 8x w/d/l 0/8/0)
+B:W18,21,22,24,26,27,30,31,32:B1,2,4,5,7,8,10,12,13 | 5-9 | force | ACF #60 Black Hole regicide B ply 14: cake defence: 5-9 in 8 of 8 non-lost cake games from here (theory 8x w/d/l 0/8/0)
+B:W18,21,22,23,24,26,30,31,32:B1,2,4,7,8,9,10,12,13 | 8-11 | force | ACF #60 Black Hole regicide B ply 16: cake defence: 8-11 in 8 of 8 non-lost cake games from here (theory 8x w/d/l 0/8/0)
+B:W18,19,21,22,24,26,30,31,32:B1,2,4,7,9,10,11,12,13 | 11-15 | force | ACF #60 Black Hole regicide B ply 18: cake defence: 11-15 in 8 of 8 non-lost cake games from here (theory 8x w/d/l 0/8/0)
+B:W11,19,21,22,24,26,30,31,32:B1,2,4,7,9,10,12,13 | 7x16x23 | force | ACF #60 Black Hole regicide B ply 20: cake defence: 7x16x23 in 8 of 8 non-lost cake games from here (theory 8x w/d/l 0/8/0)
+B:W19,21,22,24,30,31,32:B1,2,4,9,10,12,13 | 9-14 | force | ACF #60 Black Hole regicide B ply 22: cake defence: 9-14 in 8 of 8 non-lost cake games from here (theory 8x w/d/l 0/8/0)
+B:W19,21,22,24,26,31,32:B1,2,4,10,12,13,14 | 4-8 | force | ACF #60 Black Hole regicide B ply 24: cake defence: 4-8 in 8 of 8 non-lost cake games from here (theory 8x w/d/l 0/8/0)
+B:W19,20,21,22,26,31,32:B1,2,8,10,12,13,14 | 8-11 | force | ACF #60 Black Hole regicide B ply 26: cake defence: 8-11 in 8 of 8 non-lost cake games from here (theory 8x w/d/l 0/8/0)
+B:W19,20,21,22,23,31,32:B1,2,10,11,12,13,14 | 2-7 | force | ACF #60 Black Hole regicide B ply 28: cake defence: 2-7 in 8 of 8 non-lost cake games from here (theory 8x w/d/l 0/8/0)
+B:W19,20,21,22,23,26,32:B1,7,10,11,12,13,14 | 11-15 | force | ACF #60 Black Hole regicide B ply 30: cake defence: 11-15 in 8 of 8 non-lost cake games from here (theory 8x w/d/l 0/8/0)
+B:W19,20,21,22,23,26,28:B1,7,10,12,13,14,15 | 15x24 | force | ACF #60 Black Hole regicide B ply 32: cake defence: 15x24 in 8 of 8 non-lost cake games from here (theory 8x w/d/l 0/8/0)
+B:W19,20,21,22,23,26:B1,7,10,12,13,14 | 14-17 | force | ACF #60 Black Hole regicide B ply 34: cake defence: 14-17 in 8 of 8 non-lost cake games from here (theory 8x w/d/l 0/8/0)
+B:W14,19,20,22,23,26:B1,7,10,12,13 | 10x17 | force | ACF #60 Black Hole regicide B ply 36: cake defence: 10x17 in 8 of 8 non-lost cake games from here (theory 8x w/d/l 0/8/0)
+B:W16,20,22,23,26:B1,7,12,13,17 | 12x19 | force | ACF #60 Black Hole regicide B ply 38: cake defence: 12x19 in 8 of 8 non-lost cake games from here (theory 8x w/d/l 0/8/0)

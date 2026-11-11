@@ -1,0 +1,157 @@
+game,pair,opening,black,white,result,score_a,termination,engine_plies
+7,4,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:4","Regicide 0.2","Kingsrow(x64)[6] 1.20",1/2-1/2,0.5,"no progress",181
+2,1,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:1","Kingsrow(x64)[1] 1.20","Regicide 0.2",1/2-1/2,0.5,"repetition",106
+6,3,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:3","Kingsrow(x64)[3] 1.20","Regicide 0.2",1/2-1/2,0.5,"no progress",157
+8,4,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:4","Kingsrow(x64)[2] 1.20","Regicide 0.2",1/2-1/2,0.5,"repetition",85
+3,2,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:2","Regicide 0.2","Kingsrow(x64)[4] 1.20",1/2-1/2,0.5,"no progress",164
+4,2,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:2","Kingsrow(x64)[7] 1.20","Regicide 0.2",1/2-1/2,0.5,"no progress",165
+1,1,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:1","Regicide 0.2","Kingsrow(x64)[5] 1.20",1/2-1/2,0.5,"repetition",87
+13,7,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:7","Regicide 0.2","Kingsrow(x64)[4] 1.20",1/2-1/2,0.5,"repetition",202
+5,3,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:3","Regicide 0.2","Kingsrow(x64) 1.20",1/2-1/2,0.5,"repetition",57
+14,7,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:7","Kingsrow(x64)[7] 1.20","Regicide 0.2",1/2-1/2,0.5,"repetition",123
+12,6,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:6","Kingsrow(x64)[2] 1.20","Regicide 0.2",1/2-1/2,0.5,"repetition",84
+10,5,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:5","Kingsrow(x64)[1] 1.20","Regicide 0.2",1/2-1/2,0.5,"no progress",164
+11,6,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:6","Regicide 0.2","Kingsrow(x64)[3] 1.20",1/2-1/2,0.5,"no progress",186
+17,9,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:9","Regicide 0.2","Kingsrow(x64) 1.20",1/2-1/2,0.5,"repetition",166
+20,10,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:10","Kingsrow(x64)[1] 1.20","Regicide 0.2",1/2-1/2,0.5,"no progress",166
+18,9,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:9","Kingsrow(x64)[7] 1.20","Regicide 0.2",1/2-1/2,0.5,"no progress",157
+21,11,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:11","Regicide 0.2","Kingsrow(x64)[3] 1.20",1/2-1/2,0.5,"repetition",74
+16,8,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:8","Kingsrow(x64)[4] 1.20","Regicide 0.2",1/2-1/2,0.5,"repetition",134
+19,10,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:10","Regicide 0.2","Kingsrow(x64)[2] 1.20",1/2-1/2,0.5,"no progress",199
+22,11,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:11","Kingsrow(x64) 1.20","Regicide 0.2",1/2-1/2,0.5,"no progress",211
+9,5,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:5","Regicide 0.2","Kingsrow(x64)[6] 1.20",1/2-1/2,0.5,"repetition",301
+24,12,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:12","Kingsrow(x64)[7] 1.20","Regicide 0.2",1/2-1/2,0.5,"repetition",84
+23,12,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:12","Regicide 0.2","Kingsrow(x64)[1] 1.20",1/2-1/2,0.5,"no progress",316
+26,13,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:13","Kingsrow(x64)[4] 1.20","Regicide 0.2",1/2-1/2,0.5,"repetition",88
+15,8,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:8","Regicide 0.2","Kingsrow(x64)[5] 1.20",1/2-1/2,0.5,"no progress",268
+25,13,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:13","Regicide 0.2","Kingsrow(x64)[3] 1.20",1/2-1/2,0.5,"no progress",191
+32,16,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:16","Kingsrow(x64)[4] 1.20","Regicide 0.2",1/2-1/2,0.5,"repetition",74
+31,16,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:16","Regicide 0.2","Kingsrow(x64)[1] 1.20",1/2-1/2,0.5,"no progress",198
+28,14,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:14","Kingsrow(x64) 1.20","Regicide 0.2",1/2-1/2,0.5,"no progress",209
+33,17,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:17","Regicide 0.2","Kingsrow(x64)[5] 1.20",1/2-1/2,0.5,"repetition",144
+36,18,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:18","Kingsrow(x64)[1] 1.20","Regicide 0.2",1/2-1/2,0.5,"no progress",162
+30,15,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:15","Kingsrow(x64)[7] 1.20","Regicide 0.2",1/2-1/2,0.5,"no progress",183
+38,19,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:19","Kingsrow(x64)[5] 1.20","Regicide 0.2",1/2-1/2,0.5,"no progress",150
+35,18,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:18","Regicide 0.2","Kingsrow(x64)[4] 1.20",1/2-1/2,0.5,"repetition",203
+37,19,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:19","Regicide 0.2","Kingsrow(x64) 1.20",1/2-1/2,0.5,"no progress",237
+41,21,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:21","Regicide 0.2","Kingsrow(x64)[5] 1.20",1/2-1/2,0.5,"repetition",170
+39,20,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:20","Regicide 0.2","Kingsrow(x64)[1] 1.20",1/2-1/2,0.5,"no progress",164
+29,15,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:15","Regicide 0.2","Kingsrow(x64)[6] 1.20",1/2-1/2,0.5,"repetition",73
+27,14,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:14","Regicide 0.2","Kingsrow(x64)[2] 1.20",1/2-1/2,0.5,"no progress",238
+43,22,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:22","Regicide 0.2","Kingsrow(x64) 1.20",1/2-1/2,0.5,"no progress",162
+40,20,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:20","Kingsrow(x64)[7] 1.20","Regicide 0.2",1/2-1/2,0.5,"repetition",80
+45,23,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:23","Regicide 0.2","Kingsrow(x64)[1] 1.20",1/2-1/2,0.5,"no progress",170
+44,22,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:22","Kingsrow(x64)[5] 1.20","Regicide 0.2",1/2-1/2,0.5,"no progress",194
+34,17,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:17","Kingsrow(x64)[3] 1.20","Regicide 0.2",1/2-1/2,0.5,"repetition",101
+49,25,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:25","Regicide 0.2","Kingsrow(x64)[7] 1.20",1/2-1/2,0.5,"repetition",225
+42,21,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:21","Kingsrow(x64)[4] 1.20","Regicide 0.2",1/2-1/2,0.5,"no progress",175
+46,23,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:23","Kingsrow(x64)[6] 1.20","Regicide 0.2",1/2-1/2,0.5,"repetition",129
+48,24,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:24","Kingsrow(x64) 1.20","Regicide 0.2",1/2-1/2,0.5,"no progress",144
+47,24,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:24","Regicide 0.2","Kingsrow(x64)[2] 1.20",1/2-1/2,0.5,"repetition",117
+50,25,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:25","Kingsrow(x64)[1] 1.20","Regicide 0.2",1/2-1/2,0.5,"repetition",84
+53,27,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:27","Regicide 0.2","Kingsrow(x64)[7] 1.20",1/2-1/2,0.5,"repetition",106
+52,26,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:26","Kingsrow(x64)[3] 1.20","Regicide 0.2",1/2-1/2,0.5,"no progress",231
+55,28,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:28","Regicide 0.2","Kingsrow(x64)[6] 1.20",1/2-1/2,0.5,"repetition",155
+57,29,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:29","Regicide 0.2","Kingsrow(x64)[2] 1.20",1/2-1/2,0.5,"repetition",126
+54,27,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:27","Kingsrow(x64)[4] 1.20","Regicide 0.2",1/2-1/2,0.5,"no progress",211
+56,28,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:28","Kingsrow(x64) 1.20","Regicide 0.2",1/2-1/2,0.5,"no progress",170
+59,30,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:30","Regicide 0.2","Kingsrow(x64)[7] 1.20",1/2-1/2,0.5,"repetition",121
+58,29,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:29","Kingsrow(x64)[1] 1.20","Regicide 0.2",1/2-1/2,0.5,"no progress",173
+60,30,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:30","Kingsrow(x64)[3] 1.20","Regicide 0.2",1/2-1/2,0.5,"repetition",146
+51,26,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:26","Regicide 0.2","Kingsrow(x64)[5] 1.20",1/2-1/2,0.5,"repetition",79
+64,32,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:32","Kingsrow(x64) 1.20","Regicide 0.2",1/2-1/2,0.5,"no progress",165
+65,33,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:33","Regicide 0.2","Kingsrow(x64)[7] 1.20",1/2-1/2,0.5,"repetition",144
+68,34,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:34","Kingsrow(x64)[5] 1.20","Regicide 0.2",1/2-1/2,0.5,"no progress",153
+67,34,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:34","Regicide 0.2","Kingsrow(x64)[3] 1.20",1/2-1/2,0.5,"repetition",126
+62,31,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:31","Kingsrow(x64)[2] 1.20","Regicide 0.2",1/2-1/2,0.5,"repetition",129
+70,35,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:35","Kingsrow(x64)[7] 1.20","Regicide 0.2",1/2-1/2,0.5,"no progress",155
+61,31,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:31","Regicide 0.2","Kingsrow(x64)[6] 1.20",1/2-1/2,0.5,"repetition",121
+69,35,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:35","Regicide 0.2","Kingsrow(x64) 1.20",1/2-1/2,0.5,"repetition",193
+66,33,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:33","Kingsrow(x64)[1] 1.20","Regicide 0.2",1/2-1/2,0.5,"repetition",96
+63,32,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:32","Regicide 0.2","Kingsrow(x64)[4] 1.20",1/2-1/2,0.5,"repetition",172
+72,36,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:36","Kingsrow(x64)[3] 1.20","Regicide 0.2",1/2-1/2,0.5,"repetition",282
+71,36,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:36","Regicide 0.2","Kingsrow(x64)[5] 1.20",1/2-1/2,0.5,"no progress",159
+73,37,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:37","Regicide 0.2","Kingsrow(x64)[2] 1.20",1/2-1/2,0.5,"no progress",198
+77,39,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:39","Regicide 0.2","Kingsrow(x64)[1] 1.20",1/2-1/2,0.5,"repetition",103
+78,39,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:39","Kingsrow(x64)[4] 1.20","Regicide 0.2",1/2-1/2,0.5,"repetition",138
+75,38,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:38","Regicide 0.2","Kingsrow(x64)[6] 1.20",1/2-1/2,0.5,"repetition",94
+76,38,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:38","Kingsrow(x64) 1.20","Regicide 0.2",1/2-1/2,0.5,"repetition",71
+82,41,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:41","Kingsrow(x64)[1] 1.20","Regicide 0.2",1/2-1/2,0.5,"no progress",157
+79,40,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:40","Regicide 0.2","Kingsrow(x64)[3] 1.20",1/2-1/2,0.5,"no progress",214
+81,41,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:41","Regicide 0.2","Kingsrow(x64)[2] 1.20",1/2-1/2,0.5,"repetition",186
+80,40,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:40","Kingsrow(x64)[5] 1.20","Regicide 0.2",1/2-1/2,0.5,"repetition",110
+74,37,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:37","Kingsrow(x64)[7] 1.20","Regicide 0.2",1/2-1/2,0.5,"repetition",88
+85,43,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:43","Regicide 0.2","Kingsrow(x64) 1.20",1/2-1/2,0.5,"no progress",189
+87,44,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:44","Regicide 0.2","Kingsrow(x64)[3] 1.20",1/2-1/2,0.5,"repetition",138
+84,42,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:42","Kingsrow(x64)[6] 1.20","Regicide 0.2",1/2-1/2,0.5,"no progress",250
+86,43,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:43","Kingsrow(x64)[1] 1.20","Regicide 0.2",1/2-1/2,0.5,"repetition",122
+83,42,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:42","Regicide 0.2","Kingsrow(x64)[4] 1.20",1/2-1/2,0.5,"no progress",217
+88,44,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:44","Kingsrow(x64)[2] 1.20","Regicide 0.2",1/2-1/2,0.5,"no progress",200
+91,46,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:46","Regicide 0.2","Kingsrow(x64) 1.20",1/2-1/2,0.5,"no progress",248
+89,45,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:45","Regicide 0.2","Kingsrow(x64)[5] 1.20",1/2-1/2,0.5,"no progress",175
+92,46,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:46","Kingsrow(x64)[3] 1.20","Regicide 0.2",1/2-1/2,0.5,"no progress",161
+95,48,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:48","Regicide 0.2","Kingsrow(x64)[4] 1.20",1/2-1/2,0.5,"repetition",85
+96,48,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:48","Kingsrow(x64)[2] 1.20","Regicide 0.2",1/2-1/2,0.5,"no progress",146
+90,45,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:45","Kingsrow(x64)[7] 1.20","Regicide 0.2",1/2-1/2,0.5,"repetition",126
+93,47,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:47","Regicide 0.2","Kingsrow(x64)[6] 1.20",1/2-1/2,0.5,"no progress",209
+98,49,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:49","Kingsrow(x64)[5] 1.20","Regicide 0.2",1/2-1/2,0.5,"no progress",163
+99,50,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:50","Regicide 0.2","Kingsrow(x64)[3] 1.20",1/2-1/2,0.5,"no progress",218
+97,49,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:49","Regicide 0.2","Kingsrow(x64) 1.20",1/2-1/2,0.5,"no progress",156
+102,51,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:51","Kingsrow(x64)[7] 1.20","Regicide 0.2",1/2-1/2,0.5,"no progress",155
+103,52,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:52","Regicide 0.2","Kingsrow(x64)[6] 1.20",1/2-1/2,0.5,"repetition",144
+101,51,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:51","Regicide 0.2","Kingsrow(x64)[2] 1.20",1/2-1/2,0.5,"no progress",165
+100,50,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:50","Kingsrow(x64)[4] 1.20","Regicide 0.2",1/2-1/2,0.5,"repetition",86
+94,47,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:47","Kingsrow(x64)[1] 1.20","Regicide 0.2",1/2-1/2,0.5,"no progress",179
+104,52,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:52","Kingsrow(x64)[5] 1.20","Regicide 0.2",1/2-1/2,0.5,"repetition",108
+109,55,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:55","Regicide 0.2","Kingsrow(x64)[2] 1.20",1/2-1/2,0.5,"no progress",166
+108,54,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:54","Kingsrow(x64)[6] 1.20","Regicide 0.2",1/2-1/2,0.5,"repetition",115
+105,53,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:53","Regicide 0.2","Kingsrow(x64)[3] 1.20",1/2-1/2,0.5,"no progress",202
+106,53,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:53","Kingsrow(x64) 1.20","Regicide 0.2",1/2-1/2,0.5,"no progress",209
+110,55,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:55","Kingsrow(x64)[4] 1.20","Regicide 0.2",1/2-1/2,0.5,"repetition",76
+111,56,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:56","Regicide 0.2","Kingsrow(x64)[1] 1.20",1/2-1/2,0.5,"no progress",150
+114,57,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:57","Kingsrow(x64)[6] 1.20","Regicide 0.2",1/2-1/2,0.5,"repetition",80
+113,57,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:57","Regicide 0.2","Kingsrow(x64)[2] 1.20",1/2-1/2,0.5,"no progress",161
+115,58,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:58","Regicide 0.2","Kingsrow(x64)[3] 1.20",1/2-1/2,0.5,"no progress",234
+116,58,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:58","Kingsrow(x64) 1.20","Regicide 0.2",1/2-1/2,0.5,"repetition",102
+112,56,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:56","Kingsrow(x64)[5] 1.20","Regicide 0.2",1/2-1/2,0.5,"repetition",100
+117,59,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:59","Regicide 0.2","Kingsrow(x64)[4] 1.20",1/2-1/2,0.5,"no progress",161
+118,59,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:59","Kingsrow(x64)[1] 1.20","Regicide 0.2",1/2-1/2,0.5,"repetition",102
+121,61,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:61","Regicide 0.2","Kingsrow(x64)[3] 1.20",1/2-1/2,0.5,"no progress",164
+123,62,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:62","Regicide 0.2","Kingsrow(x64)[5] 1.20",1/2-1/2,0.5,"no progress",188
+107,54,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:54","Regicide 0.2","Kingsrow(x64)[7] 1.20",0-1,0,"no legal moves",119
+124,62,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:62","Kingsrow(x64)[4] 1.20","Regicide 0.2",1/2-1/2,0.5,"no progress",178
+122,61,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:61","Kingsrow(x64) 1.20","Regicide 0.2",1/2-1/2,0.5,"no progress",217
+125,63,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:63","Regicide 0.2","Kingsrow(x64)[1] 1.20",1/2-1/2,0.5,"repetition",99
+119,60,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:60","Regicide 0.2","Kingsrow(x64)[6] 1.20",1/2-1/2,0.5,"no progress",173
+127,64,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:64","Regicide 0.2","Kingsrow(x64)[5] 1.20",1/2-1/2,0.5,"no progress",157
+120,60,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:60","Kingsrow(x64)[2] 1.20","Regicide 0.2",1/2-1/2,0.5,"repetition",124
+130,65,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:65","Kingsrow(x64) 1.20","Regicide 0.2",1/2-1/2,0.5,"repetition",108
+132,66,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:66","Kingsrow(x64)[6] 1.20","Regicide 0.2",1/2-1/2,0.5,"no progress",155
+128,64,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:64","Kingsrow(x64)[7] 1.20","Regicide 0.2",1/2-1/2,0.5,"repetition",80
+131,66,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:66","Regicide 0.2","Kingsrow(x64)[1] 1.20",1/2-1/2,0.5,"no progress",144
+133,67,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:67","Regicide 0.2","Kingsrow(x64)[5] 1.20",1/2-1/2,0.5,"no progress",163
+129,65,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:65","Regicide 0.2","Kingsrow(x64)[4] 1.20",1/2-1/2,0.5,"repetition",119
+134,67,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:67","Kingsrow(x64)[2] 1.20","Regicide 0.2",1/2-1/2,0.5,"repetition",104
+135,68,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:68","Regicide 0.2","Kingsrow(x64) 1.20",1/2-1/2,0.5,"no progress",161
+136,68,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:68","Kingsrow(x64)[6] 1.20","Regicide 0.2",1/2-1/2,0.5,"repetition",158
+138,69,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:69","Kingsrow(x64)[1] 1.20","Regicide 0.2",1/2-1/2,0.5,"repetition",84
+137,69,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:69","Regicide 0.2","Kingsrow(x64)[7] 1.20",1/2-1/2,0.5,"no progress",148
+140,70,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:70","Kingsrow(x64)[4] 1.20","Regicide 0.2",1/2-1/2,0.5,"no progress",245
+139,70,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:70","Regicide 0.2","Kingsrow(x64)[5] 1.20",1/2-1/2,0.5,"repetition",86
+145,73,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:73","Regicide 0.2","Kingsrow(x64)[7] 1.20",1/2-1/2,0.5,"repetition",144
+143,72,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:72","Regicide 0.2","Kingsrow(x64)[6] 1.20",1/2-1/2,0.5,"repetition",177
+141,71,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:71","Regicide 0.2","Kingsrow(x64)[2] 1.20",1/2-1/2,0.5,"no progress",201
+142,71,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:71","Kingsrow(x64) 1.20","Regicide 0.2",1/2-1/2,0.5,"repetition",94
+146,73,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:73","Kingsrow(x64)[4] 1.20","Regicide 0.2",1/2-1/2,0.5,"no progress",179
+147,74,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:74","Regicide 0.2","Kingsrow(x64)[5] 1.20",1/2-1/2,0.5,"no progress",203
+148,74,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:74","Kingsrow(x64)[7] 1.20","Regicide 0.2",1/2-1/2,0.5,"no progress",171
+144,72,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:72","Kingsrow(x64)[1] 1.20","Regicide 0.2",1/2-1/2,0.5,"repetition",94
+149,75,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:75","Regicide 0.2","Kingsrow(x64)[6] 1.20",1/2-1/2,0.5,"repetition",142
+152,76,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:76","Kingsrow(x64)[4] 1.20","Regicide 0.2",1/2-1/2,0.5,"repetition",120
+153,77,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:77","Regicide 0.2","Kingsrow(x64)[5] 1.20",1/2-1/2,0.5,"no progress",188
+154,77,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:77","Kingsrow(x64)[7] 1.20","Regicide 0.2",1/2-1/2,0.5,"repetition",154
+151,76,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:76","Regicide 0.2","Kingsrow(x64) 1.20",1/2-1/2,0.5,"repetition",57
+150,75,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:75","Kingsrow(x64)[2] 1.20","Regicide 0.2",1/2-1/2,0.5,"no progress",221
+155,78,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:78","Regicide 0.2","Kingsrow(x64)[1] 1.20",1/2-1/2,0.5,"repetition",103
+126,63,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:63","Kingsrow(x64)[3] 1.20","Regicide 0.2",0-1,1,"no legal moves",219
+156,78,"/mnt/c/regicide-match/jobs/booklab/acf156_h1.txt:78","Kingsrow(x64)[6] 1.20","Regicide 0.2",1/2-1/2,0.5,"repetition",132

@@ -143,8 +143,27 @@ against KingsRow mode 3 #60 10/10, #71 8/10, #141 10/10, #9 10/10, #34 (try 2) 1
 **Book r10k (accepted) = try 2:** r10 + the repairs of #60, #71, #141/#9 (try 1) + #34 (try 2): 1,059 decisions, sha256
 **`229de021de9982b809b73ba104f78890a728a7022ad24c13fa185ef358449b9b`** (`wp13/book_r10k.bin`, `wp13/decisions_r10k.txt`);
 reachability 873 reachable, 0 unreachable, 186 unknown at the node limit (r10: 822 / 0 / 165); one base avoid entry
-removed (force-unavoid above); DLL `bl-456e9b2-r10k2` (bench unchanged: 7,677,736 / 8,055,287). Validation (two
-production-deck runs against KingsRow mode 3, one each against Cake and GuiNN): running.
+removed (force-unavoid above); DLL `bl-456e9b2-r10k2` (bench unchanged: 7,677,736 / 8,055,287). Build and
+reachability reports with input hashes: `wp13/book_r10k.report.txt`, `book_r10k.reach.txt` (try 1: `*_t1.*`).
+
+**Validation of r10k against KingsRow mode 3 (final-validation runner):** run a 0 / 312 / 0; run b **1 / 309 / 2**
+(halves +1 =154 −1 and +0 =155 −1). The Cake and GuiNN runs of r10k were held (superseded, see below). Both losses
+are new lines, neither touches a position where r10 and r10k differ, and both come from our own search varying after
+the book ends, on lines that the other mode-3 games of the same opening drew:
+
+| Line | Lost game | Drawn mode-3 games of the opening | Three sources at the repair point | Repair |
+|---|---|---|---|---|
+| ACF #62 Gemini I (10-14 22-17 11-16), B | `bl-v13-kingsrow-b-h1` 54.1: ply 17 16-20, score ≤ −100 from ply 55 | v13 a, k3 a, k3 b: 4-8 at ply 17 | Cake (census game, same position) 4-8, drawn; our 20M search 4-8 0 (best), 16-20 −42 | **4-8 at ply 17** |
+| ACF #93 (10-15 22-17 9-13), B | `bl-v13-kingsrow-b-h2` 5.1: ply 19 2-6, ply 21 12-16, ≤ −100 from ply 35 | k3 a, k3 b: 2-7 at ply 19; v13 a: 2-6, KingsRow varied at ply 20 | KingsRow mode 3 book 2-7 (−1/16), 2-6 −70; our search 2-7 0 (best), 2-6 −27; Cake leaves at ply 5 | **2-7 at ply 19** |
+
+r10k3 = r10k + #62 (1,060 decisions, sha256 `3d5ff458…`); test 3 (#62): KingsRow mode 3 0 / 10 / 0, Cake 0 / 4 / 0,
+GuiNN 0 / 4 / 0. r10k4 = r10k3 + #93 (1,061 decisions, sha256 `df8fd5ac71c9fe5811c596b38306200833028fc59f879f4184a04ce2de2e56c5`,
+reachability 875 / 0 / 186, DLL `bl-456e9b2-r10k4`, bench unchanged): test 4 (#93) and then the full validation (two
+runs against KingsRow mode 3, one each against Cake and GuiNN) are running.
+
+Note on the method: these two losses are not book errors but the engine choosing differently from game to game on
+lines the book does not cover; the pins of WP11 (our moves of drawn games, rebuilt after this validation) are the
+general remedy for that, and the two repairs above are the same choice made early for the two lines that lost.
 
 **Census, Cake against KingsRow in book mode 3** (production deck, 312 games, final-validation runner, both engines
 `set book 3` read back): **Cake 1 / 311 / 0** (the one win: ACF #119, 11-15 22-17 15-19, Cake Black,

@@ -16,7 +16,7 @@ for part in H3_0 H3_1; do
   case $part in H3_0) arms="60 100" ;; H3_1) arms="100 60" ;; esac
   for arm in $arms; do
     EXTRA_A="set param tm_soft=$arm" \
-      bash $J/bl_run_w.sh regicide:bl-456e9b2-r11 cake t1$R-$arm-cake-$part $L/wp10/parts/$part.txt 0.5 8 < /dev/null \
+      bash $J/bl_run_w.sh regicide:${T1DLL:-bl-456e9b2-r11} cake t1$R-$arm-cake-$part $L/wp10/parts/$part.txt 0.5 8 < /dev/null \
       || { st "T1 STOPPED at t1$R-$arm-cake-$part"; exit 1; }
   done
 done
