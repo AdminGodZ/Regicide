@@ -106,6 +106,10 @@ double play_game(const Position& start, Engine& black, Engine& white, const Conf
         history.push_back(pos);
         pos.make_move(r.best);
     }
+    // The ply limit is a draw, unless the last move ended the game.
+    MoveList list;
+    generate_moves(pos, list);
+    if (list.empty()) return pos.side_to_move() == BLACK ? 0.0 : 1.0;
     return 0.5;
 }
 
