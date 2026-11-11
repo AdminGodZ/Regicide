@@ -5,6 +5,11 @@
 | n6c | cake | a | 312 | 0 / 312 / 0 | — (first run) |
 | n6c | cake | b | 312 | 0 / 312 / 0 | 117 |
 | n6c | guinn | a | 312 | 21 / 291 / 0 | — (first run) |
+| n8q | kingsrow | a | 312 | 1 / 311 / 0 | — (first run) |
+| n8q | kingsrow | b | 312 | 1 / 311 / 0 | 5 |
+| n8q | cake | a | 312 | 0 / 312 / 0 | — (first run) |
+| n8q | cake | b | 312 | 0 / 312 / 0 | 120 |
+| n8q | guinn | a | 312 | 23 / 289 / 0 | — (first run) |
 
 Losses (leaving move: the lost game's own move / the moves of the non-lost games in that position):
 
@@ -17,3 +22,5 @@ Wins against Cake and KingsRow (the opponent's first move not played by it in dr
 | Net | Opponent | Opening | Regicide | Game | opponent's first different move |
 |---|---|---|---|---|---|
 | n6c | kingsrow | ACF #43 | W | bl-v11c-n6c-kingsrow-b-h1 39.2 | ply 23: 8-12 (drawn games: 8-11) |
+| n8q | kingsrow | ACF #43 | W | bl-v11c-n8q-kingsrow-a-h1 39.2 | ply 23: 8-12 (drawn games: 8-11) |
+| n8q | kingsrow | ACF #16 Wilderness II | W | bl-v11c-n8q-kingsrow-b-h1 14.2 | ply 41: 9-14 (drawn games: 32-28) |

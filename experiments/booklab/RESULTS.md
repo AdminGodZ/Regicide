@@ -363,10 +363,28 @@ back for every engine; read-out `tools/booklab/val_report.py`, `wp11c/v11c_n6c_r
 | n6c | Cake | a | 0 / 312 / 0 | — |
 | n6c | Cake | b | 0 / 312 / 0 | 117 |
 | n6c | GuiNN | a | 21 / 291 / 0 | — |
+| n8q | KingsRow mode 3 | a | 1 / 311 / 0 | — |
+| n8q | KingsRow mode 3 | b | 1 / 311 / 0 | 5 |
+| n8q | Cake | a | 0 / 312 / 0 | — |
+| n8q | Cake | b | 0 / 312 / 0 | 120 |
+| n8q | GuiNN | a | 23 / 289 / 0 | — |
 
-**With n6c no loss in 1,560 games.** The win against KingsRow mode 3: ACF #43, Regicide White (`bl-v11c-n6c-kingsrow-b-h1`
-39.2); KingsRow's first move not played by it in the drawn games of that opening and colour is 8-12 at ply 23 (8-11 in
-the draws). The n8q runs (DLL `bl-60e593e-r11c-n8q`) are playing.
+**No loss in 3,120 games (1,560 with each net)**; all 20 halves rc 0, all games played, no crash, time-out or engine
+that did not start. Games identical between the nets (an n8q game equal move for move to an n6c game of the same
+opening and colour): Cake 240 of 624, KingsRow 20 of 624, GuiNN 28 of 312. Read-out `wp11c/v11c_report.md`; records
+`wp11c/games/`.
+
+Wins against Cake and KingsRow (the opponent's first move that it did not play in its drawn games of the same opening
+and colour; pool: all validated runs):
+
+| Net | Opponent | Opening | Regicide | Game | opponent's first different move |
+|---|---|---|---|---|---|
+| n6c | KingsRow mode 3 | ACF #43 | W | `bl-v11c-n6c-kingsrow-b-h1` 39.2 | ply 23: 8-12 (8-11 in its draws) |
+| n8q | KingsRow mode 3 | ACF #43 | W | `bl-v11c-n8q-kingsrow-a-h1` 39.2 | ply 23: 8-12 (8-11 in its draws) |
+| n8q | KingsRow mode 3 | ACF #16 Wilderness II | W | `bl-v11c-n8q-kingsrow-b-h1` 14.2 | ply 41: 9-14 (the king move 32-28 in its draws) |
+
+KingsRow mode 3 repeats its #43 error (8-12 at ply 23) with both nets. **r11c is accepted by the lead as the next
+built-in book** (`wp11c/book_r11c.bin`, sha256 `14bc3e77…`).
 
 **New pins (CPU only, for the next r11).** From the 4,368 games of the validated full runs with r10 (final
 validation; k3), r10k (v13) and r10k4 (v13k4) against all three opponents, KingsRow mode 3 included, on top of r10k5;
