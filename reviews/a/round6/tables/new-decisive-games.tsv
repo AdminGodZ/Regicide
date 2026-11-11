@@ -1,0 +1,74 @@
+run	round	opponent	opening	our_colour	worker	age_form	age_A	age_B	previous_game	previous_category	result
+e2d-kr134-kept	15.2	kingsrow	ACF #134	W	7	per_engine	1	1	e2d-kr134-kept:8.2	same_opening_same_colour	W
+e2d-kr134-kept	14.2	kingsrow	ACF #134	W	6	per_engine	1	1	e2d-kr134-kept:6.2	same_opening_same_colour	W
+e2d-kr134-natural	3.2	kingsrow	ACF #134	W	2	per_engine	1	1	e2d-kr134-natural:3.1	same_opening_other_colour	W
+e2d-kr134-natural	2.2	kingsrow	ACF #134	W	1	per_engine	1	1	e2d-kr134-natural:2.1	same_opening_other_colour	W
+e2d-kr134-natural	4.2	kingsrow	ACF #134	W	3	per_engine	1	1	e2d-kr134-natural:4.1	same_opening_other_colour	W
+e2d-kr134-natural	11.2	kingsrow	ACF #134	W	5	per_engine	3	3	e2d-kr134-natural:11.1	same_opening_other_colour	W
+e2d-kr134-natural	12.2	kingsrow	ACF #134	W	0	per_engine	3	3	e2d-kr134-natural:12.1	same_opening_other_colour	W
+e2d-kr134-natural	9.2	kingsrow	ACF #134	W	7	per_engine	3	3	e2d-kr134-natural:9.1	same_opening_other_colour	W
+e2d-kr134-natural	19.2	kingsrow	ACF #134	W	6	per_engine	7	7	e2d-kr134-natural:19.1	same_opening_other_colour	W
+e2d-kr134-natural	21.2	kingsrow	ACF #134	W	2	per_engine	5	5	e2d-kr134-natural:21.1	same_opening_other_colour	W
+e2d-kr134-natural	20.2	kingsrow	ACF #134	W	4	per_engine	7	7	e2d-kr134-natural:20.1	same_opening_other_colour	W
+e2d-kr16-fresh	7.2	kingsrow	ACF #16 Wilderness II	W	7	per_engine	0	0	-	new_process	W
+e2d-kr16-fresh	5.2	kingsrow	ACF #16 Wilderness II	W	4	per_engine	0	0	-	new_process	W
+e2d-kr16-fresh	8.2	kingsrow	ACF #16 Wilderness II	W	2	per_engine	0	0	-	new_process	W
+e2d-kr16-fresh	3.2	kingsrow	ACF #16 Wilderness II	W	3	per_engine	0	0	-	new_process	W
+e2d-kr16-fresh	1.2	kingsrow	ACF #16 Wilderness II	W	0	per_engine	0	0	-	new_process	W
+e2d-kr16-fresh	2.2	kingsrow	ACF #16 Wilderness II	W	1	per_engine	0	0	-	new_process	W
+e2d-kr16-fresh	6.2	kingsrow	ACF #16 Wilderness II	W	6	per_engine	0	0	-	new_process	W
+e2d-kr16-fresh	4.2	kingsrow	ACF #16 Wilderness II	W	5	per_engine	0	0	-	new_process	W
+e2d-kr16-fresh	12.2	kingsrow	ACF #16 Wilderness II	W	3	per_engine	0	0	-	new_process	W
+e2d-kr16-fresh	9.2	kingsrow	ACF #16 Wilderness II	W	7	per_engine	0	0	-	new_process	W
+e2d-kr16-fresh	10.2	kingsrow	ACF #16 Wilderness II	W	4	per_engine	0	0	-	new_process	W
+e2d-kr16-fresh	13.2	kingsrow	ACF #16 Wilderness II	W	0	per_engine	0	0	-	new_process	W
+e2d-kr16-fresh	15.2	kingsrow	ACF #16 Wilderness II	W	6	per_engine	0	0	-	new_process	W
+e2d-kr16-fresh	11.2	kingsrow	ACF #16 Wilderness II	W	2	per_engine	0	0	-	new_process	W
+e2d-kr16-fresh	16.2	kingsrow	ACF #16 Wilderness II	W	5	per_engine	0	0	-	new_process	W
+e2d-kr16-fresh	14.2	kingsrow	ACF #16 Wilderness II	W	1	per_engine	0	0	-	new_process	W
+e2d-kr16-fresh	20.2	kingsrow	ACF #16 Wilderness II	W	0	per_engine	0	0	-	new_process	W
+e2d-kr16-fresh	22.2	kingsrow	ACF #16 Wilderness II	W	2	per_engine	0	0	-	new_process	W
+e2d-kr16-fresh	18.2	kingsrow	ACF #16 Wilderness II	W	7	per_engine	0	0	-	new_process	W
+e2d-kr16-fresh	23.2	kingsrow	ACF #16 Wilderness II	W	5	per_engine	0	0	-	new_process	W
+e2d-kr16-fresh	17.2	kingsrow	ACF #16 Wilderness II	W	3	per_engine	0	0	-	new_process	W
+e2d-kr16-fresh	21.2	kingsrow	ACF #16 Wilderness II	W	6	per_engine	0	0	-	new_process	W
+e2d-kr16-fresh	19.2	kingsrow	ACF #16 Wilderness II	W	4	per_engine	0	0	-	new_process	W
+e2d-kr16-fresh	24.2	kingsrow	ACF #16 Wilderness II	W	1	per_engine	0	0	-	new_process	W
+e2d-kr16-kept	7.2	kingsrow	ACF #16 Wilderness II	W	6	per_engine	0	0	-	new_process	W
+e2d-kr16-kept	6.2	kingsrow	ACF #16 Wilderness II	W	4	per_engine	0	0	-	new_process	W
+e2d-kr16-kept	1.2	kingsrow	ACF #16 Wilderness II	W	0	per_engine	0	0	-	new_process	W
+e2d-kr16-kept	4.2	kingsrow	ACF #16 Wilderness II	W	2	per_engine	0	0	-	new_process	W
+e2d-kr16-kept	5.2	kingsrow	ACF #16 Wilderness II	W	5	per_engine	0	0	-	new_process	W
+e2d-kr16-kept	3.2	kingsrow	ACF #16 Wilderness II	W	1	per_engine	0	0	-	new_process	W
+e2d-kr16-kept	2.2	kingsrow	ACF #16 Wilderness II	W	3	per_engine	0	0	-	new_process	W
+e2d-kr16-kept	8.2	kingsrow	ACF #16 Wilderness II	W	7	per_engine	0	0	-	new_process	W
+e2d-kr16-kept	10.2	kingsrow	ACF #16 Wilderness II	W	4	per_engine	1	1	e2d-kr16-kept:6.2	same_opening_same_colour	W
+e2d-kr16-natural	6.2	kingsrow	ACF #16 Wilderness II	W	6	per_engine	1	1	e2d-kr16-natural:6.1	same_opening_other_colour	W
+e2d-kr16-natural	7.2	kingsrow	ACF #16 Wilderness II	W	7	per_engine	1	1	e2d-kr16-natural:7.1	same_opening_other_colour	W
+e2d-kr16-natural	11.2	kingsrow	ACF #16 Wilderness II	W	6	per_engine	3	3	e2d-kr16-natural:11.1	same_opening_other_colour	W
+e2d-kr16-natural	15.2	kingsrow	ACF #16 Wilderness II	W	4	per_engine	3	3	e2d-kr16-natural:15.1	same_opening_other_colour	W
+e2d-kr16-natural	18.2	kingsrow	ACF #16 Wilderness II	W	0	per_engine	3	3	e2d-kr16-natural:18.1	same_opening_other_colour	W
+e2d-kr43-natural	16.2	kingsrow	ACF #43	W	2	per_engine	3	3	e2d-kr43-natural:16.1	same_opening_other_colour	W
+mo1-guinn	4.2	guinn	ACF #5 Dreaded Edinburgh	W	0	per_engine	7	7	mo1-guinn:4.1	same_opening_other_colour	W
+mo1-guinn	5.2	guinn	ACF #6 Inferno	W	0	per_engine	9	9	mo1-guinn:5.1	same_opening_other_colour	W
+mo1-guinn	8.2	guinn	ACF #9 Wilderness I	W	0	per_engine	15	15	mo1-guinn:8.1	same_opening_other_colour	W
+mo1-guinn	14.2	guinn	ACF #16 Wilderness II	W	0	per_engine	27	27	mo1-guinn:14.1	same_opening_other_colour	W
+mo1-guinn	20.1	guinn	ACF #22	B	0	per_engine	38	38	mo1-guinn:19.2	another_opening	W
+mo1-guinn	23.2	guinn	ACF #25	W	0	per_engine	45	45	mo1-guinn:23.1	same_opening_other_colour	W
+mo1-guinn	25.1	guinn	ACF #28	B	0	per_engine	48	48	mo1-guinn:24.2	another_opening	W
+mo1-guinn	31.2	guinn	ACF #34 Twilight Zone	W	0	per_engine	61	61	mo1-guinn:31.1	same_opening_other_colour	W
+mo1-guinn	39.2	guinn	ACF #43	W	0	per_engine	77	77	mo1-guinn:39.1	same_opening_other_colour	W
+mo1-guinn	41.2	guinn	ACF #47	W	0	per_engine	81	81	mo1-guinn:41.1	same_opening_other_colour	W
+mo1-guinn	77.2	guinn	ACF #86 Octopus	W	0	per_engine	153	153	mo1-guinn:77.1	same_opening_other_colour	W
+mo1-guinn	81.2	guinn	ACF #91	W	0	per_engine	161	161	mo1-guinn:81.1	same_opening_other_colour	W
+mo1-guinn	82.1	guinn	ACF #92	B	0	per_engine	162	162	mo1-guinn:81.2	another_opening	W
+mo1-guinn	85.2	guinn	ACF #96 Skull-Cracker	W	0	per_engine	169	169	mo1-guinn:85.1	same_opening_other_colour	W
+mo1-guinn	90.2	guinn	ACF #101	W	0	per_engine	179	179	mo1-guinn:90.1	same_opening_other_colour	W
+mo1-guinn	97.1	guinn	ACF #108	B	0	per_engine	192	192	mo1-guinn:96.2	another_opening	W
+mo1-guinn	100.1	guinn	ACF #112	B	0	per_engine	198	198	mo1-guinn:99.2	another_opening	W
+mo1-guinn	116.1	guinn	ACF #129	B	0	per_engine	230	230	mo1-guinn:115.2	another_opening	W
+mo1-guinn	131.2	guinn	ACF #146	W	0	per_engine	261	261	mo1-guinn:131.1	same_opening_other_colour	W
+mo1-guinn	138.1	guinn	ACF #153 Black Widow	B	0	per_engine	274	274	mo1-guinn:137.2	another_opening	W
+mo1-guinn	156.2	guinn	ACF #174 Skunk	W	0	per_engine	311	311	mo1-guinn:156.1	same_opening_other_colour	W
+mo1-kingsrow	5.1	kingsrow	ACF #6 Inferno	B	0	per_engine	8	8	mo1-kingsrow:4.2	another_opening	L
+mo1-kingsrow	39.2	kingsrow	ACF #43	W	0	per_engine	77	77	mo1-kingsrow:39.1	same_opening_other_colour	W

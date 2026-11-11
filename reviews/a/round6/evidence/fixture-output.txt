@@ -1,0 +1,94 @@
+## latest-api-claim.log
+dbpath reply 3
+stop 0 claim 1 after W:WK3:BK2,K5 info depth 0/0  score 19994  nodes 0  0 kN/s  pv 1-5
+stop 1 claim 1 after W:WK3:BK2,K5 info depth 0/0  score 19994  nodes 0  0 kN/s  pv 1-5
+
+## search-claim.log
+root B:WK3:BK1,K2 rev 77 exact-two-ply-outcome 0
+mtc 3 move 1-5 score 19994 partial 0 depth 0 nodes 0
+mtc 0 move 2-6 score 2000 partial 0 depth 4 nodes 25
+mtc 4 move 1-5 score 19994 partial 0 depth 4 nodes 16
+
+## score-routes.log
+terminal search move 6x15 score 29999 depth 2 partial 0 completed 29999 nodes 4
+WLD conversion terminal move 6x15 score 29999 depth 2 partial 0 completed 29999 nodes 4
+stopped after completed win move 6x15 score 29999 depth 1 partial 0 completed 29999 nodes 3
+synthetic high-score book move 1-5 score 20000 depth 0 partial 0 completed -32000 nodes 0
+book position WLD 2
+
+## latest-api-draw.log
+repeat9 stop 0 claim 3 after W:WK2,K8,K12,K18,K20,K28,K29:BK13,K30 info depth 48/34  score 0  nodes 39467  9866 kN/s  pv 17-13
+repeat9 stop 1 claim 3 after W:WK2,K8,K12,K18,K20,K28,K29:BK17,K25 info
+limit9 stop 0 claim 3 after W:WK2,K8,K12,K18,K20,K28,K29:BK17,K25 info depth 127/1  score 0  nodes 889  889 kN/s  pv 30-25
+limit9 stop 1 claim 3 after W:WK2,K8,K12,K18,K20,K28,K29:BK17,K25 info
+table-draw stop 0 claim 3 after W:WK30:BK22,K25 info depth 127/1  score 0  nodes 890  890 kN/s  pv 26-22
+table-draw stop 1 claim 3 after W:WK30:BK21,K26 info
+
+## repeat-reference.log
+nine-piece root after third occurrence W:WK2,K8,K12,K18,K20,K28,K29:BK13,K30 CheckerBoard repeat 0 count 8
+
+## latest-api-repeat-win.log
+White at third occurrence: claim 1 after B:WK2,K8,K12,K14,K20,K28,K29:BK13,K30 info depth 14/13  score 29987  nodes 48512  6930 kN/s  pv 18-14 13-9 14x5 30-26 29-25 26-23 25-22 23-27 8-11 27-31
+
+## no-loss-colours.log
+master_cb.so lost-B 2 depth 3/2  score -29998  nodes 15  15 kN/s  pv 2-6 10x1
+master_cb.so lost-W 2 depth 3/2  score -29998  nodes 15  15 kN/s  pv 31-26 23x30
+master_cb.so blocked-B 2 no legal moves
+master_cb.so blocked-W 2 no legal moves
+master_cb.so win-B 1 depth 1/1  score 29999  nodes 2  2 kN/s  pv 6x15
+master_cb.so win-W 1 depth 1/1  score 29999  nodes 2  2 kN/s  pv 27x18
+no_loss_cb.so lost-B 3 depth 3/2  score -29998  nodes 15  15 kN/s  pv 2-6 10x1
+no_loss_cb.so lost-W 3 depth 3/2  score -29998  nodes 15  15 kN/s  pv 31-26 23x30
+no_loss_cb.so blocked-B 2 no legal moves
+no_loss_cb.so blocked-W 2 no legal moves
+no_loss_cb.so win-B 1 depth 1/1  score 29999  nodes 2  2 kN/s  pv 6x15
+no_loss_cb.so win-W 1 depth 1/1  score 29999  nodes 2  2 kN/s  pv 27x18
+
+## no-loss-test.log
+engine: Regicide 0.2
+played 200 legal plies, final B:WK1,K19:BK6,K10
+
+## no-loss-before.log
+engine: Regicide 0.2
+a lost position claims 2 (3 = unknown), no legal move 2 (2 = loss)
+
+## latest-branch-review.log
+terminal-cb [('1', '1-0', '1', 'no legal moves', '1', 'ply 1 B draw'), ('2', '1-0', '0', 'no legal moves', '1', 'ply 1 B draw')]
+terminal-both [('1', '1/2-1/2', '0.5', 'draw claim', '1', 'ply 1 B draw'), ('2', '1/2-1/2', '0.5', 'draw claim', '1', 'ply 1 B draw')]
+limit-final-claim [('1', '*', '', 'move limit', '4', 'none'), ('2', '1/2-1/2', '0.5', 'draw claim', '4', 'ply 4 W draw')]
+old-default-0 [('1', '1/2-1/2', '0.5', 'repetition', '8', '-'), ('2', '1/2-1/2', '0.5', 'repetition', '8', '-')]
+new-default-0 [('1', '1/2-1/2', '0.5', 'repetition', '8', 'ply 1 B draw'), ('2', '1/2-1/2', '0.5', 'repetition', '8', 'ply 1 B draw')]
+old-default-1 [('1', '1/2-1/2', '0.5', 'repetition', '8', '-'), ('2', '1/2-1/2', '0.5', 'repetition', '8', '-')]
+new-default-1 [('1', '1/2-1/2', '0.5', 'repetition', '8', 'ply 1 B win'), ('2', '1/2-1/2', '0.5', 'repetition', '8', 'ply 1 B win')]
+old-default-2 [('1', '1/2-1/2', '0.5', 'repetition', '8', '-'), ('2', '1/2-1/2', '0.5', 'repetition', '8', '-')]
+new-default-2 [('1', '1/2-1/2', '0.5', 'repetition', '8', 'ply 1 B loss'), ('2', '1/2-1/2', '0.5', 'repetition', '8', 'ply 1 B loss')]
+old-default-3 [('1', '1/2-1/2', '0.5', 'repetition', '8', '-'), ('2', '1/2-1/2', '0.5', 'repetition', '8', '-')]
+new-default-3 [('1', '1/2-1/2', '0.5', 'repetition', '8', 'none'), ('2', '1/2-1/2', '0.5', 'repetition', '8', 'none')]
+default comparison: all 8 games identical on original result fields
+ballot-limit [('1', '*', '', 'move limit', '2', 'ply 4 W win'), ('2', '*', '', 'move limit', '2', 'ply 4 W win')]
+ballot tags ['ply 4 W win', 'ply 4 W win']
+
+## limit-claim-reference.log
+at engine ply 4, limit 3, claim 3 -> unknown 1 PDN *
+at engine ply 4, limit 3, claim 0 -> unknown 1 PDN *
+at engine ply 4, limit 3, claim 1 -> unknown 1 PDN *
+at engine ply 4, limit 3, claim 2 -> unknown 1 PDN *
+
+## match-tests.log
+Test project /home/admingod/regicide-review-a/reports/round6/match-build
+    Start 12: match_fresh_engines
+1/6 Test #12: match_fresh_engines ..............   Passed    0.01 sec
+    Start 13: match_pairs_together
+2/6 Test #13: match_pairs_together .............   Passed    0.01 sec
+    Start 14: match_engine_restart_counters
+3/6 Test #14: match_engine_restart_counters ....   Passed    0.11 sec
+    Start 15: match_claims_recorded
+4/6 Test #15: match_claims_recorded ............   Passed    0.02 sec
+    Start 16: match_cb_claims
+5/6 Test #16: match_cb_claims ..................   Passed    0.02 sec
+    Start 17: match_cb_move_limit
+6/6 Test #17: match_cb_move_limit ..............   Passed    0.01 sec
+
+100% tests passed out of 6
+
+Total Test time (real) =   0.18 sec

@@ -1,0 +1,6 @@
+run	round	opponent	opening	our_colour	age_form	age_A	age_B	age	previous_category	phase	result	ply	move	fen
+mo1-cake	147.2	cake	ACF #163	W	per_engine	293	293	293	same_opening_other_colour	full_match_order	D	15	4-8	B:W13,16,23,25,26,27,29,30,31,32:B1,2,3,4,6,7,10,11,14,20
+mo1-kingsrow	14.2	kingsrow	ACF #16 Wilderness II	W	per_engine	27	27	27	same_opening_other_colour	full_match_order	D	41	32-28	B:W6,15,20,30,31:B4,5,9,12,K32
+mo1-kingsrow	39.2	kingsrow	ACF #43	W	per_engine	77	77	77	same_opening_other_colour	full_match_order	W	23	8-12	B:W21,25,26,27,28,30,31:B1,4,6,7,8,14,19
+mo1-kingsrow	63.2	kingsrow	ACF #71 Diabolical Denny	W	per_engine	125	125	125	same_opening_other_colour	full_match_order	D	25	5-9	B:W18,23,24,25,27,31,32:B1,5,8,10,11,12,13
+mo1-kingsrow	121.2	kingsrow	ACF #134	W	per_engine	241	241	241	same_opening_other_colour	full_match_order	D	37	11-16	B:WK4,10,13,21,22,28,30,32:B1,2,3,11,15,20,23
