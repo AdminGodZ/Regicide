@@ -1,0 +1,4 @@
+input games 1872 changed keys 24 opponent draw endings 910 without prior own searched score 256 plus100 0
+{'opponent': 'cake', 'opponent_draw_claims': 312, 'no_own_search': 121, 'at_least_plus100': 0, 'minimum_last_search': -1, 'maximum_last_search': 13, 'maximum_last_reported': 0}
+{'opponent': 'kingsrow', 'opponent_draw_claims': 306, 'no_own_search': 14, 'at_least_plus100': 0, 'minimum_last_search': 0, 'maximum_last_search': 0, 'maximum_last_reported': 0}
+{'opponent': 'guinn', 'opponent_draw_claims': 292, 'no_own_search': 121, 'at_least_plus100': 0, 'minimum_last_search': 0, 'maximum_last_search': 6, 'maximum_last_reported': 5}

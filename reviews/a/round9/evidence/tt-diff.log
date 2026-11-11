@@ -1,0 +1,2 @@
+seed 0xA9D157 distance cases 8892 field roundtrips 20000 same-key/generation preference cases 960 collision replacement cases 2 cutoff-window cases 4
+poisoned full searches 96 illegal references 613 rejected move lookups 613 legal PV plies 376 all returned/PV moves legal

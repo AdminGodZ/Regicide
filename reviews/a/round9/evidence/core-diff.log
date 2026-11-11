@@ -1,0 +1,11 @@
+seed 0xA9C0DE64 net v1 1024 -> 32 -> 32 -> 1, 8 output buckets
+positions 16117 edges 77680 accumulator checks 109914 active lanes 225103872 board round trips 16117 CB move/path checks 77680 sibling writes 77680
+quiet 69275 single captures 7006 multi captures 1399 promotions 2928 king moves 29777 circuits 4 capture promotions 583 captured kings 3386 colors 8069/8048
+bucket 0 positions 1341 changes 0->0:4560
+bucket 1 positions 3529 changes 1->0:91 1->1:16919
+bucket 2 positions 2383 changes 2->1:252 2->2:11471
+bucket 3 positions 1975 changes 3->2:340 3->3:9825
+bucket 4 positions 1798 changes 4->2:1 4->3:443 4->4:8882
+bucket 5 positions 1684 changes 5->4:587 5->5:8128
+bucket 6 positions 1490 changes 6->4:4 6->5:682 6->6:6132
+bucket 7 positions 1917 changes 7->6:686 7->7:8677

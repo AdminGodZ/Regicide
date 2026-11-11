@@ -1,0 +1,911 @@
+opponent	run	game	round	opening	our_colour	EngineGamesA	EngineGamesB	draw_claim_ply	end_ply	last_search_ply	last_search_score	last_search_nodes	last_own_ply	last_own_score	last_own_nodes	searched_moves
+cake	mo2-cake	1	1.1	ACF #1	B	0	0	38	38	37	0	2	37	0	2	1
+cake	mo2-cake	2	1.2	ACF #1	W	1	1	45	45	44	0	3	44	0	3	18
+cake	mo2-cake	3	2.1	ACF #2	B	2	2	40	40	39	0	2	39	0	2	9
+cake	mo2-cake	4	2.2	ACF #2	W	3	3	59	59	58	0	2	58	0	2	21
+cake	mo2-cake	5	3.1	ACF #4	B	4	4	38	38	-	-	-	37	0	0	0
+cake	mo2-cake	6	3.2	ACF #4	W	5	5	43	43	-	-	-	42	0	0	0
+cake	mo2-cake	7	4.1	ACF #5 Dreaded Edinburgh	B	6	6	72	72	71	0	3	71	0	3	11
+cake	mo2-cake	8	4.2	ACF #5 Dreaded Edinburgh	W	7	7	49	49	-	-	-	48	0	0	0
+cake	mo2-cake	9	5.1	ACF #6 Inferno	B	8	8	54	54	53	0	3	53	0	3	4
+cake	mo2-cake	10	5.2	ACF #6 Inferno	W	9	9	55	55	52	0	4344775	54	0	0	4
+cake	mo2-cake	11	6.1	ACF #7	B	10	10	48	48	47	0	2	47	0	2	10
+cake	mo2-cake	12	6.2	ACF #7	W	11	11	55	55	54	0	3	54	0	3	6
+cake	mo2-cake	13	7.1	ACF #8 Edinburgh Single	B	12	12	48	48	-	-	-	47	0	0	0
+cake	mo2-cake	14	7.2	ACF #8 Edinburgh Single	W	13	13	37	37	-	-	-	36	0	0	0
+cake	mo2-cake	15	8.1	ACF #9 Wilderness I	B	14	14	90	90	89	0	3	89	0	3	13
+cake	mo2-cake	16	8.2	ACF #9 Wilderness I	W	15	15	57	57	56	0	2196480	56	0	2196480	4
+cake	mo2-cake	17	9.1	ACF #10	B	16	16	56	56	55	0	381	55	0	381	1
+cake	mo2-cake	18	9.2	ACF #10	W	17	17	47	47	-	-	-	46	0	0	0
+cake	mo2-cake	19	10.1	ACF #11	B	18	18	52	52	51	0	2	51	0	2	19
+cake	mo2-cake	20	10.2	ACF #11	W	19	19	35	35	-	-	-	34	0	0	0
+cake	mo2-cake	21	11.1	ACF #12	B	20	20	62	62	61	0	2	61	0	2	4
+cake	mo2-cake	22	11.2	ACF #12	W	21	21	47	47	-	-	-	46	0	0	0
+cake	mo2-cake	23	12.1	ACF #14	B	22	22	40	40	39	0	608	39	0	608	5
+cake	mo2-cake	24	12.2	ACF #14	W	23	23	41	41	40	0	3	40	0	3	8
+cake	mo2-cake	25	13.1	ACF #15	B	24	24	46	46	-	-	-	45	0	0	0
+cake	mo2-cake	26	13.2	ACF #15	W	25	25	53	53	52	0	3	52	0	3	6
+cake	mo2-cake	27	14.1	ACF #16 Wilderness II	B	26	26	108	108	107	0	3	107	0	3	21
+cake	mo2-cake	28	14.2	ACF #16 Wilderness II	W	27	27	83	83	82	0	3	82	0	3	13
+cake	mo2-cake	29	15.1	ACF #17	B	28	28	38	38	-	-	-	37	0	0	0
+cake	mo2-cake	30	15.2	ACF #17	W	29	29	51	51	50	0	1343	50	0	1343	2
+cake	mo2-cake	31	16.1	ACF #18	B	30	30	44	44	43	0	890	43	0	890	2
+cake	mo2-cake	32	16.2	ACF #18	W	31	31	37	37	36	0	382	36	0	382	1
+cake	mo2-cake	33	17.1	ACF #19	B	32	32	40	40	-	-	-	39	0	0	0
+cake	mo2-cake	34	17.2	ACF #19	W	33	33	45	45	-	-	-	44	0	0	0
+cake	mo2-cake	35	18.1	ACF #20	B	34	34	38	38	-	-	-	37	0	0	0
+cake	mo2-cake	36	18.2	ACF #20	W	35	35	53	53	52	0	3	52	0	3	16
+cake	mo2-cake	37	19.1	ACF #21	B	36	36	42	42	41	0	3	41	0	3	11
+cake	mo2-cake	38	19.2	ACF #21	W	37	37	47	47	-	-	-	46	0	0	0
+cake	mo2-cake	39	20.1	ACF #22	B	38	38	42	42	-	-	-	41	0	0	0
+cake	mo2-cake	40	20.2	ACF #22	W	39	39	41	41	-	-	-	40	0	0	0
+cake	mo2-cake	41	21.1	ACF #23	B	40	40	50	50	49	0	2	49	0	2	1
+cake	mo2-cake	42	21.2	ACF #23	W	41	41	57	57	-	-	-	56	0	0	0
+cake	mo2-cake	43	22.1	ACF #24	B	42	42	34	34	-	-	-	33	0	0	0
+cake	mo2-cake	44	22.2	ACF #24	W	43	43	45	45	-	-	-	44	0	0	0
+cake	mo2-cake	45	23.1	ACF #25	B	44	44	42	42	41	0	3	41	0	3	13
+cake	mo2-cake	46	23.2	ACF #25	W	45	45	35	35	-	-	-	34	0	0	0
+cake	mo2-cake	47	24.1	ACF #27	B	46	46	38	38	37	0	2	37	0	2	6
+cake	mo2-cake	48	24.2	ACF #27	W	47	47	45	45	44	0	2	44	0	2	10
+cake	mo2-cake	49	25.1	ACF #28	B	48	48	46	46	-	-	-	45	0	0	0
+cake	mo2-cake	50	25.2	ACF #28	W	49	49	55	55	46	0	3119506	54	0	0	4
+cake	mo2-cake	51	26.1	ACF #29	B	50	50	52	52	51	0	5	51	0	5	20
+cake	mo2-cake	52	26.2	ACF #29	W	51	51	49	49	48	0	3	48	0	3	12
+cake	mo2-cake	53	27.1	ACF #30	B	52	52	34	34	-	-	-	33	0	0	0
+cake	mo2-cake	54	27.2	ACF #30	W	53	53	45	45	-	-	-	44	0	0	0
+cake	mo2-cake	55	28.1	ACF #31	B	54	54	48	48	-	-	-	47	0	0	0
+cake	mo2-cake	56	28.2	ACF #31	W	55	55	51	51	50	0	3	50	0	3	13
+cake	mo2-cake	57	29.1	ACF #32	B	56	56	44	44	43	0	2	43	0	2	4
+cake	mo2-cake	58	29.2	ACF #32	W	57	57	51	51	50	0	3	50	0	3	4
+cake	mo2-cake	59	30.1	ACF #33	B	58	58	38	38	-	-	-	37	0	0	0
+cake	mo2-cake	60	30.2	ACF #33	W	59	59	59	59	58	0	4253878	58	0	4253878	4
+cake	mo2-cake	61	31.1	ACF #34 Twilight Zone	B	60	60	52	52	51	0	3	51	0	3	12
+cake	mo2-cake	62	31.2	ACF #34 Twilight Zone	W	61	61	61	61	60	0	1143	60	0	1143	3
+cake	mo2-cake	63	32.1	ACF #36	B	62	62	42	42	41	0	2	41	0	2	11
+cake	mo2-cake	64	32.2	ACF #36	W	63	63	45	45	44	0	2	44	0	2	1
+cake	mo2-cake	65	33.1	ACF #37	B	64	64	48	48	-	-	-	47	0	0	0
+cake	mo2-cake	66	33.2	ACF #37	W	65	65	49	49	48	0	3	48	0	3	8
+cake	mo2-cake	67	34.1	ACF #38	B	66	66	40	40	-	-	-	39	0	0	0
+cake	mo2-cake	68	34.2	ACF #38	W	67	67	55	55	54	0	2	54	0	2	5
+cake	mo2-cake	69	35.1	ACF #39	B	68	68	44	44	43	0	2	43	0	2	4
+cake	mo2-cake	70	35.2	ACF #39	W	69	69	41	41	-	-	-	40	0	0	0
+cake	mo2-cake	71	36.1	ACF #40	B	70	70	38	38	-	-	-	37	0	0	0
+cake	mo2-cake	72	36.2	ACF #40	W	71	71	55	55	54	0	2	54	0	2	6
+cake	mo2-cake	73	37.1	ACF #41	B	72	72	52	52	-	-	-	51	0	0	0
+cake	mo2-cake	74	37.2	ACF #41	W	73	73	51	51	48	0	3523584	50	0	0	1
+cake	mo2-cake	75	38.1	ACF #42	B	74	74	48	48	41	-1	26	47	0	0	2
+cake	mo2-cake	76	38.2	ACF #42	W	75	75	61	61	58	0	4448969	60	0	0	4
+cake	mo2-cake	77	39.1	ACF #43	B	76	76	44	44	-	-	-	43	0	0	0
+cake	mo2-cake	78	39.2	ACF #43	W	77	77	41	41	40	0	3	40	0	3	11
+cake	mo2-cake	79	40.1	ACF #46 Double Cross	B	78	78	46	46	45	0	3	45	0	3	1
+cake	mo2-cake	80	40.2	ACF #46 Double Cross	W	79	79	77	77	76	0	889	76	0	889	14
+cake	mo2-cake	81	41.1	ACF #47	B	80	80	48	48	45	0	13154	47	0	0	2
+cake	mo2-cake	82	41.2	ACF #47	W	81	81	39	39	-	-	-	38	0	0	0
+cake	mo2-cake	83	42.1	ACF #49	B	82	82	48	48	45	0	13154	47	0	0	2
+cake	mo2-cake	84	42.2	ACF #49	W	83	83	49	49	48	0	2	48	0	2	11
+cake	mo2-cake	85	43.1	ACF #50	B	84	84	70	70	69	0	3	69	0	3	21
+cake	mo2-cake	86	43.2	ACF #50	W	85	85	47	47	40	0	4184500	46	0	0	1
+cake	mo2-cake	87	44.1	ACF #51	B	86	86	50	50	-	-	-	49	0	0	0
+cake	mo2-cake	88	44.2	ACF #51	W	87	87	35	35	-	-	-	34	0	0	0
+cake	mo2-cake	89	45.1	ACF #53	B	88	88	48	48	-	-	-	47	0	0	0
+cake	mo2-cake	90	45.2	ACF #53	W	89	89	53	53	52	0	3	52	0	3	5
+cake	mo2-cake	91	46.1	ACF #54	B	90	90	38	38	-	-	-	37	0	0	0
+cake	mo2-cake	92	46.2	ACF #54	W	91	91	61	61	60	0	890	60	0	890	19
+cake	mo2-cake	93	47.1	ACF #55	B	92	92	44	44	-	-	-	43	0	0	0
+cake	mo2-cake	94	47.2	ACF #55	W	93	93	55	55	54	0	3	54	0	3	9
+cake	mo2-cake	95	48.1	ACF #56	B	94	94	48	48	-	-	-	47	0	0	0
+cake	mo2-cake	96	48.2	ACF #56	W	95	95	31	31	-	-	-	30	0	0	0
+cake	mo2-cake	97	49.1	ACF #57	B	96	96	38	38	37	0	2	37	0	2	7
+cake	mo2-cake	98	49.2	ACF #57	W	97	97	31	31	-	-	-	30	0	0	0
+cake	mo2-cake	99	50.1	ACF #58	B	98	98	38	38	-	-	-	37	0	0	0
+cake	mo2-cake	100	50.2	ACF #58	W	99	99	73	73	72	0	2	72	0	2	9
+cake	mo2-cake	101	51.1	ACF #59	B	100	100	42	42	-	-	-	41	0	0	0
+cake	mo2-cake	102	51.2	ACF #59	W	101	101	65	65	62	0	4931512	64	0	0	5
+cake	mo2-cake	103	52.1	ACF #60 Black Hole	B	102	102	46	46	45	0	3410526	45	0	3410526	3
+cake	mo2-cake	104	52.2	ACF #60 Black Hole	W	103	103	53	53	48	0	3837719	52	0	0	4
+cake	mo2-cake	105	53.1	ACF #61	B	104	104	44	44	29	0	3240537	43	0	0	1
+cake	mo2-cake	106	53.2	ACF #61	W	105	105	47	47	-	-	-	46	0	0	0
+cake	mo2-cake	107	54.1	ACF #62 Gemini I	B	106	106	96	96	95	0	3	95	0	3	21
+cake	mo2-cake	108	54.2	ACF #62 Gemini I	W	107	107	39	39	-	-	-	38	0	0	0
+cake	mo2-cake	109	55.1	ACF #63	B	108	108	38	38	37	0	3	37	0	3	6
+cake	mo2-cake	110	55.2	ACF #63	W	109	109	39	39	-	-	-	38	0	0	0
+cake	mo2-cake	111	56.1	ACF #64	B	110	110	60	60	59	0	1144	59	0	1144	3
+cake	mo2-cake	112	56.2	ACF #64	W	111	111	47	47	42	0	3647481	46	0	0	2
+cake	mo2-cake	113	57.1	ACF #65 Fraser's Inferno	B	112	112	36	36	-	-	-	35	0	0	0
+cake	mo2-cake	114	57.2	ACF #65 Fraser's Inferno	W	113	113	45	45	44	0	636	44	0	636	1
+cake	mo2-cake	115	58.1	ACF #66	B	114	114	42	42	41	0	2	41	0	2	1
+cake	mo2-cake	116	58.2	ACF #66	W	115	115	103	103	102	0	3	102	0	3	26
+cake	mo2-cake	117	59.1	ACF #67	B	116	116	46	46	-	-	-	45	0	0	0
+cake	mo2-cake	118	59.2	ACF #67	W	117	117	49	49	48	0	762	48	0	762	1
+cake	mo2-cake	119	60.1	ACF #68 White Doctor	B	118	118	74	74	73	0	2	73	0	2	7
+cake	mo2-cake	120	60.2	ACF #68 White Doctor	W	119	119	63	63	60	0	5813591	62	0	0	1
+cake	mo2-cake	121	61.1	ACF #69	B	120	120	42	42	-	-	-	41	0	0	0
+cake	mo2-cake	122	61.2	ACF #69	W	121	121	47	47	46	0	3	46	0	3	14
+cake	mo2-cake	123	62.1	ACF #70	B	122	122	30	30	29	0	2	29	0	2	6
+cake	mo2-cake	124	62.2	ACF #70	W	123	123	39	39	38	0	2	38	0	2	4
+cake	mo2-cake	125	63.1	ACF #71 Diabolical Denny	B	124	124	44	44	43	0	2	43	0	2	5
+cake	mo2-cake	126	63.2	ACF #71 Diabolical Denny	W	125	125	43	43	42	0	2	42	0	2	1
+cake	mo2-cake	127	64.1	ACF #72	B	126	126	42	42	-	-	-	41	0	0	0
+cake	mo2-cake	128	64.2	ACF #72	W	127	127	43	43	-	-	-	42	0	0	0
+cake	mo2-cake	129	65.1	ACF #73	B	128	128	38	38	37	0	2	37	0	2	12
+cake	mo2-cake	130	65.2	ACF #73	W	129	129	53	53	44	0	4053259	52	0	0	2
+cake	mo2-cake	131	66.1	ACF #74	B	130	130	42	42	-	-	-	41	0	0	0
+cake	mo2-cake	132	66.2	ACF #74	W	131	131	43	43	-	-	-	42	0	0	0
+cake	mo2-cake	133	67.1	ACF #75	B	132	132	48	48	47	0	2	47	0	2	1
+cake	mo2-cake	134	67.2	ACF #75	W	133	133	51	51	50	0	2	50	0	2	10
+cake	mo2-cake	135	68.1	ACF #76	B	134	134	42	42	-	-	-	41	0	0	0
+cake	mo2-cake	136	68.2	ACF #76	W	135	135	39	39	38	0	2	38	0	2	7
+cake	mo2-cake	137	69.1	ACF #78	B	136	136	62	62	61	0	2	61	0	2	15
+cake	mo2-cake	138	69.2	ACF #78	W	137	137	53	53	52	0	3	52	0	3	4
+cake	mo2-cake	139	70.1	ACF #79	B	138	138	38	38	37	0	2	37	0	2	7
+cake	mo2-cake	140	70.2	ACF #79	W	139	139	41	41	-	-	-	40	0	0	0
+cake	mo2-cake	141	71.1	ACF #80	B	140	140	36	36	-	-	-	35	0	0	0
+cake	mo2-cake	142	71.2	ACF #80	W	141	141	57	57	56	0	2	56	0	2	19
+cake	mo2-cake	143	72.1	ACF #81	B	142	142	32	32	-	-	-	31	0	0	0
+cake	mo2-cake	144	72.2	ACF #81	W	143	143	45	45	44	0	2	44	0	2	14
+cake	mo2-cake	145	73.1	ACF #82	B	144	144	44	44	-	-	-	43	0	0	0
+cake	mo2-cake	146	73.2	ACF #82	W	145	145	41	41	-	-	-	40	0	0	0
+cake	mo2-cake	147	74.1	ACF #83	B	146	146	42	42	41	0	2	41	0	2	14
+cake	mo2-cake	148	74.2	ACF #83	W	147	147	41	41	-	-	-	40	0	0	0
+cake	mo2-cake	149	75.1	ACF #84	B	148	148	50	50	-	-	-	49	0	0	0
+cake	mo2-cake	150	75.2	ACF #84	W	149	149	53	53	52	0	1270	52	0	1270	4
+cake	mo2-cake	151	76.1	ACF #85	B	150	150	46	46	35	0	2159527	45	0	0	6
+cake	mo2-cake	152	76.2	ACF #85	W	151	151	59	59	58	0	3	58	0	3	11
+cake	mo2-cake	153	77.1	ACF #86 Octopus	B	152	152	42	42	41	0	2	41	0	2	6
+cake	mo2-cake	154	77.2	ACF #86 Octopus	W	153	153	51	51	48	0	4783150	50	0	0	2
+cake	mo2-cake	155	78.1	ACF #87 Tyne	B	154	154	42	42	41	0	2	41	0	2	1
+cake	mo2-cake	156	78.2	ACF #87 Tyne	W	155	155	41	41	-	-	-	40	0	0	0
+cake	mo2-cake	157	79.1	ACF #89	B	156	156	62	62	61	0	4	61	0	4	17
+cake	mo2-cake	158	79.2	ACF #89	W	157	157	39	39	-	-	-	38	0	0	0
+cake	mo2-cake	159	80.1	ACF #90	B	158	158	44	44	43	0	2018783	43	0	2018783	7
+cake	mo2-cake	160	80.2	ACF #90	W	159	159	41	41	-	-	-	40	0	0	0
+cake	mo2-cake	161	81.1	ACF #91	B	160	160	46	46	45	0	1542137	45	0	1542137	12
+cake	mo2-cake	162	81.2	ACF #91	W	161	161	43	43	42	0	2782478	42	0	2782478	5
+cake	mo2-cake	163	82.1	ACF #92	B	162	162	48	48	33	0	2118859	47	0	0	4
+cake	mo2-cake	164	82.2	ACF #92	W	163	163	43	43	42	0	2	42	0	2	8
+cake	mo2-cake	165	83.1	ACF #93	B	164	164	44	44	43	0	2	43	0	2	11
+cake	mo2-cake	166	83.2	ACF #93	W	165	165	47	47	46	0	2	46	0	2	12
+cake	mo2-cake	167	84.1	ACF #95	B	166	166	38	38	37	0	2	37	0	2	8
+cake	mo2-cake	168	84.2	ACF #95	W	167	167	63	63	62	0	381	62	0	381	20
+cake	mo2-cake	169	85.1	ACF #96 Skull-Cracker	B	168	168	64	64	63	0	3	63	0	3	11
+cake	mo2-cake	170	85.2	ACF #96 Skull-Cracker	W	169	169	57	57	52	0	1849611	56	0	0	4
+cake	mo2-cake	171	86.1	ACF #97	B	170	170	40	40	-	-	-	39	0	0	0
+cake	mo2-cake	172	86.2	ACF #97	W	171	171	39	39	38	0	1378	38	0	1378	7
+cake	mo2-cake	173	87.1	ACF #98	B	172	172	64	64	63	0	2	63	0	2	24
+cake	mo2-cake	174	87.2	ACF #98	W	173	173	49	49	48	0	1017	48	0	1017	13
+cake	mo2-cake	175	88.1	ACF #99	B	174	174	38	38	37	0	2	37	0	2	9
+cake	mo2-cake	176	88.2	ACF #99	W	175	175	47	47	-	-	-	46	0	0	0
+cake	mo2-cake	177	89.1	ACF #100	B	176	176	40	40	39	0	2	39	0	2	9
+cake	mo2-cake	178	89.2	ACF #100	W	177	177	43	43	42	0	890	42	0	890	1
+cake	mo2-cake	179	90.1	ACF #101	B	178	178	42	42	41	0	3	41	0	3	11
+cake	mo2-cake	180	90.2	ACF #101	W	179	179	43	43	42	0	3	42	0	3	6
+cake	mo2-cake	181	91.1	ACF #102	B	180	180	74	74	73	0	1144	73	0	1144	26
+cake	mo2-cake	182	91.2	ACF #102	W	181	181	41	41	-	-	-	40	0	0	0
+cake	mo2-cake	183	92.1	ACF #103	B	182	182	50	50	49	0	2	49	0	2	13
+cake	mo2-cake	184	92.2	ACF #103	W	183	183	33	33	-	-	-	32	0	0	0
+cake	mo2-cake	185	93.1	ACF #104	B	184	184	44	44	-	-	-	43	0	0	0
+cake	mo2-cake	186	93.2	ACF #104	W	185	185	43	43	-	-	-	42	0	0	0
+cake	mo2-cake	187	94.1	ACF #105 Gemini II	B	186	186	46	46	45	0	1016	45	0	1016	1
+cake	mo2-cake	188	94.2	ACF #105 Gemini II	W	187	187	39	39	-	-	-	38	0	0	0
+cake	mo2-cake	189	95.1	ACF #106	B	188	188	46	46	45	0	2	45	0	2	4
+cake	mo2-cake	190	95.2	ACF #106	W	189	189	43	43	42	0	3	42	0	3	5
+cake	mo2-cake	191	96.1	ACF #107	B	190	190	38	38	-	-	-	37	0	0	0
+cake	mo2-cake	192	96.2	ACF #107	W	191	191	45	45	-	-	-	44	0	0	0
+cake	mo2-cake	193	97.1	ACF #108	B	192	192	32	32	-	-	-	31	0	0	0
+cake	mo2-cake	194	97.2	ACF #108	W	193	193	51	51	-	-	-	50	0	0	0
+cake	mo2-cake	195	98.1	ACF #110	B	194	194	30	30	-	-	-	29	0	0	0
+cake	mo2-cake	196	98.2	ACF #110	W	195	195	55	55	54	0	2	54	0	2	9
+cake	mo2-cake	197	99.1	ACF #111	B	196	196	46	46	45	0	3	45	0	3	10
+cake	mo2-cake	198	99.2	ACF #111	W	197	197	41	41	-	-	-	40	0	0	0
+cake	mo2-cake	199	100.1	ACF #112	B	198	198	36	36	-	-	-	35	0	0	0
+cake	mo2-cake	200	100.2	ACF #112	W	199	199	53	53	44	0	2876425	52	0	0	7
+cake	mo2-cake	201	101.1	ACF #113	B	200	200	40	40	-	-	-	39	0	0	0
+cake	mo2-cake	202	101.2	ACF #113	W	201	201	41	41	-	-	-	40	0	0	0
+cake	mo2-cake	203	102.1	ACF #115	B	202	202	38	38	37	0	3	37	0	3	12
+cake	mo2-cake	204	102.2	ACF #115	W	203	203	49	49	48	0	2	48	0	2	11
+cake	mo2-cake	205	103.1	ACF #116	B	204	204	34	34	-	-	-	33	0	0	0
+cake	mo2-cake	206	103.2	ACF #116	W	205	205	39	39	-	-	-	38	0	0	0
+cake	mo2-cake	207	104.1	ACF #117	B	206	206	38	38	37	0	3	37	0	3	13
+cake	mo2-cake	208	104.2	ACF #117	W	207	207	45	45	-	-	-	44	0	0	0
+cake	mo2-cake	209	105.1	ACF #118	B	208	208	32	32	31	0	164143	31	0	164143	6
+cake	mo2-cake	210	105.2	ACF #118	W	209	209	51	51	46	0	1546939	50	0	0	2
+cake	mo2-cake	211	106.1	ACF #119	B	210	210	36	36	-	-	-	35	0	0	0
+cake	mo2-cake	212	106.2	ACF #119	W	211	211	41	41	40	0	2	40	0	2	2
+cake	mo2-cake	213	107.1	ACF #120	B	212	212	40	40	-	-	-	39	0	0	0
+cake	mo2-cake	214	107.2	ACF #120	W	213	213	45	45	44	0	3	44	0	3	13
+cake	mo2-cake	215	108.1	ACF #121	B	214	214	40	40	-	-	-	39	0	0	0
+cake	mo2-cake	216	108.2	ACF #121	W	215	215	43	43	42	0	3	42	0	3	15
+cake	mo2-cake	217	109.1	ACF #122	B	216	216	48	48	-	-	-	47	0	0	0
+cake	mo2-cake	218	109.2	ACF #122	W	217	217	43	43	42	0	2	42	0	2	12
+cake	mo2-cake	219	110.1	ACF #123	B	218	218	42	42	41	0	2	41	0	2	1
+cake	mo2-cake	220	110.2	ACF #123	W	219	219	37	37	36	0	2	36	0	2	12
+cake	mo2-cake	221	111.1	ACF #124	B	220	220	40	40	39	0	52199	39	0	52199	2
+cake	mo2-cake	222	111.2	ACF #124	W	221	221	47	47	-	-	-	46	0	0	0
+cake	mo2-cake	223	112.1	ACF #125	B	222	222	36	36	35	0	2	35	0	2	12
+cake	mo2-cake	224	112.2	ACF #125	W	223	223	45	45	44	0	3	44	0	3	16
+cake	mo2-cake	225	113.1	ACF #126	B	224	224	40	40	-	-	-	39	0	0	0
+cake	mo2-cake	226	113.2	ACF #126	W	225	225	37	37	-	-	-	36	0	0	0
+cake	mo2-cake	227	114.1	ACF #127	B	226	226	34	34	-	-	-	33	0	0	0
+cake	mo2-cake	228	114.2	ACF #127	W	227	227	41	41	-	-	-	40	0	0	0
+cake	mo2-cake	229	115.1	ACF #128	B	228	228	48	48	45	0	13154	47	0	0	2
+cake	mo2-cake	230	115.2	ACF #128	W	229	229	49	49	48	0	1017	48	0	1017	8
+cake	mo2-cake	231	116.1	ACF #129	B	230	230	98	98	97	0	3	97	0	3	34
+cake	mo2-cake	232	116.2	ACF #129	W	231	231	59	59	58	0	2	58	0	2	2
+cake	mo2-cake	233	117.1	ACF #130	B	232	232	52	52	51	0	3	51	0	3	14
+cake	mo2-cake	234	117.2	ACF #130	W	233	233	45	45	-	-	-	44	0	0	0
+cake	mo2-cake	235	118.1	ACF #131	B	234	234	44	44	43	0	3	43	0	3	10
+cake	mo2-cake	236	118.2	ACF #131	W	235	235	43	43	-	-	-	42	0	0	0
+cake	mo2-cake	237	119.1	ACF #132	B	236	236	40	40	-	-	-	39	0	0	0
+cake	mo2-cake	238	119.2	ACF #132	W	237	237	55	55	54	0	2	54	0	2	9
+cake	mo2-cake	239	120.1	ACF #133 Octopus	B	238	238	42	42	41	0	3	41	0	3	2
+cake	mo2-cake	240	120.2	ACF #133 Octopus	W	239	239	47	47	46	0	2	46	0	2	2
+cake	mo2-cake	241	121.1	ACF #134	B	240	240	66	66	65	0	2	65	0	2	17
+cake	mo2-cake	242	121.2	ACF #134	W	241	241	43	43	42	0	2	42	0	2	13
+cake	mo2-cake	243	122.1	ACF #135	B	242	242	46	46	45	0	763	45	0	763	1
+cake	mo2-cake	244	122.2	ACF #135	W	243	243	39	39	-	-	-	38	0	0	0
+cake	mo2-cake	245	123.1	ACF #136	B	244	244	40	40	-	-	-	39	0	0	0
+cake	mo2-cake	246	123.2	ACF #136	W	245	245	41	41	-	-	-	40	0	0	0
+cake	mo2-cake	247	124.1	ACF #138	B	246	246	76	76	75	0	2	75	0	2	16
+cake	mo2-cake	248	124.2	ACF #138	W	247	247	53	53	52	0	2	52	0	2	4
+cake	mo2-cake	249	125.1	ACF #139	B	248	248	46	46	-	-	-	45	0	0	0
+cake	mo2-cake	250	125.2	ACF #139	W	249	249	53	53	52	0	3	52	0	3	13
+cake	mo2-cake	251	126.1	ACF #140	B	250	250	38	38	-	-	-	37	0	0	0
+cake	mo2-cake	252	126.2	ACF #140	W	251	251	45	45	36	13	9	44	0	0	2
+cake	mo2-cake	253	127.1	ACF #141	B	252	252	106	106	105	0	1751764	105	0	1751764	19
+cake	mo2-cake	254	127.2	ACF #141	W	253	253	53	53	48	0	4732594	52	0	0	1
+cake	mo2-cake	255	128.1	ACF #142	B	254	254	54	54	53	0	1016	53	0	1016	18
+cake	mo2-cake	256	128.2	ACF #142	W	255	255	51	51	44	0	4367015	50	0	0	4
+cake	mo2-cake	257	129.1	ACF #143	B	256	256	102	102	101	0	247535	101	0	247535	20
+cake	mo2-cake	258	129.2	ACF #143	W	257	257	43	43	-	-	-	42	0	0	0
+cake	mo2-cake	259	130.1	ACF #144	B	258	258	44	44	-	-	-	43	0	0	0
+cake	mo2-cake	260	130.2	ACF #144	W	259	259	49	49	48	0	762	48	0	762	1
+cake	mo2-cake	261	131.1	ACF #146	B	260	260	40	40	25	0	2325475	39	0	0	1
+cake	mo2-cake	262	131.2	ACF #146	W	261	261	63	63	62	0	763	62	0	763	12
+cake	mo2-cake	263	132.1	ACF #147	B	262	262	46	46	39	0	3473963	45	0	0	1
+cake	mo2-cake	264	132.2	ACF #147	W	263	263	51	51	40	0	5822688	50	0	0	2
+cake	mo2-cake	265	133.1	ACF #148	B	264	264	48	48	47	0	763	47	0	763	2
+cake	mo2-cake	266	133.2	ACF #148	W	265	265	61	61	60	0	2	60	0	2	18
+cake	mo2-cake	267	134.1	ACF #149	B	266	266	66	66	65	0	2	65	0	2	18
+cake	mo2-cake	268	134.2	ACF #149	W	267	267	35	35	-	-	-	34	0	0	0
+cake	mo2-cake	269	135.1	ACF #150	B	268	268	36	36	35	0	2	35	0	2	5
+cake	mo2-cake	270	135.2	ACF #150	W	269	269	35	35	-	-	-	34	0	0	0
+cake	mo2-cake	271	136.1	ACF #151	B	270	270	44	44	-	-	-	43	0	0	0
+cake	mo2-cake	272	136.2	ACF #151	W	271	271	49	49	48	0	762	48	0	762	1
+cake	mo2-cake	273	137.1	ACF #152	B	272	272	44	44	41	0	3558146	43	0	0	2
+cake	mo2-cake	274	137.2	ACF #152	W	273	273	37	37	-	-	-	36	0	0	0
+cake	mo2-cake	275	138.1	ACF #153 Black Widow	B	274	274	58	58	-	-	-	57	0	0	0
+cake	mo2-cake	276	138.2	ACF #153 Black Widow	W	275	275	57	57	56	0	1017	56	0	1017	1
+cake	mo2-cake	277	139.1	ACF #154	B	276	276	100	100	99	0	2	99	0	2	25
+cake	mo2-cake	278	139.2	ACF #154	W	277	277	39	39	-	-	-	38	0	0	0
+cake	mo2-cake	279	140.1	ACF #155	B	278	278	46	46	-	-	-	45	0	0	0
+cake	mo2-cake	280	140.2	ACF #155	W	279	279	49	49	48	0	762	48	0	762	1
+cake	mo2-cake	281	141.1	ACF #157	B	280	280	40	40	39	0	3	39	0	3	12
+cake	mo2-cake	282	141.2	ACF #157	W	281	281	39	39	38	0	3	38	0	3	2
+cake	mo2-cake	283	142.1	ACF #158	B	282	282	34	34	33	0	2	33	0	2	11
+cake	mo2-cake	284	142.2	ACF #158	W	283	283	53	53	50	0	3803611	52	0	0	1
+cake	mo2-cake	285	143.1	ACF #159	B	284	284	58	58	57	0	1017	57	0	1017	19
+cake	mo2-cake	286	143.2	ACF #159	W	285	285	37	37	-	-	-	36	0	0	0
+cake	mo2-cake	287	144.1	ACF #160	B	286	286	34	34	-	-	-	33	0	0	0
+cake	mo2-cake	288	144.2	ACF #160	W	287	287	35	35	-	-	-	34	0	0	0
+cake	mo2-cake	289	145.1	ACF #161	B	288	288	44	44	43	0	3	43	0	3	9
+cake	mo2-cake	290	145.2	ACF #161	W	289	289	53	53	50	0	4621242	52	0	0	2
+cake	mo2-cake	291	146.1	ACF #162	B	290	290	42	42	41	0	3	41	0	3	13
+cake	mo2-cake	292	146.2	ACF #162	W	291	291	47	47	-	-	-	46	0	0	0
+cake	mo2-cake	293	147.1	ACF #163	B	292	292	40	40	-	-	-	39	0	0	0
+cake	mo2-cake	294	147.2	ACF #163	W	293	293	63	63	62	0	3	62	0	3	22
+cake	mo2-cake	295	148.1	ACF #164	B	294	294	42	42	41	0	3	41	0	3	9
+cake	mo2-cake	296	148.2	ACF #164	W	295	295	47	47	-	-	-	46	0	0	0
+cake	mo2-cake	297	149.1	ACF #165	B	296	296	48	48	47	0	3	47	0	3	7
+cake	mo2-cake	298	149.2	ACF #165	W	297	297	41	41	-	-	-	40	0	0	0
+cake	mo2-cake	299	150.1	ACF #166	B	298	298	52	52	51	0	1017	51	0	1017	13
+cake	mo2-cake	300	150.2	ACF #166	W	299	299	39	39	-	-	-	38	0	0	0
+cake	mo2-cake	301	151.1	ACF #167	B	300	300	30	30	-	-	-	29	0	0	0
+cake	mo2-cake	302	151.2	ACF #167	W	301	301	49	49	48	0	762	48	0	762	1
+cake	mo2-cake	303	152.1	ACF #169	B	302	302	40	40	39	0	2	39	0	2	11
+cake	mo2-cake	304	152.2	ACF #169	W	303	303	31	31	-	-	-	30	0	0	0
+cake	mo2-cake	305	153.1	ACF #170	B	304	304	38	38	-	-	-	37	0	0	0
+cake	mo2-cake	306	153.2	ACF #170	W	305	305	49	49	48	0	762	48	0	762	1
+cake	mo2-cake	307	154.1	ACF #172	B	306	306	38	38	-	-	-	37	0	0	0
+cake	mo2-cake	308	154.2	ACF #172	W	307	307	49	49	48	0	762	48	0	762	1
+cake	mo2-cake	309	155.1	ACF #173	B	308	308	42	42	-	-	-	41	0	0	0
+cake	mo2-cake	310	155.2	ACF #173	W	309	309	73	73	72	0	381	72	0	381	20
+cake	mo2-cake	311	156.1	ACF #174 Skunk	B	310	310	44	44	43	0	2	43	0	2	2
+cake	mo2-cake	312	156.2	ACF #174 Skunk	W	311	311	55	55	54	0	2449	54	0	2449	7
+guinn	mo2-guinn	1	1.1	ACF #1	B	0	0	48	48	-	-	-	47	0	0	0
+guinn	mo2-guinn	2	1.2	ACF #1	W	1	1	43	43	42	0	2	42	0	2	12
+guinn	mo2-guinn	3	2.1	ACF #2	B	2	2	46	46	-	-	-	45	0	0	0
+guinn	mo2-guinn	4	2.2	ACF #2	W	3	3	49	49	-	-	-	48	0	0	0
+guinn	mo2-guinn	5	3.1	ACF #4	B	4	4	46	46	45	0	2	45	0	2	12
+guinn	mo2-guinn	6	3.2	ACF #4	W	5	5	47	47	46	0	890	46	0	890	9
+guinn	mo2-guinn	7	4.1	ACF #5 Dreaded Edinburgh	B	6	6	50	50	-	-	-	49	0	0	0
+guinn	mo2-guinn	8	4.2	ACF #5 Dreaded Edinburgh	W	7	7	55	55	54	0	2	54	0	2	4
+guinn	mo2-guinn	9	5.1	ACF #6 Inferno	B	8	8	50	50	43	0	4102432	49	0	0	1
+guinn	mo2-guinn	11	6.1	ACF #7	B	10	10	50	50	49	0	2	49	0	2	17
+guinn	mo2-guinn	12	6.2	ACF #7	W	11	11	53	53	52	0	3	52	0	3	1
+guinn	mo2-guinn	13	7.1	ACF #8 Edinburgh Single	B	12	12	38	38	-	-	-	37	0	0	0
+guinn	mo2-guinn	14	7.2	ACF #8 Edinburgh Single	W	13	13	33	33	-	-	-	32	0	0	0
+guinn	mo2-guinn	15	8.1	ACF #9 Wilderness I	B	14	14	56	56	55	0	3	55	0	3	4
+guinn	mo2-guinn	17	9.1	ACF #10	B	16	16	36	36	-	-	-	35	0	0	0
+guinn	mo2-guinn	18	9.2	ACF #10	W	17	17	47	47	-	-	-	46	0	0	0
+guinn	mo2-guinn	19	10.1	ACF #11	B	18	18	38	38	31	0	2822245	37	0	0	1
+guinn	mo2-guinn	20	10.2	ACF #11	W	19	19	35	35	34	0	3	34	0	3	5
+guinn	mo2-guinn	21	11.1	ACF #12	B	20	20	38	38	25	0	2154557	37	0	0	9
+guinn	mo2-guinn	22	11.2	ACF #12	W	21	21	49	49	48	0	2	48	0	2	16
+guinn	mo2-guinn	23	12.1	ACF #14	B	22	22	38	38	37	0	2	37	0	2	1
+guinn	mo2-guinn	24	12.2	ACF #14	W	23	23	55	55	52	0	5037001	54	0	0	2
+guinn	mo2-guinn	25	13.1	ACF #15	B	24	24	38	38	37	0	2	37	0	2	10
+guinn	mo2-guinn	26	13.2	ACF #15	W	25	25	39	39	-	-	-	38	0	0	0
+guinn	mo2-guinn	27	14.1	ACF #16 Wilderness II	B	26	26	46	46	-	-	-	45	0	0	0
+guinn	mo2-guinn	29	15.1	ACF #17	B	28	28	62	62	61	0	3	61	0	3	14
+guinn	mo2-guinn	30	15.2	ACF #17	W	29	29	53	53	52	0	889	52	0	889	2
+guinn	mo2-guinn	31	16.1	ACF #18	B	30	30	42	42	41	0	2	41	0	2	7
+guinn	mo2-guinn	32	16.2	ACF #18	W	31	31	37	37	20	0	1569011	36	0	0	1
+guinn	mo2-guinn	33	17.1	ACF #19	B	32	32	42	42	-	-	-	41	0	0	0
+guinn	mo2-guinn	34	17.2	ACF #19	W	33	33	75	75	74	0	381	74	0	381	13
+guinn	mo2-guinn	35	18.1	ACF #20	B	34	34	38	38	37	0	2	37	0	2	1
+guinn	mo2-guinn	36	18.2	ACF #20	W	35	35	39	39	-	-	-	38	0	0	0
+guinn	mo2-guinn	37	19.1	ACF #21	B	36	36	36	36	-	-	-	35	0	0	0
+guinn	mo2-guinn	38	19.2	ACF #21	W	37	37	63	63	52	0	4201234	62	0	0	1
+guinn	mo2-guinn	39	20.1	ACF #22	B	38	38	36	36	35	0	1464	35	0	1464	4
+guinn	mo2-guinn	40	20.2	ACF #22	W	39	39	35	35	34	0	889	34	0	889	2
+guinn	mo2-guinn	41	21.1	ACF #23	B	40	40	58	58	57	0	2	57	0	2	3
+guinn	mo2-guinn	43	22.1	ACF #24	B	42	42	40	40	-	-	-	39	0	0	0
+guinn	mo2-guinn	44	22.2	ACF #24	W	43	43	41	41	-	-	-	40	0	0	0
+guinn	mo2-guinn	45	23.1	ACF #25	B	44	44	34	34	33	0	3	33	0	3	12
+guinn	mo2-guinn	46	23.2	ACF #25	W	45	45	43	43	-	-	-	42	0	0	0
+guinn	mo2-guinn	47	24.1	ACF #27	B	46	46	28	28	-	-	-	27	0	0	0
+guinn	mo2-guinn	48	24.2	ACF #27	W	47	47	45	45	44	0	3	44	0	3	2
+guinn	mo2-guinn	49	25.1	ACF #28	B	48	48	50	50	49	0	3	49	0	3	10
+guinn	mo2-guinn	50	25.2	ACF #28	W	49	49	43	43	42	0	2	42	0	2	8
+guinn	mo2-guinn	51	26.1	ACF #29	B	50	50	76	76	75	0	3	75	0	3	14
+guinn	mo2-guinn	52	26.2	ACF #29	W	51	51	57	57	56	0	2	56	0	2	7
+guinn	mo2-guinn	53	27.1	ACF #30	B	52	52	50	50	49	0	2	49	0	2	20
+guinn	mo2-guinn	54	27.2	ACF #30	W	53	53	39	39	38	0	1026	38	0	1026	5
+guinn	mo2-guinn	55	28.1	ACF #31	B	54	54	48	48	47	0	3	47	0	3	18
+guinn	mo2-guinn	56	28.2	ACF #31	W	55	55	37	37	-	-	-	36	0	0	0
+guinn	mo2-guinn	57	29.1	ACF #32	B	56	56	40	40	-	-	-	39	0	0	0
+guinn	mo2-guinn	58	29.2	ACF #32	W	57	57	43	43	-	-	-	42	0	0	0
+guinn	mo2-guinn	59	30.1	ACF #33	B	58	58	66	66	65	0	2	65	0	2	30
+guinn	mo2-guinn	60	30.2	ACF #33	W	59	59	37	37	-	-	-	36	0	0	0
+guinn	mo2-guinn	61	31.1	ACF #34 Twilight Zone	B	60	60	36	36	-	-	-	35	0	0	0
+guinn	mo2-guinn	63	32.1	ACF #36	B	62	62	70	70	69	0	2	69	0	2	13
+guinn	mo2-guinn	64	32.2	ACF #36	W	63	63	109	109	108	0	1409772	108	0	1409772	28
+guinn	mo2-guinn	65	33.1	ACF #37	B	64	64	40	40	-	-	-	39	0	0	0
+guinn	mo2-guinn	66	33.2	ACF #37	W	65	65	41	41	-	-	-	40	0	0	0
+guinn	mo2-guinn	67	34.1	ACF #38	B	66	66	50	50	49	0	2152	49	0	2152	1
+guinn	mo2-guinn	68	34.2	ACF #38	W	67	67	33	33	-	-	-	32	0	0	0
+guinn	mo2-guinn	69	35.1	ACF #39	B	68	68	38	38	-	-	-	37	0	0	0
+guinn	mo2-guinn	70	35.2	ACF #39	W	69	69	39	39	38	0	2	38	0	2	8
+guinn	mo2-guinn	71	36.1	ACF #40	B	70	70	42	42	-	-	-	41	0	0	0
+guinn	mo2-guinn	73	37.1	ACF #41	B	72	72	36	36	-	-	-	35	0	0	0
+guinn	mo2-guinn	74	37.2	ACF #41	W	73	73	39	39	38	0	2	38	0	2	2
+guinn	mo2-guinn	75	38.1	ACF #42	B	74	74	46	46	-	-	-	45	0	0	0
+guinn	mo2-guinn	76	38.2	ACF #42	W	75	75	43	43	42	0	3	42	0	3	1
+guinn	mo2-guinn	77	39.1	ACF #43	B	76	76	44	44	43	0	2	43	0	2	9
+guinn	mo2-guinn	79	40.1	ACF #46 Double Cross	B	78	78	46	46	45	0	3	45	0	3	1
+guinn	mo2-guinn	80	40.2	ACF #46 Double Cross	W	79	79	79	79	78	0	2	78	0	2	19
+guinn	mo2-guinn	81	41.1	ACF #47	B	80	80	40	40	25	0	2666340	39	0	0	1
+guinn	mo2-guinn	82	41.2	ACF #47	W	81	81	41	41	40	0	2	40	0	2	14
+guinn	mo2-guinn	83	42.1	ACF #49	B	82	82	52	52	51	0	3	51	0	3	5
+guinn	mo2-guinn	84	42.2	ACF #49	W	83	83	49	49	48	0	2	48	0	2	15
+guinn	mo2-guinn	85	43.1	ACF #50	B	84	84	32	32	31	0	889	31	0	889	1
+guinn	mo2-guinn	86	43.2	ACF #50	W	85	85	43	43	-	-	-	42	0	0	0
+guinn	mo2-guinn	87	44.1	ACF #51	B	86	86	46	46	-	-	-	45	0	0	0
+guinn	mo2-guinn	88	44.2	ACF #51	W	87	87	43	43	-	-	-	42	0	0	0
+guinn	mo2-guinn	89	45.1	ACF #53	B	88	88	32	32	-	-	-	31	0	0	0
+guinn	mo2-guinn	90	45.2	ACF #53	W	89	89	43	43	-	-	-	42	0	0	0
+guinn	mo2-guinn	91	46.1	ACF #54	B	90	90	40	40	-	-	-	39	0	0	0
+guinn	mo2-guinn	92	46.2	ACF #54	W	91	91	43	43	-	-	-	42	0	0	0
+guinn	mo2-guinn	93	47.1	ACF #55	B	92	92	56	56	55	0	3	55	0	3	5
+guinn	mo2-guinn	94	47.2	ACF #55	W	93	93	41	41	40	0	2	40	0	2	13
+guinn	mo2-guinn	95	48.1	ACF #56	B	94	94	52	52	49	0	2443452	51	0	0	2
+guinn	mo2-guinn	96	48.2	ACF #56	W	95	95	43	43	42	0	2	42	0	2	1
+guinn	mo2-guinn	97	49.1	ACF #57	B	96	96	36	36	-	-	-	35	0	0	0
+guinn	mo2-guinn	98	49.2	ACF #57	W	97	97	45	45	44	0	1968	44	0	1968	16
+guinn	mo2-guinn	99	50.1	ACF #58	B	98	98	40	40	39	0	3	39	0	3	11
+guinn	mo2-guinn	100	50.2	ACF #58	W	99	99	39	39	38	0	2	38	0	2	6
+guinn	mo2-guinn	101	51.1	ACF #59	B	100	100	34	34	-	-	-	33	0	0	0
+guinn	mo2-guinn	102	51.2	ACF #59	W	101	101	33	33	-	-	-	32	0	0	0
+guinn	mo2-guinn	103	52.1	ACF #60 Black Hole	B	102	102	42	42	41	0	2	41	0	2	16
+guinn	mo2-guinn	104	52.2	ACF #60 Black Hole	W	103	103	49	49	48	0	3	48	0	3	4
+guinn	mo2-guinn	105	53.1	ACF #61	B	104	104	66	66	65	0	2	65	0	2	13
+guinn	mo2-guinn	106	53.2	ACF #61	W	105	105	45	45	-	-	-	44	0	0	0
+guinn	mo2-guinn	107	54.1	ACF #62 Gemini I	B	106	106	46	46	45	0	2	45	0	2	11
+guinn	mo2-guinn	108	54.2	ACF #62 Gemini I	W	107	107	41	41	40	0	3	40	0	3	9
+guinn	mo2-guinn	109	55.1	ACF #63	B	108	108	60	60	53	0	4250102	59	0	0	3
+guinn	mo2-guinn	110	55.2	ACF #63	W	109	109	39	39	-	-	-	38	0	0	0
+guinn	mo2-guinn	111	56.1	ACF #64	B	110	110	40	40	39	0	2	39	0	2	15
+guinn	mo2-guinn	112	56.2	ACF #64	W	111	111	45	45	40	0	3356056	44	0	0	1
+guinn	mo2-guinn	113	57.1	ACF #65 Fraser's Inferno	B	112	112	48	48	-	-	-	47	0	0	0
+guinn	mo2-guinn	114	57.2	ACF #65 Fraser's Inferno	W	113	113	37	37	-	-	-	36	0	0	0
+guinn	mo2-guinn	115	58.1	ACF #66	B	114	114	40	40	-	-	-	39	0	0	0
+guinn	mo2-guinn	116	58.2	ACF #66	W	115	115	45	45	-	-	-	44	0	0	0
+guinn	mo2-guinn	117	59.1	ACF #67	B	116	116	52	52	49	0	891593	51	0	0	1
+guinn	mo2-guinn	118	59.2	ACF #67	W	117	117	49	49	48	0	762	48	0	762	1
+guinn	mo2-guinn	119	60.1	ACF #68 White Doctor	B	118	118	78	78	73	0	4545662	77	0	0	4
+guinn	mo2-guinn	120	60.2	ACF #68 White Doctor	W	119	119	109	109	108	5	1894545	108	5	1894545	33
+guinn	mo2-guinn	121	61.1	ACF #69	B	120	120	38	38	37	0	636	37	0	636	1
+guinn	mo2-guinn	122	61.2	ACF #69	W	121	121	43	43	42	0	3	42	0	3	7
+guinn	mo2-guinn	123	62.1	ACF #70	B	122	122	36	36	-	-	-	35	0	0	0
+guinn	mo2-guinn	124	62.2	ACF #70	W	123	123	47	47	46	0	3	46	0	3	3
+guinn	mo2-guinn	125	63.1	ACF #71 Diabolical Denny	B	124	124	52	52	-	-	-	51	0	0	0
+guinn	mo2-guinn	127	64.1	ACF #72	B	126	126	40	40	39	0	3	39	0	3	14
+guinn	mo2-guinn	128	64.2	ACF #72	W	127	127	73	73	72	0	2	72	0	2	30
+guinn	mo2-guinn	129	65.1	ACF #73	B	128	128	68	68	67	0	2	67	0	2	10
+guinn	mo2-guinn	130	65.2	ACF #73	W	129	129	77	77	76	0	1845	76	0	1845	21
+guinn	mo2-guinn	131	66.1	ACF #74	B	130	130	42	42	41	0	2	41	0	2	16
+guinn	mo2-guinn	132	66.2	ACF #74	W	131	131	37	37	36	0	2	36	0	2	12
+guinn	mo2-guinn	133	67.1	ACF #75	B	132	132	36	36	35	0	889	35	0	889	6
+guinn	mo2-guinn	134	67.2	ACF #75	W	133	133	51	51	-	-	-	50	0	0	0
+guinn	mo2-guinn	135	68.1	ACF #76	B	134	134	38	38	-	-	-	37	0	0	0
+guinn	mo2-guinn	136	68.2	ACF #76	W	135	135	41	41	40	0	636	40	0	636	9
+guinn	mo2-guinn	137	69.1	ACF #78	B	136	136	38	38	-	-	-	37	0	0	0
+guinn	mo2-guinn	139	70.1	ACF #79	B	138	138	46	46	-	-	-	45	0	0	0
+guinn	mo2-guinn	140	70.2	ACF #79	W	139	139	47	47	46	0	3	46	0	3	14
+guinn	mo2-guinn	141	71.1	ACF #80	B	140	140	42	42	-	-	-	41	0	0	0
+guinn	mo2-guinn	142	71.2	ACF #80	W	141	141	33	33	-	-	-	32	0	0	0
+guinn	mo2-guinn	143	72.1	ACF #81	B	142	142	34	34	-	-	-	33	0	0	0
+guinn	mo2-guinn	144	72.2	ACF #81	W	143	143	37	37	-	-	-	36	0	0	0
+guinn	mo2-guinn	145	73.1	ACF #82	B	144	144	42	42	41	0	2	41	0	2	12
+guinn	mo2-guinn	146	73.2	ACF #82	W	145	145	49	49	48	0	3	48	0	3	4
+guinn	mo2-guinn	147	74.1	ACF #83	B	146	146	44	44	-	-	-	43	0	0	0
+guinn	mo2-guinn	148	74.2	ACF #83	W	147	147	41	41	40	0	2	40	0	2	10
+guinn	mo2-guinn	149	75.1	ACF #84	B	148	148	44	44	-	-	-	43	0	0	0
+guinn	mo2-guinn	150	75.2	ACF #84	W	149	149	53	53	52	0	2	52	0	2	13
+guinn	mo2-guinn	151	76.1	ACF #85	B	150	150	78	78	77	0	2	77	0	2	16
+guinn	mo2-guinn	152	76.2	ACF #85	W	151	151	53	53	52	0	2	52	0	2	8
+guinn	mo2-guinn	153	77.1	ACF #86 Octopus	B	152	152	42	42	-	-	-	41	0	0	0
+guinn	mo2-guinn	156	78.2	ACF #87 Tyne	W	155	155	49	49	-	-	-	48	0	0	0
+guinn	mo2-guinn	157	79.1	ACF #89	B	156	156	42	42	-	-	-	41	0	0	0
+guinn	mo2-guinn	158	79.2	ACF #89	W	157	157	45	45	-	-	-	44	0	0	0
+guinn	mo2-guinn	159	80.1	ACF #90	B	158	158	46	46	-	-	-	45	0	0	0
+guinn	mo2-guinn	160	80.2	ACF #90	W	159	159	47	47	46	0	3	46	0	3	4
+guinn	mo2-guinn	161	81.1	ACF #91	B	160	160	36	36	35	0	634	35	0	634	11
+guinn	mo2-guinn	162	81.2	ACF #91	W	161	161	59	59	58	0	2	58	0	2	17
+guinn	mo2-guinn	164	82.2	ACF #92	W	163	163	43	43	-	-	-	42	0	0	0
+guinn	mo2-guinn	165	83.1	ACF #93	B	164	164	56	56	53	0	3385905	55	0	0	4
+guinn	mo2-guinn	166	83.2	ACF #93	W	165	165	69	69	68	0	2	68	0	2	11
+guinn	mo2-guinn	167	84.1	ACF #95	B	166	166	44	44	43	0	2	43	0	2	11
+guinn	mo2-guinn	168	84.2	ACF #95	W	167	167	39	39	38	0	3	38	0	3	10
+guinn	mo2-guinn	169	85.1	ACF #96 Skull-Cracker	B	168	168	40	40	-	-	-	39	0	0	0
+guinn	mo2-guinn	171	86.1	ACF #97	B	170	170	42	42	41	0	2	41	0	2	11
+guinn	mo2-guinn	172	86.2	ACF #97	W	171	171	43	43	-	-	-	42	0	0	0
+guinn	mo2-guinn	173	87.1	ACF #98	B	172	172	40	40	39	0	399	39	0	399	13
+guinn	mo2-guinn	174	87.2	ACF #98	W	173	173	45	45	-	-	-	44	0	0	0
+guinn	mo2-guinn	175	88.1	ACF #99	B	174	174	42	42	41	0	3	41	0	3	15
+guinn	mo2-guinn	176	88.2	ACF #99	W	175	175	35	35	-	-	-	34	0	0	0
+guinn	mo2-guinn	177	89.1	ACF #100	B	176	176	36	36	-	-	-	35	0	0	0
+guinn	mo2-guinn	178	89.2	ACF #100	W	177	177	63	63	52	0	4201234	62	0	0	1
+guinn	mo2-guinn	179	90.1	ACF #101	B	178	178	46	46	45	0	2	45	0	2	11
+guinn	mo2-guinn	181	91.1	ACF #102	B	180	180	42	42	-	-	-	41	0	0	0
+guinn	mo2-guinn	182	91.2	ACF #102	W	181	181	93	93	92	0	2	92	0	2	23
+guinn	mo2-guinn	183	92.1	ACF #103	B	182	182	38	38	-	-	-	37	0	0	0
+guinn	mo2-guinn	184	92.2	ACF #103	W	183	183	43	43	16	0	1558977	42	0	0	1
+guinn	mo2-guinn	185	93.1	ACF #104	B	184	184	42	42	41	0	2	41	0	2	1
+guinn	mo2-guinn	186	93.2	ACF #104	W	185	185	41	41	-	-	-	40	0	0	0
+guinn	mo2-guinn	187	94.1	ACF #105 Gemini II	B	186	186	44	44	-	-	-	43	0	0	0
+guinn	mo2-guinn	188	94.2	ACF #105 Gemini II	W	187	187	47	47	46	0	2	46	0	2	18
+guinn	mo2-guinn	189	95.1	ACF #106	B	188	188	34	34	33	0	7957	33	0	7957	4
+guinn	mo2-guinn	190	95.2	ACF #106	W	189	189	43	43	32	0	2550786	42	0	0	3
+guinn	mo2-guinn	191	96.1	ACF #107	B	190	190	38	38	-	-	-	37	0	0	0
+guinn	mo2-guinn	192	96.2	ACF #107	W	191	191	45	45	-	-	-	44	0	0	0
+guinn	mo2-guinn	193	97.1	ACF #108	B	192	192	36	36	35	0	2	35	0	2	3
+guinn	mo2-guinn	194	97.2	ACF #108	W	193	193	37	37	-	-	-	36	0	0	0
+guinn	mo2-guinn	195	98.1	ACF #110	B	194	194	52	52	51	0	3	51	0	3	5
+guinn	mo2-guinn	196	98.2	ACF #110	W	195	195	29	29	-	-	-	28	0	0	0
+guinn	mo2-guinn	197	99.1	ACF #111	B	196	196	44	44	43	0	2	43	0	2	7
+guinn	mo2-guinn	198	99.2	ACF #111	W	197	197	43	43	-	-	-	42	0	0	0
+guinn	mo2-guinn	200	100.2	ACF #112	W	199	199	47	47	-	-	-	46	0	0	0
+guinn	mo2-guinn	201	101.1	ACF #113	B	200	200	36	36	-	-	-	35	0	0	0
+guinn	mo2-guinn	202	101.2	ACF #113	W	201	201	49	49	-	-	-	48	0	0	0
+guinn	mo2-guinn	203	102.1	ACF #115	B	202	202	68	68	65	0	4193795	67	0	0	6
+guinn	mo2-guinn	204	102.2	ACF #115	W	203	203	41	41	-	-	-	40	0	0	0
+guinn	mo2-guinn	205	103.1	ACF #116	B	204	204	50	50	49	0	2152	49	0	2152	1
+guinn	mo2-guinn	206	103.2	ACF #116	W	205	205	45	45	-	-	-	44	0	0	0
+guinn	mo2-guinn	207	104.1	ACF #117	B	206	206	34	34	33	0	2	33	0	2	7
+guinn	mo2-guinn	208	104.2	ACF #117	W	207	207	75	75	74	0	2	74	0	2	14
+guinn	mo2-guinn	209	105.1	ACF #118	B	208	208	42	42	41	0	2	41	0	2	13
+guinn	mo2-guinn	210	105.2	ACF #118	W	209	209	43	43	42	0	585	42	0	585	15
+guinn	mo2-guinn	211	106.1	ACF #119	B	210	210	34	34	-	-	-	33	0	0	0
+guinn	mo2-guinn	212	106.2	ACF #119	W	211	211	33	33	-	-	-	32	0	0	0
+guinn	mo2-guinn	213	107.1	ACF #120	B	212	212	42	42	41	0	3	41	0	3	8
+guinn	mo2-guinn	214	107.2	ACF #120	W	213	213	41	41	-	-	-	40	0	0	0
+guinn	mo2-guinn	215	108.1	ACF #121	B	214	214	44	44	-	-	-	43	0	0	0
+guinn	mo2-guinn	216	108.2	ACF #121	W	215	215	45	45	44	0	889	44	0	889	12
+guinn	mo2-guinn	217	109.1	ACF #122	B	216	216	34	34	-	-	-	33	0	0	0
+guinn	mo2-guinn	218	109.2	ACF #122	W	217	217	39	39	38	0	3	38	0	3	14
+guinn	mo2-guinn	219	110.1	ACF #123	B	218	218	36	36	-	-	-	35	0	0	0
+guinn	mo2-guinn	220	110.2	ACF #123	W	219	219	41	41	40	0	590	40	0	590	12
+guinn	mo2-guinn	221	111.1	ACF #124	B	220	220	34	34	-	-	-	33	0	0	0
+guinn	mo2-guinn	222	111.2	ACF #124	W	221	221	53	53	52	0	2	52	0	2	4
+guinn	mo2-guinn	223	112.1	ACF #125	B	222	222	46	46	-	-	-	45	0	0	0
+guinn	mo2-guinn	224	112.2	ACF #125	W	223	223	39	39	28	0	2910619	38	0	0	3
+guinn	mo2-guinn	225	113.1	ACF #126	B	224	224	50	50	49	0	2152	49	0	2152	1
+guinn	mo2-guinn	226	113.2	ACF #126	W	225	225	63	63	62	0	762	62	0	762	11
+guinn	mo2-guinn	227	114.1	ACF #127	B	226	226	40	40	-	-	-	39	0	0	0
+guinn	mo2-guinn	228	114.2	ACF #127	W	227	227	73	73	72	0	2	72	0	2	16
+guinn	mo2-guinn	229	115.1	ACF #128	B	228	228	42	42	41	0	2	41	0	2	1
+guinn	mo2-guinn	230	115.2	ACF #128	W	229	229	53	53	52	0	3	52	0	3	3
+guinn	mo2-guinn	231	116.1	ACF #129	B	230	230	42	42	-	-	-	41	0	0	0
+guinn	mo2-guinn	232	116.2	ACF #129	W	231	231	41	41	-	-	-	40	0	0	0
+guinn	mo2-guinn	233	117.1	ACF #130	B	232	232	38	38	-	-	-	37	0	0	0
+guinn	mo2-guinn	234	117.2	ACF #130	W	233	233	43	43	-	-	-	42	0	0	0
+guinn	mo2-guinn	235	118.1	ACF #131	B	234	234	52	52	47	0	5165312	51	0	0	1
+guinn	mo2-guinn	236	118.2	ACF #131	W	235	235	73	73	72	0	2	72	0	2	9
+guinn	mo2-guinn	237	119.1	ACF #132	B	236	236	40	40	39	0	3	39	0	3	11
+guinn	mo2-guinn	238	119.2	ACF #132	W	237	237	47	47	46	0	2	46	0	2	9
+guinn	mo2-guinn	239	120.1	ACF #133 Octopus	B	238	238	52	52	49	0	4888162	51	0	0	1
+guinn	mo2-guinn	240	120.2	ACF #133 Octopus	W	239	239	55	55	54	0	2	54	0	2	14
+guinn	mo2-guinn	241	121.1	ACF #134	B	240	240	42	42	-	-	-	41	0	0	0
+guinn	mo2-guinn	242	121.2	ACF #134	W	241	241	39	39	38	0	2	38	0	2	14
+guinn	mo2-guinn	243	122.1	ACF #135	B	242	242	38	38	-	-	-	37	0	0	0
+guinn	mo2-guinn	244	122.2	ACF #135	W	243	243	39	39	-	-	-	38	0	0	0
+guinn	mo2-guinn	245	123.1	ACF #136	B	244	244	30	30	-	-	-	29	0	0	0
+guinn	mo2-guinn	246	123.2	ACF #136	W	245	245	99	99	98	0	2	98	0	2	36
+guinn	mo2-guinn	247	124.1	ACF #138	B	246	246	34	34	-	-	-	33	0	0	0
+guinn	mo2-guinn	248	124.2	ACF #138	W	247	247	45	45	-	-	-	44	0	0	0
+guinn	mo2-guinn	249	125.1	ACF #139	B	248	248	44	44	-	-	-	43	0	0	0
+guinn	mo2-guinn	250	125.2	ACF #139	W	249	249	43	43	-	-	-	42	0	0	0
+guinn	mo2-guinn	251	126.1	ACF #140	B	250	250	46	46	45	0	763	45	0	763	1
+guinn	mo2-guinn	252	126.2	ACF #140	W	251	251	41	41	40	0	3	40	0	3	14
+guinn	mo2-guinn	253	127.1	ACF #141	B	252	252	30	30	-	-	-	29	0	0	0
+guinn	mo2-guinn	255	128.1	ACF #142	B	254	254	44	44	43	0	3	43	0	3	13
+guinn	mo2-guinn	256	128.2	ACF #142	W	255	255	51	51	50	0	2	50	0	2	15
+guinn	mo2-guinn	257	129.1	ACF #143	B	256	256	44	44	-	-	-	43	0	0	0
+guinn	mo2-guinn	258	129.2	ACF #143	W	257	257	43	43	-	-	-	42	0	0	0
+guinn	mo2-guinn	259	130.1	ACF #144	B	258	258	38	38	-	-	-	37	0	0	0
+guinn	mo2-guinn	260	130.2	ACF #144	W	259	259	43	43	42	0	890	42	0	890	1
+guinn	mo2-guinn	261	131.1	ACF #146	B	260	260	40	40	39	0	3	39	0	3	14
+guinn	mo2-guinn	263	132.1	ACF #147	B	262	262	36	36	35	0	3	35	0	3	9
+guinn	mo2-guinn	264	132.2	ACF #147	W	263	263	39	39	38	0	2	38	0	2	10
+guinn	mo2-guinn	265	133.1	ACF #148	B	264	264	56	56	55	0	2	55	0	2	24
+guinn	mo2-guinn	266	133.2	ACF #148	W	265	265	109	109	108	5	517746	108	5	517746	44
+guinn	mo2-guinn	267	134.1	ACF #149	B	266	266	44	44	43	0	3	43	0	3	12
+guinn	mo2-guinn	268	134.2	ACF #149	W	267	267	37	37	-	-	-	36	0	0	0
+guinn	mo2-guinn	269	135.1	ACF #150	B	268	268	38	38	-	-	-	37	0	0	0
+guinn	mo2-guinn	270	135.2	ACF #150	W	269	269	35	35	-	-	-	34	0	0	0
+guinn	mo2-guinn	271	136.1	ACF #151	B	270	270	40	40	39	0	3	39	0	3	2
+guinn	mo2-guinn	272	136.2	ACF #151	W	271	271	49	49	48	0	762	48	0	762	1
+guinn	mo2-guinn	273	137.1	ACF #152	B	272	272	48	48	47	0	3	47	0	3	5
+guinn	mo2-guinn	274	137.2	ACF #152	W	273	273	43	43	42	0	4	42	0	4	4
+guinn	mo2-guinn	276	138.2	ACF #153 Black Widow	W	275	275	39	39	38	0	2	38	0	2	10
+guinn	mo2-guinn	277	139.1	ACF #154	B	276	276	38	38	-	-	-	37	0	0	0
+guinn	mo2-guinn	278	139.2	ACF #154	W	277	277	109	109	108	0	741823	108	0	741823	35
+guinn	mo2-guinn	279	140.1	ACF #155	B	278	278	30	30	-	-	-	29	0	0	0
+guinn	mo2-guinn	280	140.2	ACF #155	W	279	279	39	39	38	0	3	38	0	3	9
+guinn	mo2-guinn	281	141.1	ACF #157	B	280	280	48	48	47	0	3	47	0	3	5
+guinn	mo2-guinn	282	141.2	ACF #157	W	281	281	45	45	44	0	2	44	0	2	1
+guinn	mo2-guinn	283	142.1	ACF #158	B	282	282	42	42	41	0	3	41	0	3	13
+guinn	mo2-guinn	284	142.2	ACF #158	W	283	283	45	45	44	0	3	44	0	3	5
+guinn	mo2-guinn	285	143.1	ACF #159	B	284	284	40	40	39	0	2	39	0	2	1
+guinn	mo2-guinn	286	143.2	ACF #159	W	285	285	41	41	40	0	2	40	0	2	1
+guinn	mo2-guinn	287	144.1	ACF #160	B	286	286	42	42	-	-	-	41	0	0	0
+guinn	mo2-guinn	288	144.2	ACF #160	W	287	287	41	41	-	-	-	40	0	0	0
+guinn	mo2-guinn	289	145.1	ACF #161	B	288	288	50	50	49	0	636	49	0	636	4
+guinn	mo2-guinn	290	145.2	ACF #161	W	289	289	55	55	-	-	-	54	0	0	0
+guinn	mo2-guinn	291	146.1	ACF #162	B	290	290	50	50	49	0	3	49	0	3	1
+guinn	mo2-guinn	292	146.2	ACF #162	W	291	291	61	61	60	0	889	60	0	889	20
+guinn	mo2-guinn	293	147.1	ACF #163	B	292	292	46	46	-	-	-	45	0	0	0
+guinn	mo2-guinn	294	147.2	ACF #163	W	293	293	57	57	56	0	2	56	0	2	6
+guinn	mo2-guinn	295	148.1	ACF #164	B	294	294	36	36	-	-	-	35	0	0	0
+guinn	mo2-guinn	296	148.2	ACF #164	W	295	295	55	55	54	0	2	54	0	2	17
+guinn	mo2-guinn	297	149.1	ACF #165	B	296	296	40	40	19	6	1257623	39	0	0	4
+guinn	mo2-guinn	298	149.2	ACF #165	W	297	297	39	39	38	0	2	38	0	2	10
+guinn	mo2-guinn	299	150.1	ACF #166	B	298	298	54	54	53	0	2	53	0	2	21
+guinn	mo2-guinn	300	150.2	ACF #166	W	299	299	47	47	-	-	-	46	0	0	0
+guinn	mo2-guinn	302	151.2	ACF #167	W	301	301	45	45	44	0	3	44	0	3	12
+guinn	mo2-guinn	303	152.1	ACF #169	B	302	302	36	36	35	0	2	35	0	2	6
+guinn	mo2-guinn	304	152.2	ACF #169	W	303	303	31	31	-	-	-	30	0	0	0
+guinn	mo2-guinn	305	153.1	ACF #170	B	304	304	40	40	-	-	-	39	0	0	0
+guinn	mo2-guinn	306	153.2	ACF #170	W	305	305	45	45	44	0	2	44	0	2	3
+guinn	mo2-guinn	307	154.1	ACF #172	B	306	306	52	52	51	0	2	51	0	2	3
+guinn	mo2-guinn	308	154.2	ACF #172	W	307	307	97	97	96	0	3	96	0	3	26
+guinn	mo2-guinn	309	155.1	ACF #173	B	308	308	38	38	-	-	-	37	0	0	0
+guinn	mo2-guinn	310	155.2	ACF #173	W	309	309	109	109	108	0	674888	108	0	674888	27
+guinn	mo2-guinn	311	156.1	ACF #174 Skunk	B	310	310	42	42	39	0	4253628	41	0	0	1
+kingsrow	mo2-kingsrow	1	1.1	ACF #1	B	0	0	44	44	-	-	-	43	0	0	0
+kingsrow	mo2-kingsrow	2	1.2	ACF #1	W	1	1	43	43	42	0	762	42	0	762	4
+kingsrow	mo2-kingsrow	3	2.1	ACF #2	B	2	2	52	52	51	0	762	51	0	762	8
+kingsrow	mo2-kingsrow	4	2.2	ACF #2	W	3	3	67	67	66	0	1143	66	0	1143	5
+kingsrow	mo2-kingsrow	6	3.2	ACF #4	W	5	5	55	55	54	0	763	54	0	763	6
+kingsrow	mo2-kingsrow	7	4.1	ACF #5 Dreaded Edinburgh	B	6	6	58	58	57	0	2	57	0	2	4
+kingsrow	mo2-kingsrow	8	4.2	ACF #5 Dreaded Edinburgh	W	7	7	49	49	48	0	636	48	0	636	4
+kingsrow	mo2-kingsrow	9	5.1	ACF #6 Inferno	B	8	8	102	102	101	0	889	101	0	889	20
+kingsrow	mo2-kingsrow	10	5.2	ACF #6 Inferno	W	9	9	69	69	68	0	890	68	0	890	9
+kingsrow	mo2-kingsrow	11	6.1	ACF #7	B	10	10	58	58	57	0	1907376	57	0	1907376	6
+kingsrow	mo2-kingsrow	12	6.2	ACF #7	W	11	11	45	45	-	-	-	44	0	0	0
+kingsrow	mo2-kingsrow	13	7.1	ACF #8 Edinburgh Single	B	12	12	52	52	51	0	636	51	0	636	5
+kingsrow	mo2-kingsrow	14	7.2	ACF #8 Edinburgh Single	W	13	13	43	43	42	0	763	42	0	763	5
+kingsrow	mo2-kingsrow	16	8.2	ACF #9 Wilderness I	W	15	15	71	71	70	0	635	70	0	635	7
+kingsrow	mo2-kingsrow	17	9.1	ACF #10	B	16	16	54	54	53	0	890	53	0	890	5
+kingsrow	mo2-kingsrow	18	9.2	ACF #10	W	17	17	57	57	56	0	890	56	0	890	5
+kingsrow	mo2-kingsrow	19	10.1	ACF #11	B	18	18	58	58	57	0	890	57	0	890	6
+kingsrow	mo2-kingsrow	20	10.2	ACF #11	W	19	19	49	49	48	0	763	48	0	763	6
+kingsrow	mo2-kingsrow	21	11.1	ACF #12	B	20	20	44	44	43	0	2	43	0	2	5
+kingsrow	mo2-kingsrow	22	11.2	ACF #12	W	21	21	45	45	44	0	889	44	0	889	2
+kingsrow	mo2-kingsrow	23	12.1	ACF #14	B	22	22	48	48	47	0	2	47	0	2	4
+kingsrow	mo2-kingsrow	24	12.2	ACF #14	W	23	23	51	51	50	0	1144	50	0	1144	5
+kingsrow	mo2-kingsrow	25	13.1	ACF #15	B	24	24	56	56	55	0	889	55	0	889	2
+kingsrow	mo2-kingsrow	26	13.2	ACF #15	W	25	25	53	53	52	0	890	52	0	890	5
+kingsrow	mo2-kingsrow	27	14.1	ACF #16 Wilderness II	B	26	26	120	120	119	0	889	119	0	889	25
+kingsrow	mo2-kingsrow	28	14.2	ACF #16 Wilderness II	W	27	27	199	199	198	0	763	198	0	763	73
+kingsrow	mo2-kingsrow	30	15.2	ACF #17	W	29	29	47	47	46	0	508	46	0	508	6
+kingsrow	mo2-kingsrow	31	16.1	ACF #18	B	30	30	48	48	47	0	763	47	0	763	3
+kingsrow	mo2-kingsrow	32	16.2	ACF #18	W	31	31	45	45	44	0	636	44	0	636	5
+kingsrow	mo2-kingsrow	33	17.1	ACF #19	B	32	32	48	48	47	0	635	47	0	635	5
+kingsrow	mo2-kingsrow	34	17.2	ACF #19	W	33	33	53	53	52	0	762	52	0	762	5
+kingsrow	mo2-kingsrow	35	18.1	ACF #20	B	34	34	54	54	53	0	2	53	0	2	5
+kingsrow	mo2-kingsrow	36	18.2	ACF #20	W	35	35	41	41	40	0	890	40	0	890	5
+kingsrow	mo2-kingsrow	37	19.1	ACF #21	B	36	36	52	52	51	0	762	51	0	762	5
+kingsrow	mo2-kingsrow	38	19.2	ACF #21	W	37	37	43	43	42	0	890	42	0	890	4
+kingsrow	mo2-kingsrow	39	20.1	ACF #22	B	38	38	50	50	49	0	763	49	0	763	4
+kingsrow	mo2-kingsrow	40	20.2	ACF #22	W	39	39	51	51	50	0	889	50	0	889	1
+kingsrow	mo2-kingsrow	41	21.1	ACF #23	B	40	40	46	46	45	0	1017	45	0	1017	6
+kingsrow	mo2-kingsrow	42	21.2	ACF #23	W	41	41	73	73	72	0	1017	72	0	1017	14
+kingsrow	mo2-kingsrow	43	22.1	ACF #24	B	42	42	38	38	37	0	889	37	0	889	7
+kingsrow	mo2-kingsrow	44	22.2	ACF #24	W	43	43	51	51	50	0	1144	50	0	1144	6
+kingsrow	mo2-kingsrow	45	23.1	ACF #25	B	44	44	52	52	51	0	889	51	0	889	5
+kingsrow	mo2-kingsrow	46	23.2	ACF #25	W	45	45	39	39	38	0	3020432	38	0	3020432	4
+kingsrow	mo2-kingsrow	47	24.1	ACF #27	B	46	46	44	44	-	-	-	43	0	0	0
+kingsrow	mo2-kingsrow	48	24.2	ACF #27	W	47	47	55	55	54	0	3892637	54	0	3892637	4
+kingsrow	mo2-kingsrow	49	25.1	ACF #28	B	48	48	48	48	47	0	890	47	0	890	5
+kingsrow	mo2-kingsrow	50	25.2	ACF #28	W	49	49	53	53	52	0	1144	52	0	1144	3
+kingsrow	mo2-kingsrow	51	26.1	ACF #29	B	50	50	78	78	77	0	1954306	77	0	1954306	11
+kingsrow	mo2-kingsrow	52	26.2	ACF #29	W	51	51	55	55	54	0	1017	54	0	1017	3
+kingsrow	mo2-kingsrow	53	27.1	ACF #30	B	52	52	60	60	59	0	1143	59	0	1143	15
+kingsrow	mo2-kingsrow	54	27.2	ACF #30	W	53	53	51	51	48	0	3712536	50	0	0	2
+kingsrow	mo2-kingsrow	55	28.1	ACF #31	B	54	54	60	60	59	0	1143	59	0	1143	7
+kingsrow	mo2-kingsrow	56	28.2	ACF #31	W	55	55	57	57	56	0	636	56	0	636	7
+kingsrow	mo2-kingsrow	57	29.1	ACF #32	B	56	56	50	50	49	0	889	49	0	889	6
+kingsrow	mo2-kingsrow	58	29.2	ACF #32	W	57	57	49	49	46	0	3423152	48	0	0	1
+kingsrow	mo2-kingsrow	59	30.1	ACF #33	B	58	58	48	48	47	0	1017	47	0	1017	5
+kingsrow	mo2-kingsrow	60	30.2	ACF #33	W	59	59	49	49	48	0	763	48	0	763	5
+kingsrow	mo2-kingsrow	61	31.1	ACF #34 Twilight Zone	B	60	60	62	62	61	0	5164740	61	0	5164740	1
+kingsrow	mo2-kingsrow	62	31.2	ACF #34 Twilight Zone	W	61	61	51	51	50	0	4530184	50	0	4530184	1
+kingsrow	mo2-kingsrow	63	32.1	ACF #36	B	62	62	66	66	63	0	3231980	65	0	0	7
+kingsrow	mo2-kingsrow	64	32.2	ACF #36	W	63	63	47	47	46	0	1017	46	0	1017	5
+kingsrow	mo2-kingsrow	65	33.1	ACF #37	B	64	64	56	56	55	0	889	55	0	889	6
+kingsrow	mo2-kingsrow	66	33.2	ACF #37	W	65	65	47	47	-	-	-	46	0	0	0
+kingsrow	mo2-kingsrow	67	34.1	ACF #38	B	66	66	50	50	49	0	3246943	49	0	3246943	3
+kingsrow	mo2-kingsrow	68	34.2	ACF #38	W	67	67	41	41	40	0	889	40	0	889	6
+kingsrow	mo2-kingsrow	69	35.1	ACF #39	B	68	68	54	54	53	0	1017	53	0	1017	4
+kingsrow	mo2-kingsrow	70	35.2	ACF #39	W	69	69	41	41	40	0	889	40	0	889	6
+kingsrow	mo2-kingsrow	71	36.1	ACF #40	B	70	70	58	58	57	0	1017	57	0	1017	5
+kingsrow	mo2-kingsrow	72	36.2	ACF #40	W	71	71	49	49	48	0	890	48	0	890	6
+kingsrow	mo2-kingsrow	73	37.1	ACF #41	B	72	72	56	56	55	0	890	55	0	890	4
+kingsrow	mo2-kingsrow	74	37.2	ACF #41	W	73	73	55	55	54	0	2349975	54	0	2349975	4
+kingsrow	mo2-kingsrow	75	38.1	ACF #42	B	74	74	60	60	59	0	762	59	0	762	4
+kingsrow	mo2-kingsrow	76	38.2	ACF #42	W	75	75	57	57	56	0	890	56	0	890	6
+kingsrow	mo2-kingsrow	77	39.1	ACF #43	B	76	76	52	52	51	0	1017	51	0	1017	5
+kingsrow	mo2-kingsrow	79	40.1	ACF #46 Double Cross	B	78	78	48	48	47	0	1143	47	0	1143	2
+kingsrow	mo2-kingsrow	80	40.2	ACF #46 Double Cross	W	79	79	65	65	64	0	635	64	0	635	6
+kingsrow	mo2-kingsrow	81	41.1	ACF #47	B	80	80	48	48	47	0	1017	47	0	1017	4
+kingsrow	mo2-kingsrow	82	41.2	ACF #47	W	81	81	49	49	48	0	1016	48	0	1016	7
+kingsrow	mo2-kingsrow	83	42.1	ACF #49	B	82	82	56	56	55	0	1143	55	0	1143	10
+kingsrow	mo2-kingsrow	84	42.2	ACF #49	W	83	83	59	59	58	0	635	58	0	635	14
+kingsrow	mo2-kingsrow	85	43.1	ACF #50	B	84	84	46	46	45	0	889	45	0	889	4
+kingsrow	mo2-kingsrow	86	43.2	ACF #50	W	85	85	53	53	52	0	1017	52	0	1017	9
+kingsrow	mo2-kingsrow	87	44.1	ACF #51	B	86	86	52	52	51	0	1270	51	0	1270	5
+kingsrow	mo2-kingsrow	88	44.2	ACF #51	W	87	87	55	55	54	0	762	54	0	762	2
+kingsrow	mo2-kingsrow	89	45.1	ACF #53	B	88	88	50	50	49	0	1144	49	0	1144	6
+kingsrow	mo2-kingsrow	90	45.2	ACF #53	W	89	89	63	63	62	0	2	62	0	2	4
+kingsrow	mo2-kingsrow	91	46.1	ACF #54	B	90	90	48	48	47	0	2	47	0	2	5
+kingsrow	mo2-kingsrow	92	46.2	ACF #54	W	91	91	47	47	46	0	1017	46	0	1017	4
+kingsrow	mo2-kingsrow	93	47.1	ACF #55	B	92	92	50	50	49	0	3587517	49	0	3587517	3
+kingsrow	mo2-kingsrow	94	47.2	ACF #55	W	93	93	49	49	48	0	636	48	0	636	6
+kingsrow	mo2-kingsrow	95	48.1	ACF #56	B	94	94	48	48	47	0	889	47	0	889	4
+kingsrow	mo2-kingsrow	96	48.2	ACF #56	W	95	95	49	49	48	0	763	48	0	763	4
+kingsrow	mo2-kingsrow	97	49.1	ACF #57	B	96	96	46	46	45	0	763	45	0	763	2
+kingsrow	mo2-kingsrow	98	49.2	ACF #57	W	97	97	49	49	48	0	763	48	0	763	4
+kingsrow	mo2-kingsrow	99	50.1	ACF #58	B	98	98	44	44	43	0	636	43	0	636	3
+kingsrow	mo2-kingsrow	100	50.2	ACF #58	W	99	99	57	57	56	0	763	56	0	763	5
+kingsrow	mo2-kingsrow	101	51.1	ACF #59	B	100	100	54	54	53	0	762	53	0	762	5
+kingsrow	mo2-kingsrow	102	51.2	ACF #59	W	101	101	43	43	42	0	763	42	0	763	5
+kingsrow	mo2-kingsrow	103	52.1	ACF #60 Black Hole	B	102	102	50	50	49	0	635	49	0	635	5
+kingsrow	mo2-kingsrow	104	52.2	ACF #60 Black Hole	W	103	103	49	49	48	0	890	48	0	890	2
+kingsrow	mo2-kingsrow	105	53.1	ACF #61	B	104	104	58	58	57	0	1016	57	0	1016	3
+kingsrow	mo2-kingsrow	106	53.2	ACF #61	W	105	105	49	49	48	0	635	48	0	635	4
+kingsrow	mo2-kingsrow	107	54.1	ACF #62 Gemini I	B	106	106	52	52	51	0	763	51	0	763	6
+kingsrow	mo2-kingsrow	108	54.2	ACF #62 Gemini I	W	107	107	49	49	48	0	636	48	0	636	3
+kingsrow	mo2-kingsrow	109	55.1	ACF #63	B	108	108	48	48	47	0	889	47	0	889	5
+kingsrow	mo2-kingsrow	110	55.2	ACF #63	W	109	109	45	45	44	0	890	44	0	890	2
+kingsrow	mo2-kingsrow	111	56.1	ACF #64	B	110	110	50	50	49	0	2	49	0	2	5
+kingsrow	mo2-kingsrow	112	56.2	ACF #64	W	111	111	53	53	52	0	1144	52	0	1144	2
+kingsrow	mo2-kingsrow	113	57.1	ACF #65 Fraser's Inferno	B	112	112	62	62	61	0	2	61	0	2	5
+kingsrow	mo2-kingsrow	114	57.2	ACF #65 Fraser's Inferno	W	113	113	53	53	52	0	508	52	0	508	5
+kingsrow	mo2-kingsrow	115	58.1	ACF #66	B	114	114	52	52	51	0	763	51	0	763	6
+kingsrow	mo2-kingsrow	116	58.2	ACF #66	W	115	115	53	53	52	0	890	52	0	890	13
+kingsrow	mo2-kingsrow	117	59.1	ACF #67	B	116	116	62	62	61	0	2	61	0	2	5
+kingsrow	mo2-kingsrow	118	59.2	ACF #67	W	117	117	57	57	56	0	890	56	0	890	6
+kingsrow	mo2-kingsrow	119	60.1	ACF #68 White Doctor	B	118	118	76	76	75	0	763	75	0	763	8
+kingsrow	mo2-kingsrow	120	60.2	ACF #68 White Doctor	W	119	119	51	51	50	0	3706465	50	0	3706465	1
+kingsrow	mo2-kingsrow	121	61.1	ACF #69	B	120	120	66	66	65	0	763	65	0	763	9
+kingsrow	mo2-kingsrow	122	61.2	ACF #69	W	121	121	55	55	54	0	1017	54	0	1017	5
+kingsrow	mo2-kingsrow	123	62.1	ACF #70	B	122	122	52	52	51	0	635	51	0	635	5
+kingsrow	mo2-kingsrow	124	62.2	ACF #70	W	123	123	49	49	48	0	1271	48	0	1271	5
+kingsrow	mo2-kingsrow	125	63.1	ACF #71 Diabolical Denny	B	124	124	50	50	49	0	1143	49	0	1143	5
+kingsrow	mo2-kingsrow	126	63.2	ACF #71 Diabolical Denny	W	125	125	53	53	52	0	1017	52	0	1017	5
+kingsrow	mo2-kingsrow	127	64.1	ACF #72	B	126	126	46	46	45	0	1016	45	0	1016	2
+kingsrow	mo2-kingsrow	128	64.2	ACF #72	W	127	127	49	49	48	0	763	48	0	763	4
+kingsrow	mo2-kingsrow	129	65.1	ACF #73	B	128	128	58	58	57	0	1143	57	0	1143	3
+kingsrow	mo2-kingsrow	130	65.2	ACF #73	W	129	129	41	41	40	0	890	40	0	890	5
+kingsrow	mo2-kingsrow	131	66.1	ACF #74	B	130	130	60	60	59	0	3736558	59	0	3736558	3
+kingsrow	mo2-kingsrow	132	66.2	ACF #74	W	131	131	43	43	42	0	762	42	0	762	3
+kingsrow	mo2-kingsrow	133	67.1	ACF #75	B	132	132	56	56	55	0	762	55	0	762	6
+kingsrow	mo2-kingsrow	134	67.2	ACF #75	W	133	133	47	47	-	-	-	46	0	0	0
+kingsrow	mo2-kingsrow	135	68.1	ACF #76	B	134	134	62	62	61	0	2	61	0	2	5
+kingsrow	mo2-kingsrow	136	68.2	ACF #76	W	135	135	53	53	52	0	762	52	0	762	5
+kingsrow	mo2-kingsrow	137	69.1	ACF #78	B	136	136	60	60	59	0	889	59	0	889	8
+kingsrow	mo2-kingsrow	138	69.2	ACF #78	W	137	137	49	49	-	-	-	48	0	0	0
+kingsrow	mo2-kingsrow	139	70.1	ACF #79	B	138	138	60	60	59	0	1270	59	0	1270	1
+kingsrow	mo2-kingsrow	140	70.2	ACF #79	W	139	139	51	51	50	0	636	50	0	636	5
+kingsrow	mo2-kingsrow	142	71.2	ACF #80	W	141	141	55	55	54	0	381	54	0	381	6
+kingsrow	mo2-kingsrow	143	72.1	ACF #81	B	142	142	50	50	49	0	635	49	0	635	8
+kingsrow	mo2-kingsrow	144	72.2	ACF #81	W	143	143	53	53	52	0	508	52	0	508	5
+kingsrow	mo2-kingsrow	145	73.1	ACF #82	B	144	144	46	46	45	0	1270	45	0	1270	6
+kingsrow	mo2-kingsrow	146	73.2	ACF #82	W	145	145	45	45	44	0	2	44	0	2	6
+kingsrow	mo2-kingsrow	147	74.1	ACF #83	B	146	146	48	48	47	0	635	47	0	635	2
+kingsrow	mo2-kingsrow	148	74.2	ACF #83	W	147	147	51	51	50	0	763	50	0	763	5
+kingsrow	mo2-kingsrow	149	75.1	ACF #84	B	148	148	54	54	53	0	1017	53	0	1017	10
+kingsrow	mo2-kingsrow	150	75.2	ACF #84	W	149	149	77	77	76	0	1017	76	0	1017	13
+kingsrow	mo2-kingsrow	152	76.2	ACF #85	W	151	151	63	63	62	0	763	62	0	763	8
+kingsrow	mo2-kingsrow	153	77.1	ACF #86 Octopus	B	152	152	58	58	57	0	763	57	0	763	5
+kingsrow	mo2-kingsrow	154	77.2	ACF #86 Octopus	W	153	153	51	51	50	0	762	50	0	762	3
+kingsrow	mo2-kingsrow	155	78.1	ACF #87 Tyne	B	154	154	62	62	61	0	2	61	0	2	6
+kingsrow	mo2-kingsrow	156	78.2	ACF #87 Tyne	W	155	155	51	51	50	0	890	50	0	890	5
+kingsrow	mo2-kingsrow	157	79.1	ACF #89	B	156	156	58	58	57	0	889	57	0	889	5
+kingsrow	mo2-kingsrow	158	79.2	ACF #89	W	157	157	61	61	60	0	635	60	0	635	5
+kingsrow	mo2-kingsrow	159	80.1	ACF #90	B	158	158	64	64	63	0	1144	63	0	1144	6
+kingsrow	mo2-kingsrow	160	80.2	ACF #90	W	159	159	51	51	50	0	636	50	0	636	5
+kingsrow	mo2-kingsrow	161	81.1	ACF #91	B	160	160	44	44	43	0	762	43	0	762	3
+kingsrow	mo2-kingsrow	162	81.2	ACF #91	W	161	161	49	49	48	0	890	48	0	890	4
+kingsrow	mo2-kingsrow	163	82.1	ACF #92	B	162	162	44	44	43	0	636	43	0	636	12
+kingsrow	mo2-kingsrow	164	82.2	ACF #92	W	163	163	51	51	50	0	763	50	0	763	4
+kingsrow	mo2-kingsrow	165	83.1	ACF #93	B	164	164	56	56	55	0	5378508	55	0	5378508	1
+kingsrow	mo2-kingsrow	166	83.2	ACF #93	W	165	165	59	59	58	0	4840759	58	0	4840759	3
+kingsrow	mo2-kingsrow	167	84.1	ACF #95	B	166	166	52	52	51	0	1016	51	0	1016	2
+kingsrow	mo2-kingsrow	168	84.2	ACF #95	W	167	167	53	53	52	0	890	52	0	890	6
+kingsrow	mo2-kingsrow	169	85.1	ACF #96 Skull-Cracker	B	168	168	50	50	49	0	889	49	0	889	12
+kingsrow	mo2-kingsrow	170	85.2	ACF #96 Skull-Cracker	W	169	169	55	55	52	0	2566820	54	0	0	4
+kingsrow	mo2-kingsrow	171	86.1	ACF #97	B	170	170	52	52	51	0	762	51	0	762	6
+kingsrow	mo2-kingsrow	172	86.2	ACF #97	W	171	171	53	53	52	0	635	52	0	635	5
+kingsrow	mo2-kingsrow	173	87.1	ACF #98	B	172	172	44	44	41	0	3510525	43	0	0	1
+kingsrow	mo2-kingsrow	174	87.2	ACF #98	W	173	173	47	47	46	0	889	46	0	889	3
+kingsrow	mo2-kingsrow	175	88.1	ACF #99	B	174	174	48	48	47	0	635	47	0	635	7
+kingsrow	mo2-kingsrow	176	88.2	ACF #99	W	175	175	43	43	42	0	889	42	0	889	8
+kingsrow	mo2-kingsrow	177	89.1	ACF #100	B	176	176	50	50	49	0	1143	49	0	1143	12
+kingsrow	mo2-kingsrow	178	89.2	ACF #100	W	177	177	47	47	-	-	-	46	0	0	0
+kingsrow	mo2-kingsrow	179	90.1	ACF #101	B	178	178	46	46	45	0	763	45	0	763	9
+kingsrow	mo2-kingsrow	180	90.2	ACF #101	W	179	179	41	41	40	0	763	40	0	763	2
+kingsrow	mo2-kingsrow	181	91.1	ACF #102	B	180	180	50	50	49	0	508	49	0	508	9
+kingsrow	mo2-kingsrow	182	91.2	ACF #102	W	181	181	71	71	70	0	1144	70	0	1144	19
+kingsrow	mo2-kingsrow	183	92.1	ACF #103	B	182	182	60	60	59	0	1016	59	0	1016	18
+kingsrow	mo2-kingsrow	184	92.2	ACF #103	W	183	183	47	47	46	0	890	46	0	890	5
+kingsrow	mo2-kingsrow	185	93.1	ACF #104	B	184	184	48	48	47	0	382	47	0	382	6
+kingsrow	mo2-kingsrow	186	93.2	ACF #104	W	185	185	45	45	44	0	1017	44	0	1017	6
+kingsrow	mo2-kingsrow	187	94.1	ACF #105 Gemini II	B	186	186	52	52	51	0	763	51	0	763	6
+kingsrow	mo2-kingsrow	188	94.2	ACF #105 Gemini II	W	187	187	55	55	54	0	890	54	0	890	6
+kingsrow	mo2-kingsrow	189	95.1	ACF #106	B	188	188	50	50	49	0	889	49	0	889	1
+kingsrow	mo2-kingsrow	190	95.2	ACF #106	W	189	189	49	49	48	0	2870915	48	0	2870915	4
+kingsrow	mo2-kingsrow	191	96.1	ACF #107	B	190	190	50	50	49	0	763	49	0	763	12
+kingsrow	mo2-kingsrow	192	96.2	ACF #107	W	191	191	49	49	48	0	636	48	0	636	4
+kingsrow	mo2-kingsrow	193	97.1	ACF #108	B	192	192	52	52	51	0	889	51	0	889	2
+kingsrow	mo2-kingsrow	194	97.2	ACF #108	W	193	193	61	61	60	0	635	60	0	635	7
+kingsrow	mo2-kingsrow	195	98.1	ACF #110	B	194	194	46	46	45	0	890	45	0	890	5
+kingsrow	mo2-kingsrow	196	98.2	ACF #110	W	195	195	55	55	54	0	1016	54	0	1016	9
+kingsrow	mo2-kingsrow	197	99.1	ACF #111	B	196	196	50	50	49	0	3246943	49	0	3246943	3
+kingsrow	mo2-kingsrow	198	99.2	ACF #111	W	197	197	53	53	52	0	1017	52	0	1017	6
+kingsrow	mo2-kingsrow	199	100.1	ACF #112	B	198	198	48	48	47	0	890	47	0	890	3
+kingsrow	mo2-kingsrow	200	100.2	ACF #112	W	199	199	47	47	46	0	1017	46	0	1017	5
+kingsrow	mo2-kingsrow	201	101.1	ACF #113	B	200	200	52	52	51	0	1271	51	0	1271	5
+kingsrow	mo2-kingsrow	202	101.2	ACF #113	W	201	201	41	41	40	0	889	40	0	889	6
+kingsrow	mo2-kingsrow	203	102.1	ACF #115	B	202	202	42	42	41	0	763	41	0	763	5
+kingsrow	mo2-kingsrow	204	102.2	ACF #115	W	203	203	59	59	58	0	1144	58	0	1144	5
+kingsrow	mo2-kingsrow	205	103.1	ACF #116	B	204	204	52	52	51	0	890	51	0	890	5
+kingsrow	mo2-kingsrow	206	103.2	ACF #116	W	205	205	45	45	44	0	762	44	0	762	5
+kingsrow	mo2-kingsrow	207	104.1	ACF #117	B	206	206	52	52	51	0	1016	51	0	1016	3
+kingsrow	mo2-kingsrow	208	104.2	ACF #117	W	207	207	43	43	42	0	1017	42	0	1017	4
+kingsrow	mo2-kingsrow	209	105.1	ACF #118	B	208	208	50	50	49	0	890	49	0	890	2
+kingsrow	mo2-kingsrow	210	105.2	ACF #118	W	209	209	59	59	58	0	762	58	0	762	6
+kingsrow	mo2-kingsrow	211	106.1	ACF #119	B	210	210	46	46	45	0	1017	45	0	1017	5
+kingsrow	mo2-kingsrow	212	106.2	ACF #119	W	211	211	51	51	50	0	762	50	0	762	6
+kingsrow	mo2-kingsrow	213	107.1	ACF #120	B	212	212	54	54	53	0	889	53	0	889	4
+kingsrow	mo2-kingsrow	214	107.2	ACF #120	W	213	213	45	45	44	0	2	44	0	2	5
+kingsrow	mo2-kingsrow	215	108.1	ACF #121	B	214	214	44	44	43	0	636	43	0	636	6
+kingsrow	mo2-kingsrow	216	108.2	ACF #121	W	215	215	45	45	44	0	762	44	0	762	9
+kingsrow	mo2-kingsrow	217	109.1	ACF #122	B	216	216	38	38	37	0	763	37	0	763	6
+kingsrow	mo2-kingsrow	218	109.2	ACF #122	W	217	217	43	43	42	0	2	42	0	2	5
+kingsrow	mo2-kingsrow	219	110.1	ACF #123	B	218	218	50	50	45	0	3756658	49	0	0	1
+kingsrow	mo2-kingsrow	220	110.2	ACF #123	W	219	219	67	67	66	0	1017	66	0	1017	17
+kingsrow	mo2-kingsrow	221	111.1	ACF #124	B	220	220	48	48	47	0	763	47	0	763	5
+kingsrow	mo2-kingsrow	222	111.2	ACF #124	W	221	221	49	49	-	-	-	48	0	0	0
+kingsrow	mo2-kingsrow	223	112.1	ACF #125	B	222	222	48	48	47	0	889	47	0	889	5
+kingsrow	mo2-kingsrow	224	112.2	ACF #125	W	223	223	45	45	44	0	890	44	0	890	6
+kingsrow	mo2-kingsrow	225	113.1	ACF #126	B	224	224	54	54	53	0	1143	53	0	1143	4
+kingsrow	mo2-kingsrow	226	113.2	ACF #126	W	225	225	49	49	48	0	889	48	0	889	6
+kingsrow	mo2-kingsrow	227	114.1	ACF #127	B	226	226	48	48	47	0	382	47	0	382	6
+kingsrow	mo2-kingsrow	228	114.2	ACF #127	W	227	227	53	53	52	0	890	52	0	890	6
+kingsrow	mo2-kingsrow	229	115.1	ACF #128	B	228	228	46	46	45	0	635	45	0	635	6
+kingsrow	mo2-kingsrow	230	115.2	ACF #128	W	229	229	49	49	48	0	889	48	0	889	6
+kingsrow	mo2-kingsrow	231	116.1	ACF #129	B	230	230	50	50	49	0	635	49	0	635	1
+kingsrow	mo2-kingsrow	232	116.2	ACF #129	W	231	231	55	55	54	0	1143	54	0	1143	6
+kingsrow	mo2-kingsrow	233	117.1	ACF #130	B	232	232	54	54	53	0	1143	53	0	1143	2
+kingsrow	mo2-kingsrow	234	117.2	ACF #130	W	233	233	49	49	48	0	890	48	0	890	6
+kingsrow	mo2-kingsrow	235	118.1	ACF #131	B	234	234	46	46	45	0	763	45	0	763	5
+kingsrow	mo2-kingsrow	236	118.2	ACF #131	W	235	235	53	53	52	0	1017	52	0	1017	9
+kingsrow	mo2-kingsrow	237	119.1	ACF #132	B	236	236	50	50	49	0	762	49	0	762	5
+kingsrow	mo2-kingsrow	238	119.2	ACF #132	W	237	237	47	47	-	-	-	46	0	0	0
+kingsrow	mo2-kingsrow	239	120.1	ACF #133 Octopus	B	238	238	58	58	57	0	763	57	0	763	5
+kingsrow	mo2-kingsrow	240	120.2	ACF #133 Octopus	W	239	239	63	63	62	0	1017	62	0	1017	10
+kingsrow	mo2-kingsrow	241	121.1	ACF #134	B	240	240	68	68	67	0	2	67	0	2	8
+kingsrow	mo2-kingsrow	242	121.2	ACF #134	W	241	241	67	67	66	0	2	66	0	2	15
+kingsrow	mo2-kingsrow	243	122.1	ACF #135	B	242	242	50	50	49	0	1270	49	0	1270	6
+kingsrow	mo2-kingsrow	244	122.2	ACF #135	W	243	243	47	47	46	0	1016	46	0	1016	4
+kingsrow	mo2-kingsrow	245	123.1	ACF #136	B	244	244	52	52	51	0	763	51	0	763	4
+kingsrow	mo2-kingsrow	246	123.2	ACF #136	W	245	245	41	41	40	0	889	40	0	889	6
+kingsrow	mo2-kingsrow	247	124.1	ACF #138	B	246	246	46	46	45	0	763	45	0	763	4
+kingsrow	mo2-kingsrow	248	124.2	ACF #138	W	247	247	51	51	50	0	890	50	0	890	5
+kingsrow	mo2-kingsrow	249	125.1	ACF #139	B	248	248	42	42	41	0	1017	41	0	1017	5
+kingsrow	mo2-kingsrow	250	125.2	ACF #139	W	249	249	73	73	72	0	1017	72	0	1017	13
+kingsrow	mo2-kingsrow	251	126.1	ACF #140	B	250	250	64	64	63	0	1017	63	0	1017	5
+kingsrow	mo2-kingsrow	252	126.2	ACF #140	W	251	251	41	41	40	0	889	40	0	889	4
+kingsrow	mo2-kingsrow	253	127.1	ACF #141	B	252	252	94	94	93	0	1017	93	0	1017	18
+kingsrow	mo2-kingsrow	254	127.2	ACF #141	W	253	253	87	87	86	0	763	86	0	763	9
+kingsrow	mo2-kingsrow	255	128.1	ACF #142	B	254	254	50	50	-	-	-	49	0	0	0
+kingsrow	mo2-kingsrow	256	128.2	ACF #142	W	255	255	55	55	54	0	636	54	0	636	4
+kingsrow	mo2-kingsrow	257	129.1	ACF #143	B	256	256	56	56	55	0	889	55	0	889	4
+kingsrow	mo2-kingsrow	258	129.2	ACF #143	W	257	257	65	65	64	0	6969916	64	0	6969916	2
+kingsrow	mo2-kingsrow	259	130.1	ACF #144	B	258	258	48	48	-	-	-	47	0	0	0
+kingsrow	mo2-kingsrow	260	130.2	ACF #144	W	259	259	47	47	46	0	1017	46	0	1017	4
+kingsrow	mo2-kingsrow	261	131.1	ACF #146	B	260	260	48	48	47	0	762	47	0	762	2
+kingsrow	mo2-kingsrow	262	131.2	ACF #146	W	261	261	47	47	46	0	2	46	0	2	5
+kingsrow	mo2-kingsrow	263	132.1	ACF #147	B	262	262	48	48	-	-	-	47	0	0	0
+kingsrow	mo2-kingsrow	264	132.2	ACF #147	W	263	263	51	51	50	0	1397	50	0	1397	6
+kingsrow	mo2-kingsrow	265	133.1	ACF #148	B	264	264	48	48	47	0	2040992	47	0	2040992	15
+kingsrow	mo2-kingsrow	266	133.2	ACF #148	W	265	265	51	51	50	0	1144	50	0	1144	2
+kingsrow	mo2-kingsrow	267	134.1	ACF #149	B	266	266	46	46	45	0	508	45	0	508	8
+kingsrow	mo2-kingsrow	268	134.2	ACF #149	W	267	267	47	47	46	0	635	46	0	635	6
+kingsrow	mo2-kingsrow	269	135.1	ACF #150	B	268	268	40	40	39	0	2	39	0	2	2
+kingsrow	mo2-kingsrow	270	135.2	ACF #150	W	269	269	57	57	56	0	636	56	0	636	5
+kingsrow	mo2-kingsrow	271	136.1	ACF #151	B	270	270	62	62	61	0	2	61	0	2	5
+kingsrow	mo2-kingsrow	272	136.2	ACF #151	W	271	271	53	53	52	0	1144	52	0	1144	9
+kingsrow	mo2-kingsrow	273	137.1	ACF #152	B	272	272	54	54	53	0	1271	53	0	1271	7
+kingsrow	mo2-kingsrow	274	137.2	ACF #152	W	273	273	57	57	56	0	890	56	0	890	5
+kingsrow	mo2-kingsrow	275	138.1	ACF #153 Black Widow	B	274	274	64	64	63	0	889	63	0	889	1
+kingsrow	mo2-kingsrow	276	138.2	ACF #153 Black Widow	W	275	275	65	65	64	0	890	64	0	890	4
+kingsrow	mo2-kingsrow	277	139.1	ACF #154	B	276	276	52	52	51	0	762	51	0	762	5
+kingsrow	mo2-kingsrow	278	139.2	ACF #154	W	277	277	49	49	48	0	508	48	0	508	5
+kingsrow	mo2-kingsrow	279	140.1	ACF #155	B	278	278	48	48	47	0	762	47	0	762	5
+kingsrow	mo2-kingsrow	280	140.2	ACF #155	W	279	279	47	47	46	0	1017	46	0	1017	4
+kingsrow	mo2-kingsrow	281	141.1	ACF #157	B	280	280	54	54	53	0	1017	53	0	1017	5
+kingsrow	mo2-kingsrow	282	141.2	ACF #157	W	281	281	57	57	56	0	890	56	0	890	5
+kingsrow	mo2-kingsrow	283	142.1	ACF #158	B	282	282	44	44	43	0	763	43	0	763	3
+kingsrow	mo2-kingsrow	284	142.2	ACF #158	W	283	283	49	49	48	0	636	48	0	636	5
+kingsrow	mo2-kingsrow	285	143.1	ACF #159	B	284	284	54	54	53	0	1016	53	0	1016	6
+kingsrow	mo2-kingsrow	286	143.2	ACF #159	W	285	285	53	53	52	0	890	52	0	890	6
+kingsrow	mo2-kingsrow	287	144.1	ACF #160	B	286	286	54	54	53	0	1017	53	0	1017	3
+kingsrow	mo2-kingsrow	288	144.2	ACF #160	W	287	287	45	45	44	0	1017	44	0	1017	5
+kingsrow	mo2-kingsrow	289	145.1	ACF #161	B	288	288	46	46	45	0	890	45	0	890	5
+kingsrow	mo2-kingsrow	290	145.2	ACF #161	W	289	289	51	51	50	0	1397	50	0	1397	7
+kingsrow	mo2-kingsrow	291	146.1	ACF #162	B	290	290	52	52	51	0	762	51	0	762	5
+kingsrow	mo2-kingsrow	292	146.2	ACF #162	W	291	291	55	55	54	0	763	54	0	763	5
+kingsrow	mo2-kingsrow	293	147.1	ACF #163	B	292	292	56	56	55	0	889	55	0	889	6
+kingsrow	mo2-kingsrow	294	147.2	ACF #163	W	293	293	49	49	48	0	1017	48	0	1017	2
+kingsrow	mo2-kingsrow	295	148.1	ACF #164	B	294	294	44	44	43	0	636	43	0	636	4
+kingsrow	mo2-kingsrow	296	148.2	ACF #164	W	295	295	47	47	46	0	889	46	0	889	5
+kingsrow	mo2-kingsrow	297	149.1	ACF #165	B	296	296	46	46	45	0	763	45	0	763	2
+kingsrow	mo2-kingsrow	298	149.2	ACF #165	W	297	297	45	45	44	0	3509755	44	0	3509755	1
+kingsrow	mo2-kingsrow	299	150.1	ACF #166	B	298	298	62	62	61	0	889	61	0	889	4
+kingsrow	mo2-kingsrow	300	150.2	ACF #166	W	299	299	55	55	54	0	635	54	0	635	5
+kingsrow	mo2-kingsrow	301	151.1	ACF #167	B	300	300	92	92	91	0	762	91	0	762	22
+kingsrow	mo2-kingsrow	302	151.2	ACF #167	W	301	301	45	45	-	-	-	44	0	0	0
+kingsrow	mo2-kingsrow	303	152.1	ACF #169	B	302	302	68	68	67	0	890	67	0	890	12
+kingsrow	mo2-kingsrow	304	152.2	ACF #169	W	303	303	51	51	50	0	636	50	0	636	3
+kingsrow	mo2-kingsrow	305	153.1	ACF #170	B	304	304	52	52	51	0	1016	51	0	1016	6
+kingsrow	mo2-kingsrow	306	153.2	ACF #170	W	305	305	47	47	46	0	636	46	0	636	4
+kingsrow	mo2-kingsrow	307	154.1	ACF #172	B	306	306	82	82	81	0	763	81	0	763	15
+kingsrow	mo2-kingsrow	308	154.2	ACF #172	W	307	307	45	45	-	-	-	44	0	0	0
+kingsrow	mo2-kingsrow	309	155.1	ACF #173	B	308	308	44	44	43	0	2	43	0	2	5
+kingsrow	mo2-kingsrow	310	155.2	ACF #173	W	309	309	49	49	48	0	636	48	0	636	5
+kingsrow	mo2-kingsrow	311	156.1	ACF #174 Skunk	B	310	310	48	48	47	0	762	47	0	762	3
+kingsrow	mo2-kingsrow	312	156.2	ACF #174 Skunk	W	311	311	59	59	58	0	763	58	0	763	5

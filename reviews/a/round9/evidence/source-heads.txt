@@ -1,0 +1,11 @@
+Final fetch: 2026-11-11T14:12:31.005708+00:00
+origin/master fa1fc5718b8642aa0a9796a06d49837bb6475ad1
+origin/t3/claim-boundary e027cf4975a15261824a34cf72338d264b8ce852
+origin/t3/booklab 7ca6c27198ea0cc89f315744448fdc005ea81423
+origin/t3/review-reports 6e1682e7a9e867b07f3bc919f80210cef4fdcab9
+All 141 master source/test/tool/CMake/weight files equal the reused release build.
+Claim-boundary source and setup page equal the tested e027cf4 archive.
+All nine current cl/mo2 PDNs retain the round-8 decompressed hashes.
+All 17 benchmark position/move/score/node rows equal the master baseline.
+Runner used in the documentation fixture is byte-source-identical in tools/match/main.cpp.
+Only owned fixtures used; no real opponent DLL or protected live directory/process/lock.
