@@ -1062,6 +1062,28 @@ named wins: 3 kings vs 1 is +542 / −517, where n8q gives +519 / −467.
 - Whether n9h plays better is for the laptop match against n8q. The net is on the branch:
   `experiments/truth-data/n9h.nnue`.
 
+**Validation loss on seeded-start games only** (lead, 06:xx). Records: the seed-reachable games
+(`truth startkinds --out`) of n9h's held-out E5 tails: gen6a from record 10,559,953 and gen6b from 4,273,689 of the
+deduplicated files. That is 245,902 records in 10,623 games, none with ≤ 8 pieces (E5 stops there). Loss as in
+training (K 102.4, λ 0.5, proven records against their result); `logs/seeded_loss_n9h.md`.
+
+| net | 9–12 | 13–16 | 17–24 | all (record-weighted) |
+|---|---|---|---|---|
+| n6c | 0.39227 | 0.36182 | 0.42843 | 0.38646 |
+| n8q | 0.37317 | 0.34820 | 0.41939 | 0.37064 |
+| n9h | 0.35848 | 0.33297 | 0.40916 | 0.35636 |
+
+- n9h is lowest in every group (−0.015 against n8q at 9–12 and 13–16, −0.010 at 17–24).
+- These games come from the same generator as n9h's training data. 4–8% of the tail positions also occur in n9h's
+  training part (gen6a 8.1%, gen6b 4.4%), so this measures fit to E5 rather than playing strength.
+- "Seeded" here means seed-reachable: about 38% of random openings are seed-reachable too (calibration above).
+- The E2 files have no game flags, so their tails cannot be split this way.
+
+**Loader check with master cc29fc9** (the loader now refuses a net whose feature-transformer bias plus its 24 largest
+per-square weights can leave the 16-bit range; merged a07260c, ctest 52/52, bench 7,833,556). The new loader accepts
+n6c, n8q, n9h and every committed n8*/w1064 net. w2032/w2064 are refused, as before, only for their 2048-wide feature
+transformer, which needs the `REGICIDE_NNUE_MAX_FT=2048` build. The trainer's clipping is unchanged.
+
 **From here on:** the generators were restarted at 04:15 with 6–16 random plies (lead's decision), seeds 620/621.
 Records from gen6a 12,514,816 and gen6b 6,659,840 on are 6–16-ply data. gen6a 12,435,456–12,514,815 is still
 4–12-ply data, written after the snapshot.
