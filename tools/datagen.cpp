@@ -15,6 +15,11 @@
 // The first record of every game carries DataRecord::GAME_START. Write a new file per run (the normal case); --out
 // appends only to a file whose records carry those flags, never to a file written by an older datagen. Proven
 // labels follow tools/label.hpp.
+// --avoid FILE (repeatable): the game starts of FILE (its GAME_START records) are never played; give the own output
+// file and every file another generator writes, so a restart or a second generator cannot repeat their games.
+// --start-parity 0|1: play only starts whose hash has that parity, so two generators running at the same time never
+// play the same start. --count-starts N: dry run of the start choice, distinct starts per kind (estimates the pool).
+// --list-starts FILE: print FILE's game starts and their parity (tests/datagen_avoid_test.cmake).
 #include <atomic>
 #include <cstdint>
 #include <cstdio>
@@ -58,7 +63,44 @@ struct Config {
     std::vector<Position> seeds;
     double seed_frac = 1.0;
     int seed_rmin = 2, seed_rmax = 4;
+    std::vector<std::string> avoid;  // files whose game starts are never played again
+    int start_parity = -1;           // 0 or 1: play only starts of that hash parity (two concurrent generators)
+    long count_starts = 0;           // dry run: draw this many starts, count distinct ones, exit
+    std::string list_starts;         // print the game starts of this file, exit
 };
+
+// A game's start, as stored: the board and side to move of its first record (the GAME_START record). That is the
+// first quiet position of the game (positions with a capture are not written), so it is checked there, before the
+// first full search, not at the position after the random plies.
+struct StartKey {
+    std::uint32_t black = 0, white = 0, kings = 0;
+    std::uint8_t stm = 0;
+    bool operator==(const StartKey&) const = default;
+};
+std::uint64_t mix(const StartKey& k) {
+    std::uint64_t x = ((std::uint64_t(k.black) << 32) | k.white) ^ ((std::uint64_t(k.kings) << 1 | k.stm) * 0x9E3779B97F4A7C15ull);
+    x ^= x >> 30, x *= 0xBF58476D1CE4E5B9ull, x ^= x >> 27, x *= 0x94D049BB133111EBull, x ^= x >> 31;  // splitmix64
+    return x;
+}
+struct StartKeyHash {
+    std::size_t operator()(const StartKey& k) const { return std::size_t(mix(k)); }
+};
+StartKey key_of(const DataRecord& r) { return {r.black, r.white, r.kings, std::uint8_t(r.stm & 1)}; }
+int parity_of(const StartKey& k) { return int(mix(k) >> 63); }
+using StartSet = std::unordered_set<StartKey, StartKeyHash>;
+
+// Calls f(record) for every GAME_START record of the file (whole records only: the file may be growing).
+template <class F>
+bool for_each_start(const std::string& path, F f) {
+    std::FILE* in = std::fopen(path.c_str(), "rb");
+    if (!in) return false;
+    std::vector<DataRecord> buf(1 << 16);
+    for (std::size_t n; (n = std::fread(buf.data(), sizeof(DataRecord), buf.size(), in)) > 0;)
+        for (std::size_t i = 0; i < n; ++i)
+            if (buf[i].game_start()) f(buf[i]);
+    std::fclose(in);
+    return true;
+}
 
 }  // namespace
 
@@ -93,6 +135,10 @@ int main(int argc, char** argv) {
             }
             std::printf("seeds: %zu positions\n", cfg.seeds.size());
         }
+        else if (k == "--avoid") cfg.avoid.push_back(next());
+        else if (k == "--start-parity") cfg.start_parity = std::stoi(next());
+        else if (k == "--count-starts") cfg.count_starts = std::stol(next());
+        else if (k == "--list-starts") cfg.list_starts = next();
         else if (k == "--seed") cfg.seed = std::stoull(next());
         else if (k == "--out") cfg.out = next();
         else if (k == "--evalfile") cfg.evalfile = next();
@@ -107,6 +153,55 @@ int main(int argc, char** argv) {
             std::cerr << "unknown option " << k << '\n';
             return 2;
         }
+    }
+
+    if (cfg.start_parity > 1) return std::cerr << "--start-parity takes 0 or 1\n", 2;
+    if (!cfg.list_starts.empty()) {  // "black white kings stm parity" (hex) of every game start, one per line
+        const bool ok = for_each_start(cfg.list_starts, [](const DataRecord& r) {
+            const StartKey k = key_of(r);
+            std::printf("%08x%08x%08x%u %d\n", k.black, k.white, k.kings, unsigned(k.stm), parity_of(k));
+        });
+        if (!ok) return std::cerr << "cannot open " << cfg.list_starts << '\n', 1;
+        return 0;
+    }
+    if (cfg.count_starts > 0) {
+        // Dry run of the start choice (seed or random opening, then the random plies; no search, no opening-score
+        // filter): distinct start positions after n draws, per kind, and the share of new ones in each interval.
+        // An estimate of the start pool: a game's stored start is its first quiet position, usually this one.
+        std::mt19937_64 rng(cfg.seed * 1000003);
+        StartSet distinct[2];
+        long draws[2] = {0, 0}, last_draws[2] = {0, 0};
+        std::size_t last_distinct[2] = {0, 0};
+        long next_report = 10000;
+        for (long n = 1; n <= cfg.count_starts; ++n) {
+            const bool from_seed = !cfg.seeds.empty() && double(rng() % 1000000) < cfg.seed_frac * 1000000.0;
+            Position pos = from_seed ? cfg.seeds[rng() % cfg.seeds.size()] : Position();
+            const int rmin = from_seed ? cfg.seed_rmin : cfg.random_min, rmax = from_seed ? cfg.seed_rmax : cfg.random_max;
+            const int nrandom = rmin + int(rng() % (rmax - rmin + 1));
+            bool ok = true;
+            for (int i = 0; i < nrandom && ok; ++i) {
+                MoveList list;
+                generate_moves(pos, list);
+                if (list.empty()) ok = false;
+                else pos.make_move(list[rng() % list.size()]);
+            }
+            if (!ok) continue;
+            draws[from_seed]++;
+            distinct[from_seed].insert(key_of(DataRecord::make(pos, 0)));
+            if (n == next_report || n == cfg.count_starts) {
+                for (int s = 1; s >= 0; --s) {
+                    const long dd = draws[s] - last_draws[s];
+                    std::printf("draws %ld  %s: draws %ld distinct %zu  new in the last %ld: %.1f%%\n", n,
+                                s ? "seeded" : "random opening", draws[s], distinct[s].size(), dd,
+                                dd ? 100.0 * double(distinct[s].size() - last_distinct[s]) / double(dd) : 0.0);
+                    last_draws[s] = draws[s];
+                    last_distinct[s] = distinct[s].size();
+                }
+                std::fflush(stdout);
+                next_report = next_report * 2;
+            }
+        }
+        return 0;
     }
 
     std::shared_ptr<const Evaluator> ev = Evaluator::builtin();
@@ -146,12 +241,29 @@ int main(int argc, char** argv) {
         return 1;
     }
 
+    // Game starts already played (the GAME_START records of the --avoid files): never played again, so a restart or a
+    // second generator does not repeat games of earlier runs (2026-11-11: 22% of the new games did).
+    StartSet used;
+    long preloaded = 0;
+    for (const std::string& f : cfg.avoid) {
+        const bool ok = for_each_start(f, [&](const DataRecord& r) {
+            used.insert(key_of(r));
+            ++preloaded;
+        });
+        if (!ok && f != cfg.out) return std::cerr << "cannot open --avoid " << f << '\n', 1;  // a new --out file is fine
+    }
+    if (!cfg.avoid.empty())
+        std::printf("avoid: %ld game starts preloaded from %zu files, %zu distinct\n", preloaded, cfg.avoid.size(),
+                    used.size());
+    if (cfg.start_parity >= 0) std::printf("start parity %d: only starts of that hash parity are played\n", cfg.start_parity);
+    std::fflush(stdout);
+
     std::atomic<long> next_game{0}, positions{0}, incomplete{0}, partial_losses{0};
     std::atomic<long> ends[4] = {0, 0, 0, 0};  // no legal moves, draw rule (repetition/length), database, adjudicated
     std::atomic<long> results[3] = {0, 0, 0};  // black loss, draw, black win
     std::mutex mu;
     std::unordered_set<Key> started;  // start positions used in this run
-    std::atomic<long> repeats{0};
+    std::atomic<long> repeats{0}, used_skipped{0}, parity_skipped{0};
 
     auto worker = [&](int tid) {
         std::mt19937_64 rng(stream + std::uint64_t(tid));
@@ -201,6 +313,7 @@ int main(int argc, char** argv) {
             game.clear();
             int result = 0;  // black's view
             int run = 0, last_sign = 0;
+            bool skip = false;
             for (int ply = 0;; ++ply) {
                 MoveList list;
                 generate_moves(pos, list);
@@ -227,6 +340,23 @@ int main(int argc, char** argv) {
                     }
                 }
 
+                // The first record of the game will be this position (if its search gives a label): skip the game if
+                // that start was already played (here, in an --avoid file, or by another thread) or has the other
+                // parity, before the first full search. A position that ends up without a record was claimed anyway.
+                if (game.empty() && !list[0].is_capture()) {
+                    const StartKey k = key_of(DataRecord::make(pos, 0));
+                    if (cfg.start_parity >= 0 && parity_of(k) != cfg.start_parity) {
+                        parity_skipped++;
+                        skip = true;
+                        break;
+                    }
+                    std::lock_guard lock(mu);
+                    if (!used.insert(k).second) {
+                        used_skipped++;
+                        skip = true;
+                        break;
+                    }
+                }
                 engine.set_position(pos, history);
                 const SearchResult r = engine.go(limits);
                 // label_of (label.hpp): a win is proven, a loss only from a complete iteration (a partial loss is
@@ -257,6 +387,7 @@ int main(int argc, char** argv) {
                 history.push_back(pos);
                 pos.make_move(r.best);
             }
+            if (skip) continue;
             for (DataRecord& rec : game) rec.result = std::int8_t(result);
             if (!game.empty()) game[0].stm |= DataRecord::GAME_START;  // game boundaries are marked, not guessed
             results[result + 1]++;
@@ -268,10 +399,11 @@ int main(int argc, char** argv) {
             const long g = results[0] + results[1] + results[2];
             if (g % 1000 == 0) {
                 std::printf("games %ld  positions %ld  black +%ld =%ld -%ld  ends: no-moves %ld draw-rule %ld "
-                            "database %ld adjudicated %ld  incomplete searches %ld  partial losses %ld  repeated starts skipped %ld\n",
+                            "database %ld adjudicated %ld  incomplete searches %ld  partial losses %ld  repeated starts skipped %ld"
+                            "  used starts skipped %ld  other parity skipped %ld\n",
                             g, positions.load(), results[2].load(), results[1].load(), results[0].load(),
                             ends[0].load(), ends[1].load(), ends[2].load(), ends[3].load(), incomplete.load(),
-                            partial_losses.load(), repeats.load());
+                            partial_losses.load(), repeats.load(), used_skipped.load(), parity_skipped.load());
                 std::fflush(stdout);
             }
         }

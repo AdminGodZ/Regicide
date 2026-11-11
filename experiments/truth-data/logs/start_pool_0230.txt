@@ -1,0 +1,25 @@
+== starts already used (GAME_START records of both E5 files)
+avoid: 647231 game starts preloaded from 2 files, 442182 distinct
+== start pool: dry run of the E5 start choice (seeds, seed-frac 0.5, seed plies 2-4; random openings 4-12 plies)
+draws 10000  seeded: draws 4966 distinct 4957  new in the last 4966: 99.8%
+draws 10000  random opening: draws 5034 distinct 4521  new in the last 5034: 89.8%
+draws 20000  seeded: draws 9904 distinct 9883  new in the last 4938: 99.8%
+draws 20000  random opening: draws 10096 distinct 8527  new in the last 5062: 79.1%
+draws 40000  seeded: draws 19869 distinct 19808  new in the last 9965: 99.6%
+draws 40000  random opening: draws 20131 distinct 15774  new in the last 10035: 72.2%
+draws 80000  seeded: draws 39978 distinct 39789  new in the last 20109: 99.4%
+draws 80000  random opening: draws 40022 distinct 28749  new in the last 19891: 65.2%
+draws 160000  seeded: draws 80117 distinct 79326  new in the last 40139: 98.5%
+draws 160000  random opening: draws 79883 distinct 51501  new in the last 39861: 57.1%
+draws 320000  seeded: draws 160186 distinct 157044  new in the last 80069: 97.1%
+draws 320000  random opening: draws 159814 distinct 91223  new in the last 79931: 49.7%
+draws 640000  seeded: draws 320450 distinct 308686  new in the last 160264: 94.6%
+draws 640000  random opening: draws 319550 distinct 158302  new in the last 159736: 42.0%
+draws 1280000  seeded: draws 640284 distinct 598174  new in the last 319834: 90.5%
+draws 1280000  random opening: draws 639716 distinct 270493  new in the last 320166: 35.0%
+draws 2560000  seeded: draws 1280917 distinct 1139407  new in the last 640633: 84.5%
+draws 2560000  random opening: draws 1279083 distinct 449615  new in the last 639367: 28.0%
+draws 5120000  seeded: draws 2561032 distinct 2118807  new in the last 1280115: 76.5%
+draws 5120000  random opening: draws 2558968 distinct 725655  new in the last 1279885: 21.6%
+draws 8192000  seeded: draws 4095657 distinct 3174413  new in the last 1534625: 68.8%
+draws 8192000  random opening: draws 4096343 distinct 985413  new in the last 1537375: 16.9%

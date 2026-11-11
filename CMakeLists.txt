@@ -146,6 +146,7 @@ add_executable(truth tools/truth.cpp)
 target_link_libraries(truth PRIVATE regicide_core)
 add_test(NAME truth_fens_no_record COMMAND ${CMAKE_COMMAND} -DTRUTH=$<TARGET_FILE:truth> -DWORK=${CMAKE_CURRENT_BINARY_DIR}/truth_fens_test -P ${CMAKE_CURRENT_SOURCE_DIR}/tests/truth_fens_test.cmake)
 add_test(NAME truth_pdn_reader COMMAND ${CMAKE_COMMAND} -DTRUTH=$<TARGET_FILE:truth> -DWORK=${CMAKE_CURRENT_BINARY_DIR}/truth_pdn_test -P ${CMAKE_CURRENT_SOURCE_DIR}/tests/truth_pdn_test.cmake)
+add_test(NAME datagen_avoid COMMAND ${CMAKE_COMMAND} -DDATAGEN=$<TARGET_FILE:datagen> -DWORK=${CMAKE_CURRENT_BINARY_DIR}/datagen_avoid_test -P ${CMAKE_CURRENT_SOURCE_DIR}/tests/datagen_avoid_test.cmake)
 
 add_executable(rescore tools/rescore.cpp)
 target_link_libraries(rescore PRIVATE regicide_core)

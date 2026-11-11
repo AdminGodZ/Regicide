@@ -1,0 +1,11 @@
+== random openings --random-min 6 --random-max 16 (seeded part unchanged)
+draws 640000  random opening: draws 320239 distinct 247024  new in the last 159792: 71.9%
+draws 1280000  random opening: draws 640136 distinct 456776  new in the last 319897: 65.6%
+draws 2560000  random opening: draws 1281211 distinct 835468  new in the last 641075: 59.1%
+== random openings --random-min 8 --random-max 20 (seeded part unchanged)
+draws 640000  random opening: draws 319231 distinct 294848  new in the last 159427: 89.8%
+draws 1280000  random opening: draws 638942 distinct 569092  new in the last 319711: 85.8%
+draws 2560000  random opening: draws 1279030 distinct 1089426  new in the last 640088: 81.3%
+== seed plies 2-6
+draws 1280000  seeded: draws 640155 distinct 620039  new in the last 320210: 95.4%
+draws 2560000  seeded: draws 1280316 distinct 1209878  new in the last 640161: 92.1%
