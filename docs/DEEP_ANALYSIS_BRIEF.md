@@ -1,4 +1,4 @@
-# Brief for an external deep analysis of Regicide (state of master 85a9fe8, 2026-11-11)
+# Brief for an external deep analysis of Regicide (state of master on 2026-11-11: book r11c, net n8q)
 
 This is the briefing for a reviewer who has the repository and time to think, but no access to our machines.
 The question is at the end; the sections before it say what is known, with numbers, so that no time goes into
@@ -8,7 +8,7 @@ where the two differ.
 ## What Regicide is
 
 An English (8x8) checkers engine in C++26: bitboards, principal-variation search with the usual reductions and
-extensions (`src/search.cpp`), a transposition table (`src/tt.cpp`), an NNUE evaluation (`src/nnue.cpp`, net n6c:
+extensions (`src/search.cpp`), a transposition table (`src/tt.cpp`), an NNUE evaluation (`src/nnue.cpp`, net n8q:
 128 inputs, feature transformer 1024, two hidden layers, 8 output buckets by piece count), an embedded opening book
 with an avoid list (`src/book.cpp`, `src/weights/book.bin`), an endgame database for 2 to 8 pieces with
 win/loss/draw values to 8 pieces and distance values to 6 (`src/egdb/`), and a conversion search for database
@@ -24,13 +24,16 @@ against these opponents are allowed. The engine cannot know which opponent it fa
 
 ## Where we stand (wins/draws/losses for Regicide)
 
-Built-in book r11c, net n6c, two runs unless noted (`t3/booklab`, `experiments/booklab/wp11c/`):
+Built-in book r11c with the built-in net n8q and with the previous net n6c, two runs each against Cake and
+KingsRow, one against GuiNN (`t3/booklab`, `experiments/booklab/wp11c/`):
 
-| Opponent | Result |
-|---|---|
-| Cake 1.89f | 0/312/0 and 0/312/0 |
-| KingsRow 1.20, book mode 3 ("best moves") | 0/312/0 and 1/311/0 |
-| GuiNN 2.06 | 21/291/0 (one run) |
+| Opponent | n8q (built in) | n6c |
+|---|---|---|
+| Cake 1.89f | 0/312/0 and 0/312/0 | 0/312/0 and 0/312/0 |
+| KingsRow 1.20, book mode 3 ("best moves") | 1/311/0 and 1/311/0 | 0/312/0 and 1/311/0 |
+| GuiNN 2.06 | 23/289/0 | 21/291/0 |
+
+No loss in 3,120 games.
 
 For scale: Cake against KingsRow in book mode 3 on the same deck scores 1/311/0. On these openings the top
 programs draw almost everything with each other, and so do we now.
@@ -62,12 +65,13 @@ by the opening itself.
   hundredths of a man in about 4% of positions.
 - One step above the database the search is nearly error-free from 20k nodes on; no lost game turned with 8 or
   fewer pieces. Lost games are proven lost at a median of 10 pieces but turn much earlier.
-- Nets: relabelling training data with database truth (n8q) gives +3.5 Elo in self-play with the database
-  (interval +0.1 to +6.8) and +0.6 without (-3.1 to +4.4). A net with 15M more database-true self-play records (n9h)
+- Nets: relabelling training data with database truth (n8q, now built in) gives +3.5 Elo over n6c in self-play
+  with the database (interval +0.1 to +6.8) and +0.6 without (-3.1 to +4.4). A net with 15M more database-true self-play records (n9h)
   scores proven wins and losses near the database a little more decisively and judges draws above the database no
   better. Wider feature transformers were slower and not stronger at short time. None of these nets changes a
-  result against the three opponents, and a different net after the same book once lost 5 of 312 to Cake, because
-  the zero-loss result rests on the moves the net chooses after the book.
+  result against the three opponents. Before the pins, n8q after the same book lost 5 of 312 to Cake where n6c lost
+  none, because the zero-loss result rested on the moves the net chose after the book; with the pinned book both
+  nets are clean.
 - Search ideas (`t3/search-lab`, `experiments/search-lab/RESULTS.md`): seven switches (hash-first database
   probes, a leaf evaluation cache, correction history, an extension change, double and negative singular
   extensions, the stored evaluation from the hash table) screened in self-play at 300 ms over 800 pairs from an
@@ -84,8 +88,10 @@ by the opening itself.
   ballots.
 - Against KingsRow in mode 3 we have a handful of wins on record (ACF 71 as White twice, ACF 43 as White, a few in
   the earlier runs). They come from KingsRow varying a move after its book ends.
-- Against Cake we have one win on the standard deck (ACF 163, Cake Black). Its first clearly worse move is at ply
-  51 with 13 pieces, and none of Cake's six other games of that opening reaches that position.
+- Against Cake we have one win in the standard runs (ACF 163, Cake Black). Its first clearly worse move in that
+  game is at ply 51 with 13 pieces, and none of Cake's other games of that opening reaches that position. But when
+  that opening and colour was replayed 20 times, we scored 6/14/0: Cake does not repeat its own play, and one of its
+  three choices at plies 15 to 19 (10-15 at ply 15, 9 games) lost 6 times.
 - Cake repeats about 17% of its games move for move against the same play; KingsRow in mode 3 repeats its opening
   play closely and varies later (median first difference between two runs at ply 42).
 
