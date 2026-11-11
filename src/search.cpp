@@ -808,7 +808,7 @@ SearchResult Engine::go(const Limits& limits, InfoFn on_info) {
         return std::count(history_.end() - std::ptrdiff_t(window), history_.end(), c.key()) >= 2;
     };
     auto db = limits.infinite ? std::nullopt : egdb_root_move(root_, root_moves);
-    if (conversion_ < 0 && !analysis && !limits.infinite) {
+    if (conversion_ < 0 && !limits.infinite) {
         const auto draw = std::ranges::find_if(root_moves, draws_at_once);
         if (draw != root_moves.end()) db = std::pair{*draw, Score(SCORE_DRAW)};
     } else if (db && conversion_ > 0 && draws_at_once(db->first)) {
