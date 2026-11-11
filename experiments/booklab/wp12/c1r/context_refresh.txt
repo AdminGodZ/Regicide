@@ -1,0 +1,12 @@
+v11c-n8q contexts 14927 points 4863 kept 266
+v11c-n6c contexts 1134 points 1017 kept 39
+P267 ['ACF #169|B|guinn|bl-v11c-n6c-guinn-a-h2:74.1|20', 'ACF #169|B|guinn|bl-v11c-n8q-guinn-a-h2:74.1|20']
+points gaining a new ballot/colour line 100 kept 8
+   P149 [('ACF #113', 'B')]
+   P267 [('ACF #169', 'B')]
+   P891 [('ACF #75', 'W')]
+   P946 [('ACF #29', 'W')]
+   P1104 [('ACF #55', 'B')]
+   P1263 [('ACF #40', 'B')]
+   P1285 [('ACF #128', 'B'), ('ACF #53', 'B')]
+   P2348 [('ACF #38', 'B')]

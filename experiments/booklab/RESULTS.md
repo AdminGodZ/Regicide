@@ -489,6 +489,69 @@ position key `ce79c29456f8f67e`): reached in 8 r11d games, every time 29-25 from
 Cake 2 (drawn); n8q: KingsRow 2 (drawn), Cake 2 (drawn); no GuiNN game reaches it. The old Cake census (4 × 312) is
 held (HOLD_TAGS `^c4-cake-`) and replaced by experiment 2.
 
+**Experiment 2: does Cake's play depend on what its process played before?** (lead 2026-11-11; no book change: r11d
+with n8q, DLL `bl-ddd25fc-r11d` from master ddd25fc, runner and host from ddd25fc (`--fresh-engines`; PDN tags Worker
+and EngineGames = games the worker's engine processes played before), concurrency 8, PDN comments, set book 3 read
+back; `tools/booklab/e2_report.py`, `wp12/e2_report.md`.) ACF #163 as White (12-16 21-17 16-20), 24 games each:
+
+| Arm | Cake's ply-15 move | Regicide W / D / L |
+|---|---|---|
+| a, `--fresh-engines` (every game EngineGames 0) | 4-8 in 24 of 24 (d20 / 6,280,939 or d21 / 8,627,891 nodes) | 1 / 23 / 0 |
+| b, processes kept: first game of each worker (EngineGames 0) | 4-8 in 8 of 8 (d20 / 6,280,939 seven times, d21 once) | 0 / 8 / 0 |
+| b, second game (EngineGames 1) | **10-15 in 7 of 8** (d24–25, 8.8–14.7 M nodes); 4-8 once (d25) | 5 / 3 / 0 |
+| b, third and fourth game (EngineGames 2–3) | 4-8 in 8 of 8 (d21–27) | 1 / 7 / 0 |
+
+**Cake's 10-15 at ply 15 appears only in the second game of a process, after one previous game** (here a drawn #163 game
+of the 4-8 line); never in a first game (32 games) and never in a third or fourth (8). At the same 0.5 s/move the
+second game searches deeper (d25, 14.7 M nodes, against d20, 6.3 M in a first game), consistent with what the
+process keeps from its previous game (its hash table); from the third game on it searches deeper still and returns
+to 4-8. known163 (r11c, kept processes, 20 games on 8 workers) fits exactly: rounds 1–8 (first games) 4-8 at d20,
+rounds 9–16 (second games) 10-15 at d25, rounds 17–20 4-8 at d26/27. After 10-15 the b games follow known163's line:
+Cake's ply-37 choice 20-24 in all five wins, 14-18 in the two drawn games. Our score on #163: 1 / 23 / 0 with fresh
+processes, 6 / 18 / 0 with kept processes. The deck arm (c, 6 × kept and 6 × fresh) is playing.
+
+## Review of the WP12 tools at fa0c887 (2026-11-11): fixes
+
+1. **Cap per opening** (`wp12_select.py`): every Cake context of a point counts on its line (any supplied run or
+   repeat), not only contexts of the point's own run stem.
+2. **Known point** (`wp12_select.py`): gets the same eligibility as every point (`qualifies()`: not a protected
+   decision, two non-avoided moves); it is no candidate if the book already plays 8-12 there or 8-12 is not a legal
+   non-avoided move; a missing score (pinned or 8-12) is "no candidate: no completed score", not a failed margin
+   (only a completed score below the margin gives the own arm).
+3. **Consulted** (`wp12_gates.key_use`, used by discovery and stages 2–3): at the key position the book is consulted
+   (pinwalk eligible), the walked book plays the expected move there (pinwalk's book column: the alternative for a
+   candidate, the pinned move for a control), the game played it, and the record shows a book move (Regicide's
+   comment `depth 0/0 … nodes 0`). A searched move equal to the candidate is no consultation (test).
+4. **On the board** (`wp12_gates.on_board`): a positive list of the runner's on-board termination texts
+   (tools/match/main.cpp on master: "… has no legal moves", "threefold repetition", "N-move rule", "endgame database
+   adjudication", "adjudicated draw after …", "draw claimed by …"); everything else, "lost on time" included, is off
+   the board.
+5. **Replay failures** (`lost_vs_book.py`, `wins_vs_book.py`): every rejected replay is listed in the output as an
+   error (the game's row says REPLAY FAILED) and the tool exits 3; `wins_vs_book.py` replays from the game's FEN tag.
+   Test: a won game and two copies with a corrupted move give "follows: yes" for the first, REPLAY FAILED for both
+   copies, exit 3.
+6. **Contexts after all runs** (`scripts/wp12_chain.sh`): points, contexts and selection are built only after the
+   validation chain reported done and every context run is complete (exit_status 0; the final-validation runs,
+   which predate exit_status, by their summary); scores stay cached. Refreshing c1's points with all runs complete
+   (`wp12/c1r`, same 5,298 points): 4,865 points gain contexts (most from the n8q validation runs, which finished
+   after c1 was built); **100 points gain a new ballot and colour, 8 of them kept candidates** (P149, P267, P891,
+   P946, P1104, P1263, P1285, P2348; the reviewer's P267: ACF #169 B from `bl-v11c-n6c-guinn-a-h2` 74.1 and the n8q
+   repeat). c1 (r11c, n6c) is not used for the pilot; a new campaign is built with the fixed chain.
+7. **Stages 2 and 3** (`tools/booklab/wp12_confirm.py`, gates in `wp12_gates.py`, PROTOCOL.md of master):
+   - stage 2: three separately started blocks, each with 4 candidate games and 4 control games against Cake played
+     at the same time (two matches at concurrency 4 under one hold of the timing lock), book mode 3 read back for all
+     three engines before each block; a block with a match that did not exit 0, did not play all its games or had a
+     game off the board is archived and played again. Keep = 12 + 12 games, at least 3 blocks, no loss, at least 4
+     wins in games that consulted the key, at least 3 more of those than control wins;
+   - stage 3: 12 games each against KingsRow and GuiNN from the nominating context, and against all three opponents
+     from every other recorded context (one match per opponent through bl_run_w.sh); a loss in a game that consulted
+     the key rejects; fewer than 6 consultations against an opponent = untested against it; losses in games that did
+     not consult the key are listed;
+   - `tests_wp12_gates.py` (20 tests, made-up records): the reviewer's reference cases (4 / 8 / 0 with 4 exposed wins
+     against 1 control win in 3 blocks = keep; 3 exposed wins, 4 wins of which 3 exposed, 1 loss, 2 control wins,
+     2 blocks = reject), off-board and incomplete = not counted, the stage-3 plan, exposed and unexposed losses,
+     untested, the consulted rule and the on-board texts.
+
 **New pins (CPU only, for the next r11).** From the 4,368 games of the validated full runs with r10 (final
 validation; k3), r10k (v13) and r10k4 (v13k4) against all three opponents, KingsRow mode 3 included, on top of r10k5;
 rule: a move is pinned only if no game through that position with that move was lost. **41,599 pins** (book r11n,

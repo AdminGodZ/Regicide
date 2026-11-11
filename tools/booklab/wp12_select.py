@@ -24,8 +24,10 @@ Rules fixed before any score is seen:
     descending. Category 4 is not used.
   - A line gives at most three candidates, at least four plies apart (ply of the point, from the start position). A
     candidate counts on every line whose Cake game passes through its position (its contexts against Cake in the
-    point source), not only on the line it was found on.
-  - The known position (w30/w31: ballots 163/165, Black, alternative 8-12) is scored first. If it passes the margin
+    point source: every supplied Cake validation game, any run or repeat), not only on the line it was found on.
+  - The known position (w30/w31: ballots 163/165, Black, alternative 8-12) is scored first, if it qualifies like
+    any point, the book does not already play 8-12 there and 8-12 is a legal non-avoided move (otherwise, or if
+    either move has no completed score, it is no candidate and says why in considered.tsv). If it passes the margin
     it is candidate 0 and counts as one of the three on its lines (review M3, protocol); if it fails, it is its own
     arm and does not count.
   - Slot s of a line is the first point in the line order after slot s-1's point that passes the margin and keeps
@@ -105,13 +107,13 @@ def main():
             continue
         p = dict(zip(hdr, f))
         p["category"], p["distance"], p["ply"] = int(p["category"]), int(p["distance"]), int(p["ply"])
-        src_runs = {p["run"].rsplit("-", 1)[0]}  # bl-v11-n6c-cake (both halves)
-        # every Cake line of the point source that reaches the position, with the position's ply on that line
-        # (review 2026-11-11: cap and spacing are checked on each of them with that line's ply)
+        # every Cake line that reaches the position in any supplied validation game (every Cake context of the point,
+        # from any run and repeat: review 2026-11-11 finding 1; earlier only contexts of the point's own run stem
+        # counted), with the position's ply on that line; cap and spacing are checked on each of them with that ply
         p["line_ply"] = {(p["ballot"], p["colour"]): p["ply"]}
         for c in p["contexts"].split(";"):
             f5 = c.split("|")
-            if len(f5) == 5 and f5[2] == "cake" and f5[3].split(":")[0].rsplit("-", 1)[0] in src_runs:
+            if len(f5) == 5 and f5[2] == "cake":
                 ln = (f5[0], f5[1])
                 p["line_ply"][ln] = min(p["line_ply"].get(ln, 10 ** 6), int(f5[4]))
         pts[p["id"]] = p
@@ -210,15 +212,25 @@ def main():
         for ln, ply in p["line_ply"].items():
             kept[ln].append((p, ply))
 
-    # the known position first
-    score([w30])
-    alt, alts, ps, ok, why = verdict(w30, W30_ALT)
-    best_other = verdict(w30)[0]
-    considered[w30["id"]] = (w30, alt, alts, ps, ok, (why + "; " if why else "") + f"best other move by search: {best_other}")
-    if ok:
-        keep(w30, "w30/w31 (counts on its lines)", 0, alt, alts, ps)
+    # the known position first (review 2026-11-11 finding 2: the same eligibility as every point; the alternative must
+    # be a legal, non-avoided move other than the book's; a missing score is not a failed margin)
+    nonav = {m for m, av in legal[w30["id"]] if not av}
+    pre = qualifies(w30) or ("the book already plays " + W30_ALT if w30["pinned"] == W30_ALT else None) or \
+        (None if W30_ALT in nonav else f"{W30_ALT} is not a legal non-avoided move there")
+    if pre:
+        considered[w30["id"]] = (w30, None, None, None, False, "known position not a candidate: " + pre)
     else:
-        cands.append(dict(arm="w30/w31 own arm (fails the margin; not counted)", slot=0, p=w30, alt=alt, alts=alts, ps=ps))
+        score([w30])
+        alt, alts, ps, ok, why = verdict(w30, W30_ALT)
+        best_other = verdict(w30)[0]
+        considered[w30["id"]] = (w30, alt, alts, ps, ok, (why + "; " if why else "") + f"best other move by search: {best_other}")
+        if ok:
+            keep(w30, "w30/w31 (counts on its lines)", 0, alt, alts, ps)
+        elif ps is None or alts is None:
+            considered[w30["id"]] = (w30, alt, alts, ps, False, "known position not a candidate: " + why)
+        else:
+            cands.append(dict(arm="w30/w31 own arm (fails the margin; not counted)", slot=0, p=w30, alt=alt, alts=alts,
+                              ps=ps))
 
     pos = {k: 0 for k in order}
     for s in range(1, a.slots + 1):

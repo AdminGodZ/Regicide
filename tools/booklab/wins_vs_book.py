@@ -30,7 +30,7 @@ def load(d):
         r = {"1-0": "W" if col == "B" else "L", "0-1": "W" if col == "W" else "L", "1/2-1/2": "D"}.get(res, "?")
         out.append(dict(col=col, res=r, moves=[m for m, _ in moves], ballot=ballot_of(tags["Opening"]),
                         opp=family(tags["White"] if rb else tags["Black"]), run=os.path.basename(d.rstrip("/")),
-                        rnd=tags.get("Round", "?")))
+                        rnd=tags.get("Round", "?"), fen=tags.get("FEN", "")))
     return out
 
 
@@ -45,13 +45,15 @@ def main():
     pins = {l.split(" | ")[0] for l in open(a.pins) if " | " in l and not l.startswith("#")}
     decs = {l.split(" | ")[0] for l in open(a.decisions) if " | " in l and not l.startswith("#")} - pins
     gs = [g for d in sorted(a.runs) for g in load(d)]
-    inp = "".join(f"{i}\t\t{g['col']}\t{g['ballot'][2]}\t{' '.join(g['moves'])}\n" for i, g in enumerate(gs))
+    inp = "".join(f"{i}\t{g['fen']}\t{g['col']}\t{g['ballot'][2]}\t{' '.join(g['moves'])}\n" for i, g in enumerate(gs))
     out = subprocess.run([a.pinwalk, a.book, a.egdb], input=inp, capture_output=True, text=True, check=True).stdout
     walk = collections.defaultdict(list)
     at = collections.defaultdict(lambda: collections.defaultdict(list))  # fen -> move -> [game]
+    errors = {}  # review 2026-11-11 finding 5: a game whose replay fails is reported, never counted as followed
     for l in out.splitlines():
         f = l.split("\t")
         if f[1] == "ERR":
+            errors[int(f[0])] = " ".join(f[2:])
             continue
         gi, ply, fen, mv, el, bm = int(f[0]), int(f[1]), f[2], f[3], f[4] == "1", f[5]
         av = set(f[6].split(",")) if len(f) > 6 and f[6] != "-" else set()
@@ -69,6 +71,10 @@ def main():
         if g["res"] != "W" or g["opp"] not in a.opps:
             continue
         w = walk[gi]
+        if gi in errors:
+            rows.append(f"| {g['ballot'][0]} ({g['run']} {g['rnd']}) | {g['opp']} | {g['col']} | — | REPLAY FAILED at "
+                        f"{errors[gi]} | — | — |")
+            continue
         leave = next((r for r in w if r[3] and ((r[4] != "-" and r[4] != r[2]) or r[2] in r[5])), None)
         name = f"{g['ballot'][0]} ({g['run']} {g['rnd']})"
         if leave is None:
@@ -78,10 +84,15 @@ def main():
             bmove = bm if bm != "-" else "(won move avoided)"
             rows.append(f"| {name} | {g['opp']} | {g['col']} | {len(w)} | no | ply {ply + 1}: {bmove} instead of {mv} "
                         f"({src(fen)}) | {ev(fen, mv)}; {ev(fen, bm) if bm != '-' else '—'} |")
+    if errors:
+        rows += ["", f"**Replay errors: {len(errors)} games could not be replayed:** " + "; ".join(
+            f"{gs[i]['run']} {gs[i]['rnd']} ({e})" for i, e in sorted(errors.items()))]
     text = "\n".join(rows)
     print(text)
     if a.md:
         open(a.md, "w").write(text + "\n")
+    if errors:
+        sys.exit(3)
 
 
 if __name__ == "__main__":

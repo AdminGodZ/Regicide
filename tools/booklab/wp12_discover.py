@@ -14,10 +14,12 @@ the timing lock is held for at most PER_LOCK games at a time. Before each chunk 
 
 Ledger (DIR/discovery.tsv) is bound to the candidate list: its first line holds the SHA-256 of candidates.tsv, and a
 resume with a different list stops. A game is entered in the ledger only after a complete analysis (booklab_pinwalk
-on the candidate book: was the changed key reached with Regicide to move, consulted, and the alternative played);
+on the candidate book: was the changed key reached with Regicide to move, and consulted: the candidate book plays the
+alternative there, the book is consulted, the game played it as a book move per its record; wp12_gates.key_use);
 if the analysis fails the game is written to DIR/quarantine.tsv and analysed again at the next start (review M1),
 never marked done. A win nominates the candidate only if the key was consulted and the game ended on the board (no
-crash, time-out, illegal move or engine that did not start).
+crash, time-out, loss on time, illegal move or engine that did not start: only the runner's on-board termination
+texts count, wp12_gates.on_board).
 """
 import argparse
 import fcntl
@@ -29,7 +31,8 @@ import sys
 import time
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from theory import parse_pdn, family, ballot_of  # noqa: E402
+from theory import parse_pdn, ballot_of  # noqa: E402
+import wp12_gates as G  # noqa: E402
 
 HOME = os.path.expanduser("~")
 L = f"{HOME}/regicide-jobs/booklab"
@@ -44,7 +47,6 @@ PINWALK = f"{HOME}/regicide-booklab/build-linux/booklab_pinwalk"
 EGDB = f"{HOME}/regicide-data/egdb"
 PROBE = f"{TOOLS}/book_probe.py"
 PS = "/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe"
-OFF_BOARD = ("crashed", "did not start", "timed out", "illegal", "protocol error", "forfeit", "time loss")
 CAKE_OPTS = [f"set dbpath {DB8}", "set enable_wld 1", "set dbmbytes 512", "set max_dbpieces 8", "set hashsize 128"]
 
 
@@ -110,33 +112,24 @@ def ensure_memory(minimum=14.0):
 
 def analyse(c, out):
     """Full analysis or an exception (the caller quarantines)."""
-    games = list(parse_pdn(open(f"{out}/games.pdn", errors="replace").read()))
+    games = G.load_games(f"{out}/games.pdn")
     if len(games) != 1:
         raise ValueError(f"{len(games)} games in {out}")
-    tags, moves = games[0]
-    col = "B" if family(tags["Black"]) == "regicide" else "W"
-    if col != c["colour"]:
-        raise ValueError(f"Regicide played {col}, the candidate is for {c['colour']}")
-    res = tags.get("Result", "").strip()
-    r = {"1-0": "W" if col == "B" else "L", "0-1": "W" if col == "W" else "L", "1/2-1/2": "D"}.get(res)
-    if r is None:
-        raise ValueError(f"no final result ({res!r})")
-    nopen = ballot_of(tags["Opening"])[2]
-    line = f"0\t{tags.get('FEN', '')}\t{col}\t{nopen}\t{' '.join(m for m, _ in moves)}\n"
-    pw = subprocess.run([PINWALK, f"{L}/wp12/books/{c['name']}.bin", EGDB], input=line, capture_output=True,
-                        text=True, check=True).stdout
-    if not pw.strip() or "\tERR\t" in pw:
-        raise ValueError(f"pinwalk: {pw.strip()[:200]}")
-    reached = consulted = 0
-    for l in pw.splitlines():
-        f = l.split("\t")
-        if f[2] == c["fen"]:
-            reached = 1
-            consulted |= int(f[4] == "1" and f[3] == c["alt"])
-    tag = tags.get("Termination", "")
-    flags = [k for k in OFF_BOARD if k in tag.lower()]
-    return dict(result=r, reached=reached, consulted=consulted, plies=len(moves),
-                term=(tag or "-") + ("; NOT ON THE BOARD" if flags else ""), off_board=bool(flags))
+    g = games[0]
+    if g["col"] != c["colour"]:
+        raise ValueError(f"Regicide played {g['col']}, the candidate is for {c['colour']}")
+    if g["res"] is None:
+        raise ValueError(f"no final result ({g['tags'].get('Result')!r})")
+    # consulted (review 2026-11-11, finding 3): the candidate book plays the alternative there, the book is consulted,
+    # the game played it, and the record shows a book move (wp12_gates.key_use); a replay failure raises
+    rows = G.pinwalk(PINWALK, f"{L}/wp12/books/{c['name']}.bin", EGDB, games)[0]
+    if not rows:
+        raise ValueError("pinwalk reported no position with Regicide to move")
+    reached, consulted, _ = G.key_use(rows, [cm for _, cm in g["moves"]], c["fen"], c["alt"])
+    # on the board (finding 4): only the runner's on-board termination texts count
+    off = not G.on_board(g["term"])
+    return dict(result=g["res"], reached=reached, consulted=consulted, plies=len(g["moves"]),
+                term=(g["term"] or "-") + ("; NOT ON THE BOARD" if off else ""), off_board=off)
 
 
 def main():

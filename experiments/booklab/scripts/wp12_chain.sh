@@ -11,8 +11,16 @@
 J=/mnt/c/regicide-match/jobs/booklab; L=~/regicide-jobs/booklab; R=~/regicide-match/results; W=~/regicide-booklab
 S=$J/src/tools/booklab
 st() { echo "$* $(date -Is)" >> $L/status; }
-for f in wp12_points.py wp12_select.py wp12_discover.py wp12_dll.sh; do cp $S/$f $W/tools/booklab/; done
-until [ "$(cat $R/bl-v11c-n6c-cake-b-h2/exit_status 2>/dev/null)" = 0 ]; do sleep 60; done
+for f in wp12_points.py wp12_select.py wp12_discover.py wp12_gates.py wp12_dll.sh; do cp $S/$f $W/tools/booklab/; done
+# Points, contexts and selection only after EVERY validation run is complete (review 2026-11-11 finding 6: built after
+# the first Cake half-run, c1 missed the contexts of games that finished later); the move scores stay cached.
+until grep -q "V11C done\|V11C STOPPED" $L/status; do sleep 60; done
+grep -q "V11C STOPPED" $L/status && { st "W12 not started: the r11c validation stopped"; exit 1; }
+for d in $R/bl-v11c-* $R/bl-v13k4-* $R/bl-v13-kingsrow-* $R/bl-k3-kingsrow-* $R/bl-f1-*; do
+  # exit_status 0; the final-validation runs (bl-f1-*) predate exit_status: their summary must say all games played
+  [ "$(cat $d/exit_status 2>/dev/null)" = 0 ] || { [ ! -f $d/exit_status ] && grep -Eq "^Games: ([0-9]+) of \1 scheduled" $d/summary.txt; } \
+    || { st "W12 not started: $d not complete"; exit 1; }
+done
 st "W12 candidates start"
 mkdir -p $L/wp12/c1; cd $L/wp12/c1
 python3 $W/tools/booklab/wp12_points.py --runs $R/bl-v11c-n6c-cake-a-h1 $R/bl-v11c-n6c-cake-a-h2 $R/bl-v11c-n6c-cake-b-h1 $R/bl-v11c-n6c-cake-b-h2 \

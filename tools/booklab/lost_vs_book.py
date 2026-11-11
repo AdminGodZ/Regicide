@@ -20,6 +20,8 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from theory import parse_pdn, ballot_of  # noqa: E402
 
+ERRORS = []  # games whose replay failed (pool or lost games): listed in the output, exit status 3
+
 
 def games_of(path):
     out = []
@@ -31,7 +33,8 @@ def games_of(path):
         col = "B" if rb else "W"
         res = tags.get("Result", "").strip()
         r = {"1-0": "W" if col == "B" else "L", "0-1": "W" if col == "W" else "L", "1/2-1/2": "D"}.get(res, "?")
-        out.append(dict(tags=tags, col=col, res=r, moves=[m for m, _ in moves], ballot=ballot_of(tags["Opening"])))
+        out.append(dict(tags=tags, col=col, res=r, moves=[m for m, _ in moves], ballot=ballot_of(tags["Opening"]),
+                        src=os.path.basename(os.path.dirname(path))))
     return out
 
 
@@ -42,7 +45,10 @@ def walk(pinwalk, book, egdb, gs):
     per = collections.defaultdict(list)
     for l in out.splitlines():
         f = l.split("\t")
-        if f[1] == "ERR":
+        if f[1] == "ERR":  # review 2026-11-11 finding 5: never dropped silently
+            g = gs[int(f[0])]
+            ERRORS.append(f"{g['src']} round {g['tags'].get('Round', '?')}: replay failed at {' '.join(f[2:])}")
+            per[int(f[0])] = None
             continue
         per[int(f[0])].append((int(f[1]), f[2], f[3], f[4] == "1", f[5], set(f[6].split(",")) if len(f) > 6 and f[6] != "-" else set()))
     return per
@@ -61,7 +67,7 @@ def main():
     pw = walk(a.pinwalk, a.book, a.egdb, pool)
     seen = collections.defaultdict(lambda: collections.defaultdict(set))  # (opening, col) -> fen -> {moves}
     for i, g in enumerate(pool):
-        for ply, fen, mv, el, bm, _av in pw[i]:
+        for ply, fen, mv, el, bm, _av in pw[i] or []:
             seen[(g["ballot"][1], g["col"])][fen].add(mv)
     print("| Lost game | Regicide | leaving move (ply: lost / non-lost games) | book at that position | own positions before it pinned | first position where the book leaves the lost line |")
     print("|---|---|---|---|---|---|")
@@ -69,6 +75,9 @@ def main():
         run, rnd = spec.rsplit(":", 1)
         g = next(x for x in games_of(os.path.join(run, "games.pdn")) if x["tags"]["Round"] == rnd)
         rows = walk(a.pinwalk, a.book, a.egdb, [g])[0]
+        if rows is None:
+            print(f"| {g['ballot'][0]} ({os.path.basename(run)} {rnd}) | {g['col']} | REPLAY FAILED (see the errors) | | | |")
+            continue
         ref = seen[(g["ballot"][1], g["col"])]
         leave = next(((ply, fen, mv) for ply, fen, mv, el, bm, _av in rows if fen in ref and mv not in ref[fen]), None)
         before = [r for r in rows if leave is None or r[0] < leave[0]]
@@ -83,6 +92,11 @@ def main():
             book_there, lv = "-", "none (no non-lost game reached a position where it differed)"
         fr = f"ply {first[0] + 1}: {first[4]} instead of {first[2]} ({src(first[1])})" if first else "none"
         print(f"| {g['ballot'][0]} ({os.path.basename(run)} {rnd}) | {g['col']} | {lv} | {book_there} | {npin} of {len(before)} | {fr} |")
+    if ERRORS:
+        print(f"\n**Replay errors: {len(ERRORS)} games could not be replayed (left out of the reference, not reported "
+              "as clean):**\n")
+        print("\n".join(f"- {e}" for e in ERRORS))
+        sys.exit(3)
 
 
 if __name__ == "__main__":

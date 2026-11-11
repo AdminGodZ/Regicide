@@ -47,7 +47,8 @@ def main():
     a = ap.parse_args()
     R = a.results
     out = ["## ACF #163 as White: every game", "",
-           "| Run | Game | Worker | EngineGames | Cake ply 15 | ply 33 | ply 37 | result |", "|---|---|---|---|---|---|---|---|"]
+           "| Run | Game | Worker | EngineGames | Cake ply 15 | ply 33 | ply 37 | result | previous game of this worker's processes |",
+           "|---|---|---|---|---|---|---|---|---|"]
     arms = collections.defaultdict(collections.Counter)
     runs = ["bl-e2a-fresh163", "bl-e2b-kept163"] + [f"bl-e2c-{arm}-{i}-{h}" for i in range(1, 7)
                                                     for arm in ("kept", "fresh") for h in ("h1", "h2")]
@@ -56,15 +57,21 @@ def main():
     wins = {"kept": [], "fresh": []}
     for run in runs:
         d = os.path.join(R, run)
-        if not os.path.isdir(d):
-            continue
+        if not os.path.isdir(d) or not os.path.exists(os.path.join(d, "exit_status")):
+            continue  # only finished runs
         arm = "fresh" if "fresh" in run else "kept"
-        for g in games(d):
+        gl = games(d)
+        slot = {(g["tags"].get("Worker"), g["tags"].get("EngineGames")): g for g in gl}
+        for g in gl:
             mv = g["moves"]
             if g["ballot"][0] == "ACF #163" and g["col"] == "W":
                 cells = [f"{mv[i][0]} {dn(mv[i][1])}" if len(mv) > i else "—" for i in (14, 32, 36)]
-                out.append(f"| {run} | {g['file']} | {g['tags'].get('Worker', '?')} | {g['tags'].get('EngineGames', '?')} | "
-                           + " | ".join(cells) + f" | {g['res']} |")
+                eg = g["tags"].get("EngineGames", "?")
+                prev = slot.get((g["tags"].get("Worker"), str(int(eg) - 1))) if eg.isdigit() and int(eg) > 0 else None
+                pv = (f"{prev['file']}: {prev['ballot'][0]} {prev['col']} {prev['res']}, {len(prev['moves'])} plies"
+                      if prev else ("— (first game of the process)" if eg == "0" else "?"))
+                out.append(f"| {run} | {g['file']} | {g['tags'].get('Worker', '?')} | {eg} | "
+                           + " | ".join(cells) + f" | {g['res']} | {pv} |")
                 arms[f"e2c-{arm}" if run.startswith('bl-e2c') else run][g["res"]] += 1
             if run.startswith("bl-e2c"):
                 deck[arm][g["res"]] += 1
