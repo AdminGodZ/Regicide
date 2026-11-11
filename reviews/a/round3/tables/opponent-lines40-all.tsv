@@ -1,0 +1,937 @@
+opponent	opening	our_colour	games	games_reaching40	configurations	distinct_opponent_lines40	distinct_full_lines40
+cake	ACF #112	W	6	6	3	6	6
+cake	ACF #118	B	6	6	3	6	6
+cake	ACF #133 Octopus	B	6	6	3	6	6
+cake	ACF #139	B	6	6	3	6	6
+cake	ACF #152	B	6	6	3	6	6
+cake	ACF #166	B	6	6	3	6	6
+cake	ACF #24	B	6	6	3	6	6
+cake	ACF #37	B	6	6	3	6	6
+cake	ACF #43	B	6	6	3	6	6
+cake	ACF #61	B	6	6	3	6	6
+cake	ACF #70	B	6	6	3	6	6
+cake	ACF #75	B	6	6	3	6	6
+cake	ACF #93	B	10	10	4	5	5
+cake	ACF #120	W	6	6	3	5	5
+cake	ACF #121	W	6	6	3	5	5
+cake	ACF #124	B	6	6	3	5	5
+cake	ACF #131	B	6	6	3	5	5
+cake	ACF #136	B	6	6	3	5	5
+cake	ACF #142	B	6	6	3	5	5
+cake	ACF #146	B	6	6	3	5	5
+cake	ACF #146	W	6	6	3	5	5
+cake	ACF #147	B	6	6	3	5	5
+cake	ACF #157	B	6	6	3	5	5
+cake	ACF #162	B	6	6	3	5	5
+cake	ACF #19	B	6	6	3	5	5
+cake	ACF #25	W	6	6	3	5	5
+cake	ACF #29	W	6	6	3	5	6
+cake	ACF #37	W	6	6	3	5	5
+cake	ACF #50	B	6	6	3	5	5
+cake	ACF #64	B	6	6	3	5	5
+cake	ACF #72	B	6	6	3	5	5
+cake	ACF #75	W	6	6	3	5	5
+cake	ACF #101	B	6	6	3	4	4
+cake	ACF #110	W	6	6	3	4	4
+cake	ACF #111	B	6	6	3	4	4
+cake	ACF #116	W	6	6	3	4	4
+cake	ACF #125	B	6	6	3	4	4
+cake	ACF #132	W	6	6	3	4	4
+cake	ACF #147	W	6	6	3	4	4
+cake	ACF #149	B	6	6	3	4	4
+cake	ACF #151	B	6	6	3	4	5
+cake	ACF #166	W	6	6	3	4	4
+cake	ACF #21	B	6	6	3	4	4
+cake	ACF #31	W	6	6	3	4	4
+cake	ACF #40	B	6	6	3	4	4
+cake	ACF #50	W	6	6	3	4	4
+cake	ACF #55	B	6	6	3	4	4
+cake	ACF #58	W	6	6	3	4	4
+cake	ACF #66	W	6	6	3	4	4
+cake	ACF #67	B	6	6	3	4	4
+cake	ACF #70	W	6	6	3	4	4
+cake	ACF #76	B	6	6	3	4	4
+cake	ACF #78	B	6	6	3	4	4
+cake	ACF #82	B	6	6	3	4	4
+cake	ACF #82	W	6	6	3	4	4
+cake	ACF #84	B	6	6	3	4	4
+cake	ACF #84	W	6	6	3	4	4
+cake	ACF #86 Octopus	B	6	6	3	4	4
+cake	ACF #86 Octopus	W	6	6	3	4	4
+cake	ACF #98	W	6	6	3	4	4
+cake	ACF #34 Twilight Zone	B	10	10	4	3	3
+cake	ACF #53	W	10	10	4	3	3
+cake	ACF #71 Diabolical Denny	B	10	10	4	3	3
+cake	ACF #101	W	6	6	3	3	3
+cake	ACF #106	W	6	6	3	3	3
+cake	ACF #117	W	6	6	3	3	3
+cake	ACF #12	W	6	6	3	3	3
+cake	ACF #122	B	6	6	3	3	3
+cake	ACF #127	W	6	6	3	3	4
+cake	ACF #128	W	6	6	3	3	4
+cake	ACF #130	W	6	6	3	3	3
+cake	ACF #138	B	6	6	3	3	3
+cake	ACF #140	W	6	6	3	3	3
+cake	ACF #142	W	6	6	3	3	3
+cake	ACF #148	W	6	6	3	3	3
+cake	ACF #158	B	6	6	3	3	3
+cake	ACF #159	W	6	6	3	3	3
+cake	ACF #160	W	6	6	3	3	3
+cake	ACF #162	W	6	6	3	3	3
+cake	ACF #163	B	6	6	3	3	3
+cake	ACF #163	W	6	6	3	3	3
+cake	ACF #164	W	6	6	3	3	3
+cake	ACF #165	W	6	6	3	3	3
+cake	ACF #169	B	6	6	3	3	3
+cake	ACF #17	B	6	6	3	3	3
+cake	ACF #174 Skunk	B	6	6	3	3	3
+cake	ACF #29	B	6	6	3	3	3
+cake	ACF #36	W	6	6	3	3	3
+cake	ACF #42	B	6	6	3	3	3
+cake	ACF #49	W	6	6	3	3	3
+cake	ACF #53	B	6	6	3	3	3
+cake	ACF #54	W	6	6	3	3	3
+cake	ACF #6 Inferno	B	6	6	3	3	3
+cake	ACF #69	B	6	6	3	3	3
+cake	ACF #69	W	6	6	3	3	3
+cake	ACF #7	B	6	6	3	3	3
+cake	ACF #79	B	6	6	3	3	3
+cake	ACF #85	B	6	6	3	3	3
+cake	ACF #85	W	6	6	3	3	4
+cake	ACF #87 Tyne	B	6	6	3	3	3
+cake	ACF #91	W	6	6	3	3	3
+cake	ACF #99	B	6	6	3	3	3
+cake	ACF #60 Black Hole	B	10	10	4	2	2
+cake	ACF #62 Gemini I	B	10	10	4	2	2
+cake	ACF #102	B	6	6	3	2	2
+cake	ACF #103	B	6	6	3	2	2
+cake	ACF #104	W	6	6	3	2	2
+cake	ACF #106	B	6	6	3	2	2
+cake	ACF #107	B	6	6	3	2	2
+cake	ACF #11	B	6	6	3	2	2
+cake	ACF #115	B	6	6	3	2	2
+cake	ACF #118	W	6	6	3	2	2
+cake	ACF #12	B	6	6	3	2	2
+cake	ACF #122	W	6	6	3	2	2
+cake	ACF #125	W	6	6	3	2	2
+cake	ACF #129	W	6	6	3	2	2
+cake	ACF #130	B	6	6	3	2	2
+cake	ACF #131	W	6	6	3	2	2
+cake	ACF #132	B	6	6	3	2	2
+cake	ACF #133 Octopus	W	6	6	3	2	2
+cake	ACF #134	B	6	6	3	2	3
+cake	ACF #134	W	6	6	3	2	2
+cake	ACF #148	B	6	6	3	2	2
+cake	ACF #149	W	6	6	3	2	2
+cake	ACF #15	W	6	6	3	2	2
+cake	ACF #150	B	6	6	3	2	2
+cake	ACF #153 Black Widow	W	6	6	3	2	2
+cake	ACF #155	B	6	6	3	2	2
+cake	ACF #158	W	6	6	3	2	2
+cake	ACF #161	W	6	6	3	2	2
+cake	ACF #165	B	6	6	3	2	2
+cake	ACF #167	B	6	6	3	2	2
+cake	ACF #173	B	6	6	3	2	2
+cake	ACF #18	W	6	6	3	2	2
+cake	ACF #19	W	6	6	3	2	2
+cake	ACF #23	B	6	6	3	2	2
+cake	ACF #25	B	6	6	3	2	2
+cake	ACF #27	W	6	6	3	2	2
+cake	ACF #28	B	6	6	3	2	2
+cake	ACF #32	W	6	6	3	2	2
+cake	ACF #33	B	6	6	3	2	2
+cake	ACF #33	W	6	6	3	2	2
+cake	ACF #36	B	6	6	3	2	2
+cake	ACF #38	W	6	6	3	2	2
+cake	ACF #39	B	6	6	3	2	2
+cake	ACF #40	W	6	6	3	2	2
+cake	ACF #41	W	6	6	3	2	2
+cake	ACF #43	W	6	6	3	2	2
+cake	ACF #46 Double Cross	W	6	6	3	2	2
+cake	ACF #51	B	6	6	3	2	2
+cake	ACF #54	B	6	6	3	2	2
+cake	ACF #55	W	6	6	3	2	2
+cake	ACF #56	W	6	6	3	2	2
+cake	ACF #57	B	6	6	3	2	2
+cake	ACF #57	W	6	6	3	2	2
+cake	ACF #58	B	6	6	3	2	2
+cake	ACF #72	W	6	6	3	2	2
+cake	ACF #73	W	6	6	3	2	4
+cake	ACF #78	W	6	6	3	2	2
+cake	ACF #80	W	6	6	3	2	2
+cake	ACF #83	B	6	6	3	2	2
+cake	ACF #89	B	6	6	3	2	2
+cake	ACF #95	B	6	6	3	2	2
+cake	ACF #97	W	6	6	3	2	2
+cake	ACF #99	W	6	6	3	2	2
+cake	ACF #141	B	10	10	4	1	1
+cake	ACF #9 Wilderness I	B	10	10	4	1	1
+cake	ACF #1	B	6	6	3	1	1
+cake	ACF #1	W	6	6	3	1	1
+cake	ACF #10	B	6	6	3	1	1
+cake	ACF #10	W	6	6	3	1	1
+cake	ACF #100	B	6	6	3	1	1
+cake	ACF #100	W	6	6	3	1	1
+cake	ACF #102	W	6	6	3	1	1
+cake	ACF #103	W	6	6	3	1	1
+cake	ACF #104	B	6	6	3	1	1
+cake	ACF #105 Gemini II	B	6	6	3	1	1
+cake	ACF #105 Gemini II	W	6	6	3	1	1
+cake	ACF #107	W	6	6	3	1	1
+cake	ACF #108	B	6	6	3	1	1
+cake	ACF #108	W	6	6	3	1	1
+cake	ACF #11	W	6	6	3	1	1
+cake	ACF #110	B	6	6	3	1	1
+cake	ACF #111	W	6	6	3	1	1
+cake	ACF #112	B	6	6	3	1	1
+cake	ACF #113	B	6	6	3	1	1
+cake	ACF #113	W	6	6	3	1	1
+cake	ACF #115	W	6	6	3	1	1
+cake	ACF #116	B	6	6	3	1	1
+cake	ACF #117	B	6	6	3	1	1
+cake	ACF #119	B	6	6	3	1	1
+cake	ACF #119	W	6	6	3	1	1
+cake	ACF #120	B	6	6	3	1	1
+cake	ACF #121	B	6	6	3	1	1
+cake	ACF #123	B	6	6	3	1	1
+cake	ACF #123	W	6	6	3	1	1
+cake	ACF #124	W	6	6	3	1	1
+cake	ACF #126	B	6	6	3	1	1
+cake	ACF #126	W	6	6	3	1	1
+cake	ACF #127	B	6	6	3	1	1
+cake	ACF #128	B	6	6	3	1	1
+cake	ACF #129	B	6	6	3	1	1
+cake	ACF #135	B	6	6	3	1	1
+cake	ACF #135	W	6	6	3	1	1
+cake	ACF #136	W	6	6	3	1	1
+cake	ACF #138	W	6	6	3	1	1
+cake	ACF #139	W	6	6	3	1	1
+cake	ACF #14	B	6	6	3	1	1
+cake	ACF #14	W	6	6	3	1	1
+cake	ACF #140	B	6	6	3	1	1
+cake	ACF #141	W	6	6	3	1	1
+cake	ACF #143	B	6	6	3	1	1
+cake	ACF #143	W	6	6	3	1	1
+cake	ACF #144	B	6	6	3	1	1
+cake	ACF #144	W	6	6	3	1	1
+cake	ACF #15	B	6	6	3	1	1
+cake	ACF #150	W	6	6	3	1	1
+cake	ACF #151	W	6	6	3	1	1
+cake	ACF #152	W	6	6	3	1	1
+cake	ACF #153 Black Widow	B	6	6	3	1	1
+cake	ACF #154	B	6	6	3	1	1
+cake	ACF #154	W	6	6	3	1	1
+cake	ACF #155	W	6	6	3	1	1
+cake	ACF #157	W	6	6	3	1	1
+cake	ACF #159	B	6	6	3	1	1
+cake	ACF #16 Wilderness II	B	6	6	3	1	1
+cake	ACF #16 Wilderness II	W	6	6	3	1	1
+cake	ACF #160	B	6	6	3	1	1
+cake	ACF #161	B	6	6	3	1	1
+cake	ACF #164	B	6	6	3	1	1
+cake	ACF #167	W	6	6	3	1	1
+cake	ACF #169	W	6	6	3	1	1
+cake	ACF #17	W	6	6	3	1	1
+cake	ACF #170	B	6	6	3	1	1
+cake	ACF #170	W	6	6	3	1	1
+cake	ACF #172	B	6	6	3	1	1
+cake	ACF #172	W	6	6	3	1	1
+cake	ACF #173	W	6	6	3	1	1
+cake	ACF #174 Skunk	W	6	6	3	1	1
+cake	ACF #18	B	6	6	3	1	1
+cake	ACF #2	B	6	6	3	1	1
+cake	ACF #2	W	6	6	3	1	1
+cake	ACF #20	B	6	6	3	1	1
+cake	ACF #20	W	6	6	3	1	1
+cake	ACF #21	W	6	6	3	1	1
+cake	ACF #22	B	6	6	3	1	1
+cake	ACF #22	W	6	6	3	1	1
+cake	ACF #23	W	6	6	3	1	1
+cake	ACF #24	W	6	6	3	1	1
+cake	ACF #27	B	6	6	3	1	1
+cake	ACF #28	W	6	6	3	1	1
+cake	ACF #30	B	6	6	3	1	1
+cake	ACF #30	W	6	6	3	1	1
+cake	ACF #31	B	6	6	3	1	1
+cake	ACF #32	B	6	6	3	1	1
+cake	ACF #34 Twilight Zone	W	6	6	3	1	1
+cake	ACF #38	B	6	6	3	1	1
+cake	ACF #39	W	6	6	3	1	1
+cake	ACF #4	B	6	6	3	1	1
+cake	ACF #4	W	6	6	3	1	1
+cake	ACF #41	B	6	6	3	1	1
+cake	ACF #42	W	6	6	3	1	1
+cake	ACF #46 Double Cross	B	6	6	3	1	1
+cake	ACF #47	B	6	6	3	1	1
+cake	ACF #47	W	6	6	3	1	1
+cake	ACF #49	B	6	6	3	1	1
+cake	ACF #5 Dreaded Edinburgh	B	6	6	3	1	1
+cake	ACF #5 Dreaded Edinburgh	W	6	6	3	1	1
+cake	ACF #51	W	6	6	3	1	1
+cake	ACF #56	B	6	6	3	1	1
+cake	ACF #59	B	6	6	3	1	1
+cake	ACF #59	W	6	6	3	1	1
+cake	ACF #6 Inferno	W	6	6	3	1	1
+cake	ACF #60 Black Hole	W	6	6	3	1	1
+cake	ACF #61	W	6	6	3	1	1
+cake	ACF #62 Gemini I	W	6	6	3	1	1
+cake	ACF #63	B	6	6	3	1	1
+cake	ACF #63	W	6	6	3	1	1
+cake	ACF #64	W	6	6	3	1	2
+cake	ACF #65 Fraser's Inferno	B	6	6	3	1	1
+cake	ACF #65 Fraser's Inferno	W	6	6	3	1	1
+cake	ACF #66	B	6	6	3	1	1
+cake	ACF #67	W	6	6	3	1	1
+cake	ACF #68 White Doctor	B	6	6	3	1	1
+cake	ACF #68 White Doctor	W	6	6	3	1	1
+cake	ACF #7	W	6	6	3	1	1
+cake	ACF #71 Diabolical Denny	W	6	6	3	1	1
+cake	ACF #73	B	6	6	3	1	1
+cake	ACF #74	B	6	6	3	1	1
+cake	ACF #74	W	6	6	3	1	1
+cake	ACF #76	W	6	6	3	1	1
+cake	ACF #79	W	6	6	3	1	1
+cake	ACF #8 Edinburgh Single	B	6	6	3	1	1
+cake	ACF #8 Edinburgh Single	W	6	6	3	1	1
+cake	ACF #80	B	6	6	3	1	1
+cake	ACF #81	B	6	6	3	1	1
+cake	ACF #81	W	6	6	3	1	1
+cake	ACF #83	W	6	6	3	1	1
+cake	ACF #87 Tyne	W	6	6	3	1	1
+cake	ACF #89	W	6	6	3	1	1
+cake	ACF #9 Wilderness I	W	6	6	3	1	1
+cake	ACF #90	B	6	6	3	1	1
+cake	ACF #90	W	6	6	3	1	1
+cake	ACF #91	B	6	6	3	1	1
+cake	ACF #92	B	6	6	3	1	1
+cake	ACF #92	W	6	6	3	1	1
+cake	ACF #93	W	6	6	3	1	1
+cake	ACF #95	W	6	6	3	1	1
+cake	ACF #96 Skull-Cracker	B	6	6	3	1	1
+cake	ACF #96 Skull-Cracker	W	6	6	3	1	2
+cake	ACF #97	B	6	6	3	1	1
+cake	ACF #98	B	6	6	3	1	1
+guinn	ACF #9 Wilderness I	B	7	7	4	7	7
+guinn	ACF #34 Twilight Zone	B	7	7	4	6	6
+guinn	ACF #62 Gemini I	B	7	7	4	6	6
+guinn	ACF #60 Black Hole	B	7	7	4	5	5
+guinn	ACF #71 Diabolical Denny	B	7	7	4	5	5
+guinn	ACF #93	B	7	7	4	5	5
+guinn	ACF #141	B	7	7	4	4	4
+guinn	ACF #53	W	7	7	4	3	3
+guinn	ACF #10	B	3	3	3	3	3
+guinn	ACF #10	W	3	3	3	3	3
+guinn	ACF #101	B	3	3	3	3	3
+guinn	ACF #102	W	3	3	3	3	3
+guinn	ACF #103	B	3	3	3	3	3
+guinn	ACF #103	W	3	3	3	3	3
+guinn	ACF #104	B	3	3	3	3	3
+guinn	ACF #105 Gemini II	B	3	3	3	3	3
+guinn	ACF #105 Gemini II	W	3	3	3	3	3
+guinn	ACF #106	W	3	3	3	3	3
+guinn	ACF #107	B	3	3	3	3	3
+guinn	ACF #107	W	3	3	3	3	3
+guinn	ACF #112	B	3	3	3	3	3
+guinn	ACF #113	W	3	3	3	3	3
+guinn	ACF #115	B	3	3	3	3	3
+guinn	ACF #116	B	3	3	3	3	3
+guinn	ACF #116	W	3	3	3	3	3
+guinn	ACF #117	B	3	3	3	3	3
+guinn	ACF #117	W	3	3	3	3	3
+guinn	ACF #118	B	3	3	3	3	3
+guinn	ACF #118	W	3	3	3	3	3
+guinn	ACF #119	B	3	3	3	3	3
+guinn	ACF #119	W	3	3	3	3	3
+guinn	ACF #12	B	3	3	3	3	3
+guinn	ACF #120	B	3	3	3	3	3
+guinn	ACF #120	W	3	3	3	3	3
+guinn	ACF #121	B	3	3	3	3	3
+guinn	ACF #121	W	3	3	3	3	3
+guinn	ACF #123	B	3	3	3	3	3
+guinn	ACF #124	W	3	3	3	3	3
+guinn	ACF #126	W	3	3	3	3	3
+guinn	ACF #128	B	3	3	3	3	3
+guinn	ACF #128	W	3	3	3	3	3
+guinn	ACF #131	B	3	3	3	3	3
+guinn	ACF #131	W	3	3	3	3	3
+guinn	ACF #132	B	3	3	3	3	3
+guinn	ACF #133 Octopus	B	3	3	3	3	3
+guinn	ACF #134	B	3	3	3	3	3
+guinn	ACF #134	W	3	3	3	3	3
+guinn	ACF #135	B	3	3	3	3	3
+guinn	ACF #136	B	3	3	3	3	3
+guinn	ACF #136	W	3	3	3	3	3
+guinn	ACF #138	B	3	3	3	3	3
+guinn	ACF #138	W	3	3	3	3	3
+guinn	ACF #139	B	3	3	3	3	3
+guinn	ACF #140	B	3	3	3	3	3
+guinn	ACF #140	W	3	3	3	3	3
+guinn	ACF #141	W	3	3	3	3	3
+guinn	ACF #142	B	3	3	3	3	3
+guinn	ACF #142	W	3	3	3	3	3
+guinn	ACF #143	B	3	3	3	3	3
+guinn	ACF #144	W	3	3	3	3	3
+guinn	ACF #146	B	3	3	3	3	3
+guinn	ACF #147	B	3	3	3	3	3
+guinn	ACF #147	W	3	3	3	3	3
+guinn	ACF #148	W	3	3	3	3	3
+guinn	ACF #149	B	3	3	3	3	3
+guinn	ACF #149	W	3	3	3	3	3
+guinn	ACF #15	B	3	3	3	3	3
+guinn	ACF #15	W	3	3	3	3	3
+guinn	ACF #150	B	3	3	3	3	3
+guinn	ACF #150	W	3	3	3	3	3
+guinn	ACF #151	B	3	3	3	3	3
+guinn	ACF #151	W	3	3	3	3	3
+guinn	ACF #152	W	3	3	3	3	3
+guinn	ACF #153 Black Widow	B	3	3	3	3	3
+guinn	ACF #153 Black Widow	W	3	3	3	3	3
+guinn	ACF #154	W	3	3	3	3	3
+guinn	ACF #157	B	3	3	3	3	3
+guinn	ACF #157	W	3	3	3	3	3
+guinn	ACF #158	B	3	3	3	3	3
+guinn	ACF #158	W	3	3	3	3	3
+guinn	ACF #159	W	3	3	3	3	3
+guinn	ACF #16 Wilderness II	B	3	3	3	3	3
+guinn	ACF #16 Wilderness II	W	3	3	3	3	3
+guinn	ACF #161	B	3	3	3	3	3
+guinn	ACF #161	W	3	3	3	3	3
+guinn	ACF #162	B	3	3	3	3	3
+guinn	ACF #162	W	3	3	3	3	3
+guinn	ACF #163	W	3	3	3	3	3
+guinn	ACF #164	W	3	3	3	3	3
+guinn	ACF #166	B	3	3	3	3	3
+guinn	ACF #167	B	3	3	3	3	3
+guinn	ACF #167	W	3	3	3	3	3
+guinn	ACF #169	B	3	3	3	3	3
+guinn	ACF #169	W	3	3	3	3	3
+guinn	ACF #17	B	3	3	3	3	3
+guinn	ACF #17	W	3	3	3	3	3
+guinn	ACF #170	B	3	3	3	3	3
+guinn	ACF #172	B	3	3	3	3	3
+guinn	ACF #172	W	3	3	3	3	3
+guinn	ACF #18	B	3	3	3	3	3
+guinn	ACF #18	W	3	3	3	3	3
+guinn	ACF #19	B	3	3	3	3	3
+guinn	ACF #2	B	3	3	3	3	3
+guinn	ACF #20	B	3	3	3	3	3
+guinn	ACF #20	W	3	3	3	3	3
+guinn	ACF #21	B	3	3	3	3	3
+guinn	ACF #22	B	3	3	3	3	3
+guinn	ACF #24	B	3	3	3	3	3
+guinn	ACF #25	B	3	3	3	3	3
+guinn	ACF #25	W	3	3	3	3	3
+guinn	ACF #27	B	3	3	3	3	3
+guinn	ACF #27	W	3	3	3	3	3
+guinn	ACF #28	W	3	3	3	3	3
+guinn	ACF #29	W	3	3	3	3	3
+guinn	ACF #30	W	3	3	3	3	3
+guinn	ACF #31	B	3	3	3	3	3
+guinn	ACF #33	B	3	3	3	3	3
+guinn	ACF #33	W	3	3	3	3	3
+guinn	ACF #34 Twilight Zone	W	3	3	3	3	3
+guinn	ACF #36	B	3	3	3	3	3
+guinn	ACF #36	W	3	3	3	3	3
+guinn	ACF #38	B	3	3	3	3	3
+guinn	ACF #39	B	3	3	3	3	3
+guinn	ACF #39	W	3	3	3	3	3
+guinn	ACF #4	B	3	3	3	3	3
+guinn	ACF #40	B	3	3	3	3	3
+guinn	ACF #40	W	3	3	3	3	3
+guinn	ACF #41	B	3	3	3	3	3
+guinn	ACF #43	B	3	3	3	3	3
+guinn	ACF #49	B	3	3	3	3	3
+guinn	ACF #49	W	3	3	3	3	3
+guinn	ACF #50	B	3	3	3	3	3
+guinn	ACF #55	B	3	3	3	3	3
+guinn	ACF #57	W	3	3	3	3	3
+guinn	ACF #59	B	3	3	3	3	3
+guinn	ACF #61	B	3	3	3	3	3
+guinn	ACF #61	W	3	3	3	3	3
+guinn	ACF #62 Gemini I	W	3	3	3	3	3
+guinn	ACF #64	W	3	3	3	3	3
+guinn	ACF #65 Fraser's Inferno	B	3	3	3	3	3
+guinn	ACF #65 Fraser's Inferno	W	3	3	3	3	3
+guinn	ACF #66	B	3	3	3	3	3
+guinn	ACF #67	B	3	3	3	3	3
+guinn	ACF #67	W	3	3	3	3	3
+guinn	ACF #68 White Doctor	B	3	3	3	3	3
+guinn	ACF #69	B	3	3	3	3	3
+guinn	ACF #69	W	3	3	3	3	3
+guinn	ACF #7	B	3	3	3	3	3
+guinn	ACF #70	B	3	3	3	3	3
+guinn	ACF #70	W	3	3	3	3	3
+guinn	ACF #72	B	3	3	3	3	3
+guinn	ACF #72	W	3	3	3	3	3
+guinn	ACF #73	W	3	3	3	3	3
+guinn	ACF #74	B	3	3	3	3	3
+guinn	ACF #76	B	3	3	3	3	3
+guinn	ACF #76	W	3	3	3	3	3
+guinn	ACF #81	B	3	3	3	3	3
+guinn	ACF #81	W	3	3	3	3	3
+guinn	ACF #82	B	3	3	3	3	3
+guinn	ACF #82	W	3	3	3	3	3
+guinn	ACF #83	B	3	3	3	3	3
+guinn	ACF #84	W	3	3	3	3	3
+guinn	ACF #86 Octopus	B	3	3	3	3	3
+guinn	ACF #87 Tyne	B	3	3	3	3	3
+guinn	ACF #87 Tyne	W	3	3	3	3	3
+guinn	ACF #89	B	3	3	3	3	3
+guinn	ACF #9 Wilderness I	W	3	3	3	3	3
+guinn	ACF #90	W	3	3	3	3	3
+guinn	ACF #91	W	3	3	3	3	3
+guinn	ACF #92	B	3	3	3	3	3
+guinn	ACF #92	W	3	3	3	3	3
+guinn	ACF #95	B	3	3	3	3	3
+guinn	ACF #95	W	3	3	3	3	3
+guinn	ACF #96 Skull-Cracker	B	3	3	3	3	3
+guinn	ACF #97	B	3	3	3	3	3
+guinn	ACF #97	W	3	3	3	3	3
+guinn	ACF #99	B	3	3	3	3	3
+guinn	ACF #1	B	3	3	3	2	2
+guinn	ACF #100	B	3	3	3	2	2
+guinn	ACF #100	W	3	3	3	2	2
+guinn	ACF #101	W	3	3	3	2	2
+guinn	ACF #102	B	3	3	3	2	2
+guinn	ACF #104	W	3	3	3	2	2
+guinn	ACF #106	B	3	3	3	2	2
+guinn	ACF #108	B	3	3	3	2	2
+guinn	ACF #108	W	3	3	3	2	2
+guinn	ACF #11	B	3	3	3	2	2
+guinn	ACF #11	W	3	3	3	2	2
+guinn	ACF #110	B	3	3	3	2	2
+guinn	ACF #111	B	3	3	3	2	2
+guinn	ACF #111	W	3	3	3	2	2
+guinn	ACF #112	W	3	3	3	2	2
+guinn	ACF #113	B	3	3	3	2	2
+guinn	ACF #115	W	3	3	3	2	2
+guinn	ACF #12	W	3	3	3	2	2
+guinn	ACF #122	B	3	3	3	2	2
+guinn	ACF #122	W	3	3	3	2	2
+guinn	ACF #123	W	3	3	3	2	2
+guinn	ACF #124	B	3	3	3	2	2
+guinn	ACF #125	B	3	3	3	2	2
+guinn	ACF #125	W	3	3	3	2	3
+guinn	ACF #127	B	3	3	3	2	2
+guinn	ACF #127	W	3	3	3	2	2
+guinn	ACF #129	B	3	3	3	2	2
+guinn	ACF #129	W	3	3	3	2	2
+guinn	ACF #130	B	3	3	3	2	2
+guinn	ACF #130	W	3	3	3	2	2
+guinn	ACF #132	W	3	3	3	2	2
+guinn	ACF #139	W	3	3	3	2	2
+guinn	ACF #14	B	3	3	3	2	2
+guinn	ACF #148	B	3	3	3	2	2
+guinn	ACF #152	B	3	3	3	2	2
+guinn	ACF #154	B	3	3	3	2	2
+guinn	ACF #155	W	3	3	3	2	2
+guinn	ACF #160	B	3	3	3	2	2
+guinn	ACF #160	W	3	3	3	2	2
+guinn	ACF #163	B	3	3	3	2	2
+guinn	ACF #164	B	3	3	3	2	2
+guinn	ACF #165	B	3	3	3	2	2
+guinn	ACF #165	W	3	3	3	2	2
+guinn	ACF #166	W	3	3	3	2	2
+guinn	ACF #170	W	3	3	3	2	2
+guinn	ACF #173	B	3	3	3	2	2
+guinn	ACF #174 Skunk	B	3	3	3	2	2
+guinn	ACF #174 Skunk	W	3	3	3	2	2
+guinn	ACF #19	W	3	3	3	2	2
+guinn	ACF #22	W	3	3	3	2	2
+guinn	ACF #23	B	3	3	3	2	2
+guinn	ACF #23	W	3	3	3	2	2
+guinn	ACF #29	B	3	3	3	2	2
+guinn	ACF #30	B	3	3	3	2	2
+guinn	ACF #31	W	3	3	3	2	2
+guinn	ACF #32	B	3	3	3	2	2
+guinn	ACF #32	W	3	3	3	2	2
+guinn	ACF #37	W	3	3	3	2	2
+guinn	ACF #38	W	3	3	3	2	2
+guinn	ACF #4	W	3	3	3	2	2
+guinn	ACF #41	W	3	3	3	2	2
+guinn	ACF #42	B	3	3	3	2	2
+guinn	ACF #42	W	3	3	3	2	2
+guinn	ACF #46 Double Cross	W	3	3	3	2	2
+guinn	ACF #47	B	3	3	3	2	2
+guinn	ACF #5 Dreaded Edinburgh	B	3	3	3	2	2
+guinn	ACF #5 Dreaded Edinburgh	W	3	3	3	2	2
+guinn	ACF #50	W	3	3	3	2	2
+guinn	ACF #51	W	3	3	3	2	2
+guinn	ACF #53	B	3	3	3	2	2
+guinn	ACF #54	B	3	3	3	2	2
+guinn	ACF #54	W	3	3	3	2	2
+guinn	ACF #55	W	3	3	3	2	2
+guinn	ACF #56	W	3	3	3	2	2
+guinn	ACF #57	B	3	3	3	2	2
+guinn	ACF #58	B	3	3	3	2	2
+guinn	ACF #58	W	3	3	3	2	2
+guinn	ACF #59	W	3	3	3	2	2
+guinn	ACF #6 Inferno	B	3	3	3	2	2
+guinn	ACF #6 Inferno	W	3	3	3	2	2
+guinn	ACF #60 Black Hole	W	3	3	3	2	2
+guinn	ACF #63	B	3	3	3	2	2
+guinn	ACF #63	W	3	3	3	2	2
+guinn	ACF #64	B	3	3	3	2	2
+guinn	ACF #66	W	3	3	3	2	2
+guinn	ACF #71 Diabolical Denny	W	3	3	3	2	2
+guinn	ACF #73	B	3	3	3	2	2
+guinn	ACF #74	W	3	3	3	2	2
+guinn	ACF #75	B	3	3	3	2	2
+guinn	ACF #78	B	3	3	3	2	2
+guinn	ACF #78	W	3	3	3	2	2
+guinn	ACF #8 Edinburgh Single	B	3	3	3	2	2
+guinn	ACF #8 Edinburgh Single	W	3	3	3	2	2
+guinn	ACF #80	B	3	3	3	2	2
+guinn	ACF #83	W	3	3	3	2	2
+guinn	ACF #84	B	3	3	3	2	2
+guinn	ACF #85	B	3	3	3	2	2
+guinn	ACF #85	W	3	3	3	2	2
+guinn	ACF #86 Octopus	W	3	3	3	2	2
+guinn	ACF #89	W	3	3	3	2	2
+guinn	ACF #91	B	3	3	3	2	2
+guinn	ACF #96 Skull-Cracker	W	3	3	3	2	2
+guinn	ACF #98	W	3	3	3	2	2
+guinn	ACF #1	W	3	3	3	1	1
+guinn	ACF #110	W	3	3	3	1	1
+guinn	ACF #126	B	3	3	3	1	1
+guinn	ACF #133 Octopus	W	3	3	3	1	1
+guinn	ACF #135	W	3	3	3	1	1
+guinn	ACF #14	W	3	3	3	1	1
+guinn	ACF #143	W	3	3	3	1	1
+guinn	ACF #144	B	3	3	3	1	1
+guinn	ACF #146	W	3	3	3	1	1
+guinn	ACF #155	B	3	3	3	1	1
+guinn	ACF #159	B	3	3	3	1	1
+guinn	ACF #173	W	3	3	3	1	1
+guinn	ACF #2	W	3	3	3	1	1
+guinn	ACF #21	W	3	3	3	1	1
+guinn	ACF #24	W	3	3	3	1	1
+guinn	ACF #28	B	3	3	3	1	1
+guinn	ACF #37	B	3	3	3	1	1
+guinn	ACF #43	W	3	3	3	1	1
+guinn	ACF #46 Double Cross	B	3	3	3	1	1
+guinn	ACF #47	W	3	3	3	1	1
+guinn	ACF #51	B	3	3	3	1	1
+guinn	ACF #56	B	3	3	3	1	1
+guinn	ACF #68 White Doctor	W	3	3	3	1	1
+guinn	ACF #7	W	3	3	3	1	1
+guinn	ACF #75	W	3	3	3	1	1
+guinn	ACF #79	B	3	3	3	1	1
+guinn	ACF #79	W	3	3	3	1	1
+guinn	ACF #80	W	3	3	3	1	1
+guinn	ACF #90	B	3	3	3	1	1
+guinn	ACF #93	W	3	3	3	1	1
+guinn	ACF #98	B	3	3	3	1	1
+guinn	ACF #99	W	3	3	3	1	1
+kingsrow	ACF #71 Diabolical Denny	B	16	16	4	11	11
+kingsrow	ACF #34 Twilight Zone	B	16	16	4	7	7
+kingsrow	ACF #100	B	6	6	3	6	6
+kingsrow	ACF #11	B	6	6	3	6	6
+kingsrow	ACF #150	B	6	6	3	6	6
+kingsrow	ACF #169	W	6	6	3	6	6
+kingsrow	ACF #24	B	6	6	3	6	6
+kingsrow	ACF #49	W	6	6	3	6	6
+kingsrow	ACF #70	B	6	6	3	6	6
+kingsrow	ACF #108	W	6	6	3	5	5
+kingsrow	ACF #110	W	6	6	3	5	5
+kingsrow	ACF #12	W	6	6	3	5	5
+kingsrow	ACF #120	W	6	6	3	5	5
+kingsrow	ACF #121	W	6	6	3	5	5
+kingsrow	ACF #129	B	6	6	3	5	5
+kingsrow	ACF #139	W	6	6	3	5	5
+kingsrow	ACF #143	B	6	6	3	5	5
+kingsrow	ACF #150	W	6	6	3	5	5
+kingsrow	ACF #173	B	6	6	3	5	5
+kingsrow	ACF #18	W	6	6	3	5	5
+kingsrow	ACF #19	B	6	6	3	5	5
+kingsrow	ACF #22	B	6	6	3	5	5
+kingsrow	ACF #30	W	6	6	3	5	5
+kingsrow	ACF #49	B	6	6	3	5	5
+kingsrow	ACF #50	W	6	6	3	5	5
+kingsrow	ACF #66	W	6	6	3	5	5
+kingsrow	ACF #69	B	6	6	3	5	5
+kingsrow	ACF #86 Octopus	W	6	6	3	5	5
+kingsrow	ACF #99	B	6	6	3	5	5
+kingsrow	ACF #99	W	6	6	3	5	5
+kingsrow	ACF #101	B	6	6	3	4	4
+kingsrow	ACF #108	B	6	6	3	4	4
+kingsrow	ACF #113	B	6	6	3	4	4
+kingsrow	ACF #115	B	6	6	3	4	4
+kingsrow	ACF #117	W	6	6	3	4	4
+kingsrow	ACF #131	B	6	6	3	4	4
+kingsrow	ACF #136	B	6	6	3	4	4
+kingsrow	ACF #139	B	6	6	3	4	4
+kingsrow	ACF #14	W	6	6	3	4	4
+kingsrow	ACF #148	B	6	6	3	4	4
+kingsrow	ACF #151	W	6	6	3	4	4
+kingsrow	ACF #152	B	6	6	3	4	4
+kingsrow	ACF #160	B	6	6	3	4	4
+kingsrow	ACF #161	B	6	6	3	4	4
+kingsrow	ACF #39	B	6	6	3	4	4
+kingsrow	ACF #40	W	6	6	3	4	4
+kingsrow	ACF #43	W	6	6	3	4	4
+kingsrow	ACF #47	B	6	6	3	4	4
+kingsrow	ACF #47	W	6	6	3	4	4
+kingsrow	ACF #56	B	6	6	3	4	4
+kingsrow	ACF #57	B	6	6	3	4	4
+kingsrow	ACF #58	W	6	6	3	4	4
+kingsrow	ACF #59	W	6	6	3	4	4
+kingsrow	ACF #64	B	6	6	3	4	4
+kingsrow	ACF #67	W	6	6	3	4	4
+kingsrow	ACF #70	W	6	6	3	4	5
+kingsrow	ACF #74	B	6	6	3	4	4
+kingsrow	ACF #79	B	6	6	3	4	4
+kingsrow	ACF #82	B	6	6	3	4	4
+kingsrow	ACF #85	B	6	6	3	4	4
+kingsrow	ACF #97	W	6	6	3	4	4
+kingsrow	ACF #101	W	6	6	3	3	3
+kingsrow	ACF #106	W	6	6	3	3	3
+kingsrow	ACF #107	B	6	6	3	3	3
+kingsrow	ACF #110	B	6	6	3	3	3
+kingsrow	ACF #111	B	6	6	3	3	3
+kingsrow	ACF #112	B	6	6	3	3	3
+kingsrow	ACF #118	B	6	6	3	3	3
+kingsrow	ACF #118	W	6	6	3	3	3
+kingsrow	ACF #119	W	6	6	3	3	3
+kingsrow	ACF #12	B	6	6	3	3	3
+kingsrow	ACF #122	B	6	6	3	3	3
+kingsrow	ACF #122	W	6	6	3	3	3
+kingsrow	ACF #123	W	6	6	3	3	3
+kingsrow	ACF #126	B	6	6	3	3	3
+kingsrow	ACF #128	W	6	6	3	3	3
+kingsrow	ACF #133 Octopus	W	6	6	3	3	3
+kingsrow	ACF #134	W	6	6	3	3	3
+kingsrow	ACF #142	W	6	6	3	3	3
+kingsrow	ACF #148	W	6	6	3	3	3
+kingsrow	ACF #15	B	6	6	3	3	3
+kingsrow	ACF #151	B	6	6	3	3	3
+kingsrow	ACF #157	B	6	6	3	3	3
+kingsrow	ACF #158	B	6	6	3	3	3
+kingsrow	ACF #158	W	6	6	3	3	3
+kingsrow	ACF #162	W	6	6	3	3	3
+kingsrow	ACF #164	B	6	6	3	3	3
+kingsrow	ACF #165	B	6	6	3	3	3
+kingsrow	ACF #165	W	6	6	3	3	3
+kingsrow	ACF #169	B	6	6	3	3	3
+kingsrow	ACF #18	B	6	6	3	3	3
+kingsrow	ACF #27	B	6	6	3	3	3
+kingsrow	ACF #32	B	6	6	3	3	3
+kingsrow	ACF #36	W	6	6	3	3	3
+kingsrow	ACF #38	B	6	6	3	3	3
+kingsrow	ACF #42	W	6	6	3	3	3
+kingsrow	ACF #5 Dreaded Edinburgh	B	6	6	3	3	3
+kingsrow	ACF #54	B	6	6	3	3	3
+kingsrow	ACF #61	W	6	6	3	3	3
+kingsrow	ACF #62 Gemini I	W	6	6	3	3	3
+kingsrow	ACF #63	W	6	6	3	3	3
+kingsrow	ACF #7	W	6	6	3	3	3
+kingsrow	ACF #71 Diabolical Denny	W	6	6	3	3	3
+kingsrow	ACF #73	W	6	6	3	3	3
+kingsrow	ACF #75	W	6	6	3	3	3
+kingsrow	ACF #78	B	6	6	3	3	3
+kingsrow	ACF #80	W	6	6	3	3	4
+kingsrow	ACF #81	B	6	6	3	3	3
+kingsrow	ACF #82	W	6	6	3	3	3
+kingsrow	ACF #84	B	6	6	3	3	3
+kingsrow	ACF #85	W	6	6	3	3	4
+kingsrow	ACF #93	W	6	6	3	3	3
+kingsrow	ACF #95	B	6	6	3	3	3
+kingsrow	ACF #98	B	6	6	3	3	3
+kingsrow	ACF #100	W	6	6	3	2	2
+kingsrow	ACF #102	B	6	6	3	2	2
+kingsrow	ACF #105 Gemini II	W	6	6	3	2	2
+kingsrow	ACF #106	B	6	6	3	2	2
+kingsrow	ACF #112	W	6	6	3	2	2
+kingsrow	ACF #115	W	6	6	3	2	2
+kingsrow	ACF #116	B	6	6	3	2	2
+kingsrow	ACF #119	B	6	6	3	2	2
+kingsrow	ACF #120	B	6	6	3	2	2
+kingsrow	ACF #121	B	6	6	3	2	2
+kingsrow	ACF #123	B	6	6	3	2	2
+kingsrow	ACF #125	W	6	6	3	2	2
+kingsrow	ACF #127	W	6	6	3	2	2
+kingsrow	ACF #130	W	6	6	3	2	2
+kingsrow	ACF #131	W	6	6	3	2	2
+kingsrow	ACF #132	W	6	6	3	2	2
+kingsrow	ACF #135	B	6	6	3	2	2
+kingsrow	ACF #135	W	6	6	3	2	2
+kingsrow	ACF #14	B	6	6	3	2	2
+kingsrow	ACF #146	W	6	6	3	2	2
+kingsrow	ACF #147	W	6	6	3	2	3
+kingsrow	ACF #149	W	6	6	3	2	2
+kingsrow	ACF #155	W	6	6	3	2	2
+kingsrow	ACF #159	B	6	6	3	2	2
+kingsrow	ACF #162	B	6	6	3	2	2
+kingsrow	ACF #164	W	6	6	3	2	2
+kingsrow	ACF #17	W	6	6	3	2	2
+kingsrow	ACF #170	B	6	6	3	2	2
+kingsrow	ACF #170	W	6	6	3	2	2
+kingsrow	ACF #173	W	6	6	3	2	2
+kingsrow	ACF #174 Skunk	W	6	6	3	2	2
+kingsrow	ACF #19	W	6	6	3	2	2
+kingsrow	ACF #20	B	6	6	3	2	2
+kingsrow	ACF #20	W	6	6	3	2	2
+kingsrow	ACF #21	B	6	6	3	2	2
+kingsrow	ACF #21	W	6	6	3	2	2
+kingsrow	ACF #23	B	6	6	3	2	2
+kingsrow	ACF #23	W	6	6	3	2	2
+kingsrow	ACF #25	W	6	6	3	2	2
+kingsrow	ACF #27	W	6	6	3	2	2
+kingsrow	ACF #28	W	6	6	3	2	2
+kingsrow	ACF #29	W	6	6	3	2	2
+kingsrow	ACF #31	B	6	6	3	2	2
+kingsrow	ACF #36	B	6	6	3	2	2
+kingsrow	ACF #50	B	6	6	3	2	2
+kingsrow	ACF #51	W	6	6	3	2	2
+kingsrow	ACF #54	W	6	6	3	2	2
+kingsrow	ACF #58	B	6	6	3	2	2
+kingsrow	ACF #59	B	6	6	3	2	2
+kingsrow	ACF #6 Inferno	B	6	6	3	2	2
+kingsrow	ACF #63	B	6	6	3	2	2
+kingsrow	ACF #64	W	6	6	3	2	2
+kingsrow	ACF #65 Fraser's Inferno	B	6	6	3	2	2
+kingsrow	ACF #67	B	6	6	3	2	2
+kingsrow	ACF #72	W	6	6	3	2	2
+kingsrow	ACF #73	B	6	6	3	2	2
+kingsrow	ACF #75	B	6	6	3	2	2
+kingsrow	ACF #76	W	6	6	3	2	2
+kingsrow	ACF #78	W	6	6	3	2	2
+kingsrow	ACF #79	W	6	6	3	2	2
+kingsrow	ACF #8 Edinburgh Single	W	6	6	3	2	2
+kingsrow	ACF #80	B	6	6	3	2	2
+kingsrow	ACF #83	W	6	6	3	2	2
+kingsrow	ACF #87 Tyne	B	6	6	3	2	2
+kingsrow	ACF #87 Tyne	W	6	6	3	2	2
+kingsrow	ACF #89	B	6	6	3	2	2
+kingsrow	ACF #90	B	6	6	3	2	2
+kingsrow	ACF #92	B	6	6	3	2	2
+kingsrow	ACF #95	W	6	6	3	2	2
+kingsrow	ACF #97	B	6	6	3	2	2
+kingsrow	ACF #141	B	16	16	4	1	1
+kingsrow	ACF #53	W	16	16	4	1	1
+kingsrow	ACF #60 Black Hole	B	16	16	4	1	1
+kingsrow	ACF #62 Gemini I	B	16	16	4	1	1
+kingsrow	ACF #9 Wilderness I	B	16	16	4	1	1
+kingsrow	ACF #93	B	16	16	4	1	1
+kingsrow	ACF #1	B	6	6	3	1	1
+kingsrow	ACF #1	W	6	6	3	1	1
+kingsrow	ACF #10	B	6	6	3	1	1
+kingsrow	ACF #10	W	6	6	3	1	1
+kingsrow	ACF #102	W	6	6	3	1	1
+kingsrow	ACF #103	B	6	6	3	1	1
+kingsrow	ACF #103	W	6	6	3	1	1
+kingsrow	ACF #104	B	6	6	3	1	1
+kingsrow	ACF #104	W	6	6	3	1	1
+kingsrow	ACF #105 Gemini II	B	6	6	3	1	1
+kingsrow	ACF #107	W	6	6	3	1	1
+kingsrow	ACF #11	W	6	6	3	1	1
+kingsrow	ACF #111	W	6	6	3	1	1
+kingsrow	ACF #113	W	6	6	3	1	1
+kingsrow	ACF #116	W	6	6	3	1	1
+kingsrow	ACF #117	B	6	6	3	1	1
+kingsrow	ACF #124	B	6	6	3	1	1
+kingsrow	ACF #124	W	6	6	3	1	1
+kingsrow	ACF #125	B	6	6	3	1	1
+kingsrow	ACF #126	W	6	6	3	1	1
+kingsrow	ACF #127	B	6	6	3	1	1
+kingsrow	ACF #128	B	6	6	3	1	1
+kingsrow	ACF #129	W	6	6	3	1	1
+kingsrow	ACF #130	B	6	6	3	1	1
+kingsrow	ACF #132	B	6	6	3	1	1
+kingsrow	ACF #133 Octopus	B	6	6	3	1	1
+kingsrow	ACF #134	B	6	6	3	1	1
+kingsrow	ACF #136	W	6	6	3	1	1
+kingsrow	ACF #138	B	6	6	3	1	1
+kingsrow	ACF #138	W	6	6	3	1	1
+kingsrow	ACF #140	B	6	6	3	1	1
+kingsrow	ACF #140	W	6	6	3	1	1
+kingsrow	ACF #141	W	6	6	3	1	1
+kingsrow	ACF #142	B	6	6	3	1	1
+kingsrow	ACF #143	W	6	6	3	1	1
+kingsrow	ACF #144	B	6	6	3	1	1
+kingsrow	ACF #144	W	6	6	3	1	1
+kingsrow	ACF #146	B	6	6	3	1	1
+kingsrow	ACF #147	B	6	6	3	1	1
+kingsrow	ACF #149	B	6	6	3	1	1
+kingsrow	ACF #15	W	6	6	3	1	1
+kingsrow	ACF #152	W	6	6	3	1	1
+kingsrow	ACF #153 Black Widow	B	6	6	3	1	1
+kingsrow	ACF #153 Black Widow	W	6	6	3	1	1
+kingsrow	ACF #154	B	6	6	3	1	1
+kingsrow	ACF #154	W	6	6	3	1	1
+kingsrow	ACF #155	B	6	6	3	1	1
+kingsrow	ACF #157	W	6	6	3	1	1
+kingsrow	ACF #159	W	6	6	3	1	1
+kingsrow	ACF #16 Wilderness II	B	6	6	3	1	1
+kingsrow	ACF #16 Wilderness II	W	6	6	3	1	1
+kingsrow	ACF #160	W	6	6	3	1	1
+kingsrow	ACF #161	W	6	6	3	1	1
+kingsrow	ACF #163	B	6	6	3	1	1
+kingsrow	ACF #163	W	6	6	3	1	1
+kingsrow	ACF #166	B	6	6	3	1	1
+kingsrow	ACF #166	W	6	6	3	1	1
+kingsrow	ACF #167	B	6	6	3	1	1
+kingsrow	ACF #167	W	6	6	3	1	1
+kingsrow	ACF #17	B	6	6	3	1	1
+kingsrow	ACF #172	B	6	6	3	1	1
+kingsrow	ACF #172	W	6	6	3	1	1
+kingsrow	ACF #174 Skunk	B	6	6	3	1	1
+kingsrow	ACF #2	B	6	6	3	1	1
+kingsrow	ACF #2	W	6	6	3	1	1
+kingsrow	ACF #22	W	6	6	3	1	1
+kingsrow	ACF #24	W	6	6	3	1	1
+kingsrow	ACF #25	B	6	6	3	1	1
+kingsrow	ACF #28	B	6	6	3	1	1
+kingsrow	ACF #29	B	6	6	3	1	1
+kingsrow	ACF #30	B	6	6	3	1	1
+kingsrow	ACF #31	W	6	6	3	1	1
+kingsrow	ACF #32	W	6	6	3	1	1
+kingsrow	ACF #33	B	6	6	3	1	1
+kingsrow	ACF #33	W	6	6	3	1	1
+kingsrow	ACF #34 Twilight Zone	W	6	6	3	1	1
+kingsrow	ACF #37	B	6	6	3	1	1
+kingsrow	ACF #37	W	6	6	3	1	1
+kingsrow	ACF #38	W	6	6	3	1	1
+kingsrow	ACF #39	W	6	6	3	1	1
+kingsrow	ACF #4	B	6	6	3	1	1
+kingsrow	ACF #4	W	6	6	3	1	1
+kingsrow	ACF #40	B	6	6	3	1	1
+kingsrow	ACF #41	B	6	6	3	1	1
+kingsrow	ACF #41	W	6	6	3	1	1
+kingsrow	ACF #42	B	6	6	3	1	1
+kingsrow	ACF #43	B	6	6	3	1	1
+kingsrow	ACF #46 Double Cross	B	6	6	3	1	1
+kingsrow	ACF #46 Double Cross	W	6	6	3	1	1
+kingsrow	ACF #5 Dreaded Edinburgh	W	6	6	3	1	1
+kingsrow	ACF #51	B	6	6	3	1	1
+kingsrow	ACF #53	B	6	6	3	1	1
+kingsrow	ACF #55	B	6	6	3	1	1
+kingsrow	ACF #55	W	6	6	3	1	1
+kingsrow	ACF #56	W	6	6	3	1	1
+kingsrow	ACF #57	W	6	6	3	1	1
+kingsrow	ACF #6 Inferno	W	6	6	3	1	1
+kingsrow	ACF #60 Black Hole	W	6	6	3	1	1
+kingsrow	ACF #61	B	6	6	3	1	1
+kingsrow	ACF #65 Fraser's Inferno	W	6	6	3	1	1
+kingsrow	ACF #66	B	6	6	3	1	1
+kingsrow	ACF #68 White Doctor	B	6	6	3	1	1
+kingsrow	ACF #68 White Doctor	W	6	6	3	1	1
+kingsrow	ACF #69	W	6	6	3	1	1
+kingsrow	ACF #7	B	6	6	3	1	1
+kingsrow	ACF #72	B	6	6	3	1	1
+kingsrow	ACF #74	W	6	6	3	1	1
+kingsrow	ACF #76	B	6	6	3	1	1
+kingsrow	ACF #8 Edinburgh Single	B	6	6	3	1	1
+kingsrow	ACF #81	W	6	6	3	1	1
+kingsrow	ACF #83	B	6	6	3	1	1
+kingsrow	ACF #84	W	6	6	3	1	1
+kingsrow	ACF #86 Octopus	B	6	6	3	1	1
+kingsrow	ACF #89	W	6	6	3	1	1
+kingsrow	ACF #9 Wilderness I	W	6	6	3	1	1
+kingsrow	ACF #90	W	6	6	3	1	1
+kingsrow	ACF #91	B	6	6	3	1	1
+kingsrow	ACF #91	W	6	6	3	1	1
+kingsrow	ACF #92	W	6	6	3	1	1
+kingsrow	ACF #96 Skull-Cracker	B	6	6	3	1	1
+kingsrow	ACF #96 Skull-Cracker	W	6	6	3	1	1
+kingsrow	ACF #98	W	6	6	3	1	1
