@@ -1,0 +1,15 @@
+DONE q_pf1_300
+DONE q_pf1_nodes300k
+DONE q_pf3_nodes300k
+DONE q_pf3_300
+DONE lmr_base20
+DONE lmr_base40
+DONE lmr_base80
+DONE lmr_base100
+DONE lmr_base120
+DONE lmr_mult25
+DONE lmr_mult35
+DONE lmr_mult55
+DONE lmr_mult65
+DONE lmr_base80_conf600
+DONE lmr_base120_conf600
