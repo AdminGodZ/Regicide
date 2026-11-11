@@ -322,6 +322,13 @@ void play_game(const Config& cfg, Engine* eng[2], GameRecord& g) {
         if (past_limit(ply + 1)) return;  // the move is recorded, its claim and the board are not looked at
         const bool conversion = b.is_conversion(*m);
         b = b.after(*m);
+        // --cb-claims: a win claim on a move that leaves the opponent without a move ends the game within this
+        // attempt, as in CheckerBoard, with the board's result. Without that claim the missing move is found in an
+        // attempt of its own (past_limit, next turn of the loop); a draw or loss claim keeps the board's result.
+        if (cfg.cb_claims && kind == 0 && b.legal_moves().empty()) {
+            lose(b.stm, std::string(cbt::color_name(b.stm)) + " has no legal moves", "no legal moves");
+            return;
+        }
 
         if (conversion) {
             nonconv = 0;

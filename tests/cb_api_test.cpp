@@ -266,11 +266,15 @@ int main(int argc, char** argv) {
             "B:WK5,K21:BK6,K7 6-1 5-9 7-10 9-5 1-6 5-1 6-2 21-25 2-6 1-5 6-2 5-9 10-6 9-5 6-1 5-9 1-5 9-14 5-1 14-10 "
             "2-6 10-7 1-5 7-3 5-1 3-8 1-5 8-4 5-1 25-30 1-5 4-8 5-1 8-3 1-5 3-7 5-1 7-10",
             "6x15");
+        // Review A round 7: B:WK3:BK1,K2 for the second time; after 1-5 White's 3-8 makes B:WK8:BK2,K5 for the
+        // third time, a draw: no win claim (and 1-5 is still the move played).
+        const int reply_draw = claim("B:WK3:BK1,K2", "B:WK8:BK2,K5 5-1 8-3 1-5 3-8 5-1 8-3", "1-5");
         test_egdb::remove(dir);
         std::cout << "table win claims: after 77 king moves " << late << " (not 1), without history " << fresh
                   << " (1); searched table win after 4 king moves " << searched << " (1), after 38 " << searched_late
-                  << " (not 1)\n";
-        if (late == 1 || fresh != 1 || searched != 1 || searched_late == 1) return 1;
+                  << " (not 1); the reply can repeat a third time " << reply_draw << " (not 1, not -1)\n";
+        if (late == 1 || fresh != 1 || searched != 1 || searched_late == 1 || reply_draw == 1 || reply_draw == -1)
+            return 1;
     }
     return 0;
 }

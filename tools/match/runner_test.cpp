@@ -141,12 +141,14 @@ int fake_dies() {
 }
 
 // The scripted engine for the claim tests, on the opening B:WK32:BK1: Black's king plays 1-5 and 5-1 in turn, White's
-// 32-28 and 28-32 (a threefold repetition after 8 plies). From ply FROM of the game on (the ply of the move it
-// makes, 1-based) it returns CLAIM with its move, before that "unknown". The warm-up search plays 11-15.
+// 32-28 and 28-32 (a threefold repetition after 8 plies); where that move is not legal (another opening) it plays the
+// first legal move. From ply FROM of the game on (the ply of the move it makes, 1-based) it returns CLAIM with its
+// move, before that "unknown". The warm-up search plays 11-15.
 int fake_claims(const std::string& claim, int from) {
     std::cout << "id name claims fixture\nready\n" << std::flush;
     int played = 0;  // moves of the game before the search
     bool warmup = false;
+    cbt::Board board = cbt::Board::start();
     std::string line;
     while (std::getline(std::cin, line)) {
         if (line == "quit") break;
@@ -154,15 +156,21 @@ int fake_claims(const std::string& claim, int from) {
         else if (line.rfind("position ", 0) == 0) {
             warmup = line == "position startpos";
             played = 0;
-            if (const auto at = line.find(" moves "); at != std::string::npos) {
-                std::istringstream moves(line.substr(at + 7));
-                for (std::string m; moves >> m;) ++played;
-            }
+            std::istringstream words(line.substr(9));
+            std::string word;
+            words >> word;
+            if (word == "fen" && words >> word) board = cbt::Board::from_fen(word).value_or(cbt::Board::start());
+            else board = cbt::Board::start();
+            if (words >> word && word == "moves")
+                for (std::string m; words >> m; ++played)
+                    if (auto move = cbt::parse_move(board, m)) board = board.after(*move);
             std::cout << "ok\n" << std::flush;
         } else if (line.rfind("go ", 0) == 0) {
-            const char* move = warmup            ? "11-15"
+            std::string move = warmup            ? "11-15"
                                : played % 2 == 0 ? (played / 2 % 2 == 0 ? "1-5" : "5-1")
                                                  : ((played - 1) / 2 % 2 == 0 ? "32-28" : "28-32");
+            if (!cbt::parse_move(board, move) && !board.legal_moves().empty())
+                move = cbt::move_to_pdn(board.legal_moves().front());
             std::cout << "bestmove " << move << " result " << (!warmup && played + 1 >= from ? claim : "unknown")
                       << " time 0\n"
                       << std::flush;
@@ -400,7 +408,8 @@ int cbclaims(const char* self, const char* match_exe) {
 // --cb-move-limit 3: a game is stopped after its fourth engine move with result *, written out but not scored.
 // With --cb-claims, a claim on that fourth move is recorded but does not count (CheckerBoard's update_match_stats),
 // one on the third does; a pair with one unfinished game is incomplete and not counted. On B:W13:B6,9,K1 Black's
-// 1-5 leaves White without a move: with --cb-move-limit 1 finding that is the second attempt, past the limit.
+// 1-5 leaves White without a move: with --cb-move-limit 1 finding that is the second attempt, past the limit. A win
+// claim on such a move ends the game within its own attempt (B:W10:B6, 6x15).
 int movelimit(const char* self, const char* match_exe) {
     ClaimRun run = claim_run(self, match_exe, "unknown", 1, "--cb-move-limit 3");
     const std::string stopped = "* | move limit, no result | none | w0 l0 d0 | w0 l0 d0";
@@ -456,7 +465,17 @@ int movelimit(const char* self, const char* match_exe) {
         }
         missing = missing && good;
     }
-    return ok && none && one && missing ? 0 : 1;
+    // Review A round 7: A claims a win with 6x15 (game 1, 1-0); B does not, and White's missing move is then the
+    // second attempt (game 2, *).
+    ClaimRun terminal = claim_run(self, match_exe, "win", 1, "--cb-claims --cb-move-limit 1", "B:W10:B6");
+    const bool claimed = terminal.status == 0 && terminal.games.size() == 2 && terminal.games[0]["Result"] == "1-0" &&
+                         terminal.games[1]["Result"] == "*";
+    if (!claimed) {
+        std::cerr << "FAIL: a win claim on 6x15 with --cb-move-limit 1: status " << terminal.status << '\n'
+                  << terminal.csv;
+        for (auto& g : terminal.games) std::cerr << "      " << outcome(g) << '\n';
+    }
+    return ok && none && one && missing && claimed ? 0 : 1;
 }
 
 // --cb-claims with --accept-draw-claims: the runner refuses to start (exit code 2, as for other bad options), with a
