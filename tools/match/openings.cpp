@@ -263,6 +263,7 @@ std::vector<Opening> load_pdn(const std::string& text, const std::string& path, 
     };
     bool in_tags = false;
     while (std::getline(in, line)) {
+        if (!line.empty() && line[0] == '%') continue;  // PDN: a line starting with '%' is a comment
         std::string t = trim(line);
         if (!t.empty() && t[0] == '[') {
             if (!in_tags && in_game && !flush()) return {};
@@ -309,9 +310,16 @@ std::vector<Opening> load_openings(const std::string& deck, std::string& err) {
     std::stringstream ss;
     ss << f.rdbuf();
     std::string text = ss.str();
-    for (char c : text) {
-        if (c == '[') return load_pdn(text, deck, err);
-        if (!std::isspace(static_cast<unsigned char>(c))) break;
+    {  // PDN if the first thing in the file, after any '%' comment lines, is a tag
+        std::istringstream probe(text);
+        std::string first;
+        while (std::getline(probe, first)) {
+            if (!first.empty() && first[0] == '%') continue;
+            first = trim(first);
+            if (first.empty()) continue;
+            if (first[0] == '[') return load_pdn(text, deck, err);
+            break;
+        }
     }
 
     std::istringstream in(text);

@@ -1,7 +1,7 @@
 // The match runner's opening loader and its handling of an interrupted run. No checkers engine is launched.
 //
 //   runner_test comment           a parenthesis inside a PDN { } comment is text: the moves after the comment still
-//                                 belong to the opening
+//                                 belong to the opening; a line starting with '%' is a comment
 //   runner_test interrupt MATCH   an interrupt of the whole process group (Ctrl-C in a terminal) ends the engines
 //                                 too; the game they were playing is left out of the results, not scored as a loss
 //                                 by "crash". MATCH is the match executable; the engines are this executable run
@@ -34,20 +34,22 @@ int comment() {
     const fs::path dir = scratch("openings");
     {
         std::ofstream f(dir / "games.pdn");
-        f << "[Event \"an unmatched ( in a comment\"]\n[Result \"*\"]\n\n1. 11-15 {an opening parenthesis ( here} 22-18 *\n\n"
+        f << "% a comment line before the first tag\n"
+          << "[Event \"a % comment line in the moves\"]\n[Result \"*\"]\n\n1. 11-15\n% not a move\n22-18 *\n\n"
+          << "[Event \"an unmatched ( in a comment\"]\n[Result \"*\"]\n\n1. 11-15 {an opening parenthesis ( here} 22-18 *\n\n"
           << "[Event \"an unmatched ) in a comment\"]\n[Result \"*\"]\n\n1. 11-15 {a closing one ) here} 22-18 *\n\n"
           << "[Event \"a variation\"]\n[Result \"*\"]\n\n1. 11-15 (1. 9-13 {with } ( text) 22-18) 22-18 *\n";
     }
     std::string err;
     const auto openings = match::load_openings((dir / "games.pdn").string(), err);
     fs::remove_all(dir);
-    bool ok = openings.size() == 3;
+    bool ok = openings.size() == 4;
     for (const auto& o : openings) {
         const bool good = o.played.size() == 2 && o.start.fen() == "B:W18,21,23,24,25,26,27,28,29,30,31,32:B1,2,3,4,5,6,7,8,9,10,12,15";
         if (!good) std::cerr << "FAIL: " << o.name << ": " << o.played.size() << " moves, " << o.start.fen() << '\n';
         ok = ok && good;
     }
-    if (openings.size() != 3) std::cerr << "FAIL: " << openings.size() << " openings loaded (" << err << ")\n";
+    if (openings.size() != 4) std::cerr << "FAIL: " << openings.size() << " openings loaded (" << err << ")\n";
     return ok ? 0 : 1;
 }
 
