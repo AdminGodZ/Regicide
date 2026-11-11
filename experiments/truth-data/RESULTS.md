@@ -767,6 +767,23 @@ duplicate = byte-identical block) found many copies:
   game-deduplicated count removes only byte-identical games.
 - Unique keys are the real diversity: E5 has 1.5× gen5a's.
 
+**Repeats across runs, measured 2026-11-11 02:20** (`scripts/dup_new.py`). Since the restart (seeds 616/617,
+23:48), 22.0% of the new games (25.1% of the new records) are byte-identical copies of games from the earlier runs
+(seeds 611–615). Copies within the new part of a file, or between the two files, are negligible: 44 and 295 of
+111,266 games.
+- **Cause:** the start-position set of the fix is kept per process. A new run, or the other generator, does not see
+  the starts already used.
+- **Consequence:**
+  - only ~75% of the raw records add game-deduplicated records;
+  - the share will grow as the files grow;
+  - first exact check: 17,024,000 raw → 13,149,722 game-deduplicated.
+- **Possible fix (not applied; it needs a new datagen binary and a generator restart, the lead's call):** preload the
+  start set from the GAME_START records of the output file and the other E5 file (`--avoid FILE...`).
+- **Forecast (not a measurement):** at ~75% marginal yield and 1.05M raw/h (gen6b yields to Book Lab), or ~1.7M raw/h
+  with both generators:
+  - 15M game-deduplicated around 03:45–04:40;
+  - 30M only after ~13–21 more hours.
+
 **Validation tails.** For flagged files they now start at a game start. That does not make validation positions unique
 against training. Share of validation positions whose key also occurs in the same file's training part:
 - gen6a 9.1% (earlier 38.2%, before the repeated starts were fixed and the tail filled with new games);

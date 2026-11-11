@@ -1,0 +1,5 @@
+new games 111266, new records 2935296
+  repeats an old game (seeds 611-615)      games    24533 ( 22.0%)  records    738212 ( 25.1%)  median length 26
+  first copy                               games    86394 ( 77.6%)  records   2188100 ( 74.5%)  median length 21
+  repeats a new game of the other file     games      295 (  0.3%)  records      8574 (  0.3%)  median length 25
+  repeats a new game of the same file      games       44 (  0.0%)  records       410 (  0.0%)  median length 7
