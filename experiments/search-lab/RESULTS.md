@@ -329,3 +329,16 @@ move (equal scores). Of the rest, one point each way (#52 for pf1, #11 for pf0),
 at 100M the default thinks 22-26 holds at −233, while the exemption sees a database loss. That is the kind of case
 the idea is about (an opponent shot behind a forcing quiet move that the default prunes). It is being re-searched at
 500M nodes with both settings.
+
+**#27 resolved (500M nodes, both settings):** the default also sees the database loss there (22-26, −19963, depth 46;
+pf1: 5-9, −19963, depth 47). The position is lost; pf1 saw it at 100M, pf0 needed 500M. So #27 counts for pf1 in
+seeing the loss earlier, not in finding a better move.
+
+## Q screens (UHO set, 800 pairs, 2–7 database, `selfplay --threads 16`)
+
+A = the switch on, B = defaults. 300 ms is exact time per move (master PR #37 semantics). The equal-nodes runs use
+`--nodes 300000` per move for both sides, to separate the search effect from the time cost.
+
+| test | W / D / L | draws | Elo [95% CI] | penta | pairs | ± per 800 | t | time A / B |
+|---|---|---|---|---|---|---|---|---|
+| Q prune_forcing=1, 300 ms (selfplay-lab6) | 604 / 359 / 637 | 22.4% | -7.2 [-12.8, -1.5] | 0 105 623 72 0 | 800 | ±5.7 | -2.50 | 262.0 / 261.2 ms, d 14.99 / 15.56 |

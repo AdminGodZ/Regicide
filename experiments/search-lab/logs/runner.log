@@ -504,3 +504,11 @@ IDLE 2026-11-10T15:31:30+01:00
 IDLE 2026-11-10T15:32:30+01:00
 IDLE 2026-11-10T15:33:30+01:00
 IDLE 2026-11-10T15:34:30+01:00
+CHAIN2 M6a done 2026-11-11T06:22:17+01:00
+CHAIN2 M7 done 2026-11-11T09:07:18+01:00
+CHAIN2 net runner stopped (idle) 2026-11-11T09:07:18+01:00
+CHAIN2 starting sweep runner 2026-11-11T09:07:18+01:00
+RUNNER START 2026-11-11T09:07:18+01:00
+BEGIN q_pf1_300 bin=selfplay-lab6 a="prune_forcing=1" b="" mt=300 pairs=800 extra="--egdb /home/admingod/regicide-data/egdb --book books/uho1600.txt" 2026-11-11T09:07:18+01:00
+DONE q_pf1_300 rc=0 secs=1690 2026-11-11T09:35:28+01:00 :: final games 1600  A: +604 =359 -637  score 0.4897  draws 22.4%  elo -7.2 [-12.8, -1.5]  penta [0 105 623 72 0]
+BEGIN q_pf1_nodes300k bin=selfplay-lab6 a="prune_forcing=1" b="" mt=0 pairs=800 extra="--nodes 300000 --egdb /home/admingod/regicide-data/egdb --book books/uho1600.txt" 2026-11-11T09:35:28+01:00
