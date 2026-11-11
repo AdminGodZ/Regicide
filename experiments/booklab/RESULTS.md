@@ -546,6 +546,27 @@ PRs #65 and #71): 2b (`mo-<opp>-<run>-<half>`, pairs together, concurrency 8: Ki
 a), then 2c (`mo1-cake`, concurrency 1, whole deck, no timing lock: one game at a time) and 2d (Cake #163 natural
 pairs; KingsRow mode 3 #71, #43, #134, #16 as White, 24 games fresh, 24 kept, 24 natural pairs each).
 
+**2b: r11d (master 1c6e997 as committed) in match order** (`--pairs-together`, concurrency 8, processes kept;
+read-out `mo/mo_report.md`, `mo/order_compare.md`; all ten half-runs rc 0, 156 of 156 games, no crash or time-out;
+checked from the PDN tags: in every half-run all 78 pairs were played by one worker back to back, our Black game first,
+EngineGamesA and B rising by one from `.1` to `.2`):
+
+| Opponent | Run | W / D / L | identical to the earlier run | old order (v11d n8q, same run) |
+|---|---|---|---|---|
+| KingsRow mode 3 | a | 0 / 312 / 0 | — | 0 / 312 / 0 |
+| KingsRow mode 3 | b | 1 / 311 / 0 | 5 | 0 / 312 / 0 |
+| Cake | a | 0 / 312 / 0 | — | 0 / 312 / 0 |
+| Cake | b | 0 / 312 / 0 | 122 | 0 / 312 / 0 |
+| GuiNN | a | 27 / 285 / 0 | — | 20 / 292 / 0 |
+
+**No loss in 1,560 games in match order.** The one win against KingsRow is ACF #16 Wilderness II as White
+(`mo-kingsrow-b-h1` 14.2), KingsRow's first move not in its draws at ply 41: 9-14 (32-28 in its draws); the same
+point as the #16 wins of v11c-n8q b and v11d-n6c b. Openings that change result between the orders: KingsRow only
+#16 W (0 / 2 / 0 → 1 / 1 / 0); Cake none; GuiNN 29 openings × colours, 19 won only in match order and 10 won only in
+the old order (GuiNN's wins move around, 20 → 27). Cake on #163 as White in match order (our Black game of #163 just
+before, same processes; the processes' 16th and 18th game): 4-8 at ply 15 both times (d20 / 5.98 M, d21 / 7.42 M), drawn;
+the 24 natural pairs of 2d measure this properly.
+
 **Incident 08:58** (my error): experiment 2's chain died at `e2c-kept-2-h2`. I had replaced `bl_run_w.sh` by `mv` (to add
 NOLOCK) while an instance was running; on /mnt/c the running bash lost its script ("error reading input file: No data
 available") after the match had played its 156 games, so the half-run has no exit_status and is not counted
@@ -600,7 +621,14 @@ Rule from now on: a script with a running instance is never replaced; changes go
    rows stop above 8 pieces, so no reported root is database-decided. The lead's fixture (from
    `B:W21,K22,23,…,32:B1,2,3,4,K5,9`, lost game 9-13 22-18 5-9, drawn game 9-13 22-18 1-6, base book avoiding only
    5-9 after 22-18): old pins.py 0 pins, new **9-13 pinned from the drawn game** (`fx_avoid.sh`). r11d's pins
-   recomputed with the fix are byte-identical to `pins_r11d.txt`. `wins_vs_book.py` now reports "no forced departure
+   recomputed with the fix are byte-identical to `pins_r11d.txt`.
+9. **Completeness guard** (`scripts/wp12_chain.sh`, review of 1a1b654): a context run counts only if its summary
+   says every scheduled game was played AND exit_status is 0 where it exists (exit_status alone is written before
+   bl_run_w.sh's own completeness check); runs without exit_status (bl-f1-*) by the summary only. Test
+   `scripts/t_guard2.sh`: exit 0 with 156 of 156 accepted, exit 0 with 1 of 156 refused, exit 4 refused, old 156 of
+   156 accepted, old 1 of 156 refused.
+10. **Read-backs under the lock** (`wp12_confirm.py` stage 2, and the same in `wp12_discover.py`): the timing lock
+   is taken first, then the book-mode read-backs (each loads a DLL and maps its database), as in bl_run_w.sh. `wins_vs_book.py` now reports "no forced departure
    (the book never forces another move nor avoids ours)" instead of "follows to the end", and separately the first
    consulted position without a book entry.
 
