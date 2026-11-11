@@ -1,0 +1,6 @@
+gen6a_n50k_egdb 10829568 records (cut 0 bytes)
+gen6b_n50k_egdb 6592512 records (cut 0 bytes)
+avoid: 649410 game starts preloaded from 2 files, 443724 distinct
+start parity 0: only starts of that hash parity are played
+avoid: 649447 game starts preloaded from 2 files, 443761 distinct
+start parity 1: only starts of that hash parity are played

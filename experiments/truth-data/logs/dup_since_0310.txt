@@ -1,0 +1,3 @@
+games since the restart: 22834 (records from gen6a 10829568, gen6b 6592512)
+  new                                                  22834  100.00%
+repeating anything earlier (game or start): 0 of 22834 = 0.00%  -> below 1%

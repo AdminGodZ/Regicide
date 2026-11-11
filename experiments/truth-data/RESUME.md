@@ -6,12 +6,18 @@
 |---|---|---|
 | keepalive (`keepalive.sh`, hidden `wsl.exe`) | 23:4x | keeps the WSL VM up; `~/regicide-jobs/truth/hold` |
 | `pausekeeper_truth.sh` | 23:4x | runs while `~/regicide-jobs/locks/pk_hold` exists; yield group also stops while `timing.lock` is held or Book Lab computes (`bookgen-*`, `lossprobe*`, `blk-*`) |
-| E5 `gen6a_n50k_egdb` | 23:48:40 | `datagen-tr6`, seed 616, 6 threads (base budget), binary sha256 df0a5f5724f8c3ae… |
-| E5 `gen6b_n50k_egdb` | 23:48:43 | `datagen-tr5`, seed 617, 6 threads (yield group), same binary |
+| E5 `gen6a_n50k_egdb` | 11-11 02:38 | `datagen-tr6`, seed 618, parity 0, `--avoid` both files, 6 threads (base budget), sha256 a99a1334887d2434… |
+| E5 `gen6b_n50k_egdb` | 11-11 02:38 | `datagen-tr5`, seed 619, parity 1, `--avoid` both files, 6 threads (yield group), same binary |
+| `n9a_trigger.sh` | 11-11 01:06 | runs `n9.sh n9a` after "n9h DONE" once 30M game-deduplicated (exact check from 33M raw) |
 | `n9h_trigger.sh` | 23:49:35 | runs `n9.sh n9h` at 15M game-deduplicated records (exact check from 17M raw) or at 08:00 on 2026-11-11 |
 | `losswalk.sh` | 23:49:38 | resumes the loss analysis; skips finished `lw_*.tsv` |
 
-- Seeds used so far: gen6a 611, 614, 616; gen6b 612, 613, 615, 617. Next free seeds: 618, 619.
+- Seeds used so far: gen6a 611, 614, 616, 618; gen6b 612, 613, 615, 617, 619. Next free seeds: 620, 621.
+- Since 02:38 no start is played twice: `--avoid` preloads both files' starts, and parity 0 / 1 keeps the generators
+  apart. Measured 03:08: 0 of 22,834 new games repeat anything.
+- To restart both generators: `bash launch.sh restart_e5.sh SHA_PREFIX`. Edit its seeds first: it waits for the
+  timing lock, stops both generators (TERM + CONT, also their stopped parents), keeps whole records, installs
+  `build/datagen` and relaunches with `--avoid` and parities.
 - 00:50: raw E5 records 15,332,352 (gen6a 8,978,176, gen6b 6,354,176).
 - Done since the restart:
   - k3 analysis: RESULTS.md 4b, "KingsRow, book mode 3", data in `data/k3/` (02687c2).
@@ -23,8 +29,8 @@
 # inside WSL
 touch ~/regicide-jobs/locks/pk_hold
 bash /mnt/c/regicide-match/jobs/truth/launch.sh pausekeeper_truth.sh
-EXPECT_SHA=df0a5f5724f8c3ae bash /mnt/c/regicide-match/jobs/truth/launch.sh e5_gen.sh gen6a_n50k_egdb datagen-tr6 618 6
-EXPECT_SHA=df0a5f5724f8c3ae bash /mnt/c/regicide-match/jobs/truth/launch.sh e5_gen.sh gen6b_n50k_egdb datagen-tr5 619 6
+EXPECT_SHA=a99a1334887d2434 bash /mnt/c/regicide-match/jobs/truth/launch.sh e5_gen.sh gen6a_n50k_egdb datagen-tr6 620 6 0 gen6b_n50k_egdb
+EXPECT_SHA=a99a1334887d2434 bash /mnt/c/regicide-match/jobs/truth/launch.sh e5_gen.sh gen6b_n50k_egdb datagen-tr5 621 6 1 gen6a_n50k_egdb
 bash /mnt/c/regicide-match/jobs/truth/launch.sh n9h_trigger.sh     # if n9h is not done yet
 bash /mnt/c/regicide-match/jobs/truth/launch.sh losswalk.sh        # if lw_*.tsv are missing
 # keepalive, from PowerShell:
@@ -50,8 +56,9 @@ bash /mnt/c/regicide-match/jobs/truth/launch.sh losswalk.sh        # if lw_*.tsv
 
    Then put the net on the branch for the laptop match against n8q.
 2. **n9a:** the same at 30M game-deduplicated records (`n9.sh n9a`; trigger to be armed after n9h).
-3. **Loss analysis (4b):** running `ba-deep-off-guinn`, then `ba-off-769-guinn`. Then
-   `python /mnt/c/regicide-match/jobs/truth/tools/lossreport.py` and replace the PARTIAL block in RESULTS.md 4b.
+3. **Loss analysis (4b):** done (aac3fa6, horizon count corrected in 6bfdbaf).
+   **Start pool:** widening the random openings (6–16 plies) is proposed in RESULTS (E5 repeats) and waits for the
+   lead.
 4. **Pending elsewhere:** the laptop's 0.5 s net matches and the Book Lab verdict on n8q; bd1c5c0 (n8q built in)
    stays unmerged.
 

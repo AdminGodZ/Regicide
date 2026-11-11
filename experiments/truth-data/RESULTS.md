@@ -777,12 +777,36 @@ duplicate = byte-identical block) found many copies:
   - only ~75% of the raw records add game-deduplicated records;
   - the share will grow as the files grow;
   - first exact check: 17,024,000 raw → 13,149,722 game-deduplicated.
-- **Possible fix (not applied; it needs a new datagen binary and a generator restart, the lead's call):** preload the
-  start set from the GAME_START records of the output file and the other E5 file (`--avoid FILE...`).
-- **Forecast (not a measurement):** at ~75% marginal yield and 1.05M raw/h (gen6b yields to Book Lab), or ~1.7M raw/h
-  with both generators:
-  - 15M game-deduplicated around 03:45–04:40;
-  - 30M only after ~13–21 more hours.
+- **Fix, applied 2026-11-11 (lead's decision; ca74ac2).** datagen preloads the used starts from the GAME_START
+  records of `--avoid FILE...`. It checks each game's first quiet position (that is what the GAME_START record holds)
+  before the first full search, and `--start-parity 0|1` keeps the two concurrent generators apart. ctest
+  `datagen_avoid`: a second run with `--avoid` on the first run's file writes none of its starts; the control run
+  without `--avoid` repeats all 11.
+- **Restart 02:38:15** (`restart_e5.sh`, taken in a gap between Book Lab runs under the timing lock):
+  - binary sha256 a99a1334887d2434…, verified at launch;
+  - gen6a: seed 618, parity 0; gen6b: seed 619, parity 1; each avoids both files;
+  - preloaded 649,410 / 649,447 game starts (443,724 / 443,761 distinct);
+  - offsets at the restart: gen6a 10,829,568 records, gen6b 6,592,512.
+  - The first attempt at 02:32 failed safely: the yield-stopped gen6b parent could not reap its child. gen6a was down
+    for 6 minutes.
+- **Measured at 03:08** (`scripts/dup_since.py`): 0 of 22,834 games written since the restart repeat an earlier game
+  or an earlier start (criterion: below 1%). Skipped draws cost only the random plies and a 2,000-node check: gen6a
+  skipped 13,640 used starts and 35,374 starts of the other parity in that time.
+- **Start pool vs used** (`logs/start_pool_0230.txt`; dry run of the start choice, `datagen --count-starts`):
+  - Used: 443,724 distinct starts. At ~29.7 game-deduplicated records per game, 30M needs ~1.01M distinct starts.
+  - **Seeded starts** (half of the draws): still 85–90% new at that point, plenty.
+  - **Random openings** (4–12 random plies from the initial position): **less than half of this pool is left for
+    30M.** After 1.28M random draws only 28% of the next draws are new, 17% after 4M.
+  - Generation does not stall, because skipped draws are cheap. But the new games shift from 50/50 to roughly
+    75/25 seeded/random by 30M.
+- **Proposal to widen it** (`logs/start_pool_alternatives_0235.txt`; options only, no new binary; with `--avoid`, a
+  restart costs no repeats):
+  - random openings with 6–16 random plies: still ~59–66% new where 4–12 gives 28%; or 8–20 plies: ~81–86%.
+    More random plies give more lopsided openings; the 2,000-node |score| ≤ 300 filter still applies.
+  - seed plies 2–6: seeded starts stay 92–95% new.
+  - Not applied: the restart kept the approved recipe. The lead's call.
+- **Forecast (not a measurement):** game-deduplicated records now grow 1:1 with raw records, ~1.05M/h with gen6b
+  yielding to Book Lab (~1.7M/h with both). 15M around 04:10; 30M about 10–15 h after that.
 
 **Validation tails.** For flagged files they now start at a game start. That does not make validation positions unique
 against training. Share of validation positions whose key also occurs in the same file's training part:
