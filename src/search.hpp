@@ -1,5 +1,6 @@
 #pragma once
 
+#include <array>
 #include <atomic>
 #include <cstdint>
 #include <functional>
@@ -113,6 +114,9 @@ struct SearchParams {
     int smp_vote = 0;           // C: take the result from the best thread (depth and score) instead of thread 0
     int smp_skip = 0;           // C: helper depth-skip pattern (0 = default, 1 = none, 2 = odd/even)
     int tt_skip_same = 0;       // C: hash table does not rewrite unchanged entries
+    // Q: forcing quiet moves (the opponent must capture after them) are exempt from late-move pruning and futility
+    // pruning (1), and also from late-move reductions (2). -1: statistics only (counts them, prunes as 0).
+    int prune_forcing = 0;
 
     // Sets a parameter by name; returns false for an unknown name.
     bool set(const std::string& name, int value);
@@ -147,6 +151,10 @@ public:
         egdb_pieces_ = n;
     }
     int egdb_pieces() const { return egdb_pieces_; }
+    // Q statistics of the last search, summed over threads: LMP pruned, LMP kept (forcing), futility pruned,
+    // futility kept, LMR reduced, LMR exempted. "pruned"/"reduced" count every move the rule applied to, before the
+    // exemption; with prune_forcing=-1, "kept"/"exempted" count the forcing ones without exempting them.
+    std::array<std::uint64_t, 6> prune_stats() const;
     // Use moves-to-conversion only in positions with at most n pieces (default: wherever the database has it).
     // Lets tests stand in small generated tables for the real database's WLD-only range.
     void set_egdb_mtc_pieces(int n) {

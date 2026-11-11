@@ -187,6 +187,7 @@ struct Worker {
     int seldepth = 0;
     int root_depth = 0;
     int completed_depth = 0;
+    std::uint64_t qstat[6] = {};  // Q statistics (Engine::prune_stats)
     // Result of the last completed iteration (Lazy SMP thread selection).
     Move done_move;
     Score done_score = -SCORE_INF;
@@ -217,6 +218,7 @@ void Worker::setup(const Position& r, const std::vector<Key>& game_keys, const s
     completed_depth = 0;
     done_score = -SCORE_INF;
     done_pv.clear();
+    std::fill(std::begin(qstat), std::end(qstat), 0);
     P = eng.params;
     const std::size_t ec = P.leaf_cache > 0 ? std::size_t(1) << std::min(P.leaf_cache, 24) : 0;
     if (ecache.size() != ec) ecache.assign(ec, 0);
@@ -556,8 +558,20 @@ Score Worker::search(Position& pos, Score alpha, Score beta, int depth, int ply,
         // Shallow pruning of late quiet moves.
         if (!pv_node && quiet && n > 0 && best > -SCORE_KNOWN_WIN) {
             // Not in the conversion search: the one move that keeps a win can come late in the list.
-            if (depth <= P.lmp_depth && !conversion && int(quiets.size()) >= P.lmp_base + depth * depth) continue;
-            if (depth <= P.fut_depth && !conversion && !limit_near && peval + P.fut_margin * depth <= alpha) continue;
+            const bool lmp = depth <= P.lmp_depth && !conversion && int(quiets.size()) >= P.lmp_base + depth * depth;
+            const bool fut =
+                !lmp && depth <= P.fut_depth && !conversion && !limit_near && peval + P.fut_margin * depth <= alpha;
+            if (lmp || fut) {
+                ++qstat[lmp ? 0 : 2];
+                if (!P.prune_forcing) continue;
+                // Q: a quiet move after which the opponent must capture can start a combination; the capture
+                // search below cannot bring back a move dropped here.
+                Position c = pos;
+                c.make_move(m);
+                if (!has_capture(c, c.side_to_move())) continue;
+                ++qstat[lmp ? 1 : 3];
+                if (P.prune_forcing < 0) continue;  // statistics only
+            }
         }
 
         Position child = pos;
@@ -581,6 +595,13 @@ Score Worker::search(Position& pos, Score alpha, Score beta, int depth, int ply,
                 r -= pv_node;
                 r -= quiet_score(us, m, ply) / 6000;
                 r = std::clamp(r, 0, std::max(0, new_depth - 1));
+                if (r > 0) {
+                    ++qstat[4];
+                    if ((P.prune_forcing >= 2 || P.prune_forcing < 0) && has_capture(child, child.side_to_move())) {
+                        ++qstat[5];
+                        if (P.prune_forcing >= 2) r = 0;  // Q: a forcing move is searched at full depth
+                    }
+                }
             }
             s = -search(child, -alpha - 1, -alpha, new_depth - r, ply + 1, true, qext);
             if (s > alpha && r > 0) s = -search(child, -alpha - 1, -alpha, new_depth, ply + 1, !cut_node, qext);
@@ -768,7 +789,7 @@ bool SearchParams::set(const std::string& name, int value) {
         {"se_double_cap", &SearchParams::se_double_cap},   {"se_neg", &SearchParams::se_neg},
         {"tm_nodes", &SearchParams::tm_nodes},             {"tt_eval", &SearchParams::tt_eval},
         {"smp_vote", &SearchParams::smp_vote},             {"smp_skip", &SearchParams::smp_skip},
-        {"tt_skip_same", &SearchParams::tt_skip_same},
+        {"tt_skip_same", &SearchParams::tt_skip_same},     {"prune_forcing", &SearchParams::prune_forcing},
     };
     for (const auto& e : table)
         if (name == e.name) {
@@ -813,6 +834,13 @@ void Engine::set_hash_mb(std::size_t mb) { tt_.resize(mb); }
 void Engine::new_game() {
     tt_.clear();
     for (auto& w : workers_) w->clear();
+}
+
+std::array<std::uint64_t, 6> Engine::prune_stats() const {
+    std::array<std::uint64_t, 6> s{};
+    for (const auto& w : workers_)
+        for (int i = 0; i < 6; ++i) s[i] += w->qstat[i];
+    return s;
 }
 
 void Engine::set_evaluator(std::shared_ptr<const Evaluator> e) {

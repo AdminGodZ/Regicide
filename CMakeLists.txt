@@ -122,6 +122,9 @@ target_link_libraries(unbalanced PRIVATE regicide_core)
 add_executable(posbench tools/posbench.cpp)
 target_link_libraries(posbench PRIVATE regicide_core)
 
+add_executable(pdnfens tools/pdnfens.cpp)
+target_link_libraries(pdnfens PRIVATE regicide_core)
+
 add_executable(datagen tools/datagen.cpp)
 target_link_libraries(datagen PRIVATE regicide_core)
 

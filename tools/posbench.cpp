@@ -3,12 +3,14 @@
 //   posbench --fens mid.txt --count 50 --threads 4 --depth 18 --params "hash_first_db=90" --egdb ~/egdb
 //
 // Each position is searched from a cleared hash table (new_game). Prints one line per position with -v and totals.
+#include <array>
 #include <cstdio>
 #include <iostream>
 #include <string>
 #include <vector>
 
 #include "egdb/egdb.hpp"
+#include "movegen.hpp"
 #include "position.hpp"
 #include "search.hpp"
 
@@ -70,6 +72,7 @@ int main(int argc, char** argv) {
     std::uint64_t nodes = 0, tbhits = 0;
     std::int64_t ms = 0;
     long depth_sum = 0;
+    std::array<std::uint64_t, 6> qs{};
     for (std::size_t i = 0; i < list.size(); ++i) {
         e.new_game();
         e.set_position(list[i]);
@@ -93,18 +96,27 @@ int main(int argc, char** argv) {
             r.score = snap.score;
             tb = snap.tbhits;
         }
+        for (int k = 0; k < 6; ++k) qs[k] += e.prune_stats()[k];
         nodes += r.nodes;
         ms += r.time_ms;
         tbhits += tb;
         depth_sum += r.depth;
         if (verbose)
-            std::printf("%zu %s depth %d score %d nodes %llu ms %lld\n", i, list[i].fen().c_str(), r.depth, r.score,
-                        (unsigned long long)r.nodes, (long long)r.time_ms);
+        {
+            MoveList legal;
+            generate_moves(list[i], legal);
+            std::printf("%zu %s depth %d score %d nodes %llu ms %lld move %s legal %zu\n", i, list[i].fen().c_str(),
+                        r.depth, r.score, (unsigned long long)r.nodes, (long long)r.time_ms,
+                        move_text(list[i], r.best).c_str(), legal.size());
+        }
     }
     std::printf("positions %zu threads %d params \"%s\": nodes %llu ms %lld nps %.0f mean_depth %.2f mean_ms %.1f "
                 "tbhits %llu\n",
                 list.size(), threads, params.c_str(), (unsigned long long)nodes, (long long)ms,
                 ms ? nodes * 1000.0 / ms : 0.0, double(depth_sum) / list.size(), double(ms) / list.size(),
                 (unsigned long long)tbhits);
+    std::printf("prune stats: lmp %llu kept %llu  fut %llu kept %llu  lmr %llu exempt %llu\n",
+                (unsigned long long)qs[0], (unsigned long long)qs[1], (unsigned long long)qs[2],
+                (unsigned long long)qs[3], (unsigned long long)qs[4], (unsigned long long)qs[5]);
     return 0;
 }
