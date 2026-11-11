@@ -257,3 +257,4 @@ protocol is identical. The chain had started M7 at 06:21 on the 456e9b2 engine; 
 221 games, moved aside unpooled (`~/regicide-jobs/netm/discarded/`), and M7 restarted in full on cc29fc9 at 06:41.
 (The restart first failed to launch: `runner2.sh` had lost its execute bit when it was rewritten for the strict
 validation; fixed with chmod.)
+| M7 n9h vs n8q — **interim, 806 of 1,610 games** (402 complete pairs, pool_dirs method, not yet strictly validated) | on | 145 / 525 / 136 | [0, 12, 369, 21, 0] | +3.9 [-1.0, +8.7] (interim) | | | | |
