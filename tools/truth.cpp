@@ -643,7 +643,9 @@ int split(const std::string& in, const std::string& out, int lo, int hi, bool pr
 // captures (a start with a capture due is stored at its first quiet position): datagen's seeded starts. The others
 // count as random openings (from the initial position). A random opening that happens to be reachable from a seed is
 // counted as seeded. Per file: starts, seeded, other.
-int startkinds(const std::vector<std::string>& files, const std::string& seeds_file, int pmin, int pmax, int threads) {
+// --out F [--from N]: also write the records of the seed-reachable games that start at record N or later of each file.
+int startkinds(const std::vector<std::string>& files, const std::string& seeds_file, int pmin, int pmax, int threads,
+               const std::string& out_file = "", long from = 0) {
     struct K {
         std::uint32_t b, w, k;
         std::uint8_t s;
@@ -722,6 +724,35 @@ int startkinds(const std::vector<std::string>& files, const std::string& seeds_f
         std::printf("%s: starts %zu, seeded %zu (%.1f%%), random openings %zu (%.1f%%)\n", files[f].c_str(), n, s,
                     n ? 100.0 * double(s) / double(n) : 0.0, n - s, n ? 100.0 * double(n - s) / double(n) : 0.0);
     }
+    if (out_file.empty()) return 0;
+    std::FILE* out = std::fopen(out_file.c_str(), "wb");
+    if (!out) return std::cerr << "cannot write " << out_file << '\n', 1;
+    long games = 0, records = 0;
+    for (std::size_t f = 0; f < files.size(); ++f) {
+        std::FILE* in = std::fopen(files[f].c_str(), "rb");
+        if (!in) return std::cerr << "cannot open " << files[f] << '\n', 1;
+        std::vector<DataRecord> buf(1 << 16);
+        std::size_t g = 0;  // index into per_file[f]
+        bool keep = false;
+        long at = 0;
+        for (std::size_t n; (n = std::fread(buf.data(), sizeof(DataRecord), buf.size(), in)) > 0;)
+            for (std::size_t i = 0; i < n; ++i, ++at) {
+                if (buf[i].game_start()) {
+                    // a growing file can hold more games than were classified: those are left out
+                    keep = g < per_file[f].size() && at >= from && seeded[per_file[f][g]].load() != 0;
+                    ++g;
+                    games += keep;
+                }
+                if (keep) {
+                    std::fwrite(&buf[i], sizeof(DataRecord), 1, out);
+                    ++records;
+                }
+            }
+        std::fclose(in);
+    }
+    std::fclose(out);
+    std::printf("wrote %ld records of %ld seed-reachable games (from record %ld of each file) to %s\n", records, games,
+                from, out_file.c_str());
     return 0;
 }
 
@@ -778,7 +809,8 @@ int main(int argc, char** argv) {
             }
         return 0;
     }
-    if (cmd == "startkinds") return startkinds(files, seeds_file, seed_pmin, seed_pmax, threads);
+    if (cmd == "startkinds")
+        return startkinds(files, seeds_file, seed_pmin, seed_pmax, threads, out == "pilot.csv" ? "" : out, from);
     if (cmd == "split") return split(in, out, lo, hi, proven, from);
     if (cmd == "seeds") return seeds(files, lo, hi, opponents, out);
     if (cmd == "fens") {  // the input is checked before the database loads (tested by tests/truth_fens_test.cmake)
