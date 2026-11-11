@@ -1,0 +1,9 @@
+arm	target_colour	fresh	judged_round	engine_age_A	engine_age_B	same_process_other_colour_before
+cand	B	False	1.1	0	0	False
+cand	B	True	1.1	0	0	False
+cand	W	False	1.2	1	1	True
+cand	W	True	1.2	0	0	False
+ctrl	B	False	1.1	0	0	False
+ctrl	B	True	1.1	0	0	False
+ctrl	W	False	1.2	1	1	True
+ctrl	W	True	1.2	0	0	False
