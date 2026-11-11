@@ -248,3 +248,12 @@ match tool refused to start (exit 1), and the runner logged 0 of 1,610 games and
 on a second build of the same master 456e9b2 with `-DREGICIDE_NNUE_MAX_FT=2048` (as truth-data's `rft2048.so`).
 Both sides use it. bench 7,677,736 (unchanged); it loads w2064 and n8bn; database 7 pieces. Engine dir `netm/eng2048`.
 | M6a w2064 vs n8bn (FT-2048 build of 456e9b2, both sides) | on | 262 / 1071 / 277 | [0, 35, 750, 20, 0] | **-3.2 [-6.4, -0.1]** | 2.1% | 0.271 / 0.270 s | 31.96 / 33.38 | none |
+
+**M7 n9h vs n8q (database on, 0.5 s, the M1 protocol):** n9h.nnue from origin/t3/truth-data, sha256 2bae308ed648d2ef….
+Engine: both sides one `libregicide_cb.so` built from **master cc29fc9** (PR #60: net loader range check; search
+unchanged; bench 7,677,736), dir `netm/eng_cc29` with the 7-piece database. `set evalfile` accepts n9h and n8q
+(`reply 1 nnue`) and rejects a missing file. The match tool and cbhost are the same 456e9b2 builds as for M1, so the
+protocol is identical. The chain had started M7 at 06:21 on the 456e9b2 engine; that run was stopped at 06:40 after
+221 games, moved aside unpooled (`~/regicide-jobs/netm/discarded/`), and M7 restarted in full on cc29fc9 at 06:41.
+(The restart first failed to launch: `runner2.sh` had lost its execute bit when it was rewritten for the strict
+validation; fixed with chmod.)
