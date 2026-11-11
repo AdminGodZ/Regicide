@@ -847,27 +847,50 @@ after the move, with either net's evaluation):
   playable moves (one horizon miss aside), the kind of difference that lies within the noise of a net's evaluation. Better
   labels there may help a little; a verdict needs n9h/n9a against these ballots, not only self-play.
 
-#### All book-off lost games against Cake and GuiNN (PARTIAL: 19 of 25 runs; stopped for a machine restart)
+#### All book-off lost games against Cake and GuiNN (all 25 runs, final 2026-11-11 01:10)
 
-Per-game rows: `logs/lossreport_partial.md`; raw output: `logs/losswalk/lw_*.tsv`. Read with the caveats at the top of 4b (no game history; the turn is a heuristic). KingsRow games are not part of it.
+Per-game rows: `logs/lossreport_final.md`; raw output: `logs/losswalk/lw_*.tsv`. Read with the caveats at the top of
+4b: no game history, and the turn is a heuristic. KingsRow games are not part of it (see the k3 section below).
+- The n4c rows are the older built-in net's book-off runs (`ba-off-769*`, `ba-tm-off`).
+- "in-game score 99999" in the rows marks a move without an in-game score.
 
-**Summary by opponent and net (partial)**
+**Summary by opponent and net**
 
-Turning moves whose deep score drops by 100 or more: 'horizon' if Regicide's in-game score for the move stayed above −50, 'eval' if the net's static eval of the position after the move is ≥ 0.
+Turning moves whose deep score drops by 100 or more are classed as:
+- 'horizon' if Regicide's in-game score for the move stayed above −50;
+- 'eval' if the net's static eval of the position after the move is ≥ 0.
 
 | opponent | net | lost games | proven lost: median pieces | already ≤ −50 at Regicide's first decision | turn: games at 20–24 / 17–19 / 13–16 / 9–12 / ≤ 8 pieces (others) | drops ≥ 100 at the turn | of which horizon / eval |
 |---|---|---|---|---|---|---|---|
+| Cake | n4c | 41 | 9 | 0 | 25 / 10 / 4 / 2 / 0 | 6 | 3 / 2 |
 | Cake | n6c | 62 | 11.0 | 0 | 30 / 14 / 15 / 3 / 0 | 10 | 6 / 0 |
 | Cake | n8bn | 15 | 12 | 0 | 8 / 6 / 1 / 0 / 0 | 8 | 3 / 0 |
 | Cake | n8c | 5 | 11 | 0 | 5 / 0 / 0 / 0 / 0 | 1 | 1 / 0 |
 | Cake | n8q | 5 | 12 | 0 | 1 / 4 / 0 / 0 / 0 | 1 | 1 / 0 |
-| GuiNN | n6c | 3 | 9 | 0 | 2 / 0 / 1 / 0 / 0 | 1 | 0 / 0 |
+| GuiNN | n4c | 5 | 9 | 0 | 3 / 1 / 1 / 0 / 0 | 0 | 0 / 0 |
+| GuiNN | n6c | 8 | 9.0 | 0 | 6 / 0 / 2 / 0 / 0 | 4 | 1 / 0 |
 | GuiNN | n8bn | 2 | 9.5 | 0 | 1 / 0 / 1 / 0 / 0 | 1 | 1 / 0 |
 | GuiNN | n8c | 2 | 12.0 | 0 | 2 / 0 / 0 / 0 / 0 | 0 | 0 / 0 |
 
-All 94 analysed games: proven lost at median 11.0 pieces; turns at 20–24 / 17–19 / 13–16 / 9–12 / ≤ 8 pieces: 49 / 24 / 18 / 3 / 0; unresolved or not proven: 0; already ≤ −50 at Regicide's first decision: 0.
+**All 145 analysed games:**
+- Proven lost at a median of 10 pieces.
+- Turns at 20–24 / 17–19 / 13–16 / 9–12 / ≤ 8 pieces: 81 / 35 / 24 / 5 / 0.
+- Unresolved or not proven: 0. Already ≤ −50 at Regicide's first decision: 0.
 
-**Reading so far:** the games are proven lost at a median of 11 pieces, but the deep score falls below −50 much earlier: in most games while 20–24 pieces are still on the board, and in none at ≤ 8 pieces. That agrees with the reviewer's measurement that the search is nearly error-free one step beyond the database. The losses are made in the opening and early middle game.
+**Repeated games.** Many of the 145 are the same game repeated across runs: the engines are deterministic with the book
+off. For example, ballot "11-16 23-19 16x23" as White is lost the same way in 9 runs. Counted once per (opponent, ballot,
+colour, turn, deep scores), about 73 distinct games remain. Their turns fall at 20–24 / 17–19 / 13–16 / 9–12 / ≤ 8
+pieces in 39 / 16 / 14 / 4 / 0 games; they are proven lost at a median of 10 pieces; 17 have a drop ≥ 100 at the turn.
+
+**Reading:**
+- The games are proven lost at a median of 10 pieces, but the deep score falls below −50 much earlier: in most games
+  while 20–24 pieces are still on the board, and in none at ≤ 8 pieces. That agrees with the reviewer's measurement that
+  the search is nearly error-free one step beyond the database.
+- The losses are made in the opening and early middle game, and the picture is the same for every net (n4c to n8q).
+- Most turns are small drops (−20 … −60 cm) that only become visible later. Large drops at the turn are few: 17 of
+  about 73 distinct games. In about half of these (16 of 31 rows) the in-game search did not see the drop ('horizon'), and the net's static
+  eval was positive after the move only for n4c (2 games).
+- This matches the KingsRow k3 lines below: search depth at 14–24 pieces, not the endgame, decides these games.
 
 
 #### KingsRow, book mode 3: the seven games Regicide lost as Black (Book Lab k3; lead, 2026-11-10)
