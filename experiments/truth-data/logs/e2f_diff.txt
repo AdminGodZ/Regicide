@@ -1,0 +1,24 @@
+gen1_n10k_e2f.bin: records 9643008; results changed 371065 (<= 8 pieces 371065, > 8 pieces 0); other fields differing 0
+  by pieces 2-8: 2:1926 3:32615 4:44717 5:77958 6:86314 7:40678 8:86857
+gen1b_n10k_e2f.bin: records 29817546; results changed 1141490 (<= 8 pieces 1141490, > 8 pieces 0); other fields differing 0
+  by pieces 2-8: 2:6779 3:98575 4:135158 5:234511 6:277512 7:124948 8:264007
+gen1c_n10k_e2f.bin: records 29816510; results changed 1137064 (<= 8 pieces 1137064, > 8 pieces 0); other fields differing 0
+  by pieces 2-8: 2:6062 3:96956 4:141044 5:233430 6:276042 7:126698 8:256832
+gen2a_n10k_e2f.bin: records 30060997; results changed 1018528 (<= 8 pieces 1018528, > 8 pieces 0); other fields differing 0
+  by pieces 2-8: 2:1795 3:65683 4:150809 5:218860 6:265924 7:100969 8:214488
+gen2b_n10k_e2f.bin: records 29516347; results changed 809987 (<= 8 pieces 809987, > 8 pieces 0); other fields differing 0
+  by pieces 2-8: 2:955 3:32559 4:111493 5:150147 6:259150 7:75037 8:180646
+gen3a_n10k_e2f.bin: records 30033050; results changed 940741 (<= 8 pieces 940741, > 8 pieces 0); other fields differing 0
+  by pieces 2-8: 2:2270 3:37446 4:90242 5:229040 6:261077 7:145432 8:175234
+gen3b_n10k_e2f.bin: records 29399508; results changed 690174 (<= 8 pieces 690174, > 8 pieces 0); other fields differing 0
+  by pieces 2-8: 2:1198 3:19247 4:88345 5:193189 6:133767 7:120985 8:133443
+gen3c_n10k_e2f.bin: records 28680073; results changed 623576 (<= 8 pieces 623576, > 8 pieces 0); other fields differing 0
+  by pieces 2-8: 2:336 3:12846 4:89933 5:156444 6:150654 7:76296 8:137067
+gen3d_n10k_e2f.bin: records 28599457; results changed 578791 (<= 8 pieces 578791, > 8 pieces 0); other fields differing 0
+  by pieces 2-8: 2:589 3:12252 4:68811 5:158365 6:116736 7:100129 8:121909
+gen4a_n10k_e2f.bin: records 28083233; results changed 513204 (<= 8 pieces 513204, > 8 pieces 0); other fields differing 0
+  by pieces 2-8: 2:848 3:10060 4:58418 5:130440 6:108007 7:79327 8:126104
+gen5a_n50k_e2f.bin: records 10435120; results changed 112509 (<= 8 pieces 112509, > 8 pieces 0); other fields differing 0
+  by pieces 2-8: 2:9 3:915 4:19341 5:16376 6:22743 7:15282 8:37843
+gen5c_n50k_e2f.bin: records 10399320; results changed 116405 (<= 8 pieces 116405, > 8 pieces 0); other fields differing 0
+  by pieces 2-8: 2:36 3:935 4:20981 5:15322 6:23022 7:17240 8:38869

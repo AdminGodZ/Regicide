@@ -308,6 +308,10 @@ Held-out set: the 2% validation tails (never trained on by any net here, n6c or 
 The eval is the engine's exact integer eval (`nnue.forward_int`), side to move's view. "Mean abs eval" is on 100k
 ≥ 9-piece positions of the shared validation set (eval scale).
 
+**What "sign agrees" measures** (wording corrected 2026-11-11, from the external analysis): the share of positions
+*already proven* won or lost where the sign of the net's static eval matches the proven result. It is not a move
+accuracy and not a playing measure. Proven positions are mostly lopsided, so every net is near 99.7–99.8%.
+
 proven positions 96357 (wins 49906, losses 46451); by pieces: 9: 51785, 10: 25641, 11: 13606, 12: 5325
 | net | sign agrees | 9 | 10 | 11 | 12 | proven losses > -30 | proven wins < +30 | mean eval wins / losses | mean abs eval (>= 9 pieces, 100000 general positions) |
 |---|---|---|---|---|---|---|---|---|---|
@@ -1010,7 +1014,57 @@ Files:
   - The game's own search disagrees with 20M at times: at #34 it was at ≤ −100 from ply 16, where 20M says −25.
   - KingsRow-based results stay provisional (see the book-mode note in P1).
 
+### E2 relabel defect: endgame records kept the value of the game's first database position (2026-11-11)
+
+**Defect** (found by an external analysis, confirmed by the lead). `truth relabel` wrote the database value of a
+game's FIRST record with ≤ 8 pieces as the result of EVERY record of that game. So a game that entered the database
+as a win and then gave the win away kept "win" on its later records, although those positions are draws or losses.
+Example: B:WK13:BK14,K22 is a Black win; after 22-17 13x22, B:WK22:BK14 is a draw but was written as a Black win.
+
+**Size** on the E2 files of n8q's and n9h's recipe (gen1–gen4a, gen5a; `truth labelcheck`, `logs/labelcheck_e2.md`).
+Each record with ≤ 8 pieces was compared with its own database value. The database knows every one of them (0
+unknown).
+
+| pieces | wrong / records | share |
+|---|---|---|
+| 2 | 22,767 / 396,286 | 5.75% |
+| 3 | 419,154 / 4,113,984 | 10.19% |
+| 4 | 998,311 / 14,192,229 | 7.03% |
+| 5 | 1,798,760 / 31,178,359 | 5.77% |
+| 6 | 1,957,926 / 41,432,482 | 4.73% |
+| 7 | 1,005,781 / 37,247,612 | 2.70% |
+| 8 | 1,734,430 / 37,853,023 | 4.58% |
+| **2–8** | **7,937,129 / 166,413,975** | **4.77%** (4.58% as sampled, gen5a ×3) |
+
+- Per file: from 6.7% (gen1*, 10k-node play that throws wins away most often) to 1.9% (gen5a/gen5c, 50k nodes).
+- Games: 176,334 of the 2,566,576 games that reach ≤ 8 pieces (6.87%) carry at least one wrong record.
+- **n8q and n9h were trained on these uncorrected labels.** In their 2–8 group (10% of every batch), the result half
+  of the target (λ 0.5) is wrong for ~4.6% of the records.
+
+**Fix** (`tools/relabel.hpp`, used by `truth relabel`; ctest `truth_relabel_own_value` builds a 2–3-piece database and
+checks the two positions above):
+- records before the game's first covered position take that position's value as the game result, as before;
+- every record with ≤ 8 pieces takes its own database value;
+- records with more than 8 pieces after a covered position take the value of the nearest earlier covered record (the
+  lead's default). In a game the piece count never rises (captures only remove pieces), so this happens only for
+  ≤ 8-piece records the database does not know, or for a record of the next game kept in this one by the legacy
+  game-boundary heuristic. Over all twelve files it happened 0 times (`logs/relabel_e2f.log`).
+
+**Rebuilt files** `*_e2f.bin` (the old `*_e2.bin` stay, for n8q and n9h):
+- `truth labelcheck` on them: 0 wrong of 172,389,354 ≤ 8-piece records (`logs/labelcheck_e2f.md`).
+- Record by record (`logs/e2f_diff.txt`), they differ from the old E2 files only in the results of exactly those
+  records. Board, score and flags are identical, and no record above 8 pieces changed.
+- **n9a and n9a0 train on the `_e2f` files** (n9.sh and n9a_variant.sh changed). The wrong share in the 2–8 group is
+  far above the 0.5% threshold.
+
+**E5 (datagen --egdb) cannot have this pattern.** A game ends at the first position the database knows, and that value
+becomes the result of all earlier records, which are all above 8 pieces. The database knows every ≤ 8-piece position,
+so no ≤ 8-piece record is written. Measured: 0 records with ≤ 8 pieces in n9h's deduplicated gen6a/gen6b
+(`logs/labelcheck_e5.md`).
+
 ### n9h: n8q's recipe plus 15M game-deduplicated E5 records (2026-11-11 04:10–04:35)
+
+Note (added later the same day): n9h's E2 files carry the relabel defect described above.
 
 **Data.**
 - The trigger fired at 04:10 at 15,136,082 game-deduplicated records (19,094,528 raw).
@@ -1059,7 +1113,8 @@ named wins: 3 kings vs 1 is +542 / −517, where n8q gives +519 / −467.
   scored a little less drawish than by n8q (61–62% within ±100 vs 62–64%; n6c 70–79%).
 - So the database-truth labels of E5 do not repair the draw judgement above the database. That fits the label rule:
   above 8 pieces a search proves only wins and losses, never draws.
-- Whether n9h plays better is for the laptop match against n8q. The net is on the branch:
+- **These are calibration tables. They do not say how n9h plays.** That is the laptop match against n8q (running;
+  interim +3.9 [−1.0, +8.7] after 402 pairs, lead 2026-11-11). The net is on the branch:
   `experiments/truth-data/n9h.nnue`.
 
 **Validation loss on seeded-start games only** (lead, 2026-11-11 morning). Records: the seed-reachable games
@@ -1120,8 +1175,8 @@ Each claim is read at the resolution of its test (see "Reading the evidence").
   - Between K 77, 102 and 130 no difference is shown (~8 Elo). Truth-labelled nets should keep n6c's K or tune it
     separately.
 - **The database-truth metric hardly separates nets.**
-  - Every net agrees in sign with 99.7–99.8% of the held-out proven 9–12-piece positions; proven positions are mostly
-    lopsided.
+  - Every net's static eval agrees in sign with the proven result on 99.7–99.8% of the held-out 9–12-piece positions
+    that are already proven won or lost. That is sign agreement on lopsided positions, not move accuracy.
   - The E2/E3 nets at a large K do best on the tails, in line with the matches, but the metric would not have
     predicted the match results on its own.
   - Per-group validation loss does not rank nets of one family either.

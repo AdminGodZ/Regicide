@@ -15,8 +15,8 @@ head -c $(( 6659840 * 16 )) $O/gen6b_n50k_egdb.bin > $SNAP/gen6b_n50k_egdb.bin |
 $PY $T/tools/dedupe_games.py $SNAP $SNAP/gen6a_n50k_egdb.bin $SNAP/gen6b_n50k_egdb.bin > $J/n9a0_dedupe.txt || exit 1
 rm -f $SNAP/gen6a_n50k_egdb.bin $SNAP/gen6b_n50k_egdb.bin
 st "n9a0: E5 without the 6-16-ply part: $(tr '\n' ' ' < $J/n9a0_dedupe.txt)"
-ALL=""; for f in gen1 gen1b gen1c gen2a gen2b gen3a gen3b gen3c gen3d gen4a; do ALL="$ALL --data $O/${f}_n10k_e2.bin"; done
-G5="--data $O/gen5a_n50k_e2.bin"
+ALL=""; for f in gen1 gen1b gen1c gen2a gen2b gen3a gen3b gen3c gen3d gen4a; do ALL="$ALL --data $O/${f}_n10k_e2f.bin"; done
+G5="--data $O/gen5a_n50k_e2f.bin"
 E5="--data $SNAP/gen6a_n50k_egdb_dedup.bin --data $SNAP/gen6b_n50k_egdb_dedup.bin"
 K=$(python3 -c "import json; print(json.load(open('$HOME/regicide-nnue6-work/runs/n6c/config.json'))['K'])")
 touch $LOCKS/yield_truth

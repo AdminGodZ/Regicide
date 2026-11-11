@@ -40,6 +40,7 @@
 #include "datafile.hpp"
 #include "egdb/egdb.hpp"
 #include "label.hpp"
+#include "relabel.hpp"
 #include "movegen.hpp"
 #include "position.hpp"
 #include "search.hpp"
@@ -62,13 +63,7 @@ bool same_game(const DataRecord& a, const DataRecord& b) {
     return true;
 }
 
-// Database value from black's point of view: 1 / 0 / -1, or 2 when unknown.
-int db_black(const DataRecord& r) {
-    const egdb::Wld w = egdb::probe(r.black, r.white, r.kings, r.color());
-    if (w == egdb::Wld::Unknown) return 2;
-    const int s = w == egdb::Wld::Win ? 1 : w == egdb::Wld::Loss ? -1 : 0;
-    return r.color() == BLACK ? s : -s;
-}
+using truth::db_black;  // tools/relabel.hpp
 
 struct Reader {
     std::FILE* f = nullptr;
@@ -186,24 +181,77 @@ int relabel(const std::string& in, const std::string& out) {
         std::cerr << "cannot open " << out << '\n';
         return 1;
     }
-    long games = 0, changed = 0, records = 0;
+    long games = 0, changed = 0, records = 0, changed_records = 0, own = 0, carried = 0;
     bool flagged = false;
     for_each_game(in, [&](std::vector<DataRecord>& g) {
-        const auto it = std::find_if(g.begin(), g.end(), [&](const DataRecord& r) { return r.pieces() <= db; });
-        if (it != g.end()) {
-            const int v = db_black(*it);
-            if (v != 2 && v != g[0].result) {
-                ++changed;
-                for (auto& r : g) r.result = std::int8_t(v);
-            }
-        }
+        const truth::RelabelCount c = truth::relabel_game(g, db);  // the rule: tools/relabel.hpp
+        changed += c.changed > 0;
+        changed_records += c.changed;
+        own += c.own;
+        carried += c.carried;
         ++games;
         records += long(g.size());
         std::fwrite(g.data(), sizeof(DataRecord), g.size(), o);
     }, &flagged);
     std::fclose(o);
-    std::printf("relabel %s -> %s: records %ld games %ld (boundaries: %s) relabelled %ld\n", base(in).c_str(),
-                base(out).c_str(), records, games, flagged ? "flags" : "heuristic", changed);
+    std::printf("relabel %s -> %s: records %ld games %ld (boundaries: %s) games changed %ld records changed %ld; "
+                "records with their own database value %ld, with an earlier covered record's value %ld\n",
+                base(in).c_str(), base(out).c_str(), records, games, flagged ? "flags" : "heuristic", changed,
+                changed_records, own, carried);
+    return 0;
+}
+
+// labelcheck FILE...: for every record with <= db pieces, its own database value against the result it carries; per
+// file and piece count: records, database unknown, wrong; games with at least one wrong record. Records above the
+// database that follow a covered record in the same game are counted too (they cannot occur in a correctly split game).
+int labelcheck(const std::vector<std::string>& files) {
+    const int db = egdb::max_pieces();
+    std::printf("| file | pieces | records | db unknown | wrong result | wrong share |\n|---|---|---|---|---|---|\n");
+    long all_low = 0, all_wrong = 0;
+    for (const auto& file : files) {
+        std::array<long, 25> n{}, unknown{}, wrong{};
+        long games = 0, wrong_games = 0, low_games = 0, above_after = 0;
+        for_each_game(file, [&](const std::vector<DataRecord>& g) {
+            ++games;
+            bool any = false, low = false, covered = false;
+            for (const auto& r : g) {
+                const int p = r.pieces();
+                if (p > db) {
+                    above_after += covered;
+                    continue;
+                }
+                low = covered = true;
+                ++n[p];
+                const int v = db_black(r);
+                if (v == 2) ++unknown[p];
+                else if (v != r.result) {
+                    ++wrong[p];
+                    any = true;
+                }
+            }
+            wrong_games += any;
+            low_games += low;
+        });
+        long tn = 0, tw = 0, tu = 0;
+        for (int p = 2; p <= db; ++p) {
+            tn += n[p];
+            tw += wrong[p];
+            tu += unknown[p];
+            std::printf("| %s | %d | %ld | %ld | %ld | %.2f%% |\n", base(file).c_str(), p, n[p], unknown[p], wrong[p],
+                        100.0 * double(wrong[p]) / double(std::max(1L, n[p])));
+        }
+        std::printf("| %s | 2-%d | %ld | %ld | %ld | %.2f%% |\n", base(file).c_str(), db, tn, tu, tw,
+                    100.0 * double(tw) / double(std::max(1L, tn)));
+        std::printf("| %s | games | %ld (%ld with <= %d pieces) | | %ld with a wrong record | %.2f%% of those |\n",
+                    base(file).c_str(), games, low_games, db, wrong_games,
+                    100.0 * double(wrong_games) / double(std::max(1L, low_games)));
+        if (above_after) std::printf("| %s | > %d after a covered record | %ld | | | |\n", base(file).c_str(), db, above_after);
+        std::fflush(stdout);
+        all_low += tn;
+        all_wrong += tw;
+    }
+    std::printf("\nall files: %ld of %ld records with <= %d pieces carry a result other than their own database value "
+                "(%.2f%%)\n", all_wrong, all_low, db, 100.0 * double(all_wrong) / double(std::max(1L, all_low)));
     return 0;
 }
 
@@ -834,6 +882,7 @@ int main(int argc, char** argv) {
     }
     if (egdb_dir.empty() || !egdb::init(egdb_dir, 4096)) return std::cerr << "cannot load egdb (--egdb DIR)\n", 1;
     if (cmd == "census") return census(files);
+    if (cmd == "labelcheck") return labelcheck(files);
     if (cmd == "relabel") return relabel(in, out);
     if (cmd == "pilot") return pilot(files, n, lo, hi, budgets, threads, seed, out);
     if (cmd == "losswalk") return losswalk(files, opponents.empty() ? "regicide" : opponents, budgets[0], threads, out);

@@ -15,8 +15,8 @@ done
 $PY $T/tools/dedupe_games.py $SNAP $SNAP/gen6a_n50k_egdb.bin $SNAP/gen6b_n50k_egdb.bin > $J/${NAME}_dedupe.txt || exit 1
 rm -f $SNAP/gen6a_n50k_egdb.bin $SNAP/gen6b_n50k_egdb.bin
 st "$NAME: E5 deduplicated: $(tr '\n' ' ' < $J/${NAME}_dedupe.txt)"
-ALL=""; for f in gen1 gen1b gen1c gen2a gen2b gen3a gen3b gen3c gen3d gen4a; do ALL="$ALL --data $O/${f}_n10k_e2.bin"; done
-G5="--data $O/gen5a_n50k_e2.bin"
+ALL=""; for f in gen1 gen1b gen1c gen2a gen2b gen3a gen3b gen3c gen3d gen4a; do ALL="$ALL --data $O/${f}_n10k_e2f.bin"; done
+G5="--data $O/gen5a_n50k_e2f.bin"
 E5="--data $SNAP/gen6a_n50k_egdb_dedup.bin --data $SNAP/gen6b_n50k_egdb_dedup.bin"
 K=$(python3 -c "import json; print(json.load(open('$HOME/regicide-nnue6-work/runs/n6c/config.json'))['K'])")
 touch $LOCKS/yield_truth   # training (2 threads) + losswalk (2): gen6b pauses, staying within 14 threads
