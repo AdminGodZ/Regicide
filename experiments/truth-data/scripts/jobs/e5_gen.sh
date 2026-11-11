@@ -6,8 +6,13 @@
 # match PDNs vs Cake/KingsRow/GuiNN under ~/regicide-match/results) + 2-4 random plies, half from random openings.
 # BIN: datagen-tr5 (yield group: also stops while another agent computes) or datagen-tr6 (base budget).
 # Fails if the binary cannot be copied (never runs a stale one); logs its checksum; passes datagen's exit status on.
+# PARITY (0|1, optional) and OTHER (optional: the other generator's file name): the starts already in this file and in
+# OTHER are never played again (--avoid), and this generator plays only starts of hash parity PARITY.
 source /mnt/c/regicide-match/jobs/truth/common.sh
-NAME=$1; BIN=$2; SEED=$3; TH=$4
+NAME=$1; BIN=$2; SEED=$3; TH=$4; PARITY=${5:-}; OTHER=${6:-}
+EXTRA="--avoid $HOME/regicide-data/truth/$NAME.bin"
+[ -n "$OTHER" ] && EXTRA="$EXTRA --avoid $HOME/regicide-data/truth/$OTHER.bin"
+[ -n "$PARITY" ] && EXTRA="$EXTRA --start-parity $PARITY"
 if [ -n "${EXPECT_SHA:-}" ]; then
   # use the binary already in $J/bin, only if its sha256 starts with EXPECT_SHA (no copy)
   sha=$(sha256sum $J/bin/$BIN | cut -c1-64)
@@ -19,8 +24,8 @@ elif ! cp ~/regicide-truth/build/datagen $J/bin/$BIN; then
   st "e5 $NAME NOT started: cannot copy datagen to $J/bin/$BIN"
   exit 1
 fi
-st "e5 $NAME start ($BIN sha256 $(sha256sum $J/bin/$BIN | cut -c1-16), branch $(git -C ~/regicide-truth rev-parse --short HEAD), seed $SEED, $TH threads)"
-$J/bin/$BIN --games 5000000 --nodes 50000 --threads $TH --seed $SEED --egdb ~/regicide-data/egdb \
+st "e5 $NAME start ($BIN sha256 $(sha256sum $J/bin/$BIN | cut -c1-16), branch $(git -C ~/regicide-truth rev-parse --short HEAD), seed $SEED, $TH threads, parity ${PARITY:-any}, avoid $NAME${OTHER:+ + $OTHER})"
+$J/bin/$BIN --games 5000000 --nodes 50000 --threads $TH --seed $SEED --egdb ~/regicide-data/egdb $EXTRA \
   --seeds ~/regicide-data/truth/seeds_real_6_30.txt --seed-frac 0.5 --seed-plies 2-4 \
   --out ~/regicide-data/truth/$NAME.bin >> $J/e5_$NAME.log 2>&1
 rc=$?
