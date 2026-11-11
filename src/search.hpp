@@ -115,7 +115,8 @@ struct SearchParams {
     int smp_skip = 0;           // C: helper depth-skip pattern (0 = default, 1 = none, 2 = odd/even)
     int tt_skip_same = 0;       // C: hash table does not rewrite unchanged entries
     // Q: forcing quiet moves (the opponent must capture after them) are exempt from late-move pruning and futility
-    // pruning (1), and also from late-move reductions (2). -1: statistics only (counts them, prunes as 0).
+    // pruning (1), and also from late-move reductions (2). 3: as 1, but only when the forced exchange wins material for
+    // us at once (one-exchange count, see forcing_gain). -1: statistics only (counts them, prunes as 0).
     int prune_forcing = 0;
 
     // Sets a parameter by name; returns false for an unknown name.

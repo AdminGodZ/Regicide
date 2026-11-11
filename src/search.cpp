@@ -21,6 +21,26 @@ std::int64_t elapsed_ms(Clock::time_point start) {
     return std::chrono::duration_cast<std::chrono::milliseconds>(Clock::now() - start).count();
 }
 
+// Q (prune_forcing=3): `c` is the position after our quiet move, the opponent to move with a capture forced. For each
+// capture the opponent can choose: (pieces our best immediate capture reply takes) - (pieces their capture takes).
+// Returns the minimum over their captures, i.e. what we are sure to gain in this one exchange (kings count as
+// pieces). A plain one-for-one exchange gives 0.
+int forcing_gain(const Position& c) {
+    MoveList caps;
+    generate_captures(c, caps);
+    int worst = 1 << 20;
+    for (const Move& x : caps) {
+        Position d = c;
+        d.make_move(x);
+        MoveList rec;
+        generate_captures(d, rec);
+        int back = 0;
+        for (const Move& y : rec) back = std::max(back, popcount(y.captures));
+        worst = std::min(worst, back - popcount(x.captures));
+    }
+    return worst;
+}
+
 // Proven-win scores are stored relative to the node so they stay valid at other plies.
 Score score_to_tt(Score s, int ply) { return s >= SCORE_KNOWN_WIN ? s + ply : s <= -SCORE_KNOWN_WIN ? s - ply : s; }
 Score score_from_tt(Score s, int ply) { return s >= SCORE_KNOWN_WIN ? s - ply : s <= -SCORE_KNOWN_WIN ? s + ply : s; }
@@ -569,6 +589,8 @@ Score Worker::search(Position& pos, Score alpha, Score beta, int depth, int ply,
                 Position c = pos;
                 c.make_move(m);
                 if (!has_capture(c, c.side_to_move())) continue;
+                // 3: only when the forced exchange wins material for us at once (see forcing_gain).
+                if (P.prune_forcing == 3 && forcing_gain(c) <= 0) continue;
                 ++qstat[lmp ? 1 : 3];
                 if (P.prune_forcing < 0) continue;  // statistics only
             }
@@ -597,9 +619,9 @@ Score Worker::search(Position& pos, Score alpha, Score beta, int depth, int ply,
                 r = std::clamp(r, 0, std::max(0, new_depth - 1));
                 if (r > 0) {
                     ++qstat[4];
-                    if ((P.prune_forcing >= 2 || P.prune_forcing < 0) && has_capture(child, child.side_to_move())) {
+                    if ((P.prune_forcing == 2 || P.prune_forcing < 0) && has_capture(child, child.side_to_move())) {
                         ++qstat[5];
-                        if (P.prune_forcing >= 2) r = 0;  // Q: a forcing move is searched at full depth
+                        if (P.prune_forcing == 2) r = 0;  // Q: a forcing move is searched at full depth
                     }
                 }
             }
@@ -918,6 +940,8 @@ SearchResult Engine::go(const Limits& limits, InfoFn on_info) {
         for (int i = 1; i < 64; ++i)
             lmr_[d][i] = int((params.lmr_base + std::log(double(d)) * std::log(double(i)) * params.lmr_mult) / 100.0);
     stop_ = false;
+    // Q statistics are per call: reset before any early return (tables, book, no legal move).
+    for (auto& w : workers_) std::fill(std::begin(w->qstat), std::end(w->qstat), 0);
     tt_.skip_same = params.tt_skip_same != 0;
     tt_.new_search();
 
