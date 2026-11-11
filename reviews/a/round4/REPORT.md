@@ -389,4 +389,4 @@ Ran: committed guard smoke script, 22 gate tests, mocked confirmation ordering f
 
 Read only: production match launch/restart/timing scripts; discovery's timing-lock ordering; mining stage-3 launch propagation; the live-training configuration described in committed records. I did not run timed production matches or measure live opponent processes.
 
-The tables use W/D/L from Regicide's perspective and colours B/W for Regicide unless a column explicitly says otherwise.
+A dash in a table denotes a field that does not apply, such as a first different move for an identical game. The tables use W/D/L from Regicide's perspective and colours B/W for Regicide unless a column explicitly says otherwise.
