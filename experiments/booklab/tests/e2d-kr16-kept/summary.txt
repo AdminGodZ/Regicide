@@ -1,0 +1,13 @@
+Match: A = Regicide 0.2, B = Kingsrow(x64)[1] 1.20
+Openings: /home/admingod/regicide-jobs/booklab/e2d/w16.txt (24 openings x 1 rounds, each played with both colours)
+Time control: 0.5s/move (CheckerBoard match rules); no-progress rule: 40 moves
+Games: 24 of 48 scheduled
+
+A: +9 =15 -0   score 16.5/24 = 68.75%   draw rate 62.5%
+A as black: +0 =0 -0   A as white: +9 =15 -0
+By colour: black won 0, white won 9, drawn 15
+Pairs: 0   pentanomial [LL LD DD/WL WD WW] = [0 0 0 0 0]
+Elo (trinomial, games):   +137.0 [+63.7, +224.3] 95% CI, LOS 99.99%
+Terminations: no legal moves 9; no progress 10; repetition 5;
+A Regicide 0.2: 2625 moves, avg 0.304s/move, max 3.434s
+B Kingsrow(x64)[1] 1.20: 2608 moves, avg 0.376s/move, max 8.620s

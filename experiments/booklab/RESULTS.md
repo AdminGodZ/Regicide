@@ -567,6 +567,27 @@ the old order (GuiNN's wins move around, 20 → 27). Cake on #163 as White in ma
 before, same processes; the processes' 16th and 18th game): 4-8 at ply 15 both times (d20 / 5.98 M, d21 / 7.42 M), drawn;
 the 24 natural pairs of 2d measure this properly.
 
+**2d: experiment 2 continued, process state at the known error points** (master 1c6e997 as committed, runner
+match-1c6e with EngineGamesA/B; concurrency 8; fresh = `--fresh-engines`, kept = processes kept, 24 games as White;
+natural = 24 pairs with `--pairs-together`, our Black game just before our White game in the same processes; all
+runs rc 0, every game on the board; per-game tables `e2d/report/*.md`; "age" = games the opponent's process had
+played before, EngineGamesB). Results of our White games, and the opponent's move at the named ply by age:
+
+| Opening (opponent, ply) | fresh | kept | natural | the opponent's choice by age |
+|---|---|---|---|---|
+| #163 (Cake, 15 / 19 / 33) | 1 / 23 / 0 (e2a) | 6 / 18 / 0 (e2b) | **10 / 14 / 0** | e2a/e2b: 10-15 at ply 15 only at age 1 (7 of 8). natural: 4-8 at ply 15 in all 24; at ply 19 **15-18 (age 3: 8 of 8, all won; age 7: 2 of 2, won)** or 7-10 (age 1: 8 of 8, age 5: 5 of 6, all drawn); after 15-18, ply 33: 15-19 won all 10, 16-19 drew the one |
+| #71 (KingsRow, 25) | 0 / 24 / 0 | 0 / 24 / 0 | **6 / 18 / 0** | fresh / kept: 8-11 at ply 21, 5-9 at 25; natural, age 1: 10-14 at 25 in 6 of 8 (all won), 10-15 twice (drawn); age ≥ 3: no win |
+| #43 (KingsRow, 23) | 0 / 24 / 0 | 0 / 24 / 0 | 1 / 23 / 0 | 8-11 in 47 of 48; 8-12 once (natural, age 3, won) |
+| #134 (KingsRow, 37) | 0 / 24 / 0 | 2 / 22 / 0 | **9 / 15 / 0** | fresh: 11-16 in 24; kept: 20-24 twice at age 1 (won); natural: 20-24 at ages 1, 3, 5, 7 (9 games, all won), 11-16 otherwise (drawn) |
+| #16 (KingsRow, 41) | **24 / 0 / 0** | 9 / 15 / 0 | 5 / 19 / 0 | fresh: 9-14 in 24 of 24 (all won); kept: 9-14 at age 0 (8, won), 32-28 from age 1 (drawn, one won); natural: 9-14 at ages 1 and 3 (4, won), 32-28 otherwise |
+
+Our Black games of the natural pairs: 0 / 24 / 0 in all five openings. No loss in any 2d game.
+**The opponents' choices at these points depend on the state of their processes, in both directions:** KingsRow's
+#16 error comes in every game of a new process and fades with age; its #71 error comes only right after the pair's
+other game (age 1); Cake on #163 loses through 15-18 / 15-19 at ages 3 and 7 and draws through 7-10 at ages 1 and 5.
+In a real CheckerBoard match the processes are as old as the opening's place in the deck (about 2 × its position), so
+the strict numbers are the concurrency-1 runs (`mo1-*`, playing).
+
 **Incident 08:58** (my error): experiment 2's chain died at `e2c-kept-2-h2`. I had replaced `bl_run_w.sh` by `mv` (to add
 NOLOCK) while an instance was running; on /mnt/c the running bash lost its script ("error reading input file: No data
 available") after the match had played its 156 games, so the half-run has no exit_status and is not counted
