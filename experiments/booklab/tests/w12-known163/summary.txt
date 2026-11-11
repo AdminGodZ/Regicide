@@ -1,0 +1,13 @@
+Match: A = Regicide 0.2, B = Cake 1.89f
+Openings: /home/admingod/regicide-jobs/booklab/wp12/known163.txt (20 openings x 1 rounds, each played with both colours)
+Time control: 0.5s/move (CheckerBoard match rules); no-progress rule: 40 moves
+Games: 20 of 40 scheduled
+
+A: +6 =14 -0   score 13.0/20 = 65.00%   draw rate 70.0%
+A as black: +0 =0 -0   A as white: +6 =14 -0
+By colour: black won 0, white won 6, drawn 14
+Pairs: 0   pentanomial [LL LD DD/WL WD WW] = [0 0 0 0 0]
+Elo (trinomial, games):   +107.5 [+34.6, +191.2] 95% CI, LOS 99.83%
+Terminations: no legal moves 6; repetition 14;
+A Regicide 0.2: 1170 moves, avg 0.242s/move, max 3.773s
+B Cake 1.89f: 1155 moves, avg 0.341s/move, max 3.624s

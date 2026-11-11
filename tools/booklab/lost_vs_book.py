@@ -44,7 +44,7 @@ def walk(pinwalk, book, egdb, gs):
         f = l.split("\t")
         if f[1] == "ERR":
             continue
-        per[int(f[0])].append((int(f[1]), f[2], f[3], f[4] == "1", f[5]))
+        per[int(f[0])].append((int(f[1]), f[2], f[3], f[4] == "1", f[5], set(f[6].split(",")) if len(f) > 6 and f[6] != "-" else set()))
     return per
 
 
@@ -61,7 +61,7 @@ def main():
     pw = walk(a.pinwalk, a.book, a.egdb, pool)
     seen = collections.defaultdict(lambda: collections.defaultdict(set))  # (opening, col) -> fen -> {moves}
     for i, g in enumerate(pool):
-        for ply, fen, mv, el, bm in pw[i]:
+        for ply, fen, mv, el, bm, _av in pw[i]:
             seen[(g["ballot"][1], g["col"])][fen].add(mv)
     print("| Lost game | Regicide | leaving move (ply: lost / non-lost games) | book at that position | own positions before it pinned | first position where the book leaves the lost line |")
     print("|---|---|---|---|---|---|")
@@ -70,10 +70,10 @@ def main():
         g = next(x for x in games_of(os.path.join(run, "games.pdn")) if x["tags"]["Round"] == rnd)
         rows = walk(a.pinwalk, a.book, a.egdb, [g])[0]
         ref = seen[(g["ballot"][1], g["col"])]
-        leave = next(((ply, fen, mv) for ply, fen, mv, el, bm in rows if fen in ref and mv not in ref[fen]), None)
+        leave = next(((ply, fen, mv) for ply, fen, mv, el, bm, _av in rows if fen in ref and mv not in ref[fen]), None)
         before = [r for r in rows if leave is None or r[0] < leave[0]]
         npin = sum(1 for r in before if r[1] in pins)
-        first = next((r for r in rows if r[3] and r[4] != "-" and r[4] != r[2]), None)
+        first = next((r for r in rows if r[3] and ((r[4] != "-" and r[4] != r[2]) or r[2] in r[5])), None)  # forced elsewhere, or avoided
         src = lambda fen: "pin" if fen in pins else ("decision" if fen in decs else "old book")
         if leave:
             bm = next(r[4] for r in rows if r[0] == leave[0])

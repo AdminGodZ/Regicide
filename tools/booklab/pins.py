@@ -78,20 +78,24 @@ def main():
             rejected.append(l)
             continue
         gi, ply, fen, mv, el, bmv = int(f[0]), int(f[1]), f[2], f[3], f[4] == "1", f[5]
-        rows[fen].append((gi, ply, mv, el, bmv))
-        per_game[gi].append((ply, fen, mv, el, bmv))
+        av = set(f[6].split(",")) if len(f) > 6 and f[6] != "-" else set()  # the base book's avoided moves here
+        rows[fen].append((gi, ply, mv, el, bmv, av))
+        per_game[gi].append((ply, fen, mv, el, bmv, av))
     # A lost game counts against a move only if it is still playable under the base book (lead 2026-11-11, r11c): if
     # at a later own position the base book plays a different move than the game did (a WP13 decision, or an old-book
     # move), the loss is repaired downstream and is left out of the evidence of every earlier position of that game.
+    # A later own move that the base book avoids makes the lost game unplayable just as a forced move does (review
+    # 2026-11-11).
     repaired_from = {}  # lost game -> plies of its own positions where the base book plays another move
     for gi, g in enumerate(games):
         if g["res"] == "L":
-            repaired_from[gi] = [ply for ply, fen, mv, el, bmv in per_game[gi] if el and bmv != "-" and bmv != mv]
+            repaired_from[gi] = [ply for ply, fen, mv, el, bmv, av in per_game[gi]
+                                 if el and ((bmv != "-" and bmv != mv) or mv in av)]
     def repaired(r):  # r = (game, ply, move, eligible, bookmove)
         return r[0] in repaired_from and any(q > r[1] for q in repaired_from[r[0]])
     repaired_occ = 0
     pins, conflicts, book_differs, ineligible, in_book, ties, only_lost = {}, [], [], 0, 0, [], 0
-    dropped_lost_moves = 0
+    dropped_lost_moves = avoided_dropped = 0
     for fen, rs in rows.items():
         bmv = rs[0][4]
         if bmv != "-":
@@ -115,6 +119,9 @@ def main():
         # left without a move is not pinned (nothing is pinned from a lost game)
         by_all = collections.defaultdict(list)
         for r in el:
+            if r[2] in r[5]:  # never pin a move the base book avoids here
+                avoided_dropped += 1
+                continue
             by_all[r[2]].append(r)
         by = {m: v for m, v in by_all.items() if all(games[r[0]]["res"] != "L" for r in v)}
         if len(by) < len(by_all):
@@ -122,10 +129,18 @@ def main():
         if not by:
             only_lost += 1
             continue
+        # Wins first (lead 2026-11-11, r11d): among the moves without an unrepaired loss, a move from a game won against
+        # Cake or KingsRow is preferred to moves that only drew, several such moves by their number of won games; a win
+        # against GuiNN decides only where no candidate move of this position was ever played against Cake or KingsRow.
+        # Then as before: worst result, frequency, run a, first met.
+        ck_here = any(games[r[0]]["opp"] in ("cake", "kingsrow") for v in by.values() for r in v)
+        def wins(mv):
+            return sum(1 for r in by[mv] if games[r[0]]["res"] == "W"
+                       and (games[r[0]]["opp"] in ("cake", "kingsrow") or (not ck_here and games[r[0]]["opp"] == "guinn")))
         def key(mv):
             gs = by[mv]
             worst = min(RANK[games[r[0]]["res"]] for r in gs)
-            return (worst, len(gs), any(games[r[0]]["ra"] == "a" for r in gs))
+            return (wins(mv), worst, len(gs), any(games[r[0]]["ra"] == "a" for r in gs))
         best = max(by, key=key)  # max() keeps the first move met among equal keys (frozen input order)
         if len(by) > 1 and sum(1 for m in by if key(m) == key(best)) > 1:
             ties.append(fen)
@@ -148,7 +163,7 @@ def main():
           f"- positions with Regicide to move (ballot end to 8 pieces): {len(rows)} distinct",
           f"- already in book {os.path.basename(a.book)} (decision or old-book move): {in_book} (the played move differs in {len(book_differs)})",
           f"- never consulted (inside a run of king moves / database-decided): {ineligible}, left out",
-          f"- occurrences from lost games repaired downstream by the base book (not counted): {repaired_occ}",
+          f"- occurrences from lost games repaired downstream by the base book (not counted): {repaired_occ}; occurrences of moves the base book avoids (never pinned): {avoided_dropped}",
           f"- positions where every move played there has a lost game through it: {only_lost}, left out; moves with a "
           f"lost game dropped in positions that keep another move: {dropped_lost_moves}",
           f"- **pins: {len(pins)}**; positions with different moves across games: {len(conflicts)}; of these, "
@@ -175,7 +190,7 @@ def main():
             continue
         b = first_think(g)
         aft = None
-        for ply, fen, mv, el, bmv in per_game[gi]:
+        for ply, fen, mv, el, bmv, _av in per_game[gi]:
             # covered: the engine consults its book here (el) and r11 plays the game's move (existing entry or pin)
             covered = el and ((bmv != "-" and bmv == mv) or (fen in pins and pins[fen][0] == mv))
             if not covered:

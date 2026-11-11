@@ -5,6 +5,8 @@
 // stdout, one line per position with our side to move, from the first ply until the position has <= 8 pieces or
 // the game ends:
 //   GID <TAB> ply <TAB> FEN <TAB> move played (full capture path) <TAB> eligible (1/0) <TAB> book move or "-"
+//   <TAB> moves on the book's avoid list in this position (comma-separated) or "-" (review 2026-11-11: a pin must
+//   never be an avoided move, and a later avoided own move makes a lost game unplayable just as a forced move does)
 // eligible: the engine would consult its book in this position (Engine::go: reversible_plies() == 0 and the root not
 // decided by the endgame database), as in booklab_reach.
 #include <iostream>
@@ -72,8 +74,14 @@ int main(int argc, char** argv) {
                     eligible = !(r == egdb::Wld::Win || r == egdb::Wld::Loss);
                 }
                 const auto bm = book.probe(pos);
+                std::string avoided;
+                MoveList legal;
+                generate_moves(pos, legal);
+                for (const Move& lm : legal)
+                    if (book.avoids(pos, lm)) avoided += (avoided.empty() ? "" : ",") + booklab::move_text(pos, lm);
                 rows << f[0] << '\t' << ply << '\t' << pos.fen() << '\t' << booklab::move_text(pos, m) << '\t'
-                     << (eligible ? 1 : 0) << '\t' << (bm ? booklab::move_text(pos, *bm) : "-") << '\n';
+                     << (eligible ? 1 : 0) << '\t' << (bm ? booklab::move_text(pos, *bm) : "-") << '\t'
+                     << (avoided.empty() ? "-" : avoided) << '\n';
             }
             pos.make_move(m);
         }

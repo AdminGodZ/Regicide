@@ -776,3 +776,10 @@ BL end v11c-n8q-guinn-a-h2 rc=0 Games: 156 of 156 scheduled A: +10 =146 -0   sco
 V11C validation n8q done 2026-11-11T06:13:11+01:00
 V11C done 2026-11-11T06:13:11+01:00
 BL wait-lock w12-known163 regicide:bl-cc29fc9-r11c vs cake deck /home/admingod/regicide-jobs/booklab/wp12/known163.txt mt 0.5 c 8 2026-11-11T06:40:19+01:00
+BL start w12-known163 regicide:bl-cc29fc9-r11c vs cake; A: book read-back: 'reply 1 3' (ok) B: book read-back: 'reply 1 3' (ok); commit free 19 GB; bg: bash:S datagen-tr6:S bash:T datagen-tr5:T  2026-11-11T06:40:21+01:00
+BL end w12-known163 rc=0 Games: 20 of 40 scheduled A: +6 =14 -0   score 13.0/20 = 65.00%   draw rate 70.0%  2026-11-11T06:42:01+01:00
+W12 known point #163 done 2026-11-11T06:42:01+01:00
+W12 chain stopped by the lead's order (pilot only after r11d is validated; candidates to be redone on the r11d lines) 2026-11-11T06:42:25+01:00
+WP13 test 8 (bl-a18042f-r11d, ballots 60,71,34,141,9,62,93,53) start 2026-11-11T06:46:32+01:00
+BL wait-lock w13-t8-r11d-kingsrow regicide:bl-a18042f-r11d vs kingsrow deck /home/admingod/regicide-jobs/booklab/wp13/test_deck_kingsrow_8.txt mt 0.5 c 8 2026-11-11T06:46:32+01:00
+BL start w13-t8-r11d-kingsrow regicide:bl-a18042f-r11d vs kingsrow; A: book read-back: 'reply 1 3' (ok) B: book read-back: 'reply 1 3' (ok); commit free 19 GB; bg: bash:S datagen-tr6:S bash:T datagen-tr5:T  2026-11-11T06:46:34+01:00

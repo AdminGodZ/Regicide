@@ -384,7 +384,60 @@ and colour; pool: all validated runs):
 | n8q | KingsRow mode 3 | ACF #16 Wilderness II | W | `bl-v11c-n8q-kingsrow-b-h1` 14.2 | ply 41: 9-14 (the king move 32-28 in its draws) |
 
 KingsRow mode 3 repeats its #43 error (8-12 at ply 23) with both nets. **r11c is accepted by the lead as the next
-built-in book** (`wp11c/book_r11c.bin`, sha256 `14bc3e77…`).
+built-in book** (`wp11c/book_r11c.bin`, sha256 `14bc3e77…`; on master as 85a9fe8, PR #62). To rebuild it from
+`wp11c/decisions_r11c.txt.gz`: the base book is master's book_deep2b (3550e48, sha256 `e72e384f…`), and
+`booklab_apply` must know `force-unavoid` (`tools/booklab/bookapply.cpp` on this branch; one such line, #141/#9 ply 11).
+
+**Repetition test of our first win against Cake** (ACF #163, Regicide White, `bl-v13k4-cake-a-h2` 69.2; WP12 known
+point): 20 games with r11c (DLL `bl-cc29fc9-r11c`, runner and host from cc29fc9), `bl-w12-known163`: **Regicide 6 / 14 /
+0.** Cake never repeats the won game: it leaves it at ply 19 (15-18 instead of 7-10, 10 games, all drawn), ply 17 (8-12
+instead of 10-15, 1 game, drawn) or **ply 15 (10-15 instead of 4-8, 9 games: 6 won by us, 3 drawn)**. The original
+game is not a replayable line (as the reviewer found: Cake's first clearly worse move there is at ply 51), but the
+opening has a repeatable winning chance through Cake's 10-15 at ply 15. The WP12 pilot waits for r11d (below).
+
+## Pin rule: avoided moves, and wins first (lead 2026-11-11 07:00)
+
+**Avoid entries in the walk (review).** `booklab_pinwalk` now reports, for every position, the base book's avoided
+moves (7th column). `pins.py` never pins an avoided move and counts a later own move that the base book avoids as a
+downstream repair (as a forced move); `lost_vs_book.py` and `wins_vs_book.py` treat an avoided game move as the book
+leaving the game. Fixture: an extra avoid entry on a move of a drawn game (10x17 in a final-validation game) gives no
+pin there (2 occurrences dropped). r11c is unaffected (no pool game plays an avoided move: 0 occurrences).
+
+**Won games against KingsRow (mode 3) and Cake in the pool** (k3, v13, v13k4, T1 arm 60, v11c; `wp11d/wins_r11c.md`):
+r11c follows our moves of almost all of them to the end (all 64 Cake wins, most of them T1's H3 games, and the KingsRow
+wins #43 ×2, #16 (v11c), #71 (k3 b, v13k4 a)). Four are left, all against KingsRow:
+
+| Won game | where r11c leaves it | evidence (the won game's move; r11c's move) |
+|---|---|---|
+| #134 W (k3 a 43.2) | ply 12: pin 22-18 instead of 29-25 | 29-25: 2 games, 1 W 1 D (KingsRow); 22-18: 14 games, 14 D (KingsRow 9, Cake 5) |
+| #71 W (v13 b 63.2) | ply 50: pin 3-7 instead of 19-15 | 19-15: 1 game, 1 W; 3-7: 1 game, 1 W (two won games part here) |
+| #71 W (T1 60, 63.2) | ply 44: pin 27-24 instead of 7-3 | 7-3: 1 W; 27-24: 2 games, 2 W |
+| #16 W (k3 a 14.2) | ply 62: pin 8-3 instead of 30-26 | 30-26: 1 W; 8-3: 1 W |
+
+Only #134 is the case the lead described (a won move lost to a more frequent drawing move); the other three are two
+won games of the same opening that part late, of which the book can follow only one. The #71 win of v13k4 run a is
+followed to the end by r11c; that the r11c runs did not repeat it is KingsRow varying, not the book.
+
+**Wins first** (the lead's rule): among the moves of a position without an unrepaired loss, a move from a game won
+against Cake or KingsRow (any book mode) is preferred to moves that only drew, several such moves by their number of
+won games, then as before (worst result, frequency, run a, first met); a win against GuiNN decides only where no
+candidate move of the position was played against Cake or KingsRow.
+
+**Book r11d** = r10k5 + pins with that rule from the r11c pool plus the r11c validation games (v11c, both nets; 52
+runs): **53,050 pins** (7,134 new, from the v11c games; 2 changed against r11c; none removed), 54,112 decisions, sha256
+`7692986c3ee8835cca8866fe87eab24e565a96c238bf2cf8ff9f09216a52b68e`, rebuilds byte-identically (`wp11d/`). The two
+changed pins:
+
+| Position | r11c (draws only) | r11d (with a win) |
+|---|---|---|
+| ACF #134 W, ply 12 | 22-18: 16 games, 16 D (Cake 7, KingsRow 9) | **29-25**: 2 games, 1 W 1 D (KingsRow; won k3-kingsrow-a-h2 43.2) |
+| ACF #149 W, ply 8 | 25-22: 20 games, 20 D (Cake 6, GuiNN 4, KingsRow 10) | **21-17**: 5 games, 1 W 4 D (won f1-kingsrow-a-h2 56.2, KingsRow book mode 1) |
+
+Under r11d every won game is followed to its end except the three places where two won games part (#16 ply 62, #71
+plies 44 and 50; `wp11d/wins_r11d.md`). The lost-game table is unchanged from r11c (`wp11d/r11d_lost.md`).
+
+DLL `bl-a18042f-r11d` from master a18042f (engine as 85a9fe8; PR #61's interface fix; bench 7,677,736 / 8,055,287).
+Validation with n6c (KingsRow mode 3 ×2, Cake ×2, GuiNN ×1, after a targeted test of the repaired lines): running.
 
 **New pins (CPU only, for the next r11).** From the 4,368 games of the validated full runs with r10 (final
 validation; k3), r10k (v13) and r10k4 (v13k4) against all three opponents, KingsRow mode 3 included, on top of r10k5;
