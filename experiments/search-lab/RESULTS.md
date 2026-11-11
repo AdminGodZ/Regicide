@@ -342,3 +342,4 @@ A = the switch on, B = defaults. 300 ms is exact time per move (master PR #37 se
 | test | W / D / L | draws | Elo [95% CI] | penta | pairs | ± per 800 | t | time A / B |
 |---|---|---|---|---|---|---|---|---|
 | Q prune_forcing=1, 300 ms (selfplay-lab6) | 604 / 359 / 637 | 22.4% | -7.2 [-12.8, -1.5] | 0 105 623 72 0 | 800 | ±5.7 | -2.50 | 262.0 / 261.2 ms, d 14.99 / 15.56 |
+| Q prune_forcing=1, 300k nodes/move (selfplay-lab6) | 609 / 337 / 654 | 21.1% | -9.8 [-15.1, -4.4] | 0 103 639 58 0 | 800 | ±5.3 | -3.59 | 378.5 / 408.3 ms, d 17.72 / 18.67 |
