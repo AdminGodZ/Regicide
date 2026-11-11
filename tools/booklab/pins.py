@@ -80,6 +80,16 @@ def main():
         gi, ply, fen, mv, el, bmv = int(f[0]), int(f[1]), f[2], f[3], f[4] == "1", f[5]
         rows[fen].append((gi, ply, mv, el, bmv))
         per_game[gi].append((ply, fen, mv, el, bmv))
+    # A lost game counts against a move only if it is still playable under the base book (lead 2026-11-11, r11c): if
+    # at a later own position the base book plays a different move than the game did (a WP13 decision, or an old-book
+    # move), the loss is repaired downstream and is left out of the evidence of every earlier position of that game.
+    repaired_from = {}  # lost game -> plies of its own positions where the base book plays another move
+    for gi, g in enumerate(games):
+        if g["res"] == "L":
+            repaired_from[gi] = [ply for ply, fen, mv, el, bmv in per_game[gi] if el and bmv != "-" and bmv != mv]
+    def repaired(r):  # r = (game, ply, move, eligible, bookmove)
+        return r[0] in repaired_from and any(q > r[1] for q in repaired_from[r[0]])
+    repaired_occ = 0
     pins, conflicts, book_differs, ineligible, in_book, ties, only_lost = {}, [], [], 0, 0, [], 0
     dropped_lost_moves = 0
     for fen, rs in rows.items():
@@ -93,6 +103,12 @@ def main():
         el = [r for r in rs if r[3]]
         if not el:
             ineligible += 1
+            continue
+        n_before = len(el)
+        el = [r for r in el if not repaired(r)]  # losses repaired downstream: neither for nor against a move
+        repaired_occ += n_before - len(el)
+        if not el:
+            only_lost += 1
             continue
         # a move is pinned only if no game through this position with this move was lost (lead 2026-11-11; before:
         # at least one non-lost occurrence); moves with a lost occurrence are dropped before the choice, and a position
@@ -132,6 +148,7 @@ def main():
           f"- positions with Regicide to move (ballot end to 8 pieces): {len(rows)} distinct",
           f"- already in book {os.path.basename(a.book)} (decision or old-book move): {in_book} (the played move differs in {len(book_differs)})",
           f"- never consulted (inside a run of king moves / database-decided): {ineligible}, left out",
+          f"- occurrences from lost games repaired downstream by the base book (not counted): {repaired_occ}",
           f"- positions where every move played there has a lost game through it: {only_lost}, left out; moves with a "
           f"lost game dropped in positions that keep another move: {dropped_lost_moves}",
           f"- **pins: {len(pins)}**; positions with different moves across games: {len(conflicts)}; of these, "

@@ -294,8 +294,67 @@ r11b first leaves the lost line:
 | #55 (v13k4 a 47.2) | W | none (the loss followed KingsRow's variation at ply 45) | — | 1 of 66 | **ply 12: 32-28 instead of 22-17 (pin)** |
 | #34 (T1 100 arm, h1 31.1) | B | ply 25: 10-15 / 19-24 | **19-24 (pin)** | 3 of 10 | ply 13: 8-11 instead of 16-19 (pin) |
 
-Validation of r11b (n6c, then n8q; five runs each; after a targeted test of the repaired lines on the new base):
-running.
+Validation of r11b: targeted test 6 of the repaired lines with `bl-60e593e-r11b` (KingsRow mode 3 0 / 80 / 0, Cake
+0 / 80 / 0, GuiNN 0 / 32 / 0) and one half run, `v11b-n6c-kingsrow-a-h1` (0 / 156 / 0; kept as an r11b result), then
+paused by the lead for the corrected pin rule (r11c below).
+
+## Book r11c: the pin rule corrected for losses repaired downstream (2026-11-11 04:30)
+
+Lead's change: a lost game counts against a move only if it is still playable under the base book; if at a later own
+position r10k5 plays a different move than the lost game did, the loss is repaired downstream and does not count
+(neither for nor against) at the earlier positions. Everything else as r11b (same 4,992 games, same rule otherwise).
+16 lost-game occurrences are now not counted.
+
+**r11c**: 45,916 pins, 46,978 decisions, sha256 `14bc3e77d4df26a920d8ea60035fc578bbae316f84b1666e0ebde4aecbfad73f`,
+rebuilds byte-identically (`wp11c/`). Pins different from r11b: **1 changed, 9 new, 0 removed**, all on the lines of
+repaired losses:
+
+| Line | Ply | r11b | r11c |
+|---|---|---|---|
+| #34 | 13 | 8-11 | **16-19** (the move of the repaired and tested line) |
+| #34 | 15, 17 | — | 9-14, 5x14 (new) |
+| #71 | 5, 7 | — | 10x19, 11x18 (new; the two captures before ply 9) |
+| #93 | 13, 15, 17 | — | 8-11, 6x15, 4-8 (new) |
+| #62 | 15 | — | 8-11 (new) |
+| #53 | 4 | — | 28-24 (new) |
+
+Evidence at the two positions the lead named (Regicide as Black; all games of the validated runs that reached them):
+
+| Position | Move | Games | Results | Opponents |
+|---|---|---|---|---|
+| #71 ply 9 | 14-18 | 5 | 3 D, 2 L (the k3 losses, repaired downstream, now not counted) | Cake 2 (final validation), GuiNN 1, KingsRow mode 3 2 |
+| #71 ply 9 | **3-7** (pinned) | **7** | 7 D | KingsRow mode 3 5 (v13 a, b; v13k4 a, b; T1 60), Cake 1, GuiNN 1 (v13k4) |
+| #34 ply 13 | 8-11 | 1 | 1 D | KingsRow mode 3 1 (k3 a) |
+| #34 ply 13 | **16-19** (pinned) | 6 | 5 D, 1 L (k3 b, repaired downstream, now not counted) | KingsRow mode 3 6 |
+
+On #71 the premise "the repaired line was played most" does not hold at ply 9: every game since r10k (v13, v13k4
+against all three opponents, T1) already played **3-7 at ply 9**, our own search's choice, and so never reached the
+ply-13 repair; 14-18 is the move of the older games. With the k3 losses neutral, 3-7 has 7 non-lost games against 3,
+so r11c still pins 3-7 there. On #34 r11c returns to 16-19.
+
+Lost games since r10 against r11c (same table as for r11b): #34 (k3) now leaves the lost line at its repair (ply 19,
+1-6) and stays on the tested line before it; the T1 #34 loss is left at ply 25 by the pin 19-24; #71 is left at ply 9
+by the pin 3-7; the others as for r11b (`wp11c/r11c_lost.md`).
+
+DLLs from master 60e593e: `bl-60e593e-r11c` (n6c, bench 7,677,736 / 8,055,287), `bl-60e593e-r11c-n8q` (n8q, bench
+7,833,556 / 8,241,422).
+
+**Targeted test 7** (r11c, n6c; 10 games against KingsRow mode 3, 4 against Cake and GuiNN per line): **KingsRow mode 3
+0 / 80 / 0, Cake 0 / 32 / 0, GuiNN 0 / 32 / 0.** Games that met each repair decision (reached it and played it) / games
+of that line:
+
+| Repair | KingsRow mode 3 | Cake | GuiNN |
+|---|---|---|---|
+| #60 ply 11, 7-10 | 10 / 10 | 0 / 4 | 0 / 4 |
+| #71 ply 13, 3-7 | 0 / 10 (the pin 3-7 at ply 9 goes elsewhere; all 10 drawn) | 0 / 4 | 0 / 4 |
+| #141/#9 ply 7, 6-9 | 20 / 20 | 8 / 8 | 0 / 8 |
+| #34 ply 19, 1-6 | 10 / 10 | 0 / 4 | 0 / 4 |
+| #62 ply 17, 4-8 | 10 / 10 | 0 / 4 | 0 / 4 |
+| #93 ply 19, 2-7 | 10 / 10 | 0 / 4 | 0 / 4 |
+| #53 ply 6, 22-17 (White) | 0 / 10 (KingsRow leaves the line before) | 4 / 4 | 0 / 4 |
+
+Validation of r11c (n6c: KingsRow mode 3 ×2, Cake ×2, GuiNN ×1; then the same with n8q; final-validation runner,
+default time setting): running since 04:38.
 
 **New pins (CPU only, for the next r11).** From the 4,368 games of the validated full runs with r10 (final
 validation; k3), r10k (v13) and r10k4 (v13k4) against all three opponents, KingsRow mode 3 included, on top of r10k5;
