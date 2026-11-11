@@ -417,3 +417,4 @@ pairs, the other 800 positions of the UHO set (`--skip 800`).
 | confirmation | W / D / L | draws | Elo [95% CI] | penta | pairs | ± per 800 | t | time A / B |
 |---|---|---|---|---|---|---|---|---|
 | LMR lmr_base=80 confirmation, 600 ms, other half (--skip 800) | 650 / 313 / 637 | 19.6% | +2.8 [-2.4, +8.1] | 0 69 650 80 1 | 800 | ±5.2 | +1.05 | 523.1 / 522.7 ms, d 17.21 / 17.01 |
+| LMR lmr_base=120 confirmation, 600 ms, other half (--skip 800) | 649 / 316 / 635 | 19.8% | +3.0 [-2.0, +8.1] | 0 63 660 77 0 | 800 | ±5.0 | +1.16 | 522.3 / 521.9 ms, d 17.70 / 16.98 |
