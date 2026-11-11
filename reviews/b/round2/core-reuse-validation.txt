@@ -1,0 +1,20 @@
+Reviewed master 8de39d0ca7db3d586cf92b56df25b06a4ae21d81
+Compared CMakeLists.txt and every src/ path against the compiled 1c6e997 snapshot, excluding only src/cb_api.cpp: git diff --quiet passed.
+The CMake regicide_core and regicide_egdb targets exclude cb_api.cpp; only regicide_cb links that file.
+Core archive members:
+position.cpp.o
+movegen.cpp.o
+perft.cpp.o
+eval.cpp.o
+nnue.cpp.o
+search.cpp.o
+tt.cpp.o
+bench.cpp.o
+book.cpp.o
+EGDB archive members:
+store.cpp.o
+codec.cpp.o
+index.cpp.o
+build.cpp.o
+verify.cpp.o
+platform.cpp.o

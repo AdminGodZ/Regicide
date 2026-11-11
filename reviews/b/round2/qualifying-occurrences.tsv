@@ -6,3 +6,19 @@ Q001	R2932	wp11c/games/bl-v11c-n8q-kingsrow-b-h1.pdn.gz	bl-v11c-n8q-kingsrow-b-h
 Q001	R4523	wp11d/games/bl-v11d-n6c-kingsrow-b-h1.pdn.gz	bl-v11d-n6c-kingsrow-b-h1	63.2	ACF #71 Diabolical Denny	W	kingsrow	0-1	25	0	10-14
 Q001	R7445	tests/v11d-n8q-kingsrow-a-h1/games.pdn.gz	bl-v11d-n8q-kingsrow-a-h1	63.2	ACF #71 Diabolical Denny	W	kingsrow	1/2-1/2	25	0	5-9
 Q001	R7760	tests/v11d-n8q-kingsrow-b-h1/games.pdn.gz	bl-v11d-n8q-kingsrow-b-h1	63.2	ACF #71 Diabolical Denny	W	kingsrow	1/2-1/2	25	0	5-9
+Q002	R2218	wp11c/games/bl-v11c-n8q-guinn-a-h1.pdn.gz	bl-v11c-n8q-guinn-a-h1	8.2	ACF #9 Wilderness I	W	guinn	0-1	13	0	4-8
+Q002	R2434	wp11c/games/bl-v11c-n8q-guinn-a-h2.pdn.gz	bl-v11c-n8q-guinn-a-h2	49.2	ACF #141	W	guinn	1/2-1/2	13	0	11-15
+Q002	R4011	wp11d/games/bl-v11d-n6c-guinn-a-h2.pdn.gz	bl-v11d-n6c-guinn-a-h2	49.2	ACF #141	W	guinn	0-1	13	0	4-8
+Q002	R5721	tests/mo-guinn-a-h2/games.pdn.gz	mo-guinn-a-h2	49.2	ACF #141	W	guinn	1/2-1/2	13	0	11-15
+Q002	R650	wp11c/games/bl-v11c-n6c-guinn-a-h1.pdn.gz	bl-v11c-n6c-guinn-a-h1	8.2	ACF #9 Wilderness I	W	guinn	1/2-1/2	13	0	11-15
+Q002	R7062	tests/v11d-n8q-guinn-a-h1/games.pdn.gz	bl-v11d-n8q-guinn-a-h1	8.2	ACF #9 Wilderness I	W	guinn	0-1	13	0	11-15
+Q002	R7281	tests/v11d-n8q-guinn-a-h2/games.pdn.gz	bl-v11d-n8q-guinn-a-h2	49.2	ACF #141	W	guinn	0-1	13	0	16-20
+Q002	R883	wp11c/games/bl-v11c-n6c-guinn-a-h2.pdn.gz	bl-v11c-n6c-guinn-a-h2	49.2	ACF #141	W	guinn	0-1	13	0	16-20
+Q003	R2218	wp11c/games/bl-v11c-n8q-guinn-a-h1.pdn.gz	bl-v11c-n8q-guinn-a-h1	8.2	ACF #9 Wilderness I	W	guinn	0-1	13	0	4-8
+Q003	R2434	wp11c/games/bl-v11c-n8q-guinn-a-h2.pdn.gz	bl-v11c-n8q-guinn-a-h2	49.2	ACF #141	W	guinn	1/2-1/2	13	0	11-15
+Q003	R4011	wp11d/games/bl-v11d-n6c-guinn-a-h2.pdn.gz	bl-v11d-n6c-guinn-a-h2	49.2	ACF #141	W	guinn	0-1	13	0	4-8
+Q003	R5721	tests/mo-guinn-a-h2/games.pdn.gz	mo-guinn-a-h2	49.2	ACF #141	W	guinn	1/2-1/2	13	0	11-15
+Q003	R650	wp11c/games/bl-v11c-n6c-guinn-a-h1.pdn.gz	bl-v11c-n6c-guinn-a-h1	8.2	ACF #9 Wilderness I	W	guinn	1/2-1/2	13	0	11-15
+Q003	R7062	tests/v11d-n8q-guinn-a-h1/games.pdn.gz	bl-v11d-n8q-guinn-a-h1	8.2	ACF #9 Wilderness I	W	guinn	0-1	13	0	11-15
+Q003	R7281	tests/v11d-n8q-guinn-a-h2/games.pdn.gz	bl-v11d-n8q-guinn-a-h2	49.2	ACF #141	W	guinn	0-1	13	0	16-20
+Q003	R883	wp11c/games/bl-v11c-n6c-guinn-a-h2.pdn.gz	bl-v11c-n6c-guinn-a-h2	49.2	ACF #141	W	guinn	0-1	13	0	16-20

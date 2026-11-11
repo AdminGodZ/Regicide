@@ -1,16 +1,16 @@
 rank	node	opponent	opening	colour	ply	games	losing_game_moves	drawing_game_moves	status
 1	881.24	kingsrow	ACF #71 Diabolical Denny	W	25	5	10-14	5-9	complete
-2	315.6	guinn	ACF #10	W	7	3	10-15	10-15,16-20	not searched
-3	319.6	guinn	ACF #101	W	7	3	9-14	6-10	not searched
-4	338.3	guinn	ACF #111	B	4	3	25-21	17-13	not searched
-5	346.3	guinn	ACF #116	B	4	3	25-22	17-14	not searched
-6	349.6	guinn	ACF #117	W	7	3	15-18	8-11	not searched
-7	354.3	guinn	ACF #12	B	4	3	24-20	26-23,27-23	not searched
-8	365.6	guinn	ACF #124	W	7	3	9-14	7-11	not searched
-9	374.23	guinn	ACF #129	B	24	3	27-24	31-26	not searched
-10	385.14	guinn	ACF #134	W	15	3	14-17,7-10	7-10	not searched
-11	397.10	guinn	ACF #140	W	11	3	11-16	12-16	not searched
-12	399.12	guinn	ACF #141	W	13	3	16-20,4-8	11-15	not searched
+2	315.6	guinn	ACF #10	W	7	3	10-15	10-15,16-20	complete
+3	319.6	guinn	ACF #101	W	7	3	9-14	6-10	complete
+4	338.3	guinn	ACF #111	B	4	3	25-21	17-13	complete
+5	346.3	guinn	ACF #116	B	4	3	25-22	17-14	complete
+6	349.6	guinn	ACF #117	W	7	3	15-18	8-11	complete
+7	354.3	guinn	ACF #12	B	4	3	24-20	26-23,27-23	complete
+8	365.6	guinn	ACF #124	W	7	3	9-14	7-11	complete
+9	374.23	guinn	ACF #129	B	24	3	27-24	31-26	complete
+10	385.14	guinn	ACF #134	W	15	3	14-17,7-10	7-10	complete
+11	397.10	guinn	ACF #140	W	11	3	11-16	12-16	complete
+12	399.12	guinn	ACF #141	W	13	3	16-20,4-8	11-15	complete
 13	422.17	guinn	ACF #153 Black Widow	B	18	3	17-14,32-27	29-25	not searched
 14	435.8	guinn	ACF #16 Wilderness II	W	9	3	1-6	7-11	not searched
 15	441.12	guinn	ACF #162	W	13	3	6x13x22	5x14,6x13x22	not searched

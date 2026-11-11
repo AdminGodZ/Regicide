@@ -1,8 +1,8 @@
 # Reviewer B, round 2
 
-2026-11-11 10:25 UTC
+2026-11-11 11:03 UTC
 
-Status: checkpoint; mining comparisons continue
+Status: completed bounded round; unprocessed queues listed below
 
 ## Scope and results
 
@@ -10,23 +10,27 @@ This is a bounded review of the highest in-game-score draws, not an exhaustive p
 
 | Source | Reviewed input commit |
 |---|---|
-| origin/master | 12f0e09d034d09f4dbc9850f29f9f54cb235f940 |
+| origin/master | 8de39d0ca7db3d586cf92b56df25b06a4ae21d81 |
 | origin/t3/booklab | 223e6af72d2048d9841ddd1853bdf8d692f93aa2 |
 | origin/t3/review-reports mining input | e81396c188c551cb817ac7e40cb3577626d32042 |
 
+Final fetch re-check: master 8de39d0ca7db3d586cf92b56df25b06a4ae21d81, booklab 90f031c3ff1c9676ac903bbf098f1db6d961b005. Core/egdb build inputs and embedded assets are identical to the measured core; the later src/cb_api.cpp loss-claim change belongs only to the CheckerBoard DLL, which is not linked into the driver, and every requested validation/match-order PDN path is unchanged from the input commit above. The latest ledger was read again. Later targeted process-state experiments are outside this round’s requested input pool.
+
 The committed corpus contains 7944 finished, legally replayed games (6352 against the requested Cake/KingsRow opponents). There are 116 drawn games with an actual own search comment at +40 or higher: 68 Cake and 48 KingsRow. The walk has 1415 own positions before the cutoff (1078 with more than one legal move), plus 67 own-turn first-database endpoints. A game with no <=8 position is walked through its recorded end. All 112 recorded first-database endpoints are draws; the other 4 selected games end above eight pieces.
 
-Completed consecutive highest-score prefix: **20 of 116 games**; 155 own-move positions checked, 18 differing choices compared at both references. Opponent predecessors checked: 20 of 116, including 8 full two-reference comparisons. Mining-list coverage: **first 1 of 36 ordered entries**; 1 complete entries overall. The largest entry (881.24, ACF 71) reuses four verified current-engine round-1 traces and is not a new finding.
+Completed consecutive highest-score prefix: **20 of 116 games**; 155 own-move positions checked, 18 differing choices compared at both references. Opponent predecessors checked: 20 of 116, including 8 full two-reference comparisons. Mining-list coverage: **first 12 of 36 ordered entries**; 12 complete entries overall. The largest entry (881.24, ACF 71) reuses four verified current-engine round-1 traces and is not a new finding.
 
-Qualifying own contexts: 0; qualifying predecessor contexts: 0; new mining contexts with both unrestricted roots rejecting the losing-game move: 0. All qualifying alternatives, including any case where both moves retain a proven win, are listed below. Search opinions outside directly probed database children are not independent game-theoretic proofs.
+Qualifying own contexts: 0; qualifying predecessor contexts: 0; new mining contexts with both unrestricted roots rejecting the losing-game move: 1. All qualifying alternatives, including any case where both moves retain a proven win, are listed below. Search opinions outside directly probed database children are not independent game-theoretic proofs.
+
+The highest in-game peak is +214 in R4102 (KingsRow, ACF 16, Regicide Black, round 14.1). Its first trigger is ply 105; our moves at plies 105, 107 and 109 each have only one legal choice, and the first database board at ply 111 is drawn. Another high peak, +169 in R946 (KingsRow, ACF 5, Regicide Black, round 4.1), has the same shape: forced own moves at 57, 59 and 61, then a drawn database board at 63. These late positive comments do not identify an unplayed winning choice in the checked walk.
 
 ## Selection and stopping point
 
-Only Regicide search comments are used, from the moving side’s point of view. Ballot moves, absent scores, and depth-0/zero-node book/table replies are not triggers. Source names contain the recorded n6c/n8q configuration; all re-analysis uses the current built-in n8q. Drawn games are sorted by descending highest own search score, then source and round for ties. The mining list excludes the three within-configuration contrasts and sorts the remaining 36 by game count descending, then numeric node ID. There are no duplicate source/round/colour identities. Frequencies include all finished results, not just the selected draws.
+Only Regicide search comments are used, from the moving side’s point of view. Ballot moves, absent scores, and depth-0/zero-node book/table replies are not triggers. Validation source names contain the recorded n6c/n8q configuration; all re-analysis uses the current built-in n8q. Drawn games are sorted by descending highest own search score, then source and round for ties. The mining list excludes the three within-configuration contrasts and sorts the remaining 36 by game count descending, then numeric node ID. There are no duplicate source/round/colour identities. Frequencies include all finished results, not just the selected draws.
 
 Next own game in priority order: rank 21, wp11c/games/bl-v11c-n6c-cake-a-h1.pdn.gz, round 64.1, ACF #72, Regicide B, peak +98, first +40 at ply 37.
 
-Next mining entry: rank 2, node 315.6, ACF #10, guinn, Regicide W, ply 7, 3 input games.
+Next mining entry: rank 13, node 422.17, ACF #153 Black Widow, guinn, Regicide B, ply 18, 3 input games.
 
 The match-order PDNs were committed during this review under tests/mo-*/games.pdn.gz, and the completed r11d/n8q validation records under tests/v11d-n8q-*/games.pdn.gz. Both were added. Original game IDs and history-context cache identities were preserved, and run/round/colour identities were checked to avoid duplicate archived copies. The input pool is the requested wp11c/wp11d validation family plus match-order runs; separate targeted E2 trials are outside this pool. Result CSVs/prose were not substituted for PDNs. The full selection/backlog is in selected-games.tsv and game-coverage.tsv; mining-coverage.tsv records every unprocessed entry.
 
@@ -55,15 +59,15 @@ The match-order PDNs were committed during this review under tests/mo-*/games.pd
 
 ## Search and comparison method
 
-The Release core built at 1c6e997 was reused after the final fetch showed no src/ or built-in-asset differences against the reviewed current master (only ledger/runner-test changes); the round-2 drivers were compiled with Clang 22, -O3 -march=native, against that exact core. Built-in net n8q SHA-256 is 681549690f165eed94edafd958b06f2f76cf44ab5fba6654c82eab183efe9a24. WLD coverage is eight pieces and MTC coverage six. Budgets are nominal 20M/100M; 100M is reduced by 1,024 internally to stay below the strict actual ceiling. The independent time ceiling is 780 seconds; no reported query reaches it. Single-legal-move and exact-table cases may finish before using the budget.
+The Release core built at 1c6e997 was reused after the final fetch showed no core/egdb source, header, CMake target or built-in-asset differences against the reviewed current master. Later changes affect ledger/runner tests, the match tool and the separate CheckerBoard DLL. The file cb_api.cpp is not part of the static core linked into this driver. The round-2 drivers were compiled with Clang 22, -O3 -march=native, against that exact core. Built-in net n8q SHA-256 is 681549690f165eed94edafd958b06f2f76cf44ab5fba6654c82eab183efe9a24. WLD coverage is eight pieces and MTC coverage six. Budgets are nominal 20M/100M; 100M is reduced by 1,024 internally to stay below the strict actual ceiling. The independent time ceiling is 780 seconds; no reported query reaches it. Single-legal-move and exact-table cases may finish before using the budget.
 
 Root choices/scores are the last completed iteration, with the actual final partial status retained in each raw file. When 20M chooses a different own move, 100M is run even if the shallow margin is small. Each forced move is searched to the deeper reference once where possible; its completed iteration trace provides both reference depths. A pair uses the largest depth completed for both moves if one cannot reach the unrestricted reference. The same alternative is compared at both references. Root/forced differences caused by selective search are shown, not hidden.
 
 A numeric improvement requires >30 at both references, with the 100M root still rejecting the recorded move for own/predecessor checks. Mate/database score classes are compared by value class rather than treating distance differences as hundredths of a man. An engine-known database win is score >=15000 with database use in that restricted run; a newly found 100M win is reported even if 20M did not prove it, and a shallow known-win score that disappears at 100M is flagged as unstable rather than counted as a confirmed win; a directly probed winning child is separately identified and checked against immediate repetition/no-progress draws and terminal legality. When both moves retain a win, that is reported separately and is not counted as a strict missed winning move.
 
-For mining contrasts, every observed move is forced, together with any additional unrestricted best move, even if the unrestricted engine chooses the losing-game move. All losing-game moves are compared with the other tested choices. The table separates forced-pair qualification from agreement of both unrestricted roots. A root-disagreement case is not silently promoted into a confirmed core error.
+For mining contrasts, every move observed in the supplied mining evidence is forced, together with any additional unrestricted best move, even if the unrestricted engine chooses the losing-game move. All losing-game moves are compared with the other tested choices. The table separates forced-pair qualification from agreement of both unrestricted roots. A root-disagreement case is not silently promoted into a confirmed core error.
 
-Completed raw query files: 232 (4 reused from round 1, 228 new); maximum actual nodes 99,999,745; longest query 45.159 seconds. Every reported query has a final result and stayed within the node/time ceiling. See query-manifest.tsv and queries/.
+Completed raw query files: 278 (4 reused from round 1, 274 new); maximum actual nodes 99,999,748; longest query 45.159 seconds. Every reported query has a final result and stayed within the node/time ceiling. See query-manifest.tsv and queries/.
 
 ## Qualifying positions
 
@@ -72,6 +76,10 @@ Scores in each pair are played / alternative, from the mover’s point of view. 
 | Point | Kind | Opening | Ours | Opponent | Ply | FEN | Played | Alternative | 20M reference | 100M reference | Proven alternative | Both win | Roots agree |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | Q001 | mining | ACF #71 Diabolical Denny | W | kingsrow | 25 | B:W18,23,24,25,27,31,32:B1,5,8,10,11,12,13 | 10-14 | 5-9 | -188 / -3 at d27 (gain 185) | -186 / 0 at d32 (gain 186) | False | False | True |
+| Q002 | mining | ACF #141 | W | guinn | 13 | B:W14,21,24,25,26,27,28,30,31,32:B1,2,3,4,5,7,11,12,13,16 | 16-20 | 11-15 | -189 / -72 at d24 (gain 117) | -189 / -56 at d25 (gain 133) | False | False | True |
+| Q003 | mining | ACF #141 | W | guinn | 13 | B:W14,21,24,25,26,27,28,30,31,32:B1,2,3,4,5,7,11,12,13,16 | 4-8 | 11-15 | -167 / -72 at d24 (gain 95) | -167 / -37 at d27 (gain 130) | False | False | True |
+
+The new board is ACF 141 with GuiNN Black to move at full-game ply 13 (input node 399.12), Regicide White. Both unrestricted roots choose 11-15: -36 at depth 24 with the 20M budget and -64 at depth 28 with 100M. In the restricted comparisons, 16-20 trails 11-15 by 117/133, and 4-8 trails by 95/130. The 100M common completed depths are 25 and 27 respectively; the unrestricted reference reaches 28, but the losing moves do not both complete that depth within the cap. No move is database-proven here. In the reviewed pool, 16-20 was played twice and 4-8 twice, all four games won by Regicide; 11-15 was played four times, with one Regicide win and three draws. This extends the old cross-configuration contrast, but does not establish that 11-15 draws with best play.
 
 ## Frequencies at qualifying boards
 
@@ -81,6 +89,12 @@ The census uses all 7,944 committed games of the reviewed validation/match-order
 |---|---|---|---|---|---|---|---|---|---|---|
 | Q001 | mining | B:W18,23,24,25,27,31,32:B1,5,8,10,11,12,13 | 7 | 7 | 10-14 | 1 | 1 | 1 | 0 | 0 |
 | Q001 | mining | B:W18,23,24,25,27,31,32:B1,5,8,10,11,12,13 | 7 | 7 | 5-9 | 6 | 6 | 0 | 6 | 0 |
+| Q002 | mining | B:W14,21,24,25,26,27,28,30,31,32:B1,2,3,4,5,7,11,12,13,16 | 8 | 8 | 11-15 | 4 | 4 | 1 | 3 | 0 |
+| Q002 | mining | B:W14,21,24,25,26,27,28,30,31,32:B1,2,3,4,5,7,11,12,13,16 | 8 | 8 | 16-20 | 2 | 2 | 2 | 0 | 0 |
+| Q002 | mining | B:W14,21,24,25,26,27,28,30,31,32:B1,2,3,4,5,7,11,12,13,16 | 8 | 8 | 4-8 | 2 | 2 | 2 | 0 | 0 |
+| Q003 | mining | B:W14,21,24,25,26,27,28,30,31,32:B1,2,3,4,5,7,11,12,13,16 | 8 | 8 | 11-15 | 4 | 4 | 1 | 3 | 0 |
+| Q003 | mining | B:W14,21,24,25,26,27,28,30,31,32:B1,2,3,4,5,7,11,12,13,16 | 8 | 8 | 16-20 | 2 | 2 | 2 | 0 | 0 |
+| Q003 | mining | B:W14,21,24,25,26,27,28,30,31,32:B1,2,3,4,5,7,11,12,13,16 | 8 | 8 | 4-8 | 2 | 2 | 2 | 0 | 0 |
 
 ## Complete own-move and predecessor results
 
@@ -271,6 +285,33 @@ These tables retain negative checks as well as qualified ones. A dash in the 100
 | 19 | R6649 / 43 | 24-27 | 24-27 / 0 / d52 | - | - | - | 20M chooses played move |
 | 20 | R7614 / 47 | 7-11 | 7-10 / 0 / d32 | 7-10 / 0 / d37 | 0 / 0 at d32 (gain 0) | 0 / 0 at d37 (gain 0) | does not qualify at both references |
 
+### Frequencies for every checked predecessor
+
+These counts are supplied whether or not the move qualifies as an error. They use the named opponent and mover role in the entire reviewed pool, with full-board transpositions counted. Counts are distinct games; repeated visits are also retained in [predecessor-census.tsv](predecessor-census.tsv). Outcomes inside the choice summary are from Regicide’s side.
+
+| Rank | Game / ply | Opening | Ours | Opponent | FEN | Played | Games reaching | Games playing it | Every observed choice |
+|---|---|---|---|---|---|---|---|---|---|
+| 1 | R4102 / 104 | ACF #16 Wilderness II | B | kingsrow | W:WK3,K10,19,20,K24,28:BK2,4,K5,12,K17,K30 | 3-7 | 1 | 1 | 3-7: 1 games / 1 visits (+0 =1 -0) |
+| 2 | R2794 / 45 | ACF #162 | W | kingsrow | B:W14,15,22,25,27:B5,12,13,18,20 | 13-17 | 1 | 1 | 13-17: 1 games / 1 visits (+0 =1 -0) |
+| 3 | R4329 / 29 | ACF #150 | W | kingsrow | B:W9,18,20,21,26,30,31,32:B1,2,3,7,12,13,19,24 | 12-16 | 1 | 1 | 12-16: 1 games / 1 visits (+0 =1 -0) |
+| 4 | R1762 / 31 | ACF #110 | W | cake | B:W15,16,17,20,21,26,28,30,31:B2,4,6,7,9,10,12,19,25 | 19-23 | 12 | 5 | 19-23: 5 games / 5 visits (+0 =5 -0); 9-13: 7 games / 7 visits (+0 =7 -0) |
+| 5 | R946 / 56 | ACF #5 Dreaded Edinburgh | B | kingsrow | W:WK10,11,14,21,23,28:B5,12,13,16,20,K31 | 23-19 | 1 | 1 | 23-19: 1 games / 1 visits (+0 =1 -0) |
+| 6 | R3710 / 34 | ACF #152 | B | cake | W:W6,17,21,23,29,31,32:B1,2,8,10,12,14,24,28 | 17-13 | 1 | 1 | 17-13: 1 games / 1 visits (+0 =1 -0) |
+| 7 | R6637 / 38 | ACF #138 | B | cake | W:W5,10,13,14,21,27,30,31,32:B1,2,6,12,16,18,19,20,24 | 30-25 | 1 | 1 | 30-25: 1 games / 1 visits (+0 =1 -0) |
+| 8 | R7895 / 36 | ACF #148 | B | kingsrow | W:W11,13,17,21,26,27,31:B2,4,5,6,15,19,23 | 27x18 | 1 | 1 | 27x18: 1 games / 1 visits (+0 =1 -0) |
+| 9 | R3312 / 48 | ACF #102 | B | cake | W:WK3,13,17,20,21,23,32:B5,6,9,10,15,K26,28 | 3-8 | 1 | 1 | 3-8: 1 games / 1 visits (+0 =1 -0) |
+| 10 | R6368 / 32 | ACF #169 | B | kingsrow | W:W20,21,25,26,28,30,32:B4,8,10,11,14,15,18,19 | 21-17 | 1 | 1 | 21-17: 1 games / 1 visits (+0 =1 -0) |
+| 11 | R513 / 31 | ACF #110 | W | cake | B:W15,16,17,20,21,26,28,30,31:B2,4,6,7,9,10,12,19,25 | 19-23 | 12 | 5 | 19-23: 5 games / 5 visits (+0 =5 -0); 9-13: 7 games / 7 visits (+0 =7 -0) |
+| 12 | R1855 / 41 | ACF #160 | W | cake | B:WK1,12,14,16,29,30,31:B2,3,5,13,18,22,23 | 23-27 | 1 | 1 | 23-27: 1 games / 1 visits (+0 =1 -0) |
+| 13 | R4515 / 39 | ACF #80 | W | kingsrow | B:W5,18,19,20,25,27,28:B1,3,10,11,12,K26 | 12-16 | 1 | 1 | 12-16: 1 games / 1 visits (+0 =1 -0) |
+| 14 | R1336 / 51 | ACF #49 | W | kingsrow | B:WK6,10,21,22,30:B3,4,15,16,K23 | 15-18 | 1 | 1 | 15-18: 1 games / 1 visits (+0 =1 -0) |
+| 15 | R1713 / 24 | ACF #87 Tyne | B | cake | W:W14,15,18,21,22,26,27,28,30,31:B1,2,3,5,7,9,12,13,19,20 | 27-24 | 4 | 3 | 15-10: 1 games / 1 visits (+0 =1 -0); 27-24: 3 games / 3 visits (+0 =3 -0) |
+| 16 | R3319 / 37 | ACF #110 | W | cake | B:W13,15,16,19,20,21,26,28,31:B2,6,7,8,9,10,12,K29 | 7-11 | 1 | 1 | 7-11: 1 games / 1 visits (+0 =1 -0) |
+| 17 | R5087 / 43 | ACF #147 | W | cake | B:W13,17,18,21,32:B5,10,11,16,24 | 24-27 | 3 | 3 | 24-27: 3 games / 3 visits (+0 =3 -0) |
+| 18 | R5403 / 43 | ACF #147 | W | cake | B:W13,17,18,21,32:B5,10,11,16,24 | 24-27 | 3 | 3 | 24-27: 3 games / 3 visits (+0 =3 -0) |
+| 19 | R6649 / 43 | ACF #147 | W | cake | B:W13,17,18,21,32:B5,10,11,16,24 | 24-27 | 3 | 3 | 24-27: 3 games / 3 visits (+0 =3 -0) |
+| 20 | R7614 / 47 | ACF #157 | W | kingsrow | B:WK3,16,24,25,27,28:B7,13,15,18,20,26 | 7-11 | 1 | 1 | 7-11: 1 games / 1 visits (+0 =1 -0) |
+
 ## Other mining-list contrasts
 
 The 36 inputs contain the already-confirmed ACF 71 point and 35 GuiNN points. Their original result contrast crosses nets/books, so it is descriptive evidence rather than a controlled estimate of move quality. The largest point is closed by identical-board/history round-1 reuse; all other completed points below are newly searched.
@@ -278,8 +319,24 @@ The 36 inputs contain the already-confirmed ACF 71 point and 35 GuiNN points. Th
 | Rank | Node | Opponent | Opening | Ours | Ply | Losing-game move | Alternative | 20M pair | 100M pair | Qualified | Roots reject played |
 |---|---|---|---|---|---|---|---|---|---|---|---|
 | 1 | 881.24 | kingsrow | ACF #71 Diabolical Denny | W | 25 | 10-14 | 5-9 | -188 / -3 at d27 (gain 185) | -186 / 0 at d32 (gain 186) | True | True |
+| 2 | 315.6 | guinn | ACF #10 | W | 7 | 10-15 | 16-20 | -40 / -6 at d25 (gain 34) | -18 / 0 at d29 (gain 18) | False | True |
+| 3 | 319.6 | guinn | ACF #101 | W | 7 | 9-14 | 6-10 | -22 / 0 at d24 (gain 22) | -8 / 0 at d29 (gain 8) | False | True |
+| 4 | 338.3 | guinn | ACF #111 | B | 4 | 25-21 | 17-13 | -45 / 14 at d25 (gain 59) | -13 / 0 at d29 (gain 13) | False | True |
+| 5 | 346.3 | guinn | ACF #116 | B | 4 | 25-22 | 17-14 | -25 / -7 at d25 (gain 18) | -11 / 0 at d29 (gain 11) | False | True |
+| 6 | 349.6 | guinn | ACF #117 | W | 7 | 15-18 | 8-11 | -24 / 0 at d25 (gain 24) | -44 / 0 at d29 (gain 44) | False | True |
+| 7 | 354.3 | guinn | ACF #12 | B | 4 | 24-20 | 26-23 | 0 / 29 at d25 (gain 29) | 0 / 10 at d29 (gain 10) | False | True |
+| 7 | 354.3 | guinn | ACF #12 | B | 4 | 24-20 | 27-23 | 0 / 8 at d25 (gain 8) | 0 / 0 at d29 (gain 0) | False | True |
+| 8 | 365.6 | guinn | ACF #124 | W | 7 | 9-14 | 7-11 | -26 / -27 at d25 (gain -1) | -13 / -4 at d28 (gain 9) | False | True |
+| 9 | 374.23 | guinn | ACF #129 | B | 24 | 27-24 | 31-26 | -11 / 0 at d26 (gain 11) | 0 / 0 at d31 (gain 0) | False | True |
+| 10 | 385.14 | guinn | ACF #134 | W | 15 | 14-17 | 7-10 | -24 / -19 at d26 (gain 5) | -20 / -17 at d29 (gain 3) | False | False |
+| 10 | 385.14 | guinn | ACF #134 | W | 15 | 7-10 | 14-17 | -19 / -24 at d26 (gain -5) | -17 / -20 at d29 (gain -3) | False | True |
+| 11 | 397.10 | guinn | ACF #140 | W | 11 | 11-16 | 12-16 | -4 / -11 at d24 (gain -7) | -35 / -10 at d30 (gain 25) | False | True |
+| 12 | 399.12 | guinn | ACF #141 | W | 13 | 16-20 | 11-15 | -189 / -72 at d24 (gain 117) | -189 / -56 at d25 (gain 133) | True | True |
+| 12 | 399.12 | guinn | ACF #141 | W | 13 | 16-20 | 4-8 | -189 / -167 at d24 (gain 22) | -189 / -161 at d25 (gain 28) | False | True |
+| 12 | 399.12 | guinn | ACF #141 | W | 13 | 4-8 | 11-15 | -167 / -72 at d24 (gain 95) | -167 / -37 at d27 (gain 130) | True | True |
+| 12 | 399.12 | guinn | ACF #141 | W | 13 | 4-8 | 16-20 | -167 / -189 at d24 (gain -22) | -161 / -189 at d25 (gain -28) | False | True |
 
-The full ordered backlog is in mining-coverage.tsv. Input copies are input-mining-candidates.tsv and input-mining-evidence.tsv; all measured fields and root choices are in mining-results.tsv.
+Updated board frequencies for every completed mining entry are in [mining-census.tsv](mining-census.tsv); they are separate from the older input contrast. The full ordered backlog is in mining-coverage.tsv. Input copies are input-mining-candidates.tsv and input-mining-evidence.tsv; all measured fields and root choices are in mining-results.tsv.
 
 ## Database endpoints
 
