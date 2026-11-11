@@ -87,9 +87,16 @@ expected_games() {
     echo $(( (fixed + 2 * (rows - fixed)) * rounds ))
   fi
 }
+# Games played = the summary's scored games plus the games ended by --cb-move-limit (result "*", no score; runner
+# 8de39d0: "Unfinished (move limit): K"), so a run with unfinished games still counts as complete.
+played_games() {
+  local g u
+  g=$(sed -n 's/^Games: \([0-9]*\) of .*/\1/p' "$OUT/summary.txt" 2>/dev/null); u=$(sed -n 's/^Unfinished (move limit): \([0-9]*\).*/\1/p' "$OUT/summary.txt" 2>/dev/null)
+  [ -n "$g" ] && echo $((g + ${u:-0}))
+}
 done_run() {
   [ -f "$OUT/summary.txt" ] && [ "$(cat "$OUT/exit_status" 2>/dev/null)" = "0" ] &&
-    [ -n "$(expected_games)" ] && grep -Eq "^Games: $(expected_games) of [0-9]+ scheduled" "$OUT/summary.txt" &&
+    [ -n "$(expected_games)" ] && [ "$(played_games)" = "$(expected_games)" ] &&
     grep -q "^A:" "$OUT/summary.txt" && [ "$(bad_games)" = "0" ]
 }
 commit_free() { /mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -NoProfile -Command \

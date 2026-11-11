@@ -588,6 +588,32 @@ other game (age 1); Cake on #163 loses through 15-18 / 15-19 at ages 3 and 7 and
 In a real CheckerBoard match the processes are as old as the opening's place in the deck (about 2 × its position), so
 the strict numbers are the concurrency-1 runs (`mo1-*`, playing).
 
+**Experiment 2, deck arm** (6 × kept and 6 × fresh decks against Cake, DLL bl-ddd25fc-r11d; `e2d/report/e2c_deck.md`):
+kept 0 / 1,872 / 0, fresh 0 / 1,872 / 0, no win. Cake's lines to ply 20 vary on **59 of 312** openings × colours with
+kept processes (1.29 distinct lines on average) and on **9 of 312** with fresh processes (1.03): most of Cake's
+variation comes from the state of its process. #163 as White inside the deck: 4-8 at ply 15 in all 12 (kept: process
+18 to 21 games old), drawn.
+
+**Three concurrency-1 runs in match order** (master 1c6e997 as committed, `--pairs-together`, processes kept, deck in
+ACF order, one game at a time per run; started together 10:33, each pinned to its own core by `affinity_keeper.ps1`,
+the 8-worker runs on cores 0-20; all rc 0, 312 of 312; `mo1/`):
+
+| Opponent | W / D / L | decisive games (opening, our colour, game no. = age of both processes + 1) |
+|---|---|---|
+| KingsRow mode 3 | 1 / 310 / **1** | **L: ACF #6 Inferno, Black, game 9 (age 8)**; W: #43 White, game 78 (age 77) |
+| Cake | 0 / 312 / 0 | — |
+| GuiNN | 21 / 291 / 0 | W at ages 7 to 311 (list in `mo1/decisive.txt`) |
+
+The loss (#6 Black, `mo1-kingsrow` 5.1): our moves to ply 49 are pins shared by 8 drawn games; at ply 50 KingsRow
+played 19-15 (age 8) where all 8 drawn games have 7-3 (old-order runs and 8-worker match-order runs at age 0); after
+19-15 our book has no entry, our score −79 at ply 51, −17 to −33 through ply 69, −111 at ply 71, database loss at ply
+103. Not repaired yet (lead decides).
+Known points in this run: KingsRow #16 ply 41 32-28 (age 27, drawn), #43 ply 23 **8-12 (age 77, won)**, #71 ply 25
+5-9 (age 125, drawn), #134 ply 37 11-16 (age 241, drawn); Cake #163 ply 15 4-8, ply 19 11x18 (age 293, drawn).
+Clock (`mo1/clock.md`, mean time per move against the 0.5 s credit): KingsRow 0.134 s (27 %; 8-worker run 0.137 s),
+Cake 0.233 s (47 %; 0.230 s), GuiNN 0.262 s (52 %; 0.275 s); Regicide 6 to 22 % (book and database moves); per searched
+move the same within 0.01–0.09 s of the 8-worker runs. No sign of a slower clock under the shared load.
+
 **Incident 08:58** (my error): experiment 2's chain died at `e2c-kept-2-h2`. I had replaced `bl_run_w.sh` by `mv` (to add
 NOLOCK) while an instance was running; on /mnt/c the running bash lost its script ("error reading input file: No data
 available") after the match had played its 156 games, so the half-run has no exit_status and is not counted

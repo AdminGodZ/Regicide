@@ -5,7 +5,10 @@ J=/mnt/c/regicide-match/jobs/booklab
 T=$(mktemp -d); fail=0
 mk() { mkdir -p $T/$1; [ -n "$2" ] && echo $2 > $T/$1/exit_status; [ -n "$3" ] && echo "Games: $3 of 156 scheduled" > $T/$1/summary.txt; return 0; }
 mk ok 0 156; mk partial 0 1; mk old "" 156; mk oldpartial "" 1; mk failed 4 156; mk nosummary 0 ""
-for c in "ok accept" "partial refuse" "old accept" "oldpartial refuse" "failed refuse" "nosummary refuse"; do
+mk limit6 0 150; echo "Unfinished (move limit): 6" >> $T/limit6/summary.txt     # 150 scored + 6 unfinished = 156
+mk limit5 0 150; echo "Unfinished (move limit): 5" >> $T/limit5/summary.txt     # 155 of 156
+for c in "ok accept" "partial refuse" "old accept" "oldpartial refuse" "failed refuse" "nosummary refuse" \
+         "limit6 accept" "limit5 refuse"; do
   set -- $c
   bash $J/run_complete.sh $T/$1 && got=accept || got=refuse
   [ $got = $2 ] && echo "ok   $1: $got" || { echo "FAIL $1: $got, expected $2"; fail=1; }

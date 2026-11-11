@@ -6,7 +6,8 @@
 # Log: C:\regicide-match\jobs\booklab\affinity_keeper.log (one line per change, counts every 10 minutes).
 $log = "C:\regicide-match\jobs\booklab\affinity_keeper.log"
 $stop = "C:\regicide-match\jobs\booklab\affinity_keeper.stop"
-$cores = @{ "1c6e997-c1-kingsrow" = 21; "1c6e997-c1-cake" = 22; "1c6e997-c1-guinn" = 23 }
+# host folders <commit>-c1-<opp> (1c6e997 for the first three runs, 8de39d0 for the --cb-claims runs)
+$cores = @{ "-c1-kingsrow" = 21; "-c1-cake" = 22; "-c1-guinn" = 23 }
 $rest = [IntPtr]0x1FFFFF   # cores 0-20
 $t0 = Get-Date; $last = Get-Date
 "start $(Get-Date -Format s)" | Out-File -Append -Encoding utf8 $log
@@ -15,7 +16,7 @@ while (-not (Test-Path $stop) -and ((Get-Date) - $t0).TotalHours -lt 8) {
   foreach ($p in Get-Process cbhost -ErrorAction SilentlyContinue) {
     try {
       $path = $p.Path; $want = $rest; $key = "rest"
-      foreach ($k in $cores.Keys) { if ($path -like "*\$k\*") { $want = [IntPtr](1 -shl $cores[$k]); $key = $k } }
+      foreach ($k in $cores.Keys) { if ($path -like "*$k\*") { $want = [IntPtr](1 -shl $cores[$k]); $key = $k } }
       $n[$key] = 1 + [int]$n[$key]
       if ($p.ProcessorAffinity -ne $want) {
         $p.ProcessorAffinity = $want

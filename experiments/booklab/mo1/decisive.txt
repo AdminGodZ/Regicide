@@ -1,0 +1,27 @@
+== kingsrow: A: +1 =310 -1   score 156.0/312 = 50.00%
+00009.pdn round 5.1 ACF #6 Inferno Regicide B L plies 140 ages A 8 B 8 term black has no legal moves
+  first own score < -50 at ply 51: 25-22 1.83s depth 23/35 score -79 nodes 3917153 2048 kN/s pv 25-22 5-1 20-24 15-10 24-27 32x23 22-18 14-9 18x27 7-3
+00078.pdn round 39.2 ACF #43 Regicide W W plies 232 ages A 77 B 77 term black has no legal moves
+== cake: A: +0 =312 -0   score 156.0/312 = 50.00%
+== guinn: A: +21 =291 -0   score 166.5/312 = 53.37
+00008.pdn round 4.2 ACF #5 Dreaded Edinburgh Regicide W W plies 280 ages A 7 B 7 term black has no legal moves
+00010.pdn round 5.2 ACF #6 Inferno Regicide W W plies 144 ages A 9 B 9 term black has no legal moves
+00016.pdn round 8.2 ACF #9 Wilderness I Regicide W W plies 182 ages A 15 B 15 term black has no legal moves
+00028.pdn round 14.2 ACF #16 Wilderness II Regicide W W plies 146 ages A 27 B 27 term black has no legal moves
+00039.pdn round 20.1 ACF #22 Regicide B W plies 189 ages A 38 B 38 term white has no legal moves
+00046.pdn round 23.2 ACF #25 Regicide W W plies 274 ages A 45 B 45 term black has no legal moves
+00049.pdn round 25.1 ACF #28 Regicide B W plies 235 ages A 48 B 48 term white has no legal moves
+00062.pdn round 31.2 ACF #34 Twilight Zone Regicide W W plies 236 ages A 61 B 61 term black has no legal moves
+00078.pdn round 39.2 ACF #43 Regicide W W plies 174 ages A 77 B 77 term black has no legal moves
+00082.pdn round 41.2 ACF #47 Regicide W W plies 146 ages A 81 B 81 term black has no legal moves
+00154.pdn round 77.2 ACF #86 Octopus Regicide W W plies 222 ages A 153 B 153 term black has no legal moves
+00162.pdn round 81.2 ACF #91 Regicide W W plies 138 ages A 161 B 161 term black has no legal moves
+00163.pdn round 82.1 ACF #92 Regicide B W plies 277 ages A 162 B 162 term white has no legal moves
+00170.pdn round 85.2 ACF #96 Skull-Cracker Regicide W W plies 214 ages A 169 B 169 term black has no legal moves
+00180.pdn round 90.2 ACF #101 Regicide W W plies 188 ages A 179 B 179 term black has no legal moves
+00193.pdn round 97.1 ACF #108 Regicide B W plies 227 ages A 192 B 192 term white has no legal moves
+00199.pdn round 100.1 ACF #112 Regicide B W plies 163 ages A 198 B 198 term white has no legal moves
+00231.pdn round 116.1 ACF #129 Regicide B W plies 177 ages A 230 B 230 term white has no legal moves
+00262.pdn round 131.2 ACF #146 Regicide W W plies 170 ages A 261 B 261 term black has no legal moves
+00275.pdn round 138.1 ACF #153 Black Widow Regicide B W plies 167 ages A 274 B 274 term white has no legal moves
+00312.pdn round 156.2 ACF #174 Skunk Regicide W W plies 206 ages A 311 B 311 term black has no legal moves
