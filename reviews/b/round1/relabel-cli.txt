@@ -1,0 +1,1 @@
+relabel fixture-input.bin -> fixture-output.bin: records 8 games 4 (boundaries: flags) games changed 4 records changed 8; records with their own database value 7, with an earlier covered record's value 0

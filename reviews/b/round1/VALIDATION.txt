@@ -1,0 +1,7 @@
+Completed numerical query files: 95
+Largest actual node count: 99999746
+Longest individual query ms: 46429
+All query files have final results; no query exhausted the independent time ceiling.
+Fixture assertions, labelcheck, handover checks, UTF-8 text and sub-1MB file checks passed.
+Report bytes 41300 validated numerical traces 70
+Final fetch: master and truth-data unchanged; latest Book Lab 0d742ef has identical reviewed tools and PDN corpus. Its fixtures were rerun successfully.

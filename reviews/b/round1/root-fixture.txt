@@ -1,0 +1,48 @@
+PASS repeat pieces 3 side 0 mtc 0 root B:WK7,K24:BK18 move 18-14 score 0 nodes 0 child_occurrences 2
+PASS restricted repeat score 0 nodes 0
+PASS no-history score -9922
+PASS repeat pieces 3 side 0 mtc 8 root B:WK7,K24:BK18 move 18-14 score 0 nodes 0 child_occurrences 2
+PASS restricted repeat score 0 nodes 0
+PASS no-history score -19975
+PASS repeat pieces 3 side 1 mtc 0 root W:WK10:BK11,K29 move 10-6 score 0 nodes 0 child_occurrences 2
+PASS restricted repeat score 0 nodes 0
+PASS no-history score -9882
+PASS repeat pieces 3 side 1 mtc 8 root W:WK10:BK11,K29 move 10-6 score 0 nodes 0 child_occurrences 2
+PASS restricted repeat score 0 nodes 0
+PASS no-history score -19973
+PASS repeat pieces 4 side 0 mtc 0 root B:WK2,K3,K27:BK1 move 1-5 score 0 nodes 0 child_occurrences 2
+PASS restricted repeat score 0 nodes 0
+PASS no-history score -10092
+PASS repeat pieces 4 side 0 mtc 8 root B:WK2,K3,K27:BK1 move 1-5 score 0 nodes 0 child_occurrences 2
+PASS restricted repeat score 0 nodes 0
+PASS no-history score -19996
+PASS repeat pieces 4 side 1 mtc 0 root W:WK8:BK10,K14,K22 move 8-3 score 0 nodes 0 child_occurrences 2
+PASS restricted repeat score 0 nodes 0
+PASS no-history score -10052
+PASS repeat pieces 4 side 1 mtc 8 root W:WK8:BK10,K14,K22 move 8-3 score 0 nodes 0 child_occurrences 2
+PASS restricted repeat score 0 nodes 0
+PASS no-history score -19996
+PASS repeat pieces 6 side 0 mtc 0 root B:WK10,K15,K19,K32:BK1,K13 move 13-9 score 0 nodes 0 child_occurrences 2
+PASS restricted repeat score 0 nodes 0
+PASS no-history score -9772
+PASS repeat pieces 6 side 0 mtc 8 root B:WK10,K15,K19,K32:BK1,K13 move 13-9 score 0 nodes 0 child_occurrences 2
+PASS restricted repeat score 0 nodes 0
+PASS no-history score -19996
+PASS repeat pieces 6 side 1 mtc 0 root W:WK9,K32:BK7,K10,K13,K23 move 9-5 score 0 nodes 0 child_occurrences 2
+PASS restricted repeat score 0 nodes 0
+PASS no-history score -10060
+PASS repeat pieces 6 side 1 mtc 8 root W:WK9,K32:BK7,K10,K13,K23 move 9-5 score 0 nodes 0 child_occurrences 2
+PASS restricted repeat score 0 nodes 0
+PASS no-history score -19998
+PASS repeat pieces 8 side 0 mtc 0 root B:WK9,K12,K14,K21,K28:BK5,K25,K26 move 25-29 score 0 nodes 0 child_occurrences 2
+PASS restricted repeat score 0 nodes 0
+PASS no-history score -9842
+PASS repeat pieces 8 side 0 mtc 8 root B:WK9,K12,K14,K21,K28:BK5,K25,K26 move 25-29 score 0 nodes 0 child_occurrences 2
+PASS restricted repeat score 0 nodes 0
+PASS no-history score -9842
+PASS repeat pieces 8 side 1 mtc 0 root W:WK7,K31,K32:BK8,K17,K18,K22,K26 move 32-27 score 0 nodes 0 child_occurrences 2
+PASS restricted repeat score 0 nodes 0
+PASS no-history score -9882
+PASS repeat pieces 8 side 1 mtc 8 root W:WK7,K31,K32:BK8,K17,K18,K22,K26 move 32-27 score 0 nodes 0 child_occurrences 2
+PASS restricted repeat score 0 nodes 0
+PASS no-history score -9882

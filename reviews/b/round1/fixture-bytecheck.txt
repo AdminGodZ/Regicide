@@ -1,0 +1,2 @@
+PASS: all eight records retain every byte except the result byte.
+Output Black results: [1, 1, 1, 0, -1, 0, -1, 1]

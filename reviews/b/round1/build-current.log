@@ -1,0 +1,46 @@
+[0/1] Re-running CMake...
+-- Configuring done (0.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/admingod/regicide-review-b/build
+[1/42] Scanning /home/admingod/regicide-review-b/snapshots/master/src/movegen.cpp for CXX dependencies
+[2/42] Scanning /home/admingod/regicide-review-b/snapshots/master/src/position.cpp for CXX dependencies
+[3/42] Scanning /home/admingod/regicide-review-b/snapshots/master/src/perft.cpp for CXX dependencies
+[4/42] Scanning /home/admingod/regicide-review-b/snapshots/master/src/eval.cpp for CXX dependencies
+[5/42] Scanning /home/admingod/regicide-review-b/snapshots/master/src/search.cpp for CXX dependencies
+[6/42] Scanning /home/admingod/regicide-review-b/snapshots/master/src/nnue.cpp for CXX dependencies
+[7/42] Scanning /home/admingod/regicide-review-b/snapshots/master/src/tt.cpp for CXX dependencies
+[8/42] Scanning /home/admingod/regicide-review-b/snapshots/master/src/bench.cpp for CXX dependencies
+[9/42] Scanning /home/admingod/regicide-review-b/snapshots/master/src/book.cpp for CXX dependencies
+[10/42] Generating CXX dyndep file CMakeFiles/regicide_core.dir/CXX.dd
+[11/42] Scanning /home/admingod/regicide-review-b/snapshots/master/src/main.cpp for CXX dependencies
+[12/42] Building CXX object CMakeFiles/regicide_core.dir/src/movegen.cpp.o
+[13/42] Building CXX object CMakeFiles/regicide_core.dir/src/position.cpp.o
+[14/42] Building CXX object CMakeFiles/regicide_core.dir/src/perft.cpp.o
+[15/42] Building CXX object CMakeFiles/regicide_core.dir/src/eval.cpp.o
+[16/42] Building CXX object CMakeFiles/regicide_core.dir/src/nnue.cpp.o
+[17/42] Building CXX object CMakeFiles/regicide_core.dir/src/search.cpp.o
+[18/42] Building CXX object CMakeFiles/regicide_core.dir/src/tt.cpp.o
+[19/42] Building CXX object CMakeFiles/regicide_core.dir/src/bench.cpp.o
+[20/42] Generating CXX dyndep file CMakeFiles/regicide.dir/CXX.dd
+[21/42] Building CXX object CMakeFiles/regicide_core.dir/src/book.cpp.o
+[22/42] Scanning /home/admingod/regicide-review-b/snapshots/master/src/egdb/store.cpp for CXX dependencies
+[23/42] Scanning /home/admingod/regicide-review-b/snapshots/master/src/egdb/codec.cpp for CXX dependencies
+[24/42] Scanning /home/admingod/regicide-review-b/snapshots/master/src/egdb/index.cpp for CXX dependencies
+[25/42] Scanning /home/admingod/regicide-review-b/snapshots/master/src/egdb/build.cpp for CXX dependencies
+[26/42] Scanning /home/admingod/regicide-review-b/snapshots/master/src/egdb/verify.cpp for CXX dependencies
+[27/42] Scanning /home/admingod/regicide-review-b/snapshots/master/src/egdb/platform.cpp for CXX dependencies
+[28/42] Generating CXX dyndep file CMakeFiles/regicide_egdb.dir/CXX.dd
+[29/42] Building CXX object CMakeFiles/regicide.dir/src/main.cpp.o
+[30/42] Building CXX object CMakeFiles/regicide_egdb.dir/src/egdb/store.cpp.o
+[31/42] Building CXX object CMakeFiles/regicide_egdb.dir/src/egdb/codec.cpp.o
+[32/42] Building CXX object CMakeFiles/regicide_egdb.dir/src/egdb/index.cpp.o
+[33/42] Building CXX object CMakeFiles/regicide_egdb.dir/src/egdb/verify.cpp.o
+[34/42] Building CXX object CMakeFiles/regicide_egdb.dir/src/egdb/build.cpp.o
+[35/42] Scanning /home/admingod/regicide-review-b/snapshots/master/tests/egdb_root_test.cpp for CXX dependencies
+[36/42] Generating CXX dyndep file CMakeFiles/egdb_root_test.dir/CXX.dd
+[37/42] Building CXX object CMakeFiles/regicide_egdb.dir/src/egdb/platform.cpp.o
+[38/42] Linking CXX static library libregicide_egdb.a
+[39/42] Linking CXX static library libregicide_core.a
+[40/42] Linking CXX executable regicide
+[41/42] Building CXX object CMakeFiles/egdb_root_test.dir/tests/egdb_root_test.cpp.o
+[42/42] Linking CXX executable egdb_root_test

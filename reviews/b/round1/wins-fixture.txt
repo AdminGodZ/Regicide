@@ -1,0 +1,3 @@
+| Won game | Opponent | Regicide | own positions walked | no forced departure? (the book never forces another move nor avoids ours) | where the book forces a departure | first consulted position without a book entry | evidence (won move; book move) |
+|---|---|---|---|---|---|---|---|
+| fixture (fen-win 2.1) | cake | W | 16 | yes | — | ply 2 | — |

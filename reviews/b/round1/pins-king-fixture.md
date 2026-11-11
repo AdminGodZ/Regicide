@@ -1,0 +1,21 @@
+# WP11 pins from 2 games
+
+- positions with Regicide to move (ballot end to 8 pieces): 16 distinct
+- already in book avoid.bin (decision or old-book move): 0 (the played move differs in 0)
+- never consulted (inside a run of king moves / database-decided): 2, left out
+- occurrences from lost games repaired downstream by the base book (not counted): 1; occurrences of moves the base book avoids (never pinned): 0
+- positions where every move played there has a lost game through it: 13, left out; moves with a lost game dropped in positions that keep another move: 13
+- **pins: 1**; positions with different moves across games: 0; of these, 0 still tie after worst result, frequency and run a, and the first move met in the frozen input order (runs sorted by name, games in file order) wins
+- games without a final result skipped: 0; games rejected by the full replay: 0; games skipped because not exactly one side is Regicide against a known opponent: 0
+
+| Ballot | Pins |
+|---|---|
+| fixture | 1 |
+
+**Coverage of the old line:** no usable game.
+
+## Positions with different moves across games (chosen move first)
+
+
+## Positions where the existing book move differs from the played move (existing kept)
+

@@ -1,0 +1,14 @@
+{'ply': 7, 'played': '6-9', 'depth20': 23, 'choice20': '6-9', 'score20': -30}
+{'ply': 9, 'played': '7-11', 'depth20': 23, 'choice20': '7-11', 'score20': -54}
+{'ply': 11, 'played': '16-19', 'depth20': 24, 'choice20': '11-15', 'score20': -72, 'pair20': {'depth': 24, 'played': -47, 'alternative': -88, 'gain': -41}}
+{'ply': 13, 'played': '11-15', 'depth20': 25, 'choice20': '11-15', 'score20': -78}
+{'ply': 15, 'played': '8x15', 'depth20': 26, 'choice20': '8x15', 'score20': -89}
+{'ply': 17, 'played': '2-7', 'depth20': 25, 'choice20': '9-14', 'score20': -83, 'pair20': {'depth': 25, 'played': -75, 'alternative': -69, 'gain': 6}}
+{'ply': 21, 'played': '14-18', 'depth20': 25, 'choice20': '14-17', 'score20': -58, 'pair20': {'depth': 25, 'played': -59, 'alternative': -94, 'gain': -35}}
+{'ply': 23, 'played': '1-6', 'depth20': 27, 'choice20': '9-14', 'score20': -30, 'pair20': {'depth': 27, 'played': -42, 'alternative': -84, 'gain': -42}}
+{'ply': 25, 'played': '9-14', 'depth20': 26, 'choice20': '9-14', 'score20': -32}
+{'ply': 27, 'played': '6-9', 'depth20': 27, 'choice20': '6-9', 'score20': -32}
+{'ply': 31, 'played': '19-23', 'depth20': 28, 'choice20': '14-17', 'score20': -24, 'pair20': {'depth': 28, 'played': -35, 'alternative': -22, 'gain': 13}}
+{'ply': 35, 'played': '13-17', 'depth20': 33, 'choice20': '13-17', 'score20': -67}
+{'ply': 37, 'played': '17-22', 'depth20': 32, 'choice20': '17-22', 'score20': -38}
+{'ply': 41, 'played': '9-14', 'depth20': 32, 'choice20': '32-28', 'score20': -41, 'pair20': {'depth': 32, 'played': -266, 'alternative': -34, 'gain': 232}, 'choice100': '32-28', 'score100': -28, 'depth100': 37, 'pair100': {'depth': 36, 'played': -251, 'alternative': -25, 'gain': 226}, 'QUALIFIED': True}

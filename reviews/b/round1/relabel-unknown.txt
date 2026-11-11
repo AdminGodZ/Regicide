@@ -1,0 +1,8 @@
+PASS stub-record 0 result 1
+PASS stub-record 1 result 1
+PASS stub-record 2 result 1
+PASS stub-record 3 result -1
+PASS stub-record 4 result -1
+PASS stub-record 5 result -1
+PASS wholly unknown unchanged
+own 3 carried 2

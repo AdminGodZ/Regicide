@@ -1,0 +1,8 @@
+db 8 mtc 6
+PASS record 0 stm 193 own 2 result 1
+PASS record 1 stm 128 own 1 result 1
+PASS record 2 stm 129 own 1 result 1
+PASS record 3 stm 128 own 0 result 0
+PASS 8-piece B:WK9,K12,K14,K21,K28:BK5,K25,K26 Black-result -1
+PASS 8-piece W:WK7,K31,K32:BK8,K17,K18,K22,K26 Black-result 1
+changed 4 own 3 carried 0

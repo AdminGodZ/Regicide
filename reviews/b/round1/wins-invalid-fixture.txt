@@ -1,0 +1,7 @@
+| Won game | Opponent | Regicide | own positions walked | no forced departure? (the book never forces another move nor avoids ours) | where the book forces a departure | first consulted position without a book entry | evidence (won move; book move) |
+|---|---|---|---|---|---|---|---|
+| fixture (invalid-win 2.1) | cake | W | — | REPLAY FAILED at 35 1-2 | — | — | — |
+
+**Replay errors: 1 games could not be replayed:** invalid-win 2.1 (35 1-2)
+
+exit 3

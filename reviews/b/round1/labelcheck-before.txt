@@ -1,0 +1,13 @@
+| file | pieces | records | db unknown | wrong result | wrong share |
+|---|---|---|---|---|---|
+| fixture-input.bin | 2 | 2 | 0 | 2 | 100.00% |
+| fixture-input.bin | 3 | 3 | 0 | 3 | 100.00% |
+| fixture-input.bin | 4 | 0 | 0 | 0 | 0.00% |
+| fixture-input.bin | 5 | 0 | 0 | 0 | 0.00% |
+| fixture-input.bin | 6 | 0 | 0 | 0 | 0.00% |
+| fixture-input.bin | 7 | 0 | 0 | 0 | 0.00% |
+| fixture-input.bin | 8 | 2 | 0 | 2 | 100.00% |
+| fixture-input.bin | 2-8 | 7 | 0 | 7 | 100.00% |
+| fixture-input.bin | games | 4 (4 with <= 8 pieces) | | 4 with a wrong record | 100.00% of those |
+
+all files: 7 of 7 records with <= 8 pieces carry a result other than their own database value (100.00%)
