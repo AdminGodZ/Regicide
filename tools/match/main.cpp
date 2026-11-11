@@ -79,6 +79,7 @@ struct Config {
     std::string out_dir;
     std::string cbhost;
     bool pdn_comments = false;
+    bool fresh_engines = false;  // new engine processes for every game
     bool quiet = false;
 };
 
@@ -118,6 +119,8 @@ struct GameRecord {
     std::string category;      // for counting
     std::vector<std::string> moves;  // engine moves (after the opening), PDN
     std::vector<std::string> comments;
+    int worker = 0;        // which worker played it
+    int engine_games = 0;  // games its engine processes had played before this one
     double time_used[2] = {0, 0};  // by colour
     int moves_made[2] = {0, 0};
     double max_time[2] = {0, 0};
@@ -353,6 +356,9 @@ std::string pdn_text(const Config& cfg, const GameRecord& g) {
     o << "[Opening \"" << op.name << (op.moves.empty() ? "" : ": " + op.moves) << "\"]\n";
     o << "[TimeControl \"" << tc_description(cfg) << "\"]\n";
     o << "[Termination \"" << g.termination << "\"]\n";
+    // An engine may carry its hash table or other state from one game to the next: which worker played the game
+    // and how many games its engine processes had played before.
+    o << "[Worker \"" << g.worker << "\"]\n[EngineGames \"" << g.engine_games << "\"]\n";
 
     std::vector<std::string> all;
     for (const auto& m : op.played) all.push_back(cbt::move_to_pdn(m));
@@ -582,10 +588,16 @@ void worker(Match& m, int id) {
         eng[e] = std::make_unique<Engine>(cfg.spec[e], log);
     }
     bool launched = false;
+    int engine_games = 0;
     while (auto task = m.take_task()) {
         std::string err;
+        if (cfg.fresh_engines && launched) {
+            for (auto& e : eng) e->kill();
+            engine_games = 0;
+        }
         for (int e = 0; e < 2; ++e) {
             if (eng[e]->alive()) continue;
+            engine_games = 0;  // a new process (the first, a fresh one, or one that replaces a dead engine)
             if (!(launched ? eng[e]->restart(err) : eng[e]->launch(err))) {
                 m.set_fatal("worker " + std::to_string(id) + ": " + err);
                 return;
@@ -605,6 +617,8 @@ void worker(Match& m, int id) {
         Engine* by_colour[2] = {eng[g.leg == 0 ? 0 : 1].get(), eng[g.leg == 0 ? 1 : 0].get()};
         g.black = by_colour[0]->name();
         g.white = by_colour[1]->name();
+        g.worker = id;
+        g.engine_games = engine_games++;
         play_game(cfg, by_colour, g);
         m.record(std::move(g));
     }
@@ -701,6 +715,10 @@ Running:
   --sprt-min-pairs N       never stop before N complete pairs (default 20)
   -o, --out DIR            output directory (default matches/<timestamp>)
   --pdn-comments           add per-move time and engine output to the PDN
+  --fresh-engines          start new engine processes for every game (default: each worker keeps
+                           its two engines for all its games, as a GUI does; an engine may then
+                           carry its hash table from game to game). Every PDN has the tags Worker
+                           and EngineGames (games its engines had played before).
   -q, --quiet              no per-game lines
 )");
 }
@@ -765,6 +783,7 @@ bool parse_args(int argc, char** argv, Config& cfg) {
             cfg.sprt_cfg.min_pairs = std::atol(need("N").c_str());
         } else if (a == "-o" || a == "--out") cfg.out_dir = need("a directory");
         else if (a == "--pdn-comments") cfg.pdn_comments = true;
+        else if (a == "--fresh-engines") cfg.fresh_engines = true;
         else if (a == "-q" || a == "--quiet") cfg.quiet = true;
         else {
             std::fprintf(stderr, "unknown option %s (see --help)\n", a.c_str());

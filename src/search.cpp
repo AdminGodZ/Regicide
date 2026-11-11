@@ -938,7 +938,30 @@ SearchResult Engine::go(const Limits& limits, InfoFn on_info) {
         db_root = r != egdb::Wld::Unknown;
     }
 
-    if (const auto db = egdb_root_move(root_, root_moves); db.has_value() && !limits.infinite) {
+    // The database tables know the board, not the game. A move that makes the third occurrence of a position, or
+    // reaches the no-progress limit, ends the game as a draw whatever the tables say: a lost root takes it, and a
+    // won root does not play it from the tables (the search below then looks for a winning move that does not).
+    auto draws_at_once = [&](const Move& m) {
+        Position c = root_;
+        c.make_move(m);
+        MoveList replies;
+        generate_moves(c, replies);
+        if (replies.empty()) return false;  // the move wins
+        const int rev = c.reversible_plies();
+        if (rev >= NO_PROGRESS_PLIES) return true;
+        // The positions the game can still repeat: the last rev - 1 before the root (the root has the other side
+        // to move).
+        const std::size_t window = std::min<std::size_t>(history_.size(), std::size_t(std::max(rev - 1, 0)));
+        return std::count(history_.end() - std::ptrdiff_t(window), history_.end(), c.key()) >= 2;
+    };
+    auto db = limits.infinite ? std::nullopt : egdb_root_move(root_, root_moves);
+    if (conversion_ < 0 && !analysis && !limits.infinite) {
+        const auto draw = std::ranges::find_if(root_moves, draws_at_once);
+        if (draw != root_moves.end()) db = std::pair{*draw, Score(SCORE_DRAW)};
+    } else if (db && conversion_ > 0 && draws_at_once(db->first)) {
+        db.reset();
+    }
+    if (db.has_value()) {
         result.best = db->first;
         result.score = db->second;
         result.pv = {db->first};

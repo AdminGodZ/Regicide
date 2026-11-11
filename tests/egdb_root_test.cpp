@@ -125,6 +125,39 @@ int main() {
         keeps("a database draw is not lost by an avoid list that names every drawing move");
     }
 
+    // The tables know the board, not the game: in a lost ending the move that repeats a position for the third
+    // time draws at once and is played instead of the longest defence. Every Black move before it is the engine's
+    // own table move.
+    {
+        Position g;
+        check(g.set_fen("B:WK21,K25:BK4"), "set_fen");
+        std::vector<Position> history;
+        bool legal = true;
+        for (const char* text : {"4-8", "25-30", "8-11", "21-17", "11-15", "17-13", "15-19", "13-17", "19-15", "17-21",
+                                 "15-10", "21-17"}) {
+            Move m;
+            legal = legal && parse_move(g, text, m);
+            history.push_back(g);
+            g.make_move(m);
+        }
+        check(legal && g.fen() == "B:WK17,K30:BK10" && probe(g) == Wld::Loss, "the lost position is reached");
+        Move repeat;
+        check(parse_move(g, "10-15", repeat), "10-15 is legal");
+        Engine e;
+        e.set_hash_mb(1);
+        e.set_evaluator(Evaluator::hce());
+        e.set_egdb_pieces(3);
+        e.set_egdb_mtc_pieces(3);
+        e.set_position(g, history);
+        Limits l;
+        l.depth = 4;
+        const SearchResult r = e.go(l);
+        check(r.best == repeat && r.score == SCORE_DRAW, "a lost root takes the draw by a third occurrence");
+        e.new_game();
+        e.set_position(g);  // the same board without its history: the table move
+        check(e.go(l).best != repeat, "without the history the longest defence is played");
+    }
+
     test_egdb::remove(dir);
     return failures == 0 ? 0 : 1;
 }
