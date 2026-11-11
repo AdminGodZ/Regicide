@@ -1,0 +1,4 @@
+31 610.3 choices ['17-14', '24-20', '25-22'] qualified []
+32 617.14 choices ['1-5', '9-13'] qualified []
+33 315.16 choices ['1-6', '4-8'] qualified [('4-8', '1-6', 145, 170, True)]
+BATCH TIME CHECKPOINT mining 31 36

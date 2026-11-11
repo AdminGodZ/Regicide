@@ -53,3 +53,7 @@ Q009	R5586	tests/mo-guinn-a-h1/games.pdn.gz	mo-guinn-a-h1	63.2	ACF #71 Diabolica
 Q009	R7127	tests/v11d-n8q-guinn-a-h1/games.pdn.gz	bl-v11d-n8q-guinn-a-h1	63.2	ACF #71 Diabolical Denny	W	guinn	1/2-1/2	9	0	3-7	round2	original run			
 Q009	R761	wp11c/games/bl-v11c-n6c-guinn-a-h1.pdn.gz	bl-v11c-n6c-guinn-a-h1	63.2	ACF #71 Diabolical Denny	W	guinn	0-1	9	0	12-16	round2	original run			
 Q009	R8381	tests/mo1-guinn/games.pdn.gz	mo1-guinn	63.2	ACF #71 Diabolical Denny	W	guinn	1/2-1/2	9	0	3-7	mo1	1	0	125	125
+Q010	R2203	wp11c/games/bl-v11c-n8q-guinn-a-h1.pdn.gz	bl-v11c-n8q-guinn-a-h1	9.2	ACF #10	W	guinn	1/2-1/2	17	0	1-6	round2	original run			
+Q010	R5493	tests/mo-guinn-a-h1/games.pdn.gz	mo-guinn-a-h1	9.2	ACF #10	W	guinn	0-1	17	0	4-8	round2	original run	1	3	3
+Q010	R670	wp11c/games/bl-v11c-n6c-guinn-a-h1.pdn.gz	bl-v11c-n6c-guinn-a-h1	9.2	ACF #10	W	guinn	0-1	17	0	4-8	round2	original run			
+Q010	R7022	tests/v11d-n8q-guinn-a-h1/games.pdn.gz	bl-v11d-n8q-guinn-a-h1	9.2	ACF #10	W	guinn	1/2-1/2	17	0	1-6	round2	original run			

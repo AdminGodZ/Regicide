@@ -1,0 +1,2 @@
+entry	node	source	round	opening	ours	opponent	ply	fen	context	root20	root100	completed_forced_11-15	next_forced_move	next_budget	target_depth	status
+35	441.18	wp11c/games/bl-v11c-n6c-guinn-a-h2.pdn.gz	68.2	ACF #162	W	guinn	19	B:W17,21,22,27,28,30,31,32:B1,2,3,4,9,10,11,20	C0883	9-14 / -11 / d24	9-14 / 0 / d29	11-15 / 0 / d29	4-8	100000000	29	partial; no comparison verdict

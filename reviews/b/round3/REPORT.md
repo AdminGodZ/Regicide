@@ -1,8 +1,8 @@
 # Reviewer B, round 3
 
-2026-11-11 15:26 UTC
+2026-11-11 15:45 UTC
 
-Status: task1 and task3 complete; task2 continuing checkpoint, with exact coverage and remaining queries in task2/REPORT.md.
+Status: FINAL at the lead request. Task1 and task3 complete; own rank23 through ply134 (next136), predecessors through rank23 (next24), mining through entry34 with entry35 partial (next forced4-8 at100M/d29). No further round today.
 
 ## Inputs and execution
 
@@ -10,7 +10,7 @@ Requested input master 8de39d0ca7db3d586cf92b56df25b06a4ae21d81; booklab e2c1655
 
 All searches are sequential, nice -n 19, one thread, new Engine and cleared 128 MiB hash per query, book and avoid off, full record history replayed. WLD coverage is eight pieces; MTC coverage six. Ordinary queries use at most100M actual nodes; the lead explicitly authorized400M for the decisive positions this round. Caps of100M and400M are reduced by1024 internally to avoid node-poll overshoot. Each query has a separate780-second ceiling; each foreground command is limited to840seconds. No match, opponent program, protected directory/process/lock or writable access to the shared database is used.
 
-Latest fetch: master 7f3ac697bc6dc69630b3b55bad92ad00e428aa4c, booklab bfce8b08a4d186e9b198cc80e437ecb42e44ec35. The specified mo1 PDNs remain unchanged. The claims update and PR #81 stopped-call fix were inspected, and the latest ledger was read. PR #81 changes the table-drawn normal-root filter, outside the task-1 measured roots; Worker search remains byte-identical. After rebuilding on 7f3ac69, the full ply67 100M trace again matched row for row. Task2 refreshes its one affected table-drawn endpoint; exact source provenance is retained.
+Latest fetch: master 7f3ac697bc6dc69630b3b55bad92ad00e428aa4c, booklab 9f845d2a7d42f3df19ccd6a187243bbc6a280d45. The specified mo1 PDNs remain unchanged. The claims update and PR #81 stopped-call fix were inspected, and the latest ledger was read. PR #81 changes the table-drawn normal-root filter, outside the task-1 measured roots; Worker search remains byte-identical. After rebuilding on 7f3ac69, the full ply67 100M trace again matched row for row. Task2 refreshes its one affected table-drawn endpoint; exact source provenance is retained.
 
 ## Task 1: strict-run loss
 
@@ -143,15 +143,20 @@ The last identified holding root through ply 71 is **Black ply 67**, FEN **B:WK1
 
 At ply 65, the played 26-30 and the alternative 20-24 both score -18 at equal depth 32 with 100M. At the forced ply 63, the sole move 19x26 scores -20 after a full-budget restricted search. These do not identify an earlier deciding error. The subsequent roots at plies 69 and 71 choose the played moves at -200/d34 and -155/d33 respectively; no holding choice is identified there by their unrestricted 100M queries. A holding candidate here means an evaluation at least -30 in the deepest relevant query, not a proof of the game-theoretic result.
 
+
+The recorded continuation is Black51 25-22, White52 15-10, Black53 8-11. The 100M score at ply 53 is -24 and later recorded roots stay near -20 through ply 67. The negative 400M assessment at ply 51 and the later holding candidate describe different positions along this recorded line; no forced-loss proof or separate White52 comparison was run.
+
 ## Task2 continuation
 
-The frequency pool is now **8880 games**, including **936 concurrency1 mo1 games** with validated worker/process-age tags. The original116-game rank order is retained. Own-game coverage is through rank **22** (first20 completed in B2); this round has **68 own positions** and **3 predecessors** completed. Mining coverage is through entry **28/36**, with **16 entries** completed this round. New supported contexts: own **0**, predecessors **0**, mining boards **5**.
+The frequency pool is now **8880 games**, including **936 concurrency1 mo1 games** with validated worker/process-age tags. The original116-game rank order is retained. Own-game coverage is through rank **22** (first20 completed in B2); this round has **68 own positions** and **3 predecessors** completed. Mining coverage is through entry **34/36**, with **22 entries** completed this round. New supported contexts: own **0**, predecessors **0**, mining boards **6**.
 
 The [task2 report](task2/REPORT.md) contains the complete new comparisons, updated transposition census including the identifiable C1 subset, reused/new trace manifest and exact remaining queue. Accepted prior points are referenced without another nomination.
 
+Final stop: own rank23 through ply134 (next136); predecessors through rank23 (next24); mining entry34 complete, entry35 partial (next forced4-8,100M,target depth29), entry36 unqueried. The final query finished naturally, and no review search/queue process remains.
+
 ## Task 3: stopped-call fallback, reading only
 
-At fdd154e, an unscored stopped call returns main.roots[0].move (src/search.cpp:951), initialized in generated root order by Worker::setup; egdb_root_move declines drawn roots and only won roots were filtered, explaining the A6 first-move 25-21 at B:WK30:BK25,K26.
+The fallback is main.roots[0].move (current 7f3ac69 src/search.cpp:967; fdd154e:951), initialized in generated root order by Worker::setup:145; egdb_root_move declines drawn roots, and before PR #81 only won roots were filtered, explaining the A6 first-move 25-21 at B:WK30:BK25,K26.
 
 The smallest targeted change removes moves whose child is WLD Win for the opponent at a table-drawn ordinary root before Worker::setup; current master 7f3ac69 (PR #81), src/search.cpp:915-923, now implements it, retains unknown children and keeps the list if filtering would empty it.
 

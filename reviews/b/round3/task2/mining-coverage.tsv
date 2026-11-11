@@ -27,11 +27,11 @@ rank	node	opening	opponent	ours	ply	input_games	losing_moves	drawing_moves	statu
 26	557.8	ACF #66	guinn	W	9	3	4-8	7-11	B3 complete
 27	569.8	ACF #71 Diabolical Denny	guinn	W	9	3	12-16	3-7	B3 complete
 28	581.4	ACF #78	guinn	W	5	3	7-10	6-10	B3 complete
-29	601.10	ACF #87 Tyne	guinn	W	11	3	4-8	6-10	not searched
-30	605.6	ACF #9 Wilderness I	guinn	W	7	3	6-9	16-20,6-9	not searched
-31	610.3	ACF #92	guinn	B	4	3	17-14,24-20	25-22	not searched
-32	617.14	ACF #96 Skull-Cracker	guinn	W	15	3	1-5	9-13	not searched
-33	315.16	ACF #10	guinn	W	17	2	4-8	1-6	not searched
-34	385.16	ACF #134	guinn	W	17	2	14-17	1-5	not searched
-35	441.18	ACF #162	guinn	W	19	2	4-8	11-15	not searched
+29	601.10	ACF #87 Tyne	guinn	W	11	3	4-8	6-10	B3 complete
+30	605.6	ACF #9 Wilderness I	guinn	W	7	3	6-9	16-20,6-9	B3 complete
+31	610.3	ACF #92	guinn	B	4	3	17-14,24-20	25-22	B3 complete
+32	617.14	ACF #96 Skull-Cracker	guinn	W	15	3	1-5	9-13	B3 complete
+33	315.16	ACF #10	guinn	W	17	2	4-8	1-6	B3 complete
+34	385.16	ACF #134	guinn	W	17	2	14-17	1-5	B3 complete
+35	441.18	ACF #162	guinn	W	19	2	4-8	11-15	partial; next forced4-8 100M/d29
 36	605.12	ACF #9 Wilderness I	guinn	W	13	2	4-8	11-15	not searched
