@@ -7,8 +7,9 @@
 $log = "C:\regicide-match\jobs\booklab\affinity_keeper.log"
 $stop = "C:\regicide-match\jobs\booklab\affinity_keeper.stop"
 # host folders <commit>-c1-<opp> (1c6e997 for the first three runs, 8de39d0 for the --cb-claims runs)
-$cores = @{ "-c1-kingsrow" = 21; "-c1-cake" = 22; "-c1-guinn" = 23 }
-$rest = [IntPtr]0x1FFFFF   # cores 0-20
+# "-c1-tb": the #6 repair test bed (lead 12:35), core 20
+$cores = @{ "-c1-kingsrow" = 21; "-c1-cake" = 22; "-c1-guinn" = 23; "-c1-tb" = 20 }
+$rest = [IntPtr]0xFFFFF   # cores 0-19
 $t0 = Get-Date; $last = Get-Date
 "start $(Get-Date -Format s)" | Out-File -Append -Encoding utf8 $log
 while (-not (Test-Path $stop) -and ((Get-Date) - $t0).TotalHours -lt 8) {

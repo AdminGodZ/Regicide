@@ -1,0 +1,11 @@
+game,pair,opening,black,white,result,score_a,termination,engine_plies
+1,1,"/home/admingod/regicide-jobs/booklab/tb6_deck.txt:1","Regicide 0.2","Kingsrow(x64)[1] 1.20",1/2-1/2,0.5,"repetition",87
+2,1,"/home/admingod/regicide-jobs/booklab/tb6_deck.txt:1","Kingsrow(x64)[1] 1.20","Regicide 0.2",1/2-1/2,0.5,"no progress",173
+3,2,"/home/admingod/regicide-jobs/booklab/tb6_deck.txt:2","Regicide 0.2","Kingsrow(x64)[1] 1.20",1/2-1/2,0.5,"no progress",168
+4,2,"/home/admingod/regicide-jobs/booklab/tb6_deck.txt:2","Kingsrow(x64)[1] 1.20","Regicide 0.2",1/2-1/2,0.5,"repetition",182
+5,3,"/home/admingod/regicide-jobs/booklab/tb6_deck.txt:3","Regicide 0.2","Kingsrow(x64)[1] 1.20",1/2-1/2,0.5,"repetition",57
+6,3,"/home/admingod/regicide-jobs/booklab/tb6_deck.txt:3","Kingsrow(x64)[1] 1.20","Regicide 0.2",1/2-1/2,0.5,"no progress",153
+7,4,"/home/admingod/regicide-jobs/booklab/tb6_deck.txt:4","Regicide 0.2","Kingsrow(x64)[1] 1.20",1/2-1/2,0.5,"repetition",83
+8,4,"/home/admingod/regicide-jobs/booklab/tb6_deck.txt:4","Kingsrow(x64)[1] 1.20","Regicide 0.2",1/2-1/2,0.5,"repetition",85
+9,5,"/home/admingod/regicide-jobs/booklab/tb6_deck.txt:5","Regicide 0.2","Kingsrow(x64)[1] 1.20",1/2-1/2,0.5,"repetition",97
+10,5,"/home/admingod/regicide-jobs/booklab/tb6_deck.txt:5","Kingsrow(x64)[1] 1.20","Regicide 0.2",1/2-1/2,0.5,"repetition",80

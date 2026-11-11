@@ -614,6 +614,32 @@ Clock (`mo1/clock.md`, mean time per move against the 0.5 s credit): KingsRow 0.
 Cake 0.233 s (47 %; 0.230 s), GuiNN 0.262 s (52 %; 0.275 s); Regicide 6 to 22 % (book and database moves); per searched
 move the same within 0.01–0.09 s of the 8-worker runs. No sign of a slower clock under the shared load.
 
+**(a) Claims census** (lead 11:57; master 8de39d0 as committed: runner `match-8de3` c989e4d0…, host f3571459…, DLL
+`bl-8de39d0` 194cc7ea… = built-in r11d + n8q, bench 7,833,556 / 8,241,422; one production deck per opponent,
+concurrency 8, `--pairs-together`, processes kept, claims recorded, NO `--cb-claims`; `cl/claims_census.md`, tool
+`claims_report.py`; all six half-runs rc 0):
+
+| Opponent | W / D / L | games with a draw claim by the opponent | first claim: ply / pieces (median, range) | first claim disagrees with the board |
+|---|---|---|---|---|
+| KingsRow mode 3 | 3 / 309 / 0 | 303 | 51 (41–137) / 8 (4–10) | **0** |
+| Cake | 1 / 311 / 0 | 311 | 45 (26–112) / 8 (4–14) | **0** |
+| GuiNN | 22 / 290 / 0 | 289 | 43 (28–128) / 8 (5–20) | **0** |
+
+Every claim agrees with the result the game reached on the board, so `--cb-claims` would have changed no result
+here (it ends the games earlier). In none of our 26 wins (KingsRow #16, #43, #134 as White; Cake #143 as Black,
+`cl-cake-h2` 51.1; GuiNN 22) had the opponent claimed a draw before; in each the opponent's first claim is a loss claim
+or comes after our win claim. No losses. Our DLL claims only wins (3 / 1 / 22 games, all won); no draw or loss claims.
+
+**Test bed for the #6 Black repair** (lead 12:35; `cl/tb6.md`, `tb_compare.py`): the deck prefix to #6 (games 1-10)
+six times with mo1-kingsrow's DLL, runner and settings (concurrency 1, pairs together, processes kept, new processes
+at each start), pinned to core 20 beside the (b) runs. All 60 games drawn. **The prefix does not reproduce:** KingsRow
+leaves the reference already in game 1 (plies 58-62, four times) or games 3-4 (plies 25-44), each time with its own
+searched move; game 9 follows the lost game to ply 49 in 3 of 6 repeats, and there KingsRow played 7-3 twice and 5-1
+once (19-15 never; in repeat 1 it played 19-15 in a different position, after the game had left at ply 42). So this
+prefix is no reliable acceptance test: what varies first is KingsRow's own search in the earlier games (timing), which
+changes its process state by game 9. A test that reaches the losing line reliably has to start at the position (FEN
+after ply 49, or after 19-15) and play KingsRow's continuations from there, fresh and kept.
+
 **Incident 08:58** (my error): experiment 2's chain died at `e2c-kept-2-h2`. I had replaced `bl_run_w.sh` by `mv` (to add
 NOLOCK) while an instance was running; on /mnt/c the running bash lost its script ("error reading input file: No data
 available") after the match had played its 156 games, so the half-run has no exit_status and is not counted
