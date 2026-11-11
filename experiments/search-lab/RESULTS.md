@@ -374,3 +374,15 @@ A = the switch on, B = defaults. 300 ms is exact time per move (master PR #37 se
 | Q prune_forcing=1, 300k nodes/move (selfplay-lab6) | 609 / 337 / 654 | 21.1% | -9.8 [-15.1, -4.4] | 0 103 639 58 0 | 800 | ±5.3 | -3.59 | 378.5 / 408.3 ms, d 17.72 / 18.67 |
 | Q prune_forcing=3, 300k nodes/move (selfplay-lab7) | 637 / 321 / 642 | 20.1% | -1.1 [-6.3, +4.1] | 0 77 651 72 0 | 800 | ±5.2 | -0.41 | 421.3 / 400.8 ms, d 18.58 / 18.57 |
 | Q prune_forcing=3, 300 ms (selfplay-lab7) | 617 / 362 / 621 | 22.6% | -0.9 [-6.4, +4.6] | 0 85 634 81 0 | 800 | ±5.5 | -0.32 | 261.5 / 261.2 ms, d 15.45 / 15.53 |
+
+**Q outcome: no variant passes the screen bar (≥ +5, lower bound > 0), so there is no 600 ms confirmation; defaults
+unchanged.**
+- **Mode 1** (full exemption) is significantly worse at 300 ms (−7.2 [−12.8, −1.5]), **and also at equal nodes**
+  (−9.8 [−15.1, −4.4], depth 17.72 vs 18.67). The loss is not only the time cost: spending nodes on the many forcing
+  quiet moves (55–65% of the pruned ones) costs depth everywhere else.
+- **Mode 3** (exempt only if the forced exchange wins material at once) is free at fixed depth and neutral in play:
+  −1.1 [−6.3, +4.1] at equal nodes, −0.9 [−6.4, +4.6] at 300 ms. In the position test it finds the one real case (#27:
+  a database loss the default misses at 100M nodes) as cheaply as mode 1, but that case was already lost.
+- Mode 2 (LMR exemption too) was not screened: ×3.0 nodes to depth, and mode 1 already loses.
+- The exemption idea does not show a measurable gain at these time controls. Mode 3 stays in the code as a cheap
+  candidate for long time controls or analysis, where missing one combination matters more than depth.
