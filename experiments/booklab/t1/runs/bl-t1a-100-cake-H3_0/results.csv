@@ -1,0 +1,157 @@
+game,pair,opening,black,white,result,score_a,termination,engine_plies
+7,4,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:4","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",74
+5,3,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:3","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",88
+6,3,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:3","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",85
+2,1,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:1","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",83
+8,4,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:4","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",70
+1,1,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:1","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",98
+9,5,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:5","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",75
+10,5,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:5","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",87
+12,6,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:6","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",101
+14,7,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:7","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",74
+13,7,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:7","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",39
+11,6,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:6","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",88
+16,8,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:8","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",70
+17,9,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:9","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",60
+15,8,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:8","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",80
+18,9,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:9","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",83
+4,2,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:2","Cake 1.89f","Regicide 0.2",1-0,0,"no legal moves",129
+23,12,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:12","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",78
+24,12,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:12","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",77
+25,13,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:13","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",73
+22,11,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:11","Cake 1.89f","Regicide 0.2",1-0,0,"no legal moves",75
+20,10,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:10","Cake 1.89f","Regicide 0.2",1-0,0,"no legal moves",77
+26,13,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:13","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",77
+21,11,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:11","Regicide 0.2","Cake 1.89f",1-0,1,"no legal moves",147
+19,10,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:10","Regicide 0.2","Cake 1.89f",1-0,1,"no legal moves",149
+30,15,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:15","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",103
+3,2,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:2","Regicide 0.2","Cake 1.89f",1-0,1,"no legal moves",231
+27,14,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:14","Regicide 0.2","Cake 1.89f",1-0,1,"no legal moves",131
+36,18,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:18","Cake 1.89f","Regicide 0.2",1-0,0,"no legal moves",49
+32,16,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:16","Cake 1.89f","Regicide 0.2",0-1,1,"no legal moves",140
+28,14,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:14","Cake 1.89f","Regicide 0.2",1-0,0,"no legal moves",113
+34,17,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:17","Cake 1.89f","Regicide 0.2",1-0,0,"no legal moves",129
+33,17,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:17","Regicide 0.2","Cake 1.89f",1-0,1,"no legal moves",153
+29,15,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:15","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",155
+31,16,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:16","Regicide 0.2","Cake 1.89f",0-1,0,"no legal moves",140
+35,18,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:18","Regicide 0.2","Cake 1.89f",1-0,1,"no legal moves",145
+40,20,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:20","Cake 1.89f","Regicide 0.2",1-0,0,"no legal moves",57
+43,22,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:22","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",131
+37,19,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:19","Regicide 0.2","Cake 1.89f",1-0,1,"no legal moves",139
+44,22,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:22","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",74
+38,19,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:19","Cake 1.89f","Regicide 0.2",1-0,0,"no legal moves",117
+45,23,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:23","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",73
+46,23,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:23","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",81
+39,20,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:20","Regicide 0.2","Cake 1.89f",1-0,1,"no legal moves",149
+42,21,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:21","Cake 1.89f","Regicide 0.2",1-0,0,"no legal moves",87
+49,25,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:25","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",83
+50,25,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:25","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",83
+41,21,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:21","Regicide 0.2","Cake 1.89f",1-0,1,"no legal moves",141
+51,26,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:26","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",50
+52,26,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:26","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",93
+54,27,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:27","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",85
+56,28,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:28","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",70
+55,28,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:28","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",73
+57,29,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:29","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",93
+53,27,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:27","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",81
+48,24,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:24","Cake 1.89f","Regicide 0.2",1-0,0,"no legal moves",89
+58,29,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:29","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",67
+47,24,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:24","Regicide 0.2","Cake 1.89f",1-0,1,"no legal moves",161
+64,32,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:32","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",77
+65,33,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:33","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",81
+61,31,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:31","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",86
+66,33,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:33","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",80
+63,32,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:32","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",98
+59,30,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:30","Regicide 0.2","Cake 1.89f",1-0,1,"no legal moves",149
+62,31,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:31","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",106
+60,30,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:30","Cake 1.89f","Regicide 0.2",1-0,0,"no legal moves",115
+69,35,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:35","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",77
+68,34,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:34","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",74
+70,35,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:35","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",68
+71,36,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:36","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",74
+67,34,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:34","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",122
+72,36,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:36","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",85
+74,37,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:37","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",68
+78,39,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:39","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",70
+73,37,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:37","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",74
+79,40,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:40","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",72
+77,39,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:39","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",83
+80,40,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:40","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",70
+84,42,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:42","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",81
+83,42,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:42","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",107
+75,38,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:38","Regicide 0.2","Cake 1.89f",0-1,0,"no legal moves",82
+76,38,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:38","Cake 1.89f","Regicide 0.2",0-1,1,"no legal moves",136
+87,44,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:44","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",79
+89,45,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:45","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",70
+88,44,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:44","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",71
+85,43,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:43","Regicide 0.2","Cake 1.89f",1-0,1,"no legal moves",113
+81,41,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:41","Regicide 0.2","Cake 1.89f",1-0,1,"no legal moves",151
+90,45,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:45","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",88
+93,47,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:47","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",81
+94,47,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:47","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",89
+86,43,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:43","Cake 1.89f","Regicide 0.2",1-0,0,"no legal moves",121
+92,46,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:46","Cake 1.89f","Regicide 0.2",1-0,0,"no legal moves",67
+91,46,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:46","Regicide 0.2","Cake 1.89f",1-0,1,"no legal moves",139
+82,41,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:41","Cake 1.89f","Regicide 0.2",1-0,0,"no legal moves",157
+96,48,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:48","Cake 1.89f","Regicide 0.2",1-0,0,"no legal moves",105
+95,48,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:48","Regicide 0.2","Cake 1.89f",1-0,1,"no legal moves",145
+100,50,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:50","Cake 1.89f","Regicide 0.2",1-0,0,"no legal moves",57
+97,49,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:49","Regicide 0.2","Cake 1.89f",1-0,1,"no legal moves",183
+105,53,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:53","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",63
+101,51,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:51","Regicide 0.2","Cake 1.89f",1-0,1,"no legal moves",139
+99,50,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:50","Regicide 0.2","Cake 1.89f",1-0,1,"no legal moves",165
+103,52,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:52","Regicide 0.2","Cake 1.89f",1-0,1,"no legal moves",127
+107,54,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:54","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",74
+106,53,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:53","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",78
+108,54,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:54","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",70
+98,49,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:49","Cake 1.89f","Regicide 0.2",1-0,0,"no legal moves",157
+110,55,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:55","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",74
+109,55,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:55","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",91
+102,51,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:51","Cake 1.89f","Regicide 0.2",1-0,0,"no legal moves",129
+104,52,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:52","Cake 1.89f","Regicide 0.2",1-0,0,"no legal moves",117
+116,58,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:58","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",71
+115,58,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:58","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",66
+118,59,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:59","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",91
+117,59,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:59","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",59
+112,56,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:56","Cake 1.89f","Regicide 0.2",1-0,0,"no legal moves",105
+111,56,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:56","Regicide 0.2","Cake 1.89f",1-0,1,"no legal moves",135
+113,57,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:57","Regicide 0.2","Cake 1.89f",0-1,0,"no legal moves",100
+114,57,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:57","Cake 1.89f","Regicide 0.2",0-1,1,"no legal moves",138
+124,62,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:62","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",72
+123,62,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:62","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",60
+120,60,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:60","Cake 1.89f","Regicide 0.2",1-0,0,"no legal moves",93
+119,60,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:60","Regicide 0.2","Cake 1.89f",1-0,1,"no legal moves",133
+128,64,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:64","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",65
+121,61,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:61","Regicide 0.2","Cake 1.89f",1-0,1,"no legal moves",123
+125,63,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:63","Regicide 0.2","Cake 1.89f",0-1,0,"no legal moves",78
+122,61,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:61","Cake 1.89f","Regicide 0.2",1-0,0,"no legal moves",101
+127,64,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:64","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",90
+131,66,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:66","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",65
+133,67,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:67","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",68
+134,67,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:67","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",69
+132,66,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:66","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",75
+136,68,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:68","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",70
+135,68,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:68","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",62
+126,63,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:63","Cake 1.89f","Regicide 0.2",0-1,1,"no legal moves",158
+129,65,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:65","Regicide 0.2","Cake 1.89f",1-0,1,"no legal moves",129
+137,69,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:69","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",104
+142,71,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:71","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",66
+138,69,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:69","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",74
+130,65,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:65","Cake 1.89f","Regicide 0.2",1-0,0,"no legal moves",115
+143,72,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:72","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",109
+141,71,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:71","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",116
+144,72,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:72","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",86
+139,70,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:70","Regicide 0.2","Cake 1.89f",0-1,0,"no legal moves",58
+145,73,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:73","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",87
+147,74,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:74","Regicide 0.2","Cake 1.89f",1/2-1/2,0.5,"repetition",103
+146,73,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:73","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",76
+148,74,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:74","Cake 1.89f","Regicide 0.2",1/2-1/2,0.5,"repetition",77
+152,76,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:76","Cake 1.89f","Regicide 0.2",1-0,0,"no legal moves",71
+149,75,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:75","Regicide 0.2","Cake 1.89f",1-0,1,"no legal moves",139
+140,70,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:70","Cake 1.89f","Regicide 0.2",0-1,1,"no legal moves",170
+151,76,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:76","Regicide 0.2","Cake 1.89f",1-0,1,"no legal moves",163
+155,78,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:78","Regicide 0.2","Cake 1.89f",0-1,0,"no legal moves",110
+150,75,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:75","Cake 1.89f","Regicide 0.2",1-0,0,"no legal moves",159
+153,77,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:77","Regicide 0.2","Cake 1.89f",1-0,1,"no legal moves",177
+154,77,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:77","Cake 1.89f","Regicide 0.2",1-0,0,"no legal moves",173
+156,78,"/home/admingod/regicide-jobs/booklab/wp10/parts/H3_0.txt:78","Cake 1.89f","Regicide 0.2",0-1,1,"no legal moves",170

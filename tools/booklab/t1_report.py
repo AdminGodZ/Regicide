@@ -46,7 +46,10 @@ def load_run(d):
         if len(g) != 1:
             sys.exit(f"{p}: {len(g)} games")
         tags, mv = g[0]
-        col = "B" if family(tags["Black"]) == "regicide" else "W"
+        is_reg = [n.strip().lower().startswith("regicide") for n in (tags.get("Black", ""), tags.get("White", ""))]
+        if sum(is_reg) != 1:
+            sys.exit(f"{p}: not exactly one player named Regicide ({tags.get('Black')} / {tags.get('White')})")
+        col = "B" if is_reg[0] else "W"
         r = tags.get("Result", "").strip()
         sc = {"1-0": 1.0 if col == "B" else 0.0, "0-1": 1.0 if col == "W" else 0.0, "1/2-1/2": 0.5}.get(r)
         log = p + ".moves.tsv"
@@ -77,6 +80,35 @@ def main():
                               collections.defaultdict(lambda: collections.defaultdict(list)),
                               collections.defaultdict(list), collections.defaultdict(collections.Counter))
     lost, forfeits = collections.defaultdict(list), collections.Counter()
+    # Completeness first (review 2026-11-11): every arm, repeat and part must have exit status 0, a complete summary
+    # ("Games: N of N scheduled" and the A: line) and N game files; and both arms of a repeat must have the same full
+    # set of opening and colour keys. Otherwise nothing is computed.
+    problems = []
+    keysets = collections.defaultdict(set)
+    for rep in a.repeats:
+        for arm in ("60", "100"):
+            for part in parts:
+                d = os.path.join(a.results, f"bl-t1{rep}-{arm}-{a.opp}-{part}")
+                es = open(f"{d}/exit_status").read().strip() if os.path.exists(f"{d}/exit_status") else None
+                sm = open(f"{d}/summary.txt").read() if os.path.exists(f"{d}/summary.txt") else ""
+                m = re.search(r"^Games: (\d+) of (\d+) scheduled", sm, re.M)
+                n = len(glob.glob(os.path.join(d, "games", "*.pdn")))
+                if es != "0":
+                    problems.append(f"{d}: exit status {es}")
+                if not m or m.group(1) != m.group(2) or not re.search(r"^A:", sm, re.M):
+                    problems.append(f"{d}: summary incomplete ({m.group(0) if m else 'no Games line'})")
+                elif int(m.group(1)) != n:
+                    problems.append(f"{d}: {n} game files for {m.group(1)} games")
+                for g in glob.glob(os.path.join(d, "games", "*.pdn")):
+                    for tags, _ in parse_pdn(open(g, errors="replace").read()):
+                        reg_black = tags.get("Black", "").strip().lower().startswith("regicide")
+                        keysets[(rep, arm)].add((ballot_of(tags["Opening"])[1], "B" if reg_black else "W"))
+        if keysets[(rep, "60")] != keysets[(rep, "100")]:
+            problems.append(f"repeat {rep}: the two arms have different opening/colour sets "
+                            f"({len(keysets[(rep, '60')])} / {len(keysets[(rep, '100')])}, "
+                            f"{len(keysets[(rep, '60')] ^ keysets[(rep, '100')])} differ)")
+    if problems:
+        sys.exit("T1 report refused, incomplete input:\n  " + "\n  ".join(problems))
     for rep in a.repeats:
         for arm in ("60", "100"):
             score[(rep, arm)] = {}
@@ -85,7 +117,9 @@ def main():
                     if sc == 0.0:
                         lost[arm].append(f"{info['ballot']} (Regicide {col}): score below −100 from ply "
                                          f"{info['drop'] or '— (never)'}; {info['term']}; {info['game']}")
-                    if any(k in info["term"].lower() for k in ("time", "forfeit", "timed out")):
+                    # a time forfeit is a game Regicide lost by the runner's time termination (review 2026-11-11:
+                    # not a game the opponent lost on time)
+                    if sc == 0.0 and any(k in info["term"].lower() for k in ("lost on time", "timed out", "time forfeit")):
                         forfeits[arm] += 1
                     key = (opening, col)
                     if key in score[(rep, arm)]:

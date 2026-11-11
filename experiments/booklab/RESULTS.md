@@ -177,9 +177,10 @@ and #93 10/10 against KingsRow mode 3 (all drawn); against Cake and GuiNN these 
 | Cake | a | 1 / 310 / **1** |
 | GuiNN | a | 16 / 296 / 0 |
 
-Neither loss touches a position where r10 and r10k4 differ. #141/#9 (the 16-19 override, reviewer's watch item): in
-all 25 games against KingsRow mode 3 since r10k the line went through 16-19 and was drawn; our own score after it never
-fell below −11.
+Neither loss touches a position where r10 and r10k4 differ. #141/#9 (the 16-19 override, reviewer's watch item): all
+games against KingsRow mode 3 since r10k went through 16-19 and were drawn: 28 games without targeted test 5, 48 with
+it (corrected count, reviewer 2026-11-11); our lowest own score after 16-19 in the committed games is −29
+(`bl-w13-t1-r10k-kingsrow` round 42.1, ply 107; corrected from "−11", which only looked at the 40 plies after 16-19).
 
 - **ACF #53 (9-14 24-19 11-15), Regicide White, against Cake** (`bl-v13k4-cake-a-h1` 45.2; score below −100 from ply
   52): our search varied at ply 6 (22-18). Three sources at ply 6: KingsRow mode 3 book 22-17 (+1/18; 22-18 +1/17); our
@@ -189,15 +190,16 @@ fell below −11.
 - **ACF #55 (9-14 24-20 5-9), Regicide White, against KingsRow mode 3** (`bl-v13k4-kingsrow-a-h1` 47.2; score below
   −100 from ply 70, lost at ply 195): **no repair point under the rule.** All our moves through ply 24 are KingsRow mode
   3's own book moves (+1); from ply 26 to 32 KingsRow's search plays exactly our moves; our search rates the
-  candidates 0. The game is identical to two drawn games (v13 a, r10k4 b) until KingsRow varies (ply 25 or 43) and was
-  lost in the middlegame/endgame. Left unrepaired; reported to the lead.
+  candidates 0. The game follows drawn games until KingsRow varies: from the r10k4 repeat (`bl-v13k4-kingsrow-b-h1`
+  47.2) at KingsRow's ply 45 (25-29 against 25-30); from the v13 runs at ply 43 (run a) and ply 25 (run b) (corrected,
+  reviewer 2026-11-11). Lost in the middlegame/endgame. Left unrepaired; reported to the lead.
 
 The same table as for #62 and #93 (records `wp13/games/bl-v13k4-*.pdn.gz`):
 
 | Line | Lost game | Drawn mode-3 / Cake games of the opening | Three sources at the repair point | Repair |
 |---|---|---|---|---|
 | ACF #53 (9-14 24-19 11-15), W, against Cake | `bl-v13k4-cake-a-h1` 45.2: ply 6 22-18, score ≤ −100 from ply 52 | 6 drawn (f1 Cake a, b; v13 a; v13k4 a, b; k3 a): 22-17 at ply 6 | KingsRow mode 3 book 22-17 (+1/18; 22-18 +1/17); our 20M search 22-17 0, tied with 22-18 and 32-28 (`wp13/g53_score.tsv`); Cake as White leaves at ply 4 | **22-17 at ply 6** (r10k5) |
-| ACF #55 (9-14 24-20 5-9), W, against KingsRow mode 3 | `bl-v13k4-kingsrow-a-h1` 47.2: identical to the drawn games v13 a and v13k4 b to ply 32; score ≤ −100 from ply 70, lost at ply 195 | v13 a, v13 b, v13k4 b, k3 a, k3 b: drawn; they leave this game where KingsRow varies (ply 25 or 43) or where we played 32-28 (k3, ply 12) | KingsRow mode 3 book has our move among its +1 moves at every position to ply 24 and its search plays our moves from 26 to 32 (`wp13/g55_kr.tsv`); our 20M search: all candidates 0 at plies 10 and 12 (`wp13/g55_score.tsv`) | **none** (no position where our move leaves what KingsRow plays) |
+| ACF #55 (9-14 24-20 5-9), W, against KingsRow mode 3 | `bl-v13k4-kingsrow-a-h1` 47.2: identical to the drawn games v13 a and v13k4 b to ply 32; score ≤ −100 from ply 70, lost at ply 195 | v13 a, v13 b, v13k4 b, k3 a, k3 b: drawn; they leave this game where KingsRow varies (v13k4 b ply 45, 25-29 against 25-30; v13 a ply 43; v13 b ply 25) or where we played 32-28 (k3, ply 12) | KingsRow mode 3 book has our move among its +1 moves at every position to ply 24 and its search plays our moves from 26 to 32 (`wp13/g55_kr.tsv`); our 20M search: all candidates 0 at plies 10 and 12 (`wp13/g55_score.tsv`) | **none** (no position where our move leaves what KingsRow plays) |
 
 **r10k5** = r10k4 + #53: 1,062 decisions, sha256 `a05a82f559b8e1d6871ae5dcbd8703c3e8837b4795d7684ecaf07ad612b205d7`,
 reachability 876 / 0 / 186.
@@ -213,6 +215,46 @@ with `bin/match-m162-movelog` and `bin/m162ecac/cbhost.exe` (the DLL stays on 14
 Regicide). **Targeted test 5** of all eight repaired lines with `bl-141a025-r10k5` (the five-opening check that the
 new base changed nothing, plus #62, #93, #53): **KingsRow mode 3 0 / 80 / 0, Cake 0 / 80 / 0, GuiNN 0 / 32 / 0.**
 T1 started 02:42 (tm_soft read back in every start line).
+
+## T1: time allocation, tm_soft 60 (default) against 100 (2026-11-11 02:42–03:45)
+
+As written in `experiments/time-policy/README.md` (master), with the lead's addition: book r10k5 (`bl-141a025-r10k5`,
+engine 141a025), net n6c, one thread, hash 128, `set book 3` for both engines and `set param tm_soft=60|100` read back
+before every run; runner and host from master 162ecac with the per-move log of the runner's own bank, offered maxtime,
+wall, host and charged time (`tools/booklab/patches/match_movelog.diff`, logging only). Arms alternate by part. Report
+`tools/booklab/t1_report.py` (refuses incomplete input: exit status, complete summary, game files, identical opening and
+colour sets in both arms); full output `t1/t1_report_cake_a.md`, `t1/t1_report_kingsrow_a.md`. One repeat (a); the
+README's rule needs a second repeat only for the "+3 points" path.
+
+| Set | tm_soft 60: W / D / L | tm_soft 100: W / D / L | 100 − 60, match-score points over 312 games | 95% interval, 156 openings resampled | time forfeits (60 / 100) |
+|---|---|---|---|---|---|
+| Cake, holdout H3 (repeat a) | 57 / 196 / 59 | 58 / 199 / 55 | **+2.5** (+0.80 pp) | [−0.5, +6.0] | 0 / 0 |
+| KingsRow mode 3, production deck (repeat a) | 1 / 311 / 0 | 0 / 311 / 1 | **−1.0** (−0.32 pp) | [−2.5, 0.0] | 0 / 0 |
+
+Regicide's time on searched moves (host time > 0.02 s), mean and median share of the offered maxtime:
+
+| Pieces | Cake 60 | Cake 100 | KingsRow 60 | KingsRow 100 |
+|---|---|---|---|---|
+| 21–24 | 0.39 s, 44 % | 0.54 s, 73 % | 0.38 s, 43 % | 0.55 s, 71 % |
+| 17–20 | 0.53 s, 44 % | 0.64 s, 72 % | 0.54 s, 43 % | 0.69 s, 71 % |
+| 13–16 | 0.57 s, 41 % | 0.64 s, 67 % | 0.59 s, 40 % | 0.67 s, 65 % |
+| 9–12 | 0.55 s, 38 % | 0.59 s, 64 % | 0.61 s, 38 % | 0.67 s, 63 % |
+| ≤ 8 | 0.59 s, 39 % | 0.60 s, 65 % | 0.50 s, 37 % | 0.53 s, 59 % |
+
+Runner's bank before Regicide's first move with 8 or fewer pieces (median): Cake 3.57 s (60) / 2.26 s (100);
+KingsRow 3.78 s / 2.40 s.
+
+Losses: against Cake (H3, a panel of openings no engine holds safely) 59 with 60 and 55 with 100, almost all of them
+the same ballots in both arms with our score below −100 from our first or second move (ply 5/6; the full lists are in
+the report files). Against KingsRow mode 3 one loss, with tm_soft 100: **ACF #34 as Black** (`bl-t1a-100-kingsrow-h1`
+31.1). It follows the repaired line through our 1-6 at ply 19 and leaves all 13 drawn games of that line (60 arm,
+r10k4 runs, targeted tests) at **our own ply 25: 10-15 instead of 19-24** (the longer think chose differently). The
+report's "first score below −100" says ply 17 for this game because of the transient −107 at the forced capture 5x14,
+which every drawn game also passes; the measure is not reliable at captures.
+
+Under the README's rule (adopt 100 only if the paired difference's 95 % interval is above zero, or if it is at least
++3 points and a second repeat has the same sign), repeat a gives **no measurable effect**: +2.5 points with an interval
+that includes zero against Cake, −1.0 against KingsRow mode 3. The decision is the lead's.
 
 **New pins (CPU only, for the next r11).** From the 4,368 games of the validated full runs with r10 (final
 validation; k3), r10k (v13) and r10k4 (v13k4) against all three opponents, KingsRow mode 3 included, on top of r10k5;

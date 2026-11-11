@@ -47,11 +47,15 @@ def main():
         for tags, moves in parse_pdn(open(os.path.join(d, "games.pdn"), errors="replace").read()):
             # exactly one side Regicide, the other a known opponent (review 2026-11-11: an opponent-only file must
             # not turn the opponent's moves into Regicide pins); anything else is skipped and counted
-            fb, fw = family(tags.get("Black", "")), family(tags.get("White", ""))
-            if sorted([fb, fw]) not in ([f, "regicide"] for f in ("cake", "guinn", "kingsrow")):
+            # positive matches only: family() maps any unknown name to "regicide", so Regicide is recognised by its
+            # name and the opponent must be one of the known engines (review 2026-11-11)
+            nb, nw = tags.get("Black", ""), tags.get("White", "")
+            rb, rw = nb.strip().lower().startswith("regicide"), nw.strip().lower().startswith("regicide")
+            other = nw if rb else nb
+            if rb == rw or family(other) not in ("cake", "guinn", "kingsrow"):
                 not_regicide += 1
                 continue
-            col = "B" if fb == "regicide" else "W"
+            col = "B" if rb else "W"
             res = tags.get("Result", "").strip()
             r = {"1-0": "W" if col == "B" else "L", "0-1": "W" if col == "W" else "L", "1/2-1/2": "D"}.get(res)
             if r is None:  # unfinished or interrupted: no pins from it
