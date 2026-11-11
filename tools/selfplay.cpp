@@ -225,7 +225,7 @@ int main(int argc, char** argv) {
         eb.set_threads(cfg.threads_b);
         if (!ea.params.set_all(cfg.a) || !eb.params.set_all(cfg.b)) {
             std::cerr << "bad parameter spec\n";
-            std::exit(2);
+            std::_Exit(2);  // from a worker thread: no static destructors under the other workers
         }
         for (int i; (i = next_pair++) < pairs;) {
             const Position& open = openings[i % openings.size()];
