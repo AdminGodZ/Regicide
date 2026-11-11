@@ -75,3 +75,13 @@ were used for net-against-net selection, never against the three opponents.
 
 Played first: O and EB on H1, H2 and H3; then EB and E on H2x; then EBN on H1, H2 and H3; E on H1/H2/H3 only for
 openings whose EB games were exposed. One repetition; a second only where a result hangs on a handful of games.
+
+## Addendum 2026-11-11: H3 is used up for book work; panel H4
+
+The games of test T1 against Cake on H3 went into the pin pool of the books r11b and later (3,965 pins of r11c have an
+H3 game as their first source). An H3 result with those books is no longer a result on openings the book has not
+seen. `h4_unresolved156.txt` (sha256 68407963e000e27a5f666f397a127d61c8495ab163b960597839389ce3365c03) is the next
+156 unresolved openings of the same seeded order (`python3 build_h3.py --skip 156 --name h4_unresolved156.txt`), not
+played so far. Rules for H4: no game on it enters a pin pool or a repair; engine comparisons on it run with the book
+off (`set book 0`) for both arms; a book-on run reports how many games met a book position.
+

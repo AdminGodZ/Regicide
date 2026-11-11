@@ -1,5 +1,7 @@
 # Brief for an external deep analysis of Regicide (state of master on 2026-11-11: book r11c, net n8q)
 
+Revised after the first external analysis of 2026-11-11 (its corrections are worked in; see the end).
+
 This is the briefing for a reviewer who has the repository and time to think, but no access to our machines.
 The question is at the end; the sections before it say what is known, with numbers, so that no time goes into
 re-deriving it. `docs/EVIDENCE.md` holds the older claims with their sources and conditions; this file is newer
@@ -38,9 +40,12 @@ No loss in 3,120 games.
 For scale: Cake against KingsRow in book mode 3 on the same deck scores 1/311/0. On these openings the top
 programs draw almost everything with each other, and so do we now.
 
-On 156 fresh, unbalanced four-ply openings that no book covers (holdout panel H3, `experiments/holdout/`) we are
-level with Cake: 57/196/59 (the engine of two days earlier: 14/240/58). Almost all decisive games there are decided
-by the opening itself.
+On 156 unbalanced four-ply openings outside the standard deck (panel H3, `experiments/holdout/`) the engine with
+book r10 was level with Cake: 57/196/59 (the engine of two days earlier: 14/240/58). Almost all decisive games there
+are decided by the opening itself. H3 is no longer a holdout for the book: its games against Cake went into the pin
+pool, and 3,965 pins of r11c come from them. Panel H4 (`h4_unresolved156.txt`, the next 156 openings of the same
+order) has not been played; it is meant for book-off comparisons, and for book-on runs only with a count of the
+games that met a book position.
 
 ## How we got here, in one paragraph each
 
@@ -63,8 +68,11 @@ by the opening itself.
 - Deeper search in the opening phase: at positions from games against Cake, a 20M-node search picks a different
   move than a 1M-node search in about one position of six at plies 8 to 14, but the difference exceeds 15
   hundredths of a man in about 4% of positions.
-- One step above the database the search is nearly error-free from 20k nodes on; no lost game turned with 8 or
-  fewer pieces. Lost games are proven lost at a median of 10 pieces but turn much earlier.
+- Near the database: in generated endings the conversion search wins 400 of 400 six-piece wins at 20k nodes per
+  move and 194 of 200 seven-piece wins (199 of 200 at 100k). No lost game against the three opponents turned with 8
+  or fewer pieces; lost games are proven lost at a median of 10 pieces and turn much earlier. These are sample
+  measurements, not a proof that play above the database is exact. The figure of about 99.8% in the training notes
+  is the agreement of the static evaluation's sign with proven wins and losses, not move accuracy.
 - Nets: relabelling training data with database truth (n8q, now built in) gives +3.5 Elo over n6c in self-play
   with the database (interval +0.1 to +6.8) and +0.6 without (-3.1 to +4.4). A net with 15M more database-true self-play records (n9h)
   scores proven wins and losses near the database a little more decisively and judges draws above the database no
@@ -88,10 +96,13 @@ by the opening itself.
   ballots.
 - Against KingsRow in mode 3 we have a handful of wins on record (ACF 71 as White twice, ACF 43 as White, a few in
   the earlier runs). They come from KingsRow varying a move after its book ends.
-- Against Cake we have one win in the standard runs (ACF 163, Cake Black). Its first clearly worse move in that
-  game is at ply 51 with 13 pieces, and none of Cake's other games of that opening reaches that position. But when
-  that opening and colour was replayed 20 times, we scored 6/14/0: Cake does not repeat its own play, and one of its
-  three choices at plies 15 to 19 (10-15 at ply 15, 9 games) lost 6 times.
+- Against Cake we have one win in the standard runs (ACF 163, Cake Black). When that opening and colour was
+  replayed 20 times we scored 6/14/0, and the six wins transpose into the original won game before ply 30. But the
+  wins are games 9 to 16 of the run only: with eight games played at a time and engine processes kept from game to
+  game, Cake searched the same position at ply 15 to depth 20 in games 1 to 8 (4-8, drawn), to depth 25 in games 9
+  to 16 (10-15, six lost) and deeper again in games 17 to 20 (4-8, drawn), with identical node counts inside each
+  group. Cake's choice therefore seems to depend on what its process played before. Whether the win repeats under
+  fresh processes, and inside a full deck, is being tested (`tools/match --fresh-engines`).
 - Cake repeats about 17% of its games move for move against the same play; KingsRow in mode 3 repeats its opening
   play closely and varies later (median first difference between two runs at ply 42).
 
@@ -122,3 +133,15 @@ We no longer lose on the standard deck, and we do not win against Cake or KingsR
 
 Answers that name a file and function, a concrete position, or a concrete experiment are worth more than general
 advice. Where a claim above looks wrong or too convenient, say so and say which record would show it.
+
+## What the first external analysis changed (2026-11-11)
+
+- Fixed: at a root the endgame tables decide, the engine ignored the game history; in a lost ending it did not take
+  a draw by a third repetition (`egdb_root_test`, PR #65).
+- Confirmed, with the data owner: `truth relabel` writes the database value of a game's first covered position on
+  every record of the game, also on later positions whose value a mistake has changed.
+- Under test: quiet moves that force the opponent to capture are exempted from the shallow prunings (search-lab
+  experiment Q); the process-state question on ACF 163 above; the single-move candidates against Cake (8-12 at
+  the shared ply-5 position of ACF 163/165 as Black) and KingsRow.
+- Corrected in this brief: H3 is not a holdout for r11c; the wording on play near the database; the account of the
+  win against Cake.
