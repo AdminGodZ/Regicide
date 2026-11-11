@@ -46,3 +46,5 @@ STOPPED 2026-11-11T06:40:29+01:00
 Failed to execute '/home/admingod/regicide-jobs/netm/runner2.sh': Permission denied
 RUNNER2 START 2026-11-11T06:41:43+01:00
 BEGIN M7_n9h-vs-n8q attempt 1 chunks 'abcdef' A=n9h B=n8q eng=eng_cc29 mt=0.5 2026-11-11T06:41:43+01:00
+DONE M7_n9h-vs-n8q secs=8704 2026-11-11T09:06:47+01:00 :: Elo +3.0 [-0.4, +6.5] 95% CI (pentanomial, pairs), score 0.5043 +- 0.0049, LOS 95.8%
+IDLE 2026-11-11T09:06:47+01:00
