@@ -1,0 +1,2 @@
+gen6a_n50k_egdb.bin: 471616 games, 418468 kept (10775453 records of 12435456) -> gen6a_n50k_egdb_dedup.bin
+gen6b_n50k_egdb.bin: 246132 games, 172000 kept (4360885 records of 6659840) -> gen6b_n50k_egdb_dedup.bin

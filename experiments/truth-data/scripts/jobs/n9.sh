@@ -22,7 +22,7 @@ K=$(python3 -c "import json; print(json.load(open('$HOME/regicide-nnue6-work/run
 touch $LOCKS/yield_truth   # training (2 threads) + losswalk (2): gen6b pauses, staying within 14 threads
 bash $T/train.sh $NAME $ALL $G5 $G5 $G5 $E5 $E5 $E5 --lambda 0.5 --min-pieces 2 --k $K --groups 2,9 --group-weights 1,9 || { rm -f $LOCKS/yield_truth; st "$NAME: training or export check FAILED"; exit 1; }
 pgrep -f "jobs/truth/run_cb.sh" > /dev/null || rm -f $LOCKS/yield_truth
-bash $T/sanity.sh $J/sanity_$NAME.md n6c=builtin n8q=$W/n8q.nnue $NAME=$W/$NAME.nnue > /dev/null
+bash $T/sanity.sh $J/sanity_$NAME.md n6c=$HOME/regicide-nnue6-work/n6c.nnue n8q=$W/n8q.nnue $NAME=$W/$NAME.nnue > /dev/null
 $PY $T/tools/pilot_draws.py n6c=$HOME/regicide-nnue6-work/n6c.nnue n8q=$W/n8q.nnue $NAME=$W/$NAME.nnue > $J/pilot_draws_$NAME.md 2>&1
 $PY $T/tools/unique_keys.py "E5_$NAME=$SNAP/gen6a_n50k_egdb_dedup.bin,$SNAP/gen6b_n50k_egdb_dedup.bin" > $J/unique_keys_$NAME.txt 2>&1
 bash $T/embed_test.sh $NAME

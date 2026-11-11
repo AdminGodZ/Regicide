@@ -1,0 +1,3 @@
+seeds 227871, seed plies 2-4, distinct starts 512062
+/home/admingod/regicide-data/truth/e5_n9h/gen6a_n50k_egdb_dedup.bin: starts 418468, seeded 334442 (79.9%), random openings 84026 (20.1%)
+/home/admingod/regicide-data/truth/e5_n9h/gen6b_n50k_egdb_dedup.bin: starts 172000, seeded 142346 (82.8%), random openings 29654 (17.2%)

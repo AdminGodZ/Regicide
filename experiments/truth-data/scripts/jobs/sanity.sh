@@ -21,8 +21,18 @@ fens = special + [f for f, _ in rows] + picked_w + picked_d
 ev = {}
 for spec in nets:
     name, path = spec.split("=", 1)
+    # a net that cannot be loaded must stop the table: the engine would go on with its built-in net (2026-11-11: a
+    # literal "$HOME/..." path gave three identical columns)
+    if path != "builtin":
+        import os
+        if not os.path.isfile(path):
+            sys.exit("sanity.sh: %s: no such net file %s" % (name, path))
     cmds = "set evalfile %s\n" % path + "".join("evalpos %s\n" % f for f in fens) + "quit\n"
-    out = subprocess.run([E], input=cmds, capture_output=True, text=True).stdout
+    res = subprocess.run([E], input=cmds, capture_output=True, text=True)
+    out = res.stdout
+    bad = [l for l in (res.stdout + res.stderr).splitlines() if any(w in l.lower() for w in ("cannot", "error", "fail"))]
+    if bad:
+        sys.exit("sanity.sh: %s: the engine did not take %s: %s" % (name, path, bad[0]))
     vals = [int(l.split()[1]) for l in out.splitlines() if l.startswith("eval ")]
     assert len(vals) == len(fens), (name, len(vals))
     ev[name] = dict(zip(range(len(fens)), vals))
@@ -47,4 +57,6 @@ off = base + len(rows)
 for j, f in enumerate(picked_w + picked_d):
     print("| `%s` | %s | %s |" % (f, "win" if j < len(picked_w) else "draw", " | ".join(str(ev[n][off + j]) for n in names)))
 PY
+rc=$?
 cat $out
+exit $rc

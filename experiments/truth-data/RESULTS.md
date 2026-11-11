@@ -1010,6 +1010,62 @@ Files:
   - The game's own search disagrees with 20M at times: at #34 it was at ≤ −100 from ply 16, where 20M says −25.
   - KingsRow-based results stay provisional (see the book-mode note in P1).
 
+### n9h: n8q's recipe plus 15M game-deduplicated E5 records (2026-11-11 04:10–04:35)
+
+**Data.**
+- The trigger fired at 04:10 at 15,136,082 game-deduplicated records (19,094,528 raw).
+- Snapshot: gen6a records 0–12,435,455 and gen6b records 0–6,659,839. Everything in them was written with 4–12
+  random plies for the random-opening half.
+- Deduplicated (`logs/n9h_dedupe.txt`): gen6a 418,468 of 471,616 games (10,775,453 records); gen6b 172,000 of 246,132
+  games (4,360,885 records). 13,682,896 unique board+side keys (90.4%).
+- Recipe: E2 gen1–gen4a, gen5a_e2 ×3, deduplicated gen6a/gen6b ×3; K 102.4, λ 0.5, groups 2–8 / 9–24 = 1 : 9,
+  40 epochs. That gives 343,356,919 training records: 174.8M in 2–8 pieces, 168.5M in 9–24.
+- Validation records per input file (printed by the trainer, finding r17-2): 87,196 to 601,219, none empty
+  (`logs/n9h.log`).
+- **Start kinds of the E5 part** (`truth startkinds`, `logs/startkinds_n9h.txt`):
+  - 476,788 of 590,468 games (80.7%) start reachable from a seed.
+  - Calibration: 37.6% of 4–12-ply random openings are also seed-reachable, and seeded starts are always recognised.
+    So about **69% seeded and 31% random-opening games**. 80.7% is the upper bound for seeded.
+  - Deduplication removed mostly random-opening copies, which is why this is not the 50/50 of the draws.
+  - The E2 files carry no game-start flags, so they cannot be classified this way.
+
+**Checks.**
+- Export check: python int vs engine 0 of 100k positions differ; simulated int vs engine max 1 cm. OK.
+- Validation loss: final (epoch 40, after QAT) 0.431734 float / 0.431394 int; best 0.431164 (epoch 38). This
+  validation set includes the E5 tails, so it is not comparable with n8q's 0.4445. Validation positions that also occur
+  in the same file's training part: gen6a 8.1%, gen6b 4.4%.
+- Embed test (n9h as the built-in net in a scratch worktree): ctest 52/52.
+- sha256 2bae308ed648d2ef8a62c949670f27127e46cb7dad7161ebada6c4c713ec2bb7.
+
+**Sanity (≤ 8 pieces, static eval; `logs/sanity_n9h.md`):** n9h is like n8q on the 400 random 4–6-piece positions
+(wins +248 / 98% > +100, draws +1 / 99% within ±50, losses −238 / 92% < −100). It is a little more decisive on the
+named wins: 3 kings vs 1 is +542 / −517, where n8q gives +519 / −467.
+- Correction: n9.sh's first sanity table used `n6c=builtin`, which on this branch is n8q (bd1c5c0), and a hand rerun
+  passed a literal `$HOME` path. sanity.sh then fell back to the built-in net without a word. Fixed: sanity.sh now
+  stops on a missing or unloadable net, and n9.sh names n6c's file. The table above is the corrected one.
+
+**Draws and proven results at 9–12 pieces (pilot records; `logs/pilot_draws_n9h.md`):**
+
+| pieces | draw proxy, mean abs(eval) / share within ±100: n6c, n8q, n9h | proven wins/losses beyond ±100: n6c, n8q, n9h |
+|---|---|---|
+| 9 | 69 / 79%, 85 / 62%, 87 / 61% | 92.3%, 98.4%, 98.4% |
+| 10 | 21 / 98%, 21 / 97%, 21 / 97% | 88.0%, 92.1%, 92.6% |
+| 11 | 75 / 70%, 82 / 64%, 88 / 62% | 96.5%, 98.3%, 98.4% |
+| 12 | 29 / 96%, 31 / 94%, 33 / 92% | 85.8%, 90.4%, 91.0% |
+
+**Reading.**
+- The E5 data moves the net slightly further in the direction n8q took. Proven wins and losses at 9–12 pieces are
+  scored a little more decisively (0 to +0.6 points). Database draws at 9–12 pieces with a material difference are
+  scored a little less drawish than by n8q (61–62% within ±100 vs 62–64%; n6c 70–79%).
+- So the database-truth labels of E5 do not repair the draw judgement above the database. That fits the label rule:
+  above 8 pieces a search proves only wins and losses, never draws.
+- Whether n9h plays better is for the laptop match against n8q. The net is on the branch:
+  `experiments/truth-data/n9h.nnue`.
+
+**From here on:** the generators were restarted at 04:15 with 6–16 random plies (lead's decision), seeds 620/621.
+Records from gen6a 12,514,816 and gen6b 6,659,840 on are 6–16-ply data. gen6a 12,435,456–12,514,815 is still
+4–12-ply data, written after the snapshot.
+
 <!-- PHASE3MORE -->
 
 ## What holds and what does not

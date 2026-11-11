@@ -1,0 +1,3 @@
+E5_n9h: records 15136338; game-deduplicated 15136338; unique board+side keys 13682896 (90.4% of records)
+  gen6a_n50k_egdb_dedup.bin: validation 215500 positions from record 10559953; also in training: 17380 (8.1%)
+  gen6b_n50k_egdb_dedup.bin: validation 87196 positions from record 4273689; also in training: 3854 (4.4%)
