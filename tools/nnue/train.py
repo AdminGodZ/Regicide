@@ -89,7 +89,7 @@ def validate(model, valid, K, lam, device, quant):
         loss, _ = batch_loss(model, model.arch, t, K, lam, quant)
         total += loss.item() * len(valid[i:i + 65536])
         n += len(valid[i:i + 65536])
-    return total / max(1, n)
+    return total / n if n else None  # None: nothing was measured (no validation records)
 
 
 def main(argv=None):
@@ -112,6 +112,12 @@ def main(argv=None):
             data.group_sizes, data.batch_split(args.batch).tolist()), flush=True)
     if data.n_train == 0:
         sys.exit("no training data")
+    # validation records per input file: the game-boundary rule (nnue.valid_start) can move a file's cut to its end
+    for f, nv in dict(zip(args.data, data.valid_counts)).items():
+        print("validation records %d  %s%s" % (nv, f, "  (none: the cut moved to the end of the file)"
+                                               if nv == 0 and args.valid_frac > 0 else ""), flush=True)
+    if args.valid_frac > 0 and data.n_valid == 0:
+        sys.exit("--valid-frac %g leaves no validation records" % args.valid_frac)
     valid = data.validation(args.valid_max, rng)
 
     arch = nnue.make_arch(args.arch, args.ft, args.l1, args.l2, args.buckets)
@@ -160,8 +166,9 @@ def main(argv=None):
             model.eval()
             vf = validate(model, valid, K, args.lam, device, False)
             vq = validate(model, valid, K, args.lam, device, True)
-            print("epoch %3d  lr %.2e  train %.6f  valid %.6f  valid(int) %.6f%s  %.0f pos/s" %
-                  (epoch, opt.param_groups[0]["lr"], train_loss / steps_per_epoch, vf, vq,
+            fv = lambda x: "%.6f" % x if x is not None else "none (no validation records)"  # noqa: E731
+            print("epoch %3d  lr %.2e  train %.6f  valid %s  valid(int) %s%s  %.0f pos/s" %
+                  (epoch, opt.param_groups[0]["lr"], train_loss / steps_per_epoch, fv(vf), fv(vq),
                    "  [qat]" if quant else "", steps_per_epoch * args.batch / (time.time() - te)), flush=True)
             ck = {"model": model.state_dict(), "optimizer": opt.state_dict(), "epoch": epoch, "step": step,
                   "K": K, "args": vars(args)}

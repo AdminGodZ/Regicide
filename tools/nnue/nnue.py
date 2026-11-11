@@ -195,7 +195,8 @@ class Data:
                 self.valid_parts.append(m[start:])
         self.train_ends = np.cumsum(self.train_sizes)
         self.n_train = int(self.train_ends[-1]) if files else 0
-        self.n_valid = sum(len(v) for v in self.valid_parts)
+        self.valid_counts = [len(v) for v in self.valid_parts]  # per input file (a file given k times: k entries)
+        self.n_valid = sum(self.valid_counts)
         self.groups = None
         if groups:
             if min_pieces != groups[0] or any(k is None for k in self.keep):

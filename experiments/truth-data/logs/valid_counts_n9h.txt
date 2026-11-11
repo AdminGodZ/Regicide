@@ -1,0 +1,13 @@
+gen1_n10k_e2.bin                                             records    9643008  flagged False  index cut    9450148  validation from    9450148  validation records (>= 2 pieces)   192860
+gen1b_n10k_e2.bin                                            records   29817546  flagged False  index cut   29221196  validation from   29221196  validation records (>= 2 pieces)   596350
+gen1c_n10k_e2.bin                                            records   29816510  flagged False  index cut   29220180  validation from   29220180  validation records (>= 2 pieces)   596330
+gen2a_n10k_e2.bin                                            records   30060997  flagged False  index cut   29459778  validation from   29459778  validation records (>= 2 pieces)   601219
+gen2b_n10k_e2.bin                                            records   29516347  flagged False  index cut   28926021  validation from   28926021  validation records (>= 2 pieces)   590326
+gen3a_n10k_e2.bin                                            records   30033050  flagged False  index cut   29432389  validation from   29432389  validation records (>= 2 pieces)   600661
+gen3b_n10k_e2.bin                                            records   29399508  flagged False  index cut   28811518  validation from   28811518  validation records (>= 2 pieces)   587990
+gen3c_n10k_e2.bin                                            records   28680073  flagged False  index cut   28106472  validation from   28106472  validation records (>= 2 pieces)   573601
+gen3d_n10k_e2.bin                                            records   28599457  flagged False  index cut   28027468  validation from   28027468  validation records (>= 2 pieces)   571989
+gen4a_n10k_e2.bin                                            records   28083233  flagged False  index cut   27521569  validation from   27521569  validation records (>= 2 pieces)   561664
+gen5a_n50k_e2.bin                                            records   10435120  flagged False  index cut   10226418  validation from   10226418  validation records (>= 2 pieces)   208702
+gen6a_n50k_egdb.bin                                          records    9289216  flagged True   index cut    9103432  validation from    9103480  validation records (>= 2 pieces)   185736
+gen6b_n50k_egdb.bin                                          records    6367744  flagged True   index cut    6240390  validation from    6240393  validation records (>= 2 pieces)   127351
