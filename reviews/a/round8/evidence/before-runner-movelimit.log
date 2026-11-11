@@ -1,0 +1,6 @@
+FAIL: a win claim on 6x15 with --cb-move-limit 1: status 0
+game,pair,opening,black,white,result,score_a,termination,engine_plies,first_claim
+1,1,"/home/admingod/regicide-review-a/reports/round8/tmp/regicide-claims-win-838544/opening.txt:1","A","B",*,,"move limit",1,"ply 1 B win"
+2,1,"/home/admingod/regicide-review-a/reports/round8/tmp/regicide-claims-win-838544/opening.txt:1","B","A",*,,"move limit",1,"none"
+      * | move limit, no result | ply 1 B win | w1 l0 d0 | w0 l0 d0
+      * | move limit, no result | none | w0 l0 d0 | w0 l0 d0

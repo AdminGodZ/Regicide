@@ -1,0 +1,4 @@
+engine: Regicide 0.2
+claims: immediate win 1 (1), third-occurrence root 3 (not 1), 17-13 completing it 0 (0)
+played 200 legal plies, final B:WK7,K19:BK18,K22
+table win claims: after 77 king moves 3 (not 1), without history 1 (1); searched table win after 4 king moves 1 (1), after 38 3 (not 1); the reply can repeat a third time 1 (not 1, not -1)

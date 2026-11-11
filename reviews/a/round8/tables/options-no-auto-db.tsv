@@ -1,0 +1,34 @@
+command	handled	reply
+name	1	Regicide 0.2
+get protocolversion	1	2
+get gametype	1	21
+get hashsize	1	128
+get book	1	3
+get threads	1	1
+get searchthreads	0	?
+get cpus	0	?
+get dbpath	1	(empty)
+get dbpieces	1	0
+get dbmbytes	0	?
+get allscores	0	?
+get solve	0	?
+get enable_wld	0	?
+get max_dbpieces	0	?
+get enable_mtc	0	?
+get mtcpath	0	?
+get bookfile	0	?
+get movelist B:W1:B	0	?
+set hashsize 64	1	64
+get hashsize	1	64
+set book 2	1	2
+get book	1	2
+set book 3	1	3
+get book	1	3
+set searchthreads 1	0	?
+get threads	1	1
+set allscores 1	0	?
+set dbmbytes 16	1	16
+get dbmbytes	0	?
+set dbpath /home/admingod/regicide-review-a/reports/round6/tmp/regicide-r6-claims-1970922660	1	3
+get dbpath	1	/home/admingod/regicide-review-a/reports/round6/tmp/regicide-r6-claims-1970922660
+get dbpieces	1	3

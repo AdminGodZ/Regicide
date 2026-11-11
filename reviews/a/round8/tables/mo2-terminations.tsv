@@ -1,0 +1,9 @@
+opponent	end	claim_actor	claim_kind	termination	games
+cake	claim	cake	draw	draw claim	312
+guinn	board	-	-	repetition	1
+guinn	claim	Regicide	win	win claim	12
+guinn	claim	guinn	draw	draw claim	292
+guinn	claim	guinn	loss	loss claim	7
+kingsrow	board	-	-	repetition	5
+kingsrow	claim	Regicide	win	win claim	1
+kingsrow	claim	kingsrow	draw	draw claim	306

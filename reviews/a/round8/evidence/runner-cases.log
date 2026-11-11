@@ -1,0 +1,5 @@
+default: all original result fields and claim metadata identical in 8 games
+terminal-win-limit1-repeat [('1-0', '1', 'no legal moves', '1', 'ply 1 B win'), ('1-0', '0', 'no legal moves', '1', 'ply 1 B win')]
+terminal-win-no-limit [('1-0', '1', 'no legal moves', '1', 'ply 1 B win'), ('1-0', '0', 'no legal moves', '1', 'ply 1 B win')]
+terminal-draw-no-limit [('1-0', '1', 'no legal moves', '1', 'ply 1 B draw'), ('1-0', '0', 'no legal moves', '1', 'ply 1 B draw')]
+fourth-draw-limit3 [('*', '', 'move limit', '4', 'none'), ('*', '', 'move limit', '4', 'ply 4 W draw')]

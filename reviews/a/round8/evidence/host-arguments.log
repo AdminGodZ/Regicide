@@ -1,0 +1,7 @@
+CMD set log /home/admingod/regicide-review-a/reports/round8/evidence/host-arguments.log
+CMD set gamehist B:WK32:BK1
+CALL B:WK32:BK1 maxtime 0.5 info 1 moreinfo 0
+CMD set gamehist B:WK28:BK5
+CALL B:WK28:BK5 maxtime 0.66 info 0 moreinfo 0
+CMD set gamehist B:WK32:BK1
+CALL B:WK32:BK1 maxtime 0.82 info 0 moreinfo 0

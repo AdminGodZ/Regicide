@@ -1,0 +1,11 @@
+Final fetch: 2026-11-11T13:04:13.205734+00:00
+origin/master fdd154e17db15edd92dea51be3d332eccf8f2078
+origin/t3/claim-soundness f3e858993dd60c7c67473af78466b58e01f7be38
+origin/t3/booklab 3be313a2c7d91f5e79035b8897483a1e6f97d4ed
+origin/t3/review-reports f2f69efa94fea99f1f893da947b96d5cc1264f40
+CheckerBoard 32f194f840f208f0aff86a07026f788c01c819ce
+Master merge: all 141 src/tools/tests/CMake/weights files equal the fresh tested f3e8589 archive.
+Claims fixtures, bench and guard comparisons rerun after fetching master fdd154e.
+Record sources: 3 mo2 runs (936 games, 46260 moves), 6 unchanged census halves (936 games, 101794 moves).
+All records independently legally replayed; all process ages checked; 24 result changes listed.
+No real opponent engine run; no protected live directory, registry, lock or other process used.
