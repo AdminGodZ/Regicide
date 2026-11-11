@@ -12,7 +12,7 @@ I fetched before starting and again before reporting, and read the master review
 |---|---|
 | origin/master | 1c6e99715299a5fbbbd407b1b9361e3c299e91e6 |
 | origin/t3/root-analysis-tags | 121d097acb20e5fc15fa358b94c4d8c1b64e1dc8 (merged into master by PR #71) |
-| origin/t3/booklab | 02de69500fb0d3764a234f69d7b4035d28a02123 |
+| origin/t3/booklab | 1a1b6541a747dda2ec9205688fb46459a2504dc1 |
 | origin/t3/search-lab | d4370a3cb3fbc762bb9ece6720c01f81a86344ff |
 
 Master advanced during the review: it merged the two round-1 fixes, replaced r11c with r11d in PR #72, and added --pairs-together in PR #73. I retained the specifically requested r11c measurement at f032e23 and additionally counted the new master book. The relevant Book::probe, CB adapter and TT code did not change. The search.cpp change on master is exactly the restricted-analysis fix tested here.
@@ -25,7 +25,7 @@ Work stayed inside /home/admingod/regicide-review-a. Remote branches were read t
 
 ### 1. The validation-context guard accepts a short run with exit_status 0
 
-**File:** experiments/booklab/scripts/wp12_chain.sh:21 on Book Lab 02de695.  
+**File:** experiments/booklab/scripts/wp12_chain.sh:21 on Book Lab 1a1b654.  
 **Priority:** P2.  
 **Fix being checked:** 0ae8af2, Round-21 finding 6.
 
@@ -54,7 +54,7 @@ Require a successful status *and* the appropriate complete-game check for runs w
 
 ### 2. The new confirmation runner loads engines before taking the timing lock
 
-**File:** tools/booklab/wp12_confirm.py:153–160 on Book Lab 02de695.  
+**File:** tools/booklab/wp12_confirm.py:153–160 on Book Lab 1a1b654.  
 **Priority:** P2.  
 **Introduced by:** 0ae8af2.
 
@@ -246,7 +246,7 @@ This repeatability statement does not override the ledger's accepted plain-int h
 
 ### Six Round-21 fixes
 
-I read the 0ae8af2 changes and rechecked the affected code at newest Book Lab 02de695. The original causes were reproducible from the ledger, except that the exact “20 affected selected points” campaign inventory was not fully regenerated. Tests below are small fixtures, not reruns of the timed campaign.
+I read the 0ae8af2 changes and rechecked the affected code at newest Book Lab 1a1b654. The original causes were reproducible from the ledger, except that the exact “20 affected selected points” campaign inventory was not fully regenerated. Tests below are small fixtures, not reruns of the timed campaign.
 
 | Ledger item | Recheck | Result |
 |---|---|---|
@@ -293,6 +293,8 @@ I inspected command construction, deck writing, result completion, analysis and 
 Read newest e2_chain.sh and its bl_run_w.sh path. For the ACF 163 experiment both arms use the same 24 fixed-White deck lines, Regicide DLL bl-ddd25fc-r11d (n8q), Cake 1.89f, match-ddd2, ddd2 cbhost, hash 128, Regicide one thread, explicit book 3 with read-back, opponent database options, 0.5 s/move banking, PDN comments and concurrency 8. The substantive command difference is --fresh-engines; tags/output directories differ as identifiers. The full-deck arms similarly use identical halves and repeat settings, in kept/fresh order.
 
 Fresh mode necessarily adds engine reinitializations and warm-up searches. Those are part of the intervention, not an unnoticed second engine setting. The arms run at different times; the scripts cannot make realized CPU/load/cache conditions identical. The order is fixed, not randomized or counterbalanced.
+
+The final fetch also brought Book Lab 1a1b654 and e2c_resume.sh. The affected review sources are unchanged. The resume script retains the original DLL, runner, host, clocks, deck halves and concurrency, with only --fresh-engines distinguishing its two arms. Its incident note archives a completed half-run whose wrapper lost its script and failed to write exit_status; the script replays that half-run. I read these changes and did not run the resume or health scripts.
 
 The newly added mo_chain.sh also uses identical settings for each KingsRow fixed-White fresh/kept pair: same DLL bl-1c6e997, runner/host, opening, 24 games, colours, clock and concurrency. The “natural pairs” arm deliberately adds Black games and --pairs-together, so it is **not** a fresh-versus-kept arm with all other conditions identical. mo1_chain.sh deliberately uses concurrency 1 and NOLOCK; it is a separate match-order experiment, not a matched fresh control. I did not treat these declared interventions as defects.
 
