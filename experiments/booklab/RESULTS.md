@@ -680,10 +680,33 @@ the ballot itself (our first move). Steps 2 and 3 have nothing to test; no book 
 
 **Item 0: reviewer B's #6 Black repair** (8-11 instead of 6-10 at ply 17, B:W19,21,22,23,27,28,30,31,32:B2,4,5,6,7,8,12,13,14):
 candidate DLL `bl-w12-wp14-c6-811` = master fdd154e (`bl-fdd154e`, built-in r11d, bench 7,833,556 / 8,241,422) with
-the one key overridden (book sha256 76cc9a75…, one entry changed, all others byte-identical). Playing (arms in the
-next update). The old 6-10 line from the records (#6 Black; mo, mo1, mo2, cl, v11d-n8q, e2c): KingsRow 7 games 0 / 6
-/ 1, lowest own score −78 … −39 (plus the database loss); Cake 19 games 0 / 19 / 0, lowest −39 in all; GuiNN 5 games
-0 / 5 / 0, lowest −39.
+the one key overridden (book sha256 76cc9a75…, one entry changed, all others byte-identical). ACF #6, Regicide Black
+from the ballot, concurrency 8, runner and host from fdd154e (`w14c6-*`, all rc 0; `wp14/c6_table.md`):
+
+| Arm | games | W / D / L | reached ply 17 and played 8-11 from the book | lowest own score (0.5 s): min / median / max | distinct lines, plies 17-40 |
+|---|---|---|---|---|---|
+| KingsRow mode 3, fresh | 24 | 0 / 24 / 0 | 24 | −108 / −108 / −108 | 5 |
+| KingsRow mode 3, kept | 24 | 0 / 24 / 0 | 24 | −108 / −76 / −53 | 10 |
+| Cake, fresh | 24 | 0 / 24 / 0 | **0** (Cake leaves the line before ply 17) | −39 / −39 / −39 | 1 |
+| Cake, kept | 24 | 0 / 24 / 0 | **0** | −66 / −66 / −39 | 2 |
+| GuiNN, fresh | 12 | 0 / 12 / 0 | **0** | −39 / −39 / −39 | 2 |
+| GuiNN, kept | 12 | 0 / 12 / 0 | **0** | −74 / −39 / −39 | 4 |
+| old 6-10, KingsRow (records) | 7 | 0 / 6 / 1 | (6-10) | −78 / −70 / −39, plus the database loss | 2 |
+| old 6-10, Cake (records) | 19 | 0 / 19 / 0 | — | −39 in all | 4 |
+| old 6-10, GuiNN (records) | 5 | 0 / 5 / 0 | — | −39 in all | 1 |
+
+- **No loss in 144 games; only KingsRow reaches the changed position** (48 of 48 here; in the records 74 of 85 KingsRow
+  games of #6 Black reach it, Cake 0 of 82, GuiNN 0 of 43), so the Cake and GuiNN arms do not test the change.
+- **The new line's lowest 0.5 s scores are not better than the old line's**: −108 at ply 25 (our capture 11x20) in 35
+  of 48 games, −76 at ply 27 (4 games), −53 at ply 19 (9 games). At **100M** (history replayed, `wp14/c6low.out`)
+  those three positions score **−2** (11x20, d28), **−8** (10x17, d34) and **−23** (6-9, d29), against −70 … −130
+  for the old line at 100M (reviewer B). So by the 0.5 s game scores the condition "clearly better than −78 … −130" is
+  not met (−108 is the commonest low point); by the 100M scores of the same positions it is.
+- **Transpositions**: in all recorded games only #6 Black reaches the FEN (ply 17). The reach search
+  (`booklab_reach`, book r11d, 3M nodes per ballot, 30 plies) finds paths only from #6, #61 and #97; the #61 and #97
+  paths need our engine to choose non-book moves at plies 7-15 / 9-17 (no book entry there), so no book line
+  transposes into it; 13 ballots are proven unreachable, 140 unknown at the node limit.
+- Not built into any book: the lead decides on the table.
 
 **Test bed for the #6 Black repair** (lead 12:35; `cl/tb6.md`, `tb_compare.py`): the deck prefix to #6 (games 1-10)
 six times with mo1-kingsrow's DLL, runner and settings (concurrency 1, pairs together, processes kept, new processes

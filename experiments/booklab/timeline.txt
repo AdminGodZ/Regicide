@@ -1091,3 +1091,21 @@ W12C2 points done: 5686 points; scoring starts 2026-11-11T13:47:16+01:00
 W14C6 start (c2 scoring paused) 2026-11-11T14:11:52+01:00
 BL wait-lock w14c6-kingsrow-fresh regicide:bl-w12-wp14-c6-811 vs kingsrow deck /home/admingod/regicide-jobs/booklab/wp14/c6_24.txt mt 0.5 c 8 2026-11-11T14:11:52+01:00
 BL start w14c6-kingsrow-fresh regicide:bl-w12-wp14-c6-811 vs kingsrow; A: book read-back: 'reply 1 3' (ok) B: book read-back: 'reply 1 3' (ok); commit free 27.9 GB; bg: bash:S datagen-tr6:S bash:T datagen-tr5:T  2026-11-11T14:11:55+01:00
+BL end w14c6-kingsrow-fresh rc=0 Games: 24 of 48 scheduled A: +0 =24 -0   score 12.0/24 = 50.00%   draw rate 100.0%  2026-11-11T14:13:37+01:00
+BL wait-lock w14c6-kingsrow-kept regicide:bl-w12-wp14-c6-811 vs kingsrow deck /home/admingod/regicide-jobs/booklab/wp14/c6_24.txt mt 0.5 c 8 2026-11-11T14:13:37+01:00
+BL start w14c6-kingsrow-kept regicide:bl-w12-wp14-c6-811 vs kingsrow; A: book read-back: 'reply 1 3' (ok) B: book read-back: 'reply 1 3' (ok); commit free 27.8 GB; bg: bash:S datagen-tr6:S bash:T datagen-tr5:T  2026-11-11T14:13:39+01:00
+BL end w14c6-kingsrow-kept rc=0 Games: 24 of 48 scheduled A: +0 =24 -0   score 12.0/24 = 50.00%   draw rate 100.0%  2026-11-11T14:15:22+01:00
+BL wait-lock w14c6-cake-fresh regicide:bl-w12-wp14-c6-811 vs cake deck /home/admingod/regicide-jobs/booklab/wp14/c6_24.txt mt 0.5 c 8 2026-11-11T14:15:22+01:00
+BL start w14c6-cake-fresh regicide:bl-w12-wp14-c6-811 vs cake; A: book read-back: 'reply 1 3' (ok) B: book read-back: 'reply 1 3' (ok); commit free 27.9 GB; bg: bash:S datagen-tr6:S bash:T datagen-tr5:T  2026-11-11T14:15:24+01:00
+BL end w14c6-cake-fresh rc=0 Games: 24 of 48 scheduled A: +0 =24 -0   score 12.0/24 = 50.00%   draw rate 100.0%  2026-11-11T14:16:12+01:00
+BL wait-lock w14c6-cake-kept regicide:bl-w12-wp14-c6-811 vs cake deck /home/admingod/regicide-jobs/booklab/wp14/c6_24.txt mt 0.5 c 8 2026-11-11T14:16:12+01:00
+BL start w14c6-cake-kept regicide:bl-w12-wp14-c6-811 vs cake; A: book read-back: 'reply 1 3' (ok) B: book read-back: 'reply 1 3' (ok); commit free 27.8 GB; bg: bash:S datagen-tr6:S bash:T datagen-tr5:T  2026-11-11T14:16:14+01:00
+BL end w14c6-cake-kept rc=0 Games: 24 of 48 scheduled A: +0 =24 -0   score 12.0/24 = 50.00%   draw rate 100.0%  2026-11-11T14:17:00+01:00
+BL wait-lock w14c6-guinn-fresh regicide:bl-w12-wp14-c6-811 vs guinn deck /home/admingod/regicide-jobs/booklab/wp14/c6_12.txt mt 0.5 c 8 2026-11-11T14:17:00+01:00
+BL start w14c6-guinn-fresh regicide:bl-w12-wp14-c6-811 vs guinn; A: book read-back: 'reply 1 3' (ok) B: book read-back: 'reply 1 3' (ok); commit free 27.8 GB; bg: bash:S datagen-tr6:S bash:T datagen-tr5:T  2026-11-11T14:17:02+01:00
+BL end w14c6-guinn-fresh rc=0 Games: 12 of 24 scheduled A: +0 =12 -0   score 6.0/12 = 50.00%   draw rate 100.0%  2026-11-11T14:17:39+01:00
+BL wait-lock w14c6-guinn-kept regicide:bl-w12-wp14-c6-811 vs guinn deck /home/admingod/regicide-jobs/booklab/wp14/c6_12.txt mt 0.5 c 8 2026-11-11T14:17:39+01:00
+BL start w14c6-guinn-kept regicide:bl-w12-wp14-c6-811 vs guinn; A: book read-back: 'reply 1 3' (ok) B: book read-back: 'reply 1 3' (ok); commit free 27.8 GB; bg: bash:S datagen-tr6:S bash:T datagen-tr5:T  2026-11-11T14:17:42+01:00
+BL end w14c6-guinn-kept rc=0 Games: 12 of 24 scheduled A: +0 =12 -0   score 6.0/12 = 50.00%   draw rate 100.0%  2026-11-11T14:18:20+01:00
+W14C6 done 2026-11-11T14:18:20+01:00
+W14C6 end (c2 scoring resumed) 2026-11-11T14:18:20+01:00

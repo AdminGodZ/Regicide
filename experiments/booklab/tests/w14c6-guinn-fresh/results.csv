@@ -1,0 +1,13 @@
+game,pair,opening,black,white,result,score_a,termination,engine_plies,first_claim
+1,1,"/home/admingod/regicide-jobs/booklab/wp14/c6_12.txt:1","Regicide 0.2","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",65,"ply 50 W draw"
+11,6,"/home/admingod/regicide-jobs/booklab/wp14/c6_12.txt:6","Regicide 0.2","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",71,"ply 50 W draw"
+3,2,"/home/admingod/regicide-jobs/booklab/wp14/c6_12.txt:2","Regicide 0.2","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",71,"ply 50 W draw"
+9,5,"/home/admingod/regicide-jobs/booklab/wp14/c6_12.txt:5","Regicide 0.2","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",71,"ply 50 W draw"
+13,7,"/home/admingod/regicide-jobs/booklab/wp14/c6_12.txt:7","Regicide 0.2","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",89,"ply 50 W draw"
+7,4,"/home/admingod/regicide-jobs/booklab/wp14/c6_12.txt:4","Regicide 0.2","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",65,"ply 50 W draw"
+15,8,"/home/admingod/regicide-jobs/booklab/wp14/c6_12.txt:8","Regicide 0.2","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",89,"ply 50 W draw"
+5,3,"/home/admingod/regicide-jobs/booklab/wp14/c6_12.txt:3","Regicide 0.2","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",65,"ply 50 W draw"
+23,12,"/home/admingod/regicide-jobs/booklab/wp14/c6_12.txt:12","Regicide 0.2","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",89,"ply 50 W draw"
+17,9,"/home/admingod/regicide-jobs/booklab/wp14/c6_12.txt:9","Regicide 0.2","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",65,"ply 50 W draw"
+19,10,"/home/admingod/regicide-jobs/booklab/wp14/c6_12.txt:10","Regicide 0.2","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",65,"ply 50 W draw"
+21,11,"/home/admingod/regicide-jobs/booklab/wp14/c6_12.txt:11","Regicide 0.2","GuiNN Checkers 2.06 avx2",1/2-1/2,0.5,"repetition",95,"ply 56 W draw"
