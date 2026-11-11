@@ -19,6 +19,7 @@ import csv
 import glob
 import os
 import random
+import re
 import statistics
 import sys
 
@@ -52,7 +53,12 @@ def load_run(d):
         if not os.path.exists(log):
             sys.exit(f"{log} missing: the run was not played with match-pr49-movelog")
         rows = list(csv.DictReader(open(log), delimiter="\t"))
-        games.append((ballot_of(tags["Opening"])[1], col, sc, [m for m, _ in mv], rows))
+        # first own move whose search score is below -100 (Regicide's comment 'score N')
+        drop = next((i + 1 for i, (m, c) in enumerate(mv) if (i % 2 == 0) == (col == "B")
+                     and (s := re.search(r"\bscore (-?\d+)", c or "")) and int(s.group(1)) < -100), None)
+        info = dict(ballot=ballot_of(tags["Opening"])[0], term=tags.get("Termination", ""), drop=drop,
+                    game=f"{os.path.basename(d)} round {tags.get('Round', '?')}")
+        games.append((ballot_of(tags["Opening"])[1], col, sc, [m for m, _ in mv], rows, info))
     return games
 
 
@@ -61,17 +67,26 @@ def main():
     ap.add_argument("--results", required=True)
     ap.add_argument("--repeats", nargs="+", default=["a"])
     ap.add_argument("--boot", type=int, default=10000)
+    ap.add_argument("--opp", default="cake", help="cake (holdout H3) or kingsrow (production deck)")
+    ap.add_argument("--parts", nargs="+", default=None, help="run parts (default H3_0 H3_1 for cake, h1 h2 otherwise)")
     ap.add_argument("--md")
     a = ap.parse_args()
+    parts = a.parts or (["H3_0", "H3_1"] if a.opp == "cake" else ["h1", "h2"])
     score = {}  # (rep, arm) -> {(opening, colour): score}
     tim, share, bank8, wdl = (collections.defaultdict(lambda: collections.defaultdict(list)),
                               collections.defaultdict(lambda: collections.defaultdict(list)),
                               collections.defaultdict(list), collections.defaultdict(collections.Counter))
+    lost, forfeits = collections.defaultdict(list), collections.Counter()
     for rep in a.repeats:
         for arm in ("60", "100"):
             score[(rep, arm)] = {}
-            for part in ("H3_0", "H3_1"):
-                for opening, col, sc, moves, rows in load_run(os.path.join(a.results, f"bl-t1{rep}-{arm}-cake-{part}")):
+            for part in parts:
+                for opening, col, sc, moves, rows, info in load_run(os.path.join(a.results, f"bl-t1{rep}-{arm}-{a.opp}-{part}")):
+                    if sc == 0.0:
+                        lost[arm].append(f"{info['ballot']} (Regicide {col}): score below −100 from ply "
+                                         f"{info['drop'] or '— (never)'}; {info['term']}; {info['game']}")
+                    if any(k in info["term"].lower() for k in ("time", "forfeit", "timed out")):
+                        forfeits[arm] += 1
                     key = (opening, col)
                     if key in score[(rep, arm)]:
                         sys.exit(f"duplicate {key} in repeat {rep}, arm {arm}")
@@ -111,7 +126,12 @@ def main():
     boots = sorted(sum(rnd.choice(diffs) for _ in diffs) for _ in range(a.boot))
     lo, hi = boots[int(0.025 * a.boot)], boots[int(0.975 * a.boot) - 1]
     games = sum(len(score[(a.repeats[0], "60")]) for _ in [0])
-    out = [f"# T1 report: tm_soft 100 minus 60, Cake, holdout H3, repeats {', '.join(a.repeats)}", ""]
+    out = [f"# T1 report: tm_soft 100 minus 60, {'Cake, holdout H3' if a.opp == 'cake' else a.opp + ', production deck'}, "
+           f"repeats {', '.join(a.repeats)}", ""]
+    for arm in ("60", "100"):
+        out.append(f"- tm_soft {arm}: time forfeits {forfeits[arm]}; losses {len(lost[arm])}" +
+                   "".join(f"\n  - {x}" for x in lost[arm]))
+    out.append("")
     for arm in ("60", "100"):
         c = wdl[arm]
         out.append(f"- tm_soft {arm}: Regicide W / D / L = {c['W']} / {c['D']} / {c['L']}" + (f", {c['?']} without result" if c["?"] else ""))

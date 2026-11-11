@@ -1,0 +1,3 @@
+# WP13, sixth line ACF #93 (10-15 22-17 9-13, Regicide Black): lost in the r10k validation (bl-v13-kingsrow-b-h2
+# round 5.1), not exposed to any r10k change; our moves equal KingsRow mode 3's non-losing book moves to ply 17.
+B:W14,21,24,25,26,27,29,31,32:B1,2,3,5,8,11,12,13,15 | 2-7 | force | ACF #93 regicide B ply 19 (WP13): KingsRow mode 3 book 2-7 (-1/16) against 2-6 (-70/2); our 20M-node search 2-7 0 (best) against 2-6 -27 (two sources); Regicide played 2-7 in the two drawn k3 games and 2-6 in the lost game (and in one drawn game where KingsRow varied at ply 20); Cake leaves this line at ply 5

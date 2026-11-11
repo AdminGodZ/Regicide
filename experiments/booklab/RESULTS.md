@@ -165,6 +165,70 @@ Note on the method: these two losses are not book errors but the engine choosing
 lines the book does not cover; the pins of WP11 (our moves of drawn games, rebuilt after this validation) are the
 general remedy for that, and the two repairs above are the same choice made early for the two lines that lost.
 
+Test 4 (#93 with r10k4): KingsRow mode 3 0 / 10 / 0, Cake 0 / 4 / 0, GuiNN 0 / 4 / 0. Repair positions met: #62 10/10
+and #93 10/10 against KingsRow mode 3 (all drawn); against Cake and GuiNN these lines leave earlier.
+
+**Validation of r10k4 (the last full validation of an unpinned book; final-validation runner):**
+
+| Opponent | Run | W / D / L |
+|---|---|---|
+| KingsRow mode 3 | a | 1 / 310 / **1** |
+| KingsRow mode 3 | b | 0 / 312 / 0 |
+| Cake | a | 1 / 310 / **1** |
+| GuiNN | a | 16 / 296 / 0 |
+
+Neither loss touches a position where r10 and r10k4 differ. #141/#9 (the 16-19 override, reviewer's watch item): in
+all 25 games against KingsRow mode 3 since r10k the line went through 16-19 and was drawn; our own score after it never
+fell below −11.
+
+- **ACF #53 (9-14 24-19 11-15), Regicide White, against Cake** (`bl-v13k4-cake-a-h1` 45.2; score below −100 from ply
+  52): our search varied at ply 6 (22-18). Three sources at ply 6: KingsRow mode 3 book 22-17 (+1/18; 22-18 +1/17); our
+  20M-node search 22-17 0, tied best with 22-18 and 32-28; all six drawn games with this colour played 22-17 (two
+  against Cake in the final validation, four against KingsRow mode 3); Cake as White leaves this line at ply 4.
+  **Repair 22-17 at ply 6** (r10k5, targeted test only, as ordered).
+- **ACF #55 (9-14 24-20 5-9), Regicide White, against KingsRow mode 3** (`bl-v13k4-kingsrow-a-h1` 47.2; score below
+  −100 from ply 70, lost at ply 195): **no repair point under the rule.** All our moves through ply 24 are KingsRow mode
+  3's own book moves (+1); from ply 26 to 32 KingsRow's search plays exactly our moves; our search rates the
+  candidates 0. The game is identical to two drawn games (v13 a, r10k4 b) until KingsRow varies (ply 25 or 43) and was
+  lost in the middlegame/endgame. Left unrepaired; reported to the lead.
+
+**r10k5** = r10k4 + #53: 1,062 decisions, sha256 `a05a82f559b8e1d6871ae5dcbd8703c3e8837b4795d7684ecaf07ad612b205d7`,
+reachability 876 / 0 / 186.
+
+**Base commit changes to master 141a025** (from 2026-11-11 02:25; all DLLs before were built on 456e9b2): PR #56 skips
+book and avoid list at roots the database knows, a draw included (before: only wins and losses). None of r10k's
+entries lies at a position with 8 or fewer pieces (1,059 decisions; 5 avoid entries; 5,393 of the 6,969 book positions
+whose FEN is known from replayed games; the other 1,576 are bookgen's opening positions), and the pins stop before 8
+pieces, so the books are unaffected. Engine changes 456e9b2..141a025 besides that: refused hash size leaves a usable
+table, egdb cursor bound, square range checks; bench unchanged (7,677,736 / 8,055,287). DLL `bl-141a025-r10k5`; runner
+and host for T1 from 141a025 with the per-move log (`bin/match-m141-movelog`, `bin/m141a025/cbhost.exe`). The
+targeted test of all eight repaired lines with this DLL (the five-opening check that nothing moved, plus #62, #93,
+#53; 10 games against KingsRow mode 3 and against Cake, 4 against GuiNN per line) is running; T1 follows.
+
+**New pins (CPU only, for the next r11).** From the 4,368 games of the validated full runs with r10 (final
+validation; k3), r10k (v13) and r10k4 (v13k4) against all three opponents, KingsRow mode 3 included, on top of r10k5;
+rule: a move is pinned only if no game through that position with that move was lost. **41,599 pins** (book r11n,
+42,661 decisions, sha256 `e8010b1390097dec130afd91ba537bb68f5d4b3629f7b03d93ffbf086f9ea840`, `pins_r11n.md`); 274
+positions left out because every move played there had a lost game through it; 192 positions still tie and fall back
+to the frozen input order. Positions of the lost games before the losing move (first own score below −100):
+
+| Lost game | Regicide | losing move | own positions before it | now pinned | pinned with a different move | first position where r11n leaves the lost line |
+|---|---|---|---|---|---|---|
+| #60 (k3 a, k3 b) | B | ply 19 | 7 | 0 | 0 | ply 11: 7-10 (WP13 repair) |
+| #71 (k3 a, k3 b) | B | ply 17 | 6 | 2 | 2 | **ply 9: 3-7 (pin)**, before the repair at ply 13 |
+| #141 (k3 a), #9 (k3 b) | B | ply 49 | 22 | 0 | 0 | ply 7: 6-9 (repair) |
+| #34 (k3 b) | B | ply 17 | 6 | 1 | 1 | **ply 13: 8-11 (pin)**, before the try-2 repair at ply 19 |
+| #62 (v13 b) | B | ply 55 | 25 | 0 | 0 | ply 17: 4-8 (repair) |
+| #93 (v13 b) | B | ply 35 | 15 | 0 | 0 | ply 19: 2-7 (repair) |
+| #55 (v13k4 a) | W | ply 70 | 33 | 1 | 1 | **ply 12: 32-28 (pin)** |
+| #53 (v13k4 Cake) | W | ply 52 | 24 | 0 | 0 | ply 6: 22-17 (repair) |
+
+So every lost line is left before its losing move. On three lines (#71, #34, #55) the strict rule makes a pin leave
+**earlier than the tested repair**: the move of the lost game had a lost game through it and is dropped, and a move
+from a drawn game takes its place. Those moves were not part of the targeted tests (for #34, 16-19 at ply 13 is
+KingsRow mode 3's own book move and drew in all 10 test games). Lead decision before r11: keep these pins, or leave
+positions upstream of a tested repair on the same line unpinned.
+
 **Census, Cake against KingsRow in book mode 3** (production deck, 312 games, final-validation runner, both engines
 `set book 3` read back): **Cake 1 / 311 / 0** (the one win: ACF #119, 11-15 22-17 15-19, Cake Black,
 `bl-c3-cake-kingsrow-h2` round 28.1). With KingsRow in mode 1 the census had 13 / 299 / 0.
