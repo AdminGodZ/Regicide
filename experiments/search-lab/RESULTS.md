@@ -373,3 +373,4 @@ A = the switch on, B = defaults. 300 ms is exact time per move (master PR #37 se
 | Q prune_forcing=1, 300 ms (selfplay-lab6) | 604 / 359 / 637 | 22.4% | -7.2 [-12.8, -1.5] | 0 105 623 72 0 | 800 | ±5.7 | -2.50 | 262.0 / 261.2 ms, d 14.99 / 15.56 |
 | Q prune_forcing=1, 300k nodes/move (selfplay-lab6) | 609 / 337 / 654 | 21.1% | -9.8 [-15.1, -4.4] | 0 103 639 58 0 | 800 | ±5.3 | -3.59 | 378.5 / 408.3 ms, d 17.72 / 18.67 |
 | Q prune_forcing=3, 300k nodes/move (selfplay-lab7) | 637 / 321 / 642 | 20.1% | -1.1 [-6.3, +4.1] | 0 77 651 72 0 | 800 | ±5.2 | -0.41 | 421.3 / 400.8 ms, d 18.58 / 18.57 |
+| Q prune_forcing=3, 300 ms (selfplay-lab7) | 617 / 362 / 621 | 22.6% | -0.9 [-6.4, +4.6] | 0 85 634 81 0 | 800 | ±5.5 | -0.32 | 261.5 / 261.2 ms, d 15.45 / 15.53 |
