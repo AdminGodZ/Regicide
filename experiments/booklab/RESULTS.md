@@ -510,6 +510,43 @@ rounds 9–16 (second games) 10-15 at d25, rounds 17–20 4-8 at d26/27. After 1
 Cake's ply-37 choice 20-24 in all five wins, 14-18 in the two drawn games. Our score on #163: 1 / 23 / 0 with fresh
 processes, 6 / 18 / 0 with kept processes. The deck arm (c, 6 × kept and 6 × fresh) is playing.
 
+## How CheckerBoard plays an engine match (lead 2026-11-11, question 2a)
+
+CheckerBoard is not installed on this machine (no executable, help file or source under C:\ or the WSL home). The
+answer rests on CheckerBoard's source, `github.com/eygilbert/CheckerBoard` at 32f194f (the commit the project already
+pins for simplech, `tools/opponents/simplech`; it is also the repository's current head), cloned read-only to `~/ref/CheckerBoard`:
+
+- **Order of games.** Game numbers run 1 … 2 × ballots × repeats; the ballot of game g (0-based) is
+  `(g / 2) % num_ballots()` (`game0_to_ballot0`, CheckerBoard.c 3928). **Each ballot is played twice in succession**
+  (games 1-2 ballot 1, games 3-4 ballot 2, …), in deck order. **Engine 1 (the primary engine) plays Black in
+  odd-numbered games** (`engine1_plays_black`, CBstructs.h 146), so it plays Black in the first game of each pair and
+  White in the second. One game at a time.
+- **Engines stay loaded.** Both engines are DLLs loaded into the CheckerBoard process once (`LOADENGINES` →
+  `initengines`, at start-up or on Engine > Select) and freed only when CheckerBoard exits (`FreeLibrary`,
+  CheckerBoard.c 1628). Within a match nothing is unloaded or restarted: every game after the first is played by
+  engines that have played all earlier games of the match, and the game an engine played just before is the same
+  ballot with colours reversed (second game of a pair) or the previous ballot (first game of a pair).
+- **What it sends.** At the start of the match: `name` to each engine and one 0.1 s search from the initial
+  position by each engine (`quick_search_both_engines`, "to init endgame dbs"). At the start of every game nothing
+  but the board: the clocks are reset (`reset_game_clocks`) and the first search of each side gets
+  `CB_RESET_MOVES` in `info` (`movecount <= 2` → `reset_move_history`); before every search the reversible move
+  history goes as `set gamehist <FEN> <moves>` (`send_game_history`, utility.c 777-803). There is no new-game call in
+  the engine API, so whatever an engine keeps between searches (hash table, history) is its own choice.
+- **Our runner** (tools/match): game `.1` of a deck row is A (Regicide) Black, `.2` A White, as CheckerBoard with
+  Regicide as engine 1; a new game sends cbhost `newgame` (only `CB_RESET_MOVES` on the next search, as above). With
+  `-c 8` the two games of a row usually go to different workers, and before PR #66 `--fresh-engines` did not exist;
+  with `--pairs-together` (PR #73) a worker plays `.1` then `.2` with the same two processes. Differences that remain
+  even at `-c 1 --pairs-together`: no 0.1 s warm-up search at the start of the match, and two engine processes (cbhost)
+  instead of one CheckerBoard process (no effect on the engines' own state).
+
+**Runs in match order** (lead 2026-11-11; runner, host and DLL from master 1c6e997: `bin/match-1c6e` sha256
+`26a16d9a…`, DLL `bl-1c6e997` built from the unmodified commit, built-in book r11d `7692986c…`, net n8q `68154969…`,
+bench 7,833,556 / 8,241,422 as the r11d DLL; the DLL differs from `bl-5c433dc-r11d` by the engine changes since,
+PRs #65 and #71): 2b (`mo-<opp>-<run>-<half>`, pairs together, concurrency 8: KingsRow mode 3 a, b; Cake a, b; GuiNN
+a), then 2c (`mo1-cake`, concurrency 1, whole deck, no timing lock: one game at a time) and 2d (Cake #163 natural
+pairs; KingsRow mode 3 #71, #43, #134, #16 as White, 24 games fresh, 24 kept, 24 natural pairs each), after
+experiment 2's deck arm.
+
 ## Review of the WP12 tools at fa0c887 (2026-11-11): fixes
 
 1. **Cap per opening** (`wp12_select.py`): every Cake context of a point counts on its line (any supplied run or
@@ -551,6 +588,15 @@ processes, 6 / 18 / 0 with kept processes. The deck arm (c, 6 × kept and 6 × f
      against 1 control win in 3 blocks = keep; 3 exposed wins, 4 wins of which 3 exposed, 1 loss, 2 control wins,
      2 blocks = reject), off-board and incomplete = not counted, the stage-3 plan, exposed and unexposed losses,
      untested, the consulted rule and the on-board texts.
+8. **Avoided moves inside a run of king moves** (residual of 7a20295; `pins.py`, `lost_vs_book.py`,
+   `wins_vs_book.py`): the avoid list applies at every root that is not database-decided, so a later avoided own move
+   counts as a downstream repair (and as the book leaving a game) also where the book is not consulted; pinwalk's
+   rows stop above 8 pieces, so no reported root is database-decided. The lead's fixture (from
+   `B:W21,K22,23,…,32:B1,2,3,4,K5,9`, lost game 9-13 22-18 5-9, drawn game 9-13 22-18 1-6, base book avoiding only
+   5-9 after 22-18): old pins.py 0 pins, new **9-13 pinned from the drawn game** (`fx_avoid.sh`). r11d's pins
+   recomputed with the fix are byte-identical to `pins_r11d.txt`. `wins_vs_book.py` now reports "no forced departure
+   (the book never forces another move nor avoids ours)" instead of "follows to the end", and separately the first
+   consulted position without a book entry.
 
 **New pins (CPU only, for the next r11).** From the 4,368 games of the validated full runs with r10 (final
 validation; k3), r10k (v13) and r10k4 (v13k4) against all three opponents, KingsRow mode 3 included, on top of r10k5;

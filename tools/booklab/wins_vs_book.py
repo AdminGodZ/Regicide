@@ -65,25 +65,32 @@ def main():
         res = collections.Counter(gs[i]["res"] for i in lst)
         opp = collections.Counter(gs[i]["opp"] for i in lst)
         return f"{mv}: {len(lst)} games, {dict(res)}, {dict(opp)}"
-    rows = ["| Won game | Opponent | Regicide | own positions walked | r11 follows to the end? | where the book leaves it | evidence (won move; book move) |",
-            "|---|---|---|---|---|---|---|"]
+    rows = ["| Won game | Opponent | Regicide | own positions walked | no forced departure? (the book never forces another "
+            "move nor avoids ours) | where the book forces a departure | first consulted position without a book entry | "
+            "evidence (won move; book move) |",
+            "|---|---|---|---|---|---|---|---|"]
     for gi, g in enumerate(gs):
         if g["res"] != "W" or g["opp"] not in a.opps:
             continue
         w = walk[gi]
         if gi in errors:
             rows.append(f"| {g['ballot'][0]} ({g['run']} {g['rnd']}) | {g['opp']} | {g['col']} | — | REPLAY FAILED at "
-                        f"{errors[gi]} | — | — |")
+                        f"{errors[gi]} | — | — | — |")
             continue
-        leave = next((r for r in w if r[3] and ((r[4] != "-" and r[4] != r[2]) or r[2] in r[5])), None)
+        # forced departure: the book forces another move where it is consulted, or avoids our move (the avoid list
+        # applies at every reported root, also inside a run of king moves; review 2026-11-11 residual)
+        leave = next((r for r in w if (r[3] and r[4] != "-" and r[4] != r[2]) or r[2] in r[5]), None)
+        # first own position where the book is consulted but has no entry (from there the engine searches)
+        nobook = next((r for r in w if r[3] and r[4] == "-" and r[2] not in r[5]), None)
+        nb = f"ply {nobook[0] + 1}" if nobook else "none (book entry at every consulted position)"
         name = f"{g['ballot'][0]} ({g['run']} {g['rnd']})"
         if leave is None:
-            rows.append(f"| {name} | {g['opp']} | {g['col']} | {len(w)} | yes | — | — |")
+            rows.append(f"| {name} | {g['opp']} | {g['col']} | {len(w)} | yes | — | {nb} | — |")
         else:
             ply, fen, mv, el, bm, av = leave
             bmove = bm if bm != "-" else "(won move avoided)"
             rows.append(f"| {name} | {g['opp']} | {g['col']} | {len(w)} | no | ply {ply + 1}: {bmove} instead of {mv} "
-                        f"({src(fen)}) | {ev(fen, mv)}; {ev(fen, bm) if bm != '-' else '—'} |")
+                        f"({src(fen)}) | {nb} | {ev(fen, mv)}; {ev(fen, bm) if bm != '-' else '—'} |")
     if errors:
         rows += ["", f"**Replay errors: {len(errors)} games could not be replayed:** " + "; ".join(
             f"{gs[i]['run']} {gs[i]['rnd']} ({e})" for i, e in sorted(errors.items()))]

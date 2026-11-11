@@ -6,7 +6,9 @@
 # 7,712,020 / 8,089,571 unless the book changes a bench position).
 set -euo pipefail
 export PATH=$(echo "$PATH" | tr ":" "\n" | grep -v "^/mnt/c" | paste -sd:):/mnt/c/Windows/System32
-NAME=$1; BOOK=$(readlink -f $2); JOBS=${3:-6}; REF=${4:-HEAD}   # REF: engine source (default the booklab HEAD)
+# BOOK "builtin": nothing is replaced; the REF's own src/weights/book.bin is embedded (and named in BUILD.txt)
+NAME=$1; BOOK=$2; JOBS=${3:-6}; REF=${4:-HEAD}   # REF: engine source (default the booklab HEAD)
+[ "$BOOK" = builtin ] || BOOK=$(readlink -f $BOOK)
 RM=~/regicide-match; W=~/regicide-booklab
 B=$RM/builds/bl-$NAME
 if [ -d $B/src ]; then git -C $W worktree remove --force $B/src || rm -rf $B/src; fi
@@ -14,7 +16,9 @@ git -C $W worktree prune
 mkdir -p $B; rm -rf $B/build $B/build-linux
 git -C $W fetch -q origin
 git -C $W worktree add --quiet --detach $B/src $REF
-cp $BOOK $B/src/src/weights/book.bin
+if [ "$BOOK" = builtin ]; then BOOK=$B/src/src/weights/book.bin; else cp $BOOK $B/src/src/weights/book.bin; fi
+[ -z "$(git -C $B/src status --porcelain --untracked-files=no)" ] && echo "source tree unmodified: REF as committed" \
+  || { echo "source tree differs from REF:"; git -C $B/src status --short --untracked-files=no; }
 # NET (optional): a net file embedded instead of the REF's src/weights/net.bin (e.g. n8q from bd1c5c0)
 [ -n "${NET:-}" ] && cp $NET $B/src/src/weights/net.bin
 TC=$W/tools/windows/mingw-clang.cmake   # committed on t3/booklab (tools/windows/README.md)

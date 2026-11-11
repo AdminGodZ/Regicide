@@ -85,12 +85,14 @@ def main():
     # at a later own position the base book plays a different move than the game did (a WP13 decision, or an old-book
     # move), the loss is repaired downstream and is left out of the evidence of every earlier position of that game.
     # A later own move that the base book avoids makes the lost game unplayable just as a forced move does (review
-    # 2026-11-11).
+    # 2026-11-11). The avoid list applies at every root that is not database-decided, also inside a run of king moves
+    # (only book moves are gated by the book's eligibility; review 2026-11-11 residual), so an avoided own move counts
+    # wherever pinwalk reports a position (its rows stop above 8 pieces, so no reported root is database-decided).
     repaired_from = {}  # lost game -> plies of its own positions where the base book plays another move
     for gi, g in enumerate(games):
         if g["res"] == "L":
             repaired_from[gi] = [ply for ply, fen, mv, el, bmv, av in per_game[gi]
-                                 if el and ((bmv != "-" and bmv != mv) or mv in av)]
+                                 if (el and bmv != "-" and bmv != mv) or mv in av]
     def repaired(r):  # r = (game, ply, move, eligible, bookmove)
         return r[0] in repaired_from and any(q > r[1] for q in repaired_from[r[0]])
     repaired_occ = 0

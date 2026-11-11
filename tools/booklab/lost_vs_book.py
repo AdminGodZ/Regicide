@@ -82,7 +82,8 @@ def main():
         leave = next(((ply, fen, mv) for ply, fen, mv, el, bm, _av in rows if fen in ref and mv not in ref[fen]), None)
         before = [r for r in rows if leave is None or r[0] < leave[0]]
         npin = sum(1 for r in before if r[1] in pins)
-        first = next((r for r in rows if r[3] and ((r[4] != "-" and r[4] != r[2]) or r[2] in r[5])), None)  # forced elsewhere, or avoided
+        # forced elsewhere (book eligible), or avoided (at any reported root: the avoid list is not gated by eligibility)
+        first = next((r for r in rows if (r[3] and r[4] != "-" and r[4] != r[2]) or r[2] in r[5]), None)
         src = lambda fen: "pin" if fen in pins else ("decision" if fen in decs else "old book")
         if leave:
             bm = next(r[4] for r in rows if r[0] == leave[0])

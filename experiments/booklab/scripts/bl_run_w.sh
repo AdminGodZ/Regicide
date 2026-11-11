@@ -31,6 +31,9 @@ DB8='C:\regicide-match\db\kingsrow_wld8'
 PROBE=/mnt/c/regicide-match/jobs/booklab/src/tools/booklab/book_probe.py
 L=~/regicide-jobs/booklab; OUT=~/regicide-match/results/bl-$TAG
 LOCK=~/regicide-jobs/locks/timing.lock
+# NOLOCK=1 (lead 2026-11-11, match-order run at concurrency 1 "in the background of everything else"): a private lock
+# file instead of the machine-wide timing lock; the start line says so.
+[ -n "${NOLOCK:-}" ] && LOCK=$L/nolock-$TAG.lock
 st() { echo "$* $(date -Is)" >> $L/status; }
 spec() {  # spec SIDE(a|b) ENGINE -> fills SPEC, DLL and OPTS
   local s=$1 e=$2
@@ -129,7 +132,7 @@ if [ $prc -ne 0 ]; then flock -u 9; st "BL refused $TAG: book read-back differs:
 rm -rf "$OUT"
 [ -n "${SHIMDIR:-}" ] && { rm -rf "$SHIMDIR"; mkdir -p "$SHIMDIR"; }
 ensure_memory
-st "BL start $TAG $A vs $B; $(echo $PF); $MEM; bg: $(for p in $(pgrep -f '[d]atagen-|[b]ookgen-|[l]ossprobe'); do echo -n "$(ps -o comm= -p $p):$(awk '/^State/{print $2}' /proc/$p/status) "; done)"
+st "BL start $TAG $A vs $B; ${NOLOCK:+NO TIMING LOCK; }$(echo $PF); $MEM; bg: $(for p in $(pgrep -f '[d]atagen-|[b]ookgen-|[l]ossprobe'); do echo -n "$(ps -o comm= -p $p):$(awk '/^State/{print $2}' /proc/$p/status) "; done)"
 "$MATCH" ${EXTRA_ARGS:-} -a "$SA" -b "$SB" "${NAMES[@]}" "${OA[@]}" "${OB[@]}" \
   --openings $DECK --movetime $MT -c $CONC --pdn-comments -o "$OUT" > "$L/bl-$TAG.log" 2>&1
 rc=$?
