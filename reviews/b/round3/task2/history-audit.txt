@@ -1,0 +1,1 @@
+All requested history contexts checked: none is already a third occurrence or at the79-ply no-progress limit before the queried move. This prevents a completed rule draw from being misread as a missed win.

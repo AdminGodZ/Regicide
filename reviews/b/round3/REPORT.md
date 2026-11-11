@@ -1,8 +1,8 @@
 # Reviewer B, round 3
 
-2026-11-11 13:22 UTC
+2026-11-11 14:27 UTC
 
-Status: task 1 complete under the lead’s 13:56 shortened scope; task 3 reading complete on fdd154e; task 2 next.
+Status: task1 and task3 complete; task2 continuing from rank21/mining13, current checkpoint includes the two newly supported GuiNN boards.
 
 ## Inputs and execution
 
@@ -143,9 +143,11 @@ The last identified holding root through ply 71 is **Black ply 67**, FEN **B:WK1
 
 At ply 65, the played 26-30 and the alternative 20-24 both score -18 at equal depth 32 with 100M. At the forced ply 63, the sole move 19x26 scores -20 after a full-budget restricted search. These do not identify an earlier deciding error. The subsequent roots at plies 69 and 71 choose the played moves at -200/d34 and -155/d33 respectively; no holding choice is identified there by their unrestricted 100M queries. A holding candidate here means an evaluation at least -30 in the deepest relevant query, not a proof of the game-theoretic result.
 
-## Task 2: round-2 queues
+## Task2 continuation
 
-Not started before the task-1 checkpoint. Continue the original rank-21 own-game queue and mining entry 13; mo1-cake, mo1-guinn and mo1-kingsrow are added to the frequency pool as identifiable concurrency-1 runs.
+The frequency pool is now **8880 games**, including **936 concurrency1 mo1 games** with validated worker/process-age tags. The original116-game rank order is retained. Own-game coverage is through rank **22** (first20 completed in B2); this round has **34 own positions** and **3 predecessors** completed. Mining coverage is through entry **16/36**, with **4 entries** completed this round. New supported contexts: own **0**, predecessors **0**, mining boards **2**.
+
+The [task2 report](task2/REPORT.md) contains the complete new comparisons, updated transposition census including the identifiable C1 subset, reused/new trace manifest and exact remaining queue. Accepted prior points are referenced without another nomination.
 
 ## Task 3: stopped-call fallback, reading only
 

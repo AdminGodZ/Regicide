@@ -1,0 +1,18 @@
+point	game	source	run	round	opening	ours	opponent	result	ply	rev	move	cohort	concurrency	worker	age_a	age_b
+Q001	R2479	wp11c/games/bl-v11c-n8q-guinn-a-h2.pdn.gz	bl-v11c-n8q-guinn-a-h2	60.1	ACF #153 Black Widow	B	guinn	1-0	18	0	32-27	round2	original run			
+Q001	R4025	wp11d/games/bl-v11d-n6c-guinn-a-h2.pdn.gz	bl-v11d-n6c-guinn-a-h2	60.1	ACF #153 Black Widow	B	guinn	1-0	18	0	17-14	round2	original run			
+Q001	R5719	tests/mo-guinn-a-h2/games.pdn.gz	mo-guinn-a-h2	60.1	ACF #153 Black Widow	B	guinn	1-0	18	0	17-14	round2	original run	5	18	18
+Q001	R7279	tests/v11d-n8q-guinn-a-h2/games.pdn.gz	bl-v11d-n8q-guinn-a-h2	60.1	ACF #153 Black Widow	B	guinn	1/2-1/2	18	0	29-25	round2	original run			
+Q001	R899	wp11c/games/bl-v11c-n6c-guinn-a-h2.pdn.gz	bl-v11c-n6c-guinn-a-h2	60.1	ACF #153 Black Widow	B	guinn	1/2-1/2	18	0	29-25	round2	original run			
+Q002	R2479	wp11c/games/bl-v11c-n8q-guinn-a-h2.pdn.gz	bl-v11c-n8q-guinn-a-h2	60.1	ACF #153 Black Widow	B	guinn	1-0	18	0	32-27	round2	original run			
+Q002	R4025	wp11d/games/bl-v11d-n6c-guinn-a-h2.pdn.gz	bl-v11d-n6c-guinn-a-h2	60.1	ACF #153 Black Widow	B	guinn	1-0	18	0	17-14	round2	original run			
+Q002	R5719	tests/mo-guinn-a-h2/games.pdn.gz	mo-guinn-a-h2	60.1	ACF #153 Black Widow	B	guinn	1-0	18	0	17-14	round2	original run	5	18	18
+Q002	R7279	tests/v11d-n8q-guinn-a-h2/games.pdn.gz	bl-v11d-n8q-guinn-a-h2	60.1	ACF #153 Black Widow	B	guinn	1/2-1/2	18	0	29-25	round2	original run			
+Q002	R899	wp11c/games/bl-v11c-n6c-guinn-a-h2.pdn.gz	bl-v11c-n6c-guinn-a-h2	60.1	ACF #153 Black Widow	B	guinn	1/2-1/2	18	0	29-25	round2	original run			
+Q003	R2495	wp11c/games/bl-v11c-n8q-guinn-a-h2.pdn.gz	bl-v11c-n8q-guinn-a-h2	78.2	ACF #174 Skunk	W	guinn	0-1	11	0	9-14	round2	original run			
+Q003	R3963	wp11d/games/bl-v11d-n6c-guinn-a-h2.pdn.gz	bl-v11d-n6c-guinn-a-h2	8.2	ACF #97	W	guinn	1/2-1/2	11	0	10-15	round2	original run			
+Q003	R4055	wp11d/games/bl-v11d-n6c-guinn-a-h2.pdn.gz	bl-v11d-n6c-guinn-a-h2	78.2	ACF #174 Skunk	W	guinn	1/2-1/2	11	0	10-15	round2	original run			
+Q003	R5756	tests/mo-guinn-a-h2/games.pdn.gz	mo-guinn-a-h2	78.2	ACF #174 Skunk	W	guinn	0-1	11	0	10-15	round2	original run	0	17	17
+Q003	R7319	tests/v11d-n8q-guinn-a-h2/games.pdn.gz	bl-v11d-n8q-guinn-a-h2	78.2	ACF #174 Skunk	W	guinn	0-1	11	0	9-14	round2	original run			
+Q003	R935	wp11c/games/bl-v11c-n6c-guinn-a-h2.pdn.gz	bl-v11c-n6c-guinn-a-h2	78.2	ACF #174 Skunk	W	guinn	1/2-1/2	11	0	10-15	round2	original run			
+Q003	R8567	tests/mo1-guinn/games.pdn.gz	mo1-guinn	156.2	ACF #174 Skunk	W	guinn	0-1	11	0	10-15	mo1	1	0	311	311

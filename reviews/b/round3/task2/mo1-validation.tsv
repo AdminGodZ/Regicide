@@ -1,0 +1,4 @@
+run	games	our_wins	draws	our_losses	counter_check
+mo1-cake	312	0	312	0	worker0; both ages equal scheduled game index
+mo1-guinn	312	21	291	0	worker0; both ages equal scheduled game index
+mo1-kingsrow	312	1	310	1	worker0; both ages equal scheduled game index

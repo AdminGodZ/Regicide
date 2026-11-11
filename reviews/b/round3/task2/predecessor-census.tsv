@@ -1,0 +1,4 @@
+rank	game	opening	ours	opponent	ply	fen	played	all_games	all_visits	games_playing_move	visits_playing_move	all_choices_our_results_and_C1
+21	R134	ACF #72	B	cake	36	W:W6,15,21,22,23,26,27,28:B3,5,8,10,13,14,16,20	6-2	5	5	5	5	6-2: 5 games/5 visits, +0 =5 -0, C1 0
+22	R6143	ACF #36	W	kingsrow	29	B:W13,18,19,20,23,26,30,32:B2,5,6,7,10,11,12,21	11-16	2	2	2	2	11-16: 2 games/2 visits, +0 =2 -0, C1 0
+23	R7398	ACF #16 Wilderness II	W	kingsrow	41	B:W6,15,20,30,31:B4,5,9,12,K32	32-28	11	11	8	8	32-28: 8 games/8 visits, +0 =8 -0, C1 1; 9-14: 3 games/3 visits, +3 =0 -0, C1 0

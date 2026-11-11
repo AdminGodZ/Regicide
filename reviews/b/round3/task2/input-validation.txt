@@ -1,0 +1,4 @@
+Legacy 7944 games: reused legal replay and 53 compressed-PDN SHA-256 hashes, all checked unchanged against current origin/t3/booklab.
+New 936 mo1 games: all main lines legally replayed with current fdd154e core, 101368 pre-move positions; no illegal or ambiguous capture.
+All source results finished; run/round/colour identities unique; every new worker is0 and both process ages equal scheduled game index0..311.
+Frequency corpus8880 games; original116 selected-game rank order and36 mining-entry order retained. New mo1 records are census additions.

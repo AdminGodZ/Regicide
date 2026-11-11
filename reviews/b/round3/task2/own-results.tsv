@@ -1,0 +1,35 @@
+rank	game	source	round	opening	ours	opponent	ply	fen	played	alternative	root20	root100	pair20_played_alt	pair100_played_alt	qualifies	stable_database_win_score	unstable_20M_win_score	both_moves_win	accepted_reference	status
+21	R134	wp11c/games/bl-v11c-n6c-cake-a-h1.pdn.gz	64.1	ACF #72	B	cake	37	B:WK2,15,21,22,23,26,27,28:B3,5,8,10,13,14,16,20	10x19	-	10x19 / 95 / d1	-	-	-	False	False	False	False		only legal move
+21	R134	wp11c/games/bl-v11c-n6c-cake-a-h1.pdn.gz	64.1	ACF #72	B	cake	39	B:WK6,21,22,23,26,27,28:B3,5,8,13,14,16,19,20	8-12	-	8-12 / 0 / d32	-	-	-	False	False	False	False		20M chooses played move
+21	R134	wp11c/games/bl-v11c-n6c-cake-a-h1.pdn.gz	64.1	ACF #72	B	cake	41	B:WK1,21,22,23,26,27,28:B3,5,12,13,14,16,19,20	19-24	-	19-24 / 0 / d37	-	-	-	False	False	False	False		20M chooses played move
+21	R134	wp11c/games/bl-v11c-n6c-cake-a-h1.pdn.gz	64.1	ACF #72	B	cake	43	B:WK1,19,21,22,23,26,27:B3,5,12,13,14,16,20	13-17	-	13-17 / 0 / d36	-	-	-	False	False	False	False		20M chooses played move
+21	R134	wp11c/games/bl-v11c-n6c-cake-a-h1.pdn.gz	64.1	ACF #72	B	cake	45	B:WK1,13,19,21,23,26,27:B3,5,12,14,16,20	14-18	-	14-18 / 0 / d37	-	-	-	False	False	False	False		20M chooses played move
+21	R134	wp11c/games/bl-v11c-n6c-cake-a-h1.pdn.gz	64.1	ACF #72	B	cake	47	B:WK1,13,14,19,21,26,27:B3,5,12,16,20	16x23x30	-	16x23x30 / 0 / d36	-	-	-	False	False	False	False		20M chooses played move
+21	R134	wp11c/games/bl-v11c-n6c-cake-a-h1.pdn.gz	64.1	ACF #72	B	cake	49	B:WK6,13,14,21,27:B3,5,12,20,K30	30-26	-	30-26 / 0 / d37	-	-	-	False	False	False	False		20M chooses played move
+21	R134	wp11c/games/bl-v11c-n6c-cake-a-h1.pdn.gz	64.1	ACF #72	B	cake	51	B:WK10,13,14,21,27:B3,5,12,20,K26	12-16	-	12-16 / 0 / d37	-	-	-	False	False	False	False		20M chooses played move
+21	R134	wp11c/games/bl-v11c-n6c-cake-a-h1.pdn.gz	64.1	ACF #72	B	cake	53	B:W13,14,K15,21,27:B3,5,16,20,K26	26-31	-	26-31 / 0 / d35	-	-	-	False	False	False	False		20M chooses played move
+21	R134	wp11c/games/bl-v11c-n6c-cake-a-h1.pdn.gz	64.1	ACF #72	B	cake	55	B:W13,14,K15,21,23:B3,5,16,20,K31	31-26	-	31-26 / 0 / d38	-	-	-	False	False	False	False		20M chooses played move
+21	R134	wp11c/games/bl-v11c-n6c-cake-a-h1.pdn.gz	64.1	ACF #72	B	cake	57	B:W13,14,K19,21,23:B3,5,16,20,K26	20-24	-	20-24 / 0 / d63	-	-	-	False	False	False	False		20M chooses played move
+21	R134	wp11c/games/bl-v11c-n6c-cake-a-h1.pdn.gz	64.1	ACF #72	B	cake	59	B:W13,14,21,23,K28:B3,5,16,K26	26x19	-	26x19 / 0 / d1	-	-	-	False	False	False	False		only legal move
+22	R6143	tests/mo-kingsrow-b-h1/games.pdn.gz	32.2	ACF #36	W	kingsrow	30	W:W13,18,19,20,23,26,30,32:B2,5,6,7,10,12,16,21	20x11	-	20x11 / 51 / d1	-	-	-	False	False	False	False		only legal move
+22	R6143	tests/mo-kingsrow-b-h1/games.pdn.gz	32.2	ACF #36	W	kingsrow	32	W:W13,18,19,23,26,30,32:B2,5,6,10,12,16,21	26-22	-	26-22 / 0 / d32	-	-	-	False	False	False	False		20M chooses played move
+22	R6143	tests/mo-kingsrow-b-h1/games.pdn.gz	32.2	ACF #36	W	kingsrow	34	W:W13,18,19,22,23,30,32:B2,5,6,12,14,16,21	18x9	-	18x9 / 59 / d1	-	-	-	False	False	False	False		only legal move
+22	R6143	tests/mo-kingsrow-b-h1/games.pdn.gz	32.2	ACF #36	W	kingsrow	36	W:W13,19,22,23,30,32:B2,6,12,14,16,21	22-17	22-18	22-18 / 0 / d35	22-18 / 0 / d41	0 / 0 at d35 (gain 0)	0 / 0 at d41 (gain 0)	False	False	False	False		does not qualify at both references
+22	R6143	tests/mo-kingsrow-b-h1/games.pdn.gz	32.2	ACF #36	W	kingsrow	38	W:W13,17,19,23,30,32:B2,6,12,16,18,21	23x14	-	23x14 / 90 / d1	-	-	-	False	False	False	False		only legal move
+22	R6143	tests/mo-kingsrow-b-h1/games.pdn.gz	32.2	ACF #36	W	kingsrow	40	W:W13,14,17,30,32:B2,6,12,21,23	14-9	-	14-9 / 0 / d45	-	-	-	False	False	False	False		20M chooses played move
+22	R6143	tests/mo-kingsrow-b-h1/games.pdn.gz	32.2	ACF #36	W	kingsrow	42	W:W9,13,17,30,32:B2,6,16,21,23	9-5	-	9-5 / 0 / d45	-	-	-	False	False	False	False		20M chooses played move
+22	R6143	tests/mo-kingsrow-b-h1/games.pdn.gz	32.2	ACF #36	W	kingsrow	44	W:W5,13,17,30,32:B2,9,16,21,23	13x6	-	13x6 / 0 / d1	-	-	-	False	False	False	False		only legal move
+22	R6143	tests/mo-kingsrow-b-h1/games.pdn.gz	32.2	ACF #36	W	kingsrow	46	W:W5,17,30,32:B9,16,21,23	17-13	-	17-13 / 0 / d127	-	-	-	False	False	False	False		20M chooses played move
+23	R7398	tests/v11d-n8q-kingsrow-a-h1/games.pdn.gz	14.2	ACF #16 Wilderness II	W	kingsrow	42	W:W6,15,20,30,31:B4,5,9,12,K28	15-11	-	15-11 / 31 / d31	-	-	-	False	False	False	False		20M chooses played move
+23	R7398	tests/v11d-n8q-kingsrow-a-h1/games.pdn.gz	14.2	ACF #16 Wilderness II	W	kingsrow	44	W:W6,11,20,30,31:B4,5,9,12,K24	11-7	6-1	6-1 / 30 / d30	6-1 / 29 / d36	37 / 29 at d30 (gain -8)	32 / 18 at d36 (gain -14)	False	False	False	False		does not qualify at both references
+23	R7398	tests/v11d-n8q-kingsrow-a-h1/games.pdn.gz	14.2	ACF #16 Wilderness II	W	kingsrow	46	W:W6,7,20,30,31:B4,5,12,14,K24	6-1	-	6-1 / 20 / d32	-	-	-	False	False	False	False		20M chooses played move
+23	R7398	tests/v11d-n8q-kingsrow-a-h1/games.pdn.gz	14.2	ACF #16 Wilderness II	W	kingsrow	48	W:WK1,7,20,30,31:B4,5,12,18,K24	1-6	-	1-6 / 25 / d32	-	-	-	False	False	False	False		20M chooses played move
+23	R7398	tests/v11d-n8q-kingsrow-a-h1/games.pdn.gz	14.2	ACF #16 Wilderness II	W	kingsrow	50	W:WK6,7,20,30,31:B4,5,12,23,K24	6-10	-	6-10 / 30 / d30	-	-	-	False	False	False	False		20M chooses played move
+23	R7398	tests/v11d-n8q-kingsrow-a-h1/games.pdn.gz	14.2	ACF #16 Wilderness II	W	kingsrow	52	W:W7,K10,20,30,31:B4,5,12,K24,27	7-2	-	7-2 / 33 / d30	-	-	-	False	False	False	False		20M chooses played move
+23	R7398	tests/v11d-n8q-kingsrow-a-h1/games.pdn.gz	14.2	ACF #16 Wilderness II	W	kingsrow	54	W:WK2,K10,20,30,31:B4,5,12,K24,K32	10-15	-	10-15 / 32 / d29	-	-	-	False	False	False	False		20M chooses played move
+23	R7398	tests/v11d-n8q-kingsrow-a-h1/games.pdn.gz	14.2	ACF #16 Wilderness II	W	kingsrow	56	W:WK2,K15,20,30,31:B4,5,12,K24,K28	31-26	-	31-26 / 19 / d29	-	-	-	False	False	False	False		20M chooses played move
+23	R7398	tests/v11d-n8q-kingsrow-a-h1/games.pdn.gz	14.2	ACF #16 Wilderness II	W	kingsrow	58	W:WK2,K15,20,26,30:B4,5,12,K24,K32	2-6	-	2-6 / 24 / d29	-	-	-	False	False	False	False		20M chooses played move
+23	R7398	tests/v11d-n8q-kingsrow-a-h1/games.pdn.gz	14.2	ACF #16 Wilderness II	W	kingsrow	60	W:WK6,K15,20,26,30:B4,5,12,K24,K28	15-18	-	15-18 / 44 / d30	-	-	-	False	False	False	False		20M chooses played move
+23	R7398	tests/v11d-n8q-kingsrow-a-h1/games.pdn.gz	14.2	ACF #16 Wilderness II	W	kingsrow	62	W:WK6,K18,20,26,30:B4,5,12,K24,K32	18-14	-	18-14 / 74 / d32	-	-	-	False	False	False	False		20M chooses played move
+23	R7398	tests/v11d-n8q-kingsrow-a-h1/games.pdn.gz	14.2	ACF #16 Wilderness II	W	kingsrow	64	W:WK6,K14,20,26,30:B4,5,12,K24,K27	26-22	-	26-22 / 69 / d33	-	-	-	False	False	False	False		20M chooses played move
+23	R7398	tests/v11d-n8q-kingsrow-a-h1/games.pdn.gz	14.2	ACF #16 Wilderness II	W	kingsrow	66	W:WK6,K14,20,22,30:B5,8,12,K24,K27	22-17	6-10	6-10 / 46 / d32	6-10 / 39 / d38	48 / 55 at d32 (gain 7)	33 / 39 at d36 (gain 6)	False	False	False	False		does not qualify at both references

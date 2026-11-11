@@ -1,0 +1,4 @@
+rank	game	source	round	opening	ours	opponent	ply	fen	played	alternative	root20	root100	pair20_played_alt	pair100_played_alt	qualifies	stable_database_win_score	unstable_20M_win_score	both_moves_win	accepted_reference	status
+21	R134	wp11c/games/bl-v11c-n6c-cake-a-h1.pdn.gz	64.1	ACF #72	B	cake	36	W:W6,15,21,22,23,26,27,28:B3,5,8,10,13,14,16,20	6-2	15-11	15-11 / 0 / d29	15-11 / 0 / d34	0 / 0 at d29 (gain 0)	0 / 0 at d33 (gain 0)	False	False	False	False		does not qualify at both references
+22	R6143	tests/mo-kingsrow-b-h1/games.pdn.gz	32.2	ACF #36	W	kingsrow	29	B:W13,18,19,20,23,26,30,32:B2,5,6,7,10,11,12,21	11-16	-	11-16 / 0 / d32	-	-	-	False	False	False	False		20M chooses played move
+23	R7398	tests/v11d-n8q-kingsrow-a-h1/games.pdn.gz	14.2	ACF #16 Wilderness II	W	kingsrow	41	B:W6,15,20,30,31:B4,5,9,12,K32	32-28	-	32-28 / -41 / d32	-	-	-	False	False	False	False		20M chooses played move
