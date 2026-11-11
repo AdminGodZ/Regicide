@@ -1,6 +1,6 @@
 # Regicide review ledger
 
-This file is the one copy from 2026-11-11 08:20 on (before that it lived outside the repository). The lead edits it on
+This file is the one copy from 2026-11-11 08:14 on (before that it lived outside the repository). The lead edits it on
 master; reviewers read it from `origin/master` and never edit it.
 
 Kept by the lead. Both reviewers read this before starting a round and again before reporting. A finding that is
@@ -313,3 +313,22 @@ Current master: see `git rev-parse origin/master` (PR #67 merged 2026-11-11; bui
 - Under test, not defects: shallow pruning of quiet moves that force a capture (search-lab experiment Q); Cake's
   move choice depending on the state of its process (Book Lab, --fresh-engines).
 - H3 is no holdout for books from r11b on (its Cake games are in the pin pool); panel H4 added (PR #67).
+
+## Round 21 (reviewer A, last round on the first machine, 2026-11-11)
+
+- Handed to Book Lab (win-mining tools at booklab fa0c887): wp12_select.py per-opening limit ignores contexts from
+  another validation repeat; the known point bypasses the eligibility checks (protected position, missing score,
+  move already played by the base book -> "None"); wp12_discover.py counts a searched move as book exposure and
+  does not know the termination text "lost on time"; lost_vs_book.py / wins_vs_book.py report a failed replay as a
+  clean result and wins_vs_book.py drops the FEN tag; wp12_chain.sh freezes candidate contexts before the
+  validation runs are complete (20 points of the committed c1 files miss a context).
+- Recorded gap, not a defect: stages 2 to 4 of experiments/booklab/wp12/PROTOCOL.md (confirmation, other contexts,
+  whole-book acceptance) have no runner and no evaluator; nothing can be accepted beyond a discovery nomination.
+- Verified: all ten full r11c validation runs recounted and replayed (3,120 games, no loss); pin use per game;
+  PR #59; search-lab post.sh fix; discovery runtime-manifest check.
+
+## Where the reviewers run (from 2026-11-11 08:15)
+
+Nothing of the review runs on the lead's machine any more. Reviewers are started on the Windows machine with their
+own clone under `~/regicide-review-*`, lowest priority, at most 2 threads, and write their reports there.
+
