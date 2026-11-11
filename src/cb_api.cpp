@@ -4,6 +4,7 @@
 #include <cstdint>
 #include <cstdio>
 #include <cstring>
+#include <filesystem>
 #include <memory>
 #include <mutex>
 #include <sstream>
@@ -266,15 +267,21 @@ CB_EXPORT int WINAPI enginecommand(const char* command, char reply[1024]) try {
     if (cmd == "set") {
         std::lock_guard lock(s.mutex);
         if (p1 == "hashsize") {
-            s.hash_mb = std::max(1, std::atoi(p2.c_str()));
-            s.engine->set_hash_mb(s.hash_mb);
+            const int mb = std::max(1, std::atoi(p2.c_str()));
+            s.engine->set_hash_mb(mb);  // throws if the memory cannot be had; the old size then stays in force
+            s.hash_mb = mb;
             return answer(std::to_string(s.hash_mb), 1);
         }
         if (p1 == "dbpath") {
             // Everything after "set dbpath " (paths may contain spaces).
             const std::string full = command;
             const std::size_t at = full.find("dbpath");
-            load_egdb(s, full.substr(at + 7), s.egdb_cache_mb);
+            const std::string dir = full.substr(at + 7);
+            // The tables of a running engine cannot be exchanged: another directory is refused, not ignored.
+            std::error_code ec;
+            if (!s.egdb_dir.empty() && dir != s.egdb_dir && !std::filesystem::equivalent(dir, s.egdb_dir, ec))
+                return answer("a database is already loaded from " + s.egdb_dir, 0);
+            load_egdb(s, dir, s.egdb_cache_mb);
             return answer(std::to_string(s.engine->egdb_pieces()), 1);
         }
         if (p1 == "evalfile") {
@@ -347,8 +354,9 @@ CB_EXPORT int WINAPI enginecommand(const char* command, char reply[1024]) try {
             return answer(std::to_string(s.book_mode), 1);
         }
         if (p1 == "threads") {
-            s.threads = std::max(1, std::atoi(p2.c_str()));
-            s.engine->set_threads(s.threads);
+            const int threads = std::max(1, std::atoi(p2.c_str()));
+            s.engine->set_threads(threads);  // throws if the workers cannot be had; the old ones then stay
+            s.threads = threads;
             return answer(std::to_string(s.threads), 1);
         }
     }

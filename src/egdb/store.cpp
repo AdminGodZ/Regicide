@@ -18,9 +18,16 @@ std::vector<std::unique_ptr<SliceTab>>& owned_tabs() {
     return v;
 }
 
+// The loaded files. Their views are released when the library goes away (CheckerBoard unloads an engine that is
+// deselected and may load it again); no search runs at that point.
 std::vector<MappedFile>& mappings() {
-    static std::vector<MappedFile> v;
-    return v;
+    static struct Owner {
+        std::vector<MappedFile> v;
+        ~Owner() {
+            for (MappedFile& f : v) unmap_file(f);
+        }
+    } owner;
+    return owner.v;
 }
 
 std::uint64_t fnv1a(const std::uint8_t* p, std::size_t n, std::uint64_t h = 0xcbf29ce484222325ull) {

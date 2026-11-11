@@ -13,6 +13,7 @@
 #include "book.hpp"
 #include "movegen.hpp"
 #include "position.hpp"
+#include "test_egdb.hpp"
 
 using namespace regicide;
 
@@ -168,5 +169,21 @@ int main(int argc, char** argv) {
         }
     }
     std::cout << "played " << plies << " legal plies, final " << pos.fen() << '\n';
+
+    // Database path: the first directory loads; the same directory under another spelling is accepted again; a
+    // different one is refused (the tables of a running engine stay), and `get dbpath` still names the first.
+    {
+        const std::string dir = test_egdb::build("cb-api-test", 2);
+        const std::string other = (std::filesystem::temp_directory_path() / "regicide-no-such-egdb").string();
+        const bool ok = !dir.empty() && command(("set dbpath " + dir).c_str(), reply) == 1 && std::string(reply) == "2" &&
+                        command(("set dbpath " + dir + "/.").c_str(), reply) == 1 &&
+                        command(("set dbpath " + other).c_str(), reply) == 0 && command("get dbpath", reply) == 1 &&
+                        std::string(reply) == dir && command("get dbpieces", reply) == 1 && std::string(reply) == "2";
+        test_egdb::remove(dir);
+        if (!ok) {
+            std::cerr << "set dbpath failed: " << reply << '\n';
+            return 1;
+        }
+    }
     return 0;
 }

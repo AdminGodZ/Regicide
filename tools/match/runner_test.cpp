@@ -2,6 +2,8 @@
 //
 //   runner_test comment           a parenthesis inside a PDN { } comment is text: the moves after the comment still
 //                                 belong to the opening; a line starting with '%' is a comment
+//   runner_test braces MATCH      an engine's status text with braces in it stays inside its PDN comment: the saved
+//                                 game reads back as the moves that were played
 //   runner_test interrupt MATCH   an interrupt of the whole process group (Ctrl-C in a terminal) ends the engines
 //                                 too; the game they were playing is left out of the results, not scored as a loss
 //                                 by "crash". MATCH is the match executable; the engines are this executable run
@@ -11,6 +13,7 @@
 #include <unistd.h>
 
 #include <chrono>
+#include <cstdlib>
 #include <filesystem>
 #include <fstream>
 #include <iostream>
@@ -49,6 +52,11 @@ int comment() {
         if (!good) std::cerr << "FAIL: " << o.name << ": " << o.played.size() << " moves, " << o.start.fen() << '\n';
         ok = ok && good;
     }
+    // The referee's move reader: 4294967305 is 9 modulo 2^32.
+    if (cbt::parse_move(cbt::Board::start(), "4294967305-13") || !cbt::parse_move(cbt::Board::start(), "9-13")) {
+        std::cerr << "FAIL: a square number out of range is rejected, however long\n";
+        ok = false;
+    }
     if (openings.size() != 4) std::cerr << "FAIL: " << openings.size() << " openings loaded (" << err << ")\n";
     return ok ? 0 : 1;
 }
@@ -71,6 +79,47 @@ int fake(const char* mark) {
         }
     }
     return 0;
+}
+
+// The scripted engine for `braces`: plays 11-15 from the start position and 22-18 after it, each with a status text
+// that has braces and move-like words in it.
+int fake_braces() {
+    std::cout << "id name braces fixture\nready\n" << std::flush;
+    bool moved = false;
+    std::string line;
+    while (std::getline(std::cin, line)) {
+        if (line == "quit") break;
+        if (line == "newgame") std::cout << "ok\n" << std::flush;
+        else if (line.rfind("position ", 0) == 0) {
+            moved = line.find(" moves ") != std::string::npos;
+            std::cout << "ok\n" << std::flush;
+        } else if (line.rfind("go ", 0) == 0)
+            std::cout << "info note {X} pv 24-20 8-11 score0\nbestmove " << (moved ? "22-18" : "11-15")
+                      << " result unknown time 0\n"
+                      << std::flush;
+    }
+    return 0;
+}
+
+int braces(const char* self, const char* match_exe) {
+    const fs::path dir = scratch("braces");
+    std::ofstream(dir / "opening.txt") << "B:W21-32:B1-12\n";
+    const std::string engine = "exec:\"" + std::string(self) + "\" --fake-braces";
+    const std::string command = "\"" + std::string(match_exe) + "\" -a '" + engine + "' -b '" + engine +
+                                "' --openings \"" + (dir / "opening.txt").string() +
+                                "\" --max-plies 2 --pdn-comments -c 1 -o \"" + (dir / "out").string() + "\" > /dev/null 2>&1";
+    const int status = std::system(command.c_str());
+    std::string err;
+    const auto games = match::load_openings((dir / "out" / "games.pdn").string(), err);
+    bool ok = status == 0 && games.size() == 2;
+    for (const auto& g : games) ok = ok && g.played.size() == 2 && g.moves.find("24-20") == std::string::npos;
+    if (!ok) {
+        std::ifstream in(dir / "out" / "games.pdn");
+        std::cerr << "FAIL: the saved games read back as two plies each (" << games.size() << " games, " << err << ")\n"
+                  << std::string((std::istreambuf_iterator<char>(in)), {});
+    }
+    fs::remove_all(dir);
+    return ok ? 0 : 1;
 }
 
 int interrupt(const char* self, const char* match_exe) {
@@ -118,8 +167,10 @@ int interrupt(const char* self, const char* match_exe) {
 int main(int argc, char** argv) {
     const std::string what = argc > 1 ? argv[1] : "";
     if (argc == 3 && what == "--fake") return fake(argv[2]);
+    if (argc == 2 && what == "--fake-braces") return fake_braces();
+    if (argc == 3 && what == "braces") return braces(argv[0], argv[2]);
     if (argc == 2 && what == "comment") return comment();
     if (argc == 3 && what == "interrupt") return interrupt(argv[0], argv[2]);
-    std::cerr << "usage: runner_test comment | interrupt MATCH\n";
+    std::cerr << "usage: runner_test comment | braces MATCH | interrupt MATCH\n";
     return 2;
 }

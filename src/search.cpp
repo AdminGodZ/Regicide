@@ -659,10 +659,13 @@ Engine::Engine() {
 
 Engine::~Engine() = default;
 
+// The new workers are built before the old ones go: if that fails, the engine keeps what it had.
 void Engine::set_threads(int n) {
-    threads_ = std::max(1, n);
-    workers_.clear();
-    for (int i = 0; i < threads_; ++i) workers_.push_back(std::make_unique<Worker>(*this, i));
+    n = std::max(1, n);
+    std::vector<std::unique_ptr<Worker>> fresh;
+    for (int i = 0; i < n; ++i) fresh.push_back(std::make_unique<Worker>(*this, i));
+    workers_ = std::move(fresh);
+    threads_ = n;
 }
 
 void Engine::set_hash_mb(std::size_t mb) { tt_.resize(mb); }
@@ -781,9 +784,11 @@ SearchResult Engine::go(const Limits& limits, InfoFn on_info) {
     // for this piece count, or not asked for). Distances are used where there are some, and the other won and lost
     // positions are searched on with a conversion eval (Worker::search) instead of being cut off as equal wins.
     conversion_ = 0;
+    bool db_root = false;  // the database knows the root's value, a draw included
     if (egdb_pieces_ && root_.piece_count() <= egdb_pieces_) {
         const egdb::Wld r = egdb::probe(root_.pieces(BLACK), root_.pieces(WHITE), root_.kings(), root_.side_to_move());
         conversion_ = r == egdb::Wld::Win ? 1 : r == egdb::Wld::Loss ? -1 : 0;
+        db_root = r != egdb::Wld::Unknown;
     }
 
     if (const auto db = egdb_root_move(root_, root_moves); db.has_value() && !limits.infinite) {
@@ -816,9 +821,10 @@ SearchResult Engine::go(const Limits& limits, InfoFn on_info) {
         if (!winning.empty()) root_moves = std::move(winning);
     }
 
-    // Avoid list: drop excluded root moves, unless that would leave none. Not from a root the database has decided:
-    // there it could leave only a winning move that repeats the position for the third time.
-    if (avoid_ && avoid_->avoid_size() && !analysis && !conversion_) {
+    // Avoid list: drop excluded root moves, unless that would leave none. Not from a root the database knows:
+    // there it could leave only a winning move that repeats the position for the third time, or only moves that
+    // lose a drawn position.
+    if (avoid_ && avoid_->avoid_size() && !analysis && !db_root) {
         std::vector<Move> kept;
         for (const Move& m : root_moves)
             if (!avoid_->avoids(root_, m)) kept.push_back(m);
@@ -827,9 +833,10 @@ SearchResult Engine::go(const Limits& limits, InfoFn on_info) {
 
     // No book move in the middle of a run of king moves: book scores are backed up without regard to repetition,
     // so following them there can walk in a circle.
-    // Nor from a root the database has decided: the conversion search plays those.
+    // Nor from a root the database knows: the search plays those with exact values (a book move could give away
+    // a win or a draw).
     if (book_ && limits.use_book && !limits.infinite && !analysis && !book_->empty() &&
-        root_.reversible_plies() == 0 && !conversion_) {
+        root_.reversible_plies() == 0 && !db_root) {
         book_seed_ = book_seed_ * 6364136223846793005ull + 1442695040888963407ull;
         if (auto m = book_->probe(root_, book_margin_, book_seed_ >> 33, avoid_.get())) {
             for (const Book::Entry& e : book_->lookup(root_))
