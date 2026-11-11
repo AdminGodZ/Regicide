@@ -710,3 +710,13 @@ WP13 test 7 (r11c) done 2026-11-11T04:38:15+01:00
 V11C validation n6c start (bl-60e593e-r11c) 2026-11-11T04:38:15+01:00
 BL wait-lock v11c-n6c-kingsrow-a-h1 regicide:bl-60e593e-r11c vs kingsrow deck /mnt/c/regicide-match/jobs/booklab/acf156_h1.txt mt 0.5 c 8 2026-11-11T04:38:15+01:00
 BL start v11c-n6c-kingsrow-a-h1 regicide:bl-60e593e-r11c vs kingsrow; A: book read-back: 'reply 1 3' (ok) B: book read-back: 'reply 1 3' (ok); commit free 20.1 GB; bg: bash:S datagen-tr6:S bash:T datagen-tr5:T  2026-11-11T04:38:17+01:00
+REACH r11b stopped (superseded by r11c) 2026-11-11T04:39:20+01:00
+BL end v11c-n6c-kingsrow-a-h1 rc=0 Games: 156 of 156 scheduled A: +0 =156 -0   score 78.0/156 = 50.00%   draw rate 100.0% Elo (pentanomial, pairs): -0.0 [-0.0, -0.0] 95% CI, score 0.5000 +- 0.0000, LOS 50.00% 2026-11-11T04:42:56+01:00
+BL wait-lock v11c-n6c-kingsrow-a-h2 regicide:bl-60e593e-r11c vs kingsrow deck /mnt/c/regicide-match/jobs/booklab/acf156_h2.txt mt 0.5 c 8 2026-11-11T04:42:56+01:00
+BL start v11c-n6c-kingsrow-a-h2 regicide:bl-60e593e-r11c vs kingsrow; A: book read-back: 'reply 1 3' (ok) B: book read-back: 'reply 1 3' (ok); commit free 20.1 GB; bg: bash:S datagen-tr6:S bash:T datagen-tr5:T  2026-11-11T04:42:59+01:00
+BL end v11c-n6c-kingsrow-a-h2 rc=0 Games: 156 of 156 scheduled A: +0 =156 -0   score 78.0/156 = 50.00%   draw rate 100.0% Elo (pentanomial, pairs): -0.0 [-0.0, -0.0] 95% CI, score 0.5000 +- 0.0000, LOS 50.00% 2026-11-11T04:46:48+01:00
+BL wait-lock v11c-n6c-kingsrow-b-h1 regicide:bl-60e593e-r11c vs kingsrow deck /mnt/c/regicide-match/jobs/booklab/acf156_h1.txt mt 0.5 c 8 2026-11-11T04:46:48+01:00
+BL start v11c-n6c-kingsrow-b-h1 regicide:bl-60e593e-r11c vs kingsrow; A: book read-back: 'reply 1 3' (ok) B: book read-back: 'reply 1 3' (ok); commit free 20.1 GB; bg: bash:S datagen-tr6:S bash:T datagen-tr5:T  2026-11-11T04:46:51+01:00
+BL end v11c-n6c-kingsrow-b-h1 rc=0 Games: 156 of 156 scheduled A: +1 =155 -0   score 78.5/156 = 50.32%   draw rate 99.4% Elo (pentanomial, pairs): +2.2 [-2.1, +6.6] 95% CI, score 0.5032 +- 0.0062, LOS 84.29% 2026-11-11T04:51:29+01:00
+BL wait-lock v11c-n6c-kingsrow-b-h2 regicide:bl-60e593e-r11c vs kingsrow deck /mnt/c/regicide-match/jobs/booklab/acf156_h2.txt mt 0.5 c 8 2026-11-11T04:51:29+01:00
+BL start v11c-n6c-kingsrow-b-h2 regicide:bl-60e593e-r11c vs kingsrow; A: book read-back: 'reply 1 3' (ok) B: book read-back: 'reply 1 3' (ok); commit free 20.1 GB; bg: bash:S datagen-tr6:S bash:T datagen-tr5:T  2026-11-11T04:51:32+01:00

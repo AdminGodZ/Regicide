@@ -24,8 +24,9 @@ def shim_rows(d, played=None):
     positions where an engine moved in the games), only searches of those positions count: the runner's warm-up
     search at every engine start (review 2026-11-10 d) and anything else not played are left out."""
     rows = []
-    for f in sorted(os.listdir(d)):
+    for f in sorted(os.listdir(d)):  # one file per engine process
         t_pos = t_go = pos = None
+        n_search = 0  # the first search of a process is the runner's launch warm-up (review 2026-11-11): never counted
         for l in open(os.path.join(d, f), errors="replace"):
             t, direc, line = l.rstrip("\n").split("\t", 2)
             t = float(t)
@@ -36,7 +37,8 @@ def shim_rows(d, played=None):
                 t_go = t
             elif direc == "<" and line.startswith("bestmove") and t_go is not None:
                 m = re.search(r"\btime ([0-9.]+)", line)
-                if m and (played is None or pos in played):
+                n_search += 1
+                if m and n_search > 1 and (played is None or pos in played):
                     rows.append((t - t_go, t - (t_pos if t_pos is not None else t_go), float(m.group(1))))
                 t_go = t_pos = None
     return rows

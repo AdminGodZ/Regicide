@@ -180,13 +180,22 @@ def main():
         c["outdir"] = f"{RESULTS}/bl-w12-{c['name']}"
         cands.append(c)
     tsv, qtsv = f"{a.out}/discovery.tsv", f"{a.out}/quarantine.tsv"
+    mline = "# manifest " + json.dumps(manifest, sort_keys=True)
     if os.path.exists(tsv):
-        first = open(tsv).readline().strip()
+        with open(tsv) as fi:
+            first, second = fi.readline().strip(), fi.readline().strip()
         if first != f"# candidates sha256 {csha}":
             sys.exit(f"ledger {tsv} belongs to another candidate list ({first}); use a new --out")
+        # the rows of a ledger count only for the runtime they were played with (review 2026-11-11): baseline DLL and
+        # book, runner, host and opponent must be the same as now, otherwise nothing is resumed
+        if second != mline:
+            old = json.loads(second[len("# manifest "):]) if second.startswith("# manifest ") else {}
+            diff = sorted(k for k in set(old) | set(manifest) if old.get(k) != manifest.get(k))
+            sys.exit(f"ledger {tsv} was written with a different runtime ({', '.join(diff) or 'no manifest line'}); "
+                     "use a new --out")
     else:
         with open(tsv, "w") as fo:
-            fo.write(f"# candidates sha256 {csha}\n")
+            fo.write(f"# candidates sha256 {csha}\n{mline}\n")
             fo.write("rank\tarm\tpoint\tballot\tcolour\tply\tpinned\talternative\tresult\treached\tconsulted\tplies\t"
                      "termination\tnominated\tresults_dir\n")
     done = {l.split("\t")[0] for l in open(tsv) if not l.startswith("#")}
